@@ -1,0 +1,190 @@
+﻿body {
+    background-color: azure;
+   
+    
+}
+.gameSounds {
+visibility: hidden;
+}
+#banner1 {
+position: absolute;
+height: 30px;
+width: 300px;
+float:right;
+margin-left: 100px;
+}  
+.Gem1 {
+    border: 2px solid azure;
+    width: auto;
+    height: auto;
+}
+.clsGemTD {
+width: 64px;
+height: 64px;
+border:groove azure 2px;
+
+margin: 2px 2px 2px 2px;
+
+}
+#matchPanel {
+border: 3px groove blue;
+width: 770px;
+height:650px;
+background-color:darkturquoise;
+}
+#matchTbl {
+    margin: 20px 20px 20px 1px;
+    background-color: black;
+    display: none;
+}
+#leftPanel {
+    background-color:cadetblue;
+                width: 130px;
+                height: 610px;
+                float:left;
+                border: solid 2px;
+                border-radius: 5px;
+                text-align: center;
+                margin: 20px 10px 20px 20px;
+}
+#playerName {
+background-color:antiquewhite;
+width: 120px;
+font-size: 24px;
+font-style:italic;
+margin-left: auto;
+margin-right: auto;
+border: 3px groove grey;
+border-radius: 25px;
+}
+.clsScoreTable   {
+border: 1px black groove;
+text-align: center;
+margin-left: auto;
+margin-right: auto;
+min-width: 55px;
+max-width: 55px;
+background-color:aqua;
+text-wrap:normal;
+font-size: 16px;
+
+}
+#scoreList {
+background-color:navajowhite;
+margin-left: auto;
+margin-right: auto;
+
+}
+#scoreList > thead {
+    color:darkolivegreen;
+   font-size: 18px;
+    font-weight:700;
+    } 
+#newPlyr {
+    border: 3px groove grey;
+    border-radius: 25px;
+    font-size: 16px;
+    background-color:antiquewhite;
+    width: 450px;
+    color:darkolivegreen;
+    
+}
+#mute {
+    border: 3px groove grey;
+    border-radius: 25px;
+    font-size: 16px;
+    background-color:antiquewhite;
+    width: 350px;
+    color:darkolivegreen;
+    
+}
+#introDiv {
+    position: absolute;
+top: 175px;
+right:auto;
+bottom: auto;
+left: 220px; 
+background-color: antiquewhite;
+z-index:+1;
+text-align: center;
+width: 500px;
+height:290px;
+border: 3px groove black;
+border-radius: 34px;
+display: block;
+}
+#bonusUnder5 {
+    width:150px;
+    height:132px;
+    display:none;
+    position:absolute;
+    top:175px;
+    left:375px;
+    z-index: +1;
+    
+}
+#bonusUnder3 {
+    width:300px;
+    height:265px;
+    display:none;
+    position:absolute;
+    top:175px;
+    left:105px;
+    z-index: +1;
+    
+}
+#doubleBonus1 {
+ width:300px;
+    height:265px;
+    display:none;
+    position:absolute;
+    top:475px;
+    left:275px;
+    z-index: +1;
+}
+.bomb {
+    width: 64px;
+    height: 64px;
+    
+    background-image: url("Images/bomber.png");
+  
+      background-repeat: no-repeat ;
+      
+    -webkit-animation: play 2s steps(20) infinite;
+    -moz-animation: play 2s steps(20) infinite;
+    -ms-animation: play 2s steps(20) infinite;
+    animation: play 2s steps(20) infinite;
+}
+ 
+@-webkit-keyframes play {
+    from { background-position: 0px; }
+    to { background-position: -1706px; }
+}
+ @-ms-keyframes play {
+    from { background-position: 0px; }
+    to { background-position: -1706px; }
+}
+@-moz-keyframes play {
+    from { background-position: 0px; }
+    to { background-position: -1706px; }
+}
+ @keyframes play {
+    from { background-position: 0px; }
+    to { background-position: -1706px; }
+}
+
+.clip               { position: absolute; top: 0; left: 0; }
+		
+.pos-1              { clip:rect(0 60px 45px 0); }
+.pos-2              { clip:rect(0 120px 60px 60px); left: -60px; }
+.pos-3              { clip:rect(0 180px 60px 120px); left: -120px; }
+.pos-4              { clip:rect(0 240px 60px 180px);  left: -180px; }
+.pos-5              { clip:rect(0 300px 60px 240px);  left: -240px; }
+.pos-6             { clip:rect(0 360px 60px 300px);  left: -300px; }
+.pos-7              { clip:rect(0 420px 60px 360px);  left: -360px; }
+.pos-8              { clip:rect(0 480px 60px 420px);  left: -420px; }
+.pos-9              { clip:rect(0 540px 60px 480px);  left: -480px; }
+.pos-10              { clip:rect(0 600px 60px 540px);  left: -540px; }
+.pos-11              { clip:rect(0 660px 60px 600px);  left: -600px; }
+.pos-12             { clip:rect(0 720px 60px 660px);  left: -660px; }
+.clipwrapper        { position: relative; height: 60px; width: 60px; }

@@ -1,0 +1,189 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body onload="MainStart()">
+    <link type="text/css" rel="stylesheet" href="GemsCSS.css" />
+    <link type="text/css" rel="stylesheet" href="../navstylesheet.css" />
+    <link type="text/css" rel="stylesheet" href="../layoutstylesheet.css" />
+    <link type="text/css" rel="stylesheet" href="../Animate.css" />
+
+    <!--AUDIO Files-->
+    <audio id="gameSoundLoop" class="gameSounds" loop autoplay>
+        <source src="Sounds\GemAudioLoop2.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+    <audio id="swapSound" class="gameSounds">
+        <source src="Sounds\gametinywarp.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+    <audio id="blastSound" class="gameSounds">
+        <source src="Sounds\explosion.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+
+    <div id="nav">
+        <ul>
+            <li><a href="../testlayout.html" id="A1" title="Ready to Go Home?">Home</a></li>
+            <li><a href="../testlayout2.html" id="A2" title="Who are we">About</a></li>
+            <li>
+                <a href="#">Services</a>
+                <ul>
+                    <li></li>
+                    <li><a href="../HomeServices.html" id="A5">Home Services</a></li>
+                    <li><a href="../QualityAnalysis.html" id="A7">Contract QA</a></li>
+
+                </ul>
+
+            </li>
+            <li><a href="testlayout4.html" id="A4">Contact Us</a></li>
+            <li>
+                <a href="#">Fun Stuff</a>
+                <ul>
+                    <li></li>
+                    <li><a href="../testlayout3.html" id="A5">Fun Stuff</a></li>
+                    <li><a href="../Savannah.html" id="A7">Papa Elmo's Girl</a></li>
+                    <li><a href="../JavaDragonSlayer/JavaGame1.html" id="A6">Java Dragon Slayer</a> </li>
+                    <li><a href="../AoGL/AoGL.html" id="A8">Adventures of GuiLord</a> </li>
+                    <li><a href="../FamilyMatch/FamilyMatch.html" id="A9">Family Match</a> </li>
+                    <li><a href="Gems.html" id="A9">GuiGems</a> </li>
+                </ul>
+
+            </li>
+        </ul>
+        <img id="banner1" class="clsrounded" ; src="../Images/BurnettSoft_Logo1.PNG" />
+        <br class="clearboth" />
+        <br class="clearboth" />
+</div>
+
+    <div id="main">
+        <div id="matchPanel">
+            <div id="leftPanel">
+                <a><img id="gameLogoImg2" src="Images/GemLogo.png" /></a>
+                <p id="plyrNameLabel"><strong>Player Name</strong><p></p>
+
+                <p id="playerName">Enter Name</p>
+                <p id="Score"></p>
+                <p id="TopTitle"><strong>Top Scores</strong></p>
+
+                <table id="scoreList">
+                    <thead><tr><td>Player</td><td>Score</td></tr></thead>
+                    <tr ><td tag="gem" id="best1Name" class="clsScoreTable">Zack</td><td id="best1Val" class="clsScoreTable">2045</td></trclass>
+                    <tr><td id="best2Name" class="clsScoreTable">George</td><td id="best2Val" class="clsScoreTable">1946</td></tr>
+                    <tr><td id="best3Name" class="clsScoreTable">J-Rizzle 343</td><td id="best3Val" class="clsScoreTable">1750</td></tr>
+                    <tr><td id="best4Name" class="clsScoreTable">Bart</td><td id="best4Val" class="clsScoreTable">1525</td></tr>
+                    <tr><td id="best5Name" class="clsScoreTable"> Jackson</td><td id="best5Val" class="clsScoreTable">1060</td></tr>
+                </table>
+                <br />
+                <btn id="newPlyr" onclick="newPlyr1()">New Player</btn>
+                <btn id="mute" onclick="muteSound()">Mute</btn>
+
+            </div>
+            <div id="introDiv">
+                
+                <a><img id="gameLogoImg2" src="Images/GemLogo.png" /></a>
+                <h3>Enter player name below and click submit to start</h3>
+                <div id="PromptDiv">
+
+                    <input type="text" id="userInput" />
+                    <button id="submitter">Submit</button>
+
+                </div>
+                
+            </div>
+            <div id="bonusUnder5"> <img src="Images/under5Bonus.png" /></div>
+            <div id="doubleBonus1"> <img src="Images/doubleBonus.png" /></div>
+            <div id="bonusUnder3"> <img src="Images/under2Bonus.png" /></div>
+            <table id="matchTbl" class="Gem1">
+                <tr id="tr1">
+                    <td id="td1" class="clsGemTD"><div class="clipwrapper"><img id ="img1" src='Images/AquamarineGem05.png'onclick ="ClickGem();"/></div></td>
+                    <td id="td2" class="clsGemTD"><img id="img2" src='Images/AquamarineGem05.png' onclick ="ClickGem();" /></td>
+                    <td id="td3" class="clsGemTD"><img id="img3"src='Images/AquamarineGem05.png' onclick ="ClickGem();"/></td>
+                    <td id="td4" class="clsGemTD"><img id="img4"src='Images/AquamarineGem05.png' onclick ="ClickGem();"/></td>
+                    <td id="td5" class="clsGemTD"><img id="img5"src='Images/AquamarineGem05.png' onclick ="ClickGem();"/></td>
+                    <td id="td6" class="clsGemTD"><img id="img6"src='Images/AquamarineGem05.png' onclick ="ClickGem();"/></td>
+                    <td id="td7" class="clsGemTD"><img id="img7"src='Images/AquamarineGem05.png' onclick ="ClickGem();"/></td>
+                    <td id="td8" class="clsGemTD"><img id="img8"src='Images/AquamarineGem05.png' onclick ="ClickGem();"/></td>
+                </tr>
+                <tr id="tr2">
+                    <td id="td9" class="clsGemTD"><img id="img9"src='Images/AquamarineGem05.png' onclick ="ClickGem();"/></td>
+                    <td id="td10" class="clsGemTD"><img id="img10"src='Images/AquamarineGem05.png' onclick ="ClickGem();"/></td>
+                    <td id="td11" class="clsGemTD"><img id="img11"src='Images/AquamarineGem05.png' onclick ="ClickGem();"/></td>
+                    <td id="td12" class="clsGemTD"><img id="img12"src='Images/AquamarineGem05.png' onclick ="ClickGem();"/></td>
+                    <td id="td13" class="clsGemTD"><img id="img13"src='Images/AquamarineGem05.png' onclick ="ClickGem();"/></td>
+                    <td id="td14" class="clsGemTD"><img id="img14"src='Images/AquamarineGem05.png' onclick ="ClickGem();"/></td>
+                    <td id="td15" class="clsGemTD"><img id="img15"src='Images/AquamarineGem05.png' onclick ="ClickGem();"/></td>
+                    <td id="td16" class="clsGemTD"><img id="img16"src='Images/AquamarineGem05.png' onclick ="ClickGem();"/></td>
+                </tr>
+                <tr id="tr3">
+                    <td id="td17" class="clsGemTD"><img id="img17"src='Images/AquamarineGem05.png' onclick ="ClickGem();"/></td>
+                    <td id="td18" class="clsGemTD"><img id="img18"src='Images/AquamarineGem05.png' onclick ="ClickGem();"/></td>
+                    <td id="td19" class="clsGemTD"><img id="img19"src='Images/AquamarineGem05.png' onclick ="ClickGem();"/></td>
+                    <td id="td20" class="clsGemTD"><img id="img20"src='Images/AquamarineGem05.png' onclick ="ClickGem();"/></td>
+                    <td id="td21" class="clsGemTD"><img id="img21"src='Images/AquamarineGem05.png' onclick ="ClickGem();"/></td>
+                    <td id="td22" class="clsGemTD"><img id="img22"src='Images/AquamarineGem05.png' onclick ="ClickGem();"/></td>
+                    <td id="td23" class="clsGemTD"><img id="img23"src='Images/AquamarineGem05.png' onclick ="ClickGem();"/></td>
+                    <td id="td24" class="clsGemTD"><img id="img24"src='Images/AquamarineGem05.png' onclick ="ClickGem();"/></td>
+                </tr>
+                <tr id="tr4">
+                    <td id="td25" class="clsGemTD"><img id="img25"src='Images/AquamarineGem05.png' onclick ="ClickGem();"/></td>
+                    <td id="td26" class="clsGemTD"><img id="img26"src='Images/AquamarineGem05.png' onclick ="ClickGem();"/></td>
+                    <td id="td27" class="clsGemTD"><img id="img27"src='Images/AquamarineGem05.png' onclick ="ClickGem();"/></td>
+                    <td id="td28" class="clsGemTD"><img id="img28"src='Images/AquamarineGem05.png' onclick ="ClickGem();"/></td>
+                    <td id="td29" class="clsGemTD"><img id="img29"src='Images/AquamarineGem05.png' onclick ="ClickGem();"/></td>
+                    <td id="td30" class="clsGemTD"><img id="img30"src='Images/AquamarineGem05.png' onclick ="ClickGem();"/></td>
+                    <td id="td31" class="clsGemTD"><img id="img31"src='Images/AquamarineGem05.png' onclick ="ClickGem();"/></td>
+                    <td id="td32" class="clsGemTD"><img id="img32"src='Images/AquamarineGem05.png' onclick ="ClickGem();"/></td>
+                </tr>
+                <tr id="tr5">
+                    <td id="td33" class="clsGemTD"><img id="img33"src='Images/AquamarineGem05.png' onclick ="ClickGem();"/></td>
+                    <td id="td34" class="clsGemTD"><img id="img34"src='Images/AquamarineGem05.png' onclick ="ClickGem();"/></td>
+                    <td id="td35" class="clsGemTD"><img id="img35"src='Images/AquamarineGem05.png' onclick ="ClickGem();"/></td>
+                    <td id="td36" class="clsGemTD"><img id="img36"src='Images/AquamarineGem05.png' onclick ="ClickGem();"/></td>
+                    <td id="td37" class="clsGemTD"><img id="img37"src='Images/AquamarineGem05.png' onclick ="ClickGem();"/></td>
+                    <td id="td38" class="clsGemTD"><img id="img38"src='Images/AquamarineGem05.png' onclick ="ClickGem();"/></td>
+                    <td id="td39" class="clsGemTD"><img id="img39"src='Images/AquamarineGem05.png' onclick ="ClickGem();"/></td>
+                    <td id="td40" class="clsGemTD"><img id="img40"src='Images/AquamarineGem05.png' onclick ="ClickGem();"/></td>
+                </tr>
+                <tr id="tr6">
+                    <td id="td41" class="clsGemTD"><img id="img41"src='Images/AquamarineGem05.png' onclick ="ClickGem();"/></td>
+                    <td id="td42" class="clsGemTD"><img id="img42"src='Images/AquamarineGem05.png' onclick ="ClickGem();"/></td>
+                    <td id="td43" class="clsGemTD"><img id="img43"src='Images/AquamarineGem05.png' onclick ="ClickGem();"/></td>
+                    <td id="td44" class="clsGemTD"><img id="img44"src='Images/AquamarineGem05.png' onclick ="ClickGem();"/></td>
+                    <td id="td45" class="clsGemTD"><img id="img45"src='Images/AquamarineGem05.png' onclick ="ClickGem();"/></td>
+                    <td id="td46" class="clsGemTD"><img id="img46"src='Images/AquamarineGem05.png' onclick ="ClickGem();"/></td>
+                    <td id="td47" class="clsGemTD"><img id="img47"src='Images/AquamarineGem05.png' onclick ="ClickGem();"/></td>
+                    <td id="td48" class="clsGemTD"><img id="img48"src='Images/AquamarineGem05.png' onclick ="ClickGem();"/></td>
+                </tr>
+                <tr id="tr7">
+                    <td id="td49" class="clsGemTD"><img id="img49"src='Images/AquamarineGem05.png' onclick ="ClickGem();"/></td>
+                    <td id="td50" class="clsGemTD"><img id="img50"src='Images/AquamarineGem05.png' onclick ="ClickGem();"/></td>
+                    <td id="td51" class="clsGemTD"><img id="img51"src='Images/AquamarineGem05.png' onclick ="ClickGem();"/></td>
+                    <td id="td52" class="clsGemTD"><img id="img52"src='Images/AquamarineGem05.png' onclick ="ClickGem();"/></td>
+                    <td id="td53" class="clsGemTD"><img id="img53"src='Images/AquamarineGem05.png' onclick ="ClickGem();"/></td>
+                    <td id="td54" class="clsGemTD"><img id="img54"src='Images/AquamarineGem05.png' onclick ="ClickGem();"/></td>
+                    <td id="td55" class="clsGemTD"><img id="img55"src='Images/AquamarineGem05.png' onclick ="ClickGem();"/></td>
+                    <td id="td56" class="clsGemTD"><img id="img56"src='Images/AquamarineGem05.png' onclick ="ClickGem();"/></td>
+                </tr>
+                <tr id="tr8">
+                    <td id="td57" class="clsGemTD"><img id="img57"src='Images/AquamarineGem05.png' onclick ="ClickGem();"/></td>
+                    <td id="td58" class="clsGemTD"><img id="img58"src='Images/AquamarineGem05.png' onclick ="ClickGem();"/></td>
+                    <td id="td59" class="clsGemTD"><img id="img59"src='Images/AquamarineGem05.png' onclick ="ClickGem();"/></td>
+                    <td id="td60" class="clsGemTD"><img id="img60"src='Images/AquamarineGem05.png' onclick ="ClickGem();"/></td>
+                    <td id="td61" class="clsGemTD"><img id="img61"src='Images/AquamarineGem05.png' onclick ="ClickGem();"/></td>
+                    <td id="td62" class="clsGemTD"><img id="img62"src='Images/AquamarineGem05.png' onclick ="ClickGem();"/></td>
+                    <td id="td63" class="clsGemTD"><img id="img63"src='Images/AquamarineGem05.png' onclick ="ClickGem();"/></td>
+                    <td id="td64" class="clsGemTD"><img id="img64"src='Images/AquamarineGem05.png' onclick ="ClickGem();"/></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+
+        <script type="text/javascript" src="GemsJS.js"></script>
+
+
+
+</body>
+</html>
