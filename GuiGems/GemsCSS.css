@@ -31,9 +31,24 @@ border: 3px groove blue;
 width: 770px;
 height:650px;
 background-color:darkturquoise;
+border-radius: 15px;
+}
+#levelH {
+    border: 3px groove grey;
+    border-radius: 10px;
+    
+background-color: antiquewhite;
+width: 100px;
+text-align: center;
+margin-left: auto;
+margin-right: auto;
+margin-top: -10px;
+font-style:italic;
+font: bold 20px arial;
+
 }
 #matchTbl {
-    margin: 20px 20px 20px 1px;
+    margin: 20px 20px 2px 1px;
     background-color: black;
     display: none;
 }
@@ -45,7 +60,7 @@ background-color:darkturquoise;
                 border: solid 2px;
                 border-radius: 5px;
                 text-align: center;
-                margin: 20px 10px 20px 20px;
+                margin: 20px 10px 20px 2px;
 }
 #playerName {
 background-color:antiquewhite;
@@ -54,6 +69,7 @@ font-size: 24px;
 font-style:italic;
 margin-left: auto;
 margin-right: auto;
+margin-top: -10px;
 border: 3px groove grey;
 border-radius: 25px;
 }
@@ -87,7 +103,7 @@ margin-right: auto;
     background-color:antiquewhite;
     width: 450px;
     color:darkolivegreen;
-    
+    margin-top: -15px;
 }
 #mute {
     border: 3px groove grey;
@@ -96,7 +112,25 @@ margin-right: auto;
     background-color:antiquewhite;
     width: 350px;
     color:darkolivegreen;
-    
+    margin-top: -15px;
+}
+#timerLabel {
+    margin-top: 5px;
+    margin-bottom: 9px;
+}
+#timerID {
+     border: 3px groove grey;
+    border-radius: 25px;
+    font-size: 24px;
+    background-color:antiquewhite;
+    width: 90px;
+    height: 30px;
+    color:darkolivegreen;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: -10px;
+
 }
 #introDiv {
     position: absolute;
@@ -114,13 +148,14 @@ border-radius: 34px;
 display: block;
 }
 #bonusUnder5 {
-    width:150px;
-    height:132px;
+    width:100px;
+    height:auto;
     display:none;
     position:absolute;
     top:175px;
-    left:375px;
+    left:800px;
     z-index: +1;
+    max-width: 150px;
     
 }
 #bonusUnder3 {
@@ -134,17 +169,81 @@ display: block;
     
 }
 #doubleBonus1 {
- width:300px;
-    height:265px;
+ width:200px;
+    height:auto;
     display:none;
     position:absolute;
     top:475px;
-    left:275px;
+    left:800px;
     z-index: +1;
 }
+#levelUp {
+    display:none;
+    position: absolute;
+    top: 175px;
+    right:auto;
+    bottom: auto;
+    left: 220px; 
+    background-color: antiquewhite;
+    z-index:+1;
+    text-align: center;
+    width: 500px;
+    height:290px;
+    border: 3px groove black;
+    border-radius: 34px;
+}
+#levelUptext {
+    font-family:'Franklin Gothic';
+    font-size: xx-large;
+    text-align:center;
+}
+#playNext {
+  border: 3px groove grey;
+    border-radius: 15px;
+    font-size: 20px;
+    background-color:lightcoral;
+    width: 90px;
+    height: 30px;
+    color:darkolivegreen;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: -10px;
+    padding: 2px, 2px, 2px, 2px;
+}
+#timeUp {
+    width:320px;
+    height:400px;
+    display: none;
+  text-align: center;
+    position:absolute;
+    top:175px;
+    left:300px;
+    z-index: +1;
+    background-color: azure;
+    border: groove 3px black;
+    border-radius: 25px;
+}
+#timeUpScore {
+font-weight:bold;
+}
+#playAgain {
+  border: 3px groove grey;
+    border-radius: 25px;
+    font-size: 24px;
+    background-color:antiquewhite;
+    width: 90px;
+    height: 30px;
+    color:darkolivegreen;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: -10px;
+
+}
 .bomb {
-    width: 64px;
-    height: 64px;
+    width: 60px;
+    height: 60px;
     
     background-image: url("Images/bomber.png");
   
@@ -188,3 +287,90 @@ display: block;
 .pos-11              { clip:rect(0 660px 60px 600px);  left: -600px; }
 .pos-12             { clip:rect(0 720px 60px 660px);  left: -660px; }
 .clipwrapper        { position: relative; height: 60px; width: 60px; }
+
+
+.slideAround {
+    animation-name: slideAround;
+    
+	-webkit-animation-name: slideAround;	
+
+	animation-duration: .5s;	
+	-webkit-animation-duration: 1.0s;
+
+	animation-timing-function: ease-in-out;	
+	-webkit-animation-timing-function: ease-in-out;		
+
+	visibility: visible !important;	
+}
+@keyframes slideAround {
+    0% {
+        transform: translateX(-500%);
+    }
+    10% {
+		transform: translateX(-450%);
+	}
+	20%{
+		transform: translateX(-400%);
+	}
+    30%{
+		transform: translateX(-350%);
+	}
+	40%{
+		transform: translateX(-300%);
+	}
+    50% {
+        transform: translateX(-250%);
+    }
+	60%{
+		transform: translateX(-200%);
+	}
+    70%{
+        transform: translateX(-150%);
+    }
+	80%{
+		transform: translateX(-100%);
+	}	
+    90% {
+        transform: translateX(-50%);
+    }		
+	100% {
+		transform: translateX(0%);
+	}	
+}
+
+@-webkit-keyframes slideAround {
+	 0% {
+        -webkit-transform: translateX(100%);
+    }
+    10% {
+		-webkit-transform: translateX(150%);
+	}
+	20%{
+		-webkit-transform: translateX(225%);
+	}
+    30%{
+		-webkit-transform: translateX(275%);
+	}
+	40%{
+		-webkit-transform: translateX(300%);
+	}
+    50% {
+       -webkit- transform: translateX(330%);
+    }
+	60%{
+		-webkit-transform: translateX(375%);
+	}
+    70%{
+        -webkit-transform: translateX(410%);
+    }
+	80%{
+		-webkit-transform: translateX(450%);
+	}	
+    90% {
+        -webkit-transform: translateX(500%);
+    }		
+	100% {
+		-webkit-transform: translateX(0%);
+	}	
+    
+}

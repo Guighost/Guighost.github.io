@@ -1,0 +1,818 @@
+
+.clearboth {
+    margin: 0;
+    padding: 0;
+    clear: both;
+}
+banner {
+	width:300px;
+	height:200px;
+}
+
+/*table, td {
+	border: 2px #FF1493 groove;
+	
+}*/
+
+body {
+	background-color: #F5F5DC
+}
+#Audio1 {
+visibility: hidden;
+}
+video#bgvid {
+position: absolute; right: 0; bottom: 0;
+min-width: 100%; min-height: 100%;
+width: auto; height: auto; z-index: -100;
+background: url(Images\swords2.jpg) no-repeat;
+background-size: cover;
+}
+#BannerDiv {
+	/*background-color: #2F4F4F;*/
+	}
+#DivMainTables {
+    /*background-color: black;*/
+    align-content:center;
+    vertical-align:top;
+    text-align:center;
+}
+.Stats {
+
+/*background-color: #006400;*/
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius:3px;
+    color: #fff;
+    font-family: 'Oswald';
+    font-size: 16px;
+    text-decoration: none;
+    cursor: pointer;
+    border:none;
+    float: right;
+    vertical-align: top;
+    
+}
+#LevelDiv {
+/*border: 2px solid blue;*/
+height: 125px;
+background-color:black;
+-moz-border-radius: 9px;
+    -webkit-border-radius: 9px;
+    border-radius:9px;
+}
+/*titleTextDiv {
+float:left;
+}*/
+#levelImage {
+float: left;
+padding-top: 10px;
+padding-left:1px;
+
+}
+#LevelValue {
+float:right;
+/*vertical-align:top;*/
+padding-bottom: 5px;
+}
+#XP1div {
+/*border: 2px solid blue;*/
+height: 80px;
+background-color:black;
+-moz-border-radius: 9px;
+    -webkit-border-radius: 9px;
+    border-radius:9px;
+}
+#XPImage {
+float: left;
+padding-top: 2px;
+padding-left:3px;
+
+
+}
+#XPValue {
+    float: right;
+}
+#coin1div {
+/*border: 2px solid blue;*/
+height: 90px;
+background-color:black;
+-moz-border-radius: 9px;
+    -webkit-border-radius: 9px;
+    border-radius:9px;
+}
+#coin {
+float: left;
+padding-top: 5px;
+
+}
+#CoinValue {
+
+vertical-align: top;
+
+}
+
+/*--Style the Menu--*/
+#menu {
+    /*background-color: black;*/
+    vertical-align: top;
+}
+body {
+}
+.clearboth {
+    margin: 0;
+    padding: 0;
+    clear: both;
+}
+ 
+#nav {
+    font-family: verdana;
+    font-weight: bold;
+    font-size: 9pt;
+    /*background-color: black;*/
+}
+ 
+#nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    }
+ 
+#nav a:link,
+#nav a:visited {
+    color: #ffffff;
+    text-decoration: none;
+}
+ 
+#nav a {
+    display: block;
+    padding: 6px 8px;
+}
+ 
+#nav li {
+    float:left;
+    /*background-color: #000000;*/
+    margin-right: 1px;
+    position:relative;
+}
+ 
+#nav li li{
+    width: 160px;
+    margin-top: 1px;
+    position:relative;
+}
+ 
+#nav li:hover {
+    background-color: #555555;
+}
+#nav li li:hover {
+    background-color: #757575;
+}  
+ 
+ 
+#nav ul ul  {
+    position: absolute;
+    visibility: hidden;
+
+}
+ 
+#nav ul ul ul{
+    position: absolute;
+    left: 100%;
+    top: -2px;
+    border: solid 1px transparent;
+}
+ 
+#nav ul li:hover > ul {
+    visibility: visible;
+}
+ 
+.right-arrow {
+    float: right;
+}
+/*--Style the right Pane--*/
+
+#RightPane {
+	/*background-color: #000000;*/
+	color: violet;
+	font-size: 15px;
+    vertical-align: top;
+    
+	}
+#bcrest {
+    visibility: visible;
+    width: 200px;
+    height: 200px;
+    vertical-align:top;
+}
+/* Style the table*/
+#primTable {
+    width:99%; height:75%;
+    
+    text-align:center;
+    
+}
+/*--Style Home individually--*/
+
+#Home {
+    background-color: #2F4F4F;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius:6px;
+    color: #fff;
+    font-family: 'Oswald';
+    font-size: 20px;
+    text-decoration: none;
+    cursor: pointer;
+    border:none;
+    margin: 0;
+    padding: 0;
+
+}
+#Home:hover {
+    border: none;
+    background:red;
+    box-shadow: 0px 0px 1px #777;
+}
+
+/*--Style About individually--*/
+
+.button {
+    background-color: #2F4F4F;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius:6px;
+    color: #fff;
+    font-family: 'Oswald';
+    font-size: 20px;
+    text-decoration: none;
+    cursor: pointer;
+    border:none;
+}
+.button:hover {
+    border: none;
+    background:red;
+    box-shadow: 0px 0px 1px #777;
+}
+#playerName {
+    background-color: #ABB040;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius:6px;
+    color: #fff;
+    font-family: 'Oswald';
+    font-size: 17px;
+    text-decoration: none;
+    cursor: pointer;
+    border:none;
+    width: 40%;
+    position: relative;
+    float: left;
+}
+#dragonName {
+    background-color: #ABB040;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius:6px;
+    color: #fff;
+    font-family: 'Oswald';
+    font-size: 17px;
+    text-decoration: none;
+    cursor: pointer;
+    border:none;
+    width: 40%;
+    position: relative;
+    float: left;
+}
+#primTable {
+ width:90%;
+  height:95%;
+}
+#GameTitle {
+    text-align: center;
+    padding-top: 45px;
+    
+        }
+#MainDiv {
+   /*background-color: #00BFFF*/
+   
+	}
+#bodyimage {
+	width:100%;
+	height:100%;
+	}
+#javaTitleframe {
+    height:70px;
+}
+/*--Style JavaGameMainDiv--*/
+#JavaGameMainDiv {
+/*background-color: #00BFFF;*/
+    width:100%;
+	height:100%;
+    z-index: 10;
+    /*background-image:url("Images\BackGround1.jpg") ;*/
+}
+
+/*--Style the JavaGame1 div image*/
+#bodyimageJava1 {
+    width: 90%;
+    height: 100px;
+     margin-left: auto;
+    margin-right: auto;
+    vertical-align: top;
+    z-index:-1;
+    visibility:visible;
+  
+    }
+#titleTextDiv {
+background-color:red;
+
+position:relative;
+}
+#bodyimageJava2 {
+    width: 99%;
+    height: 100px;
+    margin-left: auto;
+    z-index
+    vertical-align: top;
+    position:relative;
+    }
+#btnSlay {
+    vertical-align: top;
+   }
+#Health1 {
+width: 33%;
+}
+#Health2 {
+background-image: url("Images/flat_scroll.jpg");
+
+}
+    #Health2 >p {
+    font-size:25px;
+    vertical-align:top;
+    width:90%;
+
+    }
+#Health3 {
+width: 33%;
+}
+#centerSection {
+    text-align:center;
+margin-left:auto;
+margin-right:auto;
+
+z-index:10;
+
+background-size:100%;
+
+}
+.modalDialog {
+	position: fixed;
+	font-family: Arial, Helvetica, sans-serif;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background: rgba(0,0,0,0.8);
+	z-index: 99999;
+	opacity:0;
+	-webkit-transition: opacity 400ms ease-in;
+	-moz-transition: opacity 400ms ease-in;
+	transition: opacity 400ms ease-in;
+	pointer-events: none;
+    
+}
+.modalDialog:target {
+	opacity:1;
+	pointer-events: auto;
+}
+
+.modalDialog  div {
+	width: 750px;
+	position: relative;
+	margin: 1% auto;
+	padding: 5px 5px 10px 5px;
+	border-radius: 20px;
+	background: #A89070;
+	background: -moz-linear-gradient(#fff, #999);
+	background: -webkit-linear-gradient(#fff, #999);
+	background: -o-linear-gradient(#fff, #999);
+    max-height: 500px;
+    
+}
+.close {
+	background: #606061;
+	color: #FFFFFF;
+	line-height: 25px;
+	position: absolute;
+	right: -12px;
+	text-align: center;
+	top: -5px;
+	width: 24px;
+	text-decoration: none;
+	font-weight: bold;
+	-webkit-border-radius: 12px;
+	-moz-border-radius: 12px;
+	border-radius: 12px;
+	-moz-box-shadow: 1px 1px 3px #000;
+	-webkit-box-shadow: 1px 1px 3px #000;
+	box-shadow: 1px 1px 3px #000;
+}
+
+.close:hover { background: #00d9ff; }
+#inventory {
+text-align:center;
+margin-left:auto;
+margin-right:auto;
+position: relative;
+background-image: url("Images/old_scroll.jpg");
+border-radius: 10px;
+/*float: left;*/
+
+}
+#inventory td {
+width:100px;
+height: 100px;
+border: groove;
+}
+#bagInv {
+
+text-align:center;
+margin-left:auto;
+margin-right:auto;
+/*position: relative;*/
+background-image: url("Images/flat_scroll.jpg");
+width: 100%;
+border:none;
+}
+.bagBorder {
+    border-style: solid;
+    border-width: 28px 29px 11px 35px;
+    -moz-border-image: url(backpack.jpg) 28 29 11 35 stretch;
+    -webkit-border-image: url(Images/backpack.jpg) 28 29 11 35 stretch;
+    -o-border-image: url(Images/backpack.jpg) 28 29 11 35 stretch;
+    border-image: url(Images/backpack.jpg) 28 29 11 35 stretch;
+    
+}
+.inventoryBorder {
+border-style: solid;
+border-width: 30px 28px 37px 30px;
+-moz-border-image: url(Images/Woodenborder.png) 30 28 37 30 round;
+-webkit-border-image: url(Images/Woodenborder.png) 30 28 37 30 round;
+-o-border-image: url(Images/Woodenborder.png) 30 28 37 30 round;
+border-image: url(Images/Woodenborder.png) 30 28 37 30 round;
+border-radius: 5px;
+margin-bottom:10px;
+} 
+#bagInv.td {
+width:100px;
+height: 100px;
+border:none;
+}
+#baginv.td.img {
+    width:100px; height:100px;
+}
+#statNumbs {
+    float: right;
+    table-layout: fixed;
+    padding-bottom: -50px;
+    border-color:aqua;
+    background-image: url("Images/flat_scroll.jpg");
+}
+#statNumbs tr {
+height: 5px;
+    width: 50px;
+    border:solid;
+    border-style: none;
+    border-color:#A9A9A9;
+    padding: 1px;
+    width: 25%;
+}
+#statNumbs tr td {
+height: 5px;
+    width: 120px;
+    border:solid;
+    border-style: groove;
+    border-color:#A9A9A9;
+    padding: 1px;
+
+}
+    #statNumbs td:nth-child(2) {
+    width: 50px;
+    }
+
+#button1 {
+    visibility: visible;
+    border:none;
+}
+#btnNextRound {
+    visibility: hidden;
+}
+
+/*BattleIcons*/
+#potion {
+    visibility: hidden;
+}
+#swordsIcon {
+    visibility: hidden;
+}
+#shieldIcon {
+    visibility: hidden;
+}
+#holyFire {
+    visibility: hidden;
+}
+#treasure1 {
+visibility: hidden;
+float:right;
+}
+/*--Style the footer--*/
+
+#Footer   {
+	background-color: #0B6138;
+	}
+ #bodyimage2 {
+	width:29%;
+	height:206px;
+	}
+
+#bodyimage3 {
+	width:96%;
+	height:170px;
+    margin-left: 0px;
+    text-align:center;
+}
+#bodyimage4 {
+	width:50%;
+	height:30%;
+}
+p.hidden {
+    display: none;
+}
+canvas#viewport { 
+   border: none;
+    width: 900px;
+    height: 480px;
+    border-radius: 3px;
+   
+}
+#gameOutput {
+background-image: url("images/flat_scroll.jpg");
+background-size: 90%;
+  font-family:'Copperplate Gothic';
+  color:black;
+  text-indent: 5%;
+  
+  
+}
+
+#plyrprogressBar {
+  background-color: black;
+  border-radius: 13px; /* (height of inner div) / 2 + padding */
+  padding: 3px;
+  margin-top: 40px;
+ 
+}
+
+#plyrinnerbar {
+   background-color: red;
+   width: 99%; /* Adjust with JavaScript */
+   height: 20px;
+   border-radius: 10px;
+   
+  
+}
+#drgnHPbar {
+  background-color: black;
+  border-radius: 13px; /* (height of inner div) / 2 + padding */
+  padding: 3px;
+  margin-top: 40px;
+}
+
+#drgninnerbar {
+   background-color: orange;
+   width: 99%; /* Adjust with JavaScript */
+   height: 20px;
+   border-radius: 10px;
+    
+}
+#gameArea td {
+   border-style: solid;
+border-width: 30px 28px 37px 30px;
+-moz-border-image: url(Images/Woodenborder.png) 30 28 37 30 round;
+-webkit-border-image: url(Images/Woodenborder.png) 30 28 37 30 round;
+-o-border-image: url(Images/Woodenborder.png) 30 28 37 30 round;
+border-image: url(Images/Woodenborder.png) 30 28 37 30 round;
+border-radius: 5px;
+margin-bottom:10px;
+}
+
+#rightPane {
+    width: 10%;
+    /*background-color:black;*/
+    
+}
+
+#plyrHPcount {
+    width: 40%;
+    height: 20px;
+    margin:0px, 0px;
+    padding:-10px,-10px;
+    text-decoration-color: ghostwhite;
+    text-align: center;
+    background-color:darkgrey;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius:6px;
+    position: relative;
+    float: right;
+}
+#drgnHPcount {
+    width: 40%;
+    height: 20px;
+     padding-bottom:-20px;
+    text-decoration-color: ghostwhite;
+    text-align: center;
+    background-color:darkgrey;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius:6px;
+    position: relative;
+    float: right;
+    
+    
+}
+#javaBtn1 {
+     background-color: #7FFF00;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius:6px;
+    color: #8B0000;
+    font-family: 'Oswald';
+    font-size: 30px;
+    text-decoration: none;
+    cursor: pointer;
+    border:none;
+    width: 250px;
+}
+#MainDivFun {
+   background-color: #008B8B
+   
+	}
+#gamebody1 {
+    /*background-color: ThreeDShadow;*/
+    background-size: contain;
+}
+#content1 {
+    background-image:url("Images/BackGround1.jpg"); 
+    background-size: 80%;
+    
+
+}
+#shieldStats {
+     display: none;
+    height: 30px;
+    width: 290px;
+    margin-left: 50px;
+    margin-bottom: 10px;
+    float:inherit;
+
+}
+
+#shieldName {
+    float:right;
+text-wrap:none;
+}
+#chestStats {
+    display: none;
+    height: 30px;
+    width: 290px;
+    margin-left: 50px;
+    margin-bottom: 10px;
+    float:inherit;
+}
+#chestStats2 {
+    display: none;
+    height: 30px;
+    width: 290px;
+    margin-left: 50px;
+    float:inherit;
+}
+#helmStats {
+    display: none;
+    height: 30px;
+    width: 290px;
+    margin-left: 50px;
+    margin-bottom: 10px;
+    float:inherit;
+
+}
+
+#swordStats {
+    display: none;
+    height: 30px;
+    width: 290px;
+    margin-left: 50px;
+    margin-bottom: 10px;
+    float:inherit;
+    
+    
+}
+#gloveStats {
+    display: none;
+    height: 30px;
+    width: 290px;
+    margin-left: 50px;
+    margin-bottom: 10px;
+    float:inherit;
+}
+#neckStats {
+    display: none;
+    height: 30px;
+    width: 290px;
+    margin-left: 50px;
+    margin-bottom: 10px;
+    float:inherit;
+}
+#neckStats2 {
+    display: none;
+    height: 30px;
+    width: 290px;
+    margin-left: 50px;
+    margin-bottom: 10px;
+    float:inherit;
+}
+#neckSlot {
+display: block;
+    margin-left: 10px;
+}
+#gauntStats {
+    display: none;
+    /*height: 30px;
+    width: 290px;
+    margin-left: 50px;
+    margin-bottom: 10px;*/
+    float:inherit;
+}
+#invTitle {
+    float: inherit;
+}
+#backpack2 {
+    float:left;
+    height: auto;
+    width: auto;
+}
+.clsStatsDiv {
+background-image: url("Images/flat_scroll.jpg");
+}
+
+.clsItemname {
+float:right;
+text-wrap:none;
+}
+
+.clsItemStatTables {
+background-image: url("Images/flat_scroll.jpg");
+float:left;
+margin-top: 5px;
+padding: 10px 10px -20px 10px;
+width: 70%;
+}
+
+.clsItemStatTables td {
+    border:solid;
+    border-style: groove;
+    border-color:#A9A9A9;
+    height: 15px;
+    width: auto;
+    }
+
+#chestName {
+    float:right;
+text-wrap:none;
+}
+.clsPlyrStatNorm {
+color: Black;
+font:bold;
+font-size:large;
+text-align:center;
+}
+.clsPlyrStatMod {
+color:green;
+font:bold;
+font-size:large;
+text-align:center;
+}
+.coolDownSpell {
+opacity:0.5;
+pointer-events: none;
+cursor: default;
+}
+.readySpell {
+opacity:1.0;
+
+}
+.clsDetailImage {
+    position: relative;
+     float:inherit;
+     border-radius: 8px;
+}

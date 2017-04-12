@@ -1,0 +1,5 @@
+﻿
+Partial Class DrgnSlyrUserControl
+    Inherits System.Web.UI.UserControl
+
+End Class

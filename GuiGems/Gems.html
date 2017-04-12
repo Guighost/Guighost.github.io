@@ -22,6 +22,10 @@
         <source src="Sounds\explosion.mp3" type="audio/mp3">
         Your browser does not support the audio element.
     </audio>
+    <audio id="levelUpSound" class="gameSounds">
+        <source src="Sounds\levelup.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
 
     <div id="nav">
         <ul>
@@ -48,6 +52,7 @@
                     <li><a href="../AoGL/AoGL.html" id="A8">Adventures of GuiLord</a> </li>
                     <li><a href="../FamilyMatch/FamilyMatch.html" id="A9">Family Match</a> </li>
                     <li><a href="Gems.html" id="A9">GuiGems</a> </li>
+                    <li><a href="../Mah-Gui-jong/mah-Gui-jong.html" id="A11">Mah-Gui-Jong</a> </li>
                 </ul>
 
             </li>
@@ -69,7 +74,7 @@
 
                 <table id="scoreList">
                     <thead><tr><td>Player</td><td>Score</td></tr></thead>
-                    <tr ><td tag="gem" id="best1Name" class="clsScoreTable">Zack</td><td id="best1Val" class="clsScoreTable">2045</td></trclass>
+                    <tr><td id="best1Name" class="clsScoreTable">Zack</td><td id="best1Val" class="clsScoreTable">2045</td></tr>
                     <tr><td id="best2Name" class="clsScoreTable">George</td><td id="best2Val" class="clsScoreTable">1946</td></tr>
                     <tr><td id="best3Name" class="clsScoreTable">J-Rizzle 343</td><td id="best3Val" class="clsScoreTable">1750</td></tr>
                     <tr><td id="best4Name" class="clsScoreTable">Bart</td><td id="best4Val" class="clsScoreTable">1525</td></tr>
@@ -78,7 +83,9 @@
                 <br />
                 <btn id="newPlyr" onclick="newPlyr1()">New Player</btn>
                 <btn id="mute" onclick="muteSound()">Mute</btn>
-
+                    <p id="timerLabel"> Time remaining</p>
+                    <h1 id ="timerID"></h1>
+                <h3 id="levelH">Level 1</h3>
             </div>
             <div id="introDiv">
                 
@@ -92,12 +99,41 @@
                 </div>
                 
             </div>
+<!--Bonuses-->
             <div id="bonusUnder5"> <img src="Images/under5Bonus.png" /></div>
             <div id="doubleBonus1"> <img src="Images/doubleBonus.png" /></div>
             <div id="bonusUnder3"> <img src="Images/under2Bonus.png" /></div>
+<!--Time Up-->
+            <div id="timeUp"> 
+                <img id ="timeUpImg" src ="Images/time-over.png" /> 
+                <p id ="timeUpScore">Text Here</p> 
+                <btn id="playAgain" onclick="newGame()">Play Again</btn>
+            </div>
+<!--Level Up-->
+            <div id ="levelUp">
+                <img class ="slideAround" src="Images/Gem1.png"/>
+                <img class="slideAround" src="Images/Gem2.png" />
+                <img class="slideAround" src="Images/Gem3.png" />
+                <img class="slideAround" src="Images/Gem4.png" />
+                <img class="slideAround" src="Images/Gem5.png" />
+                <img class="slideAround" src="Images/Gem6.png" />
+                 <p id="levelUptext">Level Up</p>
+                <btn id="playNext" onclick="NextStage()">Next Level</btn>
+                <br />
+                <br />
+                <img class="slideAround" src="Images/Gem1.png" />
+                <img class="slideAround" src="Images/Gem2.png" />
+                <img class="slideAround" src="Images/Gem3.png" />
+                <img class="slideAround" src="Images/Gem4.png" />
+                <img class="slideAround" src="Images/Gem5.png" />
+                <img class="slideAround" src="Images/Gem6.png" />
+            </div>
+
+<!--Gem Table --->
             <table id="matchTbl" class="Gem1">
+                
                 <tr id="tr1">
-                    <td id="td1" class="clsGemTD"><div class="clipwrapper"><img id ="img1" src='Images/AquamarineGem05.png'onclick ="ClickGem();"/></div></td>
+                    <td id="td1" class="clsGemTD"><img id ="img1" src='Images/AquamarineGem05.png'onclick ="ClickGem();"/></td>
                     <td id="td2" class="clsGemTD"><img id="img2" src='Images/AquamarineGem05.png' onclick ="ClickGem();" /></td>
                     <td id="td3" class="clsGemTD"><img id="img3"src='Images/AquamarineGem05.png' onclick ="ClickGem();"/></td>
                     <td id="td4" class="clsGemTD"><img id="img4"src='Images/AquamarineGem05.png' onclick ="ClickGem();"/></td>

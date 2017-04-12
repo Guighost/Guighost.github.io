@@ -1,0 +1,129 @@
+﻿body {
+     
+}
+.clsCentered {
+ 
+top: 50%;
+    left: 10%;
+    right:10%;
+   align-content: center;
+   position:relative;
+   
+}
+.inventoryBorder {
+border-style: solid;
+border-width: 25px 20px 25px 20px;
+-moz-border-image: url(Images/Woodenborder.png) 25 20 25 20 round;
+-webkit-border-image: url(Images/Woodenborder.png) 25 20 25 20 round;
+-o-border-image: url(Images/Woodenborder.png) 25 20 25 20 round;
+border-image: url(Images/Woodenborder.png) 25 20 25 20 round;
+border-radius: 10px;
+margin-bottom:5px;
+}
+.clstransparent {
+background-image:none;}
+
+.flip-horizontal {
+    -moz-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    transform: scaleX(-1);
+    
+    filter: fliph;
+}
+.flip-vertical {
+    -moz-transform: scaleY(-1);
+    -webkit-transform: scaleY(-1);
+    -o-transform: scaleY(-1);
+    transform: scaleY(-1);
+    
+    filter: flipv;
+}
+.grow {
+height: 500px;
+width: 500px;
+}
+.moveLeft {
+    transition:all,
+   
+}
+#manorDiv {
+    display: none;
+}
+#leftBar {
+   float:right;
+    width: 175px;
+    height: 725px;
+    float:left;
+    padding-left: 0px;
+    background-image:url("Images/scrollBack.png");
+    background-size: contain;
+   
+   
+
+}
+#canvas {
+    
+    float:right;
+    padding-right: 0px;
+}
+
+#titleGuilLord {
+    font-size: 16px;
+    font-style:italic;
+    text-align: center;
+}
+#divTitleAOGL {
+    background-color:ActiveBorder;
+}
+#heroImage1 {
+    width: 50%;
+    height: 10%;
+    margin-left: 45px;
+}
+#inventory1 tr td{
+        text-align:center;
+        margin-left: 10px;
+border-color: black;
+border-width:3px;
+border-style: groove;
+border-radius: 14px;
+width: 33px;
+height: 33px;
+background-color: grey;
+                  }
+
+#plyrprogressBar {
+  background-color: black;
+  border-radius: 13px; /* (height of inner div) / 2 + padding */
+  padding: 3px;
+}
+
+#plyrinnerbar {
+   background-color: red;
+   width: 100%; /* Adjust with JavaScript */
+   height: 20px;
+   border-radius: 10px;
+}
+#coin2 {
+width: 25px;
+height: 25px;
+margin-left: 15px;
+}
+.heroMoveDown {
+    background: url(Images/WalkForward_Trans.gif);
+	width: 30px;
+	height: 40px;
+    animation: walk-forward .9s steps(8) infinite;
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+@keyframes walk-forward {
+	from { background-position: 0px, 0px;
+           transform: scale(1.75);
+	}
+	to { background-position: 240px, 0px;
+        transform: scale(1.75); 
+	}
+}

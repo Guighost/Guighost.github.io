@@ -1,0 +1,186 @@
+body {
+background-color: slateblue;
+}
+    
+.btn {
+    border: 3px red groove;
+    background-color:honeydew;
+}    
+#bodycontent {
+margin:auto;
+top:auto;
+left:auto;
+right:auto;
+background-color:silver;
+width: 90%;
+height: 750px;
+min-height: 600px;
+text-align: center;
+clear: both;
+}
+#titleborder {
+    margin:10px 10px 40px 10px;
+top:auto;
+left:auto;
+right:auto;
+background-color:azure;
+border:dotted 5px red;
+height: 680px;
+min-height: 500px;
+}
+#gameFrame {
+    margin:10px 10px 10px 40px;
+top:auto;
+left:auto;
+right:auto;
+height: 575px;
+width: 900px;
+background-image: url("Images/exterior-parallaxBG1.png");
+background-size:1019px 577px;
+border:dotted 5px black;
+
+}
+#scrollBack {
+
+ 
+
+   animation: backgroundMoveBack 2s linear infinite;
+
+}
+
+.clsMoveFwd {
+  
+		animation: animatedBackground 2.5s linear;
+}
+@keyframes animatedBackground {
+	 10% { background-position-x: -250px}
+    20% { background-position-x: -500px}
+    30% { background-position-x: -250px}
+    40% { background-position-x: -750px}
+    50% { background-position-x: -1000px}
+    60% { background-position-x: -1250px}
+    70% { background-position-x: -1500px}
+    80% { background-position-x: -1750px}
+    90% { background-position-x: -2000px}
+    100% { background-position-x: -2250px}
+
+}
+
+
+@keyframes backgroundMoveFwd {
+   
+        /*10% { background}
+    /*20% { transform:translate(-250px,0px);}
+    30% { transform:translate(-250px,0px);}
+    40% { transform:translate(-250px,0px);}
+    50% { transform:translate(-250px,0px);}
+    60% { transform:translate(-250px,0px);}
+    70% { transform:translate(-250px,0px);}
+    80% { transform:translate(-250px,0px);}
+    90% { transform:translate(-250px,0px);}*/
+    /*50% { transform:translate(-200%,0px);}*/
+    from { background-position: 0 0; }
+	to { background-position: 100% 0; }
+
+}
+.clsMoveBack {
+    animation: backgroundMoveBack 2.5s linear infinite;
+}
+  @keyframes backgroundMoveBack {
+    10% { background-position-x: 50px}
+    20% { background-position-x: 100px}
+    30% { background-position-x: 150px}
+    40% { background-position-x: 200px}
+    50% { background-position-x: 250px}
+    60% { background-position-x: 300px}
+    70% { background-position-x: 350px}
+    80% { background-position-x: 400px}
+    90% { background-position-x: 450px}
+    100% { background-position-x: 500px}
+
+}
+ 
+  @keyframes backgroundMoveBack {
+ 10% { background-position-x: 50px}
+    20% { background-position-x: 100px}
+    30% { background-position-x: 150px}
+    40% { background-position-x: 200px}
+    50% { background-position-x: 250px}
+    60% { background-position-x: 300px}
+    70% { background-position-x: 350px}
+    80% { background-position-x: 400px}
+    90% { background-position-x: 450px}
+    100% { background-position-x: 500px}
+
+}
+
+#gameTileArea {
+
+top:auto;
+left:auto;
+right:auto;
+height: 99%;
+border:dotted 5px orange;
+background-image: url("Images/transmoon.png");
+
+background-position: center;
+background-size:cover;
+
+}
+
+
+#gameTileArea .h1 {
+    font:large;
+    align-content: center;
+    text-align:center;
+    top:auto;
+left:auto;
+right:auto;
+}
+.clsPillar {
+    padding-top: 385px;
+    transform: scale(1.25);
+    
+}
+#pillar1 {
+    float: left;
+}
+#pillar2 {
+    float: left;
+}
+.clsSolidary {
+    margin-left: 50px;
+    margin-right: 50px;
+}
+.clsLeftGap {
+     margin-left: 50px;
+}
+.clsRightGap {
+    margin-right: 50px;
+}
+#spriteMan1 {
+    
+    background: url(Images/elisa-fwd.png);
+	width: 50px;
+	height: 50px;
+    background-position: 0px, 0px;
+    transform:translateY(420px) translateX(25px);
+
+}
+.heroMoveFwd {
+        transform:translateY(420px) translateX(25px);
+    animation: walk-forward .9s steps(8) linear;
+     width: 50px;
+	height: 50px;
+    position:absolute;
+    
+}
+@keyframes walk-forward {
+    from {
+        background-position: 0px, 0px;
+    }
+         
+	to { background-position: 400px, 0px;
+       
+	}
+}

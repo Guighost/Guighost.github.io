@@ -400,7 +400,7 @@ fadeIn
 	animation-name: fadeIn;
 	-webkit-animation-name: fadeIn;	
 
-	animation-duration: 2.5s;	
+	animation-duration: 1.0s;	
 	-webkit-animation-duration: 2.5s;
 
 	animation-timing-function: ease-in-out;	
@@ -821,31 +821,37 @@ tossing
 	animation-duration: 2.5s;	
 	-webkit-animation-duration: 2.5s;
 
-	animation-iteration-count: infinite;
-	-webkit-animation-iteration-count: infinite;
+	animation-iteration-count: 2;
+	-webkit-animation-iteration-count: 2;
 }
 
 @keyframes tossing {
 	0% {
-		transform: rotate(-4deg);	
+		transform: rotate(-44deg);	
+        transform: scale(0.5);
+		opacity: 0.7;
 	}
 	50% {
-		transform: rotate(4deg);
+		transform: rotate(44deg);
+        transform: scale(1.0);
+		opacity: 1.0;
 	}
 	100% {
-		transform: rotate(-4deg);	
+		transform: rotate(-44deg);
+        transform: scale(1.5);
+		opacity: 1.0;	
 	}						
 }
 
 @-webkit-keyframes tossing {
 	0% {
-		-webkit-transform: rotate(-4deg);	
+		-webkit-transform: rotate(-44deg);	
 	}
 	50% {
-		-webkit-transform: rotate(4deg);
+		-webkit-transform: rotate(44deg);
 	}
 	100% {
-		-webkit-transform: rotate(-4deg);	
+		-webkit-transform: rotate(-44deg);	
 	}				
 }
 

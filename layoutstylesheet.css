@@ -270,12 +270,16 @@ canvas#myCanvas {
    
 	}
 
-
-
+.clsleftbox {
+    float: left;
+}
+#MainContain {
+    margin: auto;
+}
 .clsLists {
 list-style-position: inside;
 list-style-type:square;
-text-align:left;
+text-align:center;
 }
 .clsSkills {
 border: groove 5px black;
@@ -283,7 +287,7 @@ margin: 55px, 0px, 55px, 0px;
 border-radius:15px;
 background: -moz-linear-gradient( left, #002966, #FF3399); /* For Firefox 3.6 to 15 */
     background: linear-gradient(to left, #002966 , #FF3399);
-
+    text-align: left;
 }
 .clsTitle {
 text-align:center;
@@ -293,7 +297,7 @@ color:darkcyan;
 }
 .clsBigB1 {
 position:relative;
-font-size:30px;
+font: 30px white;
 float:left;
 border: groove 5px black;
 margin: 155px, 20px, 155px, 20px;
@@ -303,11 +307,20 @@ min-height: 140px;
 max-height:140px;
 text-align:center;
 align-content: center;
+justify-content:center;
 display: table; 
-color:#33CCCC;
-  background: -moz-linear-gradient( right, #002966, #FF3399); /* For Firefox 3.6 to 15 */
-    background: linear-gradient(to right, #002966 , #FF3399);
+text-decoration:underline;
+
+  background: -moz-linear-gradient( right, #FFFF00, #01DF74); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to right, #FFFF00 , #01DF74);
 }
+#buttonContain > div > a{
+   font-size: 30px;
+   text-align: center;
+   padding-top: 35px;
+ 
+}
+
 .clsBigB1:hover {
    background: -moz-linear-gradient(top left, #CCFFCC, #00CCFF); /* For Firefox 3.6 to 15 */
     background: linear-gradient(to top left, #CCFFCC , #00CCFF); 

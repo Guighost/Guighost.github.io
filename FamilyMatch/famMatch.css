@@ -1,0 +1,152 @@
+﻿
+#banner1 {
+position: absolute;
+height: 30px;
+width: 300px;
+float:right;
+margin-left: 450px;
+}  
+
+      #memory_board {
+          border-style: solid;
+            border-width: 30px 30px 30px 30px;
+            -moz-border-image: url(Images/pictureFrame.png) 15 14 18 15 round;
+            -webkit-border-image: url(Images/pictureFrame.png) 15 14 18 15 round;   
+            -o-border-image: url(Images/pictureFrame.png) 15 14 18 15 round;
+            border-image: url(Images/Frame2.jpg) 30 30 30 30  stretch;
+            border-radius: 5px;
+            margin-bottom:10px;
+            margin-left: 0px;
+            width: 930px;
+            height: 440px;
+            padding: 4px;
+            padding-bottom: 25px;
+            padding-top: 25px;
+            padding-right: 5px;
+            min-height:420px;
+            min-width:420px;
+            padding-left: 5px;
+            background-color:palevioletred;
+            float:left;
+            display: none;
+        }
+
+            #memory_board > div {
+                background: url(tile_bg.jpg)  no-repeat;
+                
+                border: #000 1px solid;
+                border-radius: 40px;
+                width: 71px;
+                height: 71px;
+                
+                margin: 1px;
+                padding: 20px;
+                font-size: 20px;
+                text-align: start;
+                cursor: pointer;
+                text-align: center;
+                float: left;
+                
+
+            }
+            video#bgvid {
+                position: absolute; right: 0; bottom: 0;
+                min-width: 100%; min-height: 100%;
+                width: auto; height: auto; z-index: -100;
+                background: url(Images\swords2.jpg) no-repeat;
+                background-size: cover;
+}
+#sideBar1 {
+                background-color: chocolate;
+                width: 130px;
+                height: 560px;
+                float:left;
+                border: solid 2px;
+                border-radius: 5px;
+                text-align: center;
+            }
+#gameLogoImg {
+            width: 100px;
+            height:auto;
+        }
+
+#playerName {
+background-color:antiquewhite;
+width: 120px;
+font-size: 24px;
+font-style:italic;
+margin-left: auto;
+margin-right: auto;
+border: 3px groove grey;
+border-radius: 25px;
+}
+#scoreList, td   {
+border: 2px black groove;
+text-align: center;
+margin-left: auto;
+margin-right: auto;
+min-width: 30px;
+background-color:aqua;
+}
+#scoreList > thead {
+    color:darkolivegreen;
+   font-size: 18px;
+    font-weight:700;
+    }
+#submitter {
+margin-left: auto;
+margin-right: auto;
+    }
+#newPlyr {
+    border: 3px groove grey;
+    border-radius: 25px;
+    font-size: 16px;
+    background-color:antiquewhite;
+    width: 450px;
+    color:darkolivegreen;
+    
+}
+#footer1 {
+border: 2px black groove;
+text-align:center;
+margin-top: 15px;
+position:relative;
+float:initial;
+}
+#gameSoundLoop {
+visibility: hidden;
+}
+#introDiv {
+    position: absolute;
+top: 75px;
+right:auto;
+bottom: auto;
+left: 350px; 
+background-color: chocolate;
+z-index:+1;
+text-align: center;
+width: 500px;
+height:390px;
+border: 3px groove black;
+border-radius: 34px;
+display: block;
+}
+
+#userInput {
+    text-align: center;
+    margin-right:auto;
+    margin-left: auto;
+    width: 60%;
+            display:block; 
+}
+#PromptDiv {
+            display:block;
+            width: 200px;
+            text-align: center;
+            margin-right:auto;
+    margin-left: auto;
+        }
+#gameLogoImg2 {
+            width: 160px;
+            height:auto;
+        }

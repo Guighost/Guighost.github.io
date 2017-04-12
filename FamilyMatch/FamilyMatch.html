@@ -1,0 +1,104 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Family Match</title>
+    <link type="text/css" rel="stylesheet" href="../layoutstylesheet.css" />
+    <link type="text/css" rel="stylesheet" href="../Animate.css" />
+    <link type="text/css" rel="stylesheet" href="../navstylesheet.css" />
+    <link type="text/css" rel="stylesheet" href="famMatch.css" />
+    
+</head>
+<body onload="newBoard()">
+    <video autoplay loop poster="../Video/MysticRed.mp4" id="bgvid">
+
+        <source src="../Video\MysticRed.mp4" type="video/mp4">
+    </video>
+    <!--AUDIO Files-->
+    <audio id="gameSoundLoop" loop autoplay>
+        <source src="Sounds\FamMatchLoop.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+    <audio id="MatchSound">
+        <source src="Sounds\chimes-short1.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+
+    <audio id="invalidSound">
+        <source src="Sounds\invalid.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+    <audio id="victorySound">
+        <source src="Sounds\victory.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+        <!--End Audio Files-->
+
+    <div id="nav">
+    <ul>
+        <li><a href="../TestLayout.html" id="A1" title="Ready to Go Home?">Home</a></li>
+        <li><a href="../TestLayout2.html" id="A2" title="Who are we">About</a></li>
+        <li>
+            <a href="#">Services</a>
+            <ul>
+                <li></li>
+                <li><a href="HomeServices.html" id="A5">Home Services</a></li>
+                <li><a href="QualityAnalysis.html" id="A7">Contract QA</a></li>
+
+            </ul>
+
+        </li>
+        <li><a href="../TestLayout4.html" id="A4">Contact Us</a></li>
+        <li>
+            <a href="#">Fun Stuff</a>
+            <ul>
+                <li></li>
+                <li><a href="../TestLayout3.html" id="A5">Fun Stuff</a></li>
+                <li><a href="../Savannah.html" id="A7">Papa Elmo's Girl</a></li>
+                <li><a href="../JavaDragonSlayer/JavaGame1.html" id="A6">Java Dragon Slayer</a> </li>
+                <li><a href="../AoGL/AoGL.html" id="A8">Adventures of GuiLord</a> </li>
+                <li><a href="FamilyMatch.html" id="A9">Family Match</a> </li>
+                <li><a href="../GuiGems/Gems.html" id="A9">GuiGems</a> </li>
+                <li><a href="../Mah-Gui-jong/mah-Gui-jong.html" id="A11">Mah-Gui-Jong</a> </li>
+            </ul>
+
+        </li>
+    </ul>
+        <img id="banner1" class="expandOpen clsrounded" ;  src="../Images/BurnettSoft_Logo1.PNG" />
+    </div>
+    <br />
+    <br />
+   <div id ="sideBar1">
+       <a ><img id="gameLogoImg" src="Images/FamilyPhotoMatchLogo1.png" /></a>
+       <p id="plyrNameLabel"><strong>Player Name</strong><p></p>
+       
+       <p id="playerName">Enter Name</p>
+       <p id="Score"></p>
+       <p id="TopTitle"><strong>Top Scores</strong> <br/> (low is best)</p>
+      
+       <table id="scoreList">
+           <thead><tr><td >Player</td><td>Score</td></tr></thead>
+           <tr><td id="best1Name">Zack</td><td id="best1Val">45</td></tr>
+           <tr><td id="best2Name">George</td><td id="best2Val">46</td></tr>
+           <tr><td id="best3Name">J-Rizzle</td><td id="best3Val">50</td></tr>
+           <tr><td id="best4Name">Bart</td><td id="best4Val">55</td></tr>
+           <tr><td id="best5Name"> Jackson</td><td id="best5Val">60</td></tr>
+       </table>
+       <br/>
+       <btn id="newPlyr" onclick="newPlyr1()">New Player</btn>
+   </div>
+        <div id="memory_board"></div>
+    <br/>
+       <div id= "introDiv"> 
+        <h1>Family Photo Match</h1>
+           <a><img id="gameLogoImg2" src="Images/FamilyPhotoMatchLogo1.png" /></a>
+        <h3>Enter player name below and click submit to start</h3>
+           <div id="PromptDiv">
+
+               <input type="text" id="userInput" />
+               <button id="submitter">Submit</button>
+
+           </div></div>
+    <script src="famMatch.js" type="text/javascript"></script>  
+   
+</body>
+</html>

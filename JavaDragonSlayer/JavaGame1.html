@@ -1,0 +1,408 @@
+﻿<!DOCTYPE html>
+
+<html>
+	<head>
+        <meta charset="UTF-8">
+		<link type="text/css" rel="stylesheet" href="JS_layoutstylesheet.css" />
+        <link rel="stylesheet" href="JS_Animate.css">
+        <link type="text/css" rel="stylesheet" href="navstylesheet.css" />
+		<title >Java Dragon Slayer</title>
+	   
+	</head>
+	<body align: "center">
+        <script src="scripts\DragonSlayer_scripts.js"></script>
+                 
+		<!--<div id="BannerDiv" style="text-align: center;">-->
+<!--AUDIO Files-->
+           <audio  id="Audio1"  loop>
+  <source src="Sounds\Story_Start.mp3" type="audio/mp3">
+  Your browser does not support the audio element.
+</audio>
+            <audio  id="Audio2">
+  <source src="Sounds\Swords_Clashing.mp3" type="audio/mp3">
+  Your browser does not support the audio element.
+</audio>
+            <audio  id="Audio3" autoplay>
+  <source src="Sounds\DragonRoar2.mp3" type="audio/mp3">
+  Your browser does not support the audio element.
+</audio>
+   <audio  id="AudioVictory">
+  <source src="Sounds\victory_fanfare.mp3" type="audio/mp3">
+  Your browser does not support the audio element.
+</audio>
+            <audio  id="healSound">
+  <source src="Sounds\enchant.mp3" type="audio/mp3">
+  Your browser does not support the audio element.
+</audio>
+
+<audio  id="DeathSound">
+  <source src="Sounds\die.mp3" type="audio/mp3">
+  Your browser does not support the audio element.
+</audio>
+            <audio  id="playerHurt">
+  <source src="Sounds\pain.mp3" type="audio/mp3">
+  Your browser does not support the audio element.
+</audio>
+            <audio  id="spellSound1">
+  <source src="Sounds\spell1.mp3" type="audio/mp3">
+  Your browser does not support the audio element.
+</audio>
+<!--end audio files-->
+<!--Video files-->
+            <video autoplay loop poster="Video\MysticRed.mp4" id="bgvid">
+  
+  <source src="Video\MysticRed.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+
+<!--------------------------------------Start Inventory Modal------------------------------------------------------>
+<div id="nav">
+<ul>
+    <li><a href="../testlayout.html" id="A2" title="Ready to Go Home?">Home</a></li>
+    <li><a href="../testlayout2.html"id="A3" title="Who are we">About</a></li>
+    <li>
+        <a href="#">Services</a>
+        <ul>
+            <li></li>
+            <li><a href="HomeServices.html" id="A5">Home Services</a></li>
+            <li><a href="QualityAnalysis.html" id="A7">Contract QA</a></li>
+
+        </ul>
+
+    </li>
+    <li><a href="../testlayout4.html"  id="A5">Contact Us</a></li>
+    <li><a href="#">Fun Stuff</a>
+        <ul>
+            <li></li>            
+             <li><a href="../testlayout3.html" id="A6">Fun Stuff</a></li>
+            <li><a href="../Savannah.html" id="A7">Papa Elmo's Girl</a></li>
+             <li><a href="../JavaDragonSlayer/JavaGame1.html"  id="A8">Java Dragon Slayer</a> </li>
+            <li><a href="AoGL/AoGL.html" id="A8">Adventures of GuiLord</a> </li>
+            <li><a href="../FamilyMatch/FamilyMatch.html" id="A9">Family Match</a> </li>
+            <li><a href="../GuiGems/Gems.html" id="A9">GuiGems</a> </li>
+            <li><a href="../Mah-Gui-jong/mah-Gui-jong.html" id="A11">Mah-Gui-Jong</a> </li>
+                </ul>
+           
+        </li>
+</ul>
+ 
+<br class="clearboth"/>
+ 
+</div>
+<div id="openModal" class="modalDialog">
+	<div class="inventoryBorder">
+		<a href="#close" title="Close" class="close">X</a>
+		<span><img id="backpack2" class="clsrounded" src="Images/backpack.jpg" onclick ="showInventory();" /> </span> <h2 id="invTitle">Inventory</h2>
+<!--Sheild Stats-->  
+        
+        <div id="shieldStats" > 
+         <span>  
+              <img id="shieldDetailImg" class="clsDetailImage" src="images/shieldinv1.png" onclick="showInventory();" /> 
+            </span> 
+            <h3 id="shieldName" class="clsItemname">Wooden Shield</h3>
+            <table id="itemStats1" class="clsItemStatTables inventoryBorder"> 
+                <tr><td><p><strong>Attribute</strong></p></td><td><strong>Modifier</strong></td><td><strong>Item Details</strong></td></tr>
+                <tr><td><p>Armor</p></td><td>+2</td><td rowspan="3">This iron bounded wooden shield was made by your uncle back in his adventuring days.</td></tr>
+                <tr><td><p>Block</p></td><td>+3</td></tr>
+                <tr><td><p>Damage Reflect</p></td><td>+1</td></tr>
+            </table>
+        </div>
+        
+<!--Chest Stats-->
+            <div id="chestStats">
+                
+                <img id="chestDetailImg"  class="clsDetailImage" src="images/chest1.png" onclick="showInventory();" /> 
+              <h3 id="chestName" class="clsItemname"> Leather Jerkin </h3>
+                <table id="itemStats2" class="clsItemStatTables inventoryBorder"> 
+                <tr><td><p><strong>Attribute</strong></p></td><td><strong>Modifier</strong></td> <td><strong>Item Details</strong></td></tr>
+                <tr><td><p>Armor</p></td><td id="chestArmor1">+5</td><td rowspan="3">A thick Leather chest, offering the basic protection that you would expect.</td></tr>
+                <tr><td><p id =" ">Fire resist</p></td><td id ="chestFire1">+3</td></tr>
+                <tr><td><p>Cold resist</p></td><td id ="chestCold1">+0</td></tr>
+            </table>
+            </div>
+         <div id="chestStats2">
+                <img id="chestdetailImg2"  class="clsDetailImage" src="images/chest_chain.png" onclick="showInventory();" /> 
+                <h3 id="chestChainName" class="clsItemname"> ChainMail Chest </h3>
+                <table id="itemStats12" class="clsItemStatTables inventoryBorder"> 
+                    <tr><td><p><strong>Attribute</strong></p></td><td><strong>Modifier</strong></td> <td><strong>Item Details</strong></td></tr>
+                    <tr><td><p>Armor</p></td><td id ="chestArmor2">+10</td><td rowspan="3">A tightly woven metal mesh that offers decent protection.</td></tr>
+                    <tr><td><p>Fire resist</p></td><td id="chestFire2">+5</td></tr>
+                    <tr><td><p>Cold resist</p></td><td id ="chestCold2">+3</td></tr>
+                </table>
+            </div>
+<!--Helm Stats-->
+        <div id="helmStats">
+                
+                
+            
+            <img id="helmDetailImg" class="clsDetailImage" src="images/hood1.png" onclick="showInventory();" /> 
+            <h3 id="helmName" class="clsItemname"> Leather Helm </h3>
+            <table id="itemStats3" class="clsItemStatTables inventoryBorder"> 
+                <tr><td><p><strong>Attribute</strong></p></td><td><strong>Modifier</strong></td><td><strong>Item Details</strong></td></tr>
+                <tr><td><p>Armor</p></td><td>+5</td><td rowspan="3">A Leather Helm that offers basic protection for your noggin</td></tr>
+                <tr><td><p>Fire resist</p></td><td>+1</td></tr>
+                <tr><td><p>Cold resist</p></td><td>+1</td></tr>
+            </table>
+            </div>
+<!--Sword Stats-->
+        <div id="swordStats">
+                
+                <img id="swordDetailImg" class="clsDetailImage" src="images/swordinv1.png" onclick="showInventory();" /> 
+                <h3 id="swordName" class="clsItemname"> Iron Sword </h3>
+                <table id="itemStats4" class="clsItemStatTables inventoryBorder"> 
+                <tr><td><p><strong>Attribute</strong></p></td><td><strong>Modifier</strong></td><td><strong>Item Details</strong></td></tr>
+                <tr><td><p>Attack Power</p></td><td>+5</td><td rowspan="3">An Iron Sword, the staple of any adventurer that needs to kick butt!</td></tr>
+                <tr><td><p>Fire damage</p></td><td>+1</td></tr>
+                <tr><td><p>Cold damage</p></td><td>+1</td></tr>
+            </table>
+            </div>
+<!--Glove Stats-->
+        <div id="gloveStats">
+               
+                <img id="gloveDetailImg" class="clsDetailImage" src="images/gloveinv1.jpg" onclick="showInventory();" /> 
+                <h3 id="gloveName" class="clsItemname"> Leather Gloves</h3>
+                <table id="itemStats5" class="clsItemStatTables inventoryBorder"> 
+                <tr><td><p><strong>Attribute</strong></p></td><td><strong>Modifier</strong></td><td><strong>Item Details</strong></td></tr>
+                <tr><td><p>Armor</p></td><td>+5</td><td rowspan="3"> Leather gloves that offers protection from fire for your hands in battle.</td></tr>
+                <tr><td><p>Fire resist</p></td><td>+3</td></tr>
+                <tr><td><p>Cold resist</p></td><td>+1</td></tr>
+            </table>
+            </div>
+<!--Neck Stats-->
+        <div id="neckStats" class="clsStatsDiv ">
+                
+                <img id="neckDetailImg" class="clsDetailImage" src="images/icon_necklace2.png" onclick="showInventory();" /> 
+            <h3 id="neckName" class="clsItemname"> Stone Necklace</h3>
+            <table id="itemStats6" class="clsItemStatTables inventoryBorder"> 
+                <tr><td><p><strong>Attribute</strong></p></td><td><strong>Modifier</strong></td><td><strong>Item Details</strong></td></tr>
+                <tr><td><p>Armor</p></td><td id="neckArmor1">+1</td><td rowspan="3">This stone necklace was given to you by your father.</td></tr>
+                <tr><td><p>Attack Power</p></td><td id="neckAttack1">+1</td></tr>
+                <tr><td><p>Magic Power</p></td><td id="neckMagic1">+1</td></tr>
+            </table>
+            </div>
+        <div id="neckStats2">
+            <img id="neckDetailImg2" class="clsDetailImage" src="images/icon_necklace3.png" onclick="showInventory();" /> 
+            <h3 id="neck2Name" class="clsItemname"> Tooth of Power</h3>
+            <table id="itemStats11" class="clsItemStatTables inventoryBorder"> 
+                <tr><td><p><strong>Attribute</strong></p></td><td><strong>Modifier</strong></td><td><strong>Item Details</strong></td></tr>
+                <tr><td><p>Armor</p></td><td id="neckArmor2">+3</td><td rowspan="3">Ripped from the dead dragon's mouth, the tooth of power offers a boost to attack power and magic</td></tr>
+                <tr><td><p>Attack Power</p></td><td id="neckAttack2">+2</td></tr>
+                <tr><td><p>Magic Power</p></td><td id="neckMagic2">+2</td></tr>
+            </table>
+            </div>
+<!--Gauntlet Stats-->
+        <div id="gauntStats" class="clsStatsDiv">
+              <img id="gauntDetailImg" class="clsDetailImage" src="images/guantlet1.png" onclick="showInventory();" /> 
+            <h3 id="gauntName" class="clsItemname"> Leather Gauntlets</h3>
+            <table id="itemStats7" class="clsItemStatTables inventoryBorder"> 
+                <tr><td><p><strong>Attribute</strong></p></td><td><strong>Modifier</strong></td><td><strong>Item Details</strong></td></tr>
+                <tr><td><p>Armor</p></td><td>+1</td><td rowspan="3">Protection for your arms from those nasty dragon claws</td></tr>
+                <tr><td><p>Fire Resist</p></td><td>+1</td></tr>
+                <tr><td><p>Cold resist</p></td><td>+1</td></tr>
+            </table>
+            </div>
+
+ <!--Stats Table-->
+    <a >   <table id= "statNumbs" > 
+             <caption> <h3 >Player Statistics</h3></caption>
+             <tr>  
+                 <td><strong>Stamina</strong></td>
+                    <td id="plyrStamStat" class="clsPlyrStatNorm">10</td>
+                              </tr>
+             <tr> 
+                 <td><strong>Magic Power</strong></td>
+                    <td id="plyrMagicStat" class="clsPlyrStatNorm">5</td>
+                              </tr>
+             <tr>
+                  <td><strong>Attack Power</strong></td>
+                    <td  id="plyrAttackStat" class="clsPlyrStatNorm">5</td>
+                              </tr>
+             <tr> 
+                 <td><strong>Armor</strong></td>
+                    <td id="plyrArmorStat" class="clsPlyrStatNorm">8</td>
+                              </tr>
+             <tr>
+                  <td><strong>Fire resist</strong></td>
+                    <td id="plyrFireStat" class="clsPlyrStatNorm">5</td>
+                              </tr>
+             <tr> 
+                 <td><strong>Cold resist</strong></td>
+                    <td id="plyrColdStat" class="clsPlyrStatNorm">4</td>
+                              </tr>
+             <tr> 
+                 <td><strong>Block</strong></td>
+                    <td id="plyrBlockStat" class="clsPlyrStatNorm">3</td>
+                              </tr>
+             <tr> 
+                 <td><strong>Damage Reflect</strong></td>
+                    <td id="plyrDamRflctStat" class="clsPlyrStatNorm">0</td>
+                              </tr>
+         </table>
+        </a>  
+<!--Equiped Table-->
+		<table id="inventory" class="inventoryBorder">
+            <tr>
+                <td><img id="armSlot" class="clsDetailImage" src="images/guantlet1.png" title="Leather Guantlet" onclick="showGauntStats();"/></td>
+                <td><img id="headSlot" class="clsDetailImage"src="images/hood1.png" title="Leather Hood" onclick="showHelmStats();" /></td>
+                <td><img id="neckSlot" class="clsDetailImage"src="images/icon_necklace2.png" title="Stone Necklace" onclick="showNeckStats();"/></td>
+                <td><img id="handSlot" class="clsDetailImage"src="images/gloveinv1.jpg" title="Leather Gloves" onclick="showGloveStats();" /></td>
+            </tr>
+            <tr>
+                <td><img id="weaponSlot" class="clsDetailImage" src="images/swordinv1.png" title="Iron Sword" onclick="showSwordStats();"/></td>
+                <td colspan="2"><img id="chestSlot" class="clsDetailImage" src="images/Chest1.png" title="Leather Jerkin" onclick="showChestStats();" /></td>
+                
+                <td><img id="shieldImage" class="clsDetailImage" src="Images/shieldinv1.png" title= "Wooden Shield" onclick="showShieldStats();" /> </td>
+                
+            </tr>
+            <tr>
+                <td><img id="fingerSlot" class="clsDetailImage" src="images/ring1.jpg" /></td>
+                <td><img id="legSlot" class="clsDetailImage" src="images/pants1.png" /></td>
+                <td><img id="footSlot" class="clsDetailImage" src="images/boots1.png" /></td>
+                <td><img id="waistSlot" class="clsDetailImage" src="images/icon_belt1.png" /></td>
+            </tr>
+		</table>
+ <!--Not Equiped Table-->
+           
+      
+	</div>
+     <div id="bagSlots" class="bagBorder">
+
+     <table id="bagInv">
+            <!--<thead> <p>Bag Inventory</p></thead>-->
+            <tr>
+                <td><img id="slot1" src="Images/openSlot.jpg"  onclick="swapEquip1 ();"/></td>
+                <td><img id="slot2" src="Images/openSlot.jpg"  onclick="swapEquip2 ();"/></td>
+                <td><img id="slot3" src="Images/openSlot.jpg" /></td>
+                <td><img id="slot4" src="Images/openSlot.jpg" /></td>
+                <td><img id="slot5" src="Images/openSlot.jpg" /></td>
+                <!--<td><img id="slot6" src="Images/openSlot.jpg" /></td>-->
+            </tr>
+            <tr>
+                <td><img id="slot7" src="Images/openSlot.jpg" /></td>
+                <td><img id="slot8" src="Images/openSlot.jpg" /></td>
+                <td><img id="slot9" src="Images/openSlot.jpg" /></td>
+                <td><img id="slot10" src="Images/openSlot.jpg" /></td>
+                <td><img id="slot11" src="Images/openSlot.jpg" /></td>
+               <!-- <td><img id="slot12" src="Images/openSlot.jpg" /></td>-->
+
+            </tr>
+           <!-- <tr>
+                <td><img id="slot13" src="Images/openSlot.jpg" /></td>
+                <td><img id="slot14" src="Images/openSlot.jpg" /></td>
+                <td><img id="slot15" src="Images/openSlot.jpg" /></td>
+                <td><img id="slot16" src="Images/openSlot.jpg" /></td>
+                <td><img id="slot17" src="Images/openSlot.jpg" /></td>
+                <td><img id="slot18" src="Images/openSlot.jpg" /></td>
+
+            </tr>-->
+            
+        </table> 
+        
+    </div>
+</div>
+<!--End Inventory Modal-->
+			
+    <div id="DivMainTables" style="text-align: center;">   
+	<table id="primTable" >
+            <tr>
+                <td width="10%"; rowspan="2" id="menu">
+                 <a href="#openModal" ><img id="backPack" class="slideUp" src="Images/backpack.jpg" onclick="showInventory();" /></a>
+                    
+                    <div id="LevelDiv" class="inventoryBorder slideUp">
+                        
+                       <img id="levelImage"; src= "images\shield1.png"/>
+                        <p class= "Stats" id="LevelValue"> Level <br/> <strong>1</strong></p>
+                        
+                   </div>
+                    <br/>
+                        <br/>
+                   <div id="XP1div" class="inventoryBorder slideUp">
+                        <img id="XPImage"; src= "images\Exp.png"/>
+                  
+                        <p class= "Stats" id="XPValue">100</p>
+                    <br/>
+                     </div>  
+                        <br />
+                    <br />
+                    
+                    <div id ="coin1div" class="inventoryBorder slideUp">
+                        <img id="coin"; src= "images\coin.png"/>
+                    
+                        <p class="Stats" id="CoinValue">100</p>
+                    </div>
+                </td>
+                <td id="javaTitleframe">
+                    <!--<h1 id="GameTitle">Java the Dragon Slayer</h1>-->
+				
+			
+                    
+                <table id="gameArea" style="width:100%;"  class="expandOpen">
+                    <tr>
+                        <td id="Health1" >
+                            <div id="heroImgDiv">
+                            <img id="bodyimageJava2" class="slideRight"; src="images\Hero1.png" />
+                            </div>
+                            <p id="playerName" style="text-align:center">Guiburn</p>
+                            <p id="plyrHPcount">100/100</p>
+                             <div id="plyrprogressBar">
+                                 
+                                 <div id ="plyrinnerbar"> </div>
+                             </div>
+
+                        </td>
+                        <td id="Health2" class="inventoryBorder">
+                            <p><em>Java Dragon Slayer</em></p>
+                            <div id="centerSection" class="slideUp">
+                                <button id="button1" onclick="runGame()" > Start Game!</button>
+                                <br /> 
+                                <img id="potion" alt="" src="Images/HealthPotFull.JPG" style="height: 40px" onclick="funcHeal()"/>
+                                <img id="shieldIcon" alt="" src="Images/shieldIcon2.png" style="height: 40px" onclick="funcShield()"/>
+                                <img id="swordsIcon" alt="" src="Images/swords2.png" style="height: 40px" onclick="slayingLoop()"/>
+                                <img id="holyFire" alt="" src="Images/Spell1.png" style="height: 40px" onclick="funcSpell1()"/>
+                                <img id="treasure1" alt="" src="Images/treasure1.png" style="height: 40px" onclick="getLoot()"/><br />
+                                
+                                <button id="btnNextRound" onclick="nextLevel()" > Proceed to next Round</button>
+
+                            </div>
+                        </td>
+                        <td id="Health3">
+                            
+                            <div id="dragonImgDiv">
+                        <img id="bodyimageJava1" class="slideLeft"; src= "images\dragon1.jpg"/>
+                                <p id="dragonName"style="text-align:center;  "> Infernocious <p id ="drgnHPcount">100/100</p></p>
+                    </div>
+                            
+                           
+                            <div id ="drgnHPbar">
+                                <div id="drgninnerbar"> </div>
+
+                            </div>
+
+                        </td>
+                    </tr>
+                    <tr id="content1" >
+                        <td id ="gamebody1" width= 100%; colspan="3"; rowspan="2";> 
+                            
+                            <canvas id="viewport"> </canvas>
+                            <p id="gameOutput" class="inventoryBorder"></p>
+                        </td>
+                        
+                    </tr>
+                    
+                    </table>
+                    </div>
+
+			</div>
+		</td>
+
+                <td rowspan= "3" id="rightPane" class="auto-style1"><img id="bcrest" src="Images/burnett-crest.png"  /></td>
+            </tr>
+            <tr>
+                
+                <td  id= "footer" STYLE= "text-align: center" color="red"><strong>POWERED BY BURNETT SOFTWARE SOLUTIONS INC.</Strong></td>
+                
+            </tr>
+        </table>
+       </div>
+         </body>
+    </html>
