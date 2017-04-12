@@ -27,21 +27,21 @@ var gem1Image = new Image();
 gem1Image.onload = function () {
     gem1Ready = true;
 }
-gem1Image.src = "images/Gem1.png";
+gem1Image.src = "Images/Gem1.png";
 //gem2Image
 var gem2Ready = false;
 var gem2Image = new Image();
 gem2Image.onload = function () {
     gem2Ready = true;
 }
-gem2Image.src = "images/Gem2.png";
+gem2Image.src = "Images/Gem2.png";
 //gem3Image
 var gem3Ready = false;
 var gem3Image = new Image();
 gem3Image.onload = function () {
     gem3Ready = true;
 }
-gem3Image.src = "images/Gem3.png";
+gem3Image.src = "Images/Gem3.png";
 
 //bonus5Image
 var bonus5Ready = false;
@@ -49,7 +49,7 @@ var bonus5Image = new Image();
 bonus5Image.onload = function () {
     bonus5Ready = true;
 }
-bonus5Image.src = "images/under5Bonus.png";
+bonus5Image.src = "Images/under5Bonus.png";
 
 function MainStart() {
     var currentLevel = 1;
