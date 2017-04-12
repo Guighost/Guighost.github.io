@@ -77,7 +77,7 @@ function randomGems() {
             var gemMod2 = currentLevel + 5;
             if (g > gemMod2) { g = 6 };
             if (g == 0) { g = 1 };
-            var imgSrc = 'Images/gem' + g.toString() + '.png';
+            var imgSrc = 'Images/Gem' + g.toString() + '.png';
             GemImages[i].src = imgSrc;
             GemImages[i].parentNode.className = 'clsGemTD';
         }
@@ -91,7 +91,7 @@ function randomGems() {
             if (g > gemMod2) { g = 6 };
             if (g == 2) { g = currentLevel + 5 };
             if (g <= 1) { g = currentLevel + 6 }
-            var imgSrc = 'Images/gem' + g.toString() + '.png';
+            var imgSrc = 'Images/Gem' + g.toString() + '.png';
             GemImages[i].src = imgSrc;
             GemImages[i].parentNode.className = 'clsGemTD';
         }
@@ -106,7 +106,7 @@ function randomGems() {
             if (g == 3) { g = 5 }
             if (g == 2) { g = 6 }
             if (g <= 1) { g = 7 }
-            var imgSrc = 'Images/gem' + g.toString() + '.png';
+            var imgSrc = 'Images/Gem' + g.toString() + '.png';
             GemImages[i].src = imgSrc;
             GemImages[i].parentNode.className = 'clsGemTD';
         }
@@ -123,7 +123,7 @@ function randomGems() {
             if (g == 2) { g = 7 }
             if (g <= 1) { g = 8 }
             //if (g == 0) { g = 1 };
-            var imgSrc = 'Images/gem' + g.toString() + '.png';
+            var imgSrc = 'Images/Gem' + g.toString() + '.png';
             GemImages[i].src = imgSrc;
             GemImages[i].parentNode.className = 'clsGemTD';
         }
@@ -140,7 +140,7 @@ function randomGems() {
             if (g == 3) { g = 7 }
             if (g == 2) { g = 8 }
             if (g <= 1) { g = 9 }
-            var imgSrc = 'Images/gem' + g.toString() + '.png';
+            var imgSrc = 'Images/Gem' + g.toString() + '.png';
             GemImages[i].src = imgSrc;
             GemImages[i].parentNode.className = 'clsGemTD';
         }
@@ -158,7 +158,7 @@ function randomGems() {
             if (g == 3) { g = 8 }
             if (g == 2) { g = 9 }
             if (g <= 1) { g = 10 }
-            var imgSrc = 'Images/gem' + g.toString() + '.png';
+            var imgSrc = 'Images/Gem' + g.toString() + '.png';
             GemImages[i].src = imgSrc;
             GemImages[i].parentNode.className = 'clsGemTD';
         }
@@ -177,7 +177,7 @@ function randomGems() {
             if (g == 3) { g = 10 }
             if (g == 2) { g = 11 }
             if (g <= 1) { g = 12 }
-            var imgSrc = 'Images/gem' + g.toString() + '.png';
+            var imgSrc = 'Images/Gem' + g.toString() + '.png';
             GemImages[i].src = imgSrc;
             GemImages[i].parentNode.className = 'clsGemTD';
         }
@@ -197,7 +197,7 @@ function randomGems() {
             if (g == 3) { g = 12 }
             if (g == 2) { g = 13 }
             if (g <= 1) { g = 10 }
-            var imgSrc = 'Images/gem' + g.toString() + '.png';
+            var imgSrc = 'Images/Gem' + g.toString() + '.png';
             GemImages[i].src = imgSrc;
             GemImages[i].parentNode.className = 'clsGemTD';
         }
@@ -212,7 +212,7 @@ function randomGems2() {
         var g = Math.round(floor)
         if (g > 7) { g = 7 }
         if (g == 0) { g = 1 };
-        var imgSrc = 'Images/gem' + g.toString() + '.png';
+        var imgSrc = 'Images/Gem' + g.toString() + '.png';
         GemImages[i].src = imgSrc;
         GemImages[i].parentNode.className = 'clsGemTD';
     }
@@ -349,7 +349,7 @@ function resetRow() {
         if (g > gemMod2) { g = 1 };
         if (g == 0) { g = 5 };
 
-        var imgSrc = 'Images/gem' + g.toString() + '.png';
+        var imgSrc = 'Images/Gem' + g.toString() + '.png';
         var yy = i + rowReplaceStart;
         var currentImageId = "img" + yy.toString();
        
@@ -560,7 +560,7 @@ function handleLeftovers() {
             if (g == 2) { g = 13 }
             if (g <= 1) { g = 9 }
         };
-        var imgSrc2 = 'Images/gem' + g.toString() + '.png';
+        var imgSrc2 = 'Images/Gem' + g.toString() + '.png';
         
         var whatTD = t + 1;
         if (t >= 64) { return;}
