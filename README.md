@@ -1,3 +1,3 @@
 # GUI
-This repository is currently a javascript game I made years ago. I plan to expland it with other mini projects in the future
+This repository is currently a location for several javascript games I have made while learning programming, as well as a sample site to house them. 
 
