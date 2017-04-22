@@ -1,9 +1,12 @@
+@import url(https://fonts.googleapis.com/css?family=Oswald:400,300,700);
+@import url(https://fonts.googleapis.com/css?family=Oxygen:400,300,700);
 #menu-4 .navbar-toggler {
   color: #f1c050;
 }
 #slider-5 H2 {
   text-align: left;
-  font-size: 36px;
+  font-size: 48px;
+  color: #ffffff;
 }
 #accordion-block-l .panel-body {
   padding: 15px;
@@ -72,6 +75,48 @@
 #accordion-block-l H1 {
   color: #ffffff;
 }
+#social-buttons2-12 .mbr-section-title {
+  color: #ffffff;
+}
+
+
+
+#header1-o H1 {
+  color: #fff8e0;
+}
+#dropdown-menu-q .hide-buttons [data-button] {
+  display: none !important;
+}
+#dropdown-menu-q .navbar-brand a {
+  font-family: 'Oswald', sans-serif;
+}
+#dropdown-menu-q .nav .link,
+#dropdown-menu-q .dropdown-item {
+  font-size: 1em;
+  color: #e6e0dc;
+  font-family: 'Oswald', sans-serif;
+}
+#dropdown-menu-q .navbar,
+#dropdown-menu-q .dropdown-menu {
+  background: #73581c;
+}
+#dropdown-menu-q .dropdown-menu .dropdown-toggle[aria-expanded="true"],
+#dropdown-menu-q .dropdown-menu a:hover,
+#dropdown-menu-q .dropdown-menu a:focus {
+  background: #634b18;
+}
+#dropdown-menu-q .navbar-toggler {
+  color: #e6e0dc;
+}
+#dropdown-menu-q .navbar-brand a SPAN {
+  font-family: 'Oxygen', sans-serif;
+}
+#msg-box1-s H2 {
+  color: #fff8e0;
+}
+#msg-box1-s P {
+  text-align: left;
+}
 #menu-6 .navbar-toggler {
-  color: #5cb85c;
+  color: #f1c050;
 }
