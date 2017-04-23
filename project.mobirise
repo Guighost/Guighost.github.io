@@ -1,0 +1,1293 @@
+{
+  "settings": {
+    "name": "GhostThoughts",
+    "currentPage": "index.html",
+    "theme": {
+      "name": "purity",
+      "title": "PurityM",
+      "styling": {}
+    },
+    "versionFirst": "3.12.1",
+    "uniqCompNum": 71,
+    "versionPublish": "3.12.1",
+    "favicon": "@PROJECT_PATH@/assets/images/ggfavicon-128x128.png",
+    "noImageResize": "",
+    "google-analytics": "",
+    "html_before": "",
+    "headbody": "<nav class=\"navbar navbar-light mbr-navbar navbar-fixed-top\" id=\"menu-6\" style=\"background-color: rgb(0, 0, 0);\">\r\n    <div class=\"container\">\r\n        <button class=\"navbar-toggler pull-right hidden-md-up\" type=\"button\" data-toggle=\"collapse\" data-target=\"#exCollapsingNavbar2\">\r\n            <div class=\"hamburger-icon\"></div>\r\n        </button>\r\n\r\n        <div class=\"clearfix\"></div>\r\n        <div class=\"collapse navbar-toggleable-sm\" id=\"exCollapsingNavbar2\">\r\n            \r\n            <span><a class=\"navbar-brand text-info\" href=\"ggblog.html\"><span class=\"mbri-idea mbr-iconfont mbr-iconfont-btn\" style=\"color: rgb(245, 209, 95);\"></span>GhosThoughts</a></span>\r\n\r\n            \r\n\r\n            <ul class=\"nav navbar-nav pull-xs-right\"><li class=\"nav-item\"><a class=\"nav-link text-white\" href=\"https://guighost.com\" target=\"_blank\">Home</a></li><li class=\"nav-item\"><a class=\"nav-link text-white\" href=\"https://guighost.com/thoughts\" target=\"_blank\">About</a></li><li class=\"nav-item\"><a class=\"nav-link\" href=\"http://guighost.com/get-social\">Contact</a></li></ul>\r\n        </div>\r\n    </div>\r\n</nav>",
+    "botbody": ""
+  },
+  "pages": {
+    "index.html": {
+      "settings": {
+        "main": true,
+        "title": "",
+        "meta_descr": "",
+        "header_custom": "",
+        "footer_custom": "",
+        "html_before": ""
+      },
+      "components": [
+        {
+          "_inherit": "header1",
+          "alias": "purity/components",
+          "_tags": [
+            "Theme"
+          ],
+          "_name": "header2",
+          "_anchor": "header2-1y",
+          "_params": {
+            "parallax": true,
+            "bgImageRadio": false,
+            "bgImage": "@THEME_PATH@/components/_images/photo-1.jpg",
+            "bgColor": "#8fa7d4",
+            "bgColorRadio": true,
+            "bgVideo": {
+              "url": "https://www.youtube.com/watch?v=uNCr7NdOJgw"
+            },
+            "bgVideoRadio": false,
+            "overlay": false,
+            "overlayOpacity": 0.5,
+            "overlayColor": "#ffffff",
+            "contentAlign": "center",
+            "showTitle": true,
+            "showText": true,
+            "showButtons": false,
+            "showArrow": true
+          },
+          "title": "GhostThoughts",
+          "text": "GuiGhost rambles on about web development tools, environments, and more for setting up your &nbsp;personal web presence, building small business static sites",
+          "buttons": "<a data-app-btn=\"true\" class=\"btn btn-lg btn-warning\" href=\"https://mobirise.com\">Learn More</a>"
+        },
+        {
+          "alias": "purity/components",
+          "_tags": [
+            "Theme"
+          ],
+          "_name": "content4",
+          "_styles": {
+            "P": {
+              "text-align": "center"
+            }
+          },
+          "_anchor": "content4-1f",
+          "_params": {
+            "paddingTop": 3,
+            "paddingBottom": 3,
+            "bgImageRadio": false,
+            "parallax": true,
+            "bgImage": "@THEME_PATH@/components/_images/photo-3.jpg",
+            "bgColor": "#fff",
+            "bgColorRadio": false,
+            "bgVideo": {
+              "width": 1280,
+              "height": 720,
+              "url": "<video autoplay loop poster=\"Video\\MysticRed.mp4\" id=\"bgvid\">      <source src=\"Video\\MysticRed.mp4\" type=\"video/mp4\">"
+            },
+            "bgVideoRadio": true,
+            "overlay": false,
+            "overlayOpacity": 0.5,
+            "overlayColor": "#222",
+            "columns": "3",
+            "showTitles": true,
+            "showCaptions": true
+          },
+          "title1": "Mobirise",
+          "caption1": "Checkout my review of Mobirise, the static site generator that makes putting up small sites quick and painless.<br><b><a href=\"GhostThoughts-Mobirise.html\">Read More</a></b>",
+          "title2": "GitHub Pages",
+          "caption2": "Free &nbsp;hosting for your custom static content . &nbsp;You get one site based on your GitHub user name and &nbsp;unlimited project sites.<br><b><a href=\"GhostThoughts-GitHubPages.html\">Read More</a></b>",
+          "title3": "Enki",
+          "caption3": "Checkout my review of Enki. This great little app helps keep your head in the game when it comes to learning coding.<br><b> <a href=\"GhostThoughts-Enki.html\">Read More</a></b>",
+          "title4": "Unlimited Websites",
+          "caption4": "Mobirise gives you the freedom to develop as many websites as you like given the fact that it is a desktop app."
+        },
+        {
+          "alias": "purity/components",
+          "_tags": [
+            "Theme"
+          ],
+          "_name": "content4",
+          "_anchor": "content4-1w",
+          "_params": {
+            "paddingTop": 3,
+            "paddingBottom": 3,
+            "bgImageRadio": false,
+            "parallax": true,
+            "bgImage": "@THEME_PATH@/components/_images/photo-3.jpg",
+            "bgColor": "#fff",
+            "bgColorRadio": false,
+            "bgVideo": {
+              "width": 1280,
+              "height": 720,
+              "url": "<video autoplay loop poster=\"Video\\MysticRed.mp4\" id=\"bgvid\">      <source src=\"Video\\MysticRed.mp4\" type=\"video/mp4\">"
+            },
+            "bgVideoRadio": true,
+            "overlay": false,
+            "overlayOpacity": 0.5,
+            "overlayColor": "#222",
+            "columns": "3",
+            "showTitles": true,
+            "showCaptions": true
+          },
+          "title1": "General Troubleshooting",
+          "caption1": "10 &nbsp;years in the the business of dealing with software issues will teach you a few things. Here I share some of the things I have picked up along the way.<br>Read More&nbsp;",
+          "title2": "Responsive is Key",
+          "caption2": "It effects everything from your search ranking to how professional you look. In a mobile world, responsive design is key to any successful app or site.<br>Read More<br>",
+          "title3": "Amazon s3",
+          "caption3": "Amazon is known to most of the world for shopping, but you may not know that they are also a powerful file hosting service used by many business.&nbsp;<br>Read More",
+          "title4": "Unlimited Websites",
+          "caption4": "Mobirise gives you the freedom to develop as many websites as you like given the fact that it is a desktop app.",
+          "_styles": {
+            "P": {
+              "text-align": "center"
+            }
+          }
+        },
+        {
+          "alias": "purity/components",
+          "_tags": [
+            "Theme"
+          ],
+          "_name": "menu",
+          "_styles": {
+            ".navbar-toggler": {
+              "color": "#f1c050"
+            }
+          },
+          "_anchor": "menu-4",
+          "_params": {
+            "hamburgerColor": "#f1c050",
+            "sticky": true,
+            "transparent": false,
+            "color": "#000000",
+            "collapsed": true,
+            "logo": false,
+            "showBrand": true,
+            "showButtons": true
+          },
+          "logo": {
+            "image": {
+              "active": true,
+              "src": "@THEME_PATH@/components/_images/logo.png",
+              "height": 128,
+              "alt": "Mobirise",
+              "link": "https://mobirise.com"
+            },
+            "iconFont": {
+              "class": "mbr-iconfont mbr-iconfont-menu",
+              "link": "https://mobirise.com",
+              "size": 0
+            }
+          },
+          "brand": "<a class=\"navbar-brand text-info\" data-app-btn=\"true\" href=\"ggblog.html\" data-app-selector=\".navbar-brand\" data-app-placeholder=\"Type Brand Name\" data-toolbar=\"-mbrBtnMove,-mbrBtnAdd,-mbrBtnRemove,mbrColor\"><span class=\"mbri-idea mbr-iconfont mbr-iconfont-btn\" style=\"color: rgb(245, 209, 95);\"></span>GhostThoughts</a>",
+          "buttons": "<li class=\"nav-item\"><a data-app-btn=\"parent\" class=\"btn btn-secondary-outline\" data-app-selector=\".nav-item .btn\" href=\"https://mobirise.com\">Download</a></li>",
+          "items": "<li class=\"nav-item\"><a data-app-btn=\"parent\" class=\"nav-link text-white\" data-app-selector=\".nav-link\" href=\"Landing.html\" target=\"_blank\">Home</a></li><li class=\"nav-item\"><a data-app-btn=\"parent\" class=\"nav-link text-white\" data-app-selector=\".nav-link\" href=\"index.html\" target=\"_blank\">Articles</a></li> <li class=\"nav-item\"><a data-app-btn=\"parent\" class=\"nav-link text-white\" data-app-selector=\".nav-link\" href=\"http://www.guighost.com\" target=\"_blank\">GuiGhost</a></li><li class=\"nav-item\"><a data-app-btn=\"parent\" class=\"nav-link\" data-app-selector=\".nav-link\" href=\"http://www.guighost.com/get-social\" target=\"_blank\"><span class=\"mbri-user mbr-iconfont mbr-iconfont-btn-parent\" style=\"color: rgb(247, 218, 100);\"></span>Contact</a></li> <li class=\"nav-item\"><a data-app-btn=\"parent\" class=\"nav-link\" data-app-selector=\".nav-link\" href=\"http://guighost.com/get-social\">Contact</a></li>"
+        },
+        {
+          "_afterNavbarItem": ".mbr-section > .mbr-box__magnet",
+          "alias": "purity/components",
+          "_tags": [
+            "Theme"
+          ],
+          "_name": "slider",
+          "_styles": {
+            "H2": {
+              "text-align": "left",
+              "font-size": "48px",
+              "color": "#ffffff"
+            }
+          },
+          "_params": {
+            "autoplay": true,
+            "paddingTop": 3,
+            "paddingBottom": 3,
+            "slides": [
+              {
+                "active": false,
+                "image": "@PROJECT_PATH@/assets/images/imag0269-2000x1123.jpg",
+                "contentAlign": "left",
+                "showTitle": true,
+                "title": "GhostThoughts",
+                "showText": false,
+                "text": "Develop fully responsive, mobile-optimized websites that look amazing on any devices and browsers. Preview how your website will appear on phones, tablets and desktops directly in the visual editor.",
+                "showButtons": false,
+                "buttons": "<a data-app-btn=\"true\" class=\"btn btn-lg btn-danger\" href=\"https://mobirise.com\">For Windows</a> <a data-app-btn=\"true\" class=\"btn btn-lg btn-secondary-outline\" href=\"https://mobirise.com\">For Mac</a>"
+              },
+              {
+                "active": true,
+                "image": "@PROJECT_PATH@/assets/images/imag0262-2000x1123.jpg",
+                "contentAlign": "left",
+                "showTitle": true,
+                "title": "GhostThoughts<br><br>",
+                "showText": false,
+                "text": "Develop fully responsive, mobile-optimized websites that look amazing on any devices and browsers. Preview how your website will appear on phones, tablets and desktops directly in the visual editor.",
+                "showButtons": false,
+                "buttons": "<a data-app-btn=\"true\" class=\"btn btn-lg btn-danger\" href=\"https://mobirise.com\">For Windows</a> <a data-app-btn=\"true\" class=\"btn btn-lg btn-secondary-outline\" href=\"https://mobirise.com\">For Mac</a>"
+              },
+              {
+                "active": false,
+                "image": "@PROJECT_PATH@/assets/images/imag0178-2000x1123.jpg",
+                "contentAlign": "left",
+                "showTitle": true,
+                "title": "GhostThoughts &nbsp;<br><br>",
+                "showText": false,
+                "text": "Develop fully responsive, mobile-optimized websites that look amazing on any devices and browsers. Preview how your website will appear on phones, tablets and desktops directly in the visual editor.",
+                "showButtons": false,
+                "buttons": "<a data-app-btn=\"true\" class=\"btn btn-lg btn-danger\" href=\"https://mobirise.com\">For Windows</a> <a data-app-btn=\"true\" class=\"btn btn-lg btn-secondary-outline\" href=\"https://mobirise.com\">For Mac</a>"
+              },
+              {
+                "active": false,
+                "image": "@PROJECT_PATH@/assets/images/imag0231-2000x1123.jpg",
+                "contentAlign": "right",
+                "showTitle": true,
+                "title": "GhostThoughts<br><br>",
+                "showText": false,
+                "text": "Develop fully responsive, mobile-optimized websites that look amazing on any devices and browsers. Preview how your website will appear on phones, tablets and desktops directly in the visual editor.",
+                "showButtons": false,
+                "buttons": "<a data-app-btn=\"true\" class=\"btn btn-lg btn-danger\" href=\"https://mobirise.com\">For Windows</a> <a data-app-btn=\"true\" class=\"btn btn-lg btn-secondary-outline\" href=\"https://mobirise.com\">For Mac</a>"
+              },
+              {
+                "active": false,
+                "image": "@PROJECT_PATH@/assets/images/imag0240-2000x1123.jpg",
+                "contentAlign": "left",
+                "showTitle": true,
+                "title": "GhostThoughts<br><br>",
+                "showText": false,
+                "text": "Develop fully responsive, mobile-optimized websites that look amazing on any devices and browsers. Preview how your website will appear on phones, tablets and desktops directly in the visual editor.",
+                "showButtons": false,
+                "buttons": "<a data-app-btn=\"true\" class=\"btn btn-lg btn-danger\" href=\"https://mobirise.com\">For Windows</a> <a data-app-btn=\"true\" class=\"btn btn-lg btn-secondary-outline\" href=\"https://mobirise.com\">For Mac</a>"
+              },
+              {
+                "active": false,
+                "image": "@PROJECT_PATH@/assets/images/imag0316-2000x1123.jpg",
+                "contentAlign": "left",
+                "showTitle": true,
+                "title": "GhostThoughts<br><br>",
+                "showText": false,
+                "text": "Develop fully responsive, mobile-optimized websites that look amazing on any devices and browsers. Preview how your website will appear on phones, tablets and desktops directly in the visual editor.",
+                "showButtons": false,
+                "buttons": "<a data-app-btn=\"true\" class=\"btn btn-lg btn-danger\" href=\"https://mobirise.com\">For Windows</a> <a data-app-btn=\"true\" class=\"btn btn-lg btn-secondary-outline\" href=\"https://mobirise.com\">For Mac</a>"
+              },
+              {
+                "active": false,
+                "image": "@PROJECT_PATH@/assets/images/imag0282-2000x1123.jpg",
+                "contentAlign": "right",
+                "showTitle": true,
+                "title": "GhostThoughts<br><br>",
+                "showText": false,
+                "text": "Develop fully responsive, mobile-optimized websites that look amazing on any devices and browsers. Preview how your website will appear on phones, tablets and desktops directly in the visual editor.",
+                "showButtons": false,
+                "buttons": "<a data-app-btn=\"true\" class=\"btn btn-lg btn-danger\" href=\"https://mobirise.com\">For Windows</a> <a data-app-btn=\"true\" class=\"btn btn-lg btn-secondary-outline\" href=\"https://mobirise.com\">For Mac</a>"
+              },
+              {
+                "active": false,
+                "image": "@PROJECT_PATH@/assets/images/imag0186-2000x3560.jpg",
+                "contentAlign": "left",
+                "showTitle": true,
+                "title": "GhostThoughts<br><br>",
+                "showText": false,
+                "text": "Develop fully responsive, mobile-optimized websites that look amazing on any devices and browsers. Preview how your website will appear on phones, tablets and desktops directly in the visual editor.",
+                "showButtons": false,
+                "buttons": "<a data-app-btn=\"true\" class=\"btn btn-lg btn-danger\" href=\"https://mobirise.com\">For Windows</a> <a data-app-btn=\"true\" class=\"btn btn-lg btn-secondary-outline\" href=\"https://mobirise.com\">For Mac</a>"
+              },
+              {
+                "active": false,
+                "image": "@PROJECT_PATH@/assets/images/imag0240-2000x1123.jpg",
+                "overlay": false,
+                "contentAlign": "left",
+                "showTitle": true,
+                "title": "GhostThoughts<br><br>",
+                "showText": false,
+                "text": "Develop fully responsive, mobile-optimized websites that look amazing on any devices and browsers. Preview how your website will appear on phones, tablets and desktops directly in the visual editor.",
+                "showButtons": false,
+                "buttons": "<a data-app-btn=\"true\" class=\"btn btn-lg btn-danger\" href=\"https://mobirise.com\">For Windows</a> <a data-app-btn=\"true\" class=\"btn btn-lg btn-secondary-outline\" href=\"https://mobirise.com\">For Mac</a>"
+              }
+            ],
+            "fullScreen": true,
+            "bgColor": "#ffffff",
+            "showBullets": true
+          },
+          "_anchor": "slider-5",
+          "articleLayout": false
+        },
+        {
+          "alias": "purity/components",
+          "_tags": [
+            "Theme"
+          ],
+          "_name": "social-buttons2",
+          "_styles": {
+            ".mbr-section-title": {
+              "color": "#ffffff"
+            }
+          },
+          "_anchor": "social-buttons2-12",
+          "_params": {
+            "paddingTop": "1",
+            "paddingBottom": "1",
+            "bgImageRadio": false,
+            "parallax": true,
+            "bgImage": "@THEME_PATH@/components/_images/photo-3.jpg",
+            "bgColor": "#000000",
+            "bgColorRadio": true,
+            "overlay": false,
+            "overlayOpacity": 0.5,
+            "overlayColor": "#222"
+          },
+          "text": "Follow Us",
+          "icons": "<a data-app-btn=\"true\" class=\"btn btn-social socicon-bg-twitter\" title=\"Twitter\" target=\"_blank\" href=\"https://twitter.com/mobirise\"><i class=\"socicon socicon-twitter\"></i></a> <a data-app-btn=\"true\" class=\"btn btn-social socicon-bg-facebook\" title=\"Facebook\" target=\"_blank\" href=\"https://www.facebook.com/pages/Mobirise/1616226671953247\"><i class=\"socicon socicon-facebook\"></i></a>  <a data-app-btn=\"true\" class=\"btn btn-social socicon-bg-youtube\" title=\"YouTube\" target=\"_blank\" href=\"https://www.youtube.com/channel/UCt_tncVAetpK5JeM8L-8jyw\"><i class=\"socicon socicon-youtube\"></i></a>    <a data-app-btn=\"true\" class=\"btn btn-social socicon-bg-linkedin\" title=\"LinkedIn\" target=\"_blank\" href=\"https://www.linkedin.com/in/mobirise\" data-toolbar=\"-mbrBtnAdd,-mbrBtnMove,-mbrFonts,-mbrFontSize\"><i class=\"socicon socicon-linkedin\"></i></a> "
+        },
+        {
+          "alias": "purity/components",
+          "_tags": [
+            "Theme"
+          ],
+          "_name": "footer1",
+          "_anchor": "footer1-u",
+          "_params": {
+            "paddingTop": 3,
+            "paddingBottom": 3,
+            "bgImageRadio": false,
+            "parallax": true,
+            "bgImage": "@THEME_PATH@/components/_images/photo-3.jpg",
+            "bgColor": "#26272c",
+            "bgColorRadio": true,
+            "overlay": true,
+            "overlayOpacity": 0.8,
+            "overlayColor": "#444444"
+          },
+          "text": "Copyright (c) 2017 GuiGhost."
+        }
+      ]
+    },
+    "Landing.html": {
+      "settings": {
+        "title": "GhostThoughts",
+        "meta_descr": "Blog Technology Software Development Website Builders"
+      },
+      "components": [
+        {
+          "alias": "purity/components",
+          "_tags": [
+            "Theme"
+          ],
+          "_name": "header1",
+          "_styles": {
+            "H1": {
+              "color": "#fff8e0"
+            },
+            "P": {
+              "color": "#ffffff"
+            }
+          },
+          "_anchor": "header1-o",
+          "_params": {
+            "parallax": true,
+            "bgImageRadio": true,
+            "bgImage": "@PROJECT_PATH@/assets/images/imag0282-2000x1123.jpg",
+            "bgColor": "#fff8e0",
+            "bgColorRadio": false,
+            "bgVideo": {
+              "url": "https://www.youtube.com/watch?v=uNCr7NdOJgw"
+            },
+            "bgVideoRadio": false,
+            "overlay": true,
+            "overlayOpacity": "0",
+            "overlayColor": "#ffffff",
+            "contentAlign": "center",
+            "showTitle": true,
+            "showText": true,
+            "showButtons": true,
+            "showArrow": false
+          },
+          "title": "GhostThoughts",
+          "text": "GuiGhost rambles on about technology, web design, web design tools, and more",
+          "buttons": " <a data-app-btn=\"true\" class=\"btn btn-lg btn-white\" href=\"index.html\" data-toolbar=\"-mbrBtnMove\">Articles</a>"
+        },
+        {
+          "alias": "modalblock",
+          "_tags": [
+            "Extension"
+          ],
+          "_name": "modal-block",
+          "_anchor": "modal-block-r",
+          "_params": {
+            "showModal": false,
+            "blockTitle": "<h1>A subsite of GuiGhost.com</h1>",
+            "text": "<style> \nposition relative;\ntop: 300px;\n</style>\n\n",
+            "myModalId": "myModal",
+            "bgColor": "#000000",
+            "extEdit": false
+          },
+          "blockTitle": "<h1>A subsite of GuiGhost.com</h1>",
+          "text": "<style> \nposition relative;\ntop: 300px;\n</style>\n\n"
+        },
+        {
+          "alias": "purity/components",
+          "_tags": [
+            "Theme"
+          ],
+          "_name": "msg-box1",
+          "_styles": {
+            "H2": {
+              "color": "#fff8e0"
+            },
+            "P": {
+              "text-align": "left"
+            }
+          },
+          "_anchor": "msg-box1-s",
+          "_params": {
+            "paddingTop": "4",
+            "paddingBottom": "4",
+            "bgImageRadio": false,
+            "parallax": true,
+            "bgImage": "@THEME_PATH@/components/_images/photo-3.jpg",
+            "bgColor": "#FFF8E0",
+            "bgColorRadio": false,
+            "bgVideo": {
+              "width": 1280,
+              "height": 720,
+              "url": "http://guighost.github.io/Video/MysticRed.mp4"
+            },
+            "bgVideoRadio": true,
+            "overlay": false,
+            "overlayOpacity": 0.5,
+            "overlayColor": "#222",
+            "inverse": true,
+            "showButtons": false,
+            "showTitle": true,
+            "showText": true
+          },
+          "button": "<a data-app-btn=\"true\" class=\"btn btn-lg btn-danger\" href=\"https://mobirise.com\" data-toolbar=\"-mbrBtnMove\">Start a Journey</a> ",
+          "title": "Looping Video backgrounds&nbsp;",
+          "text": "Can provide an active look for your site."
+        },
+        {
+          "alias": "deltapieditor",
+          "_tags": [
+            "Extension"
+          ],
+          "_name": "deltapieditor",
+          "_anchor": "deltapieditor-t",
+          "_params": {
+            "_customHTML": "<b><u>Custom HTML block <u><b>\n<div class=\"background\">\n    <div class=\"wrapper\">\n        <div class=\"pie spinner\"></div>\n        <div class=\"pie filler\"></div>\n        <div class=\"mask\"></div>\n    </div>\n</div>",
+            "_customCSS": ".background{\n    background:green;\n    z-index: 1000;\n}\n.wrapper {\n  width: 250px;\n  height: 250px;\n  position: relative;\n  margin: 40px auto;\n  background: rgba(0,0,255,1);\n\n}\n\n.wrapper, .wrapper * {\n  -moz-box-sizing: border-box;\n  -webkit-box-sizing: border-box;\n  box-sizing: border-box;\n}\n.wrapper .pie {\n  width: 50%;\n  height: 100%;\n  transform-origin: 100% 50%;\n  position: absolute;\n  background: transparent;\n  border: 5px solid rgba(0,0,0,0.9);\n}\n\n.wrapper .spinner {\n  border-radius: 100% 0 0 100% / 50% 0 0 50%;\n  z-index: 0;\n  border-right: none;\n  -webkit-animation: rota 5s linear infinite;\n}\n\n.wrapper:hover .spinner,\n.wrapper:hover .filler,\n.wrapper:hover .mask {\n  animation-play-state: running;\n}\n\n.wrapper .filler {\n  border-radius: 0 100% 100% 0 / 0 50% 50% 0;\n  left: 50%;\n  opacity: 0;\n  -webkit-animation: opa 5s steps(1, end) infinite reverse;\n  border-left: none;\n}\n\n.wrapper .mask {\n  width: 50%;\n  height: 100%;\n  position: absolute;\n  background: inherit;\n  opacity: 1;\n  -webkit-animation: opa 5s steps(1, end) infinite;\n}\n\n@-webkit-keyframes rota {\n  0% {transform: rotate(0deg);border-color:red;}\n  100% {transform: rotate(360deg);z-index:0;}\n}\n@-webkit-keyframes opa {\n  0% {opacity: 1;}\n  50%, 100% {opacity: 0;}\n}",
+            "bgImageRadio": false,
+            "parallax": false,
+            "bgImage": "http://home.scarlet.be/patrickdegand/assets/images/thumbnail-128x128-4.png",
+            "bgColor": "#3366ff",
+            "bgColorRadio": true
+          },
+          "_customCSS": ".background{\n    background:green;\n    z-index: 1000;\n}\n.wrapper {\n  width: 250px;\n  height: 250px;\n  position: relative;\n  margin: 40px auto;\n  background: rgba(0,0,255,1);\n\n}\n\n.wrapper, .wrapper * {\n  -moz-box-sizing: border-box;\n  -webkit-box-sizing: border-box;\n  box-sizing: border-box;\n}\n.wrapper .pie {\n  width: 50%;\n  height: 100%;\n  transform-origin: 100% 50%;\n  position: absolute;\n  background: transparent;\n  border: 5px solid rgba(0,0,0,0.9);\n}\n\n.wrapper .spinner {\n  border-radius: 100% 0 0 100% / 50% 0 0 50%;\n  z-index: 0;\n  border-right: none;\n  -webkit-animation: rota 5s linear infinite;\n}\n\n.wrapper:hover .spinner,\n.wrapper:hover .filler,\n.wrapper:hover .mask {\n  animation-play-state: running;\n}\n\n.wrapper .filler {\n  border-radius: 0 100% 100% 0 / 0 50% 50% 0;\n  left: 50%;\n  opacity: 0;\n  -webkit-animation: opa 5s steps(1, end) infinite reverse;\n  border-left: none;\n}\n\n.wrapper .mask {\n  width: 50%;\n  height: 100%;\n  position: absolute;\n  background: inherit;\n  opacity: 1;\n  -webkit-animation: opa 5s steps(1, end) infinite;\n}\n\n@-webkit-keyframes rota {\n  0% {transform: rotate(0deg);border-color:red;}\n  100% {transform: rotate(360deg);z-index:0;}\n}\n@-webkit-keyframes opa {\n  0% {opacity: 1;}\n  50%, 100% {opacity: 0;}\n}",
+          "_customHTML": "<b><u>Custom HTML block <u><b>\n<div class=\"background\">\n    <div class=\"wrapper\">\n        <div class=\"pie spinner\"></div>\n        <div class=\"pie filler\"></div>\n        <div class=\"mask\"></div>\n    </div>\n</div></b></u></u></b>"
+        },
+        {
+          "alias": "purity/components",
+          "_tags": [
+            "Theme"
+          ],
+          "_name": "footer1",
+          "_anchor": "footer1-u",
+          "_params": {
+            "paddingTop": 3,
+            "paddingBottom": 3,
+            "bgImageRadio": false,
+            "parallax": true,
+            "bgImage": "@THEME_PATH@/components/_images/photo-3.jpg",
+            "bgColor": "#26272c",
+            "bgColorRadio": true,
+            "overlay": true,
+            "overlayOpacity": 0.8,
+            "overlayColor": "#444444"
+          },
+          "text": "Copyright (c) 2017 GuiGhost."
+        },
+        {
+          "alias": "purity/components",
+          "_tags": [
+            "Theme"
+          ],
+          "_name": "social-buttons1",
+          "_anchor": "social-buttons1-v",
+          "_params": {
+            "paddingTop": 3,
+            "paddingBottom": 3,
+            "bgImageRadio": false,
+            "parallax": true,
+            "bgImage": "@THEME_PATH@/components/_images/photo-3.jpg",
+            "bgColor": "#fff",
+            "bgColorRadio": true,
+            "overlay": false,
+            "overlayOpacity": 0.5,
+            "overlayColor": "#222",
+            "facebook": true,
+            "counters": true,
+            "twitter": true,
+            "google": true
+          },
+          "text": "Share This Page!"
+        },
+        {
+          "alias": "social-feed",
+          "_tags": [
+            "Extension"
+          ],
+          "_name": "feed",
+          "_anchor": "feed-w",
+          "_params": {
+            "paddingTop": 0,
+            "paddingBottom": 0,
+            "youtube": "",
+            "facebook": "mobirise",
+            "twitter": "",
+            "google": "",
+            "postToLoad": 3,
+            "bgImage": "@ADDONS_PATH@/social-feed/feed/assets/comments_bg.jpg",
+            "bgImageRadio": false,
+            "bgColor": "#fff",
+            "bgColorRadio": true,
+            "overlay": true,
+            "overlayOpacity": 0.6,
+            "overlayColor": "#7e9b9f"
+          },
+          "loadsvg": "@PROJECT_PATH@/assets/images/loading.svg"
+        },
+        {
+          "alias": "htmlblock",
+          "_tags": [
+            "Extension"
+          ],
+          "_name": "htmlblock-block",
+          "_anchor": "htmlblock-block-x",
+          "_params": {
+            "blockTitle": "<h3>Block Title</h3>",
+            "HTMLCode": "<h1>HTML Code</h1>",
+            "paddingTop": 20,
+            "bgImageRadio": false,
+            "parallax": true,
+            "bgImage": "images/bg3.jpg",
+            "bgColor": "#fff",
+            "bgColorRadio": true,
+            "overlay": false,
+            "overlayOpacity": 0.5,
+            "overlayColor": "#222",
+            "extEdit": true
+          },
+          "paddingTop": ".block {padding-bottom:0px; padding-top:0px;}",
+          "blockTitle": "<h3>Block Title</h3>",
+          "HTMLCode": "<h1>HTML Code</h1>"
+        },
+        {
+          "alias": "deltapieditor",
+          "_tags": [
+            "Extension"
+          ],
+          "_name": "deltapieditor",
+          "_anchor": "deltapieditor-y",
+          "_params": {
+            "_customHTML": "Custom HTML",
+            "_customCSS": "p{color:white;}",
+            "bgImageRadio": false,
+            "parallax": false,
+            "bgImage": "http://home.scarlet.be/patrickdegand/assets/images/thumbnail-128x128-4.png",
+            "bgColor": "#3366ff",
+            "bgColorRadio": true
+          },
+          "_customCSS": "p{color:white;}",
+          "_customHTML": "Custom HTML"
+        },
+        {
+          "alias": "htmlblock",
+          "_tags": [
+            "Extension"
+          ],
+          "_name": "htmlblock-block",
+          "_anchor": "htmlblock-block-13",
+          "_params": {
+            "blockTitle": "<h1>The Blog site for GuiGhost.com<h1>",
+            "HTMLCode": "<style> \nh1 {\ncolor: azure;\nbody {\nmax-height: 100px;\n}\n</style>\n\n<meta http-equiv=\"refresh\" content=\"3;url=http://www.google.com/\" />",
+            "paddingTop": "0",
+            "bgImageRadio": true,
+            "parallax": true,
+            "bgImage": "images/bg3.jpg",
+            "bgColor": "#000000",
+            "bgColorRadio": false,
+            "overlay": false,
+            "overlayOpacity": 0.5,
+            "overlayColor": "#222",
+            "extEdit": true
+          },
+          "paddingTop": ".block {padding-bottom:0px; padding-top:0px;}",
+          "blockTitle": "<h1>The Blog site for GuiGhost.com<h1>",
+          "HTMLCode": "<style> \nh1 {\ncolor: azure;\nbody {\nmax-height: 100px;\n}\n</style>\n\n<meta http-equiv=\"refresh\" content=\"3;url=http://www.google.com/\" />"
+        }
+      ]
+    },
+    "GhostThoughts-Mobirise.html": {
+      "settings": {
+        "title": "Mobirise website builder",
+        "meta_descr": "Blog Technology Website Builders"
+      },
+      "components": [
+        {
+          "alias": "purity/components",
+          "_tags": [
+            "Theme"
+          ],
+          "_name": "menu",
+          "_styles": {
+            ".navbar-toggler": {
+              "color": "#f1c050"
+            }
+          },
+          "_anchor": "menu-6",
+          "_params": {
+            "hamburgerColor": "#f1c050",
+            "sticky": true,
+            "transparent": false,
+            "color": "#000000",
+            "collapsed": true,
+            "logo": false,
+            "showBrand": true,
+            "showButtons": true
+          },
+          "logo": {
+            "image": {
+              "active": true,
+              "src": "@THEME_PATH@/components/_images/logo.png",
+              "height": 128,
+              "alt": "Mobirise",
+              "link": "https://mobirise.com"
+            },
+            "iconFont": {
+              "class": "mbr-iconfont mbr-iconfont-menu",
+              "link": "https://mobirise.com",
+              "size": 0
+            }
+          },
+          "brand": "<a class=\"navbar-brand text-info\" data-app-btn=\"true\" href=\"ggblog.html\" data-app-selector=\".navbar-brand\" data-app-placeholder=\"Type Brand Name\" data-toolbar=\"-mbrBtnMove,-mbrBtnAdd,-mbrBtnRemove,mbrColor\"><span class=\"mbri-idea mbr-iconfont mbr-iconfont-btn\" style=\"color: rgb(245, 209, 95);\"></span>GhostThoughts</a>",
+          "buttons": "<li class=\"nav-item\"><a data-app-btn=\"parent\" class=\"btn btn-secondary-outline\" data-app-selector=\".nav-item .btn\" href=\"https://mobirise.com\">Download</a></li>",
+          "items": "<li class=\"nav-item\"><a data-app-btn=\"parent\" class=\"nav-link text-white\" data-app-selector=\".nav-link\" href=\"Landing.html\" target=\"_blank\">Home</a></li><li class=\"nav-item\"><a data-app-btn=\"parent\" class=\"nav-link text-white\" data-app-selector=\".nav-link\" href=\"index.html\" target=\"_blank\">Articles</a></li> <li class=\"nav-item\"><a data-app-btn=\"parent\" class=\"nav-link text-white\" data-app-selector=\".nav-link\" href=\"http://www.guighost.com\" target=\"_blank\">GuiGhost</a></li><li class=\"nav-item\"><a data-app-btn=\"parent\" class=\"nav-link\" data-app-selector=\".nav-link\" href=\"http://www.guighost.com/get-social\" target=\"_blank\"><span class=\"mbri-user mbr-iconfont mbr-iconfont-btn-parent\" style=\"color: rgb(247, 218, 100);\"></span>Contact</a></li> <li class=\"nav-item\"><a data-app-btn=\"parent\" class=\"nav-link\" data-app-selector=\".nav-link\" href=\"http://guighost.com/get-social\">Contact</a></li>"
+        },
+        {
+          "alias": "purity/components",
+          "_tags": [
+            "Theme"
+          ],
+          "_name": "header3",
+          "_anchor": "header3-7",
+          "title": "Trying out Mobirise website builder",
+          "_params": {
+            "showMeta": true
+          },
+          "meta": "By GuiGhost posted April 17, 2017"
+        },
+        {
+          "alias": "purity/components",
+          "_tags": [
+            "Theme"
+          ],
+          "_name": "content1",
+          "_anchor": "content1-8",
+          "text": "<p>\"<b>Make your own website in minutes\", </b>that was slogan. Well it is pretty darn close! Mobirise is a&nbsp;drag and drop, edit, and publish mobile friendly websites application that you download and install. I decided to try it out and this page is a product of the app. </p><p><b>The App</b>: Mobrise comes with some built in templates, a few more you can download, and then the more complex \"blocks\" can be purchased individually or as a package. This relies mostly on Bootstrap templates and an engine that installs as a a local application. The setup was easy and quick. After just a few minutes of install and setup,I was able to quickly create and publish static content to github pages with ease, using a drag and drop interface. Users are able to manage multiple site projects, and publish each one separately. Other options include the ability to save custom \"blocks\" that can be used as templates. You could, for instance use the application as an easy publisher &nbsp;for a blog post or informational article, without the need to know coding.</p><p>&nbsp;<b> User Community</b>: &nbsp;Next I delved into the user community available. I found several sites that have additional \"User Blocks\" to be imported using the Extensions menu. Once done, these items are added into the drag and drop site builder menus, expanding the free content. I have tried out several already. Here are a few of the sites that host addional Mobirise user blocks for download, both paid and free.</p><ul><li><a href=\"http://https://mobirisethemes.com/\" class=\"text-primary\" target=\"_blank\">Mobirise Themes</a></li><li><a href=\"http://https://mobirise.com/help/unicore-theme-in-mobirise-website-maker-295.html\" target=\"_blank\" class=\"text-primary\">Unicore Theme</a></li><li><a href=\"https://mobiriseicons.com/\" class=\"text-primary\" target=\"_blank\">Mobirise Icons</a></li><li><a href=\"http://mobirisemarket.weebly.com/\" target=\"_blank\" class=\"text-primary\">Mobirise Market</a></li><li><a href=\"http://forums.mobirise.com/\" target=\"_blank\" class=\"text-primary\">Forum</a></li></ul><p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;From the resources above I also found some in which contain custom HTML Blocks where you have even more control. Even better is the fact that the produced content can be edited as any other HTML, CSS, JS file in your IDE after you have produced the front end you want quickly within Mobirise. Frameworks and tooling like this Wordpress / GoDaddy site builder alternative are the wave of the future, so why re-invent the wheel? &nbsp;You might want to check it out if you are interested in a no coding approach to building a mobile friendly, simple website for small to medium businesses. Stay tuned for more or check it our yourself at mobirise.com!<br></p>"
+        },
+        {
+          "_afterNavbarItem": ".mbr-section > .mbr-box__magnet",
+          "alias": "purity/components",
+          "_tags": [
+            "Theme"
+          ],
+          "_name": "slider",
+          "_params": {
+            "autoplay": true,
+            "paddingTop": 3,
+            "paddingBottom": 3,
+            "slides": [
+              {
+                "active": false,
+                "image": "@PROJECT_PATH@/assets/images/mobirise-2000x1008.jpg",
+                "contentAlign": "right",
+                "showTitle": false,
+                "title": "Slide 1",
+                "showText": false,
+                "text": "Develop fully responsive, mobile-optimized websites that look amazing on any devices and browsers. Preview how your website will appear on phones, tablets and desktops directly in the visual editor.",
+                "showButtons": false,
+                "buttons": "<a data-app-btn=\"true\" class=\"btn btn-lg btn-danger\" href=\"https://mobirise.com\">For Windows</a> <a data-app-btn=\"true\" class=\"btn btn-lg btn-secondary-outline\" href=\"https://mobirise.com\">For Mac</a>"
+              },
+              {
+                "active": false,
+                "image": "@PROJECT_PATH@/assets/images/mobirise10-2000x1180.jpg",
+                "contentAlign": "left",
+                "showTitle": false,
+                "title": "Slide 2",
+                "showText": false,
+                "text": "Mobirise is based on Bootstrap 3 - most powerful mobile first framework. Use any bootstrap themes with no extra work.",
+                "showButtons": false,
+                "buttons": "<a data-app-btn=\"true\" class=\"btn btn-lg btn-danger\" href=\"https://mobirise.com\">For Windows</a> <a data-app-btn=\"true\" class=\"btn btn-lg btn-secondary-outline\" href=\"https://mobirise.com\">For Mac</a>"
+              },
+              {
+                "active": false,
+                "image": "@PROJECT_PATH@/assets/images/mobirise7-2000x1188.jpg",
+                "contentAlign": "center",
+                "showTitle": false,
+                "title": "Slide 3",
+                "showText": false,
+                "text": "Choose from the large selection of latest pre-made blocks - jumbotrons, hero images, parallax scrolling, video backgrounds, hamburger menu, sticky header and more.",
+                "showButtons": false,
+                "buttons": "<a data-app-btn=\"true\" class=\"btn btn-lg btn-danger\" href=\"https://mobirise.com\">For Windows</a> <a data-app-btn=\"true\" class=\"btn btn-lg btn-secondary-outline\" href=\"https://mobirise.com\">For Mac</a>"
+              },
+              {
+                "active": true,
+                "image": "@PROJECT_PATH@/assets/images/mobirise9-2000x1262.jpg",
+                "contentAlign": "center",
+                "showTitle": false,
+                "title": "Slide 3",
+                "showText": false,
+                "text": "Choose from the large selection of latest pre-made blocks - jumbotrons, hero images, parallax scrolling, video backgrounds, hamburger menu, sticky header and more.",
+                "showButtons": false,
+                "buttons": "<a data-app-btn=\"true\" class=\"btn btn-lg btn-danger\" href=\"https://mobirise.com\">For Windows</a> <a data-app-btn=\"true\" class=\"btn btn-lg btn-secondary-outline\" href=\"https://mobirise.com\">For Mac</a>"
+              }
+            ],
+            "fullScreen": false,
+            "bgColor": "#ffffff",
+            "showBullets": true
+          },
+          "_anchor": "slider-1b",
+          "articleLayout": false
+        },
+        {
+          "alias": "purity/components",
+          "_tags": [
+            "Theme"
+          ],
+          "_name": "social-buttons1",
+          "_anchor": "social-buttons1-c",
+          "_params": {
+            "paddingTop": "1",
+            "paddingBottom": "1",
+            "bgImageRadio": false,
+            "parallax": true,
+            "bgImage": "@PROJECT_PATH@/assets/images/imag0269-2000x1123.jpg",
+            "bgColor": "#bfc7d6",
+            "bgColorRadio": true,
+            "overlay": false,
+            "overlayOpacity": 0.5,
+            "overlayColor": "#222",
+            "facebook": true,
+            "counters": true,
+            "twitter": true,
+            "google": true
+          },
+          "text": "Share This Page!"
+        },
+        {
+          "alias": "facebook-comments",
+          "_tags": [
+            "Extension"
+          ],
+          "_name": "facebook-comments-block",
+          "_anchor": "facebook-comments-block-b",
+          "_params": {
+            "postsNumber": "10",
+            "bgImage": "@PROJECT_PATH@/assets/images/imag0269-2000x1123.jpg",
+            "bgImageRadio": false,
+            "bgColor": "#ffffff",
+            "bgColorRadio": true,
+            "overlay": false,
+            "overlayOpacity": "0.2",
+            "overlayColor": "#7e9b9f",
+            "socialFacebook": true,
+            "socialGoogle": false,
+            "shortName": "",
+            "socialDisqus": false
+          },
+          "innerText": "<div class=\"facebookPlaceholder\" data-numposts=\"\"><h2>FACEBOOK COMMENTS WILL BE SHOWN ONLY WHEN YOUR SITE IS ONLINE</h2> <img src=\"@PROJECT_PATH@/assets/images/facebook-comments.jpg\"></div>",
+          "innerTextGoogle": "<div class=\"googlePlaceholder\" data-numposts=\"\"><h2>GOOGLE COMMENTS WILL BE SHOWN ONLY WHEN YOUR SITE IS ONLINE</h2> <img src=\"@ADDONS_PATH@/facebook-comments/facebook-comments-block/assets/google-comments.jpg\"></div>",
+          "innerTextDisqus": "<div class=\"disqusPlaceholder\" data-numposts=\"\"><h2>DISQUS COMMENTS WILL BE SHOWN ONLY WHEN YOUR SITE IS ONLINE</h2> <img src=\"@ADDONS_PATH@/facebook-comments/facebook-comments-block/assets/disqus-comments.jpg\"></div>"
+        },
+        {
+          "alias": "purity/components",
+          "_tags": [
+            "Theme"
+          ],
+          "_name": "footer1",
+          "_anchor": "footer1-u",
+          "_params": {
+            "paddingTop": 3,
+            "paddingBottom": 3,
+            "bgImageRadio": false,
+            "parallax": true,
+            "bgImage": "@THEME_PATH@/components/_images/photo-3.jpg",
+            "bgColor": "#26272c",
+            "bgColorRadio": true,
+            "overlay": true,
+            "overlayOpacity": 0.8,
+            "overlayColor": "#444444"
+          },
+          "text": "Copyright (c) 2017 GuiGhost."
+        }
+      ]
+    },
+    "GhostThoughts-GitHubPages.html": {
+      "settings": {
+        "title": "GhostThoughts-GitHubPages",
+        "meta_descr": "Technology Hosting Websites Free Web Development"
+      },
+      "components": [
+        {
+          "alias": "purity/components",
+          "_tags": [
+            "Theme"
+          ],
+          "_name": "menu",
+          "_styles": {
+            ".navbar-toggler": {
+              "color": "#f1c050"
+            }
+          },
+          "_anchor": "menu-14",
+          "_params": {
+            "hamburgerColor": "#f1c050",
+            "sticky": true,
+            "transparent": false,
+            "color": "#000000",
+            "collapsed": true,
+            "logo": false,
+            "showBrand": true,
+            "showButtons": true
+          },
+          "logo": {
+            "image": {
+              "active": true,
+              "src": "@THEME_PATH@/components/_images/logo.png",
+              "height": 128,
+              "alt": "Mobirise",
+              "link": "https://mobirise.com"
+            },
+            "iconFont": {
+              "class": "mbr-iconfont mbr-iconfont-menu",
+              "link": "https://mobirise.com",
+              "size": 0
+            }
+          },
+          "brand": "<a class=\"navbar-brand text-info\" data-app-btn=\"true\" href=\"ggblog.html\" data-app-selector=\".navbar-brand\" data-app-placeholder=\"Type Brand Name\" data-toolbar=\"-mbrBtnMove,-mbrBtnAdd,-mbrBtnRemove,mbrColor\"><span class=\"mbri-idea mbr-iconfont mbr-iconfont-btn\" style=\"color: rgb(245, 209, 95);\"></span>GhostThoughts</a>",
+          "buttons": "<li class=\"nav-item\"><a data-app-btn=\"parent\" class=\"btn btn-secondary-outline\" data-app-selector=\".nav-item .btn\" href=\"https://mobirise.com\">Download</a></li>",
+          "items": "<li class=\"nav-item\"><a data-app-btn=\"parent\" class=\"nav-link text-white\" data-app-selector=\".nav-link\" href=\"Landing.html\" target=\"_blank\">Home</a></li><li class=\"nav-item\"><a data-app-btn=\"parent\" class=\"nav-link text-white\" data-app-selector=\".nav-link\" href=\"index.html\" target=\"_blank\">Articles</a></li> <li class=\"nav-item\"><a data-app-btn=\"parent\" class=\"nav-link text-white\" data-app-selector=\".nav-link\" href=\"http://www.guighost.com\" target=\"_blank\">GuiGhost</a></li><li class=\"nav-item\"><a data-app-btn=\"parent\" class=\"nav-link\" data-app-selector=\".nav-link\" href=\"http://www.guighost.com/get-social\" target=\"_blank\"><span class=\"mbri-user mbr-iconfont mbr-iconfont-btn-parent\" style=\"color: rgb(247, 218, 100);\"></span>Contact</a></li> <li class=\"nav-item\"><a data-app-btn=\"parent\" class=\"nav-link\" data-app-selector=\".nav-link\" href=\"http://guighost.com/get-social\">Contact</a></li>"
+        },
+        {
+          "alias": "purity/components",
+          "_tags": [
+            "Theme"
+          ],
+          "_name": "header3",
+          "_anchor": "header3-15",
+          "title": "GitHub Pages - Your free hosting solution",
+          "_params": {
+            "showMeta": true
+          },
+          "meta": "By GuiGhost posted April 22, 2017"
+        },
+        {
+          "alias": "purity/components",
+          "_tags": [
+            "Theme"
+          ],
+          "_name": "content1",
+          "_anchor": "content1-16",
+          "text": "<p>&nbsp;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Do yourself a favor and read up on <a href=\"https://pages.github.com/\" target=\"_blank\">GitHub Pages</a> where you can basically store static web content YOU control for free as long as you are open source. Setup was easy and since you can use javascript, my learning project indy games on the GuiGhost Games page are hosted there.&nbsp;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Aspiring developers looking for easy hosting - checkout GitHub Pages. If you own your own domain, you can also use that while hosting the content there. Like any other Git respository, you can use your IDE of choice to publish directory to your site. Below are a couple of resources for getting up and going with your own custom HTML, CSS, and Javascript pages that you have complete control over.</p><p><a href=\"https://pages.github.com/\">Official Site</a></p><p><a href=\"https://help.github.com/categories/github-pages-basics/\">Guides</a></p>"
+        },
+        {
+          "alias": "purity/components",
+          "_tags": [
+            "Theme"
+          ],
+          "_name": "video2",
+          "_anchor": "video2-17",
+          "media": {
+            "image": {
+              "src": "@THEME_PATH@/components/_images/photo-13.jpg",
+              "width": 1400
+            },
+            "video": {
+              "active": true,
+              "src": "https://youtu.be/2MsN8gpT6jY",
+              "autoplay": false,
+              "loop": false
+            }
+          },
+          "_params": {
+            "showText": true
+          },
+          "text": "Hosting your content free on GitHub is as easy as edit, commit, and you are live!&nbsp;"
+        },
+        {
+          "alias": "purity/components",
+          "_tags": [
+            "Theme"
+          ],
+          "_name": "image2",
+          "_anchor": "image2-18",
+          "media": {
+            "image": {
+              "active": true,
+              "src": "@PROJECT_PATH@/assets/images/githubpages-1400x911.png",
+              "width": 1400,
+              "link": "",
+              "alt": "",
+              "title": "",
+              "linkInNewWindow": false
+            },
+            "video": {
+              "src": "https://www.youtube.com/embed/sOSTC6FM6Bw"
+            }
+          },
+          "_params": {
+            "showText": true
+          },
+          "text": "Create awesome mobile-friendly websites. No coding and free."
+        },
+        {
+          "alias": "purity/components",
+          "_tags": [
+            "Theme"
+          ],
+          "_name": "social-buttons1",
+          "_anchor": "social-buttons1-19",
+          "_params": {
+            "paddingTop": 3,
+            "paddingBottom": 3,
+            "bgImageRadio": false,
+            "parallax": true,
+            "bgImage": "@THEME_PATH@/components/_images/photo-3.jpg",
+            "bgColor": "#fff",
+            "bgColorRadio": true,
+            "overlay": false,
+            "overlayOpacity": 0.5,
+            "overlayColor": "#222",
+            "facebook": true,
+            "counters": true,
+            "twitter": true,
+            "google": true
+          },
+          "text": "Share This Page!"
+        },
+        {
+          "alias": "facebook-comments",
+          "_tags": [
+            "Extension"
+          ],
+          "_name": "facebook-comments-block",
+          "_anchor": "facebook-comments-block-1a",
+          "_params": {
+            "postsNumber": 5,
+            "bgImage": "@ADDONS_PATH@/facebook-comments/facebook-comments-block/assets/comments_bg.jpg",
+            "bgImageRadio": false,
+            "bgColor": "#fff",
+            "bgColorRadio": true,
+            "overlay": true,
+            "overlayOpacity": 0.6,
+            "overlayColor": "#7e9b9f",
+            "socialFacebook": true,
+            "socialGoogle": false,
+            "shortName": "",
+            "socialDisqus": false
+          },
+          "innerText": "<div class=\"facebookPlaceholder\" data-numposts=\"\"><h2>FACEBOOK COMMENTS WILL BE SHOWN ONLY WHEN YOUR SITE IS ONLINE</h2> <img src=\"@PROJECT_PATH@/assets/images/facebook-comments.jpg\"></div>",
+          "innerTextGoogle": "<div class=\"googlePlaceholder\" data-numposts=\"\"><h2>GOOGLE COMMENTS WILL BE SHOWN ONLY WHEN YOUR SITE IS ONLINE</h2> <img src=\"@ADDONS_PATH@/facebook-comments/facebook-comments-block/assets/google-comments.jpg\"></div>",
+          "innerTextDisqus": "<div class=\"disqusPlaceholder\" data-numposts=\"\"><h2>DISQUS COMMENTS WILL BE SHOWN ONLY WHEN YOUR SITE IS ONLINE</h2> <img src=\"@ADDONS_PATH@/facebook-comments/facebook-comments-block/assets/disqus-comments.jpg\"></div>"
+        },
+        {
+          "alias": "purity/components",
+          "_tags": [
+            "Theme"
+          ],
+          "_name": "footer1",
+          "_anchor": "footer1-u",
+          "_params": {
+            "paddingTop": 3,
+            "paddingBottom": 3,
+            "bgImageRadio": false,
+            "parallax": true,
+            "bgImage": "@THEME_PATH@/components/_images/photo-3.jpg",
+            "bgColor": "#26272c",
+            "bgColorRadio": true,
+            "overlay": true,
+            "overlayOpacity": 0.8,
+            "overlayColor": "#444444"
+          },
+          "text": "Copyright (c) 2017 GuiGhost."
+        }
+      ]
+    },
+    "GhostThoughts-Enki.html": {
+      "settings": {
+        "title": "GhostThoughts-Enki",
+        "meta_descr": "Blog Technology Coding Developer Learn Javascript HTML CSS"
+      },
+      "components": [
+        {
+          "alias": "purity/components",
+          "_tags": [
+            "Theme"
+          ],
+          "_name": "menu",
+          "_styles": {
+            ".navbar-toggler": {
+              "color": "#f1c050"
+            }
+          },
+          "_anchor": "menu-1i",
+          "_params": {
+            "hamburgerColor": "#f1c050",
+            "sticky": true,
+            "transparent": false,
+            "color": "#000000",
+            "collapsed": true,
+            "logo": false,
+            "showBrand": true,
+            "showButtons": true
+          },
+          "logo": {
+            "image": {
+              "active": true,
+              "src": "@THEME_PATH@/components/_images/logo.png",
+              "height": 128,
+              "alt": "Mobirise",
+              "link": "https://mobirise.com"
+            },
+            "iconFont": {
+              "class": "mbr-iconfont mbr-iconfont-menu",
+              "link": "https://mobirise.com",
+              "size": 0
+            }
+          },
+          "brand": "<a class=\"navbar-brand text-info\" data-app-btn=\"true\" href=\"ggblog.html\" data-app-selector=\".navbar-brand\" data-app-placeholder=\"Type Brand Name\" data-toolbar=\"-mbrBtnMove,-mbrBtnAdd,-mbrBtnRemove,mbrColor\"><span class=\"mbri-idea mbr-iconfont mbr-iconfont-btn\" style=\"color: rgb(245, 209, 95);\"></span>GhostThoughts</a>",
+          "buttons": "<li class=\"nav-item\"><a data-app-btn=\"parent\" class=\"btn btn-secondary-outline\" data-app-selector=\".nav-item .btn\" href=\"https://mobirise.com\">Download</a></li>",
+          "items": "<li class=\"nav-item\"><a data-app-btn=\"parent\" class=\"nav-link text-white\" data-app-selector=\".nav-link\" href=\"Landing.html\" target=\"_blank\">Home</a></li><li class=\"nav-item\"><a data-app-btn=\"parent\" class=\"nav-link text-white\" data-app-selector=\".nav-link\" href=\"index.html\" target=\"_blank\">Articles</a></li> <li class=\"nav-item\"><a data-app-btn=\"parent\" class=\"nav-link text-white\" data-app-selector=\".nav-link\" href=\"http://www.guighost.com\" target=\"_blank\">GuiGhost</a></li><li class=\"nav-item\"><a data-app-btn=\"parent\" class=\"nav-link\" data-app-selector=\".nav-link\" href=\"http://www.guighost.com/get-social\" target=\"_blank\"><span class=\"mbri-user mbr-iconfont mbr-iconfont-btn-parent\" style=\"color: rgb(247, 218, 100);\"></span>Contact</a></li> <li class=\"nav-item\"><a data-app-btn=\"parent\" class=\"nav-link\" data-app-selector=\".nav-link\" href=\"http://guighost.com/get-social\">Contact</a></li>"
+        },
+        {
+          "alias": "purity/components",
+          "_tags": [
+            "Theme"
+          ],
+          "_name": "header3",
+          "_anchor": "header3-1j",
+          "title": "Enki- the daily reminder to keep coding skills sharp",
+          "_params": {
+            "showMeta": true
+          },
+          "meta": "By GuiGhost posted April 23, 2017"
+        },
+        {
+          "_inherit": "msg-box5",
+          "alias": "purity/components",
+          "_tags": [
+            "Theme"
+          ],
+          "_name": "msg-box4",
+          "_anchor": "msg-box4-1r",
+          "_params": {
+            "imageSize": "23",
+            "paddingTop": 0,
+            "paddingBottom": 0,
+            "bgImageRadio": false,
+            "parallax": true,
+            "bgImage": "@THEME_PATH@/components/_images/photo-3.jpg",
+            "bgColor": "#e6e0dc",
+            "bgColorRadio": true,
+            "bgVideo": {
+              "url": "https://www.youtube.com/watch?v=uNCr7NdOJgw"
+            },
+            "bgVideoRadio": false,
+            "overlay": false,
+            "overlayOpacity": 0.5,
+            "overlayColor": "#fff",
+            "inverse": true,
+            "showTitle": true,
+            "showMeta": false,
+            "showText": true,
+            "showButtons": true
+          },
+          "media": {
+            "image": {
+              "active": true,
+              "width": 1400,
+              "src": "@PROJECT_PATH@/assets/images/enki-1400x1027.png",
+              "link": "https://www.enki.com/",
+              "alt": "",
+              "title": "Go To Enki site",
+              "linkInNewWindow": true
+            },
+            "video": {
+              "src": "https://www.youtube.com/embed/sOSTC6FM6Bw",
+              "aspectratio": "16:9",
+              "autoplay": false,
+              "loop": false
+            },
+            "iconFont": {
+              "class": "mbr-iconfont mbr-iconfont-msg-box4",
+              "link": "",
+              "size": 0
+            }
+          },
+          "title": "Enki",
+          "meta": "By John Smith posted July 30, 2015",
+          "text": "<p>Daily workouts for Dev skills</p>",
+          "button": "<a data-app-btn=\"true\" class=\"btn btn-lg btn-black-outline btn-black\" href=\"https://www.enki.com/\" data-toolbar=\"-mbrBtnMove\" target=\"_blank\">Visit</a> "
+        },
+        {
+          "alias": "purity/components",
+          "_tags": [
+            "Theme"
+          ],
+          "_name": "content1",
+          "_anchor": "content1-1k",
+          "text": "<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>&nbsp;</b>Check out Enki, the Android and IOS app that is perfect for keeping your coding skills sharp. This app uses gamification to keep you interested. Every day you get a reminder to do your daily workout on up to two languages. As you complete the workouts, games are unlocked which also challenge your top of mind knowledge in timed contests that you can come back to in the future.&nbsp;</p><p><b>The App</b>: Enki allows the users to select up to two languages at the time and they are working on adding more everyday. I started using this app several weeks ago. The daily reminders keep me on a steady learning path with exposure to concepts both core and advanced. When you learn something, you can bookmark the explanation for easy future refence. The games range from simple questions to \"True / False challenges.</p><p><b>Languages: </b>Enki currently offers the following languages for daily workouts and they have a good sized list of other languages that you can vote to be in their next release.</p><ul><li>Java</li><li>Javascript</li><li>CSS</li><li>Python</li><li>Git</li><li>Linux</li></ul><p><b>Mobile Friendly</b>: I am running Enki on my phone and find it easy to do my workout whenever I have a few minutes. Enki only requires you to spend about 15 minutes or so a day on the workouts, and rewards you for streaks of days where you have completed all your workouts. Even if I am just standing in a line somewhere, I can whip out my phone and review a concept that I learned about in a past workout. It is a great way to drive home the concepts and syntax of a programming language, in bite sized daily chuncks.</p>"
+        },
+        {
+          "alias": "purity/components",
+          "_tags": [
+            "Theme"
+          ],
+          "_name": "gallery1",
+          "_params": {
+            "paddingTop": 0,
+            "paddingBottom": 0,
+            "images": [
+              {
+                "thumb": "@PROJECT_PATH@/assets/images/enki1-2000x3555-800x1422.png",
+                "image": "@PROJECT_PATH@/assets/images/enki1-2000x3555.png",
+                "active": false
+              },
+              {
+                "thumb": "@PROJECT_PATH@/assets/images/enki2-2000x3555-800x1422.png",
+                "image": "@PROJECT_PATH@/assets/images/enki2-2000x3555.png",
+                "active": false
+              },
+              {
+                "thumb": "@PROJECT_PATH@/assets/images/enki3-2000x3555-800x1422.png",
+                "image": "@PROJECT_PATH@/assets/images/enki3-2000x3555.png",
+                "active": false
+              },
+              {
+                "thumb": "@PROJECT_PATH@/assets/images/enki4-2000x3555-800x1422.png",
+                "image": "@PROJECT_PATH@/assets/images/enki4-2000x3555.png",
+                "active": true
+              }
+            ],
+            "bgColor": "#efefef",
+            "showBullets": true
+          },
+          "_anchor": "gallery1-1q",
+          "articleLayout": false
+        },
+        {
+          "alias": "purity/components",
+          "_tags": [
+            "Theme"
+          ],
+          "_name": "video1",
+          "_anchor": "video1-1v",
+          "_params": {
+            "showText": false
+          },
+          "media": {
+            "image": {
+              "src": "@THEME_PATH@/components/_images/photo-13.jpg",
+              "width": 1400
+            },
+            "video": {
+              "active": true,
+              "src": "https://www.youtube.com/watch?v=iDLeATcc13c",
+              "autoplay": false,
+              "loop": false,
+              "aspectratio": "4:3"
+            }
+          },
+          "text": "Cut down the development time with drag-and-drop website builder."
+        },
+        {
+          "alias": "purity/components",
+          "_tags": [
+            "Theme"
+          ],
+          "_name": "content1",
+          "_anchor": "content1-1t",
+          "text": "<p><b>The Verict:</b> I am really liking the daily workouts, and I am well on my way to working through all of the available learning paths. I try to keep learning as a daily thing, and Enki goes a long way towards helping me to not forget to constantly study. If you want to sharpen your dev skills, have a busy life, and need the daily reminders to keep your coding skills sharp; give Enki a try!</p>"
+        },
+        {
+          "alias": "purity/components",
+          "_tags": [
+            "Theme"
+          ],
+          "_name": "social-buttons1",
+          "_anchor": "social-buttons1-1m",
+          "_params": {
+            "paddingTop": "1",
+            "paddingBottom": "1",
+            "bgImageRadio": false,
+            "parallax": true,
+            "bgImage": "@PROJECT_PATH@/assets/images/imag0269-2000x1123.jpg",
+            "bgColor": "#bfc7d6",
+            "bgColorRadio": true,
+            "overlay": false,
+            "overlayOpacity": 0.5,
+            "overlayColor": "#222",
+            "facebook": true,
+            "counters": true,
+            "twitter": true,
+            "google": true
+          },
+          "text": "Share This Page!"
+        },
+        {
+          "alias": "facebook-comments",
+          "_tags": [
+            "Extension"
+          ],
+          "_name": "facebook-comments-block",
+          "_anchor": "facebook-comments-block-1n",
+          "_params": {
+            "postsNumber": "10",
+            "bgImage": "@PROJECT_PATH@/assets/images/imag0269-2000x1123.jpg",
+            "bgImageRadio": false,
+            "bgColor": "#ffffff",
+            "bgColorRadio": true,
+            "overlay": false,
+            "overlayOpacity": "0.2",
+            "overlayColor": "#7e9b9f",
+            "socialFacebook": true,
+            "socialGoogle": false,
+            "shortName": "",
+            "socialDisqus": false
+          },
+          "innerText": "<div class=\"facebookPlaceholder\" data-numposts=\"\"><h2>FACEBOOK COMMENTS WILL BE SHOWN ONLY WHEN YOUR SITE IS ONLINE</h2> <img src=\"@PROJECT_PATH@/assets/images/facebook-comments.jpg\"></div>",
+          "innerTextGoogle": "<div class=\"googlePlaceholder\" data-numposts=\"\"><h2>GOOGLE COMMENTS WILL BE SHOWN ONLY WHEN YOUR SITE IS ONLINE</h2> <img src=\"@ADDONS_PATH@/facebook-comments/facebook-comments-block/assets/google-comments.jpg\"></div>",
+          "innerTextDisqus": "<div class=\"disqusPlaceholder\" data-numposts=\"\"><h2>DISQUS COMMENTS WILL BE SHOWN ONLY WHEN YOUR SITE IS ONLINE</h2> <img src=\"@ADDONS_PATH@/facebook-comments/facebook-comments-block/assets/disqus-comments.jpg\"></div>"
+        },
+        {
+          "alias": "purity/components",
+          "_tags": [
+            "Theme"
+          ],
+          "_name": "footer1",
+          "_anchor": "footer1-1o",
+          "_params": {
+            "paddingTop": 3,
+            "paddingBottom": 3,
+            "bgImageRadio": false,
+            "parallax": true,
+            "bgImage": "@THEME_PATH@/components/_images/photo-3.jpg",
+            "bgColor": "#26272c",
+            "bgColorRadio": true,
+            "overlay": true,
+            "overlayOpacity": 0.8,
+            "overlayColor": "#444444"
+          },
+          "text": "Copyright (c) 2017 GuiGhost."
+        }
+      ]
+    }
+  }
+}

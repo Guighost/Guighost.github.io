@@ -1,3 +1,9 @@
+#content4-1f P {
+  text-align: center;
+}
+#content4-1w P {
+  text-align: center;
+}
 #menu-4 .navbar-toggler {
   color: #f1c050;
 }
@@ -6,17 +12,14 @@
   font-size: 48px;
   color: #ffffff;
 }
-#content4-1f P {
-  text-align: center;
-}
-#content4-1w P {
-  text-align: center;
-}
 #social-buttons2-12 .mbr-section-title {
   color: #ffffff;
 }
 #header1-o H1 {
   color: #fff8e0;
+}
+#header1-o P {
+  color: #ffffff;
 }
 #msg-box1-s H2 {
   color: #fff8e0;
