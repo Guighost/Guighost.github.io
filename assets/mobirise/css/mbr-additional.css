@@ -1,3 +1,9 @@
+#msg-box4-20 .lead P {
+  color: #ffffff;
+}
+#msg-box4-20 .mbr-section-title {
+  color: #ffffff;
+}
 #content4-1f P {
   text-align: center;
 }
@@ -35,4 +41,45 @@
 }
 #menu-1i .navbar-toggler {
   color: #f1c050;
+}
+#header4-2d H1 {
+  font-size: 46px;
+}
+#header3-2h SMALL {
+  font-size: 16px;
+}
+#header3-2h H3 {
+  text-align: left;
+}
+#menu-26 .navbar-toggler {
+  color: #f1c050;
+}
+#slider-27 H2 {
+  text-align: left;
+  font-size: 36px;
+  color: #ffffff;
+}
+#slider-27 P {
+  color: #ffffff;
+}
+#msg-box4-2a .lead P {
+  color: #000000;
+}
+#msg-box4-2a .mbr-section-title {
+  color: #000000;
+}
+#msg-box2-2m H2 {
+  text-align: center;
+}
+#msg-box2-2n H2 {
+  text-align: center;
+}
+#content5-2g .mbr-section-title {
+  font-size: 36px;
+}
+#msg-box2-2l H2 {
+  text-align: center;
+}
+#social-buttons2-28 .mbr-section-title {
+  color: #ffffff;
 }
