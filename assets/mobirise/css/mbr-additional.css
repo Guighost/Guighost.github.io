@@ -1,3 +1,4 @@
+@import url(https://fonts.googleapis.com/css?family=Oxygen:400,300,700);
 #msg-box4-20 .lead P {
   color: #ffffff;
 }
@@ -10,17 +11,17 @@
 #social-buttons1-2q .mbr-section-title {
   color: #ffffff;
 }
+
 #header1-o H1 {
-  color: #fff8e0;
+  color: #000000;
+  font-size: 36px;
 }
 #header1-o P {
-  color: #ffffff;
+  color: #000000;
 }
-#msg-box1-s H2 {
-  color: #fff8e0;
-}
-#msg-box1-s P {
-  text-align: left;
+#header1-o B {
+  color: #000000;
+  font-family: 'Oxygen', sans-serif;
 }
 #menu-6 .navbar-toggler {
   color: #f1c050;
@@ -91,5 +92,17 @@
   text-align: center;
 }
 #social-buttons2-28 .mbr-section-title {
+  color: #ffffff;
+}
+#header3-35 SMALL {
+  font-size: 16px;
+}
+#header3-35 H3 {
+  text-align: left;
+}
+#menu-36 .navbar-toggler {
+  color: #f1c050;
+}
+#social-buttons2-3i .mbr-section-title {
   color: #ffffff;
 }
