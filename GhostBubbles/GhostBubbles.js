@@ -971,7 +971,7 @@ window.onload = function() {
         player.bubble.y = player.y;
         player.bubble.angle = player.angle;
         player.bubble.tiletype = player.tiletype;
-		var snd = new Audio("sounds/Fireball+3.mp3"); // buffers automatically when created
+		var snd = new Audio("Sounds/Fireball+3.mp3"); // buffers automatically when created
 		snd.play({
 		volume  : "0.2"});
 
