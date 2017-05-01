@@ -21,9 +21,9 @@ window.onload = function() {
     
     // Timing and frames per second
     var lastframe = 0;
-    var fpstime = 0;
+   
     var framecount = 0;
-    var fps = 0;
+ 
     
     var initialized = false;
     
@@ -226,8 +226,7 @@ window.onload = function() {
         var dt = (tframe - lastframe) / 1000;
         lastframe = tframe;
         
-        // Update the fps counter
-        updateFps(dt);
+        
         
         if (gamestate == gamestates.ready) {
             // Game is ready for player input
@@ -677,20 +676,7 @@ window.onload = function() {
         return neighbors;
     }
     
-    function updateFps(dt) {
-        if (fpstime > 0.25) {
-            // Calculate fps
-            fps = Math.round(framecount / fpstime);
-            
-            // Reset time and framecount
-            fpstime = 0;
-            framecount = 0;
-        }
-        
-        // Increase time and framecount
-        fpstime += dt;
-        framecount++;
-    }
+   
     
     // Draw text that is centered
     function drawCenterText(text, x, y, width) {
@@ -771,9 +757,7 @@ window.onload = function() {
         context.font = "12px Verdana";
         context.fillText("made for Lee Burnett", 250, 50);
         
-        // Display fps
-        context.fillStyle = "#ffffff";
-        context.font = "12px Verdana";
+       
      
     }
     
@@ -975,7 +959,7 @@ window.onload = function() {
         player.bubble.y = player.y;
         player.bubble.angle = player.angle;
         player.bubble.tiletype = player.tiletype;
-		var snd = new Audio("Sounds/Fireball+3.mp3"); // buffers automatically when created
+		var snd = new Audio("Sounds/Gum_Bubble_Pop.mp3"); // buffers automatically when created
 		snd.play({
 		volume  : "0.2"});
 
