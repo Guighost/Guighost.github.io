@@ -4,11 +4,11 @@
 <meta charset="UTF-8">
 <title>Ghost Bubbles</title>
 <script type='text/javascript' src='GhostBubbles.js'></script>
-
+<meta name="viewport" content="initial-scale=1">
 <link rel="icon" 
       type="image/png" 
       href="Ghost.ico">
-
+</head>
 <style> 
 body {
 background-image: url("spookyBack.jpg"); 
@@ -17,39 +17,35 @@ background-image: url("spookyBack.jpg");
  background-color: black;
 }
 #viewport {   top:50%;
-  display: block;
+  left:25%;
   padding:15px;
-   
+  -ms-transform: translateX(-50%) translateY(-50%);
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(35%,1%);
 	}
-	#game {
+	canvas {
     padding: 0;
-   border-radius: 15px;
+    margin-left; 30%;
     display: block;
-    position: relative;
-	float: left;
-	max-width: 500px;
+   
 }
 .gameSounds { display: none;}
-
-@media (max-width: 600px){
-#viewport { left:100px;
-} }
-@media all and (max-device-width: 480px), screen and (max-device-width: 480px) {
-    #viewport { width: 95%; float: left; }
-	}
+@viewport{
+    zoom: 1.0;
+    width: extend-to-zoom;
+}
 </style>
-</head>
 <body>
- 
-
-<canvas id="viewport" width="628" height="628"></canvas>
-<!--AUDIO Files-->
+ <!--AUDIO Files-->
     <audio controls volume "0.2" id="gameSoundLoop" class="gameSounds" loop autoplay >
         <source src="Sounds\Diabolus.mp3" type="audio/mp3">
             </audio>
 	<audio id="shootSound" class="gameSounds">
         <source src="Sounds\Fireball+3.mp3" type="audio/mp3">
             </audio>
+<div id="game">
+<canvas id="viewport" width="628" height="628"></canvas>
+</div>
 </body>
 
 </html> 
