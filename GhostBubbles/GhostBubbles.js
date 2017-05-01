@@ -33,12 +33,12 @@ window.onload = function() {
         y: 83,          // Y position
         width: 0,       // Width, gets calculated
         height: 0,      // Height, gets calculated
-        columns: 15,    // Number of tile columns---was originally 15
+        columns: 9,    // Number of tile columns---was originally 15
         rows: 14,       // Number of tile rows
         tilewidth: 40,  // Visual width of a tile
         tileheight: 40, // Visual height of a tile
         rowheight: 34,  // Height of a row
-        radius: 20,     // Bubble collision radius
+        radius: 18,     // Bubble collision radius
         tiles: []       // The two-dimensional tile array
     };
 
@@ -200,9 +200,9 @@ window.onload = function() {
             var loadpercentage = loadcount/loadtotal;
             context.strokeStyle = "#ff8080";
             context.lineWidth=3;
-            context.strokeRect(18.5, 0.5 + canvas.height - 51, canvas.width-37, 32);
+            context.strokeRect(18.5, 0.5 + canvas.height - 51, canvas.width-277, 32);
             context.fillStyle = "#ff8080";
-            context.fillRect(18.5, 0.5 + canvas.height - 51, loadpercentage*(canvas.width-37), 32);
+            context.fillRect(18.5, 0.5 + canvas.height - 51, loadpercentage*(canvas.width-277), 32);
             
             // Draw the progress text
             var loadtext = "Loaded " + loadcount + "/" + loadtotal + " images";
@@ -706,7 +706,7 @@ window.onload = function() {
         var yoffset =  level.tileheight/2;
         
         // Draw level background
-        context.fillStyle = "#8c8c8c";
+        context.fillStyle = "#444343";
         context.fillRect(level.x - 4, level.y - 4, level.width + 8, level.height + 4 - yoffset);
         
         // Render tiles
@@ -755,17 +755,21 @@ window.onload = function() {
     // Draw a frame around the game
     function drawFrame() {
         // Draw background
-        context.fillStyle = "#e8eaec";
-        context.fillRect(0, 0, canvas.width, canvas.height);
+        context.fillStyle = "#303030";
+        context.fillRect(0, 0, (canvas.width - 240), canvas.height);
         
         // Draw header
         context.fillStyle = "#303030";
-        context.fillRect(0, 0, canvas.width, 79);  //was originally 79
+        context.fillRect(0, 0, (canvas.width - 240), 79);  //was originally 79
         
         // Draw title
         context.fillStyle = "#ffffff";
-        context.font = "24px Verdana";
-        context.fillText("  Ghost Bubbles - A game made for Lee Burnett", 10, 30);
+        context.font = "20px Verdana";
+        context.fillText("Ghost Bubbles" , 10, 30);
+		//draw subtitle
+		  context.fillStyle = "#ffffff";
+        context.font = "12px Verdana";
+        context.fillText("made for Lee Burnett", 250, 50);
         
         // Display fps
         context.fillStyle = "#ffffff";
@@ -829,11 +833,11 @@ window.onload = function() {
         context.stroke();
 
         // Draw the angle
-        context.lineWidth = 6;
+        context.lineWidth = 2;
         context.strokeStyle = "#0000ff";
         context.beginPath();
         context.moveTo(centerx, centery);
-        context.lineTo(centerx + 1.5*level.tilewidth * Math.cos(degToRad(player.angle)), centery - 1.5*level.tileheight * Math.sin(degToRad(player.angle)));
+        context.lineTo(centerx + 2.5*level.tilewidth * Math.cos(degToRad(player.angle)), centery - 2.5*level.tileheight * Math.sin(degToRad(player.angle)));
         context.stroke();
         
         // Draw the next bubble
