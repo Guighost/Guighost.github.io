@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<title>Ghost Bubbles</title>
+<script type='text/javascript' src='GhostBubbles2.js'></script>
+<script type='text/javascript' src='touch.js'></script>
+<link rel="icon" 
+      type="image/png" 
+      href="Ghost.ico">
+
+<style> 
+body {
+background-image: url("spookyBack.jpg"); 
+ background-repeat: no-repeat;
+ background-size: 100% 100%;
+ background-color: black;
+}
+#viewport {   top:50%;
+  display: block;
+  padding:15px;
+  margin-left: auto;
+  margin-right: auto;
+   
+	}
+	
+.gameSounds { display: none;}
+
+@media (max-width: 450px){
+#viewport { 
+width:590px;
+} }
+@media (max-width: 320px){
+#viewport { 
+width:590px;
+} }
+</style>
+</head>
+<body>
+ 
+
+<canvas id="canvas" width="628" height="628"></canvas>
+<!--AUDIO Files-->
+    <audio controls volume "0.2" id="gameSoundLoop" class="gameSounds" loop autoplay >
+        <source src="Sounds\Diabolus.mp3" type="audio/mp3">
+            </audio>
+	<audio id="shootSound" class="gameSounds">
+        <source src="Sounds\Fireball+3.mp3" type="audio/mp3">
+            </audio>
+</body>
+
+</html> 
