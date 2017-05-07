@@ -693,11 +693,11 @@ window.onload = function() {
         
         // Draw level background
 		// add linear gradient
-      var grd = context.createLinearGradient(0, 0, canvas.width, canvas.height);
+		var grd = context.createLinearGradient(0, 0, canvas.width, canvas.height);
 		// light blue
-		grd.addColorStop(0, '#00004d');   
+		grd.addColorStop(0, '#ff6699');   
 		// dark blue
-		grd.addColorStop(1, '#1f1f2e');
+		grd.addColorStop(1, '#ffe6ff');
 		context.fillStyle = grd;
         context.fillRect(level.x - 4, level.y - 4, level.width + 8, level.height + 4 - yoffset);
         
@@ -707,9 +707,9 @@ window.onload = function() {
         // Draw level bottom
 		var grd2 = context.createLinearGradient(0, 0, canvas.width, canvas.height);
 		// light blue
-		grd.addColorStop(0, '#332600');   
+		grd.addColorStop(0, '#ff0080');   
 		// dark blue
-		grd.addColorStop(1, '#006600');
+		grd.addColorStop(1, '#668cff');
 		context.fillStyle = grd2;
        
         context.fillRect(level.x - 4, level.y - 4 + level.height + 4 - yoffset, level.width + 8, 2*level.tileheight + 3);
@@ -771,13 +771,13 @@ window.onload = function() {
         context.fillRect(0, 0, (canvas.width - 240), canvas.height);
         
         // Draw header
-        context.fillStyle = "#303030";
+        context.fillStyle = "#660033";
         context.fillRect(0, 0, (canvas.width - 240), 79);  //was originally 79
         
         // Draw title
-        context.fillStyle = "#ffffff";
-        context.font = "20px Verdana";
-        context.fillText("Gui Fruity Bubbles" , 10, 30);
+        context.fillStyle = "#ffd1b3";
+        context.font = "20px Comic Sans MS";
+        context.fillText("Gui Fruity Pop" , 230, 25);
 		//draw subtitle
 		  context.fillStyle = "#ffffff";
         context.font = "12px Verdana";
