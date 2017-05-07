@@ -776,8 +776,8 @@ window.onload = function() {
         
         // Draw title
         context.fillStyle = "#ffffff";
-        context.font = "20px Verdana";
-        context.fillText("Ghost Bubbles" , 10, 30);
+        context.font = "20px Comic Sans MS";
+        context.fillText("Ghost Bubbles" , 235, 30);
 		//draw subtitle
 		  context.fillStyle = "#ffffff";
         context.font = "12px Verdana";
