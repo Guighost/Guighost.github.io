@@ -10,7 +10,7 @@
 <link rel="icon" 
       type="image/png" 
       href="Ghost.ico">
-
+<link type="text/css" rel="stylesheet" href="Animate.css" />
 <style> 
 body {
 background-image: url("http://www.animateit.net/data/media/feb2013/d9058b9219_25488899_o2.gif" ); 
@@ -44,6 +44,14 @@ background-image: url("http://www.animateit.net/data/media/feb2013/d9058b9219_25
   margin-right: auto;
   
 }
+.pops {
+ position: absolute;
+ left: 35%;
+ top: 60%;
+ margin-left: auto;
+  margin-right: auto;
+ display: none;
+}
 @media (max-width: 450px){
 #viewport { 
 width:590px;
@@ -59,7 +67,11 @@ width:460px;
  
 <img id ="logo" src="GuiGhostGameLogo_small.png" alt="Level Up" style="width:103px;height:50px; z-index: 75;">
 <canvas id="viewport" width="628" height="628"></canvas>
+
+<!--Hidden Popups-->
 <img id ="levelup1" src="Level_up_icon.png" alt="Level Up" style="width:304px;height:228px; z-index: 100;">
+<img id ="awesome" class = "pops" src="awesome2.gif" alt="awesome" style="width:206px;height:76px; z-index: 85;">
+<img id ="nice"  class = "pops"  src="nicemove.gif" alt="awesome" style="width:250px;height:80px; z-index: 85;">
 <!--AUDIO Files-->
     <audio controls volume "0.2" id="gameSoundLoop" class="gameSounds" loop autoplay >
         <source src="Sounds\guifruity.mp3" type="audio/mp3">

@@ -302,7 +302,16 @@ window.onload = function() {
     function stateRemoveCluster(dt) {
         if (animationstate == 0) {
             resetRemoved();
-            
+			//show nice pop
+            if (cluster.length > 3 ){ 
+			
+			showBonus(); window.setTimeout(hideBonus, 1500);
+			}
+				//show awesome pop
+			if (cluster.length > 6){ 
+			
+			showBonus2(); window.setTimeout(hideBonus, 1500);
+			}
             // Mark the tiles as removed
             for (var i=0; i<cluster.length; i++) {
                 // Set the removed flag
@@ -316,6 +325,7 @@ window.onload = function() {
             floatingclusters = findFloatingClusters();
             
             if (floatingclusters.length > 0) {
+				
                 // Setup drop animation
                 for (var i=0; i<floatingclusters.length; i++) {
                     for (var j=0; j<floatingclusters[i].length; j++) {
@@ -331,6 +341,7 @@ window.onload = function() {
             
             animationstate = 1;
         }
+		
         
         if (animationstate == 1) {
             // Pop bubbles
@@ -406,6 +417,7 @@ window.onload = function() {
                 }
             }
         }
+		
     }
     
     // Snap bubble to the grid
@@ -1115,3 +1127,9 @@ window.onload = function() {
     // Call init to start the game
     init();
 };
+function showBonus() { document.getElementById("nice").style.display = 'block'; };
+function showBonus2() { document.getElementById("awesome").style.display = 'block'; };
+function hideBonus() {
+		document.getElementById("awesome").style.display = 'none';
+		document.getElementById("nice").style.display = 'none';
+		};
