@@ -695,9 +695,9 @@ window.onload = function() {
 		// add linear gradient
 		var grd = context.createLinearGradient(0, 0, canvas.width, canvas.height);
 		// light blue
-		grd.addColorStop(0, '#ff6699');   
+		grd.addColorStop(0, '#cc0066');   
 		// dark blue
-		grd.addColorStop(1, '#ffe6ff');
+		grd.addColorStop(1, '#33001a');
 		context.fillStyle = grd;
         context.fillRect(level.x - 4, level.y - 4, level.width + 8, level.height + 4 - yoffset);
         
