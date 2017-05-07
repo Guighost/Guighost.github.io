@@ -16,12 +16,12 @@
 // The function gets called when the window is fully loaded
 window.onload = function() {
     // Get the canvas and context
-    var canvas = document.getElementById("canvas");
+    var canvas = document.getElementById("viewport");
     var context = canvas.getContext("2d");
-    
+    var backSound = document.getElementById("gameSoundLoop");
     // Timing and frames per second
     var lastframe = 0;
-   
+    var levelcount = 1;
     var framecount = 0;
  
     
@@ -34,7 +34,7 @@ window.onload = function() {
         width: 0,       // Width, gets calculated
         height: 0,      // Height, gets calculated
         columns: 9,    // Number of tile columns---was originally 15
-        rows: 14,       // Number of tile rows
+        rows: 14,       // Number of tile rows--was 14
         tilewidth: 40,  // Visual width of a tile
         tileheight: 40, // Visual height of a tile
         rowheight: 34,  // Height of a row
@@ -84,7 +84,7 @@ window.onload = function() {
     var bubblecolors = 7;
     
     // Game states
-    var gamestates = { init: 0, ready: 1, shootbubble: 2, removecluster: 3, gameover: 4 };
+    var gamestates = { init: 0, ready: 1, shootbubble: 2, removecluster: 3, gameover: 4, levelUp: 5 };
     var gamestate = gamestates.init;
     
     // Score
@@ -186,7 +186,7 @@ window.onload = function() {
     function main(tframe) {
         // Request animation frames
         window.requestAnimationFrame(main);
-    
+		backSound.volume = 0.3;
         if (!initialized) {
             // Preloader
             
@@ -402,7 +402,7 @@ window.onload = function() {
                     setGameState(gamestates.ready);
                 } else {
                     // No tiles left, game over
-                    setGameState(gamestates.gameover);
+                    setGameState(gamestates.levelUp);
                 }
             }
         }
@@ -692,15 +692,26 @@ window.onload = function() {
         var yoffset =  level.tileheight/2;
         
         // Draw level background
-        context.fillStyle = "#444343";
+		// add linear gradient
+      var grd = context.createLinearGradient(0, 0, canvas.width, canvas.height);
+		// light blue
+		grd.addColorStop(0, '#00004d');   
+		// dark blue
+		grd.addColorStop(1, '#1f1f2e');
+		context.fillStyle = grd;
         context.fillRect(level.x - 4, level.y - 4, level.width + 8, level.height + 4 - yoffset);
         
         // Render tiles
         renderTiles();
         
         // Draw level bottom
-		
-        context.fillStyle = "#656565";
+		var grd2 = context.createLinearGradient(0, 0, canvas.width, canvas.height);
+		// light blue
+		grd.addColorStop(0, '#332600');   
+		// dark blue
+		grd.addColorStop(1, '#006600');
+		context.fillStyle = grd2;
+       
         context.fillRect(level.x - 4, level.y - 4 + level.height + 4 - yoffset, level.width + 8, 2*level.tileheight + 3);
         
         // Draw score
@@ -736,6 +747,21 @@ window.onload = function() {
             drawCenterText("Game Over!", level.x, level.y + level.height / 2 + 10, level.width);
             drawCenterText("Click to start", level.x, level.y + level.height / 2 + 40, level.width);
         }
+		
+		/////// GG- beat the level- create another
+		 if (gamestate == gamestates.levelUp) {
+			context.fillStyle = "rgba(255, 0, 0, 0.8)";
+            context.fillRect(level.x - 4, level.y - 4, level.width + 8, level.height + 2 * level.tileheight + 8 - yoffset);
+            // draw win image
+			document.getElementById("levelup1").style.display = "block";
+            context.fillStyle = "#e6e600";
+            context.font = "24px Verdana";
+            drawCenterText("Level Complete!", level.x, level.y + level.height / 2 + 10, level.width);
+            drawCenterText("Next Level", level.x, level.y + level.height / 2 + 40, level.width);
+        }
+		
+		///////
+		
     }
     
     // Draw a frame around the game
@@ -755,7 +781,7 @@ window.onload = function() {
 		//draw subtitle
 		  context.fillStyle = "#ffffff";
         context.font = "12px Verdana";
-        context.fillText("made for Lee Burnett", 250, 50);
+        context.fillText("Made for Lee Burnett", 250, 50);
         
        
      
@@ -889,7 +915,23 @@ window.onload = function() {
         nextBubble();
         nextBubble();
     }
-    
+    function lvlUp() {
+        
+        levelcount ++;
+		document.getElementById("levelup1").style.display = "none";
+        turncounter = 0;
+        rowoffset = 0;
+        
+        // Set the gamestate to ready
+        setGameState(gamestates.ready);
+        
+        // Create the level
+        createLevel();
+
+        // Init the next bubble and set the current bubble
+        nextBubble();
+        nextBubble();
+    }
     // Create a random level
     function createLevel() {
         // Create a level with random tiles
@@ -955,13 +997,14 @@ window.onload = function() {
     // Shoot the bubble
     function shootBubble() {
         // Shoot the bubble in the direction of the mouse
-        player.bubble.x = player.x;
+        var snd = new Audio("Sounds/Gum_Bubble_Pop.mp3"); // buffers automatically when created
+		snd.play({
+		volume  : "0.2"});
+		player.bubble.x = player.x;
         player.bubble.y = player.y;
         player.bubble.angle = player.angle;
         player.bubble.tiletype = player.tiletype;
-		var snd = new Audio("Sounds/Gum_Bubble_Pop.mp3"); // buffers automatically when created
-		snd.play({
-		volume  : "0.2"});
+		
 
         // Set the gamestate
         setGameState(gamestates.shootbubble);
@@ -1028,12 +1071,19 @@ window.onload = function() {
     function onMouseUp(e) {
         // Get the mouse position
         var pos = getMousePos(canvas, e);
-        
+	
+		
         if (gamestate == gamestates.ready) {
             shootBubble();
         } else if (gamestate == gamestates.gameover) {
             newGame();
         }
+		///// GG Level UP
+		if (gamestate == gamestates.levelUp) {
+			lvlUp();
+		}
+		
+		/////
     }
     
     // Get the mouse position
@@ -1045,6 +1095,23 @@ window.onload = function() {
         };
     }
     
+	function swapBubble() {
+		//get values
+		var oldPlayer =  player.tiletype
+		var oldPlayerBubble = player.bubble.tiletype
+        // Set the current bubble
+        player.tiletype = player.nextbubble.tiletype;
+        player.bubble.tiletype = player.nextbubble.tiletype;
+        player.bubble.x = player.x;
+        player.bubble.y = player.y;
+        player.bubble.visible = true;
+        
+        // Get a random type from the existing colors
+        var nextcolor = getExistingColor();
+        
+        // Set the next bubble
+        player.nextbubble.tiletype = oldPlayerBubble;
+    }
     // Call init to start the game
     init();
 };

@@ -13,8 +13,9 @@
 
 <style> 
 body {
-background-image: url("spookyBack.jpg"); 
- background-repeat: no-repeat;
+background-image: url("http://www.animateit.net/data/media/august2009/ghost18.gif" ); 
+
+
  background-size: 100% 100%;
  background-color: black;
 }
@@ -27,6 +28,15 @@ background-image: url("spookyBack.jpg");
 	}
 	
 .gameSounds { display: none;}
+
+#levelup1 {
+ position: absolute;
+ left: 31%;
+ top: 12%;
+ margin-left: auto;
+  margin-right: auto;
+  display:none;
+}
 
 @media (max-width: 450px){
 #viewport { 
@@ -42,7 +52,8 @@ width:460px;
 <body>
  
 
-<canvas id="canvas" width="628" height="628"></canvas>
+<canvas id="viewport" width="628" height="628"></canvas>
+<img id ="levelup1" src="Level_up_icon.png" alt="Level Up" style="width:304px;height:228px; z-index: 100;">
 <!--AUDIO Files-->
     <audio controls volume "0.2" id="gameSoundLoop" class="gameSounds" loop autoplay >
         <source src="Sounds\Diabolus.mp3" type="audio/mp3">
