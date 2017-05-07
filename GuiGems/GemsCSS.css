@@ -374,3 +374,12 @@ font-weight:bold;
 	}	
     
 }
+@media (max-width: 450px){
+#viewport { 
+width:590px;
+} }
+@media (max-width: 320px){
+#viewport { 
+padding: 15px;
+width:460px;
+} }
