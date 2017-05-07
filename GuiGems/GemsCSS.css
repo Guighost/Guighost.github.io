@@ -375,11 +375,11 @@ font-weight:bold;
     
 }
 @media (max-width: 450px){
-#viewport { 
+#main{
 width:590px;
 } }
 @media (max-width: 320px){
-#viewport { 
+#main { 
 padding: 15px;
 width:460px;
 } }
