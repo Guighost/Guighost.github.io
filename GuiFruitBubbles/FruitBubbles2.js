@@ -1128,7 +1128,8 @@ window.onload = function() {
     init();
 };
 function showBonus() { document.getElementById("nice").style.display = 'block'; };
-function showBonus2() { document.getElementById("awesome").style.display = 'block'; };
+function showBonus2() { document.getElementById("awesome").style.display = 'block';
+document.getElementById("nice").style.display = 'none'; };
 function hideBonus() {
 		document.getElementById("awesome").style.display = 'none';
 		document.getElementById("nice").style.display = 'none';
