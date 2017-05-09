@@ -1124,6 +1124,8 @@ window.onload = function() {
         // Set the next bubble
         player.nextbubble.tiletype = oldPlayerBubble;
     }
+	
+	
     // Call init to start the game
     init();
 };
@@ -1134,3 +1136,5 @@ function hideBonus() {
 		document.getElementById("awesome").style.display = 'none';
 		document.getElementById("nice").style.display = 'none';
 		};
+		
+function hideIntro() { document.getElementById("intro").style.display = 'none'; };

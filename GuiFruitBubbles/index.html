@@ -10,98 +10,8 @@
 <link rel="icon" 
       type="image/png" 
       href="Ghost.ico">
+<link rel="stylesheet" href="bubbles.css">
 
-<style> 
-body {
-background-image: url("http://www.animateit.net/data/media/feb2013/d9058b9219_25488899_o2.gif" ); 
-
-
- background-size: 100% 100%;
- background-color: black;
-}
-#viewport {   top:50%;
-  display: block;
-  padding:15px;
-  margin-left: auto;
-  margin-right: auto;
-   
-	}
-	
-.gameSounds { display: none;}
-
-#levelup1 {
- position: absolute;
- left: 31%;
- top: 12%;
- margin-left: auto;
-  margin-right: auto;
-  display: none;
- 
-}
-#logo {
- position: absolute;
- padding:15px;
-  margin-left: auto;
-  margin-right: auto;
-  
-}
-.pops {
- position: absolute;
- left: 34%;
- top: 50%;
- margin-left: auto;
-  margin-right: auto;
-display: none;
-}
-
-<!--IPad-->
-@media (device-width: 1024px){
-#viewport { 
-width:590px;
-padding-left: 65%;
-
-}
-#levelup1 {left: 2%}
-#nice, #awesome{left: 2%; top:50%;}
- }
- <!--Galaxy s7-->
-@media (device-width: 708px){
-#viewport { 
-width:640px;
-padding-left: 65%;
-
-}
-#levelup1 {left: 2%}
-#nice, #awesome{left: 2%; top:50%;}
- }
-@media (max-width: 450px){
-#viewport { 
-width:590px;
-}
-#levelup1 {left: 8%}
-#nice, #awesome{left: 9%; top:52%;}
- }
-
-@media (max-width: 380px){
-#viewport { 
-padding: 0px;
-width:555px;
-} 
-#levelup1 {left: 6%}
-#nice, #awesome{left: 9%; top:52%;}
-}
-
-
-
-@media (device-width: 320px){
-#viewport { 
-padding-right: 5px;
-width:500px;
-} 
-#levelup1 {left: 3%}
-#nice, #awesome{left: 9%; top:49%;}
-}
-</style>
 </head>
 <body>
  
@@ -112,6 +22,10 @@ width:500px;
 <img id ="levelup1" src="Level_up_icon.png" alt="Level Up" style="width:304px;height:228px; z-index: 100;">
 <img id ="awesome" class = "pops" src="awesome2.gif" alt="awesome" style="width:206px;height:76px; z-index: 85;">
 <img id ="nice"  class = "pops"  src="nicemove.gif" alt="awesome" style="width:250px;height:80px; z-index: 85;">
+<div id ="intro">
+<img id ="fruitylogo" class = "introdiv" src="GuiFruityLogo.gif"></img>
+<a href ="#" id ="playGame" onclick='hideIntro()'>Play Now</a>
+<div>
 <!--AUDIO Files-->
     <audio controls volume "0.2" id="gameSoundLoop" class="gameSounds" loop autoplay >
         <source src="Sounds\guifruity.mp3" type="audio/mp3">
