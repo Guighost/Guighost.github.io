@@ -728,11 +728,11 @@ window.onload = function() {
         
         // Draw score
         context.fillStyle = "#ffffff";
-        context.font = "18px Verdana";
+        context.font = "16px Verdana";
         var scorex = level.x + level.width - 150;
         var scorey = level.y+level.height + level.tileheight - yoffset - 8;
-        drawCenterText("Score:", scorex, scorey, 150);
-        context.font = "24px Verdana";
+        drawCenterText("Level " + levelcount + " Score:", scorex, scorey, 150);
+        context.font = "18px Verdana";
         drawCenterText(score, scorex, scorey+30, 150);
 
         // Render cluster

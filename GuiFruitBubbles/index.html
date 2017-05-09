@@ -10,7 +10,7 @@
 <link rel="icon" 
       type="image/png" 
       href="Ghost.ico">
-<link type="text/css" rel="stylesheet" href="Animate.css" />
+
 <style> 
 body {
 background-image: url("http://www.animateit.net/data/media/feb2013/d9058b9219_25488899_o2.gif" ); 
@@ -35,7 +35,8 @@ background-image: url("http://www.animateit.net/data/media/feb2013/d9058b9219_25
  top: 12%;
  margin-left: auto;
   margin-right: auto;
-  display:none;
+  display: none;
+ 
 }
 #logo {
  position: absolute;
@@ -46,21 +47,51 @@ background-image: url("http://www.animateit.net/data/media/feb2013/d9058b9219_25
 }
 .pops {
  position: absolute;
- left: 35%;
- top: 60%;
+ left: 34%;
+ top: 50%;
  margin-left: auto;
   margin-right: auto;
- display: none;
+display: none;
 }
+
+<!--IPad-->
+@media (device-width: 1024px){
+#viewport { 
+width:590px;
+padding-left: 65%;
+
+}
+#levelup1 {left: 2%}
+#nice, #awesome{left: 2%; top:50%;}
+ }
+ 
 @media (max-width: 450px){
 #viewport { 
 width:590px;
-} }
-@media (max-width: 320px){
+}
+#levelup1 {left: 8%}
+#nice, #awesome{left: 9%; top:52%;}
+ }
+
+@media (max-width: 380px){
 #viewport { 
-padding: 15px;
-width:460px;
-} }
+padding: 0px;
+width:555px;
+} 
+#levelup1 {left: 6%}
+#nice, #awesome{left: 9%; top:52%;}
+}
+
+
+
+@media (device-width: 320px){
+#viewport { 
+padding-right: 5px;
+width:500px;
+} 
+#levelup1 {left: 3%}
+#nice, #awesome{left: 9%; top:49%;}
+}
 </style>
 </head>
 <body>
