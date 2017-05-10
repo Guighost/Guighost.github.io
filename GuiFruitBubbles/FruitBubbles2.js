@@ -764,7 +764,7 @@ window.onload = function() {
 		/////// GG- beat the level- create another
 		 if (gamestate == gamestates.levelUp) {
 			 
-			  playVictory();
+			
 			context.fillStyle = "rgba(255, 0, 0, 0.8)";
             context.fillRect(level.x - 4, level.y - 4, level.width + 8, level.height + 2 * level.tileheight + 8 - yoffset);
             // draw win image
@@ -1128,10 +1128,14 @@ window.onload = function() {
         player.nextbubble.tiletype = oldPlayerBubble;
     }
 	
+
+
 	
     // Call init to start the game
     init();
 };
+function hideIntro() {
+	document.getElementById("intro").style.display = 'none'; };
 function showBonus() {
 var snd2 = new Audio("Sounds/JingleWinSynth0.mp3"); // buffers automatically when created
 		snd2.play({
@@ -1148,10 +1152,3 @@ function hideBonus() {
 		document.getElementById("nice").style.display = 'none';
 		};
 		
-function hideIntro() { document.getElementById("intro").style.display = 'none'; };
-
-function playVictory() {
-	
-	playrun ++;
-	}
-}
