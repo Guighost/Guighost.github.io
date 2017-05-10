@@ -23,7 +23,7 @@ window.onload = function() {
     var lastframe = 0;
     var levelcount = 1;
     var framecount = 0;
- 
+	var playrun= 1;
     
     var initialized = false;
     
@@ -414,6 +414,7 @@ window.onload = function() {
                 } else {
                     // No tiles left, game over
                     setGameState(gamestates.levelUp);
+					playrun = 1;
                 }
             }
         }
@@ -762,6 +763,8 @@ window.onload = function() {
 		
 		/////// GG- beat the level- create another
 		 if (gamestate == gamestates.levelUp) {
+			 
+			  playVictory();
 			context.fillStyle = "rgba(255, 0, 0, 0.8)";
             context.fillRect(level.x - 4, level.y - 4, level.width + 8, level.height + 2 * level.tileheight + 8 - yoffset);
             // draw win image
@@ -1129,8 +1132,16 @@ window.onload = function() {
     // Call init to start the game
     init();
 };
-function showBonus() { document.getElementById("nice").style.display = 'block'; };
-function showBonus2() { document.getElementById("awesome").style.display = 'block';
+function showBonus() {
+var snd2 = new Audio("Sounds/JingleWinSynth0.mp3"); // buffers automatically when created
+		snd2.play({
+		volume  : "0.2"});
+	document.getElementById("nice").style.display = 'block'; };
+function showBonus2() {
+  var snd2 = new Audio("Sounds/JingleWinSynth0.mp3"); // buffers automatically when created
+		snd2.play({
+		volume  : "0.2"});
+	document.getElementById("awesome").style.display = 'block';
 document.getElementById("nice").style.display = 'none'; };
 function hideBonus() {
 		document.getElementById("awesome").style.display = 'none';
@@ -1138,3 +1149,11 @@ function hideBonus() {
 		};
 		
 function hideIntro() { document.getElementById("intro").style.display = 'none'; };
+
+function playVictory() {
+	if (playrun= 1) {var snd = new Audio("Sounds/victory.mp3"); // buffers automatically when created
+		snd.play({
+	volume  : "0.2"});
+	playrun ++;
+	}
+}
