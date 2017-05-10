@@ -1151,9 +1151,7 @@ function hideBonus() {
 function hideIntro() { document.getElementById("intro").style.display = 'none'; };
 
 function playVictory() {
-	if (playrun == 1) {var snd = new Audio("Sounds/victory.mp3"); // buffers automatically when created
-		snd.play({
-	volume  : "0.2"});
+	
 	playrun ++;
 	}
 }
