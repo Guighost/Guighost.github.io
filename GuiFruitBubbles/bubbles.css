@@ -123,7 +123,19 @@ width:555px;
 .introdiv {padding-left 0px; margin-left: 0%;}
 }
 
-
+@media (device-width: 360px){
+#viewport { 
+padding: 0px;
+padding-left: 0px;
+padding-right: 5px;
+margin-left: 1px;
+width:540px;
+} 
+#levelup1 {left: 6%}
+#nice, #awesome{left: 9%; top:52%;}
+.introdiv {padding-left 0px; margin-left: 0%; height: 100%}
+#playGame { margin-left: auto; }
+}
 
 @media (device-width: 320px){
 #viewport { 
