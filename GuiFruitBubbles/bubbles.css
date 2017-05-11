@@ -134,7 +134,7 @@ width:520px;
 #levelup1 {left: 6%}
 #nice, #awesome{left: 9%; top:52%;}
 .introdiv {padding-left 0px; margin-left: 10%; height: 100% width: 100%}
-#playGame { margin-left: 10%; }
+#playGame { margin-left: 15%; }
 }
 
 @media (device-width: 320px){
