@@ -13,6 +13,10 @@
 // along with this program.  If not, see http://www.gnu.org/licenses/.
 
 //Globals
+ // Score
+    var score = 0;
+	
+	//sounds
 	var snd2 = new Audio("Sounds/nice.mp3"); // plays on the Nice Move message
 	snd2.load();
     var snd3 = new Audio("Sounds/JingleWinSynth0.mp3"); // plays on the AWESOME message
@@ -27,7 +31,7 @@ var swapImage = new Image();
 swapImage.onload = function () {
     swapReady = true;
 }
-swapImage.src = "swap.gif"; 
+swapImage.src = "swap3.png"; 
 	
 // The function gets called when the window is fully loaded
 window.onload = function() {
@@ -106,8 +110,7 @@ window.onload = function() {
     var gamestates = { init: 0, ready: 1, shootbubble: 2, removecluster: 3, gameover: 4, levelUp: 5 };
     var gamestate = gamestates.init;
     
-    // Score
-    var score = 0;
+   
     
     var turncounter = 0;
     var rowoffset = 0;
@@ -325,12 +328,12 @@ window.onload = function() {
             resetRemoved();
 			//show nice pop
             if (cluster.length > 3 ){ 
-			
+			score += 250;
 			showBonus(); window.setTimeout(hideBonus, 1500);
 			}
 				//show awesome pop
 			if (cluster.length > 6){ 
-			
+			score += 500;
 			showBonus2(); window.setTimeout(hideBonus, 1500);
 			}
             // Mark the tiles as removed
@@ -532,6 +535,7 @@ window.onload = function() {
             if (level.tiles[i][level.rows-1].type != -1) {
                 // Game over
                 nextBubble();
+				
                 setGameState(gamestates.gameover);
                 return true;
             }
@@ -753,17 +757,30 @@ window.onload = function() {
         
 		//draw score
 		 context.fillStyle = "#ffffff";
-        context.font = "16px Verdana";
+        context.font = "14px Verdana";
         var scorex = level.x + level.width - 150;
         var scorey = level.y+level.height + level.tileheight - yoffset - 8;
         drawCenterText("Level " + levelcount + " Score:", scorex, scorey -10, 150);
-        context.font = "18px Verdana";
-        drawCenterText(score, scorex, scorey+30, 150);
+        context.font = "16px Verdana";
+        drawCenterText(score, scorex, scorey+10, 150);
+		
+		// draw High score
+		context.fillStyle = "#ffffff";
+        context.font = "12px Verdana";
+        var hscorex = level.x + level.width - 150;
+        var hscorey = level.y+level.height + level.tileheight - yoffset +20;
+		var HighScoreLocal = localStorage.HighScore;
+		
+		if (typeof localStorage["HighScore"] === "undefined") {localStorage["HighScore"] = 0;};
+		if ( score > localStorage.HighScore) { HighScoreLocal = score};
+        drawCenterText("High Score: " + HighScoreLocal, scorex, scorey +30, 150);
+        
+		
 		
         // Draw next row counter
 		var tillNextRow = newRowCounter - turncounter;
         context.fillStyle = "#ffffff";
-        context.font = "16px Verdana";
+        context.font = "12px Verdana";
         var nextrowx = level.x + level.width - 410;
         var nextrowy = level.y+level.height + level.tileheight - yoffset - 8;
         drawCenterText("Next Row", nextrowx, nextrowy -10, 150);
@@ -774,7 +791,7 @@ window.onload = function() {
 		if (swapReady) {
 			var swaprowx = level.x + level.width - 255;
 			var swaprowy = level.y+level.height + level.tileheight - yoffset - 8;
-        context.drawImage(swapImage, swaprowx, swaprowy)
+        context.drawImage(swapImage, swaprowx, swaprowy + 10)
     }
         // Render cluster
         if (showcluster) {
@@ -799,6 +816,10 @@ window.onload = function() {
             context.font = "24px Verdana";
             drawCenterText("Game Over!", level.x, level.y + level.height / 2 + 10, level.width);
             drawCenterText("Click to start", level.x, level.y + level.height / 2 + 40, level.width);
+			
+			if (score > localStorage.HighScore) {	
+			localStorage.HighScore = score;}
+				
         }
 		
 		/////// GG- beat the level- create another
@@ -906,7 +927,7 @@ window.onload = function() {
         context.strokeStyle = "#0000ff";
         context.beginPath();
         context.moveTo(centerx, centery);
-        context.lineTo(centerx + 2.5*level.tilewidth * Math.cos(degToRad(player.angle)), centery - 2.5*level.tileheight * Math.sin(degToRad(player.angle)));
+        context.lineTo(centerx + 2.5*level.tilewidth * Math.cos(degToRad(player.angle)), centery - 2 *level.tileheight * Math.sin(degToRad(player.angle)));
         context.stroke();
         
         // Draw the next bubble
@@ -1158,17 +1179,19 @@ window.onload = function() {
         var pos = getMousePos(canvas, e);
 		
 		
-		if ((pos.x >= 135  && pos.x <= 165) && (pos.y >= 565&& pos.y <= 600)) {
+		if ((pos.x >= 125  && pos.x <= 185) && (pos.y >= 570 && pos.y <= 625)) {
 			
 			swapBubble();
 		}
         else if (gamestate == gamestates.ready) {
             shootBubble();
         } else if (gamestate == gamestates.gameover) {
+			
             newGame();
         }
 		///// GG Level UP
 		if (gamestate == gamestates.levelUp) {
+			score = score + 1000;
 			lvlUp();
 		}
 		
@@ -1186,6 +1209,9 @@ window.onload = function() {
     
 	function swapBubble() {
 		//get values
+		var snd7 = new Audio("Sounds/swap.mp3"); // buffers automatically when created
+		snd7.play({
+		volume  : "0.2"});
 		var oldPlayer =  player.tiletype
 		var oldPlayerBubble = player.bubble.tiletype
         // Set the current bubble
@@ -1225,4 +1251,4 @@ function hideBonus() {
 		document.getElementById("awesome").style.display = 'none';
 		document.getElementById("nice").style.display = 'none';
 		};
-		
+
