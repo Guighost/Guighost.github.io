@@ -21,16 +21,20 @@
 		snd4.load();
     var snd5 = new Audio("Sounds/levelUp.mp3"); // level up sound
 		snd5.load();
-	
+//images to add on top		
+	var swapReady = false;
+var swapImage = new Image();
+swapImage.onload = function () {
+    swapReady = true;
+}
+swapImage.src = "swap.gif"; 
 	
 // The function gets called when the window is fully loaded
 window.onload = function() {
     // Get the canvas and context
     var canvas = document.getElementById("viewport");
     var context = canvas.getContext("2d");
-    var backSound = document.getElementById("gameSoundLoop");
-	backSound.play({
-		volume  : "0.3"});
+  
     // Timing and frames per second
     var lastframe = 0;
     var levelcount = 1;
@@ -189,8 +193,8 @@ window.onload = function() {
         player.angle = 90;
         player.tiletype = 0;
         
-        player.nextbubble.x = player.x - 2 * level.tilewidth;
-        player.nextbubble.y = player.y;
+        player.nextbubble.x = player.x - 2.3 * level.tilewidth;
+        player.nextbubble.y = player.y + 7;
         
         // New game
         newGame();
@@ -752,7 +756,7 @@ window.onload = function() {
         context.font = "16px Verdana";
         var scorex = level.x + level.width - 150;
         var scorey = level.y+level.height + level.tileheight - yoffset - 8;
-        drawCenterText("Level " + levelcount + " Score:", scorex, scorey, 150);
+        drawCenterText("Level " + levelcount + " Score:", scorex, scorey -10, 150);
         context.font = "18px Verdana";
         drawCenterText(score, scorex, scorey+30, 150);
 		
@@ -762,10 +766,16 @@ window.onload = function() {
         context.font = "16px Verdana";
         var nextrowx = level.x + level.width - 410;
         var nextrowy = level.y+level.height + level.tileheight - yoffset - 8;
-        drawCenterText("Next Row", nextrowx, nextrowy, 150);
-        context.font = "18px Verdana";
-        drawCenterText(tillNextRow, nextrowx, nextrowy+30, 150);
-
+        drawCenterText("Next Row", nextrowx, nextrowy -10, 150);
+        context.font = "16px Verdana";
+        drawCenterText(tillNextRow, nextrowx, nextrowy+25, 150);
+		
+		// draw swap control
+		if (swapReady) {
+			var swaprowx = level.x + level.width - 255;
+			var swaprowy = level.y+level.height + level.tileheight - yoffset - 8;
+        context.drawImage(swapImage, swaprowx, swaprowy)
+    }
         // Render cluster
         if (showcluster) {
             renderCluster(cluster, 255, 128, 128);
@@ -1146,9 +1156,13 @@ window.onload = function() {
     function onMouseUp(e) {
         // Get the mouse position
         var pos = getMousePos(canvas, e);
-	
 		
-        if (gamestate == gamestates.ready) {
+		
+		if ((pos.x >= 135  && pos.x <= 165) && (pos.y >= 565&& pos.y <= 600)) {
+			
+			swapBubble();
+		}
+        else if (gamestate == gamestates.ready) {
             shootBubble();
         } else if (gamestate == gamestates.gameover) {
             newGame();
