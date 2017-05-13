@@ -3,7 +3,9 @@ background-image: url("http://www.animateit.net/data/media/feb2013/d9058b9219_25
  background-size: 100% 100%;
  background-color: black;
 }
-body, html { overflow-x:hidden; [orient="portrait"]}
+body, html { overflow-x:hidden; 
+screen.lockOrientation("portrait");
+}
 #viewport {   top:50%;
   display: block;
   padding:15px;
