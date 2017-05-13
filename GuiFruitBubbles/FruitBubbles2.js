@@ -11,7 +11,8 @@
 // 
 // You should have received a copy of the GNU General Public License  
 // along with this program.  If not, see http://www.gnu.org/licenses/.
-
+	var snd2 = new Audio("Sounds/nice.mp3"); // buffers automatically when created
+    var snd3 = new Audio("Sounds/JingleWinSynth0.mp3"); // buffers automatically when created
 
 // The function gets called when the window is fully loaded
 window.onload = function() {
@@ -24,9 +25,16 @@ window.onload = function() {
     var levelcount = 1;
     var framecount = 0;
 	var playrun= 1;
-    
+    var newRowCounter = 10;
     var initialized = false;
-    
+	
+	var snd2 = new Audio("Sounds/nice.mp3"); // plays on the Nice Move message
+    var snd3 = new Audio("Sounds/JingleWinSynth0.mp3"); // plays on the AWESOME message
+	var snd4 = new Audio("Sounds/dropped.mp3"); // plays when floating items are dropped
+    var snd5 = new Audio("Sounds/levelUp.mp3"); // level up sound
+	
+	
+	
     // Level
     var level = {
         x: 4,           // X position
@@ -146,8 +154,10 @@ window.onload = function() {
     
     // Initialize the game
     function init() {
-        // Load images
-        images = loadImages(["fruitbubbles.png"]);
+        
+		
+		images = loadImages(["fruitbubbles.png"]);
+		
         bubbleimage = images[0];
     
         // Add mouse events
@@ -186,7 +196,7 @@ window.onload = function() {
     function main(tframe) {
         // Request animation frames
         window.requestAnimationFrame(main);
-		backSound.volume = 0.3;
+		backSound.volume = "0.3";
         if (!initialized) {
             // Preloader
             
@@ -325,7 +335,10 @@ window.onload = function() {
             floatingclusters = findFloatingClusters();
             
             if (floatingclusters.length > 0) {
-				
+				//play drop sound
+				snd4.play({
+					volume  : "0.2"});
+					
                 // Setup drop animation
                 for (var i=0; i<floatingclusters.length; i++) {
                     for (var j=0; j<floatingclusters[i].length; j++) {
@@ -412,7 +425,7 @@ window.onload = function() {
                 if (tilefound) {
                     setGameState(gamestates.ready);
                 } else {
-                    // No tiles left, game over
+                    // No tiles left, level up
                     setGameState(gamestates.levelUp);
 					playrun = 1;
                 }
@@ -485,7 +498,7 @@ window.onload = function() {
         
         // No clusters found
         turncounter++;
-        if (turncounter >= 5) {
+        if (turncounter >= newRowCounter ) {
             // Add a row of bubbles
             addBubbles();
             turncounter = 0;
@@ -727,14 +740,24 @@ window.onload = function() {
        
         context.fillRect(level.x - 4, level.y - 4 + level.height + 4 - yoffset, level.width + 8, 2*level.tileheight + 3);
         
-        // Draw score
-        context.fillStyle = "#ffffff";
+		//draw score
+		 context.fillStyle = "#ffffff";
         context.font = "16px Verdana";
         var scorex = level.x + level.width - 150;
         var scorey = level.y+level.height + level.tileheight - yoffset - 8;
         drawCenterText("Level " + levelcount + " Score:", scorex, scorey, 150);
         context.font = "18px Verdana";
         drawCenterText(score, scorex, scorey+30, 150);
+		
+        // Draw next row counter
+		var tillNextRow = newRowCounter - turncounter;
+        context.fillStyle = "#ffffff";
+        context.font = "16px Verdana";
+        var nextrowx = level.x + level.width - 410;
+        var nextrowy = level.y+level.height + level.tileheight - yoffset - 8;
+        drawCenterText("Next Row", nextrowx, nextrowy, 150);
+        context.font = "18px Verdana";
+        drawCenterText(tillNextRow, nextrowx, nextrowy+30, 150);
 
         // Render cluster
         if (showcluster) {
@@ -764,7 +787,8 @@ window.onload = function() {
 		/////// GG- beat the level- create another
 		 if (gamestate == gamestates.levelUp) {
 			 
-			
+			snd5.play({
+			volume  : "0.6"});
 			context.fillStyle = "rgba(255, 0, 0, 0.8)";
             context.fillRect(level.x - 4, level.y - 4, level.width + 8, level.height + 2 * level.tileheight + 8 - yoffset);
             // draw win image
@@ -773,6 +797,7 @@ window.onload = function() {
             context.font = "24px Verdana";
             drawCenterText("Level Complete!", level.x, level.y + level.height / 2 + 10, level.width);
             drawCenterText("Next Level", level.x, level.y + level.height / 2 + 40, level.width);
+			
         }
 		
 		///////
@@ -919,7 +944,7 @@ window.onload = function() {
         
         turncounter = 0;
         rowoffset = 0;
-        
+        levelcount = 1;
         // Set the gamestate to ready
         setGameState(gamestates.ready);
         
@@ -930,15 +955,41 @@ window.onload = function() {
         nextBubble();
         nextBubble();
     }
+	//Start the next level when level up
     function lvlUp() {
         
         levelcount ++;
 		document.getElementById("levelup1").style.display = "none";
         turncounter = 0;
         rowoffset = 0;
-        
+		
+		//adjust frequency of new rows based on the level
+        if (levelcount > 2 && levelcount <= 5){
+			newRowCounter = 9;
+		}
+		if (levelcount > 5 && levelcount <= 8){
+			newRowCounter = 8;
+		}
+		if (levelcount > 8 && levelcount <= 12){
+			newRowCounter = 7;
+		}
+		if (levelcount > 12 && levelcount <= 16){
+			newRowCounter = 6;
+		}
+		if (levelcount > 16){
+			newRowCounter = 5;
+		}
+		
         // Set the gamestate to ready
         setGameState(gamestates.ready);
+		// Load images based on level 1-3 = fruit, 4-6 = candy, 7-9 = Ghosts
+        
+		if (levelcount > 3 && levelcount < 7) {
+		images = loadImages(["guiCandies.png"]);
+		}
+		else if (levelcount > 6 && levelcount < 10) {
+		images = loadImages(["ghostbubbles.png"]);
+		}
         
         // Create the level
         createLevel();
@@ -1137,14 +1188,14 @@ window.onload = function() {
 function hideIntro() {
 	document.getElementById("intro").style.display = 'none'; };
 function showBonus() {
-var snd2 = new Audio("Sounds/JingleWinSynth0.mp3"); // buffers automatically when created
+
 		snd2.play({
-		volume  : "0.2"});
+		volume  : "0.6"});
 	document.getElementById("nice").style.display = 'block'; };
 function showBonus2() {
-  var snd2 = new Audio("Sounds/JingleWinSynth0.mp3"); // buffers automatically when created
-		snd2.play({
-		volume  : "0.2"});
+  
+		snd3.play({
+		volume  : "0.6"});
 	document.getElementById("awesome").style.display = 'block';
 document.getElementById("nice").style.display = 'none'; };
 function hideBonus() {
