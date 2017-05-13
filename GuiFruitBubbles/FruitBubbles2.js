@@ -796,8 +796,8 @@ window.onload = function() {
 			document.getElementById("levelup1").style.display = "block";
             context.fillStyle = "#e6e600";
             context.font = "24px Verdana";
-            drawCenterText("Level Complete!", level.x, level.y + level.height / 2 + 10, level.width);
-            drawCenterText("Next Level", level.x, level.y + level.height / 2 + 40, level.width);
+            drawCenterText("Level Complete!", level.x, level.y + level.height / 2 + 35, level.width);
+            drawCenterText("Next Level", level.x, level.y + level.height / 2 + 62, level.width);
 			
         }
 		
@@ -965,19 +965,19 @@ window.onload = function() {
         rowoffset = 0;
 		
 		//adjust frequency of new rows based on the level
-        if (levelcount > 2 && levelcount <= 5){
+        if (levelcount > 1 && levelcount <= 4){
 			newRowCounter = 9;
 		}
-		if (levelcount > 5 && levelcount <= 8){
+		if (levelcount >=5 && levelcount <= 6){
 			newRowCounter = 8;
 		}
-		if (levelcount > 8 && levelcount <= 12){
+		if (levelcount >= 7 && levelcount <= 8){
 			newRowCounter = 7;
 		}
-		if (levelcount > 12 && levelcount <= 16){
+		if (levelcount > 8 && levelcount <= 10){
 			newRowCounter = 6;
 		}
-		if (levelcount > 16){
+		if (levelcount > 10){
 			newRowCounter = 5;
 		}
 		
