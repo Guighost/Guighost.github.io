@@ -11,6 +11,12 @@
 // 
 // You should have received a copy of the GNU General Public License  
 // along with this program.  If not, see http://www.gnu.org/licenses/.
+
+//Globals
+	var snd2 = new Audio("Sounds/nice.mp3"); // plays on the Nice Move message
+    var snd3 = new Audio("Sounds/JingleWinSynth0.mp3"); // plays on the AWESOME message
+	var snd4 = new Audio("Sounds/dropped.mp3"); // plays when floating items are dropped
+    var snd5 = new Audio("Sounds/levelUp.mp3"); // level up sound
 	
 
 // The function gets called when the window is fully loaded
@@ -27,10 +33,6 @@ window.onload = function() {
     var newRowCounter = 10;
     var initialized = false;
 	
-	var snd2 = new Audio("Sounds/nice.mp3"); // plays on the Nice Move message
-    var snd3 = new Audio("Sounds/JingleWinSynth0.mp3"); // plays on the AWESOME message
-	var snd4 = new Audio("Sounds/dropped.mp3"); // plays when floating items are dropped
-    var snd5 = new Audio("Sounds/levelUp.mp3"); // level up sound
 	
 	
 	

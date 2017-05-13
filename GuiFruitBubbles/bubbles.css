@@ -93,7 +93,7 @@ padding-left: 65%;
 @media (device-width: 412px){
 #viewport { 
 width: 570px;
-padding-left: 65%;
+padding-left: 1%;
 
 }
 #levelup1 {left: 1%}
