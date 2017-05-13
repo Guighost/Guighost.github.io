@@ -90,9 +90,9 @@ padding-left: 65%;
 #nice, #awesome{left: 2%; top:50%;}
  }
  /* <!--Galaxy s7--> */
-@media (device-width: 708px){
+@media (device-width: 412px){
 #viewport { 
-width:680px;
+width: 570px;
 padding-left: 65%;
 
 }

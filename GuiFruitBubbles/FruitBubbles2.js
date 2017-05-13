@@ -11,8 +11,7 @@
 // 
 // You should have received a copy of the GNU General Public License  
 // along with this program.  If not, see http://www.gnu.org/licenses/.
-	var snd2 = new Audio("Sounds/nice.mp3"); // buffers automatically when created
-    var snd3 = new Audio("Sounds/JingleWinSynth0.mp3"); // buffers automatically when created
+	
 
 // The function gets called when the window is fully loaded
 window.onload = function() {
