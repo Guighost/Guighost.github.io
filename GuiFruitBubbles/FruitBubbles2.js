@@ -14,17 +14,23 @@
 
 //Globals
 	var snd2 = new Audio("Sounds/nice.mp3"); // plays on the Nice Move message
+	snd2.load();
     var snd3 = new Audio("Sounds/JingleWinSynth0.mp3"); // plays on the AWESOME message
+	snd3.load();
 	var snd4 = new Audio("Sounds/dropped.mp3"); // plays when floating items are dropped
+		snd4.load();
     var snd5 = new Audio("Sounds/levelUp.mp3"); // level up sound
+		snd5.load();
 	
-
+	
 // The function gets called when the window is fully loaded
 window.onload = function() {
     // Get the canvas and context
     var canvas = document.getElementById("viewport");
     var context = canvas.getContext("2d");
     var backSound = document.getElementById("gameSoundLoop");
+	backSound.play({
+		volume  : "0.3"});
     // Timing and frames per second
     var lastframe = 0;
     var levelcount = 1;
@@ -197,7 +203,7 @@ window.onload = function() {
     function main(tframe) {
         // Request animation frames
         window.requestAnimationFrame(main);
-		backSound.volume = "0.3";
+		
         if (!initialized) {
             // Preloader
             
@@ -796,8 +802,10 @@ window.onload = function() {
 			document.getElementById("levelup1").style.display = "block";
             context.fillStyle = "#e6e600";
             context.font = "24px Verdana";
-            drawCenterText("Level Complete!", level.x, level.y + level.height / 2 + 35, level.width);
-            drawCenterText("Next Level", level.x, level.y + level.height / 2 + 62, level.width);
+            drawCenterText("Level Complete!", level.x, level.y + level.height / 2 + 40, level.width);
+			var NextLevelBtn = new String( "Next Level")
+			nextLevelBtn = NextLevelBtn.bold();
+            drawCenterText(NextLevelBtn, level.x, level.y + level.height / 2 + 75, level.width);
 			
         }
 		
