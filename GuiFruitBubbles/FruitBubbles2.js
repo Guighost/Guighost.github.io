@@ -25,13 +25,30 @@
 		snd4.load();
     var snd5 = new Audio("Sounds/levelUp.mp3"); // level up sound
 		snd5.load();
-//images to add on top		
+//images to add on top
+//swap icon		
 	var swapReady = false;
 var swapImage = new Image();
 swapImage.onload = function () {
     swapReady = true;
 }
 swapImage.src = "swap3.png"; 
+// Save Icon Image
+	var saveImgReady = false;
+var saveImage = new Image();
+saveImage.onload = function () {
+    saveImgReady = true;
+}
+saveImage.src = "saveAndQuit.png"; 
+
+// Game Over Image
+	var gameOverReady = false;
+var gameOverImage = new Image();
+gameOverImage.onload = function () {
+    gameOverReady = true;
+}
+gameOverImage.src = "gameOver.png"; 
+
 	
 // The function gets called when the window is fully loaded
 window.onload = function() {
@@ -756,13 +773,19 @@ window.onload = function() {
         context.fillRect(level.x - 4, level.y - 4 + level.height + 4 - yoffset, level.width + 8, 2*level.tileheight + 3);
         
 		//draw score
-		 context.fillStyle = "#ffffff";
-        context.font = "14px Verdana";
+		 
         var scorex = level.x + level.width - 150;
         var scorey = level.y+level.height + level.tileheight - yoffset - 8;
-        drawCenterText("Level " + levelcount + " Score:", scorex, scorey -10, 150);
-        context.font = "16px Verdana";
-        drawCenterText(score, scorex, scorey+10, 150);
+        
+		context.fillStyle = "#668cff";
+		context.font = "16px Verdana";
+		drawCenterText("Score: " + score, scorex, scorey -10, 150);
+		
+		//draw level
+		context.fillStyle = "#ffffff";
+        context.font = "14px Verdana";
+        drawCenterText("Level " + levelcount , scorex, scorey +15, 150);
+     
 		
 		// draw High score
 		context.fillStyle = "#ffffff";
@@ -773,7 +796,7 @@ window.onload = function() {
 		
 		if (typeof localStorage["HighScore"] === "undefined") {localStorage["HighScore"] = 0;};
 		if ( score > localStorage.HighScore) { HighScoreLocal = score};
-        drawCenterText("High Score: " + HighScoreLocal, scorex, scorey +30, 150);
+        drawCenterText("High Score: " + HighScoreLocal, scorex, scorey +40, 150);
         
 		
 		
@@ -781,17 +804,21 @@ window.onload = function() {
 		var tillNextRow = newRowCounter - turncounter;
         context.fillStyle = "#ffffff";
         context.font = "12px Verdana";
-        var nextrowx = level.x + level.width - 410;
+        var nextrowx = level.x + level.width - 400;
         var nextrowy = level.y+level.height + level.tileheight - yoffset - 8;
-        drawCenterText("Next Row", nextrowx, nextrowy -10, 150);
-        context.font = "16px Verdana";
-        drawCenterText(tillNextRow, nextrowx, nextrowy+25, 150);
+        drawCenterText(tillNextRow +" until next row", nextrowx, nextrowy -18, 150);
+        
 		
 		// draw swap control
 		if (swapReady) {
 			var swaprowx = level.x + level.width - 255;
 			var swaprowy = level.y+level.height + level.tileheight - yoffset - 8;
         context.drawImage(swapImage, swaprowx, swaprowy + 10)
+    }
+	if (saveImgReady) {
+			var savex = level.x + 5;
+			var savey = level.y+level.height + level.tileheight - yoffset - 22;
+        context.drawImage(saveImage, savex, savey + 10)
     }
         // Render cluster
         if (showcluster) {
@@ -809,14 +836,39 @@ window.onload = function() {
         
         // Game Over overlay
         if (gamestate == gamestates.gameover) {
-            context.fillStyle = "rgba(0, 0, 0, 0.8)";
+            context.fillStyle = "rgba(0, 0, 0, 0.9)";
             context.fillRect(level.x - 4, level.y - 4, level.width + 8, level.height + 2 * level.tileheight + 8 - yoffset);
-            
-            context.fillStyle = "#ffffff";
-            context.font = "24px Verdana";
-            drawCenterText("Game Over!", level.x, level.y + level.height / 2 + 10, level.width);
-            drawCenterText("Click to start", level.x, level.y + level.height / 2 + 40, level.width);
-			
+            if (gameOverReady) {
+			var goverx = level.x + 10;
+			var govery = level.y+ 10;
+        context.drawImage(gameOverImage, goverx, govery)
+    }
+            context.fillStyle = "#ff0000";
+			context.font = "24px Comic Sans MS";
+			drawCenterText("Final Score: " + score, level.x, level.y + level.height / 2 + 25, level.width);
+			if (score == localStorage.HighScore){
+				context.fillStyle = "#0000ff";
+				context.font = "20px Comic Sans MS";
+			drawCenterText("New High Score!", level.x, level.y + level.height / 2 + 50, level.width);
+			}	
+			//draw the play again circle
+			context.strokeStyle = '#660033';
+			var centerX = level.width / 2 +5;
+			var centerY = level.y + level.height / 2 + 130;
+			var radius = 60;
+
+			context.beginPath();
+			context.arc(centerX, centerY, radius, 0, 2 * Math.PI, false);
+			context.fillStyle = '#660033';
+			context.fill();
+			context.lineWidth = 5;
+			context.strokeStyle = '#003300';
+			context.stroke();
+			//text on the circle
+			context.fillStyle = "#0000ff";
+			context.font = "36px Comic Sans MS";
+            drawCenterText("Play", level.x, level.y + level.height / 2 + 115, level.width);
+			drawCenterText("Again", level.x, level.y + level.height / 2 + 155, level.width);
 			if (score > localStorage.HighScore) {	
 			localStorage.HighScore = score;}
 				
@@ -834,9 +886,9 @@ window.onload = function() {
             context.fillStyle = "#e6e600";
             context.font = "24px Verdana";
             drawCenterText("Level Complete!", level.x, level.y + level.height / 2 + 40, level.width);
-			var NextLevelBtn = new String( "Next Level")
+			var NextLevelBtn = new String( "Start Next Level")
 			nextLevelBtn = NextLevelBtn.bold();
-            drawCenterText(NextLevelBtn, level.x, level.y + level.height / 2 + 75, level.width);
+            drawCenterText(NextLevelBtn, level.x, level.y + level.height / 2 + 85, level.width);
 			
         }
 		
@@ -857,7 +909,7 @@ window.onload = function() {
         // Draw title
         context.fillStyle = "#ffd1b3";
         context.font = "20px Comic Sans MS";
-        context.fillText("Gui Fruity Pop" , 230, 25);
+        context.fillText("Gui Fruity Pop" , 235, 25);
 		//draw subtitle
 		  context.fillStyle = "#ffffff";
         context.font = "12px Verdana";
