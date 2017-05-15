@@ -50,15 +50,15 @@ display: none;
 	
 	margin-right: auto;
 	width: 190px;
-	height:60px;
+	height:40px;
 	max-height: 100px;
 	border: 2px solid blue;
 	border-radius: 15px;
 	background-color: #FFBCD9;
 	color: blue;
 	font-family: Comic Sans MS;
-	font-size: 40px;
-	top: 40%;
+	font-size: 30px;
+	top: 30%;
 	text-align: center;
 	margin-left: 23%;
 }
@@ -72,6 +72,23 @@ display: none;
     background-color: #cccccc;
 	
 	z-index: 200;
+}
+#loadSaved {
+	position: absolute;
+	
+	margin-right: auto;
+	width: 190px;
+	height:40px;
+	max-height: 100px;
+	border: 2px solid blue;
+	border-radius: 15px;
+	background-color: #FFBCD9;
+	color: blue;
+	font-family: Comic Sans MS;
+	font-size: 20px;
+	top: 40%;
+	text-align: center;
+	margin-left: 23%;
 }
 .introdiv {
 	position: relative;

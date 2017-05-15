@@ -54,6 +54,11 @@ gameOverImage.src = "gameOver.png";
 	
 // The function gets called when the window is fully loaded
 window.onload = function() {
+	
+	if (typeof localStorage["Score"] === "undefined") {
+	document.GetElementById("loadSaved").style.display = 'none';
+	}
+	
     // Get the canvas and context
     var canvas = document.getElementById("viewport");
     var context = canvas.getContext("2d");
@@ -1035,15 +1040,14 @@ window.onload = function() {
     // Start a new game
     function newGame() {
         // Reset score
-		if (savedGameLoad == 0) {
-				score = 0;
-				levelcount = 1;
-					}
+		score = 0;
+		levelcount = 1;
 					
-		else if (savedGameLoad == 1) {
+					
+		if (savedGameLoad == 1) {
 			savedGameLoad = 0;
-			score = localStorage.Score;
-			levelcount = localStorage.Level;
+			score = score + parseInt(localStorage.Score);
+			levelcount = levelcount + (parseInt(localStorage.Level) -1);
 		}
         turncounter = 0;
         rowoffset = 0;
@@ -1333,9 +1337,15 @@ function saveLevelAndScore() {
 	document.getElementById("saveAndLoad").style.display = 'none'; 
 	document.getElementById("intro").style.display = 'block';
 	};	
-	
+
 	//load saved level
-	
+function loadSavedLevel() {
+levelcount = parseInt(localStorage.Level);
+score = parseInt(localStorage.Score);
+savedGameLoad = 1;
+document.getElementById("saveAndLoad").style.display = 'none'; 
+document.getElementById("intro").style.display = 'none';
+}	
 
 
 
