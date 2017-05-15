@@ -79,6 +79,32 @@ display: none;
 	margin-left: 20%;
 	max-width: 300px;
 	}
+#saveAndLoad {
+	z-index: 1500;
+	position: absolute;
+	width : 50%;
+	height: 150px;
+	top: 50px;
+		margin-left: auto;
+		margin-right:auto;
+	left: 100px;
+	display: none;
+	background-color: #F7DC6F;
+	border: 1px solid red;
+	color: azure;
+	font-size: 30px;
+	text-align: center;
+}
+.savebtns {
+	border: 2px solid blue;
+	border-radius: 10px;
+	width: 30%;
+	background-color: #AF7AC5;
+}
+
+
+
+
 
 /* Media queries */
 /* <!--IPad--> */

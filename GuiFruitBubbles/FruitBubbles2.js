@@ -15,6 +15,8 @@
 //Globals
  // Score
     var score = 0;
+	var savedGameLoad = 0;
+	var levelcount = 1;
 	
 	//sounds
 	var snd2 = new Audio("Sounds/nice.mp3"); // plays on the Nice Move message
@@ -39,7 +41,7 @@ var saveImage = new Image();
 saveImage.onload = function () {
     saveImgReady = true;
 }
-saveImage.src = "saveAndQuit.png"; 
+saveImage.src = "newsave.png"; 
 
 // Game Over Image
 	var gameOverReady = false;
@@ -58,14 +60,15 @@ window.onload = function() {
   
     // Timing and frames per second
     var lastframe = 0;
-    var levelcount = 1;
+    
     var framecount = 0;
 	var playrun= 1;
     var newRowCounter = 10;
     var initialized = false;
 	
 	
-	
+	document.getElementById("saveAndLoad").style.display = 'none';
+	// alert (localStorage.Score + " " + localStorage.Level);
 	
     // Level
     var level = {
@@ -1032,11 +1035,19 @@ window.onload = function() {
     // Start a new game
     function newGame() {
         // Reset score
-        score = 0;
-        
+		if (savedGameLoad == 0) {
+				score = 0;
+				levelcount = 1;
+					}
+					
+		else if (savedGameLoad == 1) {
+			savedGameLoad = 0;
+			score = localStorage.Score;
+			levelcount = localStorage.Level;
+		}
         turncounter = 0;
         rowoffset = 0;
-        levelcount = 1;
+        
         // Set the gamestate to ready
         setGameState(gamestates.ready);
         
@@ -1230,8 +1241,12 @@ window.onload = function() {
         // Get the mouse position
         var pos = getMousePos(canvas, e);
 		
+		if ((pos.x > 15  && pos.x <= 70) && (pos.y >= 570 && pos.y <= 625)) {
+			
+			showSaveLoad();
+		}
 		
-		if ((pos.x >= 125  && pos.x <= 185) && (pos.y >= 570 && pos.y <= 625)) {
+		else if ((pos.x >= 125  && pos.x <= 185) && (pos.y >= 570 && pos.y <= 625)) {
 			
 			swapBubble();
 		}
@@ -1289,12 +1304,10 @@ window.onload = function() {
 function hideIntro() {
 	document.getElementById("intro").style.display = 'none'; };
 function showBonus() {
-
 		snd2.play({
 		volume  : "0.6"});
 	document.getElementById("nice").style.display = 'block'; };
-function showBonus2() {
-  
+function showBonus2() { 
 		snd3.play({
 		volume  : "0.6"});
 	document.getElementById("awesome").style.display = 'block';
@@ -1303,4 +1316,30 @@ function hideBonus() {
 		document.getElementById("awesome").style.display = 'none';
 		document.getElementById("nice").style.display = 'none';
 		};
+		
+	//save and load screens
+			
+function showSaveLoad() {
+	
+	document.getElementById("saveAndLoad").style.display = 'block'; 
+	
+	};
+function hideSaveLoad() {
+	document.getElementById("saveAndLoad").style.display = 'none'; 
+	};
+function saveLevelAndScore() {
+	localStorage["Level"] = levelcount;
+			localStorage["Score"] = score;
+	document.getElementById("saveAndLoad").style.display = 'none'; 
+	document.getElementById("intro").style.display = 'block';
+	};	
+	
+	//load saved level
+	
 
+
+
+
+
+
+// end of script	
