@@ -56,7 +56,7 @@ gameOverImage.src = "gameOver.png";
 window.onload = function() {
 	
 	if (typeof localStorage["Score"] === "undefined") {
-	document.GetElementById("loadSaved").style.display = 'none';
+	document.getElementById("loadSaved").style.display = 'none';
 	}
 	
     // Get the canvas and context

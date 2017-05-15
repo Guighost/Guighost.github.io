@@ -99,24 +99,27 @@ display: none;
 #saveAndLoad {
 	z-index: 1500;
 	position: absolute;
-	width : 50%;
-	height: 150px;
-	top: 50px;
-		margin-left: auto;
-		margin-right:auto;
-	left: 100px;
+	width : 180px;
+	height: 90px;
+	top: 50%;
+		margin-left: 40%;
+		-ms-transform: translate(-85px,0px); /* IE 9 */
+    -webkit-transform: translate(-85px,0px); /* Safari */
+    transform: translate(-85px,0px); /* Standard syntax */
 	display: none;
 	background-color: #F7DC6F;
-	border: 1px solid red;
+	border: 5px groove red;
 	color: azure;
-	font-size: 30px;
+	font-size: 24px;
 	text-align: center;
+	border-radius: 30px;
 }
 .savebtns {
-	border: 2px solid blue;
-	border-radius: 10px;
-	width: 30%;
-	background-color: #AF7AC5;
+	top: 0px;
+	border: 2px solid #AF7AC5;
+	border-radius: 8px;
+	width: 150px;
+	background-color: #FFFFFF;
 }
 
 
@@ -139,14 +142,14 @@ padding-left: 65%;
 #viewport { 
 width: 595px;
 padding-left: 1%;
-
 }
-#levelup1 {left: 10%}
+#levelup1 {left: 15%}
 #nice, #awesome{left: 2%; top:50%;}
 .introdiv {padding-left 0px; margin-left: 15%;}
-#playGame { margin-left: 25%; margin-right: 20%; width:50%; }
+#playGame { margin-left: 29%; margin-right: 20%; width:50%; }
+#saveAndLoad {margin-left: 50%;}
 }
- }
+ 
 @media (max-width: 450px){
 #viewport { 
 width:590px;
@@ -154,8 +157,9 @@ width:590px;
 #levelup1 {left: 8%}
 #nice, #awesome{left: 9%; top:52%;}
 .introdiv {padding-left 0px; margin-left: 0%;}
+#saveAndLoad {margin-left: 50%;}
 }
- }
+ 
 
 @media (max-width: 375px){
 #viewport { 
@@ -167,6 +171,7 @@ width:555px;
 #levelup1 {left: 6%}
 #nice, #awesome{left: 9%; top:52%;}
 .introdiv {padding-left 0px; margin-left: 0%;}
+#saveAndLoad {margin-left: 50%;}
 }
 
 @media (device-width: 360px){
@@ -182,6 +187,7 @@ top: 1%;
 #nice, #awesome{left: 9%; top:52%;}
 .introdiv {padding-left 0px; margin-left: 10%; height: 100% width: 100%}
 #playGame { margin-left: 25%; margin-right: 20%; width:50%; }
+#saveAndLoad {margin-left: 50%;}
 }
 
 @media (device-width: 320px){
@@ -195,4 +201,5 @@ width:500px;
 .introdiv {padding-left: 10px;
 margin-left: 0%;
 }
+#saveAndLoad {margin-left: 50%;}
 }

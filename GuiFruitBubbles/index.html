@@ -21,15 +21,19 @@
 <!--Hidden Popups-->
 <img id ="levelup1" src="Level_up_icon.png" alt="Level Up" style="width:304px;height:228px; z-index: 100;">
 <img id ="awesome" class = "pops" src="awesome2.gif" alt="awesome" style="width:206px;height:76px; z-index: 85;">
-<img id ="nice"  class = "pops"  src="nicemove.gif" alt="awesome" style="width:250px;height:80px; z-index: 85;">
+<img id ="nice"  class = "pops"  src="nicemove.gif" alt="nicemove" style="width:250px;height:80px; z-index: 85;">
+
+<!-- intro div -->
 <div id ="intro">
 <img id ="fruitylogo" class = "introdiv" src="GuiFruityLogo.gif"></img>
 <a href ="#" id ="playGame" onclick='hideIntro()'>New Game</a>
 <a href ="#" id ="loadSaved" onclick='loadSavedLevel()'>Load Saved</a>
 </div>
-<div id ="saveAndLoad">
 
-<a href ="#" id ="saveScore" class = "savebtns" onclick='saveLevelAndScore()'>Save Game</a> </br> </br>
+<!-- Save game -->
+<div id ="saveAndLoad">
+<img id ="saveImage" src="popsave.png" alt="saveimage" onclick='saveLevelAndScore()'> </br>
+<a href ="#" id ="saveScore" class = "savebtns" onclick='saveLevelAndScore()'>Save & Quit</a> </br> </br>
 
 </div>
 
