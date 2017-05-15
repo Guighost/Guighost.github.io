@@ -868,7 +868,7 @@ window.onload = function() {
 			context.strokeStyle = '#003300';
 			context.stroke();
 			//text on the circle
-			context.fillStyle = "#0000ff";
+			context.fillStyle = "#ff3399";
 			context.font = "36px Comic Sans MS";
             drawCenterText("Play", level.x, level.y + level.height / 2 + 115, level.width);
 			drawCenterText("Again", level.x, level.y + level.height / 2 + 155, level.width);
