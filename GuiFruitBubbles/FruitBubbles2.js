@@ -1336,6 +1336,7 @@ function saveLevelAndScore() {
 			localStorage["Score"] = score;
 	document.getElementById("saveAndLoad").style.display = 'none'; 
 	document.getElementById("intro").style.display = 'block';
+	document.getElementById("loadSaved").style.display = 'block';
 	};	
 
 	//load saved level
