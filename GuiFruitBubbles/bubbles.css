@@ -143,7 +143,7 @@ padding-left: 65%;
 width: 595px;
 padding-left: 1%;
 }
-#levelup1 {left: 15%}
+#levelup1 #intro{left: 15%}
 #nice, #awesome{left: 2%; top:50%;}
 .introdiv {padding-left 50px; margin-left: 15%;}
 #playGame #loadSaved{ margin-left: 29%; margin-right: 20%; width:50%; }
