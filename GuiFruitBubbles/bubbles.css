@@ -145,7 +145,7 @@ padding-left: 1%;
 }
 #levelup1 #intro{left: 15%}
 #nice, #awesome{left: 2%; top:50%;}
-#intro { margin-left: 50%; transform(-200px, 0px);}
+#intro { margin-left: 20%; transform(-200px, 0px);}
 .introdiv {padding-left 50px; margin-left: 15%;}
 #playGame #loadSaved{ margin-left: 29%; margin-right: 20%; width:50%; }
 #saveAndLoad {margin-left: 50%;}
