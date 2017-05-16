@@ -140,7 +140,7 @@ padding-left: 65%;
  /* <!--Galaxy s7--> */
 @media (device-width: 412px){
 #viewport { 
-width: 595px;
+width: 610px;
 padding-left: 1%;
 }
 #levelup1 #intro{left: 15%}
