@@ -1257,7 +1257,8 @@ window.onload = function() {
         else if (gamestate == gamestates.ready) {
             shootBubble();
         } else if (gamestate == gamestates.gameover) {
-			
+			score = 0;
+			levelcount = 0;
             newGame();
         }
 		///// GG Level UP
@@ -1334,9 +1335,12 @@ function hideSaveLoad() {
 function saveLevelAndScore() {
 	localStorage["Level"] = levelcount;
 			localStorage["Score"] = score;
+			
 	document.getElementById("saveAndLoad").style.display = 'none'; 
 	document.getElementById("intro").style.display = 'block';
 	document.getElementById("loadSaved").style.display = 'block';
+	score = 0;
+	levelcount = 1;
 	};	
 
 	//load saved level
