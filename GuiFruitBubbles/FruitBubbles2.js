@@ -823,7 +823,8 @@ window.onload = function() {
 			var swaprowy = level.y+level.height + level.tileheight - yoffset - 8;
         context.drawImage(swapImage, swaprowx, swaprowy + 10)
     }
-	if (saveImgReady) {
+		// draw save control
+		if (saveImgReady) {
 			var savex = level.x + 5;
 			var savey = level.y+level.height + level.tileheight - yoffset - 22;
         context.drawImage(saveImage, savex, savey + 10)
@@ -1074,17 +1075,20 @@ window.onload = function() {
         if (levelcount > 1 && levelcount <= 4){
 			newRowCounter = 9;
 		}
-		if (levelcount >=5 && levelcount <= 6){
+		if (levelcount >=5 && levelcount <= 7){
 			newRowCounter = 8;
 		}
-		if (levelcount >= 7 && levelcount <= 8){
+		if (levelcount >= 8 && levelcount <= 10){
 			newRowCounter = 7;
 		}
-		if (levelcount > 8 && levelcount <= 10){
+		if (levelcount > 10 && levelcount <= 13){
 			newRowCounter = 6;
 		}
-		if (levelcount > 10){
+		if (levelcount > 13 && levelcount <=16){
 			newRowCounter = 5;
+		}
+		if (levelcount > 16 ){
+			newRowCounter = 4;
 		}
 		
         // Set the gamestate to ready
@@ -1245,7 +1249,7 @@ window.onload = function() {
         // Get the mouse position
         var pos = getMousePos(canvas, e);
 		
-		if ((pos.x > 15  && pos.x <= 70) && (pos.y >= 570 && pos.y <= 625)) {
+		if ((pos.x > 5  && pos.x <= 80) && (pos.y >= 570 && pos.y <= 625)) {
 			
 			showSaveLoad();
 		}
