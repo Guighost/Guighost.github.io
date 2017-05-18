@@ -41,7 +41,7 @@ var saveImage = new Image();
 saveImage.onload = function () {
     saveImgReady = true;
 }
-saveImage.src = "newsave.png"; 
+saveImage.src = "saveAndQuit.png"; 
 
 // Game Over Image
 	var gameOverReady = false;
