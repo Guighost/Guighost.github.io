@@ -880,7 +880,9 @@ window.onload = function() {
 			drawCenterText("Again", level.x, level.y + level.height / 2 + 155, level.width);
 			if (score > localStorage.HighScore) {	
 			localStorage.HighScore = score;}
-				
+			
+			
+					
         }
 		
 		/////// GG- beat the level- create another
@@ -1093,13 +1095,20 @@ window.onload = function() {
 		
         // Set the gamestate to ready
         setGameState(gamestates.ready);
-		// Load images based on level 1-3 = fruit, 4-6 = candy, 7-9 = Ghosts
+		// Load images based on level 1-6 = fruit, 7-12 = candy, 13-18 = Ghosts, 19+ space (not yet implemented)
         
-		if (levelcount > 3 && levelcount < 7) {
+		if (parseInt(levelcount) >= 3 && levelcount <=12 ) {
 		images = loadImages(["guiCandies.png"]);
+		
+		bubbleimage = images[0];
+		loadImages(imagefiles);
+		//do background 
+		// do color scheme
 		}
-		else if (levelcount > 6 && levelcount < 10) {
+		else if (levelcount >= 13 && levelcount <= 18) {
 		images = loadImages(["ghostbubbles.png"]);
+		bubbleimage = images[0];
+		loadImages(imagefiles);
 		}
         
         // Create the level
@@ -1109,6 +1118,7 @@ window.onload = function() {
         nextBubble();
         nextBubble();
     }
+	
     // Create a random level
     function createLevel() {
         // Create a level with random tiles
