@@ -196,7 +196,20 @@ window.onload = function() {
         
 		
 		images = loadImages(["fruitbubbles.png"]);
+		////////Load images based on level 1-6 = fruit, 7-12 = candy, 13-18 = Ghosts, 19+ space (not yet implemented)
+        
+		if (parseInt(levelcount) >= 6 && levelcount <=12 ) {
+		images = loadImages(["guiCandies.png"]);
 		
+		//do background 
+		// do color scheme
+		}
+		else if (levelcount >= 13 && levelcount <= 18) {
+		images = loadImages(["ghostbubbles.png"]);
+		
+		}
+        		
+		///////
         bubbleimage = images[0];
     
         // Add mouse events
@@ -305,10 +318,12 @@ window.onload = function() {
         // Handle left and right collisions with the level
         if (player.bubble.x <= level.x) {
             // Left edge
-            player.bubble.angle = 180 - player.bubble.angle;
+			            			
+			player.bubble.angle = 180 - player.bubble.angle;
             player.bubble.x = level.x;
         } else if (player.bubble.x + level.tilewidth >= level.x + level.width) {
             // Right edge
+			
             player.bubble.angle = 180 - player.bubble.angle;
             player.bubble.x = level.x + level.width - level.tilewidth;
         }
@@ -1074,43 +1089,17 @@ window.onload = function() {
         rowoffset = 0;
 		
 		//adjust frequency of new rows based on the level
-        if (levelcount > 1 && levelcount <= 4){
-			newRowCounter = 9;
-		}
-		if (levelcount >=5 && levelcount <= 7){
-			newRowCounter = 8;
-		}
-		if (levelcount >= 8 && levelcount <= 10){
-			newRowCounter = 7;
-		}
-		if (levelcount > 10 && levelcount <= 13){
-			newRowCounter = 6;
-		}
-		if (levelcount > 13 && levelcount <=16){
-			newRowCounter = 5;
-		}
-		if (levelcount > 16 ){
-			newRowCounter = 4;
-		}
+        if (levelcount > 1 && levelcount <= 4){	newRowCounter = 9;	}
+		if (levelcount >=5 && levelcount <= 7){	newRowCounter = 8;	}
+		if (levelcount >= 8 && levelcount <= 10){ newRowCounter = 7; }
+		if (levelcount > 10 && levelcount <= 13){ newRowCounter = 6; }
+		if (levelcount > 13 && levelcount <=16){ newRowCounter = 5;	}
+		if (levelcount > 16 ){	newRowCounter = 4;	}
 		
         // Set the gamestate to ready
-        setGameState(gamestates.ready);
-		// Load images based on level 1-6 = fruit, 7-12 = candy, 13-18 = Ghosts, 19+ space (not yet implemented)
-        
-		if (parseInt(levelcount) >= 3 && levelcount <=12 ) {
-		images = loadImages(["guiCandies.png"]);
 		
-		bubbleimage = images[0];
-		loadImages(imagefiles);
-		//do background 
-		// do color scheme
-		}
-		else if (levelcount >= 13 && levelcount <= 18) {
-		images = loadImages(["ghostbubbles.png"]);
-		bubbleimage = images[0];
-		loadImages(imagefiles);
-		}
-        
+        setGameState(gamestates.ready);
+		
         // Create the level
         createLevel();
 
@@ -1270,7 +1259,8 @@ window.onload = function() {
 		}
         else if (gamestate == gamestates.ready) {
             shootBubble();
-        } else if (gamestate == gamestates.gameover) {
+        }
+		else if (gamestate == gamestates.gameover) {
 			score = 0;
 			levelcount = 0;
             newGame();
@@ -1364,6 +1354,17 @@ score = parseInt(localStorage.Score);
 savedGameLoad = 1;
 document.getElementById("saveAndLoad").style.display = 'none'; 
 document.getElementById("intro").style.display = 'none';
+
+if (parseInt(levelcount) >= 3 && levelcount <=12 ) {
+		images = loadImages(["guiCandies.png"]);
+		init();
+		//do background 
+		// do color scheme
+		}
+		else if (levelcount >= 13 && levelcount <= 18) {
+		images = loadImages(["ghostbubbles.png"]);
+		
+		}
 }	
 
 
