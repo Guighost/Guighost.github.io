@@ -17,6 +17,7 @@
     var score = 0;
 	var savedGameLoad = 0;
 	var levelcount = 1;
+	var levelbump = 0;
 	
 	//sounds
 	var snd2 = new Audio("Sounds/nice.mp3"); // plays on the Nice Move message
@@ -196,19 +197,7 @@ window.onload = function() {
         
 		
 		images = loadImages(["fruitbubbles.png"]);
-		////////Load images based on level 1-6 = fruit, 7-12 = candy, 13-18 = Ghosts, 19+ space (not yet implemented)
-        
-		if (parseInt(levelcount) >= 6 && levelcount <=12 ) {
-		images = loadImages(["guiCandies.png"]);
-		
-		//do background 
-		// do color scheme
-		}
-		else if (levelcount >= 13 && levelcount <= 18) {
-		images = loadImages(["ghostbubbles.png"]);
-		
-		}
-        		
+	        		
 		///////
         bubbleimage = images[0];
     
@@ -480,6 +469,7 @@ window.onload = function() {
                     setGameState(gamestates.ready);
                 } else {
                     // No tiles left, level up
+					levelbump ++;
                     setGameState(gamestates.levelUp);
 					playrun = 1;
                 }
@@ -916,6 +906,26 @@ window.onload = function() {
 			nextLevelBtn = NextLevelBtn.bold();
             drawCenterText(NextLevelBtn, level.x, level.y + level.height / 2 + 85, level.width);
 			
+			if (levelbump == 1) {
+			levelcount ++;
+			levelbump = 0;
+			}
+			////////Load images based on level 1-6 = fruit, 7-12 = candy, 13-18 = Ghosts, 19+ space (not yet implemented)
+        
+		if (parseInt(levelcount) >= 7 && levelcount <=12 ) {
+		images = loadImages(["guiCandies.png"]);
+		
+		//do background 
+		// do color scheme
+		}
+		else if (levelcount >= 13 && levelcount <= 18) {
+		images = loadImages(["ghostbubbles.png"]);
+		
+		}
+        		
+		///////
+        bubbleimage = images[0];
+			
         }
 		
 		///////
@@ -1083,7 +1093,7 @@ window.onload = function() {
 	//Start the next level when level up
     function lvlUp() {
         
-        levelcount ++;
+        
 		document.getElementById("levelup1").style.display = "none";
         turncounter = 0;
         rowoffset = 0;
@@ -1268,6 +1278,7 @@ window.onload = function() {
 		///// GG Level UP
 		if (gamestate == gamestates.levelUp) {
 			score = score + 1000;
+			levelbump ++;
 			lvlUp();
 		}
 		
@@ -1311,7 +1322,9 @@ window.onload = function() {
     init();
 };
 function hideIntro() {
-	document.getElementById("intro").style.display = 'none'; };
+	document.getElementById("intro").style.display = 'none'; 
+	document.getElementById("mapDiv").style.display = 'block'; 
+	};
 function showBonus() {
 		snd2.play({
 		volume  : "0.6"});
@@ -1367,6 +1380,15 @@ if (parseInt(levelcount) >= 3 && levelcount <=12 ) {
 		}
 }	
 
+function closeSave () {
+	document.getElementById("saveAndLoad").style.display = 'none';
+	
+}
+
+function closeMap () {
+	document.getElementById("mapDiv").style.display = 'none';
+	
+}
 
 
 
