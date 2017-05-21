@@ -49,16 +49,16 @@ display: none;
 	position: absolute;
 	
 	margin-right: auto;
-	width: 190px;
-	height:40px;
+	width: 160px;
+	height:30px;
 	max-height: 100px;
 	border: 2px solid blue;
 	border-radius: 15px;
 	background-color: #FFBCD9;
 	color: blue;
 	font-family: Comic Sans MS;
-	font-size: 30px;
-	top: 30%;
+	font-size: 18px;
+	top: 25%;
 	text-align: center;
 	margin-left: 23%;
 }
@@ -77,18 +77,19 @@ display: none;
 	position: absolute;
 	
 	margin-right: auto;
-	width: 190px;
-	height:40px;
+	width: 160px;
+	height:30px;
 	max-height: 100px;
 	border: 2px solid blue;
 	border-radius: 15px;
 	background-color: #FFBCD9;
 	color: blue;
 	font-family: Comic Sans MS;
-	font-size: 20px;
-	top: 40%;
+	font-size: 18px;
+	top: 32%;
 	text-align: center;
 	margin-left: 23%;
+	transform: translate(0px,-8px);
 }
 .introdiv {
 	position: relative;
@@ -279,7 +280,8 @@ width:500px;
 .introdiv {padding-left: 10px;
 margin-left: 0%;
 }
-#saveAndLoad {margin-left: 50%;}
+#saveAndLoad {margin-left: 50%;
+}
 
 #mapDiv {
 left: 0%;

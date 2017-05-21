@@ -923,20 +923,29 @@ window.onload = function() {
 			levelcount ++;
 			levelbump = 0;
 			}
-			////////Load images based on level 1-6 = fruit, 7-12 = candy, 13-18 = Ghosts, 19+ space (not yet implemented)
+			////////Load images based on level 1-6 = fruit, 7-12 = candy, 13-18 = Ghosts, 19+ space Orbs
         
-		if (parseInt(levelcount) >= 7 && levelcount <=12 ) {
+		if (parseInt(levelcount) >= 7 && parseInt(levelcount) <=12 ) {
 		images = loadImages(["guiCandies.png"]);
-		
+		var body = document.getElementsByTagName('body')[0];
+		body.style.backgroundImage = 'url(candyTownBack.png)';
 		//do background 
 		// do color scheme
 		}
-		else if (levelcount >= 13 && levelcount <= 18) {
+		else if (parseInt(levelcount) >= 13 && parseInt(levelcount) <= 17) {
 		images = loadImages(["ghostbubbles.png"]);
+		var body = document.getElementsByTagName('body')[0];
+		body.style.backgroundImage = 'url(spookyBack.jpg)';
+		
+		}
+		else if (parseInt(levelcount) = 18) {
+		images = loadImages(["bossBubbles.png"]);
+		var body = document.getElementsByTagName('body')[0];
+		body.style.backgroundImage = 'url(bossBack.gif)';
 		
 		}
 		else if (levelcount >= 19 ) {
-		images = loadImages(["ghostbubbles.png"]);
+		images = loadImages(["orbBubbles.png"]);
 		document.body.style.backgroundImage = "url('space_bg.gif')";
 		
 		}
@@ -964,7 +973,7 @@ window.onload = function() {
         // Draw title
         context.fillStyle = "#ffd1b3";
         context.font = "20px Comic Sans MS";
-        context.fillText("Gui Fruity Pop" , 235, 25);
+        context.fillText("Gui Bubble Story" , 210, 25);
 		//draw subtitle
 		  context.fillStyle = "#ffffff";
         context.font = "12px Verdana";
@@ -1299,7 +1308,14 @@ window.onload = function() {
 			score = score + 1000;
 			levelbump ++;
 			//show map if lvl 6 or 12 was just completed
-			if (parseInt(levelcount) == 6 || parseInt (levelcount) == 12) {
+			if (parseInt(levelcount) == 7) {
+				document.getElementById("mapImg").src="mapTown.png";
+				document.getElementById("story").innerHTML = "You made it to <b>Candy Town</b>! Collect candies to proceed.";
+			document.getElementById("mapDiv").style.display = 'block'; 
+			}
+			else if (parseInt(levelcount) == 13) {
+				document.getElementById("mapImg").src="mapGhost.png";
+				document.getElementById("story").innerHTML = "Danger, entering the Ghostly Graveyard. beat 5 levels to reach the boss.";
 			document.getElementById("mapDiv").style.display = 'block'; 
 			}
 			lvlUp();
@@ -1391,14 +1407,14 @@ savedGameLoad = 1;
 document.getElementById("saveAndLoad").style.display = 'none'; 
 document.getElementById("intro").style.display = 'none';
 document.getElementById("mapDiv").style.display = 'block';
-if (parseInt(levelcount) >= 7 && levelcount <=12 ) {
+if (parseInt(levelcount) >= 7 && parseInt(levelcount) <=12 ) {
 		images = loadImages(["guiCandies.png"]);
 		//do background 
 		// do color scheme
 		init();
 		
 		}
-		else if (levelcount >= 13 && levelcount <= 18) {
+		else if (parseInt(levelcount) >= 13 && parseInt(levelcount) <= 18) {
 		images = loadImages(["ghostbubbles.png"]);
 		
 		}
