@@ -16,7 +16,7 @@
  // Score
     var score = 0;
 	var savedGameLoad = 0;
-	var levelcount = 1;
+	var levelcount = 5;
 	var levelbump = 0;
 	
 	//sounds
@@ -59,6 +59,19 @@ window.onload = function() {
 	if (typeof localStorage["Score"] === "undefined") {
 	document.getElementById("loadSaved").style.display = 'none';
 	}
+	//play backgroundmyAudio = new Audio('someSound.ogg'); 
+	myAudio = new Audio('guifruity.mp3'); 
+	if (typeof myAudio.loop == 'boolean')
+	{    myAudio.loop = true;	}
+	else
+	{
+    myAudio.addEventListener('ended', function() {
+        this.currentTime = 0;
+        this.play();
+    }, false);
+	}
+	myAudio.play();
+	
 	
     // Get the canvas and context
     var canvas = document.getElementById("viewport");
@@ -906,7 +919,7 @@ window.onload = function() {
 			nextLevelBtn = NextLevelBtn.bold();
             drawCenterText(NextLevelBtn, level.x, level.y + level.height / 2 + 85, level.width);
 			
-			if (levelbump == 1) {
+			if (levelbump >= 1) {
 			levelcount ++;
 			levelbump = 0;
 			}
@@ -922,7 +935,13 @@ window.onload = function() {
 		images = loadImages(["ghostbubbles.png"]);
 		
 		}
-        		
+		else if (levelcount >= 19 ) {
+		images = loadImages(["ghostbubbles.png"]);
+		document.body.style.backgroundImage = "url('space_bg.gif')";
+		
+		}
+
+		
 		///////
         bubbleimage = images[0];
 			
@@ -1279,6 +1298,10 @@ window.onload = function() {
 		if (gamestate == gamestates.levelUp) {
 			score = score + 1000;
 			levelbump ++;
+			//show map if lvl 6 or 12 was just completed
+			if (parseInt(levelcount) == 6 || parseInt (levelcount) == 12) {
+			document.getElementById("mapDiv").style.display = 'block'; 
+			}
 			lvlUp();
 		}
 		
@@ -1367,12 +1390,13 @@ score = parseInt(localStorage.Score);
 savedGameLoad = 1;
 document.getElementById("saveAndLoad").style.display = 'none'; 
 document.getElementById("intro").style.display = 'none';
-
-if (parseInt(levelcount) >= 3 && levelcount <=12 ) {
+document.getElementById("mapDiv").style.display = 'block';
+if (parseInt(levelcount) >= 7 && levelcount <=12 ) {
 		images = loadImages(["guiCandies.png"]);
-		init();
 		//do background 
 		// do color scheme
+		init();
+		
 		}
 		else if (levelcount >= 13 && levelcount <= 18) {
 		images = loadImages(["ghostbubbles.png"]);
