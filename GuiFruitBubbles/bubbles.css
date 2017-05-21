@@ -173,29 +173,54 @@ display: none;
 #story {text-align: center; padding: 3px;}
 
 /* Media queries */
-/* <!--IPad--> */
+
+/* <!--IPad Pro--> */
 @media (device-width: 1024px){
 #viewport { 
-width:590px;
-padding-left: 65%;
+width:950px;
+top: 50px;
+left: 50px;
+margin-left: 15%;
 
 }
 #levelup1 {left: 2%}
 #nice, #awesome{left: 2%; top:50%;}
- }
- /* <!--Galaxy s7--> */
-@media (device-width: 412px){
-#viewport { 
-width: 610px;
-padding-left: 1%;
+#intro { margin-left: 0%; width: 100%;}
+.introdiv {padding-left 1%; margin-left: 5%;}
+#fruitylogo {margin-left: 30%; height: 500px; top: 20%;}
+#playGame { margin-left: 34%; margin-right: 20%; width:18%; top: 30%;}
+#loadSaved{ margin-left: 34%; margin-right: 20%; width:18%; top: 35%;}
+#saveAndLoad {margin-left: 50%;}
+#mapDiv {
+left: 5px;
+width: 99%;	
+margin-left: 1%;
 }
-#levelup1 #intro{left: 15%}
+#mapImg {
+	margin-left: 2%;
+width: 95%;
+height: 95%;
+}
+
+ }
+
+
+/* <!--IPad--> */
+@media (device-width: 768px){
+#viewport { 
+width:950px;
+top: 50px;
+left: 50px;
+margin-left: 15%;
+
+}
+#levelup1 {left: 2%}
 #nice, #awesome{left: 2%; top:50%;}
 #intro { margin-left: 0%; width: 100%;}
-.introdiv {padding-left 1%; margin-left: 10%;}
-#fruitylogo {margin-left: 20%;}
-#playGame { margin-left: 29%; margin-right: 20%; width:50%; top: 30%;}
-#loadSaved{ margin-left: 29%; margin-right: 20%; width:50%; top: 45%;}
+.introdiv {padding-left 1%; margin-left: 5%;}
+#fruitylogo {margin-left: 30%; height: 500px; top: 20%;}
+#playGame { margin-left: 38%; margin-right: 20%; width:20%; top: 35%;}
+#loadSaved{ margin-left: 38%; margin-right: 20%; width:20%; top: 45%;}
 #saveAndLoad {margin-left: 50%;}
 #mapDiv {
 left: 50px;
@@ -205,12 +230,42 @@ margin-left: 5%;
 #mapImg {
 	margin-left: 5%;
 width: 580px;
+height: 95%;
+}
+
+ }
+ 
+ 
+ /* <!--Galaxy s7--> */
+@media (device-width: 412px){
+#viewport { 
+width: 650px;
+padding-left: 1%;
+}
+#levelup1 #intro{left: 15%}
+#nice, #awesome{left: 2%; top:50%;}
+#intro { margin-left: 0%; width: 100%;}
+.introdiv {padding-left 1%; margin-left: 5%;}
+#fruitylogo {margin-left: 20%;}
+#playGame { margin-left: 29%; margin-right: 20%; width:50%; top: 30%;}
+#loadSaved{ margin-left: 29%; margin-right: 20%; width:50%; top: 45%;}
+#saveAndLoad {margin-left: 50%;}
+#mapDiv {
+left: 50px;
+width: 99%;	
+margin-left: 5%;
+height: 98%;
+}
+#mapImg {
+	margin-left: 5%;
+width: 90%;
+height: 75%;
 }
 }
  
 @media (max-width: 450px){
 #viewport { 
-width:590px;
+width:610px;
 }
 #levelup1 {left: 8%}
 #nice, #awesome{left: 9%; top:52%;}
@@ -218,10 +273,11 @@ width:590px;
 #saveAndLoad {margin-left: 50%;}
 #mapDiv {
 left: 0%;
-width: 350px;	
+width: 95%;	
 }
 #mapImg {
 width: 320px;
+height: 75%;
 }
 }
  
@@ -243,6 +299,7 @@ width: 350px;
 }
 #mapImg {
 width: 320px;
+height: 90%;
 }
 }
 
@@ -262,10 +319,12 @@ top: 1%;
 #saveAndLoad {margin-left: 50%;}
 #mapDiv {
 left: 0%;
-width: 350px;	
+width: 350px;
+height: 95%;	
 }
 #mapImg {
 width: 320px;
+height: 90%;
 }
 }
 
@@ -286,10 +345,12 @@ margin-left: 0%;
 #mapDiv {
 left: 0%;
 width: 330px;
-height: 99%;
+height: 98%;
 }
 #mapImg {
 width: 310px;
-margin-left: 5px;	
+margin-left: 5px;
+	height: 75%;
+	
 }
 }
