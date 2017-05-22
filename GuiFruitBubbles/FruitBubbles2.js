@@ -1105,6 +1105,10 @@ window.onload = function() {
 			score = score + parseInt(localStorage.Score);
 			levelcount = levelcount + (parseInt(localStorage.Level) -1);
 		}
+		// Do load of correct images here
+		
+		
+		//
         turncounter = 0;
         rowoffset = 0;
         
@@ -1409,6 +1413,7 @@ document.getElementById("intro").style.display = 'none';
 document.getElementById("mapDiv").style.display = 'block';
 if (parseInt(levelcount) >= 7 && parseInt(levelcount) <=12 ) {
 		images = loadImages(["guiCandies.png"]);
+		
 		//do background 
 		// do color scheme
 		init();
