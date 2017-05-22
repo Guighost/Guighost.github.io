@@ -1,5 +1,5 @@
 body {
-background-image: url("clouds.gif" ); 
+background-image: url("cloudsSolid.png" ); 
  background-size: 100% 100%;
  background-color: black;
 }
@@ -68,7 +68,7 @@ display: none;
 	height: 100%;
 	top: 0px;
 	left: 0px;
-	background-image: url("clouds.png" ); 
+	background-image: url("cloudsSolid.png" ); 
     background-color: #cccccc;
 	
 	z-index: 200;
