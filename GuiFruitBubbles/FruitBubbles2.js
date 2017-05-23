@@ -309,7 +309,8 @@ window.onload = function() {
         animationstate = 0;
         animationtime = 0;
     }
-    
+
+	
     function stateShootBubble(dt) {
         // Bubble is moving
         
@@ -926,7 +927,7 @@ window.onload = function() {
 			////////Load images based on level 1-6 = fruit, 7-12 = candy, 13-18 = Ghosts, 19+ space Orbs
         
 		if (parseInt(levelcount) >= 7 && parseInt(levelcount) <=12 ) {
-		images = loadImages(["guiCandies.png"]);
+		images = loadImages(["newcandy.png"]);
 		var body = document.getElementsByTagName('body')[0];
 		body.style.backgroundImage = 'url(candyTownBack.png)';
 		//do background 
@@ -938,7 +939,7 @@ window.onload = function() {
 		body.style.backgroundImage = 'url(spookyBack.jpg)';
 		
 		}
-		else if (parseInt(levelcount) = 18) {
+		else if (parseInt(levelcount) == 18) {
 		images = loadImages(["bossBubbles.png"]);
 		var body = document.getElementsByTagName('body')[0];
 		body.style.backgroundImage = 'url(bossBack.gif)';
@@ -1401,6 +1402,7 @@ function saveLevelAndScore() {
 	document.getElementById("loadSaved").style.display = 'block';
 	score = 0;
 	levelcount = 1;
+	
 	};	
 
 	//load saved level
@@ -1411,18 +1413,35 @@ savedGameLoad = 1;
 document.getElementById("saveAndLoad").style.display = 'none'; 
 document.getElementById("intro").style.display = 'none';
 document.getElementById("mapDiv").style.display = 'block';
+// if (parseInt(levelcount) >= 7 && parseInt(levelcount) <=12 ) {
+		// images = loadImages(["newcandy.png"]);
+				// //do background 
+		// // do color scheme
+		// init();
+				// }
+// else if (parseInt(levelcount) >= 13 && parseInt(levelcount) <= 17) {
+		// images = loadImages(["ghostbubbles.png"]);
+				// }
 if (parseInt(levelcount) >= 7 && parseInt(levelcount) <=12 ) {
-		images = loadImages(["guiCandies.png"]);
+				document.getElementById("mapImg").src="mapTown.png";
+				document.getElementById("story").innerHTML = "You made it to <b>Candy Town</b>! Collect candies to proceed.";
+			document.getElementById("mapDiv").style.display = 'block'; 
+			}
+	else if (parseInt(levelcount) >= 13 && parseInt(levelcount) <= 17) {
+				document.getElementById("mapImg").src="mapGhost.png";
+				document.getElementById("story").innerHTML = "Danger, entering the Ghostly Graveyard. beat 5 levels to reach the boss.";
+			document.getElementById("mapDiv").style.display = 'block'; 
+			}
 		
-		//do background 
-		// do color scheme
-		init();
-		
-		}
-		else if (parseInt(levelcount) >= 13 && parseInt(levelcount) <= 18) {
-		images = loadImages(["ghostbubbles.png"]);
-		
-		}
+		document.getElementById("mapDiv").style.display = 'block';
+		turncounter = 0;
+		//adjust levelnew row
+		 if (levelcount > 1 && levelcount <= 4){	newRowCounter = 9; 	}
+		if (levelcount >=5 && levelcount <= 7){	newRowCounter = 8;	}
+		if (levelcount >= 8 && levelcount <= 10){ newRowCounter = 7; }
+		if (levelcount > 10 && levelcount <= 13){ newRowCounter = 6; }
+		if (levelcount > 13 && levelcount <=16){ newRowCounter = 5;	}
+		if (levelcount > 16 ){	newRowCounter = 4;	}
 }	
 
 function closeSave () {
