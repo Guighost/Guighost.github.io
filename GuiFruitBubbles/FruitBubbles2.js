@@ -929,20 +929,20 @@ window.onload = function() {
 		if (parseInt(levelcount) >= 7 && parseInt(levelcount) <=12 ) {
 		images = loadImages(["newcandy.png"]);
 		var body = document.getElementsByTagName('body')[0];
-		body.style.backgroundImage = 'url(newcandyBack.png)';
+		body.style.backgroundImage = "url('newcandyBack.png')";
 		//do background 
 		// do color scheme
 		}
 		else if (parseInt(levelcount) >= 13 && parseInt(levelcount) <= 17) {
 		images = loadImages(["ghostbubbles.png"]);
 		var body = document.getElementsByTagName('body')[0];
-		body.style.backgroundImage = 'url(spookyBack.jpg)';
+		body.style.backgroundImage = "url('spookyBack.jpg')";
 		
 		}
 		else if (parseInt(levelcount) == 18) {
 		images = loadImages(["bossBubbles.png"]);
 		var body = document.getElementsByTagName('body')[0];
-		body.style.backgroundImage = 'url(bossBack.gif)';
+		body.style.backgroundImage = "url('bossBack.gif')";
 		
 		}
 		else if (levelcount >= 19 ) {
@@ -1112,20 +1112,20 @@ window.onload = function() {
 		if (parseInt(levelcount) >= 7 && parseInt(levelcount) <=12 ) {
 		images = loadImages(["newcandy.png"]);
 		var body = document.getElementsByTagName('body')[0];
-		body.style.backgroundImage = 'url(newcandyBack.png)';
+		body.style.backgroundImage = "url('newcandyBack.png')";
 		//do background 
 		// do color scheme
 		}
 		else if (parseInt(levelcount) >= 13 && parseInt(levelcount) <= 17) {
 		images = loadImages(["ghostbubbles.png"]);
 		var body = document.getElementsByTagName('body')[0];
-		body.style.backgroundImage = 'url(spookyBack.jpg)';
+		body.style.backgroundImage = "url('spookyBack.jpg')";
 		
 		}
 		else if (parseInt(levelcount) == 18) {
 		images = loadImages(["bossBubbles.png"]);
 		var body = document.getElementsByTagName('body')[0];
-		body.style.backgroundImage = 'url(bossBack.gif)';
+		body.style.backgroundImage = "url('bossBack.gif')";
 		
 		}
 		else if (levelcount >= 19 ) {
