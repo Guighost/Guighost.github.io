@@ -261,18 +261,18 @@ window.onload = function() {
             drawFrame();
             
             // Draw a progress bar
-            var loadpercentage = loadcount/loadtotal;
-            context.strokeStyle = "#ff8080";
-            context.lineWidth=3;
-            context.strokeRect(18.5, 0.5 + canvas.height - 51, canvas.width-277, 32);
-            context.fillStyle = "#ff8080";
-            context.fillRect(18.5, 0.5 + canvas.height - 51, loadpercentage*(canvas.width-277), 32);
+            // var loadpercentage = loadcount/loadtotal;
+            // context.strokeStyle = "#ff8080";
+            // context.lineWidth=3;
+            // context.strokeRect(18.5, 0.5 + canvas.height - 51, canvas.width-277, 32);
+            // context.fillStyle = "#ff8080";
+            // context.fillRect(18.5, 0.5 + canvas.height - 51, loadpercentage*(canvas.width-277), 32);
             
-            // Draw the progress text
-            var loadtext = "Loaded " + loadcount + "/" + loadtotal + " images";
-            context.fillStyle = "#000000";
-            context.font = "16px Verdana";
-            context.fillText(loadtext, 18, 0.5 + canvas.height - 63);
+            // // Draw the progress text
+            // var loadtext = "Loaded " + loadcount + "/" + loadtotal + " images";
+            // context.fillStyle = "#000000";
+            // context.font = "16px Verdana";
+            // context.fillText(loadtext, 18, 0.5 + canvas.height - 63);
             
             if (preloaded) {
                 // Add a delay for demonstration purposes

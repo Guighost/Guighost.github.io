@@ -62,7 +62,7 @@ display: none;
 	font-size: 18px;
 	top: 25%;
 	text-align: center;
-	margin-left: 23%;
+	margin-left: 29%;
 }
 #intro {
 	position: absolute;
@@ -90,13 +90,13 @@ display: none;
 	font-size: 18px;
 	top: 32%;
 	text-align: center;
-	margin-left: 23%;
+	margin-left: 29%;
 	transform: translate(0px,-8px);
 }
 .introdiv {
 	position: relative;
 	display: block;
-	margin-left: 20%;
+	margin-left: 25%;
 	max-width: 300px;
 	}
 #saveAndLoad {
@@ -341,11 +341,9 @@ width:500px;
 } 
 #levelup1 {left: 3%}
 #nice, #awesome{left: 9%; top:49%;}
-.introdiv {padding-left: 10px;
-margin-left: 0%;
-}
-#saveAndLoad {margin-left: 50%;
-}
+.introdiv {padding-left: 10px; margin-left: 4%;}
+#playGame #loadSaved{ margin-left: 10%; margin-right: 20%; width:50%;  padding-top: 10px;}
+#saveAndLoad {margin-left: 50%;}
 
 #mapDiv {
 left: 0%;
