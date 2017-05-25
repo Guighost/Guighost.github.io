@@ -55,7 +55,24 @@ gameOverImage.src = "gameOver.png";
 	
 // The function gets called when the window is fully loaded
 window.onload = function() {
+	// change start//
 	
+	document.getElementById("playGame").addEventListener("click", newGameEvent);
+	document.getElementById("loadSaved").addEventListener("click", loadGameEvent);
+	
+	function newGameEvent() { 
+	// call old onLoad event
+	loadOnLoad();
+	};
+	function loadGameEvent() {
+		   setTimeout(function(){
+        // call old onLoad event with a timeout to let loadSavedLevel time to set the images
+		loadOnLoad();
+    },500);
+	
+	}
+}
+function loadOnLoad() {
 	if (typeof localStorage["Score"] === "undefined") {
 	document.getElementById("loadSaved").style.display = 'none';
 	}
@@ -1441,7 +1458,7 @@ function saveLevelAndScore() {
 	document.getElementById("loadSaved").style.display = 'block';
 	score = 0;
 	levelcount = 1;
-	
+	window.location.reload();
 	};	
 
 	//load saved level
