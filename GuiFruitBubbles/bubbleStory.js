@@ -59,7 +59,9 @@ window.onload = function() {
 	
 	document.getElementById("playGame").addEventListener("click", newGameEvent);
 	document.getElementById("loadSaved").addEventListener("click", loadGameEvent);
-	
+	if (typeof localStorage["Score"] === "undefined") {
+	document.getElementById("loadSaved").style.display = 'none';
+	}
 	function newGameEvent() { 
 	// call old onLoad event
 	loadOnLoad();
@@ -73,9 +75,7 @@ window.onload = function() {
 	}
 }
 function loadOnLoad() {
-	if (typeof localStorage["Score"] === "undefined") {
-	document.getElementById("loadSaved").style.display = 'none';
-	}
+	
 	//play backgroundmyAudio = new Audio('someSound.ogg'); 
 	myAudio = new Audio('guifruity.mp3'); 
 	if (typeof myAudio.loop == 'boolean')
