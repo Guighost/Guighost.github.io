@@ -1379,6 +1379,11 @@ function loadOnLoad() {
 				document.getElementById("story").innerHTML = "Danger, entering the Ghostly Graveyard. beat 5 levels to reach the boss.";
 			document.getElementById("mapDiv").style.display = 'block'; 
 			}
+			else if (parseInt(levelcount) == 19) {
+				document.getElementById("mapImg").src="spaceMapMin.png";
+				document.getElementById("story").innerHTML = "You have defated the aliens, and take the ship. <b>Blast off</b>!";
+			document.getElementById("mapDiv").style.display = 'block'; 
+			}
 			lvlUp();
 		}
 		
@@ -1460,7 +1465,13 @@ function saveLevelAndScore() {
 	levelcount = 1;
 	window.location.reload();
 	};	
-
+function saveNoQuit() {
+	localStorage["Level"] = levelcount;
+			localStorage["Score"] = score;
+			
+	document.getElementById("saveAndLoad").style.display = 'none'; 
+	
+	};	
 	//load saved level
 function loadSavedLevel() {
 levelcount = parseInt(localStorage.Level);
@@ -1489,7 +1500,11 @@ if (parseInt(levelcount) >= 7 && parseInt(levelcount) <=12 ) {
 				document.getElementById("story").innerHTML = "Danger, entering the Ghostly Graveyard. beat 5 levels to reach the boss.";
 			document.getElementById("mapDiv").style.display = 'block'; 
 			}
-		
+	else if (parseInt(levelcount) >= 19 ) {
+				document.getElementById("mapImg").src="spaceMapMin.png";
+				document.getElementById("story").innerHTML = "You have defated the aliens, and take the ship. <b>Blast off</b>!";
+			document.getElementById("mapDiv").style.display = 'block'; 
+			}	
 		document.getElementById("mapDiv").style.display = 'block';
 		turncounter = 0;
 		// //adjust levelnew row

@@ -102,9 +102,9 @@ display: none;
 #saveAndLoad {
 	z-index: 1500;
 	position: absolute;
-	width : 180px;
-	height: 120px;
-	top: 50%;
+	width : 200px;
+	height: 200px;
+	top: 30%;
 		margin-left: 40%;
 		-ms-transform: translate(-85px,0px); /* IE 9 */
     -webkit-transform: translate(-85px,0px); /* Safari */
@@ -116,13 +116,19 @@ display: none;
 	font-size: 24px;
 	text-align: center;
 	border-radius: 30px;
+	font-family: Comic Sans MS;
 }
 .savebtns {
-	top: 0px;
-	border: 2px solid #AF7AC5;
+	top: 30px;
+	border: 2px solid #ff0080;
 	border-radius: 8px;
-	width: 150px;
-	background-color: #FFFFFF;
+	margin-top: 20px;
+	margin-bottom: 50px;
+	width: 190px;
+	height: 100px;
+	background-color: #668cff;
+	text-decoration: none;
+	color: #ffd1b3;
 }
 
 #mapDiv {
@@ -149,10 +155,10 @@ display: none;
 .closebtns {
 	border: 5px solid red;
 	background-color:#F7DC6F;
-	font-size: 24px;
+	font-size: 22px;
 	font-weight: 90;
 	width: 25px;
-	height: 25px;
+	height: 27px;
 	border-radius: 10px;
 	display: block;
 	 transform: translate(-10px,-12px);
