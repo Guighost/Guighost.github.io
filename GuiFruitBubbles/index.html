@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <title>Gui Fruity Bubbles</title>
-<script type='text/javascript' src='bubbleStory.js'></script>
+
 
 <link rel="icon" 
       type="image/png" 
@@ -23,19 +23,24 @@
 <img id ="awesome" class = "pops" src="awesome2.gif" alt="awesome" style="width:206px;height:76px; z-index: 85;">
 <img id ="nice"  class = "pops"  src="nicemove.gif" alt="nicemove" style="width:250px;height:80px; z-index: 85;">
 
+ <img id ="hotstreak"    src="hotstreak.gif" alt="hotstreak" style="z-index: 85;"> 
+
 <!-- intro div -->
 <div id ="intro">
 <img id ="fruitylogo" class = "introdiv" src="bubbleStory.gif">
-<a href ="#" id ="playGame" onclick='hideIntro()'>New Game</a>
-<a href ="#" id ="loadSaved" onclick='loadSavedLevel()'>Load Saved</a>
+<a href ="#" id ="playGame" onclick='hideIntro()' class="clsIntroBtn" >New Game</a>
+<a href ="#" id ="loadSaved" onclick='loadSavedLevel()' class="clsIntroBtn">Load Saved</a>
+<a href ="#" id ="levelSelect" onclick='loadLevelSelect()' class="clsIntroBtn">Level Select</a>
 </div>
 
 <!-- Save game -->
 <div id ="saveAndLoad">
 <a href="#" id ="saveClose" class = "closebtns" onclick='closeSave()'>X</a>
 <!-- <img id ="saveImage" src="saveAndQuit.png" alt="saveimage" onclick='saveLevelAndScore()'> -->
-<a href ="#" id ="saveScore" class = "savebtns" onclick='saveLevelAndScore()'>  Save & Quit</a> <br/> <br/> <br/>
- <a href ="#" id ="saveScoreNoQuit" class = "savebtns" onclick='saveNoQuit()'>  Save Only</a>
+<a id ="menuA">Game Menu</a> 
+<a href ="#" id ="saveScore" class = "savebtns" onclick='saveLevelAndScore()'>  Save and Quit</a>  <br/> <br/>
+ <a href ="#" id ="saveScoreNoQuit" class = "savebtns" onclick='Quit()'>  Exit without save</a><br/> <br/>
+ <a href ="#" id ="clearStats" class = "savebtns" onclick='clearStats1()'>  Clear saved stats</a>
 
 </div>
 <!-- MAP div -->
@@ -43,9 +48,123 @@
 <a href="#" id ="mapClose" class = "closebtns2" onclick='closeMap()'><b>Close Map</b></a>
 <p id ="story"> <b>Gui Bubble Story - </b> Travel the <b>Fruity Forest</b>, visit <b>Candy Town</b>, and navigate the <b>Ghostly Graveyard</b> to reach the goal.</p>
 
-<img id ="mapImg"  src="mapStart.png">
+<img id ="mapImg"  src="mapStart.png" onclick='closeMap()'>
 
 </div>
+
+<!-- Level Select Div -->
+<div id="lvlSelectParent"  width="628" height="628">
+ <div id="footDiv">
+ <table id="footer>
+ <tr colspan ="3">
+ <td width="50"> <img class="selectSquare" name = "leftarrow" src="leftarrow.png" onclick='clickLeft()' > </td>
+	<td ><a id ="lvlSelectFoot1">Select a Zone</a></td>
+	<td ><img class="selectSquare" src="rightarrow.png" onclick='clickRight()'> </td>
+ </tr>
+ </table>
+ </div>
+<div id="grid1">
+ <table id ="selectGrid" > 
+ <tr colspan="3"> <a id ="lvlSelectHead" class="clsSelectHead">Collect the Fruit!</a> </tr>
+ 
+<tr id= "areaImg" class = "clsTblTitle" colspan="3"> 
+<td colspan="3" ><img id ="mapImg2"  src="fruityForest.png"></td>
+ </tr>
+<!--levels 1 - 6 -->
+ <tr id ="" class ="forestRow">
+	<td ><a class="clsLvlNums" id="sel-1">1</a><img class="selectSquare" src="green.png" onclick ='loadSelectedLvl(1)'> </td>
+	<td ><a class="clsLvlNums" id="sel-2">2</a><img class="selectSquare" src="green.png">  </td>
+	<td ><a class="clsLvlNums" id="sel-3">3</a><img class="selectSquare" src="green.png"> </td>
+ </tr>
+ <tr id ="" class ="forestRow">
+	<td ><a class="clsLvlNums" id="sel-4">4</a><img class="selectSquare" src="green.png"> </td>
+	<td ><a class="clsLvlNums" id="sel-5">5</a><img class="selectSquare" src="green.png">  </td>
+	<td ><a class="clsLvlNums" id="sel-6">6</a><img class="selectSquare" src="green.png"> </td>
+ </tr>
+ <tr colspan="3" class ="forestRow"> </tr>
+ <tr colspan="3" id="switch1"> 
+
+ </table>
+ </div>
+ <div id ="grid2">
+ <table id ="selectGrid2" > 
+  <tr colspan="3"> <a id ="lvlSelectHead" class="clsSelectHead">Yummy Candies! Sweet Treats!</a> </tr>
+ <tr id= "areaImg2" class = "clsTblTitle" colspan="3"> 
+<td colspan="3" ><img id ="mapImg3"  src="candyTownm.png"></td>
+ </tr>
+<!--levels 7 - 12 -->
+ <tr id ="" class ="candyRow">
+	<td ><a class="clsLvlNums" id="sel-7">7</a><img class="selectSquare" src="red.png"></td>
+	<td ><a class="clsLvlNums" id="sel-8">8</a><img class="selectSquare" src="red.png"></td>
+	<td ><a class="clsLvlNums" id="sel-9">9</a><img class="selectSquare" src="red.png"></td>
+ </tr>
+	<tr id ="" class ="candyRow">
+	<td ><a class="clsLvlNums2" id="sel-10">10</a><img class="selectSquare" src="red.png"></td>
+	<td ><a class="clsLvlNums2" id="sel-11">11</a><img class="selectSquare" src="red.png"></td>
+	<td ><a class="clsLvlNums2" id="sel-12">12</a><img class="selectSquare" src="red.png"></td>
+ </tr>
+  <tr colspan="3" class ="candyRow"> </tr>
+
+  </table>
+ </div>
+ <div id="grid3">
+ <table id ="selectGrid3" > 
+ <tr colspan="3"> <a id ="lvlSelectHead" class="clsSelectHead">Spooky Ghosts!</a> </tr>
+ <tr id= "areaImg3" class = "clsTblTitle" colspan="3"> 
+<td colspan="3" ><img id ="mapImg4"  src="graveBadge.png"></td>
+ </tr>
+ <!--levels 13 - 18 -->
+	<tr id ="" class ="ghostRow">
+	<td ><a class="clsLvlNums2" id="sel-13">13</a><img class="selectSquare" src="grey.png"></td>
+	<td ><a class="clsLvlNums2" id="sel-14">14</a><img class="selectSquare" src="grey.png"></td>
+	<td ><a class="clsLvlNums2" id="sel-15">15</a><img class="selectSquare" src="grey.png"></td>
+ </tr>
+   <tr id ="" class ="ghostRow">
+	<td ><a class="clsLvlNums2" id="sel-16">16</a><img class="selectSquare" src="grey.png"></td>
+	<td ><a class="clsLvlNums2" id="sel-17">17</a><img class="selectSquare" src="grey.png"></td>
+	<td ><a class="clsLvlNums2" id="sel-18">18</a><img class="selectSquare" src="grey.png"></td>
+ </tr>
+  <tr colspan="3" class ="ghostRow"> </tr>
+
+  </table>
+ </div>
+ <div id="grid4">
+ <table id ="selectGrid4" > 
+ <tr colspan="3"> <a id ="lvlSelectHead" class="clsSelectHead">Blast off to space!</a> </tr>
+ <tr id= "areaImg4" class = "clsTblTitle" colspan="3"> 
+<td colspan="3" ><img id ="mapImg5"  src="crazyCosmos.png"></td>
+ </tr>
+  <!--levels 19 - 25 -->
+   <tr id ="" class ="spacerow">
+	<td ><a class="clsLvlNums2" id="sel-19">19</a><img class="selectsquare" src="aqua.png"> </td> 
+	<td ><a class="clsLvlNums2" id="sel-20">20</a><img class="selectsquare" src="aqua.png"> </td> 
+	<td ><a class="clsLvlNums2" id="sel-21">21</a><img class="selectsquare" src="aqua.png"> </td>  
+ </tr> 
+    <tr id ="" class ="spacerow">
+	<td ><a class="clsLvlNums2" id="sel-22">22</a><img class="selectsquare" src="aqua.png"> </td> 
+	<td ><a class="clsLvlNums2" id="sel-23">23</a><img class="selectsquare" src="aqua.png"> </td> 
+	<td ><a class="clsLvlNums2" id="sel-24">24</a><img class="selectsquare" src="aqua.png"> </td> 
+ </tr>
+  <tr colspan="3" class ="ghostRow"> </tr>
+
+  </table>
+ </div>
+  <!--levels 25 - 31 -->
+ <!-- <tr id ="" class ="alienRow"> -->
+	<!-- <td ><img class="selectSquare" src="blue.png"> </td> -->
+	<!-- <td ><img class="selectSquare" src="blue.png"> </td> -->
+	<!-- <td ><img class="selectSquare" src="blue.png"> </td> -->
+ <!-- </tr> -->
+   <!-- <tr id ="" class ="alientRow"> -->
+	<!-- <td ><img class="selectSquare" src="blue.png"> </td> -->
+	<!-- <td ><img class="selectSquare" src="blue.png"> </td> -->
+	<!-- <td ><img class="selectSquare" src="blue.png"> </td> -->
+ <!-- </tr> -->
+ 
+<div id="closeLvlSelect"> <img class="selectsquare" src="closeLvlSelect.png" onclick='closeLvlSelect()'> </div>
+</div>
+
+
 <!--AUDIO Files-->
     <!-- <audio controls  id="gameSoundLoop" class="gameSounds" loop autoplay  > -->
         <!-- <source src="Sounds\guifruity.mp3" type="audio/mp3"> -->
@@ -54,6 +173,7 @@
 		<audio id="NiceSound" class="gameSounds">
         <source src="Sounds\JingleWinSynth0.mp3" type="audio/mp3">
             </audio>
+<script type='text/javascript' src='bubbleStory.js'></script>
 </body>
 
 </html> 

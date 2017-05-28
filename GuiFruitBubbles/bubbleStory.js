@@ -18,6 +18,7 @@
 	var savedGameLoad = 0;
 	var levelcount = 1;
 	var levelbump = 0;
+	var fromLoadMenu = 0;
 	
 	//sounds
 	var snd2 = new Audio("Sounds/nice.mp3"); // plays on the Nice Move message
@@ -42,7 +43,7 @@ var saveImage = new Image();
 saveImage.onload = function () {
     saveImgReady = true;
 }
-saveImage.src = "saveAndQuit.png"; 
+saveImage.src = "Menu.png"; 
 
 // Game Over Image
 	var gameOverReady = false;
@@ -59,21 +60,55 @@ window.onload = function() {
 	
 	document.getElementById("playGame").addEventListener("click", newGameEvent);
 	document.getElementById("loadSaved").addEventListener("click", loadGameEvent);
+	document.getElementById("lvlSelectParent").addEventListener("click", detectTile);
 	if (typeof localStorage["Score"] === "undefined") {
-	document.getElementById("loadSaved").style.display = 'none';
-	}
+	document.getElementById("loadSaved").style.display = 'none';	}
+	
+	function detectTile(e) {
+    if (e.target !== e.currentTarget) {
+        var clickedItem = e.target.id;
+		if(!e.target.id) {return;}
+		var numOnly = clickedItem.substring(4)
+       
+		levelcount = parseInt(numOnly);
+	
+		savedGameLoad = 1;
+		fromLoadMenu = 1;
+    }
+    e.stopPropagation();
+	loadGameEvent();
+	loadSavedLevel();
+	closeLvlSelect();
+	hideIntro();
+	
+}
+		// detect clicked and load game to that level
+	// function loadSelectedLvl(){
+		// var clicked;
+		
+		// levelcount = parseInt(clicked);
+		// loadGameEvent();
+		// alert (clicked);
+	// };	
+	// Load New Game//
 	function newGameEvent() { 
 	// call old onLoad event
-	loadOnLoad();
-	};
-	function loadGameEvent() {
-		   setTimeout(function(){
-        // call old onLoad event with a timeout to let loadSavedLevel time to set the images
-		loadOnLoad();
-    },500);
+	loadOnLoad();	};
 	
-	}
+	// Load Saved game//
+	function loadGameEvent() {
+        // call old onLoad event with a timeout to let loadSavedLevel time to set the images
+		
+		 setTimeout(function(){		loadOnLoad();    },500);}
+	
+	
+
 }
+
+	// end of onload
+
+
+
 function loadOnLoad() {
 	
 	//play backgroundmyAudio = new Audio('someSound.ogg'); 
@@ -1114,17 +1149,27 @@ function loadOnLoad() {
     
     // Start a new game
     function newGame() {
-		
+		// alert(levelcount);
         // // reset score
+		if (savedGameLoad == 0) {
 		 score = 0;
-		levelcount = 1;
+		levelcount = 1;}
 					
 					
-		if (savedGameLoad == 1) {
+		if (savedGameLoad == 1 && fromLoadMenu == 0){
 			savedGameLoad = 0;
+			fromLoadMenu = 0;
+			levelcount = 1;
+			score = 0;
 			score = score + parseInt(localStorage.Score);
+			
 			levelcount = levelcount + (parseInt(localStorage.Level) -1);
 		}
+		if (savedGameLoad == 1 && fromLoadMenu == 1){
+			savedGameLoad = 0;
+			fromLoadMenu = 0;
+		}
+		// alert(levelcount);
 		// Do load of correct images here
 			////////Load images based on level 1-6 = fruit, 7-12 = candy, 13-18 = Ghosts, 19+ space Orbs
         
@@ -1465,31 +1510,27 @@ function saveLevelAndScore() {
 	levelcount = 1;
 	window.location.reload();
 	};	
-function saveNoQuit() {
+function Quit() {
 	localStorage["Level"] = levelcount;
 			localStorage["Score"] = score;
 			
 	document.getElementById("saveAndLoad").style.display = 'none'; 
-	
-	};	
+	window.location.reload();
+		};
+function clearStats1() {
+			localStorage["Level"] = 1;
+			localStorage["Score"] = 0;
+			window.location.reload();
+}	
 	//load saved level
 function loadSavedLevel() {
-levelcount = parseInt(localStorage.Level);
+	if (parseInt(fromLoadMenu) == 0){levelcount = parseInt(localStorage.Level);}
 score = parseInt(localStorage.Score);
 
 savedGameLoad = 1;
 document.getElementById("saveAndLoad").style.display = 'none'; 
 document.getElementById("intro").style.display = 'none';
 
-// if (parseInt(levelcount) >= 7 && parseInt(levelcount) <=12 ) {
-		// images = loadImages(["newcandy.png"]);
-				// //do background 
-		// // do color scheme
-		// init();
-				// }
-// else if (parseInt(levelcount) >= 13 && parseInt(levelcount) <= 17) {
-		// images = loadImages(["ghostbubbles.png"]);
-				// }
 if (parseInt(levelcount) >= 7 && parseInt(levelcount) <=12 ) {
 				document.getElementById("mapImg").src="mapTown.png";
 				document.getElementById("story").innerHTML = "You made it to <b>Candy Town</b>! Collect candies to proceed.";
@@ -1515,11 +1556,7 @@ if (parseInt(levelcount) >= 7 && parseInt(levelcount) <=12 ) {
 		// if (parseInt(levelcount) > 13 && parseInt(levelcount) <=16){ newRowCounter = 5;	}
 		// if (parseInt(levelcount) > 16 ){	newRowCounter = 4;	}
 		
-		//reload th board
-	
-	 
-		// dispatchEvent( new Event('load'));
-		
+				
 }	
 
 function closeSave () {
@@ -1532,11 +1569,73 @@ function closeMap () {
 	
 }
 
-// reload window on load
 
-	   
+     // Level Select functions
+function loadLevelSelect(){
+	document.getElementById("lvlSelectParent").style.display = 'block'; 
+	var leftA = document.getElementsByName("leftarrow");
+		var leftA2 = leftA[0];
+	leftA2.style.display = 'none';
+	}	
+function closeLvlSelect() {document.getElementById("lvlSelectParent").style.display = 'none';}
+function clickRight(){
+	if (document.getElementById("grid1").offsetWidth > 0 && document.getElementById("grid1").offsetHeight > 0){
+		document.getElementById("grid1").style.display = 'none';
+		document.getElementById("grid2").style.display = 'block';
+		var leftA = document.getElementsByName("leftarrow");
+		var leftA2 = leftA[0];
+		leftA2.style.display = 'block'
+		}
+		
+	else if (document.getElementById("grid2").offsetWidth > 0 && document.getElementById("grid2").offsetHeight > 0){
+		document.getElementById("grid1").style.display = 'none';
+		document.getElementById("grid2").style.display = 'none';
+		document.getElementById("grid3").style.display = 'block';
+		}
+	else if (document.getElementById("grid3").offsetWidth > 0 && document.getElementById("grid3").offsetHeight > 0){
+		document.getElementById("grid1").style.display = 'none';
+		document.getElementById("grid2").style.display = 'none';
+		document.getElementById("grid3").style.display = 'none';
+		document.getElementById("grid4").style.display = 'block';
+		}
+	else { return;}
+	}
 	
+function clickLeft(){
+	if (document.getElementById("grid1").offsetWidth > 0 && document.getElementById("grid1").offsetHeight > 0){
+		document.getElementById("grid1").style.display = 'none';
+		document.getElementById("grid2").style.display = 'block';
+		document.getElementsByName("leftarrow").style.display = 'block';
+		}
+		
+	else if (document.getElementById("grid2").offsetWidth > 0 && document.getElementById("grid2").offsetHeight > 0){
+		document.getElementById("grid1").style.display = 'block';
+		document.getElementById("grid2").style.display = 'none';
+		document.getElementById("grid3").style.display = 'none';
+		var leftA = document.getElementsByName("leftarrow");
+		var leftA2 = leftA[0];
+		leftA2.style.display = 'none';
+		}
+	else if (document.getElementById("grid3").offsetWidth > 0 && document.getElementById("grid3").offsetHeight > 0){
+		document.getElementById("grid1").style.display = 'none';
+		document.getElementById("grid2").style.display = 'block';
+		document.getElementById("grid3").style.display = 'none';
+		document.getElementById("grid4").style.display = 'none';
+		}
+		else if (document.getElementById("grid4").offsetWidth > 0 && document.getElementById("grid4").offsetHeight > 0){
+		document.getElementById("grid1").style.display = 'none';
+		document.getElementById("grid2").style.display = 'none';
+		document.getElementById("grid3").style.display = 'block';
+		document.getElementById("grid4").style.display = 'none';
+		}
+	else { return;}
+	}
 
+	//apply the clicked	
+function closeLvlSelect() {
+	document.getElementById("lvlSelectParent").style.display = 'none';
+	
+}
 
 
 // end of script	
