@@ -1191,12 +1191,18 @@ function loadOnLoad() {
 		images = loadImages(["bossBubbles.png"]);
 		var body = document.getElementsByTagName('body')[0];
 		body.style.backgroundImage = "url('bossBack.gif')";
-		
 		}
-		else if (levelcount >= 19 ) {
+		else if (levelcount >= 19 && parseInt(levelcount) <= 24 ) {
 		images = loadImages(["orbBubbles.png"]);
 		document.body.style.backgroundImage = "url('space_bg.gif')";
-		
+		}
+		else if (levelcount >= 25 && parseInt(levelcount) <= 30 ) {
+		images = loadImages(["seaBubbles.png"]);
+		document.body.style.backgroundImage = "url('oceanWorldBack.png')";
+		}
+		else if (levelcount >= 31) {
+		images = loadImages(["space2Bubbles2.png"]);
+		document.body.style.backgroundImage = "url('space_bg.gif')";
 		}
 //adjust levelnew row
 		 if (parseInt(levelcount)> 1 && parseInt(levelcount) <= 4){	newRowCounter = 9; 	}
@@ -1598,6 +1604,21 @@ function clickRight(){
 		document.getElementById("grid3").style.display = 'none';
 		document.getElementById("grid4").style.display = 'block';
 		}
+	else if (document.getElementById("grid4").offsetWidth > 0 && document.getElementById("grid4").offsetHeight > 0){
+		document.getElementById("grid1").style.display = 'none';
+		document.getElementById("grid2").style.display = 'none';
+		document.getElementById("grid3").style.display = 'none';
+		document.getElementById("grid4").style.display = 'none';
+		document.getElementById("grid5").style.display = 'block';
+		}
+	else if (document.getElementById("grid5").offsetWidth > 0 && document.getElementById("grid5").offsetHeight > 0){
+		document.getElementById("grid1").style.display = 'none';
+		document.getElementById("grid2").style.display = 'none';
+		document.getElementById("grid3").style.display = 'none';
+		document.getElementById("grid4").style.display = 'none';
+		document.getElementById("grid5").style.display = 'none';
+		document.getElementById("grid6").style.display = 'block';
+		}
 	else { return;}
 	}
 	
@@ -1622,11 +1643,25 @@ function clickLeft(){
 		document.getElementById("grid3").style.display = 'none';
 		document.getElementById("grid4").style.display = 'none';
 		}
-		else if (document.getElementById("grid4").offsetWidth > 0 && document.getElementById("grid4").offsetHeight > 0){
+	else if (document.getElementById("grid4").offsetWidth > 0 && document.getElementById("grid4").offsetHeight > 0){
 		document.getElementById("grid1").style.display = 'none';
 		document.getElementById("grid2").style.display = 'none';
 		document.getElementById("grid3").style.display = 'block';
 		document.getElementById("grid4").style.display = 'none';
+		}
+	else if (document.getElementById("grid5").offsetWidth > 0 && document.getElementById("grid5").offsetHeight > 0){
+		document.getElementById("grid1").style.display = 'none';
+		document.getElementById("grid2").style.display = 'none';
+		document.getElementById("grid3").style.display = 'none';
+		document.getElementById("grid4").style.display = 'block';
+		document.getElementById("grid5").style.display = 'none';
+		}
+	else if (document.getElementById("grid6").offsetWidth > 0 && document.getElementById("grid6").offsetHeight > 0){
+		document.getElementById("grid2").style.display = 'none';
+		document.getElementById("grid3").style.display = 'none';
+		document.getElementById("grid4").style.display = 'none';
+		document.getElementById("grid5").style.display = 'block';
+		document.getElementById("grid6").style.display = 'none';
 		}
 	else { return;}
 	}

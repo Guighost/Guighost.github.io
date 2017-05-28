@@ -266,6 +266,12 @@ display: none;
 display: none;
 
 }
+#grid5 {
+display: none;
+}
+#grid6 {
+display: none;
+}
 #footDiv{
 	transform: translate(14px,-0px);
 	text-align: center;
@@ -301,7 +307,7 @@ display: none;
 	margin: auto;
 	padding: 10px;
 }
-.alienRow{
+.waterRow{
 
 	width : 95%;
 	height : 42px;
