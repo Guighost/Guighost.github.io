@@ -451,7 +451,7 @@ function loadOnLoad() {
 			inStreakCount ++;
 			
 			//DB  ---check for streak
-			if (inStreakCount >= 2) {
+			if (inStreakCount >= 5) {
 				inStreak = 1;
 				inStreakScore = parseInt(inStreakScore) + (cluster.length * 100);
 				document.getElementById("hotstreak").style.display = 'block';
@@ -479,7 +479,7 @@ function loadOnLoad() {
                         
                         score += 100;
 						//DB - add floating to streak Score
-						if (inStreakCount >= 2) {
+						if (inStreakCount >= 5) {
 						inStreakScore = parseInt(inStreakScore) + 100;
 						}
                     }
