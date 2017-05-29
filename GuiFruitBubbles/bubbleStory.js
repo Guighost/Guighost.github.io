@@ -1485,6 +1485,11 @@ function loadOnLoad() {
 				document.getElementById("story").innerHTML = "You have defated the aliens, and take the ship. <b>Blast off</b>!";
 			document.getElementById("mapDiv").style.display = 'block'; 
 			}
+			else if (parseInt(levelcount) == 25) {
+				document.getElementById("mapImg").src="oceanWorldMap.png";
+				document.getElementById("story").innerHTML = "Fiesty fish and crabby crabs await on <b>Ocean World</b>!";
+			document.getElementById("mapDiv").style.display = 'block'; 
+			}
 			lvlUp();
 		}
 		
@@ -1597,12 +1602,22 @@ if (parseInt(levelcount) >= 7 && parseInt(levelcount) <=12 ) {
 				document.getElementById("story").innerHTML = "Danger, entering the Ghostly Graveyard. beat 5 levels to reach the boss.";
 			document.getElementById("mapDiv").style.display = 'block'; 
 			}
-	else if (parseInt(levelcount) >= 19 && parseInt(levelcount) <= 25 ) {
+	else if (parseInt(levelcount) >= 19 && parseInt(levelcount) <= 24 ) {
 				document.getElementById("mapImg").src="spaceMapMin.png";
 				document.getElementById("story").innerHTML = "You have defated the aliens, and take the ship. <b>Blast off</b>!";
 			document.getElementById("mapDiv").style.display = 'block'; 
-			}	
-		document.getElementById("mapDiv").style.display = 'block';
+			}
+	else if (parseInt(levelcount) >= 25 && parseInt(levelcount) <= 30 ) {
+				document.getElementById("mapImg").src="spaceMapMin.png";
+				document.getElementById("story").innerHTML = "You have defated the aliens, and take the ship. <b>Blast off</b>!";
+			document.getElementById("mapDiv").style.display = 'block'; 
+			}
+	else if (parseInt(levelcount) >= 1 && parseInt(levelcount) <= 6 ) {
+				document.getElementById("mapImg").src="mapStart-2.png";
+				document.getElementById("story").innerHTML = "<b>Gui Bubble Story - </b> Travel the <b>Fruity Forest</b>, visit <b>Candy Town</b>, and navigate the <b>Ghostly Graveyard</b> and go beyond!";
+			document.getElementById("mapDiv").style.display = 'block'; 
+			}			
+		
 		turncounter = 0;
 		// //adjust levelnew row
 		 // if (parseInt(levelcount)> 1 && parseInt(levelcount) <= 4){	newRowCounter = 9; 	}
