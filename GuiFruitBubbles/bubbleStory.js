@@ -19,16 +19,23 @@
 	var levelcount = 1;
 	var levelbump = 0;
 	var fromLoadMenu = 0;
+	var inStreakCount = 0;
+	var inStreak = 0;
+	var inStreakScore = 0;
 	
 	//sounds
 	var snd2 = new Audio("Sounds/nice.mp3"); // plays on the Nice Move message
-	snd2.load();
+		snd2.load();
     var snd3 = new Audio("Sounds/JingleWinSynth0.mp3"); // plays on the AWESOME message
-	snd3.load();
+		snd3.load();
 	var snd4 = new Audio("Sounds/dropped.mp3"); // plays when floating items are dropped
 		snd4.load();
     var snd5 = new Audio("Sounds/levelUp.mp3"); // level up sound
 		snd5.load();
+	var snd6 = new Audio("Sounds/fireBurning.mp3"); // level up sound
+		snd6.loop = true;
+		snd6.load();
+		
 //images to add on top
 //swap icon		
 	var swapReady = false;
@@ -103,6 +110,7 @@ window.onload = function() {
 	
 	
 
+		
 }
 
 	// end of onload
@@ -113,6 +121,7 @@ function loadOnLoad() {
 	
 	//play backgroundmyAudio = new Audio('someSound.ogg'); 
 	myAudio = new Audio('guifruity.mp3'); 
+	myAudio.volume = 0.3;
 	if (typeof myAudio.loop == 'boolean')
 	{    myAudio.loop = true;	}
 	else
@@ -439,14 +448,26 @@ function loadOnLoad() {
             
             // Add cluster score
             score += cluster.length * 100;
+			inStreakCount ++;
+			
+			//DB  ---check for streak
+			if (inStreakCount >= 2) {
+				inStreak = 1;
+				inStreakScore = parseInt(inStreakScore) + (cluster.length * 100);
+				document.getElementById("hotstreak").style.display = 'block';
+				snd6.play();
+				
+			
+			}
+				
             
             // Find floating clusters
             floatingclusters = findFloatingClusters();
             
             if (floatingclusters.length > 0) {
 				//play drop sound
-				snd4.play({
-					volume  : "0.2"});
+				snd4.volume = 0.8;
+				snd4.play();
 					
                 // Setup drop animation
                 for (var i=0; i<floatingclusters.length; i++) {
@@ -457,6 +478,10 @@ function loadOnLoad() {
                         tile.velocity = player.bubble.dropspeed;
                         
                         score += 100;
+						//DB - add floating to streak Score
+						if (inStreakCount >= 2) {
+						inStreakScore = parseInt(inStreakScore) + 100;
+						}
                     }
                 }
             }
@@ -606,8 +631,26 @@ function loadOnLoad() {
             }
         }
         
-        // No clusters found
+        // No clusters found- take a turn, end any streaks, and add streak score if any
         turncounter++;
+		var oldInStreak = inStreak;
+		inStreakCount = 0;
+		if (inStreak == 1) {
+		
+		document.getElementById("hotstreak").className = "clsInStreakUp";
+		document.getElementById("hotstreakTotal").style.display = "block";
+		snd6.pause();
+		document.getElementById("hotstreakScore").innerHTML = inStreakScore;
+		document.getElementById("hotstreakTotal").className = "clsHotIn";
+		setTimeout(function () { snd3.play();},1000);
+		setTimeout(function(){	document.getElementById("hotstreakTotal").className = "clsHotOut";   },2500);
+		
+		document.getElementById("hotstreak").style.display = "none";
+		setTimeout(function(){	document.getElementById("hotstreakTotal").style.display = "none";  score = parseInt(score) + parseInt(inStreakScore); inStreakScore = 0;},3600);
+		inStreak = 0;
+		
+		inStreakCount = 0;
+		}
         if (turncounter >= newRowCounter ) {
             // Add a row of bubbles
             addBubbles();
@@ -959,9 +1002,16 @@ function loadOnLoad() {
 		
 		/////// GG- beat the level- create another
 		 if (gamestate == gamestates.levelUp) {
-			 
-			snd5.play({
-			volume  : "0.6"});
+			 //add streak score and reset variables
+			 if (inStreak == 1) {
+				 snd6.pause();
+				inStreakCount = 0;
+				inStreak = 0;
+				score = parseInt(score) + parseInt(inStreakScore); 
+				inStreakScore = 0;
+				document.getElementById("hotstreak").style.display = "none";
+			 }
+			snd5.play({	volume  : "0.6"});
 			context.fillStyle = "rgba(255, 0, 0, 0.8)";
             context.fillRect(level.x - 4, level.y - 4, level.width + 8, level.height + 2 * level.tileheight + 8 - yoffset);
             // draw win image
@@ -1324,8 +1374,8 @@ function loadOnLoad() {
     function shootBubble() {
         // Shoot the bubble in the direction of the mouse
         var snd = new Audio("Sounds/Gum_Bubble_Pop.mp3"); // buffers automatically when created
-		snd.play({
-		volume  : "0.2"});
+		snd.volume = 0.8;
+		snd.play();
 		player.bubble.x = player.x;
         player.bubble.y = player.y;
         player.bubble.angle = player.angle;
@@ -1453,8 +1503,8 @@ function loadOnLoad() {
 	function swapBubble() {
 		//get values
 		var snd7 = new Audio("Sounds/swap.mp3"); // buffers automatically when created
-		snd7.play({
-		volume  : "0.2"});
+		snd7.volume = 1.0;
+		snd7.play();
 		var oldPlayer =  player.tiletype
 		var oldPlayerBubble = player.bubble.tiletype
         // Set the current bubble
@@ -1482,12 +1532,12 @@ function hideIntro() {
 	document.getElementById("mapDiv").style.display = 'block'; 
 	};
 function showBonus() {
-		snd2.play({
-		volume  : "0.6"});
+		snd2.volume = 1.0;
+		snd2.play();
 	document.getElementById("nice").style.display = 'block'; };
 function showBonus2() { 
-		snd3.play({
-		volume  : "0.6"});
+		snd3.volume = 1.0;
+		snd3.play();
 	document.getElementById("awesome").style.display = 'block';
 document.getElementById("nice").style.display = 'none'; };
 function hideBonus() {
@@ -1547,7 +1597,7 @@ if (parseInt(levelcount) >= 7 && parseInt(levelcount) <=12 ) {
 				document.getElementById("story").innerHTML = "Danger, entering the Ghostly Graveyard. beat 5 levels to reach the boss.";
 			document.getElementById("mapDiv").style.display = 'block'; 
 			}
-	else if (parseInt(levelcount) >= 19 ) {
+	else if (parseInt(levelcount) >= 19 && parseInt(levelcount) <= 25 ) {
 				document.getElementById("mapImg").src="spaceMapMin.png";
 				document.getElementById("story").innerHTML = "You have defated the aliens, and take the ship. <b>Blast off</b>!";
 			document.getElementById("mapDiv").style.display = 'block'; 
