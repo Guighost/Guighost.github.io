@@ -32,7 +32,7 @@ screen.lockOrientation("portrait");
  }
 #logo {
  position: absolute;
- padding:15px;
+ padding:1px;
   margin-left: auto;
   margin-right: auto;
   

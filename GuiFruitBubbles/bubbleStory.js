@@ -1046,14 +1046,14 @@ function loadOnLoad() {
 			var ratingy = level.height - 100;
 			//3 stars
 		
-			if (parseInt(levelShotCount) <= 30) {
+			if (parseInt(levelShotCount) <= 35) {
 				document.getElementById("starPop1").src ="stars3.png";
 				document.getElementById("starPop1").style.display = "block";
 				localStorage[lvlRating] = 3;
 				drawCenterText("Shots: " + levelShotCount, level.x, level.y + level.height / 2 + 125, level.width);		
 				}
 			//2 stars
-			else if (parseInt(levelShotCount) > 30 && parseInt(levelShotCount) <= 40) {
+			else if (parseInt(levelShotCount) > 35 && parseInt(levelShotCount) <= 45) {
 				document.getElementById("starPop1").src ="stars2.png";
 				document.getElementById("starPop1").style.display = "block";
 				localStorage[lvlRating] = 2;
@@ -1127,11 +1127,11 @@ function loadOnLoad() {
 		//draw subtitle
 		  context.fillStyle = "#ffffff";
         context.font = "12px Verdana";
-        context.fillText("Made for Lee Burnett", 250, 50);
+        context.fillText("Made for Lee Burnett", 250, 70);
 		//draw shot count
 		 context.fillStyle = "#ffffff";
         context.font = "12px Verdana";
-        context.fillText("Shots: " + levelShotCount, 10, 50);
+        context.fillText("Shots: " + levelShotCount, 10, 70);
         
        
      
