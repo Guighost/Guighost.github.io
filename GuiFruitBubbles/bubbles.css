@@ -25,8 +25,11 @@ screen.lockOrientation("portrait");
  margin-left: auto;
   margin-right: auto;
   display: none;
- 
-}
+ }
+ .starsUp {
+	 z-index: 5000;
+	 display: block;
+ }
 #logo {
  position: absolute;
  padding:15px;
@@ -42,7 +45,10 @@ screen.lockOrientation("portrait");
   margin-right: auto;
 display: none;
 }
-
+#starPop1 {
+top: 85%
+left: 46%;
+}
 
  #hotstreak{ 
 position: absolute; 
@@ -327,6 +333,7 @@ transform: translate(-90px,40px);
 	display: none;
 	
 }
+
 .selectZone2{float:right;}
 .clsSelectHead { text-align: right; color:  #99004d;   font-style:Comic Sans MS;   font-size: 16px; width: 600px; border: 2px solid black;}
 #closeLvlSelect {	transform: translate(0px,-20px);}
@@ -358,6 +365,8 @@ transform: translate(-90px,40px);
 .allRow {width : 95%; height : 42px; border-radius: 50px; margin-left: 15%;}
 
 .selectSquare {	margin-left: 50%;	margin-top:5px;}
+
+.starImg { margin-left: 40%; width:60px; transform: translate3d(0px, 20px, 0); }
 
 /* <!--1 digit--> */
 .clsLvlNums { 
@@ -459,7 +468,8 @@ height: 80%;
 width: 650px;
 padding-left: 1%;
 }
-#levelup1 #intro{left: 15%}
+#levelup1 {left: 19%}
+ #intro{left: 15%}
 #nice, #awesome{left: 2%; top:50%;}
 #intro { margin-left: 0%; width: 100%;}
 .introdiv {padding-left 1%; margin-left: 1%;}
@@ -471,6 +481,7 @@ padding-left: 1%;
 #mapClose {width: 100px;}
 #hotstreak{left: 50%; transform: translate(-150px,-983px); }
 #hotstreakTotal { margin-left: 70%;}
+#starPop1 {transform: translate(-40px, 0px); }
 #mapDiv {
 left: 10px;
 width: 99%;	
@@ -518,6 +529,7 @@ width:555px;
 #saveAndLoad {margin-left: 50%;}
 #hotstreak{left: 50%; transform: translate(-175px,-615px); }
 #lvlSelectParent {transform: translate(-200px,-20px); width: 400px;}
+#starPop1 {transform: translate(-50px, 0px); }
 #mapDiv {
 left: 1%;
 height: 98%;
@@ -541,6 +553,7 @@ width:555px;
 #saveAndLoad {margin-left: 50%;}
 #hotstreak{left: 50%; transform: translate(-155px,-616px); }
 #lvlSelectParent {transform: translate(-215px,-20px); width: 360px;}
+#starPop1 {transform: translate(-50px, 0px); }
 #mapDiv {
 left: 1%;
 height: 98%;
@@ -570,6 +583,7 @@ top: 1%;
 #hotstreak{left: 50%; transform: translate(-150px,-593px); }
 #hotstreakTotal { margin-left: 70%;}
 #lvlSelectParent {transform: translate(-210px,-20px); width: 350px; }
+#starPop1 {transform: translate(-50px, 0px); }
 #mapDiv {
 left: 0%;
 width: 350px;
@@ -599,6 +613,7 @@ width:500px;
 #mapClose {width: 100px;}
 #hotstreak{left: 50%; transform: translate(-150px,-583px); }
 #hotstreakTotal { margin-left: 80%;}
+#starPop1 {transform: translate(-50px, 0px); }
 #mapDiv {
 left: 1%;
 width: 98%;

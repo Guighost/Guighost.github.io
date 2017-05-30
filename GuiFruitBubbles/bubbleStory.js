@@ -18,10 +18,12 @@
 	var savedGameLoad = 0;
 	var levelcount = 1;
 	var levelbump = 0;
+	var levelShotCount = 0;
 	var fromLoadMenu = 0;
 	var inStreakCount = 0;
 	var inStreak = 0;
 	var inStreakScore = 0;
+	
 	
 	//sounds
 	var snd2 = new Audio("Sounds/nice.mp3"); // plays on the Nice Move message
@@ -60,6 +62,12 @@ gameOverImage.onload = function () {
 }
 gameOverImage.src = "gameOver.png"; 
 
+var starRatingReady = false;
+var starRatingImage = new Image();
+starRatingImage.onload = function () {
+    starRatingReady = true;
+}
+starRatingImage.src = "stars1.png"; 
 	
 // The function gets called when the window is fully loaded
 window.onload = function() {
@@ -374,7 +382,7 @@ function loadOnLoad() {
 	
     function stateShootBubble(dt) {
         // Bubble is moving
-        
+       
         // Move the bubble in the direction of the mouse
         player.bubble.x += dt * player.bubble.speed * Math.cos(degToRad(player.bubble.angle));
         player.bubble.y += dt * player.bubble.speed * -1*Math.sin(degToRad(player.bubble.angle));
@@ -612,12 +620,15 @@ function loadOnLoad() {
         if (addtile) {
             // Hide the player bubble
             player.bubble.visible = false;
-        
+        // add to shot count//
+		 levelShotCount = parseInt(levelShotCount) + 1;
             // Set the tile
             level.tiles[gridpos.x][gridpos.y].type = player.bubble.tiletype;
             
             // Check for game over
             if (checkGameOver()) {
+				// add to shot count//
+				levelShotCount = 0;
                 return;
             }
             
@@ -662,7 +673,8 @@ function loadOnLoad() {
                 return;
             }
         }
-
+		
+	
         // Next bubble
         nextBubble();
         setGameState(gamestates.ready);
@@ -1019,14 +1031,48 @@ function loadOnLoad() {
             context.fillStyle = "#e6e600";
             context.font = "24px Verdana";
             drawCenterText("Level Complete!", level.x, level.y + level.height / 2 + 40, level.width);
+			
 			var NextLevelBtn = new String( "Start Next Level")
 			nextLevelBtn = NextLevelBtn.bold();
-            drawCenterText(NextLevelBtn, level.x, level.y + level.height / 2 + 85, level.width);
+            drawCenterText(NextLevelBtn, level.x, level.y + level.height / 2 + 100, level.width);
 			
+			
+			//Do 1 time Level up functions
 			if (levelbump >= 1) {
+						
+			//Rate number of shots to complete, save to local storage
+			var lvlRating = "LvlRating" + levelcount;
+			var ratingx = level.x + 200;
+			var ratingy = level.height - 100;
+			//3 stars
+		
+			if (parseInt(levelShotCount) <= 30) {
+				document.getElementById("starPop1").src ="stars3.png";
+				document.getElementById("starPop1").style.display = "block";
+				localStorage[lvlRating] = 3;
+				drawCenterText("Shots: " + levelShotCount, level.x, level.y + level.height / 2 + 125, level.width);		
+				}
+			//2 stars
+			else if (parseInt(levelShotCount) > 30 && parseInt(levelShotCount) <= 40) {
+				document.getElementById("starPop1").src ="stars2.png";
+				document.getElementById("starPop1").style.display = "block";
+				localStorage[lvlRating] = 2;
+				drawCenterText("Shots: " + levelShotCount, level.x, level.y + level.height / 2 + 125, level.width);
+				}
+			//1 star
+			else {
+				document.getElementById("starPop1").src ="stars1.png";
+				document.getElementById("starPop1").style.display = "block";
+				localStorage[lvlRating] = 1;
+				drawCenterText("Shots: " + levelShotCount, level.x, level.y + level.height / 2 + 125, level.width);
+			}
+			// alert(localStorage[lvlRating] + "x=" + ratingx + " y=" + ratingy );
 			levelcount ++;
 			levelbump = 0;
+			levelShotCount = 0;
+			// end if levelbump //
 			}
+			
 			////////Load images based on level 1-6 = fruit, 7-12 = candy, 13-18 = Ghosts, 19+ space Orbs
         
 		if (parseInt(levelcount) >= 7 && parseInt(levelcount) <=12 ) {
@@ -1053,7 +1099,7 @@ function loadOnLoad() {
 		document.body.style.backgroundImage = "url('space_bg.gif')";
 		
 		}
-
+		
 		
 		///////
         bubbleimage = images[0];
@@ -1082,6 +1128,10 @@ function loadOnLoad() {
 		  context.fillStyle = "#ffffff";
         context.font = "12px Verdana";
         context.fillText("Made for Lee Burnett", 250, 50);
+		//draw shot count
+		 context.fillStyle = "#ffffff";
+        context.font = "12px Verdana";
+        context.fillText("Shots: " + levelShotCount, 10, 50);
         
        
      
@@ -1255,12 +1305,12 @@ function loadOnLoad() {
 		document.body.style.backgroundImage = "url('space_bg.gif')";
 		}
 //adjust levelnew row
-		 if (parseInt(levelcount)> 1 && parseInt(levelcount) <= 4){	newRowCounter = 9; 	}
-		if (parseInt(levelcount) >=5 && parseInt(levelcount) <= 7){	newRowCounter = 8;	}
-		if (parseInt(levelcount) >= 8 && parseInt(levelcount) <= 10){ newRowCounter = 7; }
-		if (parseInt(levelcount) > 10 && parseInt(levelcount) <= 13){ newRowCounter = 6; }
-		if (parseInt(levelcount) > 13 && parseInt(levelcount) <=16){ newRowCounter = 5;	}
-		if (parseInt(levelcount) > 16 ){	newRowCounter = 4;	}
+		 if (parseInt(levelcount)> 3 && parseInt(levelcount) <= 6){	newRowCounter = 9; 	}
+		if (parseInt(levelcount) >=7 && parseInt(levelcount) <= 12){	newRowCounter = 8;	}
+		if (parseInt(levelcount) >= 13 && parseInt(levelcount) <= 18){ newRowCounter = 7; }
+		if (parseInt(levelcount) >= 19 && parseInt(levelcount) <= 24){ newRowCounter = 6; }
+		if (parseInt(levelcount) >= 25 && parseInt(levelcount) <= 30){ newRowCounter = 5;	}
+		if (parseInt(levelcount) > 31 ){	newRowCounter = 4;	}
 		
 		
 		///////
@@ -1285,6 +1335,7 @@ function loadOnLoad() {
         
         
 		document.getElementById("levelup1").style.display = "none";
+		document.getElementById("starPop1").style.display = "none";
         turncounter = 0;
         rowoffset = 0;
 		
@@ -1469,7 +1520,7 @@ function loadOnLoad() {
 		if (gamestate == gamestates.levelUp) {
 			score = score + 1000;
 			levelbump ++;
-			//show map if lvl 6 or 12 was just completed
+			//show map if lvl 6, 12, 18, or 24 was just completed
 			if (parseInt(levelcount) == 7) {
 				document.getElementById("mapImg").src="mapTown.png";
 				document.getElementById("story").innerHTML = "You made it to <b>Candy Town</b>! Collect candies to proceed.";
@@ -1482,7 +1533,7 @@ function loadOnLoad() {
 			}
 			else if (parseInt(levelcount) == 19) {
 				document.getElementById("mapImg").src="spaceMapMin.png";
-				document.getElementById("story").innerHTML = "You have defated the aliens, and take the ship. <b>Blast off</b>!";
+				document.getElementById("story").innerHTML = "You have defeated the aliens, and take the ship. <b>Blast off</b>!";
 			document.getElementById("mapDiv").style.display = 'block'; 
 			}
 			else if (parseInt(levelcount) == 25) {
@@ -1608,8 +1659,8 @@ if (parseInt(levelcount) >= 7 && parseInt(levelcount) <=12 ) {
 			document.getElementById("mapDiv").style.display = 'block'; 
 			}
 	else if (parseInt(levelcount) >= 25 && parseInt(levelcount) <= 30 ) {
-				document.getElementById("mapImg").src="spaceMapMin.png";
-				document.getElementById("story").innerHTML = "You have defated the aliens, and take the ship. <b>Blast off</b>!";
+				document.getElementById("mapImg").src="oceanWorldMap.png";
+				document.getElementById("story").innerHTML = "Fiesty Fish and Crabby Crabs await you on the <b>Ocean World</b>!";
 			document.getElementById("mapDiv").style.display = 'block'; 
 			}
 	else if (parseInt(levelcount) >= 1 && parseInt(levelcount) <= 6 ) {
@@ -1643,10 +1694,12 @@ function closeMap () {
 
      // Level Select functions
 function loadLevelSelect(){
-	document.getElementById("lvlSelectParent").style.display = 'block'; 
+	 
 	var leftA = document.getElementsByName("leftarrow");
 		var leftA2 = leftA[0];
 	leftA2.style.display = 'none';
+	adjustStarImages();
+	document.getElementById("lvlSelectParent").style.display = 'block';
 	}	
 function closeLvlSelect() {document.getElementById("lvlSelectParent").style.display = 'none';}
 function clickRight(){
@@ -1737,5 +1790,32 @@ function closeLvlSelect() {
 	
 }
 
+//adjust Level Select Stars
+function adjustStarImages() {
+	for (var i=1; i<37; i++) {
+		var iName = "starImg" + i ;
+		var checkItem = document.getElementById(iName);
+		var ilvlCompleted = 0;
+		
+		var lvlRatingCheck = "LvlRating" + i;
+		var checklvlRating	= localStorage[lvlRatingCheck];
+		if (checklvlRating == 1 ) { 
+			ilvlCompleted = 1;			
+			checkItem.src = "stars1.png";
+			}
+		if (checklvlRating == 2 ) { 
+			ilvlCompleted = 1;			
+			checkItem.src = "stars2.png";
+			}
+		if (checklvlRating == 3 ) { 
+			ilvlCompleted = 1;			
+			checkItem.src = "stars3.png";
+			}	
+		if (typeof localStorage[lvlRatingCheck] === "undefined") {return;}
+		
+	}
+	
+	//end stars adjust
+}
 
 // end of script	
