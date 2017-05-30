@@ -46,7 +46,7 @@ screen.lockOrientation("portrait");
 display: none;
 }
 #starPop1 {
-top: 85%
+top: 95%
 left: 46%;
 }
 
@@ -475,7 +475,7 @@ padding-left: 1%;
 #fruitylogo {margin-left: 5%;}
 #playGame { margin-left: 0%;  width:45%; top: 20%;}
 #loadSaved{ margin-left: 0%;  width:45%; top: 30%;}
-#levelSelect {transform: translate(-75px,60px);}
+#levelSelect {transform: translate(-75px,60px); }
 #saveAndLoad {margin-left: 50%;}
 #mapClose {width: 100px;}
 #hotstreak{left: 50%; transform: translate(-150px,-983px); }
@@ -492,7 +492,9 @@ height: 98%;
 width: 95%;
 height: 75%;
 }
-#lvlSelectParent { left: 60%;}
+#lvlSelectParent { left: 35%; width:100%;}
+.clsLvlNums {margin-left:30%;}
+.clsLvlNums2 {margin-left:25%;}
 }
  
 @media (max-width: 450px){
@@ -538,6 +540,8 @@ width: 98%;
 width: 89%;
 height: 80%;
 }
+.clsLvlNums {margin-left:30%;}
+.clsLvlNums2 {margin-left:25%;}
 }
 @media (device-width: 375px){
 #viewport { 
