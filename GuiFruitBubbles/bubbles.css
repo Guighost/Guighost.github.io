@@ -468,8 +468,7 @@ height: 80%;
 width: 650px;
 padding-left: 1%;
 }
-#levelup1 {left: 19%}
- #intro{left: 15%}
+#levelup1 #intro{left: 15%}
 #nice, #awesome{left: 2%; top:50%;}
 #intro { margin-left: 0%; width: 100%;}
 .introdiv {padding-left 1%; margin-left: 1%;}
