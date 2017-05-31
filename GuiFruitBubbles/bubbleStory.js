@@ -1042,6 +1042,7 @@ function loadOnLoad() {
 						
 			//Rate number of shots to complete, save to local storage
 			var lvlRating = "LvlRating" + levelcount;
+			var lvlScore = "LvlScore" + levelcount;
 			var ratingx = level.x + 200;
 			var ratingy = level.height - 100;
 			//3 stars
@@ -1050,6 +1051,7 @@ function loadOnLoad() {
 				document.getElementById("starPop1").src ="stars3.png";
 				document.getElementById("starPop1").style.display = "block";
 				localStorage[lvlRating] = 3;
+				localStorage[lvlScore] = score;
 				drawCenterText("Shots: " + levelShotCount, level.x, level.y + level.height / 2 + 125, level.width);		
 				}
 			//2 stars
@@ -1057,6 +1059,7 @@ function loadOnLoad() {
 				document.getElementById("starPop1").src ="stars2.png";
 				document.getElementById("starPop1").style.display = "block";
 				localStorage[lvlRating] = 2;
+				localStorage[lvlScore] = score;
 				drawCenterText("Shots: " + levelShotCount, level.x, level.y + level.height / 2 + 125, level.width);
 				}
 			//1 star
@@ -1064,6 +1067,7 @@ function loadOnLoad() {
 				document.getElementById("starPop1").src ="stars1.png";
 				document.getElementById("starPop1").style.display = "block";
 				localStorage[lvlRating] = 1;
+				localStorage[lvlScore] = score;
 				drawCenterText("Shots: " + levelShotCount, level.x, level.y + level.height / 2 + 125, level.width);
 			}
 			// alert(localStorage[lvlRating] + "x=" + ratingx + " y=" + ratingy );
