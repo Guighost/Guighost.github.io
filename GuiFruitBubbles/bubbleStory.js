@@ -83,10 +83,14 @@ window.onload = function() {
     if (e.target !== e.currentTarget) {
         var clickedItem = e.target.id;
 		if(!e.target.id) {return;}
-		var numOnly = clickedItem.substring(4)
-       
+		var numOnly = clickedItem.substring(4);
+		var lvlScoreCheck = "LvlScore" + numOnly;
+		
+		//block click if have not saved a score for the level 
+		if (typeof localStorage[lvlScoreCheck] === "undefined") { return;}
+		
+		
 		levelcount = parseInt(numOnly);
-	
 		savedGameLoad = 1;
 		fromLoadMenu = 1;
     }
@@ -1629,7 +1633,7 @@ function saveLevelAndScore() {
 function Quit() {
 	localStorage["Level"] = levelcount;
 			localStorage["Score"] = score;
-			
+			score = 0;
 	document.getElementById("saveAndLoad").style.display = 'none'; 
 	window.location.reload();
 		};
@@ -1798,9 +1802,14 @@ function closeLvlSelect() {
 function adjustStarImages() {
 	for (var i=1; i<37; i++) {
 		var iName = "starImg" + i ;
+		var tileImg = "selImg-" + i;
+		var lvlToCheck = "LvlScore" + i;
 		var checkItem = document.getElementById(iName);
 		var ilvlCompleted = 0;
 		
+		//lock levels not yet achieved
+				
+		//adjust stars
 		var lvlRatingCheck = "LvlRating" + i;
 		var checklvlRating	= localStorage[lvlRatingCheck];
 		if (checklvlRating == 1 ) { 
@@ -1815,7 +1824,11 @@ function adjustStarImages() {
 			ilvlCompleted = 1;			
 			checkItem.src = "stars3.png";
 			}	
-		if (typeof localStorage[lvlRatingCheck] === "undefined") {return;}
+		if (typeof localStorage[lvlRatingCheck] === "undefined") {
+			var tileToChange = document.getElementById(tileImg);
+			tileToChange.src = "lock.png";
+			
+			}
 		
 	}
 	

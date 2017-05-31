@@ -374,7 +374,7 @@ transform: translate(-90px,40px);
 .clsLvlNums { 
 position: absolute;
 font-size:28px;
-margin-left:35%;
+margin-left:34%;
 margin-top: 4%;
 color:  #ffffff;
    font-style:Comic Sans MS;
@@ -385,7 +385,7 @@ z-index: 5000;
 .clsLvlNums2 { 
 position: absolute;
 font-size:28px;
-margin-left:30%;
+margin-left:29%;
 margin-top: 4%;
 color:  #ffffff;
 font-style:Comic Sans MS;
