@@ -25,7 +25,7 @@ screen.lockOrientation("portrait");
  top: 12%;
  margin-left: auto;
   margin-right: auto;
-  display: block;
+  display: none;
  }
  .starsUp {
 	 z-index: 5000;
@@ -49,7 +49,7 @@ display: none;
 	position: absolute;
 margin-top: 120px;
 left: 36%;
-display: block;
+
 }
 
  #hotstreak{ 
@@ -474,7 +474,8 @@ height: 80%;
 width: 650px;
 padding-left: 1%;
 }
-#levelup1 #intro{left: 15%}
+#levelup1 {margin-left: 280px;}
+
 #nice, #awesome{left: 2%; top:50%;}
 #intro { margin-left: 0%; width: 100%;}
 .introdiv {padding-left 1%; margin-left: 1%;}
@@ -528,9 +529,9 @@ height: 75%;
 padding: 0px;
 padding-left: 0px;
 padding-right: 5px;
-width:555px;
+width:635px;
 } 
-#levelup1 {left: 6%}
+#levelup1 {margin-left: 280px; top: 5%;}
 #nice, #awesome{left: 9%; top:52%;}
 #fruitylogo {margin-left: 1%; top:10%;}
 .introdiv {padding-left 0px; margin-left: 5%;}
@@ -539,7 +540,7 @@ width:555px;
 #levelSelect {transform: translate(-90px,125px); width:40%;}
 #hotstreak{left: 50%; transform: translate(-175px,-615px); }
 #lvlSelectParent {transform: translate(-200px,-20px); width: 400px;}
-#starPop1 {transform: translate(-50px, 0px); }
+#starPop1 {transform: translate(-38px, 0px); }
 #mapDiv {
 left: 1%;
 height: 98%;
@@ -559,7 +560,7 @@ padding-left: 0px;
 padding-right: 5px;
 width:555px;
 } 
-#levelup1 {left: 6%}
+#levelup1 {margin-left: 262px; top: 5%;}
 #nice, #awesome{left: 9%; top:52%;}
 #fruitylogo {margin-left: 1%; top:10%;}
 .introdiv {padding-left 0px; margin-left: 5%;}
@@ -590,7 +591,7 @@ margin-left: 1px;
 width:530px;
 top: 1%;
 } 
-#levelup1 {left: 6%}
+#levelup1 {left: 80%}
 #nice, #awesome{left: 9%; top:52%;}
 #fruitylogo {margin-left: 2%; top:10%;}
 .introdiv {padding-left 0px; margin-left: 5%; height: 100% width: 100%}
@@ -602,13 +603,15 @@ top: 1%;
 #lvlSelectParent {transform: translate(-210px,-20px); width: 350px; }
 #starPop1 {transform: translate(-50px, 0px); }
 #mapDiv {
-left: 0%;
+left: 1%;
 width: 350px;
-height: 85%;	
+height: 99%;
+width: 98%;	
 }
 #mapImg {
 width: 320px;
-height: 90%;
+height: 75%;
+transform: translate(-10px, 0px);
 }
 #lvlSelectParent { left: 60%;}
 }
@@ -619,7 +622,7 @@ padding-right: 5px;
 padding-left: 0px;
 width:500px;
 } 
-#levelup1 {left: 3%}
+#levelup1 {margin-left: 247px;}
 #nice, #awesome{left: 9%; top:49%;}
 #fruitylogo {margin-left: 1%; top:10%;}
 .introdiv {padding-left: 10px; margin-left: 4%;}
