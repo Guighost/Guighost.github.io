@@ -45,7 +45,7 @@ var swapImage = new Image();
 swapImage.onload = function () {
     swapReady = true;
 }
-swapImage.src = "swap3.png"; 
+swapImage.src = "newswap.png"; 
 // Save Icon Image
 	var saveImgReady = false;
 var saveImage = new Image();
@@ -84,10 +84,16 @@ window.onload = function() {
         var clickedItem = e.target.id;
 		if(!e.target.id) {return;}
 		var numOnly = clickedItem.substring(4);
+		var numOnlyAdj = parseInt(numOnly) - 1;
 		var lvlScoreCheck = "LvlScore" + numOnly;
+		var lastcheck = 0;
 		
 		//block click if have not saved a score for the level 
-		if (typeof localStorage[lvlScoreCheck] === "undefined") { return;}
+		if (typeof localStorage[lvlScoreCheck] === "undefined" ) {
+			if (lastcheck == 0) {
+				lastcheck = 1;}
+			else if (lastcheck > 0) {return;}
+			}
 		
 		
 		levelcount = parseInt(numOnly);
@@ -950,9 +956,9 @@ function loadOnLoad() {
 		
 		// draw swap control
 		if (swapReady) {
-			var swaprowx = level.x + level.width - 255;
-			var swaprowy = level.y+level.height + level.tileheight - yoffset - 8;
-        context.drawImage(swapImage, swaprowx, swaprowy + 10)
+			var swaprowx = level.x + level.width - 272;
+			var swaprowy = level.y+level.height + level.tileheight - yoffset -20;
+        context.drawImage(swapImage, swaprowx, swaprowy )
     }
 		// draw save control
 		if (saveImgReady) {
@@ -1209,7 +1215,7 @@ function loadOnLoad() {
         context.stroke();
         
         // Draw the next bubble
-        drawBubble(player.nextbubble.x, player.nextbubble.y, player.nextbubble.tiletype);
+        drawBubble(player.nextbubble.x -15, player.nextbubble.y, player.nextbubble.tiletype);
         
         // Draw the bubble
         if (player.bubble.visible) {
@@ -1512,7 +1518,7 @@ function loadOnLoad() {
 			showSaveLoad();
 		}
 		
-		else if ((pos.x >= 125  && pos.x <= 185) && (pos.y >= 570 && pos.y <= 625)) {
+		else if ((pos.x >= 60  && pos.x <= 185) && (pos.y >= 530 && pos.y <= 625)) {
 			
 			swapBubble();
 		}
@@ -1825,6 +1831,9 @@ function adjustStarImages() {
 			checkItem.src = "stars3.png";
 			}	
 		if (typeof localStorage[lvlRatingCheck] === "undefined") {
+			var k = parseInt(i) + 1;
+						
+			if (i <= 35) {tileImg = "selImg-" + k;}
 			var tileToChange = document.getElementById(tileImg);
 			tileToChange.src = "lock.png";
 			

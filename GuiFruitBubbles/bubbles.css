@@ -17,6 +17,7 @@ screen.lockOrientation("portrait");
 	}
 	
 .gameSounds { display: none;}
+#fruitylogo {margin-left: 1%; top:2%;}
 
 #levelup1 {
  position: absolute;
@@ -36,6 +37,8 @@ screen.lockOrientation("portrait");
  padding:1px;
   margin-left: auto;
   margin-right: auto;
+ 
+  height: 100px;
   }
 .pops {
  position: absolute;
@@ -475,14 +478,14 @@ width: 650px;
 padding-left: 1%;
 }
 #levelup1 {margin-left: 280px;}
-
+#logo { top: 10%;}
 #nice, #awesome{left: 2%; top:50%;}
 #intro { margin-left: 0%; width: 100%;}
 .introdiv {padding-left 1%; margin-left: 1%;}
-#fruitylogo {margin-left: 5%; top:16%;}
+#fruitylogo {margin-left: 0%; top:16%; width: 100%}
 #playGame { margin-left: 0%;  width:45%; top: 36%;}
 #loadSaved{ margin-left: 0%;  width:45%; top: 44%;}
-#levelSelect {transform: translate(-75px,0px); top: 50%; }
+#levelSelect { margin-left: 0%;  width:45%; top: 44%;}
 #saveAndLoad {margin-left: 50%;}
 #mapClose {width: 100px;}
 #hotstreak{left: 50%; transform: translate(-150px,-983px); }
@@ -508,6 +511,7 @@ height: 75%;
 #viewport { 
 width:610px;
 }
+#logo { top: 3%;}
 #levelup1 {left: 8%}
 #nice, #awesome{left: 9%; top:52%;}
 .introdiv {padding-left 0px; margin-left: 0%;}
@@ -560,6 +564,7 @@ padding-left: 0px;
 padding-right: 5px;
 width:555px;
 } 
+#logo { top: 1%;}
 #levelup1 {margin-left: 262px; top: 5%;}
 #nice, #awesome{left: 9%; top:52%;}
 #fruitylogo {margin-left: 1%; top:10%;}
@@ -591,13 +596,14 @@ margin-left: 1px;
 width:530px;
 top: 1%;
 } 
+#logo { top: 1%;}
 #levelup1 {left: 80%}
 #nice, #awesome{left: 9%; top:52%;}
 #fruitylogo {margin-left: 2%; top:10%;}
 .introdiv {padding-left 0px; margin-left: 5%; height: 100% width: 100%}
 #playGame { margin-left: 2%; margin-right: 20%; width:40%;   top: 30%;}
 #loadSaved { margin-left: 2%; margin-right: 20%; width:40%;  top: 41%;}
-#levelSelect {transform: translate(-85px,145px); width:40%;}
+#levelSelect {transform: translate(-85px,130px); width:40%;}
 #hotstreak{left: 50%; transform: translate(-150px,-593px); }
 #hotstreakTotal { margin-left: 70%;}
 #lvlSelectParent {transform: translate(-210px,-20px); width: 350px; }
