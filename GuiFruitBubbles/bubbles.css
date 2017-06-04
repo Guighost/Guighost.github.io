@@ -13,7 +13,7 @@ screen.lockOrientation("portrait");
   padding:15px;
   margin-left: auto;
   margin-right: auto;
- 
+ border-radius: 20px;
 	}
 	
 .gameSounds { display: none;}
@@ -338,8 +338,8 @@ transform: translate(-90px,40px);
 	display: none;
 	
 }
-.selectZone1{float:left; padding-right: 10px;}
-.selectZone2{float:right;}
+.selectZone1{float:right; padding-right: 10px;}
+.selectZone2{float:left;}
 .clsSelectHead { text-align: right; color:  #99004d;   font-style:Comic Sans MS;   font-size: 16px; width: 600px; border: 2px solid black;}
 #closeLvlSelect {	transform: translate(0px,-20px);}
 .clsTblTitle {
@@ -359,6 +359,11 @@ transform: translate(-90px,40px);
 #grid4 {display: none;}
 #grid5 {display: none;}
 #grid6 {display: none;}
+#grid7 {display: none;}
+#grid8 {display: none;}
+#grid9 {display: none;}
+#grid10 {display: none;}
+#grid11 {display: none;}
 
 #footDiv{
 	transform: translate(14px,-0px);
@@ -486,6 +491,8 @@ padding-left: 1%;
 #playGame { margin-left: 0%;  width:45%; top: 36%;}
 #loadSaved{ margin-left: 0%;  width:45%; top: 44%;}
 #levelSelect { margin-left: 0%;  width:45%; top: 44%;}
+#leftspot { width:120px;}
+.selectzone1 {margin-left: 30px;}
 #saveAndLoad {margin-left: 50%;}
 #mapClose {width: 100px;}
 #hotstreak{left: 50%; transform: translate(-150px,-983px); }
@@ -542,6 +549,8 @@ width:635px;
 #playGame { margin-left: 0%; margin-right: 20%; width:40%;   top: 30%;}
 #loadSaved { margin-left: 0%; margin-right: 20%; width:40%;  top: 47%;}
 #levelSelect {transform: translate(-90px,125px); width:40%;}
+#leftspot { width:120px;}
+.selectzone1 {margin-left: 30px;}
 #hotstreak{left: 50%; transform: translate(-175px,-615px); }
 #lvlSelectParent {transform: translate(-200px,-20px); width: 400px;}
 #starPop1 {transform: translate(-38px, 0px); }
@@ -572,6 +581,8 @@ width:555px;
 #playGame { margin-left: 0%; margin-right: 20%; width:40%;   top: 30%;}
 #loadSaved { margin-left: 0%; margin-right: 20%; width:40%;  top: 41%;}
 #levelSelect {transform: translate(-90px,145px); width:40%;}
+#leftspot { width:100px;}
+.selectzone1 {margin-left: 20px;}
 #hotstreak{left: 50%; transform: translate(-155px,-616px); }
 #lvlSelectParent {transform: translate(-215px,-20px); width: 360px;}
 #starPop1 {transform: translate(-50px, 0px); }

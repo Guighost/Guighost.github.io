@@ -288,7 +288,7 @@ function loadOnLoad() {
     function init() {
         
 		
-		images = loadImages(["fruitbubbles.png"]);
+		images = loadImages(["Bubbles/fruitbubbles.png"]);
 	        		
 		///////
         bubbleimage = images[0];
@@ -307,6 +307,7 @@ function loadOnLoad() {
         }
         
         level.width = level.columns * level.tilewidth + level.tilewidth/2;
+	
         level.height = (level.rows-1) * level.rowheight + level.tileheight;
         
         // Init the player
@@ -1090,27 +1091,59 @@ function loadOnLoad() {
 			////////Load images based on level 1-6 = fruit, 7-12 = candy, 13-18 = Ghosts, 19+ space Orbs
         
 		if (parseInt(levelcount) >= 7 && parseInt(levelcount) <=12 ) {
-		images = loadImages(["newcandy.png"]);
+		images = loadImages(["Bubbles/newcandy.png"]);
 		var body = document.getElementsByTagName('body')[0];
 		body.style.backgroundImage = "url('newcandyBack.png')";
 		//do background 
 		// do color scheme
 		}
 		else if (parseInt(levelcount) >= 13 && parseInt(levelcount) <= 17) {
-		images = loadImages(["ghostbubbles.png"]);
+		images = loadImages(["Bubbles/ghostbubbles.png"]);
 		var body = document.getElementsByTagName('body')[0];
 		body.style.backgroundImage = "url('spookyBack.jpg')";
-		
-		}
+				}
 		else if (parseInt(levelcount) == 18) {
-		images = loadImages(["bossBubbles.png"]);
+		images = loadImages(["Bubbles/bossBubbles.png"]);
 		var body = document.getElementsByTagName('body')[0];
 		body.style.backgroundImage = "url('bossBack.gif')";
+				}
+		else if (parseInt(levelcount) >= 19 && parseInt(levelcount) <= 24) {
+		images = loadImages(["Bubbles/orbBubbles.png"]);
+		document.body.style.backgroundImage = "url('space_bg.gif')";
+				}
+		else if (parseInt(levelcount) >= 25 && parseInt(levelcount) <= 30 ) {
+		images = loadImages(["Bubbles/seaBubbles.png"]);
+		document.body.style.backgroundImage = "url('oceanWorldBack.png')";
 		
 		}
-		else if (levelcount >= 19 ) {
-		images = loadImages(["orbBubbles.png"]);
+		else if (parseInt(levelcount) >= 31 && parseInt(levelcount) <= 36 ) {
+		images = loadImages(["Bubbles/space2Bubbles2.png"]);
 		document.body.style.backgroundImage = "url('space_bg.gif')";
+		
+		}
+		else if (parseInt(levelcount) >= 37 && parseInt(levelcount) <= 42 ) {
+		images = loadImages(["Bubbles/gummyBubbles2.png"]);
+		document.body.style.backgroundImage = "url('gummyBack.png')";
+		
+		}
+		else if (parseInt(levelcount) >= 43 && parseInt(levelcount) <= 48) {
+		images = loadImages(["Bubbles/gummyBubbles.png"]);
+		document.body.style.backgroundImage = "url('gummyBack.png')";
+		
+		}
+		else if (parseInt(levelcount) >= 49 && parseInt(levelcount) <= 54) {
+		images = loadImages(["Bubbles/invertedBubbles.png"]);
+		document.body.style.backgroundImage = "url('gummyBack.png')";
+		
+		}
+		else if (parseInt(levelcount) >= 55 && parseInt(levelcount) <= 60) {
+		images = loadImages(["Bubbles/spellBubbles1.png"]);
+		document.body.style.backgroundImage = "url('gummyBack.png')";
+		
+		}
+		else if (parseInt(levelcount) >= 61 && parseInt(levelcount) <= 66) {
+		images = loadImages(["Bubbles/spellBubbles2.png"]);
+		document.body.style.backgroundImage = "url('gummyBack.png')";
 		
 		}
 		
@@ -1129,6 +1162,7 @@ function loadOnLoad() {
         // Draw background
         context.fillStyle = "#303030";
         context.fillRect(0, 0, (canvas.width - 240), canvas.height);
+		
         
         // Draw header
         context.fillStyle = "#660033";
@@ -1288,7 +1322,7 @@ function loadOnLoad() {
 			////////Load images based on level 1-6 = fruit, 7-12 = candy, 13-18 = Ghosts, 19+ space Orbs
         
 		if (parseInt(levelcount) >= 7 && parseInt(levelcount) <=12 ) {
-		images = loadImages(["newcandy.png"]);
+		images = loadImages(["Bubbles/newcandy.png"]);
 		var body = document.getElementsByTagName('body')[0];
 		body.style.backgroundImage = "url('newcandyBack.png')";
 		lvlUp();
@@ -1296,35 +1330,55 @@ function loadOnLoad() {
 		// do color scheme
 		}
 		else if (parseInt(levelcount) >= 13 && parseInt(levelcount) <= 17) {
-		images = loadImages(["ghostbubbles.png"]);
+		images = loadImages(["Bubbles/ghostbubbles.png"]);
 		var body = document.getElementsByTagName('body')[0];
 		body.style.backgroundImage = "url('spookyBack.jpg')";
 		
 		}
 		else if (parseInt(levelcount) == 18) {
-		images = loadImages(["bossBubbles.png"]);
+		images = loadImages(["Bubbles/bossBubbles.png"]);
 		var body = document.getElementsByTagName('body')[0];
 		body.style.backgroundImage = "url('bossBack.gif')";
 		}
-		else if (levelcount >= 19 && parseInt(levelcount) <= 24 ) {
-		images = loadImages(["orbBubbles.png"]);
+		else if (parseInt(levelcount) >= 19 && parseInt(levelcount) <= 24 ) {
+		images = loadImages(["Bubbles/orbBubbles.png"]);
 		document.body.style.backgroundImage = "url('space_bg.gif')";
 		}
-		else if (levelcount >= 25 && parseInt(levelcount) <= 30 ) {
-		images = loadImages(["seaBubbles.png"]);
+		else if (parseInt(levelcount)>= 25 && parseInt(levelcount) <= 30 ) {
+		images = loadImages(["Bubbles/seaBubbles.png"]);
 		document.body.style.backgroundImage = "url('oceanWorldBack.png')";
 		}
-		else if (levelcount >= 31) {
-		images = loadImages(["space2Bubbles2.png"]);
+		else if (parseInt(levelcount) >= 31 && parseInt(levelcount) <= 36) {
+		images = loadImages(["Bubbles/space2Bubbles2.png"]);
+		document.body.style.backgroundImage = "url('space_bg.gif')";
+		}
+		else if (parseInt(levelcount) >= 37 && parseInt(levelcount) <= 42) {
+		images = loadImages(["Bubbles/gummyBubbles2.png"]);
+		document.body.style.backgroundImage = "url('space_bg.gif')";
+		}
+		else if (parseInt(levelcount) >= 43 && parseInt(levelcount) <= 48) {
+		images = loadImages(["Bubbles/gummyBubbles.png"]);
+		document.body.style.backgroundImage = "url('space_bg.gif')";
+		}
+		else if (parseInt(levelcount) >= 49 && parseInt(levelcount) <= 54) {
+		images = loadImages(["Bubbles/invertedBubbles.png"]);
+		document.body.style.backgroundImage = "url('space_bg.gif')";
+		}
+		else if (parseInt(levelcount) >= 55 && parseInt(levelcount) <= 60) {
+		images = loadImages(["Bubbles/spellBubbles1.png"]);
+		document.body.style.backgroundImage = "url('space_bg.gif')";
+		}
+		else if (parseInt(levelcount) >= 61 && parseInt(levelcount) <= 66) {
+		images = loadImages(["Bubbles/spellBubbles2.png"]);
 		document.body.style.backgroundImage = "url('space_bg.gif')";
 		}
 //adjust levelnew row
-		 if (parseInt(levelcount)> 3 && parseInt(levelcount) <= 6){	newRowCounter = 9; 	}
-		if (parseInt(levelcount) >=7 && parseInt(levelcount) <= 12){	newRowCounter = 8;	}
-		if (parseInt(levelcount) >= 13 && parseInt(levelcount) <= 18){ newRowCounter = 7; }
-		if (parseInt(levelcount) >= 19 && parseInt(levelcount) <= 24){ newRowCounter = 6; }
-		if (parseInt(levelcount) >= 25 && parseInt(levelcount) <= 30){ newRowCounter = 5;	}
-		if (parseInt(levelcount) > 31 ){	newRowCounter = 4;	}
+		 if (parseInt(levelcount)> 6 && parseInt(levelcount) <= 11){	newRowCounter = 9; 	}
+		if (parseInt(levelcount) >=12 && parseInt(levelcount) <= 17){	newRowCounter = 8;	}
+		if (parseInt(levelcount) >= 18 && parseInt(levelcount) <= 24){ newRowCounter = 7; }
+		if (parseInt(levelcount) >= 25 && parseInt(levelcount) <= 30){ newRowCounter = 6; }
+		if (parseInt(levelcount) >= 31 && parseInt(levelcount) <= 36){ newRowCounter = 5;	}
+		if (parseInt(levelcount) >= 37){	newRowCounter = 4;	}
 		
 		
 		///////
@@ -1354,12 +1408,12 @@ function loadOnLoad() {
         rowoffset = 0;
 		
 		//adjust frequency of new rows based on the level
-        if (levelcount > 1 && levelcount <= 4){	newRowCounter = 9;	}
-		if (levelcount >=5 && levelcount <= 7){	newRowCounter = 8;	}
-		if (levelcount >= 8 && levelcount <= 10){ newRowCounter = 7; }
-		if (levelcount > 10 && levelcount <= 13){ newRowCounter = 6; }
-		if (levelcount > 13 && levelcount <=16){ newRowCounter = 5;	}
-		if (levelcount > 16 ){	newRowCounter = 4;	}
+        if (parseInt(levelcount)> 6 && parseInt(levelcount) <= 11){	newRowCounter = 9; 	}
+		if (parseInt(levelcount) >= 12 && parseInt(levelcount) <= 17){	newRowCounter = 8;	}
+		if (parseInt(levelcount) >= 18 && parseInt(levelcount) <= 24){ newRowCounter = 7; }
+		if (parseInt(levelcount) >= 25 && parseInt(levelcount) <= 30){ newRowCounter = 6; }
+		if (parseInt(levelcount) >= 31 && parseInt(levelcount) <= 36){ newRowCounter = 5;	}
+		if (parseInt(levelcount) >= 37){	newRowCounter = 4;	}
 		
         // Set the gamestate to ready
 		
@@ -1677,6 +1731,12 @@ if (parseInt(levelcount) >= 7 && parseInt(levelcount) <=12 ) {
 				document.getElementById("story").innerHTML = "Fiesty Fish and Crabby Crabs await you on the <b>Ocean World</b>!";
 			document.getElementById("mapDiv").style.display = 'block'; 
 			}
+	else if (parseInt(levelcount) >= 31 && parseInt(levelcount) <= 36 ) {
+				document.getElementById("mapImg").src="oceanWorldMap.png";
+				document.getElementById("story").innerHTML = "Destroy the Aliens and Meteors!";
+			document.getElementById("mapDiv").style.display = 'block'; 
+			}
+			
 	else if (parseInt(levelcount) >= 1 && parseInt(levelcount) <= 6 ) {
 				document.getElementById("mapImg").src="mapStart-2.png";
 				document.getElementById("story").innerHTML = "<b>Gui Bubble Story - </b> Travel the <b>Fruity Forest</b>, visit <b>Candy Town</b>, and navigate the <b>Ghostly Graveyard</b> and go beyond!";
@@ -1751,6 +1811,63 @@ function clickRight(){
 		document.getElementById("grid5").style.display = 'none';
 		document.getElementById("grid6").style.display = 'block';
 		}
+		
+	else if (document.getElementById("grid6").offsetWidth > 0 && document.getElementById("grid6").offsetHeight > 0){
+		document.getElementById("grid1").style.display = 'none';
+		document.getElementById("grid2").style.display = 'none';
+		document.getElementById("grid3").style.display = 'none';
+		document.getElementById("grid4").style.display = 'none';
+		document.getElementById("grid5").style.display = 'none';
+		document.getElementById("grid6").style.display = 'none';
+		document.getElementById("grid7").style.display = 'block';
+		}
+	else if (document.getElementById("grid7").offsetWidth > 0 && document.getElementById("grid7").offsetHeight > 0){
+		document.getElementById("grid1").style.display = 'none';
+		document.getElementById("grid2").style.display = 'none';
+		document.getElementById("grid3").style.display = 'none';
+		document.getElementById("grid4").style.display = 'none';
+		document.getElementById("grid5").style.display = 'none';
+		document.getElementById("grid6").style.display = 'none';
+		document.getElementById("grid7").style.display = 'none';
+		document.getElementById("grid8").style.display = 'block';
+		}
+	else if (document.getElementById("grid8").offsetWidth > 0 && document.getElementById("grid8").offsetHeight > 0){
+		document.getElementById("grid1").style.display = 'none';
+		document.getElementById("grid2").style.display = 'none';
+		document.getElementById("grid3").style.display = 'none';
+		document.getElementById("grid4").style.display = 'none';
+		document.getElementById("grid5").style.display = 'none';
+		document.getElementById("grid6").style.display = 'none';
+		document.getElementById("grid7").style.display = 'none';
+		document.getElementById("grid8").style.display = 'none';
+		document.getElementById("grid9").style.display = 'block';
+		}
+	else if (document.getElementById("grid9").offsetWidth > 0 && document.getElementById("grid9").offsetHeight > 0){
+		document.getElementById("grid1").style.display = 'none';
+		document.getElementById("grid2").style.display = 'none';
+		document.getElementById("grid3").style.display = 'none';
+		document.getElementById("grid4").style.display = 'none';
+		document.getElementById("grid5").style.display = 'none';
+		document.getElementById("grid6").style.display = 'none';
+		document.getElementById("grid7").style.display = 'none';
+		document.getElementById("grid8").style.display = 'none';
+		document.getElementById("grid9").style.display = 'none';
+		document.getElementById("grid10").style.display = 'block';
+		}
+	else if (document.getElementById("grid10").offsetWidth > 0 && document.getElementById("grid10").offsetHeight > 0){
+		document.getElementById("grid1").style.display = 'none';
+		document.getElementById("grid2").style.display = 'none';
+		document.getElementById("grid3").style.display = 'none';
+		document.getElementById("grid4").style.display = 'none';
+		document.getElementById("grid5").style.display = 'none';
+		document.getElementById("grid6").style.display = 'none';
+		document.getElementById("grid7").style.display = 'none';
+		document.getElementById("grid8").style.display = 'none';
+		document.getElementById("grid9").style.display = 'none';
+		document.getElementById("grid10").style.display = 'none';
+		document.getElementById("grid11").style.display = 'block';
+		}	
+		
 	else { return;}
 	}
 	
@@ -1795,6 +1912,53 @@ function clickLeft(){
 		document.getElementById("grid5").style.display = 'block';
 		document.getElementById("grid6").style.display = 'none';
 		}
+	else if (document.getElementById("grid7").offsetWidth > 0 && document.getElementById("grid7").offsetHeight > 0){
+		document.getElementById("grid2").style.display = 'none';
+		document.getElementById("grid3").style.display = 'none';
+		document.getElementById("grid4").style.display = 'none';
+		document.getElementById("grid5").style.display = 'none';
+		document.getElementById("grid6").style.display = 'block';
+		document.getElementById("grid7").style.display = 'none';
+		}
+	else if (document.getElementById("grid8").offsetWidth > 0 && document.getElementById("grid8").offsetHeight > 0){
+		document.getElementById("grid2").style.display = 'none';
+		document.getElementById("grid3").style.display = 'none';
+		document.getElementById("grid4").style.display = 'none';
+		document.getElementById("grid5").style.display = 'none';
+		document.getElementById("grid6").style.display = 'none';
+		document.getElementById("grid7").style.display = 'block';
+		document.getElementById("grid8").style.display = 'none';
+		}
+	else if (document.getElementById("grid9").offsetWidth > 0 && document.getElementById("grid9").offsetHeight > 0){
+		document.getElementById("grid2").style.display = 'none';
+		document.getElementById("grid3").style.display = 'none';
+		document.getElementById("grid4").style.display = 'none';
+		document.getElementById("grid5").style.display = 'none';
+		document.getElementById("grid6").style.display = 'none';
+		document.getElementById("grid7").style.display = 'none';
+		document.getElementById("grid8").style.display = 'block';
+		document.getElementById("grid9").style.display = 'none';
+		}
+	else if (document.getElementById("grid10").offsetWidth > 0 && document.getElementById("grid10").offsetHeight > 0){
+		document.getElementById("grid2").style.display = 'none';
+		document.getElementById("grid3").style.display = 'none';
+		document.getElementById("grid4").style.display = 'none';
+		document.getElementById("grid5").style.display = 'none';
+		document.getElementById("grid7").style.display = 'none';
+		document.getElementById("grid8").style.display = 'none';
+		document.getElementById("grid9").style.display = 'block';
+		document.getElementById("grid10").style.display = 'none';
+		}
+	else if (document.getElementById("grid11").offsetWidth > 0 && document.getElementById("grid11").offsetHeight > 0){
+		document.getElementById("grid2").style.display = 'none';
+		document.getElementById("grid3").style.display = 'none';
+		document.getElementById("grid4").style.display = 'none';
+		document.getElementById("grid7").style.display = 'none';
+		document.getElementById("grid8").style.display = 'none';
+		document.getElementById("grid9").style.display = 'none';
+		document.getElementById("grid10").style.display = 'block';
+		document.getElementById("grid11").style.display = 'none';
+		}			
 	else { return;}
 	}
 
@@ -1806,7 +1970,7 @@ function closeLvlSelect() {
 
 //adjust Level Select Stars
 function adjustStarImages() {
-	for (var i=1; i<37; i++) {
+	for (var i=1; i<67; i++) {
 		var iName = "starImg" + i ;
 		var tileImg = "selImg-" + i;
 		var lvlToCheck = "LvlScore" + i;
@@ -1833,7 +1997,7 @@ function adjustStarImages() {
 		if (typeof localStorage[lvlRatingCheck] === "undefined") {
 			var k = parseInt(i) + 1;
 						
-			if (i <= 35) {tileImg = "selImg-" + k;}
+			if (i <= 65) {tileImg = "selImg-" + k;}
 			var tileToChange = document.getElementById(tileImg);
 			tileToChange.src = "lock.png";
 			
