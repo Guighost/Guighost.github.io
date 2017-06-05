@@ -94,9 +94,10 @@ window.onload = function() {
 				lastcheck = 1;}
 			else if (lastcheck > 0) {return;}
 			}
-		
-		
+		// alert(lvlScoreCheck);
+		if (typeof localStorage[lvlScoreCheck] === "undefined" ) { levelcount = 1 }
 		levelcount = parseInt(numOnly);
+		// alert(levelcount);
 		savedGameLoad = 1;
 		fromLoadMenu = 1;
     }
@@ -896,27 +897,96 @@ function loadOnLoad() {
         var yoffset =  level.tileheight/2;
         
         // Draw level background
-		// add linear gradient
+		// add linear gradient based on level range
+		var backcolor1 = '#006622';
+		var backcolor2 = '#00ff55';
+		var backcolor3 = '#003311';
+		
+	//range color changes
+		//candy Background colors
+		if (parseInt(levelcount) >= 7 && (parseInt(levelcount) <= 12)) {
+			 backcolor1 = '#ff66ff';
+			backcolor2 = '#ff99cc';
+			backcolor3 = '#ff66ff';
+		}
+		//ghost background colors
+		if (parseInt(levelcount) >= 13 && (parseInt(levelcount) <= 18)) {
+			 backcolor1 = '#3d3d29';
+			backcolor2 = '#996600';
+			backcolor3 = '#3d3d29';
+		}
+		//space background colors
+		if (parseInt(levelcount) >= 19 && (parseInt(levelcount) <= 24)) {
+			 backcolor1 = '#3d3d29';
+			backcolor2 = '#000066';
+			backcolor3 = '#3d3d29';
+		}
+		//water world background colors
+		if (parseInt(levelcount) >= 25 && (parseInt(levelcount) <= 30)) {
+			 backcolor1 = '#000066';
+			backcolor2 = '#3366ff';
+			backcolor3 = '#000066';
+		}
+		//spaceship world background colors
+		if (parseInt(levelcount) >= 31 && (parseInt(levelcount) <= 36)) {
+			 backcolor1 = '#3d3d29';
+			backcolor2 = '#000066';
+			backcolor3 = '#3d3d29';
+		}
+		//gummy world background colors
+		if (parseInt(levelcount) >= 37 && (parseInt(levelcount) <= 42)) {
+			 backcolor1 = '#ff66ff';
+			backcolor2 = '#ff99cc';
+			backcolor3 = '#ff66ff';
+		}
+		//gummy castle background colors
+		if (parseInt(levelcount) >= 43 && (parseInt(levelcount) <= 48)) {
+			 backcolor1 = '#990033';
+			backcolor2 = '#ff66ff';
+			backcolor3 = '#ff0066';
+		}
+		//lava cavern background colors
+		if (parseInt(levelcount) >= 49 && (parseInt(levelcount) <= 54)) {
+			 backcolor1 = '#2e2e1f';
+			backcolor2 = '#990000';
+			backcolor3 = '#14141f';
+		}
+		//wizard world background colors
+		if (parseInt(levelcount) >= 55 && (parseInt(levelcount) <= 60)) {
+			 backcolor1 = '#2e2e1f';
+			backcolor2 = '#9999ff';
+			backcolor3 = '#14141f';
+		}
+		//arcane planet background colors
+		if (parseInt(levelcount) >= 61 && (parseInt(levelcount) <= 66)) {
+			 backcolor1 = '#660033';
+			backcolor2 = '#9999ff';
+			backcolor3 = '#660033';
+		}
+	//draw the level background with the level specific ranges
 		var grd = context.createLinearGradient(0, 0, canvas.width, canvas.height);
 		// light blue
-		grd.addColorStop(0, '#cc0066');   
+		grd.addColorStop(0, backcolor1);   
 		// dark blue
-		grd.addColorStop(1, '#33001a');
+		grd.addColorStop(0.5, backcolor2);
+		grd.addColorStop(1, backcolor3);
 		context.fillStyle = grd;
         context.fillRect(level.x - 4, level.y - 4, level.width + 8, level.height + 4 - yoffset);
-        
+        // ^^ end level background
+		
+		
         // Render tiles
         renderTiles();
         
         // Draw level bottom
 		var grd2 = context.createLinearGradient(0, 0, canvas.width, canvas.height);
-		// light blue
-		grd.addColorStop(0, '#ff0080');   
+		// light green
+		grd.addColorStop(0, '#00ff55');   
 		// dark blue
-		grd.addColorStop(1, '#668cff');
+		grd.addColorStop(1, '#66a3ff');
 		context.fillStyle = grd2;
        
-        context.fillRect(level.x - 4, level.y - 4 + level.height + 4 - yoffset, level.width + 8, 2*level.tileheight + 3);
+        context.fillRect(level.x - 4, level.y - 4 + level.height + 4 - yoffset, level.width + 8, 2 * level.tileheight + 3);
         
 		//draw score
 		 
@@ -1236,14 +1306,15 @@ function loadOnLoad() {
         context.beginPath();
         context.arc(centerx, centery, level.radius+12, 0, 2*Math.PI, false);
         context.fill();
-        context.lineWidth = 2;
+        context.lineWidth = 6;
         context.strokeStyle = "#8c8c8c";
         context.stroke();
 
         // Draw the angle
-        context.lineWidth = 2;
+        context.lineWidth = 5;
         context.strokeStyle = "#0000ff";
         context.beginPath();
+		context.lineCap = "round";
         context.moveTo(centerx, centery);
         context.lineTo(centerx + 2.5*level.tilewidth * Math.cos(degToRad(player.angle)), centery - 2 *level.tileheight * Math.sin(degToRad(player.angle)));
         context.stroke();
@@ -1255,7 +1326,8 @@ function loadOnLoad() {
         if (player.bubble.visible) {
             drawBubble(player.bubble.x, player.bubble.y, player.bubble.tiletype);
         }
-        
+        //draw graphic over bubble
+		
     }
     
     // Get the tile coordinate
@@ -1354,11 +1426,11 @@ function loadOnLoad() {
 		}
 		else if (parseInt(levelcount) >= 37 && parseInt(levelcount) <= 42) {
 		images = loadImages(["Bubbles/gummyBubbles2.png"]);
-		document.body.style.backgroundImage = "url('space_bg.gif')";
+		document.body.style.backgroundImage = "url('gummyBack.png')";
 		}
 		else if (parseInt(levelcount) >= 43 && parseInt(levelcount) <= 48) {
 		images = loadImages(["Bubbles/gummyBubbles.png"]);
-		document.body.style.backgroundImage = "url('space_bg.gif')";
+		document.body.style.backgroundImage = "url('gummyBack.png')";
 		}
 		else if (parseInt(levelcount) >= 49 && parseInt(levelcount) <= 54) {
 		images = loadImages(["Bubbles/invertedBubbles.png"]);
@@ -1366,11 +1438,11 @@ function loadOnLoad() {
 		}
 		else if (parseInt(levelcount) >= 55 && parseInt(levelcount) <= 60) {
 		images = loadImages(["Bubbles/spellBubbles1.png"]);
-		document.body.style.backgroundImage = "url('space_bg.gif')";
+		document.body.style.backgroundImage = "url('back2.jpg')";
 		}
 		else if (parseInt(levelcount) >= 61 && parseInt(levelcount) <= 66) {
 		images = loadImages(["Bubbles/spellBubbles2.png"]);
-		document.body.style.backgroundImage = "url('space_bg.gif')";
+		document.body.style.backgroundImage = "url('back2.jpg')";
 		}
 //adjust levelnew row
 		 if (parseInt(levelcount)> 6 && parseInt(levelcount) <= 11){	newRowCounter = 9; 	}
@@ -1590,23 +1662,53 @@ function loadOnLoad() {
 			levelbump ++;
 			//show map if lvl 6, 12, 18, or 24 was just completed
 			if (parseInt(levelcount) == 7) {
-				document.getElementById("mapImg").src="mapTown.png";
+				document.getElementById("mapImg").src="Maps/mapCandyTown.png";
 				document.getElementById("story").innerHTML = "You made it to <b>Candy Town</b>! Collect candies to proceed.";
 			document.getElementById("mapDiv").style.display = 'block'; 
 			}
 			else if (parseInt(levelcount) == 13) {
-				document.getElementById("mapImg").src="mapGhost.png";
+				document.getElementById("mapImg").src="Maps/mapGraveyard.png";
 				document.getElementById("story").innerHTML = "Danger, entering the Ghostly Graveyard. beat 5 levels to reach the boss.";
 			document.getElementById("mapDiv").style.display = 'block'; 
 			}
 			else if (parseInt(levelcount) == 19) {
-				document.getElementById("mapImg").src="spaceMapMin.png";
+				document.getElementById("mapImg").src="Maps/mapCosmos.png";
 				document.getElementById("story").innerHTML = "You have defeated the aliens, and take the ship. <b>Blast off</b>!";
 			document.getElementById("mapDiv").style.display = 'block'; 
 			}
 			else if (parseInt(levelcount) == 25) {
-				document.getElementById("mapImg").src="oceanWorldMap.png";
+				document.getElementById("mapImg").src="Maps/mapOceanWorld.png";
 				document.getElementById("story").innerHTML = "Fiesty fish and crabby crabs await on <b>Ocean World</b>!";
+			document.getElementById("mapDiv").style.display = 'block'; 
+			}
+			else if (parseInt(levelcount) == 31) {
+				document.getElementById("mapImg").src="Maps/mapSpaceship.png";
+				document.getElementById("story").innerHTML = "You blast off again and aliens attack";
+			document.getElementById("mapDiv").style.display = 'block'; 
+			}
+			else if (parseInt(levelcount) == 37) {
+				document.getElementById("mapImg").src="Maps/mapGummy1.png";
+				document.getElementById("story").innerHTML = "You land on the world of Gummies";
+			document.getElementById("mapDiv").style.display = 'block'; 
+			}
+			else if (parseInt(levelcount) == 43) {
+				document.getElementById("mapImg").src="Maps/mapGummy2.png";
+				document.getElementById("story").innerHTML = "Defeat the Royal Gummies";
+			document.getElementById("mapDiv").style.display = 'block'; 
+			}
+			else if (parseInt(levelcount) == 49) {
+				document.getElementById("mapImg").src="Maps/mapLava.png";
+				document.getElementById("story").innerHTML = "Just as you defeat the gummies, the floor opens and you fall into a fiery carvern";
+			document.getElementById("mapDiv").style.display = 'block'; 
+			}
+			else if (parseInt(levelcount) == 55) {
+				document.getElementById("mapImg").src="Maps/mapWizard1.png";
+				document.getElementById("story").innerHTML = "A portal pulls you into another world";
+			document.getElementById("mapDiv").style.display = 'block'; 
+			}
+			else if (parseInt(levelcount) == 61) {
+				document.getElementById("mapImg").src="Maps/mapArcane.png";
+				document.getElementById("story").innerHTML = "Defeat the Master Mage to escape";
 			document.getElementById("mapDiv").style.display = 'block'; 
 			}
 			lvlUp();
@@ -1704,7 +1806,10 @@ function clearStats1() {
 }	
 	//load saved level
 function loadSavedLevel() {
-	if (parseInt(fromLoadMenu) == 0){levelcount = parseInt(localStorage.Level);}
+	if (parseInt(fromLoadMenu) == 0){
+		levelcount = parseInt(localStorage.Level);
+		if (typeof localStorage["Level"] === "undefined") {levelcount = 1};
+		}
 score = parseInt(localStorage.Score);
 
 savedGameLoad = 1;
@@ -1712,34 +1817,59 @@ document.getElementById("saveAndLoad").style.display = 'none';
 document.getElementById("intro").style.display = 'none';
 
 if (parseInt(levelcount) >= 7 && parseInt(levelcount) <=12 ) {
-				document.getElementById("mapImg").src="mapTown.png";
-				document.getElementById("story").innerHTML = "You made it to <b>Candy Town</b>! Collect candies to proceed.";
+				document.getElementById("mapImg").src="Maps/mapCandyTown.png";
+				document.getElementById("story").innerHTML = "Zone 2";
 			document.getElementById("mapDiv").style.display = 'block'; 
 			}
 	else if (parseInt(levelcount) >= 13 && parseInt(levelcount) <= 17) {
-				document.getElementById("mapImg").src="mapGhost.png";
-				document.getElementById("story").innerHTML = "Danger, entering the Ghostly Graveyard. beat 5 levels to reach the boss.";
+				document.getElementById("mapImg").src="Maps/mapGraveyard.png";
+				document.getElementById("story").innerHTML = "Zone 3";
 			document.getElementById("mapDiv").style.display = 'block'; 
 			}
 	else if (parseInt(levelcount) >= 19 && parseInt(levelcount) <= 24 ) {
-				document.getElementById("mapImg").src="spaceMapMin.png";
-				document.getElementById("story").innerHTML = "You have defated the aliens, and take the ship. <b>Blast off</b>!";
+				document.getElementById("mapImg").src="Maps/mapCosmos.png";
+				document.getElementById("story").innerHTML = "Zone 4";
 			document.getElementById("mapDiv").style.display = 'block'; 
 			}
 	else if (parseInt(levelcount) >= 25 && parseInt(levelcount) <= 30 ) {
-				document.getElementById("mapImg").src="oceanWorldMap.png";
-				document.getElementById("story").innerHTML = "Fiesty Fish and Crabby Crabs await you on the <b>Ocean World</b>!";
+				document.getElementById("mapImg").src="Maps/mapOceanWorld.png";
+				document.getElementById("story").innerHTML = "Zone 5";
 			document.getElementById("mapDiv").style.display = 'block'; 
 			}
 	else if (parseInt(levelcount) >= 31 && parseInt(levelcount) <= 36 ) {
-				document.getElementById("mapImg").src="oceanWorldMap.png";
-				document.getElementById("story").innerHTML = "Destroy the Aliens and Meteors!";
+				document.getElementById("mapImg").src="Maps/mapSpaceship.png";
+				document.getElementById("story").innerHTML = "Zone 6";
+			document.getElementById("mapDiv").style.display = 'block'; 
+			}
+	else if (parseInt(levelcount) >= 37 && parseInt(levelcount) <= 42 ) {
+				document.getElementById("mapImg").src="Maps/mapGummy1.png";
+				document.getElementById("story").innerHTML = "Zone 7";
+			document.getElementById("mapDiv").style.display = 'block'; 
+			}
+	else if (parseInt(levelcount) >= 43 && parseInt(levelcount) <= 48 ) {
+				document.getElementById("mapImg").src="Maps/mapGummy2.png";
+				document.getElementById("story").innerHTML = "Zone 8";
+			document.getElementById("mapDiv").style.display = 'block'; 
+			}
+	else if (parseInt(levelcount) >= 49 && parseInt(levelcount) <= 54 ) {
+				document.getElementById("mapImg").src="Maps/mapLava.png";
+				document.getElementById("story").innerHTML = "Zone 9";
+			document.getElementById("mapDiv").style.display = 'block'; 
+			}
+	else if (parseInt(levelcount) >= 55 && parseInt(levelcount) <= 60 ) {
+				document.getElementById("mapImg").src="Maps/mapWizard1.png";
+				document.getElementById("story").innerHTML = "Zone 10";
+			document.getElementById("mapDiv").style.display = 'block'; 
+			}
+	else if (parseInt(levelcount) >= 61 && parseInt(levelcount) <= 66 ) {
+				document.getElementById("mapImg").src="Maps/mapArcane.png";
+				document.getElementById("story").innerHTML = "Zone 11";
 			document.getElementById("mapDiv").style.display = 'block'; 
 			}
 			
 	else if (parseInt(levelcount) >= 1 && parseInt(levelcount) <= 6 ) {
-				document.getElementById("mapImg").src="mapStart-2.png";
-				document.getElementById("story").innerHTML = "<b>Gui Bubble Story - </b> Travel the <b>Fruity Forest</b>, visit <b>Candy Town</b>, and navigate the <b>Ghostly Graveyard</b> and go beyond!";
+				document.getElementById("mapImg").src="Maps/mapForest.png";
+				document.getElementById("story").innerHTML = "Zone 1";
 			document.getElementById("mapDiv").style.display = 'block'; 
 			}			
 		

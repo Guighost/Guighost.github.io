@@ -494,7 +494,7 @@ padding-left: 1%;
 #leftspot { width:120px;}
 .selectzone1 {margin-left: 30px;}
 #saveAndLoad {margin-left: 50%;}
-#mapClose {width: 100px;}
+/* #mapClose {width: 100px;} */
 #hotstreak{left: 50%; transform: translate(-150px,-983px); }
 #hotstreakTotal { margin-left: 70%;}
 #starPop1 {transform: translate(-40px, 0px); }
@@ -648,7 +648,7 @@ width:500px;
 #levelSelect {transform: translate(-75px,105px);}
 #lvlSelectParent {transform: translate(-187px,-20px); width: 310px;}
 #saveAndLoad {margin-left: 50%;}
-#mapClose {width: 100px;}
+/* #mapClose {width: 100px;} */
 #hotstreak{left: 50%; transform: translate(-150px,-583px); }
 #hotstreakTotal { margin-left: 80%;}
 #starPop1 {transform: translate(-50px, 0px); }
