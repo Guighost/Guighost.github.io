@@ -75,15 +75,17 @@ window.onload = function() {
 	
 	document.getElementById("playGame").addEventListener("click", newGameEvent);
 	document.getElementById("loadSaved").addEventListener("click", loadGameEvent);
-	document.getElementById("lvlSelectParent").addEventListener("click", detectTile);
+	
 	if (typeof localStorage["Score"] === "undefined") {
 	document.getElementById("loadSaved").style.display = 'none';	}
-	
+// add even listener logic for lvevel select	
+document.getElementById("lvlSelectParent").addEventListener("click", detectTile);
 	function detectTile(e) {
     if (e.target !== e.currentTarget) {
         var clickedItem = e.target.id;
 		if(!e.target.id) {return;}
 		var numOnly = clickedItem.substring(4);
+		if (isNaN(parseInt(numOnly))) { return} 
 		var numOnlyAdj = parseInt(numOnly) - 1;
 		var lvlScoreCheck = "LvlScore" + numOnly;
 		var lastcheck = 0;
@@ -2102,7 +2104,7 @@ function closeLvlSelect() {
 function adjustStarImages() {
 	for (var i=1; i<=66; i++) {
 		var iName = "starImg" + i ;
-		var tileImg = "selImg-" + i;
+		var tileImg = "smg-" + i;
 		var lvlToCheck = "LvlScore" + i;
 		var checkItem = document.getElementById(iName);
 		var ilvlCompleted = 0;
@@ -2127,7 +2129,7 @@ function adjustStarImages() {
 		if (typeof localStorage[lvlRatingCheck] === "undefined") {
 			var k = parseInt(i) + 1;
 						
-			if (i <= 66) {tileImg = "selImg-" + i;}
+			if (i <= 66) {tileImg = "smg-" + i;}
 			var tileToChange = document.getElementById(tileImg);
 			tileToChange.src = "lock.png";
 			
