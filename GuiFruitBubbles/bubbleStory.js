@@ -23,7 +23,7 @@
 	var inStreakCount = 0;
 	var inStreak = 0;
 	var inStreakScore = 0;
-	
+	var specialShot = 1;
 	
 	//sounds
 	var snd2 = new Audio("Sounds/nice.mp3"); // plays on the Nice Move message
@@ -396,11 +396,40 @@ function loadOnLoad() {
 	
     function stateShootBubble(dt) {
         // Bubble is moving
-       
+      
         // Move the bubble in the direction of the mouse
         player.bubble.x += dt * player.bubble.speed * Math.cos(degToRad(player.bubble.angle));
         player.bubble.y += dt * player.bubble.speed * -1*Math.sin(degToRad(player.bubble.angle));
-        
+       
+		//begin special shot addtion
+		// if (specialShot > 0) {
+			// function getOffset( el ) {
+				// var _x = 0;
+				// var _y = 0;
+				// while( el && !isNaN( el.offsetLeft ) && !isNaN( el.offsetTop ) ) {
+					// _x += el.offsetLeft - el.scrollLeft;
+					// _y += el.offsetTop - el.scrollTop;
+					// el = el.offsetParent;
+			// }
+			// return { top: _y, left: _x };
+			// }
+		// var vpX = getOffset( document.getElementById('viewport') ).left; 
+		// var vpY = getOffset( document.getElementById('viewport') ).top; 
+	
+			// alert("canvas x =" + vpX + " and  canvas y =" + vpY);
+			// var ssX =  parseint(player.bubble.x);
+			
+			// ssX += vpX;
+			// var ssY =  parseint(player.bubble.y);
+			// ssY += vpY;
+			// alert("ssX =" + ssX + " and  ssY =" + ssY);
+			 // document.getElementById('icyBlast').style.left = ssX  +'px';
+			// document.getElementById('icyBlast').style.top = ssY +'px';
+			// alert(document.getElementById('icyBlast').style.left + "icyBlast Left");
+			
+		// }
+		//end special shot addition
+		
         // Handle left and right collisions with the level
         if (player.bubble.x <= level.x) {
             // Left edge

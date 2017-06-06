@@ -401,6 +401,17 @@ font-weight: 100;
 z-index: 5000;
 }
 
+/* Special Powers */
+.clsSpecialPowers {
+	display: none;
+	position: absolute;
+	left: 39%;
+	top: 78%;
+}
+
+
+
+
 
 /* Media queries */
 
