@@ -1208,12 +1208,12 @@ function loadOnLoad() {
 		}
 		else if (parseInt(levelcount) >= 55 && parseInt(levelcount) <= 60) {
 		images = loadImages(["Bubbles/spellBubbles1.png"]);
-		document.body.style.backgroundImage = "url('gummyBack.png')";
+		document.body.style.backgroundImage = "url('back2.jpg')";
 		
 		}
 		else if (parseInt(levelcount) >= 61 && parseInt(levelcount) <= 66) {
 		images = loadImages(["Bubbles/spellBubbles2.png"]);
-		document.body.style.backgroundImage = "url('gummyBack.png')";
+		document.body.style.backgroundImage = "url('back2.jpg')";
 		
 		}
 		
@@ -2100,7 +2100,7 @@ function closeLvlSelect() {
 
 //adjust Level Select Stars
 function adjustStarImages() {
-	for (var i=1; i<67; i++) {
+	for (var i=1; i<=66; i++) {
 		var iName = "starImg" + i ;
 		var tileImg = "selImg-" + i;
 		var lvlToCheck = "LvlScore" + i;
@@ -2127,7 +2127,7 @@ function adjustStarImages() {
 		if (typeof localStorage[lvlRatingCheck] === "undefined") {
 			var k = parseInt(i) + 1;
 						
-			if (i <= 65) {tileImg = "selImg-" + k;}
+			if (i <= 66) {tileImg = "selImg-" + i;}
 			var tileToChange = document.getElementById(tileImg);
 			tileToChange.src = "lock.png";
 			
