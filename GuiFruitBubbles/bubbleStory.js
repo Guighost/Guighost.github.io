@@ -1843,6 +1843,7 @@ function loadSavedLevel() {
 		if (typeof localStorage["Level"] === "undefined") {levelcount = 1};
 		}
 score = parseInt(localStorage.Score);
+if (typeof localStorage["Score"] === "undefined") {score = 0;};
 
 savedGameLoad = 1;
 document.getElementById("saveAndLoad").style.display = 'none'; 
