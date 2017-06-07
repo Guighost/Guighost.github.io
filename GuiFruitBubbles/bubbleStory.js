@@ -2160,21 +2160,21 @@ function adjustStarImages() {
 			checkItem.src = "stars3.png";
 			checkStarBefore += 1;
 			}	
-			alert (i +" " + localStorage[lvlRatingCheck] + " = lvlRatingCheck");
+			// alert (i +" " + localStorage[lvlRatingCheck] + " = lvlRatingCheck");
 		if (typeof localStorage[lvlRatingCheck] === "undefined") {
 			var k = parseInt(i) + 1;
 			var imgBefore = document.getElementById(tileImg);
 			var imageBeforePath = imgBefore.src; 
-			alert (tileImg + " = TileImg before checkstar " + imageBeforePath + " = image before" );
+			// alert (tileImg + " = TileImg before checkstar " + imageBeforePath + " = image before" );
 			
 			if (i <= 66) {tileImg = "smg-" + i;}
 			var tileToChange = document.getElementById(tileImg);
 			tileToChange.src = "lock.png";
-			alert("check star before = " + checkStarBefore);
-			if (checkStarBefore > 0) {	
+			// alert("check star before = " + checkStarBefore);
+			if (checkStarBefore > 0 || i == 1) {	
 			 tileToChange.src = imageBeforePath;
 			 checkStarBefore = 0;
-			 alert (tileImg + " = TileImg AFTER checkstar");
+			 // alert (tileImg + " = TileImg AFTER checkstar");
 			}
 			
 			 }
