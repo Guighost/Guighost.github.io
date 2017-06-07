@@ -78,7 +78,7 @@ window.onload = function() {
 	
 	if (typeof localStorage["Score"] === "undefined") {
 	document.getElementById("loadSaved").style.display = 'none';	}
-// add even listener logic for lvevel select	
+// add event listener logic for level select	
 document.getElementById("lvlSelectParent").addEventListener("click", detectTile);
 	function detectTile(e) {
     if (e.target !== e.currentTarget) {
@@ -99,6 +99,7 @@ document.getElementById("lvlSelectParent").addEventListener("click", detectTile)
 		// alert(lvlScoreCheck);
 		if (typeof localStorage[lvlScoreCheck] === "undefined" ) { levelcount = 1 }
 		levelcount = parseInt(numOnly);
+		score = localStorage["Score"];
 		// alert(levelcount);
 		savedGameLoad = 1;
 		fromLoadMenu = 1;
@@ -2128,7 +2129,7 @@ function closeLvlSelect() {
 	document.getElementById("lvlSelectParent").style.display = 'none';
 	
 }
-
+var checkStarBefore = 0;
 //adjust Level Select Stars
 function adjustStarImages() {
 	for (var i=1; i<=66; i++) {
@@ -2141,28 +2142,43 @@ function adjustStarImages() {
 		//lock levels not yet achieved
 				
 		//adjust stars
+		
 		var lvlRatingCheck = "LvlRating" + i;
 		var checklvlRating	= localStorage[lvlRatingCheck];
 		if (checklvlRating == 1 ) { 
 			ilvlCompleted = 1;			
 			checkItem.src = "stars1.png";
+			checkStarBefore += 1;
 			}
 		if (checklvlRating == 2 ) { 
 			ilvlCompleted = 1;			
 			checkItem.src = "stars2.png";
+			checkStarBefore += 1;
 			}
 		if (checklvlRating == 3 ) { 
 			ilvlCompleted = 1;			
 			checkItem.src = "stars3.png";
+			checkStarBefore += 1;
 			}	
+			alert (i +" " + localStorage[lvlRatingCheck] + " = lvlRatingCheck");
 		if (typeof localStorage[lvlRatingCheck] === "undefined") {
 			var k = parseInt(i) + 1;
-						
+			var imgBefore = document.getElementById(tileImg);
+			var imageBeforePath = imgBefore.src; 
+			alert (tileImg + " = TileImg before checkstar " + imageBeforePath + " = image before" );
+			
 			if (i <= 66) {tileImg = "smg-" + i;}
 			var tileToChange = document.getElementById(tileImg);
 			tileToChange.src = "lock.png";
-			
+			alert("check star before = " + checkStarBefore);
+			if (checkStarBefore > 0) {	
+			 tileToChange.src = imageBeforePath;
+			 checkStarBefore = 0;
+			 alert (tileImg + " = TileImg AFTER checkstar");
 			}
+			
+			 }
+			 
 		
 	}
 	
