@@ -23,7 +23,10 @@
 	var inStreakCount = 0;
 	var inStreak = 0;
 	var inStreakScore = 0;
-	var specialShot = 1;
+	var specialShot = 0;
+	var fromSpecial = false;
+	var specialActive = 0;
+	var icyCount = 1;
 	
 	//sounds
 	var snd2 = new Audio("Sounds/nice.mp3"); // plays on the Nice Move message
@@ -68,6 +71,24 @@ starRatingImage.onload = function () {
     starRatingReady = true;
 }
 starRatingImage.src = "stars1.png"; 
+
+////// Special Shot Images
+//Icy Blast
+var icyReady = false;
+var icyImage = new Image();
+icyImage.onload = function () {
+    icyImgReady = true;
+}
+icyImage.src = "Effects/icyBlast.png"; 
+
+// power move activate button
+	var specialMenuReady = false;
+var specialMenuImage = new Image();
+specialMenuImage.onload = function () {
+    specialMenuReady = true;
+}
+specialMenuImage.src = "Effects/specialMenuActivate.png"; 
+
 	
 // The function gets called when the window is fully loaded
 window.onload = function() {
@@ -210,7 +231,7 @@ function loadOnLoad() {
                     y: 0,
                     angle: 0,
                     speed: 1000,
-                    dropspeed: 900,
+                    dropspeed: 50,
                     tiletype: 0,
                     visible: false
                 },
@@ -403,32 +424,9 @@ function loadOnLoad() {
         player.bubble.y += dt * player.bubble.speed * -1*Math.sin(degToRad(player.bubble.angle));
        
 		//begin special shot addtion
-		// if (specialShot > 0) {
-			// function getOffset( el ) {
-				// var _x = 0;
-				// var _y = 0;
-				// while( el && !isNaN( el.offsetLeft ) && !isNaN( el.offsetTop ) ) {
-					// _x += el.offsetLeft - el.scrollLeft;
-					// _y += el.offsetTop - el.scrollTop;
-					// el = el.offsetParent;
-			// }
-			// return { top: _y, left: _x };
-			// }
-		// var vpX = getOffset( document.getElementById('viewport') ).left; 
-		// var vpY = getOffset( document.getElementById('viewport') ).top; 
-	
-			// alert("canvas x =" + vpX + " and  canvas y =" + vpY);
-			// var ssX =  parseint(player.bubble.x);
+		if (specialShot == 2) {
 			
-			// ssX += vpX;
-			// var ssY =  parseint(player.bubble.y);
-			// ssY += vpY;
-			// alert("ssX =" + ssX + " and  ssY =" + ssY);
-			 // document.getElementById('icyBlast').style.left = ssX  +'px';
-			// document.getElementById('icyBlast').style.top = ssY +'px';
-			// alert(document.getElementById('icyBlast').style.left + "icyBlast Left");
-			
-		// }
+		}
 		//end special shot addition
 		
         // Handle left and right collisions with the level
@@ -483,7 +481,7 @@ function loadOnLoad() {
         if (animationstate == 0) {
             resetRemoved();
 			//show nice pop
-            if (cluster.length > 3 ){ 
+            if (cluster.length > 3 && cluster.length <= 6 ){ 
 			score += 250;
 			showBonus(); window.setTimeout(hideBonus, 1500);
 			}
@@ -511,15 +509,28 @@ function loadOnLoad() {
 				
 			
 			}
-				
+			//from special addition
+						if (fromSpecial == true){
+							
+							var icyX2 = tile.x - 30;
+							var icyY2 = tile.y - 40;
+							alert (icyX + " = x " + icyY  + " = y");
+							context.drawImage(icyImage, icyX2, icyY2 );
+							document.getElementById("icyBlast").style.display = 'block';
+							window.setTimeout(hideBonus, 1500 );
+							fromSpecial = false;
+							// specialShot = 0;
+						}
+						//end from special	
             
             // Find floating clusters
             floatingclusters = findFloatingClusters();
             
             if (floatingclusters.length > 0) {
 				//play drop sound
+				if (specialActive = 0){
 				snd4.volume = 0.8;
-				snd4.play();
+				snd4.play();}
 					
                 // Setup drop animation
                 for (var i=0; i<floatingclusters.length; i++) {
@@ -528,7 +539,9 @@ function loadOnLoad() {
                         tile.shift = 0;
                         tile.shift = 1;
                         tile.velocity = player.bubble.dropspeed;
-                        
+						
+						
+						
                         score += 100;
 						//DB - add floating to streak Score
 						if (inStreakCount >= 5) {
@@ -537,8 +550,8 @@ function loadOnLoad() {
                     }
                 }
             }
+            animationstate = 1;	
             
-            animationstate = 1;
         }
 		
         
@@ -575,7 +588,7 @@ function loadOnLoad() {
                         // Accelerate dropped tiles
                         tile.velocity += dt * 700;
                         tile.shift += dt * tile.velocity;
-                            
+                        
                         // Alpha animation
                         tile.alpha -= dt * 8;
                         if (tile.alpha < 0) {
@@ -583,7 +596,7 @@ function loadOnLoad() {
                         }
 
                         // Check if the bubbles are past the bottom of the level
-                        if (tile.alpha == 0 || (tile.y * level.rowheight + tile.shift > (level.rows - 1) * level.rowheight + level.tileheight)) {
+                        if (tile.alpha == 0 || (tile.y * level.rowheight + tile.shift > (level.rows - 1) * level.rowheight + level.tileheight + 250)) {
                             tile.type = -1;
                             tile.shift = 0;
                             tile.alpha = 1;
@@ -809,13 +822,27 @@ function loadOnLoad() {
             }
             
             // Check if current tile has the right type, if matchtype is true
-            if (!matchtype || (currenttile.type == targettile.type)) {
+            if (!matchtype || (currenttile.type == targettile.type) || specialShot > 0 && specialShot <= 12) {
                 // Add current tile to the cluster
-                foundcluster.push(currenttile);
-                
+					foundcluster.push(currenttile);
+					 //auto increment and display if from special
+               		if (specialShot >= 1){ 
+					specialShot = specialShot += 1;
+					fromSpecial = true;
+					document.getElementById("icyBlast").style.display = 'block';
+					document.getElementById("awesome").style.display = 'none';
+					specialActive = specialActive += 1;
+					 var sndI = new Audio("Sounds/freezeSnd.mp3"); // buffers automatically when created
+							sndI.volume = 1.0;
+							sndI.play();
+					window.setTimeout(hideBonus, 2000);
+					};
+					if(specialShot >= 6) {specialShot = 0; fromSpecial = false;};
                 // Get the neighbors of the current tile
-                var neighbors = getNeighbors(currenttile);
-                
+				
+		         var neighbors = getNeighbors(currenttile);
+				
+					
                 // Check the type of each neighbor
                 for (var i=0; i<neighbors.length; i++) {
                     if (!neighbors[i].processed) {
@@ -823,7 +850,9 @@ function loadOnLoad() {
                         toprocess.push(neighbors[i]);
                         neighbors[i].processed = true;
                     }
+					
                 }
+				
             }
         }
         
@@ -1027,24 +1056,24 @@ function loadOnLoad() {
         
 		context.fillStyle = "#668cff";
 		context.font = "16px Verdana";
-		drawCenterText("Score: " + score, scorex, scorey -10, 150);
+		drawCenterText("Score: " + score, scorex, scorey -14, 150);
 		
 		//draw level
 		context.fillStyle = "#ffffff";
         context.font = "14px Verdana";
-        drawCenterText("Level " + levelcount , scorex, scorey +15, 150);
+        drawCenterText("Level " + levelcount , scorex + 10, scorey +15, 150);
      
 		
 		// draw High score
 		context.fillStyle = "#ffffff";
         context.font = "12px Verdana";
-        var hscorex = level.x + level.width - 150;
-        var hscorey = level.y+level.height + level.tileheight - yoffset +20;
+        var hscorex = level.x + level.width - 130;
+        var hscorey = level.y+level.height + level.tileheight - yoffset +30;
 		var HighScoreLocal = localStorage.HighScore;
 		
 		if (typeof localStorage["HighScore"] === "undefined") {localStorage["HighScore"] = 0;};
 		if ( score > localStorage.HighScore) { HighScoreLocal = score};
-        drawCenterText("High Score: " + HighScoreLocal, scorex, scorey +40, 150);
+        drawCenterText("High: " + HighScoreLocal, hscorex, hscorey  , 150);
         
 		
 		
@@ -1069,6 +1098,13 @@ function loadOnLoad() {
 			var savey = level.y+level.height + level.tileheight - yoffset - 22;
         context.drawImage(saveImage, savex, savey + 10)
     }
+	// draw power move control
+		if (specialMenuReady) {
+			var specialMenux = level.x + 225;
+			var specialMenuy = level.y+level.height + level.tileheight - yoffset - 22;
+        context.drawImage(specialMenuImage, specialMenux  , specialMenuy + 2)
+    }
+	
         // Render cluster
         if (showcluster) {
             renderCluster(cluster, 255, 128, 128);
@@ -1082,7 +1118,7 @@ function loadOnLoad() {
         
         // Render player bubble
         renderPlayer();
-        
+    	
         // Game Over overlay
         if (gamestate == gamestates.gameover) {
             context.fillStyle = "rgba(0, 0, 0, 0.9)";
@@ -1273,7 +1309,7 @@ function loadOnLoad() {
         // Draw title
         context.fillStyle = "#ffd1b3";
         context.font = "20px Comic Sans MS";
-        context.fillText("Gui Bubble Story" , 210, 25);
+        context.fillText("Gui Bubble Story" , 222, 25);
 		//draw subtitle
 		  context.fillStyle = "#ffffff";
         context.font = "12px Verdana";
@@ -1359,7 +1395,16 @@ function loadOnLoad() {
             drawBubble(player.bubble.x, player.bubble.y, player.bubble.tiletype);
         }
         //draw graphic over bubble
-		
+		    //specialShots
+	if ( specialShot == 1) {
+		// alert ("triggered");
+			var icyX = player.bubble.x - 30;
+			var icyY = player.bubble.y - 40;
+			// alert (icyX + " = x " + icyY  + " = y");
+        context.drawImage(icyImage, icyX, icyY );
+				
+		}
+	
     }
     
     // Get the tile coordinate
@@ -1505,7 +1550,7 @@ function loadOnLoad() {
 	//Start the next level when level up
     function lvlUp() {
         
-        
+        icyCount = icyCount + 1;
 		document.getElementById("levelup1").style.display = "none";
 		document.getElementById("starPop1").style.display = "none";
         turncounter = 0;
@@ -1671,7 +1716,7 @@ function loadOnLoad() {
         // Get the mouse position
         var pos = getMousePos(canvas, e);
 		
-		if ((pos.x > 5  && pos.x <= 80) && (pos.y >= 570 && pos.y <= 625)) {
+		if ((pos.x > 5  && pos.x <= 80) && (pos.y >= 530 && pos.y <= 625)) {
 			
 			showSaveLoad();
 		}
@@ -1679,6 +1724,10 @@ function loadOnLoad() {
 		else if ((pos.x >= 60  && pos.x <= 185) && (pos.y >= 530 && pos.y <= 625)) {
 			
 			swapBubble();
+		}
+		else if ((pos.x > 220  && pos.x <= 300) && (pos.y >= 530 && pos.y <= 625) ){
+			
+			showSpecialSelect();
 		}
         else if (gamestate == gamestates.ready) {
             shootBubble();
@@ -1790,17 +1839,24 @@ function hideIntro() {
 	document.getElementById("mapDiv").style.display = 'block'; 
 	};
 function showBonus() {
-		snd2.volume = 1.0;
+		if(specialActive = 0){	snd2.volume = 1.0;
 		snd2.play();
-	document.getElementById("nice").style.display = 'block'; };
+		document.getElementById("nice").style.display = 'block';} 
+		};
 function showBonus2() { 
-		snd3.volume = 1.0;
-		snd3.play();
+		
+	if(specialActive = 0){	
 	document.getElementById("awesome").style.display = 'block';
-document.getElementById("nice").style.display = 'none'; };
+	document.getElementById("nice").style.display = 'none'; 
+	snd3.volume = 1.0;
+		snd3.play();
+	}
+	};
 function hideBonus() {
 		document.getElementById("awesome").style.display = 'none';
 		document.getElementById("nice").style.display = 'none';
+		document.getElementById("icyBlast").style.display = 'none';
+		specialActive = 0;
 		};
 		
 	//save and load screens
@@ -2185,5 +2241,39 @@ function adjustStarImages() {
 	
 	//end stars adjust
 }
+
+//close special powers
+function hideSpecialSelect(){
+	
+	document.getElementById("selectPowerMove").style.display = 'none';
+	checkVisSpecial = 0;
+}
+// open special powers
+var checkVisSpecial = 0;
+function showSpecialSelect(){
+	
+	if (checkVisSpecial == 1) {hideSpecialSelect(); checkVisSpecial = 0;}
+	else {document.getElementById("pwr1Txt2").innerHTML = icyCount;
+	document.getElementById("selectPowerMove").style.display = 'block';
+	checkVisSpecial = 1;}
+}
+//activate Special1 IcyBlast
+function activateIcy(){
+	if (icyCount < 1) { return;}
+	specialShot = 1;
+	icyCount = icyCount -= 1;
+	document.getElementById("selectPowerMove").style.display = 'none';
+	document.getElementById("pwr1Txt2").innerHTML = icyCount;
+}
+// if (icyImgReady) {
+			// var icyX = player.bubble.x;
+			// var icyY = player.bubble.y;
+        // context.drawImage(icyImage, icyX, icyY )
+// }
+
+
+
+
+
 
 // end of script	
