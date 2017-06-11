@@ -26,7 +26,15 @@
 	var specialShot = 0;
 	var fromSpecial = false;
 	var specialActive = 0;
-	var icyCount = 1;
+	var icyCount = 0;
+	var starCash = 0;
+	var cashUp = 0;
+	if (typeof localStorage["starCash"] === "undefined") {localStorage["starCash"] = 0; starCash = 0;};
+	starCash = parseInt(localStorage["starCash"]);
+	if (typeof localStorage["icyCount"] === "undefined") {localStorage["icyCount"] = 0; icyCount= 0;};
+	icyCount = parseInt(localStorage["icyCount"]);
+	if (typeof localStorage["cashUp"] === "undefined") {localStorage["cashUp"] = 0; cashUp= 0;};
+	cashUp = parseInt(localStorage["cashUp"]);
 	
 	//sounds
 	var snd2 = new Audio("Sounds/nice.mp3"); // plays on the Nice Move message
@@ -88,6 +96,15 @@ specialMenuImage.onload = function () {
     specialMenuReady = true;
 }
 specialMenuImage.src = "Effects/specialMenuActivate.png"; 
+
+// starCash count
+	var starCashReady = false;
+var starCashImage = new Image();
+starCashImage.onload = function () {
+    starCashReady = true;
+}
+starCashImage.src = "Effects/starCashBack.png"; 
+
 
 	
 // The function gets called when the window is fully loaded
@@ -837,7 +854,7 @@ function loadOnLoad() {
 							sndI.play();
 					window.setTimeout(hideBonus, 2000);
 					};
-					if(specialShot >= 6) {specialShot = 0; fromSpecial = false;};
+					if(specialShot >= 7) {specialShot = 0; fromSpecial = false;};
                 // Get the neighbors of the current tile
 				
 		         var neighbors = getNeighbors(currenttile);
@@ -1101,7 +1118,7 @@ function loadOnLoad() {
 	// draw power move control
 		if (specialMenuReady) {
 			var specialMenux = level.x + 225;
-			var specialMenuy = level.y+level.height + level.tileheight - yoffset - 22;
+			var specialMenuy = level.y+level.height + level.tileheight - yoffset - 28;
         context.drawImage(specialMenuImage, specialMenux  , specialMenuy + 2)
     }
 	
@@ -1173,27 +1190,44 @@ function loadOnLoad() {
 				document.getElementById("hotstreak").style.display = "none";
 			 }
 			snd5.play({	volume  : "0.6"});
-			context.fillStyle = "rgba(255, 0, 0, 0.8)";
+			context.fillStyle = "rgba(0, 204, 0, 0.9)";
             context.fillRect(level.x - 4, level.y - 4, level.width + 8, level.height + 2 * level.tileheight + 8 - yoffset);
             // draw win image
 			document.getElementById("levelup1").style.display = "block";
+			var scX = level.x + (level.width / 2) - 80;
+			var scY = level.y + 265 ;
+			context.drawImage(starCashImage, scX, scY );
+			
+			 
             context.fillStyle = "#e6e600";
             context.font = "24px Verdana";
-            drawCenterText("Level Complete!", level.x, level.y + level.height / 2 + 40, level.width);
+            drawCenterText("Level Complete!", level.x, level.y + level.height / 2 + 150, level.width);
 			
 			var NextLevelBtn = new String( "Start Next Level")
 			nextLevelBtn = NextLevelBtn.bold();
-            drawCenterText(NextLevelBtn, level.x, level.y + level.height / 2 + 100, level.width);
+            drawCenterText(NextLevelBtn, level.x, level.y + level.height / 2 + 210, level.width);
 			
 			
 			//Do 1 time Level up functions
 			if (levelbump >= 1) {
-						
+					if (typeof localStorage["starCash"] === "undefined") {localStorage["starCash"] = 0; starCash = 0;};
+			 
+			 
 			//Rate number of shots to complete, save to local storage
 			var lvlRating = "LvlRating" + levelcount;
 			var lvlScore = "LvlScore" + levelcount;
+			if (typeof localStorage[lvlRating] === "undefined") {localStorage[lvlRating] = 0;};
+			cashUp = parseInt(localStorage[lvlRating]) + 2;
+			
+			localStorage["starCash"] = parseInt(localStorage["starCash"]) + cashUp;	
+			starCash = parseInt(localStorage["starCash"]);
+			
+			
 			var ratingx = level.x + 200;
 			var ratingy = level.height - 100;
+			
+			
+			
 			//3 stars
 		
 			if (parseInt(levelShotCount) <= 35) {
@@ -1225,7 +1259,9 @@ function loadOnLoad() {
 			levelShotCount = 0;
 			// end if levelbump //
 			}
-			
+			context.fillStyle = "#00ffff";
+            context.font = "24px Verdana";
+			drawCenterText("+ " + cashUp, scX -88 , scY + 37, level.width);
 			////////Load images based on level 1-6 = fruit, 7-12 = candy, 13-18 = Ghosts, 19+ space Orbs
         
 		if (parseInt(levelcount) >= 7 && parseInt(levelcount) <=12 ) {
@@ -1550,7 +1586,8 @@ function loadOnLoad() {
 	//Start the next level when level up
     function lvlUp() {
         
-        icyCount = icyCount + 1;
+        icyCount = parseInt(icyCount) + 1;
+		localStorage["icyCount"] = parseInt(icyCount);
 		document.getElementById("levelup1").style.display = "none";
 		document.getElementById("starPop1").style.display = "none";
         turncounter = 0;
@@ -1900,7 +1937,7 @@ function loadSavedLevel() {
 		}
 score = parseInt(localStorage.Score);
 if (typeof localStorage["Score"] === "undefined") {score = 0;};
-
+if (typeof localStorage["starCash"] === "undefined") {localStorage["starCash"] = 0; starCash = 0;};
 savedGameLoad = 1;
 document.getElementById("saveAndLoad").style.display = 'none'; 
 document.getElementById("intro").style.display = 'none';
@@ -2254,16 +2291,34 @@ function showSpecialSelect(){
 	
 	if (checkVisSpecial == 1) {hideSpecialSelect(); checkVisSpecial = 0;}
 	else {document.getElementById("pwr1Txt2").innerHTML = icyCount;
-	document.getElementById("selectPowerMove").style.display = 'block';
+	starCash = parseInt(localStorage["starCash"]);
+	// alert(starCash);
+	document.getElementById("specialstarCash").innerHTML = starCash;
+	document.getElementById("selectPowerMove").style.display = 'block'; 
+
 	checkVisSpecial = 1;}
 }
 //activate Special1 IcyBlast
 function activateIcy(){
+	
 	if (icyCount < 1) { return;}
 	specialShot = 1;
 	icyCount = icyCount -= 1;
 	document.getElementById("selectPowerMove").style.display = 'none';
 	document.getElementById("pwr1Txt2").innerHTML = icyCount;
+	localStorage["icyCount"] = parseInt(icyCount);
+	 
+}
+function buyIcySpecial(){
+	starCash = parseInt(localStorage["starCash"]);
+	if(starCash >= 15) {
+		starCash = starCash - 15;
+		document.getElementById("specialstarCash").innerHTML = starCash;
+		localStorage["starCash"] = starCash;
+		icyCount = parseInt(icyCount + 1);
+		localStorage["icyCount"] = parseInt(icyCount);
+		document.getElementById("pwr1Txt2").innerHTML = icyCount;
+	}
 }
 // if (icyImgReady) {
 			// var icyX = player.bubble.x;
