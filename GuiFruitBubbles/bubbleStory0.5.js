@@ -868,7 +868,7 @@ function loadOnLoad() {
 					window.setTimeout(hideBonus, 2000);
 					};
 					if(specialShot >= 7 && specialShot <= 9 && specialShot2 == 0) {specialShot = 0; fromSpecial = false;};
-					if(specialShot >= 10 && specialShot2 == 1) {specialShot = 0; fromSpecial = false; specialShot2 == 0};
+					if(specialShot >= 10 && specialShot2 == 1) {specialShot = 0; fromSpecial = false; specialShot2 = 0};
                 // Get the neighbors of the current tile
 				
 		         var neighbors = getNeighbors(currenttile);
@@ -1791,11 +1791,11 @@ function loadOnLoad() {
 			showSaveLoad();
 		}
 		
-		else if ((pos.x >= 60  && pos.x <= 185) && (pos.y >= 530 && pos.y <= 625)) {
+		else if ((pos.x >= 60  && pos.x <= 185) && (pos.y >= 530 && pos.y <= 635)) {
 			
 			swapBubble();
 		}
-		else if ((pos.x > 220  && pos.x <= 300) && (pos.y >= 530 && pos.y <= 625) ){
+		else if ((pos.x > 220  && pos.x <= 300) && (pos.y >= 530 && pos.y <= 635) ){
 			
 			showSpecialSelect();
 		}
@@ -2372,7 +2372,7 @@ function buyShockSpecial(){
 
 function activateShock(){
 	
-	
+	if (shockCount < 1) { return;}
 	specialShot = 1;
 	specialShot2 = 1;
 	shockCount = shockCount -= 1;
