@@ -30,28 +30,60 @@ display: block;
  }
  #selectPowerMove {
 	 display: none;
-	  
+	   }
+#shockingBlast {  transform: translate3d(120px,-30px, 0);}
+ .clsSpecialBacks {
+	 display: none;
+	 position: absolute;
+	 top: 0px;
+	 left: 0px;
  }
  .clsSpecialSelect {
 	position: inherit;
 	border: 2px groove blue;
-	width: 220px;
+	min-width: 225px;
+	max-width: 225px;
+	height: 190px;
 	border-radius: 20px;
 	background: -webkit-radial-gradient( #3385ff, #ffb3d1); /* For Safari 5.1 to 6.0 */
     background: -o-radial-gradient(#3385ff, #ffb3d1); /* For Opera 11.6 to 12.0 */
     background: -moz-radial-gradient(#3385ff, #ffb3d1); /* For Fx 3.6 to 15 */
     background: radial-gradient(#3385ff, #ffb3d1); /* Standard syntax */
-	max-height: 100px;
-	max-width 290px;
-	margin-top: 100px;
-	margin-left: 36px;
-	margin-right: 30px;
+	max-height: 105px;
+	max-width: 225px;
+	margin-top: 105px;
+	margin-left: 32px;
+	margin-right: 10px;
 	clear: left;
-	padding-top: 0px;
+	
 	 }
+#power-2 {
+	position: relative;
+	clear: both;
+	top: 115px;
+	
+}
+.activate { 
+background-color: blue; color: azure; min-width: 80px; clear: both; 
+position: inherit; display: block;float: right; transform: translate3d(-23px,-90px, 0); border-radius: 15px; text-align: center;
+font-family: Comic Sans MS; font-size: 14px;
+}
+#icyAct {transform: translate3d(-23px,-59px, 0);  }
 .clspowerImage {
 	transform: translate3d(35px,-45px, 0);
     float: right;
+}
+#pwr2Img { float: right;  }
+.lightning {
+margin-top: 10px;
+	transform: translate3d(-14px,-68px, 0);
+	width: 110px; height: 101px;
+	display: block;
+	background: url("Effects/LightningSprite.png");
+		animation: playLightning .25s steps(4)infinite;
+}
+@keyframes playLightning {
+   100% { background-position: -440px; }
 }
 .clspowerTxt { 
 position: relative;
@@ -63,7 +95,7 @@ position: relative;
 	font-style:Comic Sans MS;
 	color: #cc3399;
 	}
-#pwr1Txt2 { transform: translate3d(-60px,55px, 0);
+#pwr1Txt2, #pwr2Txt2 { transform: translate3d(-60px,55px, 0);
  font-size: 18px; font-weight: bold; text-decoration: none; 
  padding-top: 3px;
  border: 2px solid blue;
@@ -584,7 +616,7 @@ padding-left: 1%;
 /* #mapClose {width: 100px;} */
 #hotstreak{left: 50%; transform: translate(-150px,-983px); }
 #hotstreakTotal { margin-left: 70%;}
-#starPop1 {transform: translate(-40px, 0px); }
+#starPop1 {transform: translate(-40px, -80px); }
 .clsSpecialPowers { left: 10%;	top: 30%; max-width: 300px; max-height: auto;}
 #selectPowerMove {left: 15%; transform: translate(0px,-475px); }
 #mapDiv {
@@ -643,7 +675,7 @@ width:635px;
 .selectzone1 {margin-left: 30px;}
 #hotstreak{left: 50%; transform: translate(-175px,-615px); }
 #lvlSelectParent {transform: translate(-200px,-20px); width: 400px;}
-#starPop1 {transform: translate(-38px, 0px); }
+#starPop1 {transform: translate(-38px, -80px); }
 #selectPowerMove {left: 12%; transform: translate(0px,-475px);  }
 #mapDiv {
 left: 1%;
@@ -676,7 +708,7 @@ width:555px;
 .selectzone1 {margin-left: 20px;}
 #hotstreak{left: 50%; transform: translate(-155px,-616px); }
 #lvlSelectParent {transform: translate(-215px,-20px); width: 360px;}
-#starPop1 {transform: translate(-50px, 0px); }
+#starPop1 {transform: translate(-50px, -120px); }
 .clsSpecialPowers { left: 10%;	top: 30%; max-width: 300px; max-height: auto;}
 #selectPowerMove {left: 7%; transform: translate(0px,-475px); }
 #mapDiv {
@@ -712,7 +744,7 @@ top: 1%;
 #hotstreak{left: 50%; transform: translate(-150px,-593px); }
 #hotstreakTotal { margin-left: 70%;}
 #lvlSelectParent {transform: translate(-210px,-20px); width: 350px; }
-#starPop1 {transform: translate(-50px, 0px); }
+#starPop1 {transform: translate(-50px, -80px); }
 #selectPowerMove {left: 7%; transform: translate(0px,-475px); }
 #mapDiv {
 left: 1%;

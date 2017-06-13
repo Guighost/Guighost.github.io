@@ -24,17 +24,19 @@
 	var inStreak = 0;
 	var inStreakScore = 0;
 	var specialShot = 0;
+	var specialShot2 = 0;
 	var fromSpecial = false;
 	var specialActive = 0;
 	var icyCount = 0;
+	var shockCount = 1;
 	var starCash = 0;
 	var cashUp = 0;
 	if (typeof localStorage["starCash"] === "undefined") {localStorage["starCash"] = 0; starCash = 0;};
 	starCash = parseInt(localStorage["starCash"]);
 	if (typeof localStorage["icyCount"] === "undefined") {localStorage["icyCount"] = 0; icyCount= 0;};
 	icyCount = parseInt(localStorage["icyCount"]);
-	if (typeof localStorage["cashUp"] === "undefined") {localStorage["cashUp"] = 0; cashUp= 0;};
-	cashUp = parseInt(localStorage["cashUp"]);
+	// if (typeof localStorage["cashUp"] === "undefined") {localStorage["cashUp"] = 0; cashUp= 0;};
+	// cashUp = parseInt(localStorage["cashUp"]);
 	
 	//sounds
 	var snd2 = new Audio("Sounds/nice.mp3"); // plays on the Nice Move message
@@ -88,6 +90,13 @@ icyImage.onload = function () {
     icyImgReady = true;
 }
 icyImage.src = "Effects/icyBlast.png"; 
+//Shocking Sphere Blast
+var shockReady = false;
+var shockImage = new Image();
+shockImage.onload = function () {
+    shockImgReady = true;
+}
+shockImage.src = "Effects/shockAttack.png"; 
 
 // power move activate button
 	var specialMenuReady = false;
@@ -527,7 +536,7 @@ function loadOnLoad() {
 			
 			}
 			//from special addition
-						if (fromSpecial == true){
+						if (fromSpecial == true && specialShot2 == 0){
 							
 							var icyX2 = tile.x - 30;
 							var icyY2 = tile.y - 40;
@@ -846,7 +855,11 @@ function loadOnLoad() {
                		if (specialShot >= 1){ 
 					specialShot = specialShot += 1;
 					fromSpecial = true;
+					if(specialShot2 == 0){
 					document.getElementById("icyBlast").style.display = 'block';
+					document.getElementById("icyBlastBack").style.display = 'block';}
+					if(specialShot2 == 1){ document.getElementById("shockingBlast").style.display = 'block';}
+					
 					document.getElementById("awesome").style.display = 'none';
 					specialActive = specialActive += 1;
 					 var sndI = new Audio("Sounds/freezeSnd.mp3"); // buffers automatically when created
@@ -854,7 +867,8 @@ function loadOnLoad() {
 							sndI.play();
 					window.setTimeout(hideBonus, 2000);
 					};
-					if(specialShot >= 7) {specialShot = 0; fromSpecial = false;};
+					if(specialShot >= 7 && specialShot <= 9 && specialShot2 == 0) {specialShot = 0; fromSpecial = false;};
+					if(specialShot >= 10 && specialShot2 == 1) {specialShot = 0; fromSpecial = false; specialShot2 == 0};
                 // Get the neighbors of the current tile
 				
 		         var neighbors = getNeighbors(currenttile);
@@ -1195,7 +1209,7 @@ function loadOnLoad() {
             // draw win image
 			document.getElementById("levelup1").style.display = "block";
 			var scX = level.x + (level.width / 2) - 80;
-			var scY = level.y + 265 ;
+			var scY = level.y + 280 ;
 			context.drawImage(starCashImage, scX, scY );
 			
 			 
@@ -1235,7 +1249,10 @@ function loadOnLoad() {
 				document.getElementById("starPop1").style.display = "block";
 				localStorage[lvlRating] = 3;
 				localStorage[lvlScore] = score;
-				drawCenterText("Shots: " + levelShotCount, level.x, level.y + level.height / 2 + 125, level.width);		
+				drawCenterText("Shots: " + levelShotCount, level.x, level.y + level.height / 2 + 125, level.width);	
+				cashUp = 5;
+				localStorage["starCash"] = parseInt(localStorage["starCash"]) + cashUp;	
+				starCash = parseInt(localStorage["starCash"]);				
 				}
 			//2 stars
 			else if (parseInt(levelShotCount) > 35 && parseInt(levelShotCount) <= 45) {
@@ -1244,6 +1261,9 @@ function loadOnLoad() {
 				localStorage[lvlRating] = 2;
 				localStorage[lvlScore] = score;
 				drawCenterText("Shots: " + levelShotCount, level.x, level.y + level.height / 2 + 125, level.width);
+				cashUp = 4;
+				localStorage["starCash"] = parseInt(localStorage["starCash"]) + cashUp;	
+				starCash = parseInt(localStorage["starCash"]);		
 				}
 			//1 star
 			else {
@@ -1252,16 +1272,21 @@ function loadOnLoad() {
 				localStorage[lvlRating] = 1;
 				localStorage[lvlScore] = score;
 				drawCenterText("Shots: " + levelShotCount, level.x, level.y + level.height / 2 + 125, level.width);
+				cashUp = 3;
+				localStorage["starCash"] = parseInt(localStorage["starCash"]) + cashUp;	
+				starCash = parseInt(localStorage["starCash"]);		
 			}
 			// alert(localStorage[lvlRating] + "x=" + ratingx + " y=" + ratingy );
 			levelcount ++;
 			levelbump = 0;
 			levelShotCount = 0;
 			// end if levelbump //
+			
 			}
 			context.fillStyle = "#00ffff";
             context.font = "24px Verdana";
 			drawCenterText("+ " + cashUp, scX -88 , scY + 37, level.width);
+			
 			////////Load images based on level 1-6 = fruit, 7-12 = candy, 13-18 = Ghosts, 19+ space Orbs
         
 		if (parseInt(levelcount) >= 7 && parseInt(levelcount) <=12 ) {
@@ -1432,12 +1457,20 @@ function loadOnLoad() {
         }
         //draw graphic over bubble
 		    //specialShots
-	if ( specialShot == 1) {
+	if ( specialShot == 1 && specialShot2 == 0) {
 		// alert ("triggered");
 			var icyX = player.bubble.x - 30;
 			var icyY = player.bubble.y - 40;
 			// alert (icyX + " = x " + icyY  + " = y");
         context.drawImage(icyImage, icyX, icyY );
+				
+		}
+		if ( specialShot == 1 && specialShot2 == 1) {
+		// alert ("triggered");
+			var shockX = player.bubble.x - 125;
+			var shockY = player.bubble.y - 148;
+			// alert (icyX + " = x " + icyY  + " = y");
+        context.drawImage(shockImage, shockX, shockY );
 				
 		}
 	
@@ -1893,6 +1926,8 @@ function hideBonus() {
 		document.getElementById("awesome").style.display = 'none';
 		document.getElementById("nice").style.display = 'none';
 		document.getElementById("icyBlast").style.display = 'none';
+		document.getElementById("icyBlastBack").style.display = 'none';
+		document.getElementById("shockingBlast").style.display = 'none';
 		specialActive = 0;
 		};
 		
@@ -2291,6 +2326,7 @@ function showSpecialSelect(){
 	
 	if (checkVisSpecial == 1) {hideSpecialSelect(); checkVisSpecial = 0;}
 	else {document.getElementById("pwr1Txt2").innerHTML = icyCount;
+	document.getElementById("pwr2Txt2").innerHTML = shockCount;
 	starCash = parseInt(localStorage["starCash"]);
 	// alert(starCash);
 	document.getElementById("specialstarCash").innerHTML = starCash;
@@ -2320,12 +2356,67 @@ function buyIcySpecial(){
 		document.getElementById("pwr1Txt2").innerHTML = icyCount;
 	}
 }
-// if (icyImgReady) {
-			// var icyX = player.bubble.x;
-			// var icyY = player.bubble.y;
-        // context.drawImage(icyImage, icyX, icyY )
-// }
+function buyShockSpecial(){
+	starCash = parseInt(localStorage["starCash"]);
+	if(starCash >= 15) {
+		starCash = starCash - 15;
+		document.getElementById("specialstarCash").innerHTML = starCash;
+		localStorage["starCash"] = starCash;
+		shockCount = parseInt(shockCount + 1);
+		localStorage["shockCount"] = parseInt(shockCount);
+		document.getElementById("pwr2Txt2").innerHTML = shockCount;
+	
+}
+}
 
+
+function activateShock(){
+	
+	
+	specialShot = 1;
+	specialShot2 = 1;
+	shockCount = shockCount -= 1;
+	document.getElementById("selectPowerMove").style.display = 'none';
+	document.getElementById("pwr2Txt2").innerHTML = shockCount;
+	localStorage["shockCount"] = parseInt(shockCount);
+	 
+}
+	// // spritesheet animation attempt
+	// function lightningTiming() {lightningBall();}
+	// function lightningBall() {
+	// var canvas = document.querySelector("#viewport");
+	// var context = canvas.getContext("2d");
+	 // document.getElementById("selectPowerMove").style.display = 'none';
+	// var myImage = new Image();
+	// myImage.src = "Effects/lightning150.png"; 
+	// myImage.addEventListener("load", loadImage, false);
+	 
+	// function loadImage(e) {
+	  // animate();
+	// }
+	// var shift = 0;
+	// var frameWidth = 50;
+	// var frameHeight = 50;
+	// var totalFrames = 3;
+	// var currentFrame = 0;
+	 
+	// function animate() {
+	 // clearCircle(195,586, 21);	 
+	   // //draw each frame + place them in the middle
+	  // context.drawImage(myImage, shift, 0, frameWidth, frameHeight, 169, 560, frameWidth, frameHeight);
+	   // shift += frameWidth + 1;
+	   // if (currentFrame == totalFrames) {shift = 0; currentFrame = 0;  }
+	  // currentFrame++;
+	  // requestAnimationFrame(animate);  
+	  // }
+	  // var clearCircle = function(x, y, radius){
+		// context.beginPath();
+		// context.arc(x, y, radius, 0, 2 * Math.PI, false);
+		// context.clip();
+		// context.clearRect(x - radius - 1, y - radius - 1,
+						  // radius * 2 + 2, radius * 2 + 2);
+	// };
+	// }
 
 
 
