@@ -106,14 +106,20 @@ specialMenuImage.onload = function () {
 }
 specialMenuImage.src = "Effects/specialMenuActivate.png"; 
 
-// starCash count
-	var starCashReady = false;
-var starCashImage = new Image();
-starCashImage.onload = function () {
-    starCashReady = true;
+// // starCash count
+	// var starCashReady = false;
+// var starCashImage = new Image();
+// starCashImage.onload = function () {
+    // starCashReady = true;
+// }
+// starCashImage.src = "Effects/starCashBack.png"; 
+// play Next Level image
+	var playNextReady = false;
+var playNextImage = new Image();
+playNextImage.onload = function () {
+   playNextReady = true;
 }
-starCashImage.src = "Effects/starCashBack.png"; 
-
+playNextImage.src = "Hud/playNext.png"; 
 
 	
 // The function gets called when the window is fully loaded
@@ -858,7 +864,9 @@ function loadOnLoad() {
 					if(specialShot2 == 0){
 					document.getElementById("icyBlast").style.display = 'block';
 					document.getElementById("icyBlastBack").style.display = 'block';}
-					if(specialShot2 == 1){ document.getElementById("shockingBlast").style.display = 'block';}
+					if(specialShot2 == 1){ document.getElementById("shockingBlast").style.display = 'block';
+					document.getElementById("lightningFullBack").style.display = 'block';
+					}
 					
 					document.getElementById("awesome").style.display = 'none';
 					specialActive = specialActive += 1;
@@ -1207,19 +1215,24 @@ function loadOnLoad() {
 			context.fillStyle = "rgba(0, 204, 0, 0.9)";
             context.fillRect(level.x - 4, level.y - 4, level.width + 8, level.height + 2 * level.tileheight + 8 - yoffset);
             // draw win image
-			document.getElementById("levelup1").style.display = "block";
-			var scX = level.x + (level.width / 2) - 80;
-			var scY = level.y + 280 ;
-			context.drawImage(starCashImage, scX, scY );
+			// document.getElementById("levelUpBack").style.display = "block";
+			
+			var d = document.getElementById('levelUpBack');
+			d.style.position = "absolute";
+			d.style.display = "block";
+			
+			// var scX = level.x + (level.width / 2) - 80;
+			// var scY = level.y + 280 ;
+			// context.drawImage(starCashImage, scX, scY );
 			
 			 
             context.fillStyle = "#e6e600";
-            context.font = "24px Verdana";
-            drawCenterText("Level Complete!", level.x, level.y + level.height / 2 + 150, level.width);
-			
-			var NextLevelBtn = new String( "Start Next Level")
+            context.font = "40px Comic Sans MS";
+            // drawCenterText("Level Complete!", level.x, level.y + level.height / 2 + 100, level.width);
+			context.drawImage(playNextImage, level.x + 40, level.y + level.height / 2 + 155 );
+			var NextLevelBtn = new String( "Next Level")
 			nextLevelBtn = NextLevelBtn.bold();
-            drawCenterText(NextLevelBtn, level.x, level.y + level.height / 2 + 210, level.width);
+            drawCenterText(NextLevelBtn, level.x, level.y + level.height / 2 + 225, level.width);
 			
 			
 			//Do 1 time Level up functions
@@ -1235,8 +1248,8 @@ function loadOnLoad() {
 			
 			localStorage["starCash"] = parseInt(localStorage["starCash"]) + cashUp;	
 			starCash = parseInt(localStorage["starCash"]);
-			
-			
+			document.getElementById("lvlUpStarCash").innerHTML = " + " + cashUp;
+			document.getElementById("LevelDisplay").innerHTML = levelcount;
 			var ratingx = level.x + 200;
 			var ratingy = level.height - 100;
 			
@@ -1283,9 +1296,9 @@ function loadOnLoad() {
 			// end if levelbump //
 			
 			}
-			context.fillStyle = "#00ffff";
-            context.font = "24px Verdana";
-			drawCenterText("+ " + cashUp, scX -88 , scY + 37, level.width);
+			// context.fillStyle = "#00ffff";
+            // context.font = "24px Verdana";
+			// drawCenterText("+ " + cashUp, scX -88 , scY + 37, level.width);
 			
 			////////Load images based on level 1-6 = fruit, 7-12 = candy, 13-18 = Ghosts, 19+ space Orbs
         
@@ -1623,6 +1636,7 @@ function loadOnLoad() {
 		localStorage["icyCount"] = parseInt(icyCount);
 		document.getElementById("levelup1").style.display = "none";
 		document.getElementById("starPop1").style.display = "none";
+		document.getElementById("levelUpBack").style.display = "none";
         turncounter = 0;
         rowoffset = 0;
 		
@@ -1928,6 +1942,7 @@ function hideBonus() {
 		document.getElementById("icyBlast").style.display = 'none';
 		document.getElementById("icyBlastBack").style.display = 'none';
 		document.getElementById("shockingBlast").style.display = 'none';
+		document.getElementById("lightningFullBack").style.display = 'none'
 		specialActive = 0;
 		};
 		
