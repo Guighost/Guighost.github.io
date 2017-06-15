@@ -84,14 +84,18 @@
 <a href ="#" id ="levelSelect" onclick='loadLevelSelect()' class="clsIntroBtn">Level Select</a>
 </div>
 
-<!-- Save game -->
+<!-- Save and Quit Menu -->
 <div id ="saveAndLoad">
 <a href="#" id ="saveClose" class = "closebtns" onclick='closeSave()'>X</a>
 <!-- <img id ="saveImage" src="saveAndQuit.png" alt="saveimage" onclick='saveLevelAndScore()'> -->
-<a id ="menuA">Game Menu</a> 
-<a href ="#" id ="saveScore" class = "savebtns" onclick='saveLevelAndScore()'>  Save and Quit</a>  <br/> <br/>
- <a href ="#" id ="saveScoreNoQuit" class = "savebtns" onclick='Quit()'>  Exit without save</a><br/> <br/>
- <a href ="#" id ="clearStats" class = "savebtns" onclick='clearStats1()'>  Clear saved stats</a>
+<table id="menuTable"> 
+<tr> <td> <a href ="#" id ="saveScore" class = "savebtns" onclick='saveLevelAndScore()'> Save & Quit</a>  </td></tr>
+<tr> <td> <a href ="#" id ="saveScoreNoQuit" class = "savebtns" onclick='Quit()'> Quit w/o Save</a> </td> </tr>
+<tr> <td> <a href ="#" id ="clearStats" class = "savebtns" onclick='loadLevelSelect()'> Level Select</a> </td> </tr>
+<tr> <td> <a href ="#" id ="clearStats" class = "savebtns" onclick='clearStats1()'> Clear Save Data</a> </td> </tr>
+
+ 
+</table>
 
 </div>
 <!-- MAP div -->
@@ -463,6 +467,39 @@
  <tr colspan="3" class ="allRow"> </tr>
  </table>
  </div>
+   <!-- levels 67 - 73 Donuts -->
+   <div id="grid12" class="clsCenterSelectGrid">
+ <table id ="selectGrid12" > 
+ <tr colspan="3"> <td colspan="3" class = "clsTblTitle">A world full of tasty treats! </td> </tr>
+ <tr id= "areaImg12" class = "clsTblTitle" colspan="3"> 
+<td colspan="3" ><img id ="mapImg13"  src="donutWorld.png" class ="clsCenterSelectImg" ></td>
+ </tr>
+  
+ <tr id="stars11-1" colspan="3" class ="allRow">
+	<td ><img id="starImg67" class="starImg" src="stars0.png"> </td>
+	<td ><img id="starImg68" class="starImg" src="stars0.png">  </td>
+	<td ><img id="starImg69" class="starImg" src="stars0.png"> </td>
+ </tr>
+ <tr id ="" class ="allRow">
+	<td ><a class="clsLvlNums2" id="sel-67">67</a><img id="smg-67" class="selectSquare" src="green.png"> </td>
+	<td ><a class="clsLvlNums2" id="sel-68">68</a><img id="smg-68" class="selectSquare" src="green.png"> </td>
+	<td ><a class="clsLvlNums2" id="sel-69">69</a><img id="smg-69" class="selectSquare" src="green.png"> </td>
+ </tr>
+ <tr id="stars11-2" colspan="3" class ="allRow">
+	<td ><img id="starImg70" class="starImg" src="stars0.png"> </td>
+	<td ><img id="starImg71" class="starImg" src="stars0.png">  </td>
+	<td ><img id="starImg72" class="starImg" src="stars0.png"> </td>
+ </tr>
+   <tr id ="" class ="allRow">
+	<td ><a class="clsLvlNums2" id="sel-70">70</a><img id="smg-70" class="selectSquare" src="green.png"> </td>
+	<td ><a class="clsLvlNums2" id="sel-71">71</a><img id="smg-71" class="selectSquare" src="green.png"> </td>
+	<td ><a class="clsLvlNums2" id="sel-72">72</a><img id="smg-72" class="selectSquare" src="green.png"> </td>
+ </tr>
+ <tr colspan="3" class ="allRow"> </tr>
+ </table>
+ </div>
+ 
+ 
  
  
 <div id="closeLvlSelect"> <img class="selectsquare" src="closeLvlSelect.png" onclick='closeLvlSelect()'> </div>
