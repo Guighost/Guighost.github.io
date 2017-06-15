@@ -876,7 +876,7 @@ function loadOnLoad() {
 					window.setTimeout(hideBonus, 2000);
 					};
 					if(specialShot >= 7 && specialShot <= 9 && specialShot2 == 0) {specialShot = 0; fromSpecial = false;};
-					if(specialShot >= 10 && specialShot2 == 1) {specialShot = 0; fromSpecial = false; specialShot2 = 0};
+					if(specialShot >= 11 && specialShot2 == 1) {specialShot = 0; fromSpecial = false; specialShot2 = 0};
                 // Get the neighbors of the current tile
 				
 		         var neighbors = getNeighbors(currenttile);
@@ -1220,7 +1220,7 @@ function loadOnLoad() {
 			var d = document.getElementById('levelUpBack');
 			d.style.position = "absolute";
 			d.style.display = "block";
-			
+					
 			// var scX = level.x + (level.width / 2) - 80;
 			// var scY = level.y + 280 ;
 			// context.drawImage(starCashImage, scX, scY );
@@ -1229,7 +1229,7 @@ function loadOnLoad() {
             context.fillStyle = "#e6e600";
             context.font = "40px Comic Sans MS";
             // drawCenterText("Level Complete!", level.x, level.y + level.height / 2 + 100, level.width);
-			context.drawImage(playNextImage, level.x + 40, level.y + level.height / 2 + 155 );
+			context.drawImage(playNextImage, level.x + 35, level.y + level.height / 2 + 155 );
 			var NextLevelBtn = new String( "Next Level")
 			nextLevelBtn = NextLevelBtn.bold();
             drawCenterText(NextLevelBtn, level.x, level.y + level.height / 2 + 225, level.width);
@@ -1246,12 +1246,58 @@ function loadOnLoad() {
 			if (typeof localStorage[lvlRating] === "undefined") {localStorage[lvlRating] = 0;};
 			cashUp = parseInt(localStorage[lvlRating]) + 2;
 			
-			localStorage["starCash"] = parseInt(localStorage["starCash"]) + cashUp;	
+			// localStorage["starCash"] = parseInt(localStorage["starCash"]) + cashUp;	
 			starCash = parseInt(localStorage["starCash"]);
 			document.getElementById("lvlUpStarCash").innerHTML = " + " + cashUp;
 			document.getElementById("LevelDisplay").innerHTML = levelcount;
+				// adjust level progrression tiles
+			// alert(parseInt(levelcount));
+			if (parseInt(levelcount) == 1 || parseInt(levelcount) == 7 || parseInt(levelcount) == 13 || parseInt(levelcount)== 19 || parseInt(levelcount) == 25 || parseInt(levelcount) == 31){
+				document.getElementById("lvlStatus1").src = "Hud/redTrophy.png";
+				} 
+			else if (parseInt(levelcount) == 2 || parseInt(levelcount) == 8 || parseInt(levelcount) == 14 || parseInt(levelcount) == 20 || parseInt(levelcount) == 26 || parseInt(levelcount) == 32){
+				document.getElementById("lvlStatus1").src = "Hud/redTrophy.png"; document.getElementById("lvlStatus2").src = "Hud/redTrophy.png";
+					}
+			else if (parseInt(levelcount) == 3 || parseInt(levelcount) == 9 || parseInt(levelcount) == 15 || parseInt(levelcount) == 21 || parseInt(levelcount) == 27 || parseInt(levelcount) == 33){
+				document.getElementById("lvlStatus1").src = "Hud/redTrophy.png"; document.getElementById("lvlStatus2").src = "Hud/redTrophy.png";
+				document.getElementById("lvlStatus3").src = "Hud/redTrophy.png";
+			}
+			else if (parseInt(levelcount) == 4 || parseInt(levelcount) == 10 || parseInt(levelcount) == 16 || parseInt(levelcount) == 22 || parseInt(levelcount) == 28 || parseInt(levelcount) == 34){
+				document.getElementById("lvlStatus1").src = "Hud/redTrophy.png"; document.getElementById("lvlStatus2").src = "Hud/redTrophy.png";
+				document.getElementById("lvlStatus3").src = "Hud/redTrophy.png"; document.getElementById("lvlStatus4").src = "Hud/redTrophy.png";
+			} 
+			else if (parseInt(levelcount) == 5 || parseInt(levelcount) == 11 || parseInt(levelcount) == 17 || parseInt(levelcount) == 23 || parseInt(levelcount) == 29 || parseInt(levelcount) == 35){
+				document.getElementById("lvlStatus1").src = "Hud/redTrophy.png"; document.getElementById("lvlStatus2").src = "Hud/redTrophy.png";
+				document.getElementById("lvlStatus3").src = "Hud/redTrophy.png"; document.getElementById("lvlStatus4").src = "Hud/redTrophy.png";
+				document.getElementById("lvlStatus5").src = "Hud/redTrophy.png";
+			} 
+			else if (parseInt(levelcount) == 37 || parseInt(levelcount) == 43 || parseInt(levelcount) == 49 || parseInt(levelcount) == 55 || parseInt(levelcount) == 61 || parseInt(levelcount) == 67){
+				document.getElementById("lvlStatus1").src = "Hud/redTrophy.png";
+				} 
+			else if (parseInt(levelcount) == 38 || parseInt(levelcount) == 44 || parseInt(levelcount) == 50 || parseInt(levelcount) == 56 || parseInt(levelcount) == 62 || parseInt(levelcount) == 68){
+				document.getElementById("lvlStatus1").src = "Hud/redTrophy.png"; document.getElementById("lvlStatus2").src = "Hud/redTrophy.png";
+					}
+			else if (parseInt(levelcount) == 39 || parseInt(levelcount) == 45 || parseInt(levelcount) == 51 || parseInt(levelcount) == 57 || parseInt(levelcount) == 63 || parseInt(levelcount) == 69){
+				document.getElementById("lvlStatus1").src = "Hud/redTrophy.png"; document.getElementById("lvlStatus2").src = "Hud/redTrophy.png";
+				document.getElementById("lvlStatus3").src = "Hud/redTrophy.png";
+			}
+			else if (parseInt(levelcount) == 40 || parseInt(levelcount) == 46 || parseInt(levelcount) == 52 || parseInt(levelcount) == 58 || parseInt(levelcount) == 64 || parseInt(levelcount) == 70){
+				document.getElementById("lvlStatus1").src = "Hud/redTrophy.png"; document.getElementById("lvlStatus2").src = "Hud/redTrophy.png";
+				document.getElementById("lvlStatus3").src = "Hud/redTrophy.png"; document.getElementById("lvlStatus4").src = "Hud/redTrophy.png";
+				
+			} 
+			else if (parseInt(levelcount) == 41 || parseInt(levelcount) == 47 || parseInt(levelcount) == 53 || parseInt(levelcount) == 59 || parseInt(levelcount) == 65 || parseInt(levelcount) == 71){
+				 document.getElementById("lvlStatus1").src = "Hud/redTrophy.png"; document.getElementById("lvlStatus2").src = "Hud/redTrophy.png";
+				document.getElementById("lvlStatus3").src = "Hud/redTrophy.png"; document.getElementById("lvlStatus4").src = "Hud/redTrophy.png";
+				document.getElementById("lvlStatus5").src = "Hud/redTrophy.png";
+			}
+			else { 1==1;}			
+			
+			
+			
 			var ratingx = level.x + 200;
 			var ratingy = level.height - 100;
+			var chkForHigher = parseInt(localStorage[lvlRating]);
 			
 			
 			
@@ -1260,8 +1306,9 @@ function loadOnLoad() {
 			if (parseInt(levelShotCount) <= 35) {
 				document.getElementById("starPop1").src ="stars3.png";
 				document.getElementById("starPop1").style.display = "block";
-				localStorage[lvlRating] = 3;
-				localStorage[lvlScore] = score;
+				//check for higher level rating in past
+				
+				if (chkForHigher <= 3){	localStorage[lvlRating] = 3;  localStorage[lvlScore] = score;}
 				drawCenterText("Shots: " + levelShotCount, level.x, level.y + level.height / 2 + 125, level.width);	
 				cashUp = 5;
 				localStorage["starCash"] = parseInt(localStorage["starCash"]) + cashUp;	
@@ -1271,8 +1318,7 @@ function loadOnLoad() {
 			else if (parseInt(levelShotCount) > 35 && parseInt(levelShotCount) <= 45) {
 				document.getElementById("starPop1").src ="stars2.png";
 				document.getElementById("starPop1").style.display = "block";
-				localStorage[lvlRating] = 2;
-				localStorage[lvlScore] = score;
+				if (chkForHigher <= 2){	localStorage[lvlRating] = 2; localStorage[lvlScore] = score;}
 				drawCenterText("Shots: " + levelShotCount, level.x, level.y + level.height / 2 + 125, level.width);
 				cashUp = 4;
 				localStorage["starCash"] = parseInt(localStorage["starCash"]) + cashUp;	
@@ -1923,13 +1969,13 @@ function hideIntro() {
 	document.getElementById("mapDiv").style.display = 'block'; 
 	};
 function showBonus() {
-		if(specialActive = 0){	snd2.volume = 1.0;
+		if(specialActive == 0){	snd2.volume = 1.0;
 		snd2.play();
 		document.getElementById("nice").style.display = 'block';} 
 		};
 function showBonus2() { 
 		
-	if(specialActive = 0){	
+	if(specialActive == 0){	
 	document.getElementById("awesome").style.display = 'block';
 	document.getElementById("nice").style.display = 'none'; 
 	snd3.volume = 1.0;
