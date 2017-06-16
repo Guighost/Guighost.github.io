@@ -19,7 +19,7 @@ screen.lockOrientation("portrait");
 
 .gameSounds { display: none;}
 #fruitylogo {margin-left: 1%; top:20%;}
-#selectPowerMove{background-image: url("Effects/powerMoveBack.png" );
+#selectPowerMove{background-image: url("Hud/powerMoveBack.png" );
 width: 95%;
 max-width: 300px;
 height: 400px;
@@ -208,7 +208,7 @@ display: none;
 	position: absolute;
 margin-top: 10px;
 left: 36%;
-transform: translate(-10px,-15px);
+transform: translate(-10px,10px);
 z-index: 2500;
 }
 
@@ -486,19 +486,20 @@ font-size: 16px;
 #lvlSelectParent {
 	position: absolute;
 	z-index: 1000;
-	background: -webkit-radial-gradient(#ffb3d1, #3385ff, #999900); /* For Safari 5.1 to 6.0 */
-    background: -o-radial-gradient(#ffb3d1, #3385ff, #999900); /* For Opera 11.6 to 12.0 */
-    background: -moz-radial-gradient(#ffb3d1, #3385ff, #999900); /* For Fx 3.6 to 15 */
-    background: radial-gradient(#ffb3d1, #3385ff, #999900); /* Standard syntax */
+	/* background: -webkit-radial-gradient(#ffb3d1, #3385ff, #999900); /* For Safari 5.1 to 6.0 */ 
+    /* background: -o-radial-gradient(#ffb3d1, #3385ff, #999900); /* For Opera 11.6 to 12.0 */ 
+    /* background: -moz-radial-gradient(#ffb3d1, #3385ff, #999900); /* For Fx 3.6 to 15 */ 
+    /* background: radial-gradient(#ffb3d1, #3385ff, #999900); /* Standard syntax */ 
+	background-image: url("Hud/levelSelectBack.png");
 	margin: auto;
 	left: 50%;
 	transform: translate(-146px,-3px);
 	top: 10%;
 	border-radius: 10px;
 	text-align: center;
-	height: 500px;
+	min-height: 500px;
 	max-height: 550px;
-	width: 310px;
+	min-width: 310px;
 	max-width: 610px;
 	display: none;
 	
