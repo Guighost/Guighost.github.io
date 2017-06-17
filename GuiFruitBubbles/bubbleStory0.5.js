@@ -1718,7 +1718,7 @@ function loadOnLoad() {
         
         icyCount = parseInt(icyCount) + 1;
 		localStorage["icyCount"] = parseInt(icyCount);
-		document.getElementById("levelup1").style.display = "none";
+		// document.getElementById("levelup1").style.display = "none";
 		document.getElementById("starPop1").style.display = "none";
 		document.getElementById("levelUpBack").style.display = "none";
         turncounter = 0;
@@ -1911,56 +1911,78 @@ function loadOnLoad() {
 			levelbump ++;
 			//show map if lvl 6, 12, 18, or 24 was just completed
 			if (parseInt(levelcount) == 7) {
+				document.getElementById("warp").style.display = 'block';
+				setTimeout(function(){document.getElementById("warp").style.display = 'none';}, 2000)
 				document.getElementById("mapImg").src="Maps/mapCandyTown.png";
 				document.getElementById("story").innerHTML = "You made it to <b>Candy Town</b>! Collect candies to proceed.";
 			document.getElementById("mapDiv").style.display = 'block'; 
 			}
 			else if (parseInt(levelcount) == 13) {
+				document.getElementById("warp").style.display = 'block';
+				setTimeout(function(){document.getElementById("warp").style.display = 'none';}, 2000)
 				document.getElementById("mapImg").src="Maps/mapGraveyard.png";
 				document.getElementById("story").innerHTML = "Danger, entering the Ghostly Graveyard. beat 5 levels to reach the boss.";
 			document.getElementById("mapDiv").style.display = 'block'; 
 			}
 			else if (parseInt(levelcount) == 19) {
+				document.getElementById("warp").style.display = 'block';
+				setTimeout(function(){document.getElementById("warp").style.display = 'none';}, 2000)
 				document.getElementById("mapImg").src="Maps/mapCosmos.png";
 				document.getElementById("story").innerHTML = "You have defeated the aliens, and take the ship. <b>Blast off</b>!";
 			document.getElementById("mapDiv").style.display = 'block'; 
 			}
 			else if (parseInt(levelcount) == 25) {
+				document.getElementById("warp").style.display = 'block';
+				setTimeout(function(){document.getElementById("warp").style.display = 'none';}, 2000)
 				document.getElementById("mapImg").src="Maps/mapOceanWorld.png";
 				document.getElementById("story").innerHTML = "Fiesty fish and crabby crabs await on <b>Ocean World</b>!";
 			document.getElementById("mapDiv").style.display = 'block'; 
 			}
 			else if (parseInt(levelcount) == 31) {
+				document.getElementById("warp").style.display = 'block';
+				setTimeout(function(){document.getElementById("warp").style.display = 'none';}, 2000)
 				document.getElementById("mapImg").src="Maps/mapSpaceship.png";
 				document.getElementById("story").innerHTML = "You blast off again and aliens attack";
 			document.getElementById("mapDiv").style.display = 'block'; 
 			}
 			else if (parseInt(levelcount) == 37) {
+				document.getElementById("warp").style.display = 'block';
+				setTimeout(function(){document.getElementById("warp").style.display = 'none';}, 2000)
 				document.getElementById("mapImg").src="Maps/mapGummy1.png";
 				document.getElementById("story").innerHTML = "You land on the world of Gummies";
 			document.getElementById("mapDiv").style.display = 'block'; 
 			}
 			else if (parseInt(levelcount) == 43) {
+				document.getElementById("warp").style.display = 'block';
+				setTimeout(function(){document.getElementById("warp").style.display = 'none';}, 2000)
 				document.getElementById("mapImg").src="Maps/mapGummy2.png";
 				document.getElementById("story").innerHTML = "Defeat the Royal Gummies";
 			document.getElementById("mapDiv").style.display = 'block'; 
 			}
 			else if (parseInt(levelcount) == 49) {
+				document.getElementById("warp").style.display = 'block';
+				setTimeout(function(){document.getElementById("warp").style.display = 'none';}, 2000)
 				document.getElementById("mapImg").src="Maps/mapLava.png";
 				document.getElementById("story").innerHTML = "Just as you defeat the gummies, the floor opens and you fall into a fiery carvern";
 			document.getElementById("mapDiv").style.display = 'block'; 
 			}
 			else if (parseInt(levelcount) == 55) {
+				document.getElementById("warp").style.display = 'block';
+				setTimeout(function(){document.getElementById("warp").style.display = 'none';}, 2000)
 				document.getElementById("mapImg").src="Maps/mapWizard1.png";
 				document.getElementById("story").innerHTML = "A portal pulls you into another world";
 			document.getElementById("mapDiv").style.display = 'block'; 
 			}
 			else if (parseInt(levelcount) == 61) {
+				document.getElementById("warp").style.display = 'block';
+				setTimeout(function(){document.getElementById("warp").style.display = 'none';}, 2000)
 				document.getElementById("mapImg").src="Maps/mapArcane.png";
 				document.getElementById("story").innerHTML = "Defeat the Master Mage to escape";
 			document.getElementById("mapDiv").style.display = 'block'; 
 			}
 			else if (parseInt(levelcount) == 67) {
+				document.getElementById("warp").style.display = 'block';
+				setTimeout(function(){document.getElementById("warp").style.display = 'none';}, 2000)
 				document.getElementById("mapImg").src="Maps/mapDonut.png";
 				document.getElementById("story").innerHTML = "Don't get a belly ache!";
 			document.getElementById("mapDiv").style.display = 'block'; 
@@ -2013,7 +2035,13 @@ function hideIntro() {
 	storySeen = parseInt(localStorage["storySeen"]);
 	if (storySeen == 0){
 		document.getElementById("mapImg").src="Story/story1.gif";
-		setTimeout(function(){document.getElementById("mapImg").src="Maps/mapForest.png"; storySeen = 1; localStorage["storySeen"] = 1}, 25000)
+		setTimeout(function(){
+			document.getElementById("mapImg").src="Maps/mapForest.png"; storySeen = 1; localStorage["storySeen"] = 1;
+			document.getElementById("warp").style.display = 'block';
+							}, 25000)
+		setTimeout(function(){
+			document.getElementById("warp").style.display = 'none';
+							}, 28000)
 	}
 	
 	};
