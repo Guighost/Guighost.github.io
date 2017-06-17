@@ -670,7 +670,7 @@ padding-left: 1%;
 #fruitylogo {margin-left: 0%; top:16%; width: 100%}
 #playGame { margin-left: 0%;  width:40%; top: 26%;}
 #loadSaved{ margin-left: 0%;  width:40%; top: 35%;}
-#levelSelect { margin-left: 0%;  width:40%; top: 36%;}
+#levelSelect { margin-left: 0%;  width:40%; top: 36%; }
 #leftspot { width:120px;}
 .selectzone1 {margin-left: 30px;}
 #saveAndLoad {margin-left: 11%; }
@@ -692,7 +692,7 @@ height: 98%;
 width: 95%;
 height: 75%;
 }
-#lvlSelectParent { left: 35%; width:100%;}
+#lvlSelectParent { left: 35%; width:60%;}
 .clsLvlNums {margin-left:30%;}
 .clsLvlNums2 {margin-left:25%;}
 }
@@ -732,11 +732,11 @@ width:635px;
 .introdiv {padding-left 0px; margin-left: 5%;}
 #playGame { margin-left: 0%; margin-right: 20%; width:40%;   top: 25%;}
 #loadSaved { margin-left: 0%; margin-right: 20%; width:40%;  top: 35%;}
-#levelSelect {transform: translate(-90px,100px); width:40%;}
+#levelSelect {transform: translate(-90px,100px); width:40%; }
 #leftspot { width:120px;}
 .selectzone1 {margin-left: 30px;}
 #hotstreak{left: 50%; transform: translate(-175px,-615px); }
-#lvlSelectParent {transform: translate(-200px,-20px); width: 400px;}
+#lvlSelectParent {transform: translate(-150px,-20px); width: 310px;}
 #starPop1 {transform: translate(-38px, -20px); }
 #selectPowerMove {left: 12%; transform: translate(0px,-475px);  }
 #levelUpBack {transform: translate3d(-160px,-580px, 0);}

@@ -31,6 +31,8 @@
 	var shockCount = 1;
 	var starCash = 0;
 	var cashUp = 0;
+	var storySeen = 0;
+	if (typeof localStorage["storySeen"] === "undefined") {localStorage["storySeen"] = 0; starCash = 0;};
 	if (typeof localStorage["starCash"] === "undefined") {localStorage["starCash"] = 0; starCash = 0;};
 	starCash = parseInt(localStorage["starCash"]);
 	if (typeof localStorage["icyCount"] === "undefined") {localStorage["icyCount"] = 0; icyCount= 0;};
@@ -2008,6 +2010,12 @@ function loadOnLoad() {
 function hideIntro() {
 	document.getElementById("intro").style.display = 'none'; 
 	document.getElementById("mapDiv").style.display = 'block'; 
+	storySeen = parseInt(localStorage["storySeen"]);
+	if (storySeen == 0){
+		document.getElementById("mapImg").src="Story/story1.gif";
+		setTimeout(function(){document.getElementById("mapImg").src="Maps/mapForest.png"; storySeen = 1; localStorage["storySeen"] = 1}, 25000)
+	}
+	
 	};
 function showBonus() {
 		if(specialActive == 0){	snd2.volume = 1.0;
@@ -2175,6 +2183,8 @@ function loadLevelSelect(){
 	}	
 function closeLvlSelect() {document.getElementById("lvlSelectParent").style.display = 'none';}
 function clickRight(){
+	var leftA = document.getElementsByName("leftarrow");
+		var leftA2 = leftA[0];
 	if (document.getElementById("grid1").offsetWidth > 0 && document.getElementById("grid1").offsetHeight > 0){
 		document.getElementById("grid1").style.display = 'none';
 		document.getElementById("grid2").style.display = 'block';
@@ -2187,12 +2197,14 @@ function clickRight(){
 		document.getElementById("grid1").style.display = 'none';
 		document.getElementById("grid2").style.display = 'none';
 		document.getElementById("grid3").style.display = 'block';
+		leftA2.style.display = 'block'
 		}
 	else if (document.getElementById("grid3").offsetWidth > 0 && document.getElementById("grid3").offsetHeight > 0){
 		document.getElementById("grid1").style.display = 'none';
 		document.getElementById("grid2").style.display = 'none';
 		document.getElementById("grid3").style.display = 'none';
 		document.getElementById("grid4").style.display = 'block';
+		leftA2.style.display = 'block'
 		}
 	else if (document.getElementById("grid4").offsetWidth > 0 && document.getElementById("grid4").offsetHeight > 0){
 		document.getElementById("grid1").style.display = 'none';
@@ -2200,6 +2212,7 @@ function clickRight(){
 		document.getElementById("grid3").style.display = 'none';
 		document.getElementById("grid4").style.display = 'none';
 		document.getElementById("grid5").style.display = 'block';
+		leftA2.style.display = 'block'
 		}
 	else if (document.getElementById("grid5").offsetWidth > 0 && document.getElementById("grid5").offsetHeight > 0){
 		document.getElementById("grid1").style.display = 'none';
@@ -2208,6 +2221,7 @@ function clickRight(){
 		document.getElementById("grid4").style.display = 'none';
 		document.getElementById("grid5").style.display = 'none';
 		document.getElementById("grid6").style.display = 'block';
+		leftA2.style.display = 'block'
 		}
 		
 	else if (document.getElementById("grid6").offsetWidth > 0 && document.getElementById("grid6").offsetHeight > 0){
@@ -2218,6 +2232,7 @@ function clickRight(){
 		document.getElementById("grid5").style.display = 'none';
 		document.getElementById("grid6").style.display = 'none';
 		document.getElementById("grid7").style.display = 'block';
+		leftA2.style.display = 'block'
 		}
 	else if (document.getElementById("grid7").offsetWidth > 0 && document.getElementById("grid7").offsetHeight > 0){
 		document.getElementById("grid1").style.display = 'none';
@@ -2228,6 +2243,7 @@ function clickRight(){
 		document.getElementById("grid6").style.display = 'none';
 		document.getElementById("grid7").style.display = 'none';
 		document.getElementById("grid8").style.display = 'block';
+		leftA2.style.display = 'block'
 		}
 	else if (document.getElementById("grid8").offsetWidth > 0 && document.getElementById("grid8").offsetHeight > 0){
 		document.getElementById("grid1").style.display = 'none';
@@ -2239,6 +2255,7 @@ function clickRight(){
 		document.getElementById("grid7").style.display = 'none';
 		document.getElementById("grid8").style.display = 'none';
 		document.getElementById("grid9").style.display = 'block';
+		leftA2.style.display = 'block'
 		}
 	else if (document.getElementById("grid9").offsetWidth > 0 && document.getElementById("grid9").offsetHeight > 0){
 		document.getElementById("grid1").style.display = 'none';
@@ -2251,6 +2268,7 @@ function clickRight(){
 		document.getElementById("grid8").style.display = 'none';
 		document.getElementById("grid9").style.display = 'none';
 		document.getElementById("grid10").style.display = 'block';
+		leftA2.style.display = 'block'
 		}
 	else if (document.getElementById("grid10").offsetWidth > 0 && document.getElementById("grid10").offsetHeight > 0){
 		document.getElementById("grid1").style.display = 'none';
@@ -2264,6 +2282,8 @@ function clickRight(){
 		document.getElementById("grid9").style.display = 'none';
 		document.getElementById("grid10").style.display = 'none';
 		document.getElementById("grid11").style.display = 'block';
+		
+		leftA2.style.display = 'block'
 		}	
 	else if (document.getElementById("grid11").offsetWidth > 0 && document.getElementById("grid11").offsetHeight > 0){
 		document.getElementById("grid1").style.display = 'none';
@@ -2277,7 +2297,7 @@ function clickRight(){
 		document.getElementById("grid9").style.display = 'none';
 		document.getElementById("grid11").style.display = 'none';
 		document.getElementById("grid12").style.display = 'block';
-		
+		leftA2.style.display = 'block'
 		}		
 	else { return;}
 	}
@@ -2370,7 +2390,7 @@ function clickLeft(){
 		document.getElementById("grid10").style.display = 'block';
 		document.getElementById("grid11").style.display = 'none';
 		}
-	else if (document.getElementById("grid12").offsetWidth > 0 && document.getElementById("grid11").offsetHeight > 0){
+	else if (document.getElementById("grid12").offsetWidth > 0 && document.getElementById("grid12").offsetHeight > 0){
 		document.getElementById("grid2").style.display = 'none';
 		document.getElementById("grid3").style.display = 'none';
 		document.getElementById("grid4").style.display = 'none';
