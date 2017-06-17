@@ -1257,7 +1257,7 @@ function loadOnLoad() {
 			// localStorage["starCash"] = parseInt(localStorage["starCash"]) + cashUp;	
 			starCash = parseInt(localStorage["starCash"]);
 			document.getElementById("lvlUpStarCash").innerHTML = " + " + cashUp;
-			document.getElementById("LevelDisplay").innerHTML = levelcount;
+			// document.getElementById("LevelDisplay").innerHTML = levelcount;
 				// adjust level progrression tiles
 			// alert(parseInt(levelcount));
 			if (parseInt(levelcount) == 1 || parseInt(levelcount) == 7 || parseInt(levelcount) == 13 || parseInt(levelcount)== 19 || parseInt(levelcount) == 25 || parseInt(levelcount) == 31){
@@ -1317,10 +1317,11 @@ function loadOnLoad() {
 				document.getElementById("starPop1").src ="Hud/stars3.png";
 				document.getElementById("starPop1").style.display = "block";
 				//check for higher level rating in past
-				
+				cashUp = 5;
+				document.getElementById("lvlUpStarCash").innerHTML = " + " + cashUp;
 				if (chkForHigher <= 3){	localStorage[lvlRating] = 3;  localStorage[lvlScore] = score;}
 				drawCenterText("Shots: " + levelShotCount, level.x, level.y + level.height / 2 + 125, level.width);	
-				cashUp = 5;
+				
 				localStorage["starCash"] = parseInt(localStorage["starCash"]) + cashUp;	
 				starCash = parseInt(localStorage["starCash"]);				
 				}
@@ -1328,6 +1329,8 @@ function loadOnLoad() {
 			else if (parseInt(levelShotCount) > 35 && parseInt(levelShotCount) <= 45) {
 				document.getElementById("starPop1").src ="Hud/stars2.png";
 				document.getElementById("starPop1").style.display = "block";
+				cashUp = 4;
+				document.getElementById("lvlUpStarCash").innerHTML = " + " + cashUp;
 				if (chkForHigher <= 2){	localStorage[lvlRating] = 2; localStorage[lvlScore] = score;}
 				drawCenterText("Shots: " + levelShotCount, level.x, level.y + level.height / 2 + 125, level.width);
 				cashUp = 4;
@@ -1338,6 +1341,8 @@ function loadOnLoad() {
 			else {
 				document.getElementById("starPop1").src ="Hud/stars1.png";
 				document.getElementById("starPop1").style.display = "block";
+				cashUp = 3;
+				document.getElementById("lvlUpStarCash").innerHTML = " + " + cashUp;
 				localStorage[lvlRating] = 1;
 				localStorage[lvlScore] = score;
 				drawCenterText("Shots: " + levelShotCount, level.x, level.y + level.height / 2 + 125, level.width);
