@@ -1363,80 +1363,95 @@ function loadOnLoad() {
 			
 			////////Load images based on level 1-6 = fruit, 7-12 = candy, 13-18 = Ghosts, 19+ space Orbs
         var badge = document.getElementById("lvlImageTile");
-		if (parseInt(levelcount) >= 7 && parseInt(levelcount) <=12 ) {
+		var body = document.getElementsByTagName('body')[0];
+		if (parseInt(levelcount) == 6) {
+		images = loadImages(["Bubbles/bossBubbles.png"]);
+		body.style.backgroundImage = "url('Backgrounds/bossBack.gif')";
+				}
+		else if (parseInt(levelcount) >= 7 && parseInt(levelcount) <=11 ) {
 		//change bubbles 
 		images = loadImages(["Bubbles/newcandy.png"]);
 		//change background 
-		var body = document.getElementsByTagName('body')[0];
 		body.style.backgroundImage = "url('Backgrounds/newcandyBack.png')";
 		// change level up badge image display
 		badge.style.backgroundImage = "url('candyTownm.png')";
 		}
+		else if (parseInt(levelcount) == 12) {
+		images = loadImages(["Bubbles/bossBubbles.png"]);
+		body.style.backgroundImage = "url('Backgrounds/bossBack.gif')";
+				}
 		else if (parseInt(levelcount) >= 13 && parseInt(levelcount) <= 17) {
 		images = loadImages(["Bubbles/ghostbubbles.png"]);
-		var body = document.getElementsByTagName('body')[0];
 		body.style.backgroundImage = "url('Backgrounds/spookyBack.jpg')";
 		// change level up badge image display
 		badge.style.backgroundImage = "url('graveBadge.png')";
 				}
 		else if (parseInt(levelcount) == 18) {
 		images = loadImages(["Bubbles/bossBubbles.png"]);
-		var body = document.getElementsByTagName('body')[0];
 		body.style.backgroundImage = "url('Backgrounds/bossBack.gif')";
-		// change level up badge image display
-		badge.style.backgroundImage = "url('candyTownm.png')";
 				}
-		else if (parseInt(levelcount) >= 19 && parseInt(levelcount) <= 24) {
+		else if (parseInt(levelcount) >= 19 && parseInt(levelcount) <= 23) {
 		images = loadImages(["Bubbles/orbBubbles.png"]);
 		document.body.style.backgroundImage = "url('space_bg.gif')";
 		// change level up badge image display
 		badge.style.backgroundImage = "url('crazyCosmos.png')";
 				}
-		else if (parseInt(levelcount) >= 25 && parseInt(levelcount) <= 30 ) {
+		else if (parseInt(levelcount) == 24) {
+		images = loadImages(["Bubbles/bossBubbles.png"]);
+		body.style.backgroundImage = "url('Backgrounds/bossBack.gif')";
+				}
+		else if (parseInt(levelcount) >= 25 && parseInt(levelcount) <= 29 ) {
 		images = loadImages(["Bubbles/seaBubbles.png"]);
 		document.body.style.backgroundImage = "url('Backgrounds/oceanWorldBack.png')";
 		// change level up badge image display
 		badge.style.backgroundImage = "url('oceanWorld.png')";
-		
-		}
-		else if (parseInt(levelcount) >= 31 && parseInt(levelcount) <= 36 ) {
+			}
+		else if (parseInt(levelcount) == 30 || parseInt(levelcount) == 36 || parseInt(levelcount) == 42 || parseInt(levelcount) == 48) {
+		images = loadImages(["Bubbles/bossBubbles.png"]);
+		body.style.backgroundImage = "url('Backgrounds/bossBack.gif')";
+				}
+		else if (parseInt(levelcount) >= 31 && parseInt(levelcount) <= 35 ) {
 		images = loadImages(["Bubbles/space2Bubbles2.png"]);
 		document.body.style.backgroundImage = "url('Backgrounds/space_bg.gif')";
 		// change level up badge image display
 		badge.style.backgroundImage = "url('spaceshipStorm.png')";
 		
 		}
-		else if (parseInt(levelcount) >= 37 && parseInt(levelcount) <= 42 ) {
+		else if (parseInt(levelcount) >= 37 && parseInt(levelcount) <= 41 ) {
 		images = loadImages(["Bubbles/gummyBubbles2.png"]);
 		document.body.style.backgroundImage = "url('Backgrounds/gummyBack.png')";
 		// change level up badge image display
 		badge.style.backgroundImage = "url('gummyPlanet.png')";
 		}
-		else if (parseInt(levelcount) >= 43 && parseInt(levelcount) <= 48) {
+		else if (parseInt(levelcount) >= 43 && parseInt(levelcount) <= 47) {
 		images = loadImages(["Bubbles/gummyBubbles.png"]);
 		document.body.style.backgroundImage = "url('Backgrounds/gummyBack.png')";
 		// change level up badge image display
 		badge.style.backgroundImage = "url('gummyCastle.png')";
 		}
-		else if (parseInt(levelcount) >= 49 && parseInt(levelcount) <= 54) {
+		else if (parseInt(levelcount) >= 49 && parseInt(levelcount) <= 53) {
 		images = loadImages(["Bubbles/invertedBubbles.png"]);
 		document.body.style.backgroundImage = "url('Backgrounds/lavaBack.jpg')";
 		// change level up badge image display
 		badge.style.backgroundImage = "url('lavaCaverns.png')";
 		}
-		else if (parseInt(levelcount) >= 55 && parseInt(levelcount) <= 60) {
+		else if (parseInt(levelcount) == 54 || parseInt(levelcount) == 60 || parseInt(levelcount) == 66 || parseInt(levelcount) == 72) {
+		images = loadImages(["Bubbles/bossBubbles.png"]);
+		body.style.backgroundImage = "url('Backgrounds/bossBack.gif')";
+				}
+		else if (parseInt(levelcount) >= 55 && parseInt(levelcount) <= 59) {
 		images = loadImages(["Bubbles/spellBubbles1.png"]);
 		document.body.style.backgroundImage = "url('Backgrounds/wizardworldBack.png')";
 		// change level up badge image display
 		badge.style.backgroundImage = "url('wizardWorld.png')";
 		}
-		else if (parseInt(levelcount) >= 61 && parseInt(levelcount) <= 66) {
+		else if (parseInt(levelcount) >= 61 && parseInt(levelcount) <= 65) {
 		images = loadImages(["Bubbles/spellBubbles2.png"]);
 		document.body.style.backgroundImage = "url('Backgrounds/guardtower.png')";
 		// change level up badge image display
 		badge.style.backgroundImage = "url('arcanePlanet.png')";
 		}
-		else if (parseInt(levelcount) >= 67 && parseInt(levelcount) <= 72) {
+		else if (parseInt(levelcount) >= 67 && parseInt(levelcount) <= 71) {
 		images = loadImages(["Bubbles/donutBubbles.png"]);
 		document.body.style.backgroundImage = "url('Backgrounds/gummyBack.png')";
 		// change level up badge image display
@@ -1635,8 +1650,13 @@ function loadOnLoad() {
 		// alert(levelcount);
 		// Do load of correct images here
 			////////Load images based on level 1-6 = fruit, 7-12 = candy, 13-18 = Ghosts, 19+ space Orbs
-        
-		if (parseInt(levelcount) >= 7 && parseInt(levelcount) <=12 ) {
+         if (parseInt(levelcount) == 6 || parseInt(levelcount) == 12 || parseInt(levelcount) == 18 || parseInt(levelcount) == 24 || parseInt(levelcount) == 30) {
+		images = loadImages(["Bubbles/bossBubbles.png"]);
+		var body = document.getElementsByTagName('body')[0];
+		body.style.backgroundImage = "url('Backgrounds/bossBack.gif')";
+		}
+		
+		else if (parseInt(levelcount) >= 7 && parseInt(levelcount) <=11 ) {
 		images = loadImages(["Bubbles/newcandy.png"]);
 		var body = document.getElementsByTagName('body')[0];
 		body.style.backgroundImage = "url('Backgrounds/newcandyBack.png')";
@@ -1650,44 +1670,50 @@ function loadOnLoad() {
 		body.style.backgroundImage = "url('Backgrounds/spookyBack.jpg')";
 		
 		}
-		else if (parseInt(levelcount) == 18) {
+		// else if (parseInt(levelcount) == 18) {
+		// images = loadImages(["Bubbles/bossBubbles.png"]);
+		// var body = document.getElementsByTagName('body')[0];
+		// body.style.backgroundImage = "url('Backgrounds/bossBack.gif')";
+		// }
+		else if (parseInt(levelcount) >= 19 && parseInt(levelcount) <= 23 ) {
+		images = loadImages(["Bubbles/orbBubbles.png"]);
+		document.body.style.backgroundImage = "url('Backgrounds/space_bg.gif')";
+		}
+		else if (parseInt(levelcount)>= 25 && parseInt(levelcount) <= 29 ) {
+		images = loadImages(["Bubbles/seaBubbles.png"]);
+		document.body.style.backgroundImage = "url('Backgrounds/oceanWorldBack.png')";
+		}
+		else if (parseInt(levelcount) >= 31 && parseInt(levelcount) <= 35) {
+		images = loadImages(["Bubbles/space2Bubbles2.png"]);
+		document.body.style.backgroundImage = "url('Backgrounds/space_bg.gif')";
+		}
+		else if (parseInt(levelcount) == 36 || parseInt(levelcount) == 42 || parseInt(levelcount) == 47 ||
+		parseInt(levelcount) == 54 || parseInt(levelcount) == 60 || parseInt(levelcount) == 66 || parseInt(levelcount) == 72) {
 		images = loadImages(["Bubbles/bossBubbles.png"]);
 		var body = document.getElementsByTagName('body')[0];
 		body.style.backgroundImage = "url('Backgrounds/bossBack.gif')";
 		}
-		else if (parseInt(levelcount) >= 19 && parseInt(levelcount) <= 24 ) {
-		images = loadImages(["Bubbles/orbBubbles.png"]);
-		document.body.style.backgroundImage = "url('Backgrounds/space_bg.gif')";
-		}
-		else if (parseInt(levelcount)>= 25 && parseInt(levelcount) <= 30 ) {
-		images = loadImages(["Bubbles/seaBubbles.png"]);
-		document.body.style.backgroundImage = "url('Backgrounds/oceanWorldBack.png')";
-		}
-		else if (parseInt(levelcount) >= 31 && parseInt(levelcount) <= 36) {
-		images = loadImages(["Bubbles/space2Bubbles2.png"]);
-		document.body.style.backgroundImage = "url('Backgrounds/space_bg.gif')";
-		}
-		else if (parseInt(levelcount) >= 37 && parseInt(levelcount) <= 42) {
+		else if (parseInt(levelcount) >= 37 && parseInt(levelcount) <= 41) {
 		images = loadImages(["Bubbles/gummyBubbles2.png"]);
 		document.body.style.backgroundImage = "url('Backgrounds/gummyBack.png')";
 		}
-		else if (parseInt(levelcount) >= 43 && parseInt(levelcount) <= 48) {
+		else if (parseInt(levelcount) >= 43 && parseInt(levelcount) <= 47) {
 		images = loadImages(["Bubbles/gummyBubbles.png"]);
 		document.body.style.backgroundImage = "url('Backgrounds/gummyBack.png')";
 		}
-		else if (parseInt(levelcount) >= 49 && parseInt(levelcount) <= 54) {
+		else if (parseInt(levelcount) >= 49 && parseInt(levelcount) <= 53) {
 		images = loadImages(["Bubbles/invertedBubbles.png"]);
 		document.body.style.backgroundImage = "url('Backgrounds/lavaBack.jpg')";
 		}
-		else if (parseInt(levelcount) >= 55 && parseInt(levelcount) <= 60) {
+		else if (parseInt(levelcount) >= 55 && parseInt(levelcount) <= 59) {
 		images = loadImages(["Bubbles/spellBubbles1.png"]);
 		document.body.style.backgroundImage = "url('Backgrounds/wizardworldBack.png')";
 		}
-		else if (parseInt(levelcount) >= 61 && parseInt(levelcount) <= 66) {
+		else if (parseInt(levelcount) >= 61 && parseInt(levelcount) <= 65) {
 		images = loadImages(["Bubbles/spellBubbles2.png"]);
 		document.body.style.backgroundImage = "url('Backgrounds/guardtower.png')";
 		}
-		else if (parseInt(levelcount) >= 67 && parseInt(levelcount) <= 72) {
+		else if (parseInt(levelcount) >= 67 && parseInt(levelcount) <= 71) {
 		images = loadImages(["Bubbles/donutBubbles.png"]);
 		document.body.style.backgroundImage = "url('Backgrounds/gummyBack.png')";
 		document.body.style = "background-size: 100% 100%";
@@ -1698,8 +1724,8 @@ function loadOnLoad() {
 		if (parseInt(levelcount) >= 18 && parseInt(levelcount) <= 24){ newRowCounter = 7; }
 		if (parseInt(levelcount) >= 25 && parseInt(levelcount) <= 30){ newRowCounter = 6; }
 		if (parseInt(levelcount) >= 31 && parseInt(levelcount) <= 36){ newRowCounter = 5;	}
-		if (parseInt(levelcount) >= 37){	newRowCounter = 4;	}
-		
+		if (parseInt(levelcount) >= 37 && parseInt(levelcount) <= 54){	newRowCounter = 4;	}
+		if (parseInt(levelcount) >= 55 ){	newRowCounter = 3;	}
 		
 		///////
         bubbleimage = images[0];
