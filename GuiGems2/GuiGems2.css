@@ -1,0 +1,8 @@
+
+#canvasWrap {
+	position: absolute;
+	margin-left: 50%;
+	transform: translate(-170px, 0px);
+	displaY: block;
+	
+}
