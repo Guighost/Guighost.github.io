@@ -32,6 +32,7 @@
 	var starCash = 0;
 	var cashUp = 0;
 	var storySeen = 0;
+	var shockStep = 1;
 	if (typeof localStorage["storySeen"] === "undefined") {localStorage["storySeen"] = 0; starCash = 0;};
 	if (typeof localStorage["starCash"] === "undefined") {localStorage["starCash"] = 0; starCash = 0;};
 	starCash = parseInt(localStorage["starCash"]);
@@ -98,7 +99,7 @@ var shockImage = new Image();
 shockImage.onload = function () {
     shockImgReady = true;
 }
-shockImage.src = "Effects/shockAttack.png"; 
+shockImage.src = "Effects/shock1.png"; 
 
 // power move activate button
 	var specialMenuReady = false;
@@ -866,7 +867,7 @@ function loadOnLoad() {
 					if(specialShot2 == 0){
 					document.getElementById("icyBlast").style.display = 'block';
 					document.getElementById("icyBlastBack").style.display = 'block';}
-					if(specialShot2 == 1){ document.getElementById("shockingBlast").style.display = 'block';
+					if(specialShot2 == 1){ 
 					document.getElementById("lightningFullBack").style.display = 'block';
 					}
 					
@@ -1577,14 +1578,33 @@ function loadOnLoad() {
         context.drawImage(icyImage, icyX, icyY );
 				
 		}
-		if ( specialShot == 1 && specialShot2 == 1) {
+		if ( specialShot == 1 && specialShot2 == 1 && shockStep <= 2) {
 		// alert ("triggered");
-			var shockX = player.bubble.x - 125;
-			var shockY = player.bubble.y - 148;
+		
+			var shockX = player.bubble.x - 32;
+			var shockY = player.bubble.y - 32;
 			// alert (icyX + " = x " + icyY  + " = y");
         context.drawImage(shockImage, shockX, shockY );
-				
+		shockStep++
 		}
+		else if ( specialShot == 1 && specialShot2 == 1 && shockStep <= 4) {
+			shockImage.src = "Effects/shock2.png";  
+			context.drawImage(shockImage, shockX, shockY );
+			shockStep++;
+		}
+		else if ( specialShot == 1 && specialShot2 == 1 && shockStep <= 6) {
+			shockImage.src = "Effects/shock3.png";  
+			context.drawImage(shockImage, shockX, shockY );
+			shockStep++;
+		}
+		else if ( specialShot == 1 && specialShot2 == 1 && shockStep <= 8) {
+			shockImage.src = "Effects/shock4.png";  
+			context.drawImage(shockImage, shockX, shockY );
+			shockStep = 1;
+		}
+			
+		
+		
 	
     }
     
@@ -2095,7 +2115,7 @@ function hideBonus() {
 		document.getElementById("nice").style.display = 'none';
 		document.getElementById("icyBlast").style.display = 'none';
 		document.getElementById("icyBlastBack").style.display = 'none';
-		document.getElementById("shockingBlast").style.display = 'none';
+		// document.getElementById("shockingBlast").style.display = 'none';
 		document.getElementById("lightningFullBack").style.display = 'none'
 		specialActive = 0;
 		};
@@ -2586,6 +2606,7 @@ function activateShock(){
 	specialShot2 = 1;
 	shockCount = shockCount -= 1;
 	document.getElementById("selectPowerMove").style.display = 'none';
+	// document.getElementById("shockingBlast").style.display = 'block';
 	document.getElementById("pwr2Txt2").innerHTML = shockCount;
 	localStorage["shockCount"] = parseInt(shockCount);
 	 

@@ -37,7 +37,7 @@ display: block;
  #selectPowerMove {
 	 display: none;
 	   }
-#shockingBlast {  transform: translate3d(120px,-30px, 0);}
+#shockingBlast {  transform: translate(430px,310px); z-index: 5000;}
  .clsSpecialBacks {
 	 display: none;
 	 position: absolute;
@@ -82,15 +82,22 @@ font-family: Comic Sans MS; font-size: 14px;
 #pwr2Img { float: right;  }
 .lightning {
 margin-top: 10px;
-	transform: translate3d(-14px,-68px, 0);
+	transform: translate3d(-8px,-68px, 0);
 	width: 110px; height: 101px;
 	display: block;
 	background: url("Effects/LightningSprite.png");
-		animation: playLightning .25s steps(4)infinite;
+		animation: playLightning 1s steps(8)infinite;
 }
 @keyframes playLightning {
-   100% { background-position: -440px; }
+   100% {   background-position: 0px 808px;  }
 }
+
+/*try it */
+
+
+
+
+
 .clspowerTxt { 
 position: relative;
 	float: left;
@@ -213,7 +220,7 @@ display: none;
 	position: absolute;
 margin-top: 10px;
 left: 36%;
-transform: translate(30px,10px) scale (.9,.9);
+transform: translate(60px,10px) scale (.9,.9);
 z-index: 2500;
 }
 
@@ -498,7 +505,7 @@ font-size: 16px;
 	background-image: url("Hud/levelSelectBack.png");
 	margin: auto;
 	left: 50%;
-	transform: translate(-146px,-3px);
+	transform: translate(-266px,-3px);
 	top: 10%;
 	border-radius: 10px;
 	text-align: center;
@@ -610,8 +617,9 @@ margin-left: 20%;
 #playGame { margin-left: 5%; margin-right: 20%; width:18%; top: 28%;}
 #loadSaved{ margin-left: 5%; margin-right: 20%; width:18%; top: 33%;}
 #levelSelect {margin-left: 5%; margin-right: 20%; width:18%; top:35%;}
+#lvlSelectParent {transform: translate(-150px,-20px); width: 310px;}
 #levelUpBack {transform: translate3d(-160px,-480px, 0);}
-#saveAndLoad {margin-left: 50%;}
+#saveAndLoad {margin-left: 40%;}
 #hotstreak{left: 50%; transform: translate(-150px,-980px); }
 #warpImage {margin-left: 0%; transform: translate(10px,100px); width: 90%; height: auto; }
 #footerImg {  transform: scale(.5, .5) translate3d(-80px,205px, 0); }
@@ -648,7 +656,7 @@ margin-left: 15%;
 #playGame { margin-left: 6%; margin-right: 20%; width:20%; top: 35%;}
 #loadSaved{ margin-left: 6%; margin-right: 20%; width:20%; top: 45%;}
 #levelSelect {margin-left: 6%; margin-right: 20%; width:18%; top:36%;}
-#saveAndLoad {margin-left: 50%;}
+#saveAndLoad {margin-left: 40%;}
 #hotstreak{left: 50%; transform: translate(-150px,-980px); }
 #lvlSelectParent {transform: translate(-120px,-10px) ;  width: 310px;}
 #levelUpBack {transform: translate3d(-160px,-580px, 0) scale (1.5,2);}
@@ -685,6 +693,7 @@ padding-left: 1%;
 #playGame { margin-left: 0%;  width:40%; top: 26%;}
 #loadSaved{ margin-left: 0%;  width:40%; top: 35%;}
 #levelSelect { margin-left: 0%;  width:40%; top: 36%; }
+#lvlSelectParent {transform: translate(-150px,-20px); width: 310px;}
 #leftspot { width:120px;}
 .selectzone1 {margin-left: 30px;}
 #saveAndLoad {margin-left: 11%; }
