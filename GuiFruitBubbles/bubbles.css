@@ -609,7 +609,7 @@ margin-left: 20%;
 
 }
 #levelup1 {left: 62%}
-#starPop1 {left: 42% }
+#starPop1 {left: 44%; transform: translate(30px,75px);  }
 #nice, #awesome{left: 2%; top:50%;}
 #intro { margin-left: 0%; width: 100%;}
 .introdiv {padding-left 1%; margin-left: 0%; height: 90%; transform: translate(-150px, 200px);}
@@ -618,7 +618,7 @@ margin-left: 20%;
 #loadSaved{ margin-left: 5%; margin-right: 20%; width:18%; top: 33%;}
 #levelSelect {margin-left: 5%; margin-right: 20%; width:18%; top:35%;}
 #lvlSelectParent {transform: translate(-150px,-20px); width: 310px;}
-#levelUpBack {transform: translate3d(-160px,-480px, 0);}
+#levelUpBack {transform: translate3d(-120px,-630px, 0);}
 #saveAndLoad {margin-left: 40%;}
 #hotstreak{left: 50%; transform: translate(-150px,-980px); }
 #warpImage {margin-left: 0%; transform: translate(10px,100px); width: 90%; height: auto; }
@@ -648,7 +648,7 @@ margin-left: 15%;
 }
 
 #levelup1 {left: 70%}
-#starPop1 {left: 40% }
+#starPop1 {left: 44%; transform: translate(30px,80px);  }
 #nice, #awesome{left: 2%; top:50%;}
 #intro { margin-left: 0%; width: 100%; }
 .introdiv {padding-left 1%; margin-left: 5%; transform: translate(-150px, 200px); }
@@ -659,7 +659,7 @@ margin-left: 15%;
 #saveAndLoad {margin-left: 40%;}
 #hotstreak{left: 50%; transform: translate(-150px,-980px); }
 #lvlSelectParent {transform: translate(-120px,-10px) ;  width: 310px;}
-#levelUpBack {transform: translate3d(-160px,-580px, 0) scale (1.5,2);}
+#levelUpBack {margin-left: 20%; transform: translate(-260px,-720px) ;}
 #selectPowerMove {margin-left: 5%; transform: translate(-130px,-575px); }
 #warpImage {margin-left: 0%; transform: translate(10px,80px); width: 90%; height: auto; }
 #footerImg {  transform: scale(.5, .5) translate3d(-80px,-10px, 0); }
