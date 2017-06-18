@@ -1,6 +1,5 @@
 // ------------------------------------------------------------------------
-// How To Make A Match-3 Game With HTML5 Canvas
-// Copyright (c) 2015 Rembound.com
+
 // 
 // This program is free software: you can redistribute it and/or modify  
 // it under the terms of the GNU General Public License as published by  
@@ -15,8 +14,7 @@
 // You should have received a copy of the GNU General Public License  
 // along with this program.  If not, see http://www.gnu.org/licenses/.
 //
-// http://rembound.com/articles/how-to-make-a-match3-game-with-html5-canvas
-// ------------------------------------------------------------------------
+
 
 // The function gets called when the window is fully loaded
 window.onload = function() {
