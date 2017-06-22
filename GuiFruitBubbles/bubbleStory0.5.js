@@ -28,7 +28,7 @@
 	var fromSpecial = false;
 	var specialActive = 0;
 	var icyCount = 0;
-	var shockCount = 1;
+	var shockCount = 0;
 	var starCash = 0;
 	var cashUp = 0;
 	var storySeen = 0;
@@ -38,8 +38,8 @@
 	starCash = parseInt(localStorage["starCash"]);
 	if (typeof localStorage["icyCount"] === "undefined") {localStorage["icyCount"] = 0; icyCount= 0;};
 	icyCount = parseInt(localStorage["icyCount"]);
-	// if (typeof localStorage["cashUp"] === "undefined") {localStorage["cashUp"] = 0; cashUp= 0;};
-	// cashUp = parseInt(localStorage["cashUp"]);
+	if (typeof localStorage["shockCount"] === "undefined") {localStorage["shockCount"] = 0; shockCount= 0;};
+	shockCount = parseInt(localStorage["shockCount"]);
 	
 	//sounds
 	var snd2 = new Audio("Sounds/nice.mp3"); // plays on the Nice Move message
@@ -1767,7 +1767,7 @@ function loadOnLoad() {
 	//Start the next level when level up
     function lvlUp() {
         
-        icyCount = parseInt(icyCount) + 1;
+        // icyCount = parseInt(icyCount) + 1;
 		localStorage["icyCount"] = parseInt(icyCount);
 		// document.getElementById("levelup1").style.display = "none";
 		document.getElementById("starPop1").style.display = "none";
