@@ -36,10 +36,12 @@ window.onload = function() {
         x: 10,         // X position
         y: 67,         // Y position
         columns: 7,     // Number of tile columns
-        rows: 8,        // Number of tile rows
-        tilewidth: 40,  // Visual width of a tile
-        tileheight: 40, // Visual height of a tile
-        tiles: [],      // The two-dimensional tile array
+        rows: 7,        // Number of tile rows
+        tilewidth: 50,  // Visual width of a tile
+        tileheight: 50, // Visual height of a tile
+        tiles: [],    // The two-dimensional tile array
+		tileImage: [],  //DB addition for images
+		
         selectedtile: { selected: false, column: 0, row: 0 }
     };
 
@@ -48,14 +50,14 @@ window.onload = function() {
 	
 	
 	//orig below
-    // All of the different tile colors in RGB
-	    var tilecolors = [[255, 128, 128],
-                      [128, 255, 128],
-                      [128, 128, 255],
-                      [255, 255, 128],
-                      [255, 128, 255],
-                      [128, 255, 255],
-                      [255, 255, 255]];
+    // All of the different tile colors in RGB plus the image
+	    var tilecolors = [[255, 128, 128, 0],
+                      [128, 255, 128, 1],
+                      [128, 128, 255, 2],
+                      [255, 255, 128, 3],
+                      [255, 128, 255, 4],
+                      [128, 255, 255, 5],
+                      [255, 255, 255, 6]];
 	//orig above
 	
 	
@@ -88,10 +90,90 @@ window.onload = function() {
     
     // Game Over
     var gameover = false;
-    
+	
+	
+	//Images
+var imgArray = new Array();
+
+imgArray[0] = new Image();
+imgArray[0].src = 'Images/0.png';
+
+imgArray[1] = new Image();
+imgArray[1].src = 'Images/1.png';
+
+imgArray[2] = new Image();
+imgArray[2].src = 'Images/2.png';
+
+imgArray[3] = new Image();
+imgArray[3].src = 'Images/3.png';
+
+imgArray[4] = new Image();
+imgArray[4].src = 'Images/4.png';
+
+imgArray[5] = new Image();
+imgArray[5].src = 'Images/5.png';
+
+imgArray[6] = new Image();
+imgArray[6].src = 'Images/6.png';
+
+imgArray[7] = new Image();
+imgArray[7].src = 'Images/7.png';
+
+imgArray[8] = new Image();
+imgArray[8].src = 'Images/8.png';
+
+var imgArray2 = new Array();
+
+imgArray2[0] = new Image();
+imgArray2[0].src = 'Images/footerImg.png';
+
+	// var im0 = new Image();
+	// im0.src = "Images/0.png"; 
+	// im0.onload = function () {
+    // image0Ready = 1;
+	// }
+	// var im1 = new Image();
+	// im1.src = "Images/1.png"; 
+	// im1.onload = function () {
+    // image1Ready = 1;
+	// }
+	// var im2 = new Image();
+	// im2.src = "Images/2.png"; 
+	// im2.onload = function () {
+    // image2Ready = 1;
+	// }
+	// var im3 = new Image();
+	// im3.src = "Images/3.png"; 
+	// im3.onload = function () {
+    // image3Ready = 1;
+	// }
+	// var im4 = new Image();
+	// im4.src = "Images/4.png"; 
+	// im4.onload = function () {
+    // image4Ready = 1;
+	// }
+	// var im5 = new Image();
+	// im5src = "Images/5.png"; 
+	// im5.onload = function () {
+    // image5Ready = 1;
+	// }
+	// var im6 = new Image();
+	// im6.src = "Images/6.png"; 
+	// im6.onload = function () {
+    // image6Ready = 1;
+	// }
+    // var im6 = new Image();
+	// im6.src = "Images/6.png"; 
+	// im6.onload = function () {
+    // image6Ready = 1;
+	// }
+	
+	
+	//future Progress Bar HERE
+		
     // Gui buttons
     var buttons = [ { x: 20, y: 440, width: 120, height: 32, text: "New Game"},
-                    { x: 160, y: 440, width: 120, height: 32, text: "Show Moves"},
+                    { x: 160, y: 440, width: 120, height: 32, text: "Hint"},
                     { x: 20, y: 480, width: 120, height: 32, text: "Auto"}];
     
     // Initialize the game
@@ -108,9 +190,11 @@ window.onload = function() {
         // Initialize the two-dimensional tile array
         for (var i=0; i<level.columns; i++) {
             level.tiles[i] = [];
+			// level.tileImage[i] = [];
             for (var j=0; j<level.rows; j++) {
                 // Define a tile type and a shift parameter for animation
                 level.tiles[i][j] = { type: 0, shift:0 }
+				
             }
         }
         
@@ -280,10 +364,10 @@ window.onload = function() {
         drawFrame();
         
         // Draw score
-        context.fillStyle = "#000000";
-        context.font = "24px Verdana";
-        drawCenterText("Score:", 30, level.y+40, 150);
-        drawCenterText(score, 30, level.y+70, 150);
+        context.fillStyle = "#ffffff";
+        context.font = "16px Verdana";
+        drawCenterText("Score:" + score, 180, level.y -20, 150);
+        drawCenterText(score, 50, level.y + 40, 150);
         
         // Draw buttons
         drawButtons();
@@ -331,7 +415,7 @@ window.onload = function() {
         // Draw title
         context.fillStyle = "#ffffff";
         context.font = "24px Verdana";
-        context.fillText("GuiGems 2", 10, 30);
+        context.fillText("Gui Match Mania", 10, 30);
         
         // Display fps
         context.fillStyle = "#ffffff";
@@ -351,6 +435,7 @@ window.onload = function() {
             context.font = "18px Verdana";
             var textdim = context.measureText(buttons[i].text);
             context.fillText(buttons[i].text, buttons[i].x + (buttons[i].width-textdim.width)/2, buttons[i].y+30);
+			context.drawImage(imgArray2[0], 10, 490);
         }
     }
     
@@ -368,9 +453,9 @@ window.onload = function() {
                 if (level.tiles[i][j].type >= 0) {
                     // Get the color of the tile
                     var col = tilecolors[level.tiles[i][j].type];
-                    
+                    var q = tilecolors[level.tiles[i][j]]
                     // Draw the tile using the color
-                    drawTile(coord.tilex, coord.tiley, col[0], col[1], col[2]);
+                    drawTile(coord.tilex, coord.tiley, col[0], col[1], col[2], col[3]);
 					
 					
                 }
@@ -379,7 +464,8 @@ window.onload = function() {
                 if (level.selectedtile.selected) {
                     if (level.selectedtile.column == i && level.selectedtile.row == j) {
                         // Draw a red tile
-                        drawTile(coord.tilex, coord.tiley, 255, 0, 0);
+                        drawTile(coord.tilex -3, coord.tiley -3, 255, 0, 0,7);
+						
 					
                     }
                 }
@@ -403,19 +489,19 @@ window.onload = function() {
             var col2 = tilecolors[level.tiles[currentmove.column2][currentmove.row2].type];
             
             // Draw a black background
-            drawTile(coord1.tilex, coord1.tiley, 0, 0, 0);
-            drawTile(coord2.tilex, coord2.tiley, 0, 0, 0);
+            drawTile(coord1.tilex, coord1.tiley, 0, 0, 0, 8);
+            drawTile(coord2.tilex, coord2.tiley, 0, 0, 0, 8);
             
             // Change the order, depending on the animation state
             if (animationstate == 2) {
                 // Draw the tiles
-                drawTile(coord1shift.tilex, coord1shift.tiley, col1[0], col1[1], col1[2]);
-                drawTile(coord2shift.tilex, coord2shift.tiley, col2[0], col2[1], col2[2]);
+                drawTile(coord1shift.tilex, coord1shift.tiley, col1[0], col1[1], col1[2], col[3]);
+                drawTile(coord2shift.tilex, coord2shift.tiley, col2[0], col2[1], col2[2], col[3]);
 				
             } else {
                 // Draw the tiles
-                drawTile(coord2shift.tilex, coord2shift.tiley, col2[0], col2[1], col2[2]);
-                drawTile(coord1shift.tilex, coord1shift.tiley, col1[0], col1[1], col1[2]);
+                drawTile(coord2shift.tilex, coord2shift.tiley, col2[0], col2[1], col2[2], col[3]);
+                drawTile(coord1shift.tilex, coord1shift.tiley, col1[0], col1[1], col1[2], col[3]);
 				
             }
         }
@@ -429,9 +515,11 @@ window.onload = function() {
     }
     
     // Draw a tile with a color
-    function drawTile(x, y, r, g, b) {
-        context.fillStyle = "rgb(" + r + "," + g + "," + b + ")";
-        context.fillRect(x + 2, y + 2, level.tilewidth - 4, level.tileheight - 4);
+    function drawTile(x, y, r, g, b, i) {
+        // context.fillStyle = "rgb(" + r + "," + g + "," + b + ")";
+        // context.fillRect(x + 2, y + 2, level.tilewidth - 4, level.tileheight - 4);
+		
+		context.drawImage(imgArray[i], x + 1, y + 1);
 		
     }
      
@@ -444,11 +532,11 @@ window.onload = function() {
             if (clusters[i].horizontal) {
                 // Draw a horizontal line
                 context.fillStyle = "#00ff00";
-                context.fillRect(coord.tilex + level.tilewidth/2, coord.tiley + level.tileheight/2 - 4, (clusters[i].length - 1) * level.tilewidth, 8);
+                context.fillRect(coord.tilex + level.tilewidth/2, coord.tiley + level.tileheight/2 - 2, (clusters[i].length - 1) * level.tilewidth, 4);
             } else {
                 // Draw a vertical line
                 context.fillStyle = "#0000ff";
-                context.fillRect(coord.tilex + level.tilewidth/2 - 4, coord.tiley + level.tileheight/2, 8, (clusters[i].length - 1) * level.tileheight);
+                context.fillRect(coord.tilex + level.tilewidth/2 - 2, coord.tiley + level.tileheight/2, 4, (clusters[i].length - 1) * level.tileheight);
             }
         }
     }

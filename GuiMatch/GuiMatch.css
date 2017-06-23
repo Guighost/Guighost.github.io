@@ -6,3 +6,10 @@
 	displaY: block;
 	
 }
+
+
+
+
+@media (device-width: 320px){ 
+#viewport1{width:367px;}
+}
