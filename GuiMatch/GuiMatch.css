@@ -1,15 +1,53 @@
 
 #canvasWrap {
+	position: relative;
+margin-left: auto;
+margin-right: auto;
+	
+	display: block;
+	border: 2px groove black;
+	}
+#wrap2 {
+	background-color: black;
+	transform: translate(-0px, 0px);
+	/* background-image: url("Images/frame.png"); */
+	background-position: center;
+	background-repeat: no-repeat;
+	width: 390px;
+	height: 650px;
+	margin-left: auto;
+	margin-right: auto;
+}
+#viewport1{margin-left: 5px; }
+
+.pBars {
+	border: 2px groove black;
+	border-radius: 25px;
+	width: 350px;
+	min-height: 20px;
 	position: absolute;
-	margin-left: 50%;
-	transform: translate(-170px, 0px);
-	displaY: block;
+	left: 15px;
+	
+}
+#progressBar{
+	width: 350px;
+	background-color: azure;
+	top: 442px;
+	z-index: 950px;
+}
+#myBar {
+	width: 5%;
+	background-color: green;
+	z-index: 1050px;
+	min-height: 18px;
+	left: 10px;
+	transform: translate(-10px, 0px);
 	
 }
 
 
-
-
 @media (device-width: 320px){ 
-#viewport1{width:367px;}
+#progressBar{width: 275px; transform: translate(-5px, -99px);  }
+#viewport1{width:97% }
+#wrap2 {height: 550px; max-width: 100%; }
 }

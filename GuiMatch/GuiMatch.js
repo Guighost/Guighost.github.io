@@ -27,14 +27,17 @@ window.onload = function() {
     var fpstime = 0;
     var framecount = 0;
     var fps = 0;
-   
+	var levelUpScore = 2000;
+	var matchCount = 0;
+	var levelCount = 1;
+	var levelBump = 0;
     // Mouse dragging
     var drag = false;
     
     // Level object
     var level = {
         x: 10,         // X position
-        y: 67,         // Y position
+        y: 87,         // Y position
         columns: 7,     // Number of tile columns
         rows: 7,        // Number of tile rows
         tilewidth: 50,  // Visual width of a tile
@@ -71,7 +74,7 @@ window.onload = function() {
 	
     var gemcolors = 7;
     // Game states
-    var gamestates = { init: 0, ready: 1, resolve: 2 };
+    var gamestates = { init: 0, ready: 1, resolve: 2 , levelUp: 3};
     var gamestate = gamestates.init;
     
     // Score
@@ -127,54 +130,27 @@ var imgArray2 = new Array();
 imgArray2[0] = new Image();
 imgArray2[0].src = 'Images/footerImg.png';
 
-	// var im0 = new Image();
-	// im0.src = "Images/0.png"; 
-	// im0.onload = function () {
-    // image0Ready = 1;
-	// }
-	// var im1 = new Image();
-	// im1.src = "Images/1.png"; 
-	// im1.onload = function () {
-    // image1Ready = 1;
-	// }
-	// var im2 = new Image();
-	// im2.src = "Images/2.png"; 
-	// im2.onload = function () {
-    // image2Ready = 1;
-	// }
-	// var im3 = new Image();
-	// im3.src = "Images/3.png"; 
-	// im3.onload = function () {
-    // image3Ready = 1;
-	// }
-	// var im4 = new Image();
-	// im4.src = "Images/4.png"; 
-	// im4.onload = function () {
-    // image4Ready = 1;
-	// }
-	// var im5 = new Image();
-	// im5src = "Images/5.png"; 
-	// im5.onload = function () {
-    // image5Ready = 1;
-	// }
-	// var im6 = new Image();
-	// im6.src = "Images/6.png"; 
-	// im6.onload = function () {
-    // image6Ready = 1;
-	// }
-    // var im6 = new Image();
-	// im6.src = "Images/6.png"; 
-	// im6.onload = function () {
-    // image6Ready = 1;
-	// }
+imgArray2[1] = new Image();
+imgArray2[1].src = 'Images/levelUp.png';
+
+imgArray2[2] = new Image();
+imgArray2[2].src = 'Images/starCashBack.png';
+
+imgArray2[3] = new Image();
+imgArray2[3].src = 'Images/bigButton.png';	
+
+imgArray2[4] = new Image();
+imgArray2[4].src = 'Images/star.png';	
+
+
 	
 	
 	//future Progress Bar HERE
 		
     // Gui buttons
-    var buttons = [ { x: 20, y: 440, width: 120, height: 32, text: "New Game"},
-                    { x: 160, y: 440, width: 120, height: 32, text: "Hint"},
-                    { x: 20, y: 480, width: 120, height: 32, text: "Auto"}];
+    var buttons = [ { x: 10, y: 475, width: 100, height: 30, text: "New Game"},
+                    { x: 130, y: 475, width: 100, height: 30, text: "Hint"},
+                    { x: 250, y: 475, width: 100, height: 30, text: "Auto"}];
     
     // Initialize the game
    function init() {
@@ -266,6 +242,12 @@ imgArray2[0].src = 'Images/footerImg.png';
                         for (var i=0; i<clusters.length; i++) {
                             // Add extra points for longer clusters
                             score += 100 * (clusters[i].length - 2);;
+							// Draw score
+							context.fillStyle = "#ffff00";
+							context.font = "16px Verdana";
+							drawCenterText("Score:" + score, 180, level.y -60, 175);
+							matchCount = matchCount + (clusters[i].length - 2);
+							progressBar(score);
                         }
                     
                         // Clusters found, remove them
@@ -364,10 +346,10 @@ imgArray2[0].src = 'Images/footerImg.png';
         drawFrame();
         
         // Draw score
-        context.fillStyle = "#ffffff";
+        context.fillStyle = "#ffff00";
         context.font = "16px Verdana";
-        drawCenterText("Score:" + score, 180, level.y -20, 150);
-        drawCenterText(score, 50, level.y + 40, 150);
+        drawCenterText("Score:" + score, 180, level.y -60, 175);
+       
         
         // Draw buttons
         drawButtons();
@@ -396,7 +378,25 @@ imgArray2[0].src = 'Images/footerImg.png';
             
             context.fillStyle = "#ffffff";
             context.font = "24px Verdana";
-            drawCenterText("Game Over!", level.x, level.y + levelheight / 2 + 10, levelwidth);
+            drawCenterText("No More Moves", level.x, level.y + levelheight / 2 - 80, levelwidth);
+			drawCenterText("Game Over!", level.x, level.y + levelheight / 2 - 40, levelwidth);
+        }
+		if (gamestate == gamestates.levelUp) {
+            context.fillStyle = "rgba(255, 0, 255, 0.9)";
+            context.fillRect(level.x - 10, level.y - 10, levelwidth + 20, levelheight + 200);
+            var elem = document.getElementById("myBar");
+			elem.style.width = '1%';
+			context.drawImage(imgArray2[1], 30, 20); // level up back
+			context.drawImage(imgArray2[2], 110, 402); // star cash
+			context.drawImage(imgArray2[3], 105, 482); //Next Button
+			context.drawImage(imgArray2[4], 80, 264); //star1
+			context.font = "22px Verdana";
+            context.fillStyle = "#ff00ff";
+			drawCenterText("Next Level", level.x - 5, level.y + levelheight + 90, levelwidth);
+			if (levelBump == 1){levelCount++; levelBump = 0;
+			levelUpScore = levelUpScore + (levelCount * 1000);}
+			
+			document.getElementById("progressBar").style.display = 'none';
         }
     }
     
@@ -416,11 +416,24 @@ imgArray2[0].src = 'Images/footerImg.png';
         context.fillStyle = "#ffffff";
         context.font = "24px Verdana";
         context.fillText("Gui Match Mania", 10, 30);
-        
+		
+        //draw level count
+		context.fillStyle = "#ffffff";
+        context.font = "12px Verdana";
+        context.fillText("Level: " + levelCount, 2, 50);
+		
+		//draw next Level Goal
+		context.fillStyle = "#ffffff";
+        context.font = "12px Verdana";
+        context.fillText("Next Level at: " + levelUpScore, 200, 50);
+	
+		
+		
+		
         // Display fps
         context.fillStyle = "#ffffff";
         context.font = "12px Verdana";
-        context.fillText("Fps: " + fps, 13, 50);
+        context.fillText("Fps: " + fps, 80, 50);
     }
     
     // Draw buttons
@@ -432,9 +445,9 @@ imgArray2[0].src = 'Images/footerImg.png';
             
             // Draw button text
             context.fillStyle = "#ffffff";
-            context.font = "18px Verdana";
+            context.font = "14px Verdana";
             var textdim = context.measureText(buttons[i].text);
-            context.fillText(buttons[i].text, buttons[i].x + (buttons[i].width-textdim.width)/2, buttons[i].y+30);
+            context.fillText(buttons[i].text, buttons[i].x + (buttons[i].width-textdim.width)/2, buttons[i].y+20);
 			context.drawImage(imgArray2[0], 10, 490);
         }
     }
@@ -482,12 +495,15 @@ imgArray2[0].src = 'Images/footerImg.png';
             var coord1 = getTileCoordinate(currentmove.column1, currentmove.row1, 0, 0);
             var coord1shift = getTileCoordinate(currentmove.column1, currentmove.row1, (animationtime / animationtimetotal) * shiftx, (animationtime / animationtimetotal) * shifty);
             var col1 = tilecolors[level.tiles[currentmove.column1][currentmove.row1].type];
-            
+			var col1Image = [level.tiles[currentmove.column1][currentmove.row1].type];
+			// alert (col1Image);
             // Second tile
             var coord2 = getTileCoordinate(currentmove.column2, currentmove.row2, 0, 0);
             var coord2shift = getTileCoordinate(currentmove.column2, currentmove.row2, (animationtime / animationtimetotal) * -shiftx, (animationtime / animationtimetotal) * -shifty);
             var col2 = tilecolors[level.tiles[currentmove.column2][currentmove.row2].type];
-            
+			var col2Image = [level.tiles[currentmove.column1][currentmove.row1].type];
+		
+           
             // Draw a black background
             drawTile(coord1.tilex, coord1.tiley, 0, 0, 0, 8);
             drawTile(coord2.tilex, coord2.tiley, 0, 0, 0, 8);
@@ -495,13 +511,13 @@ imgArray2[0].src = 'Images/footerImg.png';
             // Change the order, depending on the animation state
             if (animationstate == 2) {
                 // Draw the tiles
-                drawTile(coord1shift.tilex, coord1shift.tiley, col1[0], col1[1], col1[2], col[3]);
-                drawTile(coord2shift.tilex, coord2shift.tiley, col2[0], col2[1], col2[2], col[3]);
+                drawTile(coord1shift.tilex, coord1shift.tiley, col1[0], col1[1], col1[2], col2Image);
+                drawTile(coord2shift.tilex, coord2shift.tiley, col2[0], col2[1], col2[2], col1Image);
 				
             } else {
                 // Draw the tiles
-                drawTile(coord2shift.tilex, coord2shift.tiley, col2[0], col2[1], col2[2], col[3]);
-                drawTile(coord1shift.tilex, coord1shift.tiley, col1[0], col1[1], col1[2], col[3]);
+                drawTile(coord2shift.tilex, coord2shift.tiley, col2[0], col2[1], col2[2], col2Image);
+                drawTile(coord1shift.tilex, coord1shift.tiley, col1[0], col1[1], col1[2], col1Image);
 				
             }
         }
@@ -558,10 +574,11 @@ imgArray2[0].src = 'Images/footerImg.png';
     }
     
     // Start a new game
-    function newGame() {
+    function newGame(i) {
         // Reset score
-        score = 0;
-        
+		if (i < 1) { score = 0; levelUpScore = 2000;}
+		progressBar(100);
+        document.getElementById("progressBar").style.display = 'block';
         // Set the gamestate to ready
         gamestate = gamestates.ready;
         
@@ -934,7 +951,7 @@ imgArray2[0].src = 'Images/footerImg.png';
                 // Button i was clicked
                 if (i == 0) {
                     // New Game
-                    newGame();
+                    newGame(0);
                 } else if (i == 1) {
                     // Show Moves
                     showmoves = !showmoves;
@@ -946,6 +963,8 @@ imgArray2[0].src = 'Images/footerImg.png';
                 }
             }
         }
+		if(gamestate == gamestates.levelUp) { newGame(1);} 
+		if (gameover) {newGame(0);}
     }
     
     function onMouseUp(e) {
@@ -967,6 +986,34 @@ imgArray2[0].src = 'Images/footerImg.png';
         };
     }
     
+	function progressBar(i) {
+		// alert(i);
+		
+		var elem = document.getElementById("myBar");
+		var currentWidth = percentwidth(elem);
+		// alert("current " + currentWidth);
+		var width = currentWidth;
+		var increase = ((i / levelUpScore) * 100  );
+		if (increase < 1) {increase = 1}
+			// alert ("increase = " + increase);
+		var id = setInterval(frame, 10);
+		function frame() {
+			var currentWidth2 = percentwidth(elem);
+			if (currentWidth2 <= increase) {width++; elem.style.width = width + '%'; currentWidth = elem.style.width; 	}
+			else {clearInterval(id); }
+			}
+		if (increase >= 100) { levelUp()}
+		
+		}
+	function percentwidth(elem){
+			var pa= elem.offsetParent || elem;
+			return ((elem.offsetWidth/pa.offsetWidth)*100).toFixed(2);
+			}
+			
+	function levelUp() {
+		gamestate = gamestates.levelUp;
+		levelBump = 1;
+	}
     // Call init to start the game
     init();
 };
