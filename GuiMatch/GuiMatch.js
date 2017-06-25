@@ -31,12 +31,13 @@ window.onload = function() {
 	var matchCount = 0;
 	var levelCount = 1;
 	var levelBump = 0;
+	var previousScore = 0;
     // Mouse dragging
     var drag = false;
     
     // Level object
     var level = {
-        x: 10,         // X position
+        x: 12,         // X position
         y: 87,         // Y position
         columns: 7,     // Number of tile columns
         rows: 7,        // Number of tile rows
@@ -142,15 +143,19 @@ imgArray2[3].src = 'Images/bigButton.png';
 imgArray2[4] = new Image();
 imgArray2[4].src = 'Images/star.png';	
 
+imgArray2[5] = new Image();
+imgArray2[5].src = 'Images/3rdStar.png';
 
+imgArray2[6] = new Image();
+imgArray2[6].src = 'Images/hudLevel.png';	
 	
 	
 	//future Progress Bar HERE
 		
     // Gui buttons
-    var buttons = [ { x: 10, y: 475, width: 100, height: 30, text: "New Game"},
-                    { x: 130, y: 475, width: 100, height: 30, text: "Hint"},
-                    { x: 250, y: 475, width: 100, height: 30, text: "Auto"}];
+    var buttons = [ { x: 15, y: 475, width: 100, height: 30, text: "New Game"},
+                    { x: 135, y: 475, width: 100, height: 30, text: "Hint"},
+                    { x: 255, y: 475, width: 100, height: 30, text: "Auto"}];
     
     // Initialize the game
    function init() {
@@ -222,7 +227,8 @@ imgArray2[4].src = 'Images/star.png';
                         mouseSwap(move.column1, move.row1, move.column2, move.row2);
                     } else {
                         // No moves left, Game Over. We could start a new game.
-                        // newGame();
+						score = 0;
+                        newGame();
                     }
                     animationtime = 0;
                 }
@@ -241,13 +247,16 @@ imgArray2[4].src = 'Images/star.png';
                         // Add points to the score
                         for (var i=0; i<clusters.length; i++) {
                             // Add extra points for longer clusters
+						
                             score += 100 * (clusters[i].length - 2);;
 							// Draw score
 							context.fillStyle = "#ffff00";
-							context.font = "16px Verdana";
-							drawCenterText("Score:" + score, 180, level.y -60, 175);
+							context.font = "22px Comic Sans MS";
+							drawCenterText("Score", 230, level.y -75, 175);
+							context.font = "26px Comic Sans MS";
+							drawCenterText(score, 230, level.y -50, 175);
 							matchCount = matchCount + (clusters[i].length - 2);
-							progressBar(score);
+							progressBar(score , levelCount);
                         }
                     
                         // Clusters found, remove them
@@ -347,8 +356,11 @@ imgArray2[4].src = 'Images/star.png';
         
         // Draw score
         context.fillStyle = "#ffff00";
-        context.font = "16px Verdana";
-        drawCenterText("Score:" + score, 180, level.y -60, 175);
+        context.font = "16px Comic Sans MS";
+        
+		drawCenterText("Score", 230, level.y -70, 175);
+		context.font = "22px Comic Sans MS";
+		drawCenterText(score, 230, level.y -50, 175);
        
         
         // Draw buttons
@@ -377,22 +389,25 @@ imgArray2[4].src = 'Images/star.png';
             context.fillRect(level.x, level.y, levelwidth, levelheight);
             
             context.fillStyle = "#ffffff";
-            context.font = "24px Verdana";
+            context.font = "24px Comic Sans MS";
             drawCenterText("No More Moves", level.x, level.y + levelheight / 2 - 80, levelwidth);
 			drawCenterText("Game Over!", level.x, level.y + levelheight / 2 - 40, levelwidth);
         }
 		if (gamestate == gamestates.levelUp) {
             context.fillStyle = "rgba(255, 0, 255, 0.9)";
-            context.fillRect(level.x - 10, level.y - 10, levelwidth + 20, levelheight + 200);
+            context.fillRect(level.x - 10, level.y - 10, levelwidth + 30, levelheight + 210);
             var elem = document.getElementById("myBar");
 			elem.style.width = '1%';
-			context.drawImage(imgArray2[1], 30, 20); // level up back
-			context.drawImage(imgArray2[2], 110, 402); // star cash
-			context.drawImage(imgArray2[3], 105, 482); //Next Button
-			context.drawImage(imgArray2[4], 80, 264); //star1
-			context.font = "22px Verdana";
+			context.drawImage(imgArray2[1], 37, 50); // level up back
+			context.drawImage(imgArray2[2], 117, 432); // star cash
+			context.drawImage(imgArray2[3], 112, 512); //Next Button
+			context.drawImage(imgArray2[4], 87, 296); //star1
+			context.drawImage(imgArray2[4], 217, 296); //star2
+			context.drawImage(imgArray2[5], 147, 262); //star3 Bonus star
+			
+			context.font = "22px Comic Sans MS";
             context.fillStyle = "#ff00ff";
-			drawCenterText("Next Level", level.x - 5, level.y + levelheight + 90, levelwidth);
+			drawCenterText("Next Level", level.x + 2, level.y + levelheight + 120, levelwidth);
 			if (levelBump == 1){levelCount++; levelBump = 0;
 			levelUpScore = levelUpScore + (levelCount * 1000);}
 			
@@ -414,26 +429,27 @@ imgArray2[4].src = 'Images/star.png';
         
         // Draw title
         context.fillStyle = "#ffffff";
-        context.font = "24px Verdana";
-        context.fillText("Gui Match Mania", 10, 30);
+        context.font = "24px Comic Sans MS";
+        context.fillText("Gui Match Mania", 5, 20);
 		
+		context.drawImage(imgArray2[6], 50, 22)
         //draw level count
-		context.fillStyle = "#ffffff";
-        context.font = "12px Verdana";
-        context.fillText("Level: " + levelCount, 2, 50);
+		context.fillStyle = "#000000";
+        context.font = "16px Comic Sans MS";
+        context.fillText("Level: " + levelCount, 160, 55);
 		
 		//draw next Level Goal
-		context.fillStyle = "#ffffff";
-        context.font = "12px Verdana";
-        context.fillText("Next Level at: " + levelUpScore, 200, 50);
+		// context.fillStyle = "#ffffff";
+        // context.font = "16px Comic Sans MS";
+        // context.fillText("Next Level at: " + levelUpScore, 200, 55);
 	
 		
 		
 		
         // Display fps
         context.fillStyle = "#ffffff";
-        context.font = "12px Verdana";
-        context.fillText("Fps: " + fps, 80, 50);
+        context.font = "10px Comic Sans MS";
+        context.fillText("Fps: " + fps, 8, 55);
     }
     
     // Draw buttons
@@ -445,7 +461,7 @@ imgArray2[4].src = 'Images/star.png';
             
             // Draw button text
             context.fillStyle = "#ffffff";
-            context.font = "14px Verdana";
+            context.font = "16px Comic Sans MS";
             var textdim = context.measureText(buttons[i].text);
             context.fillText(buttons[i].text, buttons[i].x + (buttons[i].width-textdim.width)/2, buttons[i].y+20);
 			context.drawImage(imgArray2[0], 10, 490);
@@ -578,7 +594,7 @@ imgArray2[4].src = 'Images/star.png';
     function newGame(i) {
         // Reset score
 		if (i < 1) { score = 0; levelUpScore = 2000;}
-		progressBar(100);
+		progressBar(score , levelCount);
         document.getElementById("progressBar").style.display = 'block';
         // Set the gamestate to ready
         gamestate = gamestates.ready;
@@ -960,12 +976,12 @@ imgArray2[4].src = 'Images/star.png';
                 } else if (i == 2) {
                     // AI Bot
                     aibot = !aibot;
-                    buttons[i].text = (aibot?"Disable":"Enable") + " AI Bot";
+                    buttons[i].text = "Auto " +(aibot?"On":"Off") ;
                 }
             }
         }
-		if(gamestate == gamestates.levelUp) { newGame(1);} 
-		if (gameover) {newGame(0);}
+		if(gamestate == gamestates.levelUp) { newGame(1); progressBar(score, levelCount)} 
+		if (gameover) {newGame(0); score = 0;}
     }
     
     function onMouseUp(e) {
@@ -987,14 +1003,14 @@ imgArray2[4].src = 'Images/star.png';
         };
     }
     
-	function progressBar(i) {
+	function progressBar(i, levelCount) {
 		// alert(i);
 		
 		var elem = document.getElementById("myBar");
 		var currentWidth = percentwidth(elem);
 		// alert("current " + currentWidth);
 		var width = currentWidth;
-		var increase = ((i / levelUpScore) * 100  );
+		var increase = (( i / levelUpScore ) * 100  );
 		if (increase < 1) {increase = 1}
 			// alert ("increase = " + increase);
 		var id = setInterval(frame, 10);
