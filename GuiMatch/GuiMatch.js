@@ -405,11 +405,11 @@ imgArray2[4].src = 'Images/star.png';
         // Draw background and a border
         context.fillStyle = "#d0d0d0";
         context.fillRect(0, 0, canvas.width, canvas.height);
-        context.fillStyle = "#e8eaec";
+        context.fillStyle = "#33ccff";
         context.fillRect(1, 1, canvas.width-2, canvas.height-2);
         
         // Draw header
-        context.fillStyle = "#303030";
+        context.fillStyle = "#cc00cc";
         context.fillRect(0, 0, canvas.width, 65);
         
         // Draw title
@@ -440,7 +440,7 @@ imgArray2[4].src = 'Images/star.png';
     function drawButtons() {
         for (var i=0; i<buttons.length; i++) {
             // Draw button shape
-            context.fillStyle = "#000000";
+            context.fillStyle = "#cc00cc";
             context.fillRect(buttons[i].x, buttons[i].y, buttons[i].width, buttons[i].height);
             
             // Draw button text
@@ -511,14 +511,15 @@ imgArray2[4].src = 'Images/star.png';
             // Change the order, depending on the animation state
             if (animationstate == 2) {
                 // Draw the tiles
-                drawTile(coord1shift.tilex, coord1shift.tiley, col1[0], col1[1], col1[2], col2Image);
-                drawTile(coord2shift.tilex, coord2shift.tiley, col2[0], col2[1], col2[2], col1Image);
+                drawTile(coord1shift.tilex, coord1shift.tiley, col1[0], col1[1], col1[2], col1[3]);
+				drawTile(coord2shift.tilex, coord2shift.tiley, col2[0], col2[1], col2[2], col2[3]);
+				
 				
             } else {
                 // Draw the tiles
-                drawTile(coord2shift.tilex, coord2shift.tiley, col2[0], col2[1], col2[2], col2Image);
-                drawTile(coord1shift.tilex, coord1shift.tiley, col1[0], col1[1], col1[2], col1Image);
-				
+                drawTile(coord2shift.tilex, coord2shift.tiley, col2[0], col2[1], col2[2], col1[3]);
+				drawTile(coord1shift.tilex, coord1shift.tiley, col1[0], col1[1], col1[2], col2[3]);
+								
             }
         }
     }

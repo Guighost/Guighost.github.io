@@ -37,7 +37,7 @@ margin-right: auto;
 }
 #myBar {
 	width: 5%;
-	background-color: green;
+	background-color: #66ff66;
 	z-index: 1050px;
 	min-height: 18px;
 	left: 10px;
