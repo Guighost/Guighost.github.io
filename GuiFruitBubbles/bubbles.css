@@ -361,6 +361,7 @@ animation-name: inStreakUp;
 	
 	z-index: 200;
 }
+#toMatch { position: absolute; margin-left: 50%; transform: translate(-60px,50px);}
 .clsIntroBtn {
 	position: absolute;
 	
