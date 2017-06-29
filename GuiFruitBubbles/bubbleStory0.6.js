@@ -157,6 +157,7 @@ document.getElementById("lvlSelectParent").addEventListener("click", detectTile)
 		levelcount = parseInt(numOnly);
 		score = localStorage["Score"];
 		// alert(levelcount);
+		
 		savedGameLoad = 1;
 		fromLoadMenu = 1;
     }
@@ -1084,6 +1085,18 @@ function loadOnLoad() {
 			backcolor2 = '#808080';
 			backcolor3 = '#14141f';
 		}
+		//piggy background colors
+		if (parseInt(levelcount) >= 85 && (parseInt(levelcount) <= 90)) {
+			backcolor1 = '#2e2e1f';
+			backcolor2 = '#808080';
+			backcolor3 = '#14141f';
+		}
+		//emoti background colors
+		if (parseInt(levelcount) >= 91 && (parseInt(levelcount) <= 96)) {
+			backcolor1 = '#2e2e1f';
+			backcolor2 = '#808080';
+			backcolor3 = '#14141f';
+		}
 	//draw the level background with the level specific ranges
 		var grd = context.createLinearGradient(0, 0, canvas.width, canvas.height);
 		// light blue
@@ -1224,7 +1237,7 @@ function loadOnLoad() {
 		/////// GG- beat the level- create another
 		 if (gamestate == gamestates.levelUp) {
 			 //add streak score and reset variables
-			 if (inStreak == 1) {
+			 if (inStreak >= 1) {
 				 snd6.pause();
 				inStreakCount = 0;
 				inStreak = 0;
@@ -1293,26 +1306,26 @@ function loadOnLoad() {
 				document.getElementById("lvlStatus5").src = "Hud/redTrophy.png";
 			} 
 			else if (parseInt(levelcount) == 37 || parseInt(levelcount) == 43 || parseInt(levelcount) == 49 || parseInt(levelcount) == 55 ||
-			parseInt(levelcount) == 61 || parseInt(levelcount) == 67 || parseInt(levelcount) == 73 || parseInt(levelcount) == 79 ){
+			parseInt(levelcount) == 61 || parseInt(levelcount) == 67 || parseInt(levelcount) == 73 || parseInt(levelcount) == 79 || parseInt(levelcount) == 85 || parseInt(levelcount) == 91 ){
 				document.getElementById("lvlStatus1").src = "Hud/redTrophy.png";
 				} 
 			else if (parseInt(levelcount) == 38 || parseInt(levelcount) == 44 || parseInt(levelcount) == 50 || parseInt(levelcount) == 56 || 
-			parseInt(levelcount) == 62 || parseInt(levelcount) == 68 || parseInt(levelcount) == 74 || parseInt(levelcount) == 80 ){
+			parseInt(levelcount) == 62 || parseInt(levelcount) == 68 || parseInt(levelcount) == 74 || parseInt(levelcount) == 80 || parseInt(levelcount) == 86 || parseInt(levelcount) == 92){
 				document.getElementById("lvlStatus1").src = "Hud/redTrophy.png"; document.getElementById("lvlStatus2").src = "Hud/redTrophy.png";
 					}
 			else if (parseInt(levelcount) == 39 || parseInt(levelcount) == 45 || parseInt(levelcount) == 51 || parseInt(levelcount) == 57 ||
-			parseInt(levelcount) == 63 || parseInt(levelcount) == 69 || parseInt(levelcount) == 75 || parseInt(levelcount) == 81){
+			parseInt(levelcount) == 63 || parseInt(levelcount) == 69 || parseInt(levelcount) == 75 || parseInt(levelcount) == 81 || parseInt(levelcount) == 87 || parseInt(levelcount) == 93){
 				document.getElementById("lvlStatus1").src = "Hud/redTrophy.png"; document.getElementById("lvlStatus2").src = "Hud/redTrophy.png";
 				document.getElementById("lvlStatus3").src = "Hud/redTrophy.png";
 			}
 			else if (parseInt(levelcount) == 40 || parseInt(levelcount) == 46 || parseInt(levelcount) == 52 || parseInt(levelcount) == 58 || 
-			parseInt(levelcount) == 64 || parseInt(levelcount) == 70 || parseInt(levelcount) == 76 || parseInt(levelcount) == 82){
+			parseInt(levelcount) == 64 || parseInt(levelcount) == 70 || parseInt(levelcount) == 76 || parseInt(levelcount) == 82 || parseInt(levelcount) == 88 || parseInt(levelcount) == 94){
 				document.getElementById("lvlStatus1").src = "Hud/redTrophy.png"; document.getElementById("lvlStatus2").src = "Hud/redTrophy.png";
 				document.getElementById("lvlStatus3").src = "Hud/redTrophy.png"; document.getElementById("lvlStatus4").src = "Hud/redTrophy.png";
 				
 			} 
 			else if (parseInt(levelcount) == 41 || parseInt(levelcount) == 47 || parseInt(levelcount) == 53 || parseInt(levelcount) == 59 ||
-			parseInt(levelcount) == 65 || parseInt(levelcount) == 71 || parseInt(levelcount) == 77 || parseInt(levelcount) == 83){
+			parseInt(levelcount) == 65 || parseInt(levelcount) == 71 || parseInt(levelcount) == 77 || parseInt(levelcount) == 83 || parseInt(levelcount) == 89 || parseInt(levelcount) == 95){
 				 document.getElementById("lvlStatus1").src = "Hud/redTrophy.png"; document.getElementById("lvlStatus2").src = "Hud/redTrophy.png";
 				document.getElementById("lvlStatus3").src = "Hud/redTrophy.png"; document.getElementById("lvlStatus4").src = "Hud/redTrophy.png";
 				document.getElementById("lvlStatus5").src = "Hud/redTrophy.png";
@@ -1459,7 +1472,7 @@ function loadOnLoad() {
 				}
 		else if (parseInt(levelcount) >= 55 && parseInt(levelcount) <= 59) {
 		images = loadImages(["Bubbles/spellBubbles1.png"]);
-		document.body.style.backgroundImage = "url('Backgrounds/wizardworldBack.png')";
+		document.body.style.backgroundImage = "url('Backgrounds/sky.png')";
 		// change level up badge image display
 		badge.style.backgroundImage = "url('wizardWorld.png')";
 		}
@@ -1487,6 +1500,19 @@ function loadOnLoad() {
 		// change level up badge image display
 		badge.style.backgroundImage = "url('vortexofPower.png')";
 		}
+		else if (parseInt(levelcount) >= 85 && parseInt(levelcount) <= 89) {
+		images = loadImages(["Bubbles/pigBubbles.png"]);
+		document.body.style.backgroundImage = "url('Backgrounds/gummyBack.png')";
+		// change level up badge image display
+		badge.style.backgroundImage = "url('piggyPlanetBadge.png')";
+		}
+		else if (parseInt(levelcount) >= 91 && parseInt(levelcount) <= 96) {
+		images = loadImages(["Bubbles/emotiBubbles.png"]);
+		document.body.style.backgroundImage = "url('Backgrounds/sky.png')";
+		// change level up badge image display
+		badge.style.backgroundImage = "url('emotiWorldBadge.png')";
+		}
+		
 		
 		///////
         bubbleimage = images[0];
@@ -1755,7 +1781,7 @@ function loadOnLoad() {
 		}
 		else if (parseInt(levelcount) >= 55 && parseInt(levelcount) <= 59) {
 		images = loadImages(["Bubbles/spellBubbles1.png"]);
-		document.body.style.backgroundImage = "url('Backgrounds/wizardworldBack.png')";
+		document.body.style.backgroundImage = "url('Backgrounds/sky.png')";
 		}
 		else if (parseInt(levelcount) >= 61 && parseInt(levelcount) <= 65) {
 		images = loadImages(["Bubbles/spellBubbles2.png"]);
@@ -1774,6 +1800,16 @@ function loadOnLoad() {
 		else if (parseInt(levelcount) >= 79 && parseInt(levelcount) <= 83) {
 		images = loadImages(["Bubbles/vortexBubbles.png"]);
 		document.body.style.backgroundImage = "url('Backgrounds/space_bg.gif')";
+		document.body.style = "background-size: 100% 100%";
+		}
+		else if (parseInt(levelcount) >= 85 && parseInt(levelcount) <= 89) {
+		images = loadImages(["Bubbles/pigBubbles.png"]);
+		document.body.style.backgroundImage = "url('Backgrounds/gummyBack.png')";
+		document.body.style = "background-size: 100% 100%";
+		}
+		else if (parseInt(levelcount) >= 91 && parseInt(levelcount) <= 95) {
+		images = loadImages(["Bubbles/emotiBubbles.png"]);
+		document.body.style.backgroundImage = "url('Backgrounds/sky.png')";
 		document.body.style = "background-size: 100% 100%";
 		}
 //adjust levelnew row
@@ -2087,6 +2123,20 @@ function loadOnLoad() {
 				document.getElementById("warp").style.display = 'block';
 				setTimeout(function(){document.getElementById("warp").style.display = 'none';}, 2000)
 				document.getElementById("mapImg").src="Maps/mapVortex.png";
+				document.getElementById("story").innerHTML = "Swirling Powers";
+			document.getElementById("mapDiv").style.display = 'block'; 
+			}
+			else if (parseInt(levelcount) == 85) {
+				document.getElementById("warp").style.display = 'block';
+				setTimeout(function(){document.getElementById("warp").style.display = 'none';}, 2000)
+				document.getElementById("mapImg").src="Maps/mapPiggy.png";
+				document.getElementById("story").innerHTML = "Pigs everywhere";
+			document.getElementById("mapDiv").style.display = 'block'; 
+			}
+			else if (parseInt(levelcount) == 91) {
+				document.getElementById("warp").style.display = 'block';
+				setTimeout(function(){document.getElementById("warp").style.display = 'none';}, 2000)
+				document.getElementById("mapImg").src="Maps/mapEmotiWorld.png";
 				document.getElementById("story").innerHTML = "Flying balls of Power";
 			document.getElementById("mapDiv").style.display = 'block'; 
 			}
@@ -2282,6 +2332,16 @@ if (parseInt(levelcount) >= 7 && parseInt(levelcount) <=12 ) {
 				document.getElementById("mapImg").src="Maps/mapVortex.png";
 				document.getElementById("story").innerHTML = "Zone 14";
 			document.getElementById("mapDiv").style.display = 'block'; 
+			}
+	else if (parseInt(levelcount) >= 85 && parseInt(levelcount) <= 90 ) {
+				document.getElementById("mapImg").src="Maps/mapPiggy.png";
+				document.getElementById("story").innerHTML = "Zone 15";
+			document.getElementById("mapDiv").style.display = 'block'; 
+			}	
+	else if (parseInt(levelcount) >= 91 && parseInt(levelcount) <= 96 ) {
+				document.getElementById("mapImg").src="Maps/mapEmotiWorld.png";
+				document.getElementById("story").innerHTML = "Zone 16";
+			document.getElementById("mapDiv").style.display = 'block'; 
 			}				
 	else if (parseInt(levelcount) >= 1 && parseInt(levelcount) <= 6 ) {
 				document.getElementById("mapImg").src="Maps/mapForest.png";
@@ -2317,7 +2377,7 @@ function loadLevelSelect(){
 	 
 	var leftA = document.getElementsByName("leftarrow");
 		var leftA2 = leftA[0];
-	leftA2.style.display = 'none';
+		if (levelcount >= 1 || levelcount <= 6) {leftA2.style.display = 'none';}
 	adjustStarImages();
 	document.getElementById("lvlSelectParent").style.display = 'block';
 	closeSave();
@@ -2467,7 +2527,35 @@ function clickRight(){
 		document.getElementById("grid13").style.display = 'none';
 		document.getElementById("grid14").style.display = 'block';
 		leftA2.style.display = 'block'
-		}		
+		}
+	else if (document.getElementById("grid14").offsetWidth > 0 && document.getElementById("grid14").offsetHeight > 0){
+		document.getElementById("grid1").style.display = 'none';
+		document.getElementById("grid2").style.display = 'none';
+		document.getElementById("grid3").style.display = 'none';
+		document.getElementById("grid4").style.display = 'none';
+		document.getElementById("grid5").style.display = 'none';
+		document.getElementById("grid6").style.display = 'none';
+		document.getElementById("grid7").style.display = 'none';
+		document.getElementById("grid8").style.display = 'none';
+		document.getElementById("grid9").style.display = 'none';
+		document.getElementById("grid14").style.display = 'none';
+		document.getElementById("grid15").style.display = 'block';
+		leftA2.style.display = 'block'
+		}	
+	else if (document.getElementById("grid15").offsetWidth > 0 && document.getElementById("grid15").offsetHeight > 0){
+		document.getElementById("grid1").style.display = 'none';
+		document.getElementById("grid2").style.display = 'none';
+		document.getElementById("grid3").style.display = 'none';
+		document.getElementById("grid4").style.display = 'none';
+		document.getElementById("grid5").style.display = 'none';
+		document.getElementById("grid6").style.display = 'none';
+		document.getElementById("grid7").style.display = 'none';
+		document.getElementById("grid8").style.display = 'none';
+		document.getElementById("grid9").style.display = 'none';
+		document.getElementById("grid15").style.display = 'none';
+		document.getElementById("grid16").style.display = 'block';
+		leftA2.style.display = 'block'
+		}	
 	else { return;}
 	}
 	
@@ -2589,6 +2677,26 @@ function clickLeft(){
 		document.getElementById("grid13").style.display = 'block';
 		document.getElementById("grid14").style.display = 'none';
 		}
+	else if (document.getElementById("grid15").offsetWidth > 0 && document.getElementById("grid15").offsetHeight > 0){
+		document.getElementById("grid2").style.display = 'none';
+		document.getElementById("grid3").style.display = 'none';
+		document.getElementById("grid4").style.display = 'none';
+		document.getElementById("grid7").style.display = 'none';
+		document.getElementById("grid8").style.display = 'none';
+		document.getElementById("grid9").style.display = 'none';
+		document.getElementById("grid14").style.display = 'block';
+		document.getElementById("grid15").style.display = 'none';
+		}
+	else if (document.getElementById("grid16").offsetWidth > 0 && document.getElementById("grid16").offsetHeight > 0){
+		document.getElementById("grid2").style.display = 'none';
+		document.getElementById("grid3").style.display = 'none';
+		document.getElementById("grid4").style.display = 'none';
+		document.getElementById("grid7").style.display = 'none';
+		document.getElementById("grid8").style.display = 'none';
+		document.getElementById("grid9").style.display = 'none';
+		document.getElementById("grid15").style.display = 'block';
+		document.getElementById("grid16").style.display = 'none';
+		}
 	else { return;}
 	}
 
@@ -2600,7 +2708,7 @@ function closeLvlSelect() {
 var checkStarBefore = 0;
 //adjust Level Select Stars
 function adjustStarImages() {
-	for (var i=1; i<=84; i++) {
+	for (var i=1; i<=96; i++) {
 		var iName = "starImg" + i ;
 		var tileImg = "smg-" + i;
 		var lvlToCheck = "LvlScore" + i;
@@ -2635,7 +2743,7 @@ function adjustStarImages() {
 			var imageBeforePath = imgBefore.src; 
 			// alert (tileImg + " = TileImg before checkstar " + imageBeforePath + " = image before" );
 			
-			if (i <= 84) {tileImg = "smg-" + i;}
+			if (i <= 96) {tileImg = "smg-" + i;}
 			var tileToChange = document.getElementById(tileImg);
 			tileToChange.src = "lock.png";
 			// alert("check star before = " + checkStarBefore);
