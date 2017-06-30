@@ -2137,7 +2137,7 @@ function loadOnLoad() {
 				document.getElementById("warp").style.display = 'block';
 				setTimeout(function(){document.getElementById("warp").style.display = 'none';}, 2000)
 				document.getElementById("mapImg").src="Maps/mapEmotiWorld.png";
-				document.getElementById("story").innerHTML = "Flying balls of Power";
+				document.getElementById("story").innerHTML = "Flying Emojis";
 			document.getElementById("mapDiv").style.display = 'block'; 
 			}
 			lvlUp();
