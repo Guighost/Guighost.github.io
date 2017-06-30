@@ -430,7 +430,7 @@ imgArray2[6].src = 'Images/hudLevel.png';
         // Draw title
         context.fillStyle = "#ffffff";
         context.font = "24px Comic Sans MS";
-        context.fillText("Gui Match Mania", 5, 20);
+        context.fillText("Gui Match", 5, 20);
 		
 		context.drawImage(imgArray2[6], 50, 22)
         //draw level count
@@ -582,7 +582,8 @@ imgArray2[6].src = 'Images/hudLevel.png';
             var coord2 = getTileCoordinate(moves[i].column2, moves[i].row2, 0, 0);
             
             // Draw a line from tile 1 to tile 2
-            context.strokeStyle = "#ff0000";
+            context.strokeStyle = "#ebf442";
+			context.lineWidth= 4;
             context.beginPath();
             context.moveTo(coord1.tilex + level.tilewidth/2, coord1.tiley + level.tileheight/2);
             context.lineTo(coord2.tilex + level.tilewidth/2, coord2.tiley + level.tileheight/2);
