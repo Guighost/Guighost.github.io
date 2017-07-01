@@ -155,8 +155,9 @@ imgArray2[6].src = 'Images/hudLevel.png';
     // Gui buttons
     var buttons = [ { x: 15, y: 475, width: 100, height: 30, text: "New Game"},
                     { x: 135, y: 475, width: 100, height: 30, text: "Hint"},
-                    { x: 255, y: 475, width: 100, height: 30, text: "Auto"}];
-    
+                    { x: 255, y: 475, width: 100, height: 30, text: "Auto"}
+					];
+
     // Initialize the game
    function init() {
 		
@@ -206,7 +207,8 @@ imgArray2[6].src = 'Images/hudLevel.png';
         
         if (gamestate == gamestates.ready) {
             // Game is ready for player input
-            
+			
+      
             // Check for game over
             if (moves.length <= 0) {
                 gameover = true;
@@ -878,7 +880,24 @@ imgArray2[6].src = 'Images/hudLevel.png';
         
         return false;
     }
-    
+	
+	
+	
+	//GG -swap tiles automatically until there are moves
+    function shuffle(){
+		var rowcount1 =	level.rows;
+		var colCount1 = level.columns;
+		for(var r =0; r < rowcount1; r++) {
+				for (var c = 0; c < colCount1; c++) {
+				
+				 var typeswap = level.tiles[r][c].type;
+				level.tiles[r][c].type = level.tiles[r][c +1].type;
+				level.tiles[r][c + 1].type = typeswap;
+				}
+		}
+	}
+	
+	
     // Swap two tiles in the level
     function swap(x1, y1, x2, y2) {
         var typeswap = level.tiles[x1][y1].type;
@@ -1055,5 +1074,6 @@ imgArray2[6].src = 'Images/hudLevel.png';
 		}
 	}
     // Call init to start the game
+	
     init();
 };
