@@ -552,6 +552,7 @@ imgArray2[6].src = 'Images/hudLevel.png';
         // context.fillStyle = "rgb(" + r + "," + g + "," + b + ")";
         // context.fillRect(x + 2, y + 2, level.tilewidth - 4, level.tileheight - 4);
 		
+		
 		context.drawImage(imgArray[i], x + 1, y + 1);
 		
     }
@@ -982,7 +983,17 @@ imgArray2[6].src = 'Images/hudLevel.png';
             }
         }
 		if(gamestate == gamestates.levelUp) { newGame(1); progressBar(score, levelCount)} 
-		if (gameover) {newGame(0); score = 0;}
+		if (gameover) {newGame(0); score = 0; levelCount = 1; progressBar(score, levelCount); levelUpScore = 2000; 
+		for (var q=0; q <= 6; q++) {
+				var newsource = imgArray[q].src;
+				newsource = "Images/" + q + ".png";
+				imgArray[q].src = newsource;
+					
+			}
+		
+		
+		
+		}
     }
     
     function onMouseUp(e) {
@@ -1031,6 +1042,17 @@ imgArray2[6].src = 'Images/hudLevel.png';
 	function levelUp() {
 		gamestate = gamestates.levelUp;
 		levelBump = 1;
+		var levelAdjust = levelCount + 1;
+		
+		if (parseInt(levelAdjust) >= 2) {
+			for (var q=0; q <= 6; q++) {
+				var newsource = imgArray[q].src;
+				newsource = "Images/" + levelAdjust + q + ".png";
+				imgArray[q].src = newsource;
+					
+			}
+			
+		}
 	}
     // Call init to start the game
     init();
