@@ -13,7 +13,19 @@
 </head>
 
 <body>
-
+  <!--AUDIO Files-->
+    <audio id="gameSoundLoop" class="gameSounds" loop autoplay>
+        <source src="Sounds\guiMatchLoop.mp3" type="audio/mp3">
+        </audio>
+    <audio id="swapSound" class="gameSounds">
+        <source src="Sounds\gametinywarp.mp3" type="audio/mp3">
+        </audio>
+    <audio id="levelUpSound" class="gameSounds">
+        <source src="Sounds\levelup.mp3" type="audio/mp3">
+        </audio>
+	 <audio id="gameOverSound" class="gameSounds">
+        <source src="Sounds\shortOver.mp3" type="audio/mp3">
+        </audio>
 <div id ="cover">
 
 
@@ -23,7 +35,13 @@
 			<canvas id="viewport1" width="375" height="640"></canvas>
 			<div id="progressBar" class="pBars"><div id="myBar" class="pBars"></div></div>
 		</div>
-		<div> </div>
+		<div> <a id="starCashOnOver">HERE</a> </div>
+		<!-- hidden level up div -->
+		<!-- <div id="gameOverBack" >  -->
+			<!-- <a id="starCashOnOver">HERE</a> -->
+			<!-- <a id="newFromOver" onclick= "newFromOver()"> </a> -->
+			<!-- <a id ="buyIt" onclick= "shuffleFromOver()" > </a> -->
+		<!-- </div> -->
 	</div>
 <script type='text/javascript' src='GuiMatch.js'></script>	
 </body>

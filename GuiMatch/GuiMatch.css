@@ -7,6 +7,59 @@ background-repeat: repeat-y;
 background-position: center;
   
 }
+#shuffle { border:2px solid groove;
+background-color: red;
+magin-top: 10px;}
+#gameOverBack {
+	background-image: url("Images/Hud/gameOver.png");
+	margin-left: auto;
+	margin-right: auto;
+	position: absolute;
+	top: 69px;
+	width: 390px;
+	height: 650px;
+	background-size: contain;
+	background-repeat: no-repeat;
+	display: none;
+	
+}
+#newFromOver {
+	background-image: url("Images/Hud/newGame.png");
+	position: absolute;
+	left: 52%;
+	top: 500px;
+	width: 120px;
+	height: 65px;
+	z-index: 400;
+	background-size: contain;
+	background-repeat: no-repeat;
+	display: none;
+}
+#buyIt {
+	background-image: url("Images/Hud/buyNow.png");
+	position: absolute;
+	left: 17%;
+	top: 500px;
+	width: 120px;
+	height: 70px;
+	z-index: 200;
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+#starCashOnOver{
+	
+	position: absolute;
+	left: 43%;
+	top: 460px;
+	width: 100px;
+	height: 35px;
+	z-index: 200;
+	font-size: 20px;
+	background-size: contain;
+	background-repeat: no-repeat;
+	display: none;
+}
+
 
 #canvasWrap {
 	position: relative;
@@ -71,4 +124,7 @@ position: absolute;
 #progressBar{width: 275px; transform: translate(-5px, -99px);  }
 #viewport1{width:97% }
 #wrap2 {height: 550px; max-width: 100%; }
+#gameOverBack { width: 300px; height: 550px; left: 0px;}
+#newFromOver, #buyIt  { top: 385px; width: 95px;}
+#starCashOnOver {top: 337px;}
 }

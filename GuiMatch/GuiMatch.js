@@ -21,7 +21,9 @@ window.onload = function() {
     // Get the canvas and context
     var canvas = document.getElementById("viewport1");
     var context = canvas.getContext("2d");
-    
+	//control volume of game sound loop
+    var soundLoop = document.getElementById("gameSoundLoop");
+		soundLoop.volume = 0.3;
     // Timing and frames per second
     var lastframe = 0;
     var fpstime = 0;
@@ -31,10 +33,20 @@ window.onload = function() {
 	var matchCount = 0;
 	var levelCount = 1;
 	var levelBump = 0;
+	var levelBump2 = 0;
+	var levelRating = 0;
 	var previousScore = 0;
+	var levelScoreProgress = 0;
+	var shuffleTiles = false;
+	var playOnce = 0;
+	var starCash = 0;
+	var totalSeconds = 0;
+	if (typeof localStorage["starCash"] === "undefined") {localStorage["starCash"] = 0; starCash = 0;};
+	starCash = parseInt(localStorage["starCash"]);
+	
     // Mouse dragging
     var drag = false;
-    
+    swapSound.load();
     // Level object
     var level = {
         x: 12,         // X position
@@ -75,7 +87,7 @@ window.onload = function() {
 	
     var gemcolors = 7;
     // Game states
-    var gamestates = { init: 0, ready: 1, resolve: 2 , levelUp: 3};
+    var gamestates = { init: 0, ready: 1, resolve: 2 , levelUp: 3, almostOver: 4};
     var gamestate = gamestates.init;
     
     // Score
@@ -147,9 +159,39 @@ imgArray2[5] = new Image();
 imgArray2[5].src = 'Images/3rdStar.png';
 
 imgArray2[6] = new Image();
-imgArray2[6].src = 'Images/hudLevel.png';	
-	
-	
+imgArray2[6].src = 'Images/hudLevel.png';
+
+imgArray2[7] = new Image();
+imgArray2[7].src = 'Images/Hud/gameOver2.png';	
+
+imgArray2[8] = new Image();
+imgArray2[8].src = 'Images/Hud/newGame.png';	
+
+imgArray2[9] = new Image();
+imgArray2[9].src = 'Images/Hud/buyNow.png';	
+
+imgArray2[10] = new Image();
+imgArray2[10].src = 'Images/Hud/levelBonus.png';	
+
+
+setInterval(setTime, 1000);
+
+        function setTime()
+        {
+            ++totalSeconds;
+            context.fillStyle = "#ffff00";
+			context.font = "22px Comic Sans MS";
+		
+        }
+
+        function pad(val)
+        {
+            var valString = val + "";
+            if(valString.length < 2)     {  return "0" + valString;  }
+            else   {return valString;}
+		}
+
+
 	//future Progress Bar HERE
 		
     // Gui buttons
@@ -160,7 +202,7 @@ imgArray2[6].src = 'Images/hudLevel.png';
 
     // Initialize the game
    function init() {
-		
+	
 		
 		
         // Add mouse events
@@ -182,7 +224,7 @@ imgArray2[6].src = 'Images/hudLevel.png';
         
         // New game
         newGame();
-        
+        totalSeconds = 0;
         // Enter main loop
         main(0);
     }
@@ -202,6 +244,7 @@ imgArray2[6].src = 'Images/hudLevel.png';
         var dt = (tframe - lastframe) / 1000;
         lastframe = tframe;
         
+        
         // Update the fps counter
         updateFps(dt);
         
@@ -212,6 +255,36 @@ imgArray2[6].src = 'Images/hudLevel.png';
             // Check for game over
             if (moves.length <= 0) {
                 gameover = true;
+				if (playOnce >= 2) {playOnce++;}
+				else{playOnce = 1;}
+				// document.getElementById("gameOverBack").style.display = 'block';
+				
+				
+			
+				//GG -swap tiles automatically until there are moves
+			if(shuffleTiles){shuffle();  }
+			function shuffle(){
+					createLevel();
+				var rowcount1 =	level.rows;
+				var colCount1 = level.columns;
+				// alert(rowcount1 + " and " + colCount1);
+				for(var r =0; r < rowcount1; r++) {
+				for (var c = 0; c < colCount1; c++) {
+				matchlength = 3;
+				 clusters.push({ column: r, row:c + 1 - matchlength, length: matchlength, horizontal: false });
+				 	        }
+					}
+					shuffleTiles = false; 
+					
+					findMoves();
+					gamestate = gamestates.resolve;
+					animationstate = 0;
+					animationtime = 0;
+					
+				}
+				
+			
+			
             }
             
             // Let the AI bot make a move, if enabled
@@ -227,10 +300,11 @@ imgArray2[6].src = 'Images/hudLevel.png';
                         
                         // Simulate a player using the mouse to swap two tiles
                         mouseSwap(move.column1, move.row1, move.column2, move.row2);
+						
                     } else {
                         // No moves left, Game Over. We could start a new game.
-						score = 0;
-                        newGame();
+						
+                        aibot = false;
                     }
                     animationtime = 0;
                 }
@@ -247,10 +321,14 @@ imgArray2[6].src = 'Images/hudLevel.png';
                     
                     if (clusters.length > 0) {
                         // Add points to the score
+						swapSound.pause();
+							swapSound.load();
+							swapSound.play();
                         for (var i=0; i<clusters.length; i++) {
                             // Add extra points for longer clusters
-						
+							
                             score += 100 * (clusters[i].length - 2);;
+							levelScoreProgress = levelScoreProgress + ( 100 *  (clusters[i].length - 2));
 							// Draw score
 							context.fillStyle = "#ffff00";
 							context.font = "22px Comic Sans MS";
@@ -258,7 +336,7 @@ imgArray2[6].src = 'Images/hudLevel.png';
 							context.font = "26px Comic Sans MS";
 							drawCenterText(score, 230, level.y -50, 175);
 							matchCount = matchCount + (clusters[i].length - 2);
-							progressBar(score , levelCount);
+							progressBar(levelScoreProgress , levelCount);
                         }
                     
                         // Clusters found, remove them
@@ -303,6 +381,9 @@ imgArray2[6].src = 'Images/hudLevel.png';
                         animationstate = 0;
                         animationtime = 0;
                         gamestate = gamestates.resolve;
+						
+						
+						
                     } else {
                         // Invalid swap, Rewind swapping animation
                         animationstate = 3;
@@ -343,6 +424,7 @@ imgArray2[6].src = 'Images/hudLevel.png';
         // Increase time and framecount
         fpstime += dt;
         framecount++;
+		
     }
     
     // Draw text that is centered
@@ -387,31 +469,75 @@ imgArray2[6].src = 'Images/hudLevel.png';
         
         // Game Over overlay
         if (gameover) {
+			if (playOnce == 1) {
+			gameSoundLoop.pause();
+			gameOverSound.play();
+			playOnce++ ;
+			
+			}
             context.fillStyle = "rgba(0, 0, 0, 0.8)";
             context.fillRect(level.x, level.y, levelwidth, levelheight);
-            
-            context.fillStyle = "#ffffff";
-            context.font = "24px Comic Sans MS";
-            drawCenterText("No More Moves", level.x, level.y + levelheight / 2 - 80, levelwidth);
-			drawCenterText("Game Over!", level.x, level.y + levelheight / 2 - 40, levelwidth);
+			//img overlay
+			context.drawImage(imgArray2[7], 0, 65);
+            document.getElementById("progressBar").style.display = 'none';
+			context.drawImage(imgArray2[8], 60, 545);
+			context.drawImage(imgArray2[9], 190, 545);
+			context.fillStyle = "#cc00cc";
+			context.font = "20px Comic Sans MS";
+			context.fillText(starCash, 175, 504);
+			gamestate = gamestates.almostOver;
+            // context.fillStyle = "#ffffff";
+            // context.font = "24px Comic Sans MS";
+            // drawCenterText("No More Moves", level.x, level.y + levelheight / 2 - 80, levelwidth);
+			// drawCenterText("Game Over!", level.x, level.y + levelheight / 2 - 40, levelwidth);
         }
+		//level Up overlay
 		if (gamestate == gamestates.levelUp) {
             context.fillStyle = "rgba(255, 0, 255, 0.9)";
             context.fillRect(level.x - 10, level.y - 10, levelwidth + 30, levelheight + 210);
             var elem = document.getElementById("myBar");
 			elem.style.width = '1%';
+			
+			
 			context.drawImage(imgArray2[1], 37, 50); // level up back
-			context.drawImage(imgArray2[2], 117, 432); // star cash
+			context.drawImage(imgArray2[10], 115, 375); // star cash1
+			context.drawImage(imgArray2[2], 117, 432); // star cash2
 			context.drawImage(imgArray2[3], 112, 512); //Next Button
 			context.drawImage(imgArray2[4], 87, 296); //star1
-			context.drawImage(imgArray2[4], 217, 296); //star2
-			context.drawImage(imgArray2[5], 147, 262); //star3 Bonus star
+			if (levelRating >= 4) {context.drawImage(imgArray2[4], 217, 296);} //star2
+			if (levelRating >= 5) {context.drawImage(imgArray2[5], 147, 262);}//star3 Bonus star}
 			
+			
+			if (levelBump >=1){ levelBump2 = 1;}
+			
+			context.font = "30px Comic Sans MS";
+            context.fillStyle = "#cc00cc";
+			drawCenterText(" +" + levelRating, 180, 412, 50);
+			drawCenterText(starCash, 180, 469, 50);
 			context.font = "22px Comic Sans MS";
-            context.fillStyle = "#ff00ff";
 			drawCenterText("Next Level", level.x + 2, level.y + levelheight + 120, levelwidth);
 			if (levelBump == 1){levelCount++; levelBump = 0;
-			levelUpScore = levelUpScore + (levelCount * 1000);}
+				levelUpScore = (levelCount * 1000);
+			
+				//check level Rating
+				levelRating = 3;
+				if (totalSeconds <= 30) {levelRating = 5;
+					context.drawImage(imgArray2[4], 217, 296); //star2
+					context.drawImage(imgArray2[5], 147, 262); //star3 Bonus star
+					}
+				else if (totalSeconds <= 60) {
+					levelRating = 4;
+					context.drawImage(imgArray2[4], 217, 296); //star2
+					}
+				else if (totalSeconds >= 61){levelRating = 3;}
+				starCash = starCash + levelRating; 
+				localStorage["starCash"] = starCash;
+				context.font = "30px Comic Sans MS";
+				context.fillStyle = "#cc00cc";
+				drawCenterText(" +" + levelRating, 180, 412, 50);
+			
+			
+			}
 			
 			document.getElementById("progressBar").style.display = 'none';
         }
@@ -440,18 +566,18 @@ imgArray2[6].src = 'Images/hudLevel.png';
         context.font = "16px Comic Sans MS";
         context.fillText("Level: " + levelCount, 160, 55);
 		
-		//draw next Level Goal
-		// context.fillStyle = "#ffffff";
-        // context.font = "16px Comic Sans MS";
-        // context.fillText("Next Level at: " + levelUpScore, 200, 55);
+		//draw current starcash
+		context.fillStyle = "#ffffff";
+        context.font = "14px Comic Sans MS";
+        context.fillText("$" + starCash, 325, 62);
 	
 		
 		
 		
-        // Display fps
+        // Display Time
         context.fillStyle = "#ffffff";
-        context.font = "10px Comic Sans MS";
-        context.fillText("Fps: " + fps, 8, 55);
+        context.font = "14px Comic Sans MS";
+        context.fillText("Time:" + totalSeconds, 2, 62);
     }
     
     // Draw buttons
@@ -597,8 +723,23 @@ imgArray2[6].src = 'Images/hudLevel.png';
     // Start a new game
     function newGame(i) {
         // Reset score
-		if (i < 1) { score = 0; levelUpScore = 2000;}
-		progressBar(score , levelCount);
+		
+		if (i < 1) { 
+			score = 0; levelUpScore = 2000; 
+			levelScoreProgress = 0; levelCount = 1; 
+			playOnce = 0; totalSeconds = 0;
+			for (var q=0; q <= 6; q++) {
+				var newsource = imgArray[q].src;
+				newsource = "Images/" + q + ".png";
+				imgArray[q].src = newsource;
+				}		
+			}
+			
+		levelUpSound.pause();
+		gameOverSound.pause();
+		gameSoundLoop.pause();
+		gameSoundLoop.play();
+		progressBar(1, levelCount);
         document.getElementById("progressBar").style.display = 'block';
         // Set the gamestate to ready
         gamestate = gamestates.ready;
@@ -637,6 +778,7 @@ imgArray2[6].src = 'Images/hudLevel.png';
             // Done when there is a valid move
             if (moves.length > 0) {
                 done = true;
+				gameOver = false;
             }
         }
     }
@@ -883,19 +1025,7 @@ imgArray2[6].src = 'Images/hudLevel.png';
 	
 	
 	
-	//GG -swap tiles automatically until there are moves
-    function shuffle(){
-		var rowcount1 =	level.rows;
-		var colCount1 = level.columns;
-		for(var r =0; r < rowcount1; r++) {
-				for (var c = 0; c < colCount1; c++) {
-				
-				 var typeswap = level.tiles[r][c].type;
-				level.tiles[r][c].type = level.tiles[r][c +1].type;
-				level.tiles[r][c + 1].type = typeswap;
-				}
-		}
-	}
+	
 	
 	
     // Swap two tiles in the level
@@ -990,6 +1120,7 @@ imgArray2[6].src = 'Images/hudLevel.png';
                 if (i == 0) {
                     // New Game
                     newGame(0);
+					totalSeconds = 0;
                 } else if (i == 1) {
                     // Show Moves
                     showmoves = !showmoves;
@@ -1001,17 +1132,23 @@ imgArray2[6].src = 'Images/hudLevel.png';
                 }
             }
         }
-		if(gamestate == gamestates.levelUp) { newGame(1); progressBar(score, levelCount)} 
-		if (gameover) {newGame(0); score = 0; levelCount = 1; progressBar(score, levelCount); levelUpScore = 2000; 
-		for (var q=0; q <= 6; q++) {
-				var newsource = imgArray[q].src;
-				newsource = "Images/" + q + ".png";
-				imgArray[q].src = newsource;
-					
-			}
-		
-		
-		
+		if(gamestate == gamestates.levelUp) { newGame(1); progressBar(1, levelCount); levelScoreProgress = 0; totalSeconds = 0;} 
+		if(gamestate == gamestates.almostOver) {	
+			if(pos.x >= 50 && pos.x < 170 &&  pos.y >= 545 && pos.y <591){
+					 newGame(0); gamestate = gamestates.ready; gameOver = false;	playOnce = 0; totalSeconds = 0;}
+				
+			if(pos.x >= 185 && pos.x < 310 &&   pos.y >= 545 && pos.y <591){
+				//check to see if enough StarCash
+				var currentcash = localStorage["starCash"];
+				if(currentcash >= 15){
+						starCash = starCash - 15;
+						localStorage["starCash"] = starCash;						
+						newGame(2); 
+						shuffleTiles = true;
+						gameover = false;
+						playOnce = 0;}
+						else{ return;}
+						}
 		}
     }
     
@@ -1060,20 +1197,31 @@ imgArray2[6].src = 'Images/hudLevel.png';
 			
 	function levelUp() {
 		gamestate = gamestates.levelUp;
+		gameSoundLoop.pause();
+		levelUpSound.pause();
+		levelUpSound.play();
 		levelBump = 1;
 		var levelAdjust = levelCount + 1;
 		
-		if (parseInt(levelAdjust) >= 2) {
+		if (parseInt(levelAdjust) >= 2 && levelAdjust <= 9) {
 			for (var q=0; q <= 6; q++) {
 				var newsource = imgArray[q].src;
 				newsource = "Images/" + levelAdjust + q + ".png";
 				imgArray[q].src = newsource;
-					
 			}
-			
+		}
+		if (parseInt(levelAdjust) >= 10 && levelAdjust <= 19) {
+			levelAdjust = levelAdjust - 10;
+			for (var q=0; q <= 6; q++) {
+				var newsource = imgArray[q].src;
+				newsource = "Images/" + levelAdjust + q + ".png";
+				imgArray[q].src = newsource;
+			}
 		}
 	}
     // Call init to start the game
-	
-    init();
+	init();
 };
+
+            
+	

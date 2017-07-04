@@ -17,38 +17,34 @@ margin-left: 450px;
             border-radius: 5px;
             margin-bottom:10px;
             margin-left: 0px;
-            width: 930px;
-            height: 440px;
+            width: 540px;
+            height: 640px;
             padding: 4px;
             padding-bottom: 25px;
             padding-top: 25px;
             padding-right: 5px;
-            min-height:420px;
-            min-width:420px;
+            min-height:520px;
+            max-width: 500px;
             padding-left: 5px;
             background-color:palevioletred;
             float:left;
             display: none;
         }
 
-            #memory_board > div {
-                background: url(tile_bg.jpg)  no-repeat;
-                
-                border: #000 1px solid;
-                border-radius: 40px;
-                width: 71px;
-                height: 71px;
-                
-                margin: 1px;
-                padding: 20px;
-                font-size: 20px;
-                text-align: start;
-                cursor: pointer;
-                text-align: center;
-                float: left;
-                
-
-            }
+        #memory_board > div {
+            background: url(tile_bg.jpg) no-repeat;
+            border: #000 1px solid;
+            border-radius: 30px;
+            width: 70px;
+            height: 70px;
+            margin: 1px;
+            padding: 20px;
+            font-size: 20px;
+            text-align: start;
+            cursor: pointer;
+            text-align: center;
+            float: left;
+        }
             video#bgvid {
                 position: absolute; right: 0; bottom: 0;
                 min-width: 100%; min-height: 100%;
