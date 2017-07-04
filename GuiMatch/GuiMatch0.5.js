@@ -162,16 +162,16 @@ imgArray2[6] = new Image();
 imgArray2[6].src = 'Images/hudLevel.png';
 
 imgArray2[7] = new Image();
-imgArray2[7].src = 'Images/Hud/gameOver2.png';	
+imgArray2[7].src = 'Images/HUD/gameOver2.png';	
 
 imgArray2[8] = new Image();
-imgArray2[8].src = 'Images/Hud/newGame.png';	
+imgArray2[8].src = 'Images/HUD/newGame.png';	
 
 imgArray2[9] = new Image();
-imgArray2[9].src = 'Images/Hud/buyNow.png';	
+imgArray2[9].src = 'Images/HUD/buyNow.png';	
 
 imgArray2[10] = new Image();
-imgArray2[10].src = 'Images/Hud/levelBonus.png';	
+imgArray2[10].src = 'Images/HUD/levelBonus.png';	
 
 
 setInterval(setTime, 1000);
