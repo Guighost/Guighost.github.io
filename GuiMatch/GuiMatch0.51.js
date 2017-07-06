@@ -191,6 +191,10 @@ setInterval(setTime, 1000);
             else   {return valString;}
 		}
 
+swapSound.load();
+gameOverSound.load();
+levelUpSound.load();
+
 
 	//future Progress Bar HERE
 		
