@@ -1,22 +1,10 @@
 // ------------------------------------------------------------------------
 
-// 
-// This program is free software: you can redistribute it and/or modify  
-// it under the terms of the GNU General Public License as published by  
-// the Free Software Foundation, either version 3 of the License, or  
-// (at your option) any later version.
-// 
-// This program is distributed in the hope that it will be useful,  
-// but WITHOUT ANY WARRANTY; without even the implied warranty of  
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the  
-// GNU General Public License for more details.  
-// 
-// You should have received a copy of the GNU General Public License  
-// along with this program.  If not, see http://www.gnu.org/licenses/.
+// GuiGhost Games 2017 
 //
 
 
-// The function gets called when the window is fully loaded
+// 
 window.onload = function() {
     // Get the canvas and context
     var canvas = document.getElementById("viewport1");
@@ -373,6 +361,7 @@ levelUpSound.load();
                 }
             } else if (animationstate == 2) {
                 // Swapping tiles animation
+				
                 if (animationtime > animationtimetotal) {
                     // Swap the tiles
                     swap(currentmove.column1, currentmove.row1, currentmove.column2, currentmove.row2);
@@ -1214,8 +1203,32 @@ levelUpSound.load();
 				imgArray[q].src = newsource;
 			}
 		}
-		if (parseInt(levelAdjust) >= 10 && levelAdjust <= 19) {
+		if (parseInt(levelAdjust) >= 11 && levelAdjust <= 20) {
 			levelAdjust = levelAdjust - 10;
+			for (var q=0; q <= 6; q++) {
+				var newsource = imgArray[q].src;
+				newsource = "Images/" + levelAdjust + q + ".png";
+				imgArray[q].src = newsource;
+			}
+		}
+		if (parseInt(levelAdjust) >= 21 && levelAdjust <= 30) {
+			levelAdjust = levelAdjust - 20;
+			for (var q=0; q <= 6; q++) {
+				var newsource = imgArray[q].src;
+				newsource = "Images/" + levelAdjust + q + ".png";
+				imgArray[q].src = newsource;
+			}
+		}
+		if (parseInt(levelAdjust) >= 31 && levelAdjust <= 40) {
+			levelAdjust = levelAdjust - 30;
+			for (var q=0; q <= 6; q++) {
+				var newsource = imgArray[q].src;
+				newsource = "Images/" + levelAdjust + q + ".png";
+				imgArray[q].src = newsource;
+			}
+		}
+		if (parseInt(levelAdjust) >= 41 && levelAdjust <= 50) {
+			levelAdjust = levelAdjust - 40;
 			for (var q=0; q <= 6; q++) {
 				var newsource = imgArray[q].src;
 				newsource = "Images/" + levelAdjust + q + ".png";
