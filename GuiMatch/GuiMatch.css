@@ -126,7 +126,14 @@ position: absolute;
 #newFromOver, #buyIt  { top: 385px; width: 95px;}
 #starCashOnOver {top: 337px;}
 }
-
+@media (device-width: 412px){ 
+#progressBar{width: 340px; transform: translate(1px, 3px);  }
+#viewport1{width:98% top 30px;}
+#wrap2 {height: 550px; max-width: 100%; }
+#gameOverBack { width: 330px; height: 540px; left: 0px;}
+#newFromOver, #buyIt  { top: 385px; width: 95px;}
+#starCashOnOver {top: 337px;}
+}
 @media (device-width: 375px){ 
 #progressBar{width: 310px; transform: translate(-5px, -29px);  }
 #viewport1{width:98% top 30px;}
