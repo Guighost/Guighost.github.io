@@ -76,7 +76,7 @@ background-color: blue; color: azure; min-width: 80px; clear: both;
 position: inherit; display: block;float: right; transform: translate3d(-23px,-90px, 0); border-radius: 15px; text-align: center;
 font-family: Comic Sans MS; font-size: 14px;
 }
-#icyAct {transform: translate3d(-23px,-59px, 0);  }
+#icyAct {transform: translate3d(120px,70px, 0);  }
 .clspowerImage {
 	transform: translate3d(35px,-45px, 0);
     float: right;
