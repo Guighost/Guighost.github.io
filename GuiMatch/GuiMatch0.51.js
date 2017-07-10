@@ -34,7 +34,7 @@ window.onload = function() {
 	
     // Mouse dragging
     var drag = false;
-    swapSound.load();
+    
     // Level object
     var level = {
         x: 12,         // X position
@@ -179,12 +179,34 @@ setInterval(setTime, 1000);
             else   {return valString;}
 		}
 
-swapSound.load();
-gameOverSound.load();
-levelUpSound.load();
 
 
-	//future Progress Bar HERE
+
+var swapSound = new Howl({
+  src: ['Sounds/gametinywarp.mp3'],
+  volume: 0.5,
+  preload: true,
+ 
+});
+swapSound.play();
+
+var levelUpSound = new Howl({
+  src: ['Sounds/levelup.mp3'],
+  volume: 0.9,
+  preload: true,
+
+});
+levelUpSound.play();
+
+var gameOverSound = new Howl({
+  src: ['Sounds/shortOver.mp3'],
+  volume: 0.9,
+  preload: true,
+
+});
+gameOverSound.play();
+
+	//end  howl based sounds
 		
     // Gui buttons
     var buttons = [ { x: 15, y: 475, width: 100, height: 30, text: "New Game"},
@@ -313,8 +335,8 @@ levelUpSound.load();
                     
                     if (clusters.length > 0) {
                         // Add points to the score
-						swapSound.pause();
-							swapSound.load();
+						swapSound.stop();
+							
 							swapSound.play();
                         for (var i=0; i<clusters.length; i++) {
                             // Add extra points for longer clusters
@@ -728,8 +750,8 @@ levelUpSound.load();
 				}		
 			}
 			
-		levelUpSound.pause();
-		gameOverSound.pause();
+		levelUpSound.stop();
+		gameOverSound.stop();
 		gameSoundLoop.pause();
 		gameSoundLoop.play();
 		progressBar(1, levelCount);
@@ -1190,8 +1212,8 @@ levelUpSound.load();
 			
 	function levelUp() {
 		gamestate = gamestates.levelUp;
-		gameSoundLoop.pause();
-		levelUpSound.pause();
+		gameSoundLoop.stop();
+		
 		levelUpSound.play();
 		levelBump = 1;
 		var levelAdjust = levelCount + 1;
