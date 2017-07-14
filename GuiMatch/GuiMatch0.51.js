@@ -742,7 +742,8 @@ gameOverSound.play();
 		if (i < 1) { 
 			score = 0; levelUpScore = 2000; 
 			levelScoreProgress = 0; levelCount = 1; 
-			playOnce = 0; totalSeconds = 0;
+            playOnce = 0; totalSeconds = 0;
+            progressBar(1, levelCount);
 			for (var q=0; q <= 6; q++) {
 				var newsource = imgArray[q].src;
 				newsource = "Images/" + q + ".png";
@@ -1147,7 +1148,7 @@ gameOverSound.play();
                 }
             }
         }
-		if(gamestate == gamestates.levelUp) { newGame(1); progressBar(1, levelCount); levelScoreProgress = 0; totalSeconds = 0;} 
+        if (gamestate == gamestates.levelUp) { newGame(1); progressBar(1, levelCount); levelScoreProgress = 0; totalSeconds = 0; SoundLoop.pause();} 
 		if(gamestate == gamestates.almostOver) {	
 			if(pos.x >= 50 && pos.x < 170 &&  pos.y >= 545 && pos.y <591){
 					 newGame(0); gamestate = gamestates.ready; gameOver = false;	playOnce = 0; totalSeconds = 0;}
@@ -1212,8 +1213,8 @@ gameOverSound.play();
 			
 	function levelUp() {
 		gamestate = gamestates.levelUp;
-		gameSoundLoop.stop();
-		
+        soundLoop.pause();
+        gameSoundLoop.pause();
 		levelUpSound.play();
 		levelBump = 1;
 		var levelAdjust = levelCount + 1;
