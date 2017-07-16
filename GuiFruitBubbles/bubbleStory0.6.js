@@ -686,7 +686,7 @@ function loadOnLoad() {
         var addtile = false;
         if (level.tiles[gridpos.x][gridpos.y].type != -1) {
             // Tile is not empty, shift the new tile downwards
-            for (var newrow=gridpos.y+1; newrow<level.rows; newrow++) {
+            for (var newrow=gridpos.y; newrow<level.rows; newrow++) {
                 if (level.tiles[gridpos.x][newrow].type == -1) {
                     gridpos.y = newrow;
                     addtile = true;
