@@ -1,0 +1,30 @@
+﻿body {
+    font-family: monospace;
+    text-align: center;
+    background-image: url(images/background.png);
+    background-size: cover;
+}
+h1 {
+    transform: translateY(-35px);
+    font-family: 'Comic Sans MS';
+    font-weight: bold;
+    font-size: 36px;
+    color: magenta;
+}
+img {
+    transform:scale(.75) translateY(-185px);
+}
+#bubstorImg1 {
+    transform: scale(1.0) translateY(-10px);
+}
+#bubstorImg2 {
+    transform: scale(1.2) translateY(0px);
+}
+section {
+    border: 3px inset black;
+    transform: translateY(-10px);
+    height: 550px;
+}
+#bubstorImg5  {
+    transform: translateY(20px);
+}

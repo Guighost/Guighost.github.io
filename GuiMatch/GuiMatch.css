@@ -9,7 +9,7 @@ background-position: center;
 }
 #shuffle { border:2px solid groove;
 background-color: red;
-magin-top: 10px;}
+margin-top: 10px;}
 #gameOverBack {
 	background-image: url("Images/Hud/gameOver.png");
 	margin-left: auto;
@@ -82,45 +82,76 @@ margin-right: auto;
 }
 #viewport1{margin-left: 5px; }
 
-#cover {  
-position: absolute;
-	width : 100%;
-	height: 100%;
-	top: 0px;
-	left: 0px;
-	background-image: url("Images/cloudsSolid.png" ); 
-    background-color: #cccccc;
-	display:none;
-	z-index: 200;
+#landingCover {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+    text-align: center;
+    padding-top: 200px;
+    background-color: lightseagreen;
+    display: block;
+    z-index: 2000;
+    align-content: center;
 }
+#playMatch {
+    
+    background-image: url('Images/HUD/newGame.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 110px;
+    height: 45px;
+    text-align: center;
+    margin-left: 50%;
+    transform: translate(-62px, 0px);
+    top: 40%;
+    font-family: 'Comic Sans MS';
+    z-index: 2000;
+}
+#logoGG {
+    background-image: url('Images/footerImg.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 2020;
+    width: 360px;
+    height: 145px;
+    margin-left: 50%;
+    transform: translate(-182px, 0px);
+    top: 70%;
+} 
+
 
 .pBars {
-	border: 2px groove black;
-	border-radius: 25px;
-	width: 350px;
-	min-height: 20px;
-	position: absolute;
-	left: 15px;
-	
+    border: 2px groove black;
+    border-radius: 25px;
+    width: 350px;
+    min-height: 20px;
+    position: absolute;
+    left: 15px;
 }
 #progressBar{
 	width: 350px;
 	background-color: azure;
 	top: 442px;
-	z-index: 950px;
+	z-index: 950;
 }
 #myBar {
 	width: 5%;
 	background-color: #66ff66;
-	z-index: 1050px;
+	z-index: 1050;
 	min-height: 18px;
 	left: 10px;
 	transform: translate(-10px, 0px);
 	
 }
+
+
+
+
 @media (device-width: 1024px){ 
 #progressBar{width: 350px; transform: translate(-5px, 0px);  }
-#viewport1{width:98% top 100px;}
+#viewport1{width:98%; top:100px;}
 #wrap2 {height: 550px; max-width: 100%; }
 #gameOverBack { width: 330px; height: 540px; left: 0px;}
 #newFromOver, #buyIt  { top: 385px; width: 95px;}

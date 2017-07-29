@@ -1,4 +1,4 @@
-<!-- GuiGhost Games 2017   Gui Match-->
+﻿<!-- GuiGhost Games 2017   Gui Match-->
 <!DOCTYPE html>
 <html lang="en"> 
 
@@ -18,7 +18,7 @@
 
 <body>
   <!--AUDIO Files-->
-    <audio id="gameSoundLoop" class="gameSounds" loop autoplay>
+    <audio id="gameSoundLoop" class="gameSounds" loop >
         <source src="Sounds\guiMatchLoop.mp3" type="audio/mp3">
         </audio>
     <audio preload = "auto" id="swapSound" class="gameSounds" >
@@ -47,6 +47,11 @@
 			<!-- <a id ="buyIt" onclick= "shuffleFromOver()" > </a> -->
 		<!-- </div> -->
 	</div>
+    <div id="landingCover">
+        <h1>GUI MATCH</h1>
+        <div id="playMatch" onclick="hideIntro()"> </div>
+        <div id="logoGG"></div>
+    </div>
 <script src="../Frameworks/howler.min.js"></script>
 <script type='text/javascript' src='GuiMatch0.51.js'></script>	
 

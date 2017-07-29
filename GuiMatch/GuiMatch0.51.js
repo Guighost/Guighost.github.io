@@ -4,12 +4,13 @@
 //
 
 
-// 
+//
+var newGameLoad = 0;
 window.onload = function() {
     // Get the canvas and context
     var canvas = document.getElementById("viewport1");
     var context = canvas.getContext("2d");
-	//control volume of game sound loop
+	//game sound loop
     var soundLoop = document.getElementById("gameSoundLoop");
 		soundLoop.volume = 0.3;
     // Timing and frames per second
@@ -27,8 +28,11 @@ window.onload = function() {
 	var levelScoreProgress = 0;
 	var shuffleTiles = false;
 	var playOnce = 0;
-	var starCash = 0;
-	var totalSeconds = 0;
+    var addSpecialHoriz = false;
+    var addSpecialVert = false;
+    var starCash = 0;
+    var totalSeconds = 0;
+
 	if (typeof localStorage["starCash"] === "undefined") {localStorage["starCash"] = 0; starCash = 0;};
 	starCash = parseInt(localStorage["starCash"]);
 	
@@ -61,7 +65,8 @@ window.onload = function() {
                       [255, 255, 128, 3],
                       [255, 128, 255, 4],
                       [128, 255, 255, 5],
-                      [255, 255, 255, 6]];
+                      [255, 255, 255, 6]
+                      ];
 	//orig above
 	
 	
@@ -126,6 +131,10 @@ imgArray[7].src = 'Images/7.png';
 imgArray[8] = new Image();
 imgArray[8].src = 'Images/8.png';
 
+imgArray[9] = new Image();
+imgArray[9].src = 'Images/9.png';
+
+
 var imgArray2 = new Array();
 
 imgArray2[0] = new Image();
@@ -161,11 +170,15 @@ imgArray2[9].src = 'Images/HUD/buyNow.png';
 imgArray2[10] = new Image();
 imgArray2[10].src = 'Images/HUD/levelBonus.png';	
 
+imgArray2[11] = new Image();
+imgArray2[11].src = 'Images/HUD/awesome2.gif';	
+
 
 setInterval(setTime, 1000);
 
         function setTime()
         {
+            if (newGameLoad == 1) { totalSeconds = 0; newGameLoad = 0; }
             ++totalSeconds;
             context.fillStyle = "#ffff00";
 			context.font = "22px Comic Sans MS";
@@ -339,8 +352,15 @@ gameOverSound.play();
 							
 							swapSound.play();
                         for (var i=0; i<clusters.length; i++) {
+                            ////GG add////////
+                            //if (clusters.[i].length > 1) {
+                            //    console.log("cluster length when drawing " + clusters.length);
+                            //    context.drawImage(imgArray2[11], 50, 65);
+
+                            //}
+                            //////GG end /////
+
                             // Add extra points for longer clusters
-							
                             score += 100 * (clusters[i].length - 2);;
 							levelScoreProgress = levelScoreProgress + ( 100 *  (clusters[i].length - 2));
 							// Draw score
@@ -352,7 +372,17 @@ gameOverSound.play();
 							matchCount = matchCount + (clusters[i].length - 2);
 							progressBar(levelScoreProgress , levelCount);
                         }
-                    
+                        //GG add - specials for 5 or greater
+                        //if (clusters.length >= 4) {
+                        //    //found 5 or greater- make a special in the center
+                        //    var centerTile = clusters.length / 2;
+                        //    centerTile = Math.round(centerTile);
+                        //    alert(centerTile);
+                        //}
+
+
+                        //GG add end specials
+
                         // Clusters found, remove them
                         removeClusters();
                         
@@ -592,6 +622,7 @@ gameOverSound.play();
         // Display Time
         context.fillStyle = "#ffffff";
         context.font = "14px Comic Sans MS";
+        if(newGameLoad == 1) { totalSeconds = 0; }
         context.fillText("Time:" + totalSeconds, 2, 62);
     }
     
@@ -635,7 +666,7 @@ gameOverSound.play();
                 // Draw the selected tile
                 if (level.selectedtile.selected) {
                     if (level.selectedtile.column == i && level.selectedtile.row == j) {
-                        // Draw a red tile
+                        // Draw a selected image
                         drawTile(coord.tilex -3, coord.tiley -3, 255, 0, 0,7);
 						
 					
@@ -743,7 +774,8 @@ gameOverSound.play();
 			score = 0; levelUpScore = 2000; 
 			levelScoreProgress = 0; levelCount = 1; 
             playOnce = 0; totalSeconds = 0;
-            progressBar(1, levelCount);
+            levelScoreProgress = 1;
+            progressBar(1, 1)
 			for (var q=0; q <= 6; q++) {
 				var newsource = imgArray[q].src;
 				newsource = "Images/" + q + ".png";
@@ -808,10 +840,15 @@ gameOverSound.play();
     function resolveClusters() {
         // Check for clusters
         findClusters();
+       
+        if (clusters.length > 1) {
         
+            context.drawImage(imgArray2[11], 50, 65);
+
+        }
         // While there are clusters left
         while (clusters.length > 0) {
-        
+            console.log(" cluster length = " + clusters.length);
             // Remove clusters
             removeClusters();
             
@@ -857,7 +894,11 @@ gameOverSound.play();
                         clusters.push({ column: i+1-matchlength, row:j,
                                         length: matchlength, horizontal: true });
                     }
-                    
+                    //GG add special for a horiz 5 match
+                    if (matchlength >= 4) {
+                        addSpecialHoriz = true;
+                       
+                    }
                     matchlength = 1;
                 }
             }
@@ -892,11 +933,16 @@ gameOverSound.play();
                         clusters.push({ column: i, row:j+1-matchlength,
                                         length: matchlength, horizontal: false });
                     }
-                    
+                    //GG add special for a Vert 5 match
+                    if (matchlength >= 5) {
+                        addSpecialVert = true;
+                        
+                    }
                     matchlength = 1;
                 }
             }
         }
+        
     }
     
     // Find available moves
@@ -944,6 +990,7 @@ gameOverSound.play();
     function loopClusters(func) {
         for (var i=0; i<clusters.length; i++) {
             //  { column, row, length, horizontal }
+           
             var cluster = clusters[i];
             var coffset = 0;
             var roffset = 0;
@@ -955,13 +1002,31 @@ gameOverSound.play();
                 } else {
                     roffset++;
                 }
+                
             }
+            
         }
     }
     
-    // Remove the clusters
+    // Remove the clusters   
     function removeClusters() {
-        // Change the type of the tiles to -1, indicating a removed tile
+        /////////////
+        /////GG add check for and set specials
+        //if (addSpecialVert) {
+
+        //    level.tiles[i][j].type = 8;
+        //    addSpecialVert = false;
+        //}
+        //else if (addSpecialHoriz) {
+        //    level.tiles[i][j].type = 8;
+        //    addSpecialHoriz = false;
+        //}
+
+        
+        //////////
+        ////// Orig  Change the type of the tiles to -1, indicating a removed tile
+        
+        
         loopClusters(function(index, column, row, cluster) { level.tiles[column][row].type = -1; });
 
         // Calculate how much a tile should be shifted downwards
@@ -988,9 +1053,12 @@ gameOverSound.play();
             for (var j=level.rows-1; j>=0; j--) {
                 // Loop from bottom to top
                 if (level.tiles[i][j].type == -1) {
+                 
                     // Insert new random tile
-                    level.tiles[i][j].type = getRandomTile();
-                } else {
+                     level.tiles[i][j].type = getRandomTile(); 
+                }
+                
+                else {
                     // Swap tile to shift it
                     var shift = level.tiles[i][j].shift;
                     if (shift > 0) {
@@ -1148,7 +1216,7 @@ gameOverSound.play();
                 }
             }
         }
-        if (gamestate == gamestates.levelUp) { newGame(1); progressBar(1, levelCount); levelScoreProgress = 0; totalSeconds = 0; SoundLoop.pause();} 
+        if (gamestate == gamestates.levelUp) { newGame(1); progressBar(1, levelCount); levelScoreProgress = 0; totalSeconds = 0; } 
 		if(gamestate == gamestates.almostOver) {	
 			if(pos.x >= 50 && pos.x < 170 &&  pos.y >= 545 && pos.y <591){
 					 newGame(0); gamestate = gamestates.ready; gameOver = false;	playOnce = 0; totalSeconds = 0;}
@@ -1258,10 +1326,20 @@ gameOverSound.play();
 				imgArray[q].src = newsource;
 			}
 		}
-	}
+    }
+   
     // Call init to start the game
-	init();
+    init();
+    
 };
 
+function hideIntro() {
+
+    var cover = document.getElementById("landingCover");
+    cover.style.display = 'none';
+   
+    newGameLoad = 1;
+    newGame(0);
+}
             
 	
