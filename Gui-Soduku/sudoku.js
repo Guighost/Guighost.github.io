@@ -263,7 +263,7 @@ function _getRandomGrid2(nlevel) {
 */
 
 function _getRandomGrid(nlevel) {
-    console.log(_getRandomGrid2(nlevel));
+    //console.log(_getRandomGrid2(nlevel));
     updateGrid();
     for(i=0;i<9;i++) {
         for(j=0;j<9;j++) {
