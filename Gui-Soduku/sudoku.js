@@ -95,6 +95,7 @@ function init() {
     $('#buttons1').height( i-j );
     $('#buttons1').css("margin-top", String(j)+"px");
     document.getElementById("digits").style.display = "none";
+    document.getElementById("buttonText").style.display = "block";
     document.getElementById("but1").style.color="#000";
     document.getElementById("but2").style.color="#B8B8B8";
     document.getElementById("but3").style.color="#B8B8B8";
@@ -287,6 +288,7 @@ function getRandomGrid(nlevel) {
 function elsewhere() {
     Tref[curY][curX].style.backgroundColor = "";
     document.getElementById("digits").style.display = "none";
+    document.getElementById("buttonText").style.display = "block";
     document.getElementById("buttons1").style.display = "inline-block";
 }
 
@@ -301,6 +303,7 @@ function clickCell(cell) {
         curX = x;
         cell.style.backgroundColor = "#BBB";
         document.getElementById("digits").style.display = "inline-block";
+        document.getElementById("buttonText").style.display = "none";
         document.getElementById("buttons1").style.display = "none";
         var a = allowed(T, y, x);
         var d = new Array(10).fill(false);
