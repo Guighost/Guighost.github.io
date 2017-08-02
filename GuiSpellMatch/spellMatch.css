@@ -1,0 +1,178 @@
+﻿body {
+    font-family: 'Comic Sans MS';
+    text-align: center;
+    
+   
+    background-repeat:no-repeat;
+    background-color:darkslateblue;
+
+}
+
+#gameTitle {
+    background-color:goldenrod;
+    border-radius: 10px 10px;
+    color: magenta;
+    max-width: 325px;
+    margin-left: auto;
+    margin-right: auto;
+    transform: translateY(-10px);
+}
+#leftSide {
+    display: block;
+    font-size: 16px;
+    color: azure;
+    border: 2px inset red;
+    float: left;
+    height: 315px;
+    width: 100px;
+    background-color: black;
+    transform: translateY(-0px);
+    margin-left:2px;
+}
+
+#gameMasterContainer {
+    transform: translate(-5px, -8px);
+    top: 30px;
+  margin-right: 0px;
+    
+    display: block;
+   
+}
+#viewport1 {
+    border: 1px solid yellow;
+    transform: translate(-90px 0px);
+    width:340px;
+    height:315px;
+    float: left;
+}
+#rightSide {
+    display: block;
+    font-size: 20px;
+    color: azure;
+    border: 2px inset red;
+    float: left;
+    height: 315px;
+    width: 100px;
+    background-color: black;
+    transform: translate(1px,-0px);
+    margin-left: 0px;
+    margin-right: 0px;
+}
+#heroImage {
+    transform: scale(.65) translate(-65px, -90px);
+    background-image: url(Images/Hero/idle_1.png);
+    width: 180px;
+    height: 175px;
+    background-size: contain;
+    background-position: center;
+    }
+#enemyImage {
+    transform: scale(.7) translate(-50px, -45px) scaleX(-1);
+    background-image: url(Images/Enemy/idle_1.png);
+    width: 180px;
+    height: 175px;
+    background-size: contain;
+    background-position: center;
+}
+
+.pBars {
+    border: 1px solid black;
+    border-radius: 3px;
+    width: 80px;
+    min-height: 10px;
+   
+    left: 5px;
+}
+
+#progressBar, #progressBar3 {
+    width: 95px;
+    /*background-color: azure;*/
+    min-height: 25px;
+    /*top: 50px;*/
+    z-index: 950;
+    transform: translate(0px, -90px);
+    background-image: url(Images/HUD/healthContainer.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+#progressBar2, #progressBar4 {
+    width: 95px;
+    background-color: black;
+    min-height: 20px;
+    /*top: 50px;*/
+    z-index: 950;
+    transform: translate(0px, -175px);
+    background-image: url(Images/HUD/defenceContainer.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+#myBar, #myBar3 {
+    width: 75%;
+    max-width: 75px;
+    background-color: crimson;
+    border: 1px solid darkred;
+    border-radius: 3px;
+    z-index: 1050;
+    min-height: 11px;
+    left: 10px;
+    transform: translate(20px, 6px);
+    /*background-image: url(Images/HUD/healthBar.png);
+    background-size: contain;
+    background-position: left;
+    background-repeat: no-repeat;*/
+}
+#myBar2, #myBar4 {
+    width: 75%;
+    background-color:lightgray;
+    border: 1px solid grey;
+    z-index: 1050;
+    min-height: 11px;
+    left: 10px;
+    transform: translate(20px, 4px);
+    /*background-image: url(Images/HUD/defenceBar.png);
+    background-size: cover;
+    background-repeat: no-repeat;*/
+}
+#progressBar2 {
+    transform: translate(0px, -120px);
+}
+#progressBar3 {
+    transform: translate(0px, -60px);
+}
+#progressBar4 {
+    transform: translate(0px, -90px);
+}
+.statusText {
+    font-size: 12px;
+    font-weight:bold;
+    color: darkblue;
+    transform: translate(-13px, -21px);
+    z-index:1100;
+}
+#defenceText1, #defenceText2 {
+    transform: translate(-13px, -23px);
+}
+#menuImg {
+    display: block;
+    transform: translateY(-110px);
+   
+}
+
+#ggLogo {
+    min-height: 50px;
+    height: 60px;
+    background-image: url(Images/HUD/gabbyLogo.png);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+#toHome {
+    display:block;
+    height: 50px;
+    min-width: 50px;
+    padding-top: 60px;
+    font-family: 'Comic Sans MS';
+    font-size: 12px;
+    color: blue;
+    z-index: 1000;
+    /*background-image: url(Images/HUD/gabbyLogo.png);*/
+}
