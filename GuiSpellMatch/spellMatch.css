@@ -164,7 +164,7 @@ img[src$=".gif"], img[src$=".png"] {
     left: 10px;
     transform: translate(17px, 4px);
     /*background-image: url(Images/HUD/defenceBar.png);
-    background-size: cover;
+    
     background-repeat: no-repeat;*/
 }
 #progressBar2 {
