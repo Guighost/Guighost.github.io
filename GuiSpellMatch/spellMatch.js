@@ -9,7 +9,20 @@ var newGameLoad = 0;
 window.onload = function () {
     // Get the canvas and context
     var canvas = document.getElementById("viewport1");
+
+    canvas.width = window.innerWidth;
+    if (canvas.width > 565) { canvas.width = 565 };
+    canvas.height = window.innerHeight;
+    if (canvas.height > 318) { canvas.height = 318 };
+    canvas.style.width = canvas.width.toString() + "px";
+    canvas.style.height = canvas.height.toString() + "px";
+
+
     var context = canvas.getContext("2d");
+    context.webkitImageSmoothingEnabled = false;
+    context.mozImageSmoothingEnabled = false;
+    context.imageSmoothingEnabled = false;
+
     //game sound loop
     var soundLoop = document.getElementById("gameSoundLoop");
     soundLoop.volume = 0.3;
@@ -32,7 +45,8 @@ window.onload = function () {
     var addSpecialVert = false;
     var starCash = 0;
     var totalSeconds = 0;
-
+    var enemyName = "ARCANUS"
+    
     if (typeof localStorage["starCash"] === "undefined") { localStorage["starCash"] = 0; starCash = 0; };
     starCash = parseInt(localStorage["starCash"]);
 
@@ -41,12 +55,12 @@ window.onload = function () {
 
     // Level object
     var level = {
-        x: 5,         // X position
-        y: 1,         // Y position
+        x: 63,         // X position
+        y: 30,         // Y position
         columns: 9,     // Number of tile columns
-        rows: 4,        // Number of tile rows
-        tilewidth: 32,  // Visual width of a tile
-        tileheight: 32, // Visual height of a tile
+        rows: 5,        // Number of tile rows
+        tilewidth: 49,  // Visual width of a tile
+        tileheight: 49, // Visual height of a tile
         tiles: [],    // The two-dimensional tile array
         tileImage: [],  //DB addition for images
 
@@ -54,6 +68,9 @@ window.onload = function () {
     };
 
 
+    //resize handling
+    window.addEventListener('resize', resizeGame(), false);
+    window.addEventListener('orientationchange', resizeGame(), false);
 
 
 
@@ -89,7 +106,7 @@ window.onload = function () {
     // Animation variables
     var animationstate = 0;
     var animationtime = 0;
-    var animationtimetotal = 0.3;
+    var animationtimetotal = 0.9;
 
     // Show available moves
     var showmoves = false;
@@ -105,25 +122,25 @@ window.onload = function () {
     var imgArray = new Array();
 
     imgArray[0] = new Image();
-    imgArray[0].src = 'Images/0.png';
+    imgArray[0].src = 'Images/20.png';
 
     imgArray[1] = new Image();
-    imgArray[1].src = 'Images/1.png';
+    imgArray[1].src = 'Images/21.png';
 
     imgArray[2] = new Image();
-    imgArray[2].src = 'Images/2.png';
+    imgArray[2].src = 'Images/22.png';
 
     imgArray[3] = new Image();
-    imgArray[3].src = 'Images/3.png';
+    imgArray[3].src = 'Images/23.png';
 
     imgArray[4] = new Image();
-    imgArray[4].src = 'Images/4.png';
+    imgArray[4].src = 'Images/24.png';
 
     imgArray[5] = new Image();
-    imgArray[5].src = 'Images/5.png';
+    imgArray[5].src = 'Images/25.png';
 
     imgArray[6] = new Image();
-    imgArray[6].src = 'Images/6.png';
+    imgArray[6].src = 'Images/26.png';
 
     imgArray[7] = new Image();
     imgArray[7].src = 'Images/7.png';
@@ -138,7 +155,7 @@ window.onload = function () {
     var imgArray2 = new Array();
 
     imgArray2[0] = new Image();
-    imgArray2[0].src = 'Images/footerImg.png';
+    imgArray2[0].src = 'Images/gabbyLogo.png';
 
     imgArray2[1] = new Image();
     imgArray2[1].src = 'Images/HUD/levelUp1.png';
@@ -176,17 +193,92 @@ window.onload = function () {
     imgArray2[12] = new Image();
     imgArray2[12].src = 'Images/HUD/levelUp1.png';
 
-    //imgArray2[13] = new Image();
-    //imgArray2[13].src = 'Images/HUD/healthBar.png';
+    imgArray2[13] = new Image();
+    imgArray2[13].src = 'Images/Hero/idle_1.png';
 
-    //imgArray2[14] = new Image();
-    //imgArray2[14].src = 'Images/HUD/defenceContainer.png';
+    imgArray2[14] = new Image();
+    imgArray2[14].src = 'Images/HUD/healthContainer.png';
 
-    //imgArray2[15] = new Image();
-    //imgArray2[15].src = 'Images/HUD/defenceBar.png';
+    imgArray2[15] = new Image();
+    imgArray2[15].src = 'Images/HUD/healthBar.png';
+
+    imgArray2[16] = new Image();
+    imgArray2[16].src = 'Images/HUD/defenseContainer.png';
+
+    imgArray2[17] = new Image();
+    imgArray2[17].src = 'Images/HUD/defenseBar.png';
+
+    imgArray2[18] = new Image();
+    imgArray2[18].src = 'Images/Enemy/idle_3.png';
+
+    imgArray2[19] = new Image();
+    imgArray2[19].src = 'Images/HUD/bottomBar.png';
+
+    drawPlayer();
+   
+    function drawPlayer() {
+        var plx = 0;
+        var ply = 6;
+        var plwidth = 62;
+        var plheight = 67;
+      
+
+        //draw background for player
+        var centerX = plx + (plwidth / 2);
+        var centerY = ply +(plheight / 2);
+        var radius = 45;
+
+        context.beginPath();
+        context.arc(centerX, centerY, radius, 0, 2 * Math.PI, false);
+        context.fillStyle = '#3366ff';
+        context.fill();
+        context.lineWidth = 5;
+        context.strokeStyle = '#003300';
+        context.stroke();
+
+        //player image
+        context.drawImage(imgArray2[13], plx, ply, plwidth, plheight);
+        //health bars
+        context.drawImage(imgArray2[14], plx - 0.5, ply + 70, 30, 175);
+        context.drawImage(imgArray2[15], plx + 9, ply + 82, 15, 124);
+        //defense bars
+        context.drawImage(imgArray2[16], plx + 29, ply + 70, 30, 175);
+        context.drawImage(imgArray2[17], plx + 36, ply + 82, 16, 124);
+    }
+    function drawEnemy() {
+        
+        var enx = 505;
+        var eny = 2;
+        var enwidth = 67;
+        var enheight = 69;
+
+        //draw background for player
+        var centerX = enx + (enwidth / 2);
+        var centerY = eny + (enheight / 2) -3;
+        var radius = 45;
+
+        context.beginPath();
+        context.arc(centerX, centerY, radius, 0, 2 * Math.PI, false);
+        context.fillStyle = 'green';
+        context.fill();
+        context.lineWidth = 5;
+        context.strokeStyle = '#003300';
+        context.stroke();
 
 
-    setInterval(setTime, 1000);
+        //enemyimage
+        context.drawImage(imgArray2[18], enx, eny, enwidth, enheight);
+        //imgArray2[14]
+      
+        //enemy defense baars
+        context.drawImage(imgArray2[16], enx + 7 , eny + 70, 28, 175);
+        context.drawImage(imgArray2[17], enx + 15 , eny + 82, 14, 124);
+        //enemy health bars
+        context.drawImage(imgArray2[14], enx + 34, eny + 70, 30, 175);
+        context.drawImage(imgArray2[15], enx + 41, eny + 82, 16, 124);
+    }
+   
+    setInterval(setTime, 2000);
 
     function setTime() {
         if (newGameLoad == 1) { totalSeconds = 0; newGameLoad = 0; }
@@ -232,8 +324,8 @@ window.onload = function () {
     //end  howl based sounds
 
     // Gui buttons
-    var buttons = [{ x: 15, y: 475, width: 100, height: 30, text: "New Game" },
-        { x: 255, y: 145, width: 100, height: 30, text: "Auto" }
+    var buttons = [{ x: 130, y: 285, width: 50, height: 35, text: "New" },
+        { x: 390, y: 285, width: 50, height: 35, text: "Next" }
          ];
 
     // Initialize the game
@@ -277,7 +369,7 @@ window.onload = function () {
 
     // Update the game state
     function update(tframe) {
-        var dt = (tframe - lastframe) / 1000;
+        var dt = (tframe - lastframe) / 100;
         lastframe = tframe;
 
 
@@ -336,7 +428,7 @@ window.onload = function () {
 
                         // Simulate a player using the mouse to swap two tiles
                         mouseSwap(move.column1, move.row1, move.column2, move.row2);
-
+                        aibot = false;
                     } else {
                         // No moves left, Game Over. We could start a new game.
 
@@ -375,11 +467,11 @@ window.onload = function () {
                             // Draw score
                             context.fillStyle = "#ffff00";
                             context.font = "22px Comic Sans MS";
-                            drawCenterText("Score", 230, level.y - 75, 175);
+                            drawCenterText("Score", 230, level.y + level.height - 30, 275);
                             context.font = "26px Comic Sans MS";
-                            drawCenterText(score, 230, level.y - 50, 175);
+                            drawCenterText(score, 230, level.y + level.height -30, 275);
                             matchCount = matchCount + (clusters[i].length - 2);
-                            progressBar(levelScoreProgress, levelCount);
+                            //progressBar(levelScoreProgress, levelCount);
                         }
                         //GG add - specials for 5 or greater
                         //if (clusters.length >= 4) {
@@ -493,22 +585,23 @@ window.onload = function () {
         drawFrame();
 
         // Draw score
-        context.fillStyle = "#ffff00";
-        context.font = "16px Comic Sans MS";
-
-        drawCenterText("Score", 230, level.y - 70, 175);
-        context.font = "22px Comic Sans MS";
-        drawCenterText(score, 230, level.y + 50, 175);
+        context.fillStyle = "blue";
+        context.font = "8px Comic Sans MS";
+        drawEnemy();
+        drawCenterText("Score", 261, level.y + 135 , 40);
+        context.font = "8px Comic Sans MS";
+        drawCenterText(score, 244, level.y + 145, 75);
 
 
         // Draw buttons
         drawButtons();
+     
 
         // Draw level background
         var levelwidth = level.columns * level.tilewidth;
         var levelheight = level.rows * level.tileheight;
         context.fillStyle = "#000000";
-        context.fillRect(level.x - 4, level.y - 4, levelwidth + 8, levelheight + 8);
+        context.fillRect(level.x - 2, level.y - 4, levelwidth + 8, levelheight + 8);
 
         // Render tiles
         renderTiles();
@@ -533,7 +626,7 @@ window.onload = function () {
             context.fillRect(level.x, level.y, levelwidth, levelheight);
             //img overlay
             context.drawImage(imgArray2[7], 0, 65);
-            document.getElementById("progressBar").style.display = 'none';
+            //document.getElementById("progressBar").style.display = 'none';
             context.drawImage(imgArray2[8], 60, 545);
             context.drawImage(imgArray2[9], 190, 545);
             context.fillStyle = "#cc00cc";
@@ -595,21 +688,21 @@ window.onload = function () {
 
             }
 
-            document.getElementById("progressBar").style.display = 'none';
+            //document.getElementById("progressBar").style.display = 'none';
         }
     }
 
     // Draw a frame with a border
     function drawFrame() {
         // Draw background and a border
-        context.fillStyle = "#d0d0d0";
-        context.fillRect(0, 0, canvas.width, canvas.height);
-        context.fillStyle = "#33ccff";
+        context.fillStyle = "#996600";
+        context.fillRect(0, 0, canvas.width , canvas.height);
+        context.fillStyle = "#660033";
         context.fillRect(1, 1, canvas.width - 2, canvas.height - 2);
 
         // Draw header
-        context.fillStyle = "#cc00cc";
-        context.fillRect(0, 0, canvas.width, 65);
+        //context.fillStyle = "#cc00cc";
+        //context.fillRect(0, 0, canvas.width, 65);
 
         // Draw title
         //context.fillStyle = "#ffffff";
@@ -618,24 +711,41 @@ window.onload = function () {
 
         //context.drawImage(imgArray2[6], 10, 142)
         //draw level count
-        context.fillStyle = "#000000";
-        context.font = "16px Comic Sans MS";
-        context.fillText("Level: " + levelCount, 160, 255);
+        context.fillStyle = "blue";
+        context.font = "8px Comic Sans MS";
+        context.fillText("Level: " + levelCount, 236, level.y + 143);
+        
+        //context.fillText(levelCount, 12, level.y + 110);
 
         //draw current starcash
-        context.fillStyle = "#ffffff";
+        context.fillStyle = "blue";
+        context.drawImage(imgArray2[2], 0, 290);
+        context.font = "12px Comic Sans MS";
+        context.fillText("$" + starCash, 32, 310);
+
+        //draw the titlebackground       
+        context.drawImage(imgArray2[6], 175, -2);
         context.font = "14px Comic Sans MS";
-        context.fillText("$" + starCash, 325, 62);
+        context.fillText("GuiSpellMatch", 240, 22);
 
-
+        //draw the bottom bar
+        context.drawImage(imgArray2[19], 180, 277);
+        context.fillStyle = "Red";
+        context.font = "14px Comic Sans MS";
+        context.fillText("GUIMAGE  Vs.  " + enemyName , 198, 305);
+        //draw the player
+        drawPlayer();
 
 
         // Display Time
-        context.fillStyle = "#ffffff";
-        context.font = "14px Comic Sans MS";
-        if (newGameLoad == 1) { totalSeconds = 0; }
-        context.fillText("Time:" + totalSeconds, 2, 62);
+        //context.fillStyle = "#ffffff";
+        //context.font = "14px Comic Sans MS";
+        //if (newGameLoad == 1) { totalSeconds = 0; }
+        //context.fillText("Time:" + totalSeconds, 2, 62);
     }
+
+    //draw player images
+   
 
     // Draw buttons
     function drawButtons() {
@@ -646,10 +756,10 @@ window.onload = function () {
 
             // Draw button text
             context.fillStyle = "#ffffff";
-            context.font = "16px Comic Sans MS";
+            context.font = "16px Times New Roman";
             var textdim = context.measureText(buttons[i].text);
-            context.fillText(buttons[i].text, buttons[i].x + (buttons[i].width - textdim.width) / 2, buttons[i].y + 20);
-            context.drawImage(imgArray2[0], 10, 490);
+            context.fillText(buttons[i].text, buttons[i].x + (buttons[i].width - textdim.width) / 2, buttons[i].y + 23);
+            
         }
     }
 
@@ -737,8 +847,9 @@ window.onload = function () {
         // context.fillStyle = "rgb(" + r + "," + g + "," + b + ")";
         // context.fillRect(x + 2, y + 2, level.tilewidth - 4, level.tileheight - 4);
 
-
-        context.drawImage(imgArray[i], x + 1, y + 1);
+        var imgVar1 = imgArray[i];
+        imgVar1.height = level.tileheight;
+        context.drawImage(imgVar1, x + 1, y + 1);
 
     }
 
@@ -798,8 +909,8 @@ window.onload = function () {
         gameOverSound.stop();
         gameSoundLoop.pause();
         gameSoundLoop.play();
-        progressBar(1, levelCount);
-        document.getElementById("progressBar").style.display = 'block';
+        //progressBar(1, levelCount);
+        //document.getElementById("progressBar").style.display = 'block';
         // Set the gamestate to ready
         gamestate = gamestates.ready;
 
@@ -1220,18 +1331,14 @@ window.onload = function () {
                     // New Game
                     newGame(0);
                     totalSeconds = 0;
-                } else if (i == 1) {
-                    // Show Moves
-                    showmoves = !showmoves;
-                    buttons[i].text = (showmoves ? "Hide" : "Show") + " Moves";
-                } else if (i == 2) {
+                }  else if (i == 1) {
                     // AI Bot
                     aibot = !aibot;
-                    buttons[i].text = "Auto " + (aibot ? "On" : "Off");
+                    buttons[i].text = "Next" ;
                 }
             }
         }
-        if (gamestate == gamestates.levelUp) { newGame(1); progressBar(1, levelCount); levelScoreProgress = 0; totalSeconds = 0; }
+        if (gamestate == gamestates.levelUp) { newGame(1);  levelScoreProgress = 0; totalSeconds = 0; }
         if (gamestate == gamestates.almostOver) {
             if (pos.x >= 50 && pos.x < 170 && pos.y >= 545 && pos.y < 591) {
                 newGame(0); gamestate = gamestates.ready; gameOver = false; playOnce = 0; totalSeconds = 0;
@@ -1272,29 +1379,29 @@ window.onload = function () {
         };
     }
 
-    function progressBar(i, levelCount) {
-        // alert(i);
+    //function progressBar(i, levelCount) {
+    //    // alert(i);
 
-        var elem = document.getElementById("myBar");
-        var currentWidth = percentwidth(elem);
-        // alert("current " + currentWidth);
-        var width = currentWidth;
-        var increase = ((i / levelUpScore) * 100);
-        if (increase < 1) { increase = 1 }
-        // alert ("increase = " + increase);
-        var id = setInterval(frame, 10);
-        function frame() {
-            var currentWidth2 = percentwidth(elem);
-            if (currentWidth2 <= increase) { width++; elem.style.width = width + '%'; currentWidth = elem.style.width; }
-            else { clearInterval(id); }
-        }
-        if (increase >= 100) { levelUp() }
+    //    var elem = document.getElementById("myBar3");
+    //    var currentWidth = percentwidth(elem);
+    //    // alert("current " + currentWidth);
+    //    var width = currentWidth;
+    //    var increase = ((i / levelUpScore) * 100);
+    //    if (increase < 1) { increase = 1 }
+    //    // alert ("increase = " + increase);
+    //    var id = setInterval(frame, 10);
+    //    function frame() {
+    //        var currentWidth2 = percentwidth(elem);
+    //        if (currentWidth2 <= increase) { width++; elem.style.width = width + '%'; currentWidth = elem.style.width; }
+    //        else { clearInterval(id); }
+    //    }
+    //    if (increase >= 100) { levelUp() }
 
-    }
-    function percentwidth(elem) {
-        var pa = elem.offsetParent || elem;
-        return ((elem.offsetWidth / pa.offsetWidth) * 100).toFixed(2);
-    }
+    //}
+    //function percentwidth(elem) {
+    //    var pa = elem.offsetParent || elem;
+    //    return ((elem.offsetWidth / pa.offsetWidth) * 100).toFixed(2);
+    //}
 
     function levelUp() {
         gamestate = gamestates.levelUp;
@@ -1359,3 +1466,29 @@ function hideIntro() {
     newGame(0);
 }
 
+function resizeGame() {
+    //alert("resize");
+    var gameBoard = document.getElementById('viewport1');
+    var widthToHeight = 5.68 / 3.2;
+
+    var newWidth = window.innerWidth - 10;
+    if (newWidth > 900) { newWidth = 900 }
+    var newHeight = window.innerHeight - 10;
+    if (newHeight > 619) { newHeight = 620 }
+    var newWidthToHeight = newWidth / newHeight;
+
+    if (newWidthToHeight > widthToHeight) {  // window width is too wide relative to desired game width
+        gameBoard.style.height = newHeight + 'px';
+        newWidth = newHeight * widthToHeight;
+        gameBoard.style.width = newWidth + 'px';
+    } else {  // window height is too high relative to desired game height
+        gameBoard.style.width = newWidth + 'px';
+        newHeight = newWidth / widthToHeight;
+        gameBoard.style.height = newHeight + 'px';
+    }
+
+    // center the canvas
+    gameBoard.style.marginTop = (-newHeight / 2) + 'px';
+    console.log(-newHeight / 2);
+    gameBoard.style.marginLeft = (-newWidth / 2) + 'px';
+};	

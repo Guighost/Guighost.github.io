@@ -7,6 +7,15 @@
     background-color:darkslateblue;
 
 }
+/* applies to GIF and PNG images; avoids blurry edges */
+img[src$=".gif"], img[src$=".png"] {
+    image-rendering: -moz-crisp-edges; /* Firefox */
+    image-rendering: -o-crisp-edges; /* Opera */
+    image-rendering: -webkit-optimize-contrast; /* Webkit (non-standard naming) */
+    image-rendering: crisp-edges;
+    -ms-interpolation-mode: nearest-neighbor; /* IE (non-standard property) */
+}
+
 
 #gameTitle {
     background-color:goldenrod;
@@ -17,6 +26,16 @@
     margin-right: auto;
     transform: translateY(-10px);
 }
+
+#gameMasterContainer {
+    
+    /*left: 50%;
+  
+    transform: translate(-5px, -8px);
+ 
+    
+    display: block;*/
+}
 #leftSide {
     display: block;
     font-size: 16px;
@@ -24,25 +43,39 @@
     border: 2px inset red;
     float: left;
     height: 315px;
-    width: 100px;
+    width: 90px;
     background-color: black;
-    transform: translateY(-0px);
-    margin-left:2px;
+    transform: translateX(-5px);
+    margin-left: 2px;
 }
 
-#gameMasterContainer {
-    transform: translate(-5px, -8px);
-    top: 30px;
-  margin-right: 0px;
-    
-    display: block;
-   
-}
 #viewport1 {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 600px;
+    min-height: 310px;
+    height: 380px;
+    width: 508px;
+   /*max-width: 360px;*/
+    /*max-height: 750px;*/
     border: 1px solid yellow;
-    transform: translate(-90px 0px);
-    width:340px;
-    height:315px;
+    /*transform: translate(-15px, 0px);*/
+    /*width:508px;
+    height:315px;*/
+    float: left;
+}
+#viewport2 {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    /*max-width: 1000px;*/
+    min-height: 100px;
+    /*max-height: 750px;*/
+    border: 1px solid yellow;
+    /*transform: translate(-15px, 0px);*/
+    /*width:508px;
+    height:315px;*/
     float: left;
 }
 #rightSide {
@@ -50,13 +83,14 @@
     font-size: 20px;
     color: azure;
     border: 2px inset red;
-    float: left;
+    float: right;
     height: 315px;
-    width: 100px;
+    width: 90px;
     background-color: black;
-    transform: translate(1px,-0px);
+    transform: translate(5px,-0px);
     margin-left: 0px;
     margin-right: 0px;
+    z-index: 1000;
 }
 #heroImage {
     transform: scale(.65) translate(-65px, -90px);
@@ -78,14 +112,14 @@
 .pBars {
     border: 1px solid black;
     border-radius: 3px;
-    width: 80px;
+    width: 75px;
     min-height: 10px;
    
-    left: 5px;
+    /*left: 5px;*/
 }
 
 #progressBar, #progressBar3 {
-    width: 95px;
+    width: 85px;
     /*background-color: azure;*/
     min-height: 25px;
     /*top: 50px;*/
@@ -96,7 +130,7 @@
     background-repeat: no-repeat;
 }
 #progressBar2, #progressBar4 {
-    width: 95px;
+    width: 85px;
     background-color: black;
     min-height: 20px;
     /*top: 50px;*/
@@ -115,7 +149,7 @@
     z-index: 1050;
     min-height: 11px;
     left: 10px;
-    transform: translate(20px, 6px);
+    transform: translate(17px, 6px);
     /*background-image: url(Images/HUD/healthBar.png);
     background-size: contain;
     background-position: left;
@@ -128,7 +162,7 @@
     z-index: 1050;
     min-height: 11px;
     left: 10px;
-    transform: translate(20px, 4px);
+    transform: translate(17px, 4px);
     /*background-image: url(Images/HUD/defenceBar.png);
     background-size: cover;
     background-repeat: no-repeat;*/

@@ -13,22 +13,17 @@
     <link rel="stylesheet" href="spellmatch.css">
 </head>
 <body>
-    <audio id="gameSoundLoop" class="gameSounds" loop autoplay>
+     <audio id="gameSoundLoop" class="gameSounds" loop autoplay>
         <source src="Sounds\spellMatchLoop.mp3" type="audio/mp3">
     </audio>
-    <header>
-        <div>
-            
-        </div>
-      
-    </header>
+  
 
-    <nav></nav>
-
-    <section id="sectionMaster" >
+   
         <div id="gameMasterContainer">
            
-                <aside id="leftSide">
+            <canvas id="viewport1"></canvas>
+            
+                <!--<div id="leftSide">
                     <h4 id="gameTitle">SpellMatch Adventure</h4>
                     <div id="heroImage" class="playerStyle"></div>
                     <div id="heroHealth">
@@ -46,11 +41,11 @@
                     </div>
                     <div id="menu"> <img id="menuImg" src="Images/HUD/Menu.png" /></div>
 
-                </aside>
+                </div>-->
 
-                <canvas id="viewport1"></canvas>
+                
 
-                <aside id="rightSide">
+               <!--<div id="rightSide">
                     <div id="ggLogo"><a href="../index.html" id="toHome"></a></div>
                     <div id="enemyImage" class="playerStyle"></div>
                     <div id="enemyHealth">
@@ -66,14 +61,15 @@
                             <p id="defenceText2" class="statusText">100</p>
                         </div>
                     </div>
-                </aside>
+              </div>-->
             </div>
         
 
-    </section>
+   
    
    
     <script src="../Frameworks/howler.min.js"></script>
-    <script type='text/javascript' src='spellMatch.js'></script>	
+    <script type='text/javascript' src='spellMatch.js'></script>
+    <!--<script type='text/javascript' src='spellMatchL2.js'></script>-->	
 </body>
 </html>

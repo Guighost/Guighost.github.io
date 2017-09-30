@@ -53,7 +53,7 @@ window.onload = function() {
         selectedtile: { selected: false, column: 0, row: 0 }
     };
 
-    
+
     
 	
 	
@@ -1342,4 +1342,3 @@ function hideIntro() {
     newGame(0);
 }
             
-	
