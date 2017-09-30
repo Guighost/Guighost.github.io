@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>GuiGhosTris</title>
+    <link rel="stylesheet" href="blockrain.css">
+    <link rel="stylesheet" href="ggt.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui" />
+    <link rel="shortcut icon" href="assets/images/favicon.png">
+  
+</head>
+<body>
+    <a href="">GuiGhosTris</a>
+    <div class="wrapper" id="gameWrapper">
+        <!--The Game-->
+        <div class="game" id="gameDiv" style="width:600px; height:600px;"></div>
+        
+        <!--The Controls-->
+        <!--<div id="controls">
+            <button id="left"> <img src="assets/images/arrow-left.png" /></button>
+            <button id="down"> <img src="assets/images/arrow-down.png" /></button>
+            <button id="up"> <img src="assets/images/arrow-up.png" /></button>
+            <button id="right"> <img src="assets/images/arrow-right.png" /></button>
+
+        </div>-->
+    </div>
+
+    <footer> GuiGhost Games</footer>
+    <script src="assets/js/jquery-1.11.1.min.js"></script>
+    <script src="src/blockrain.jquery.libs.js"></script>
+    <script src="blockrain.jquery.js"></script>
+    <script src="src/blockrain.jquery.themes.js"></script>
+    <script>
+        //Start Game
+        $('.game').blockrain();
+        $('.game').blockrain('controls', true);
+        //Resize functions
+        window.addEventListener('resize', resizeGame, false);
+        window.addEventListener('orientationchange', resizeGame, false);
+        function resizeGame() {
+            var gameBoard = document.getElementById('gameDiv');
+            var widthToHeight = 1 / 2;
+
+            var newWidth = window.innerWidth;
+            var newHeight = window.innerHeight;
+            var newWidthToHeight = newWidth / newHeight;
+
+            if (newWidthToHeight > widthToHeight) {  // window width is too wide relative to desired game width
+                gameBoard.style.height = newHeight + 'px';
+                newWidth = newHeight * widthToHeight;
+                gameBoard.style.width = newWidth + 'px';
+            } else {  // window height is too high relative to desired game height
+                gameBoard.style.width = newWidth + 'px';
+                newHeight = newWidth / widthToHeight;
+                gameBoard.style.height = newHeight + 'px';
+            }
+
+            // center the canvas
+            gameBoard.style.marginTop = (-newHeight / 2) + 'px';
+            gameBoard.style.marginLeft = (-newWidth / 2) + 'px';
+        };
+
+
+
+    </script>
+</body>
+</html>

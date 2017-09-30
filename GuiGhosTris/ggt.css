@@ -1,0 +1,19 @@
+﻿body {
+    font-family: 'Comic Sans MS';
+    text-align: center;
+    background-repeat: no-repeat;
+    background-color: darkslateblue;
+}
+
+.wrapper {
+    background-repeat: no-repeat;
+    background-color: darkred;
+}
+.game {
+    /*width: 320px;
+    height: 500px;*/
+    border: 1px solid blue;
+    margin-left: auto;
+    margin-right: auto;
+    
+}
