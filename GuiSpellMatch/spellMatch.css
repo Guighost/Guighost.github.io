@@ -210,3 +210,14 @@ img[src$=".gif"], img[src$=".png"] {
     z-index: 1000;
     /*background-image: url(Images/HUD/gabbyLogo.png);*/
 }
+#message {
+    position: absolute;
+    display: none;
+    height: 200px;
+    min-width: 350px;
+    left: 50%;
+    top: 50%;
+    background-image: url(Images/HUD/enemyTurn.png);
+    z-index: 500;
+    transform: translate(-175px, -100px);
+}

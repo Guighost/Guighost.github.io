@@ -46,6 +46,7 @@ window.onload = function () {
     var starCash = 0;
     var totalSeconds = 0;
     var enemyName = "ARCANUS"
+    var enemyTurn = false;
     
     if (typeof localStorage["starCash"] === "undefined") { localStorage["starCash"] = 0; starCash = 0; };
     starCash = parseInt(localStorage["starCash"]);
@@ -56,7 +57,7 @@ window.onload = function () {
     // Level object
     var level = {
         x: 63,         // X position
-        y: 30,         // Y position
+        y: 35,         // Y position
         columns: 9,     // Number of tile columns
         rows: 5,        // Number of tile rows
         tilewidth: 49,  // Visual width of a tile
@@ -97,7 +98,7 @@ window.onload = function () {
 
     var gemcolors = 5;
     // Game states
-    var gamestates = { init: 0, ready: 1, resolve: 2, levelUp: 3, almostOver: 4 };
+    var gamestates = { init: 0, ready: 1, resolve: 2, levelUp: 3, almostOver: 4, aiTurn: 5 };
     var gamestate = gamestates.init;
 
     // Score
@@ -113,7 +114,7 @@ window.onload = function () {
 
     // The AI bot
     var aibot = false;
-
+    var oneTimeE = 0;
     // Game Over
     var gameover = false;
 
@@ -214,10 +215,41 @@ window.onload = function () {
     imgArray2[19] = new Image();
     imgArray2[19].src = 'Images/HUD/bottomBar.png';
 
+    imgArray2[20] = new Image();
+    imgArray2[20].src = 'Images/HUD/powerBack.png';
+
+    imgArray2[21] = new Image();
+    imgArray2[21].src = 'Images/HUD/powerBackEnemy.png';
+
+    imgArray2[22] = new Image();
+    imgArray2[22].src = 'Images/HUD/powerInnerBar.png';
+
+
+    var imgArray3 = new Array();
+    imgArray3[0] = new Image();
+    imgArray3[0].src = 'Images/buttons/greyGear.png';
+
+    imgArray3[1] = new Image();
+    imgArray3[1].src = 'Images/buttons/greenHouse.png';
+
+    imgArray3[2] = new Image();
+    imgArray3[2].src = 'Images/buttons/greySound.png';
+
+    imgArray3[3] = new Image();
+    imgArray3[3].src = 'Images/buttons/greyMenu.png';
+
+    imgArray3[4] = new Image();
+    imgArray3[4].src = 'Images/buttons/greenTrophy.png';
+
+    imgArray3[5] = new Image();
+    imgArray3[5].src = 'Images/buttons/greyThumbUp.png'; 
+
+
+
     drawPlayer();
    
     function drawPlayer() {
-        var plx = 0;
+        var plx = -2;
         var ply = 6;
         var plwidth = 62;
         var plheight = 67;
@@ -230,7 +262,7 @@ window.onload = function () {
 
         context.beginPath();
         context.arc(centerX, centerY, radius, 0, 2 * Math.PI, false);
-        context.fillStyle = '#3366ff';
+        context.fillStyle = '#00000F';
         context.fill();
         context.lineWidth = 5;
         context.strokeStyle = '#003300';
@@ -238,37 +270,42 @@ window.onload = function () {
 
         //player image
         context.drawImage(imgArray2[13], plx, ply, plwidth, plheight);
+
+        //player power bar
+        context.drawImage(imgArray2[20], plx + 56, ply -4  );
+        context.drawImage(imgArray2[22], plx + 83, ply +4);
+
         //health bars
-        context.drawImage(imgArray2[14], plx - 0.5, ply + 70, 30, 175);
+        context.drawImage(imgArray2[14], plx +1 , ply + 70, 30, 175);
         context.drawImage(imgArray2[15], plx + 9, ply + 82, 15, 124);
         //defense bars
-        context.drawImage(imgArray2[16], plx + 29, ply + 70, 30, 175);
-        context.drawImage(imgArray2[17], plx + 36, ply + 82, 16, 124);
+        context.drawImage(imgArray2[16], plx + 31, ply + 70, 30, 175);
+        context.drawImage(imgArray2[17], plx + 38, ply + 82, 16, 124);
     }
     function drawEnemy() {
         
         var enx = 505;
         var eny = 2;
-        var enwidth = 67;
-        var enheight = 69;
+        var enwidth = 62;
+        var enheight = 67;
 
         //draw background for player
         var centerX = enx + (enwidth / 2);
         var centerY = eny + (enheight / 2) -3;
         var radius = 45;
-
         context.beginPath();
         context.arc(centerX, centerY, radius, 0, 2 * Math.PI, false);
-        context.fillStyle = 'green';
+        context.fillStyle = '#000003';
         context.fill();
         context.lineWidth = 5;
         context.strokeStyle = '#003300';
         context.stroke();
-
-
+        
         //enemyimage
         context.drawImage(imgArray2[18], enx, eny, enwidth, enheight);
-        //imgArray2[14]
+        //enemy power bar
+        context.drawImage(imgArray2[21], enx - 110, eny   );
+        context.drawImage(imgArray2[22], enx - 103, eny +8);
       
         //enemy defense baars
         context.drawImage(imgArray2[16], enx + 7 , eny + 70, 28, 175);
@@ -416,25 +453,29 @@ window.onload = function () {
             }
 
             // Let the AI bot make a move, if enabled
+            
             if (aibot) {
                 animationtime += dt;
                 if (animationtime > animationtimetotal) {
                     // Check if there are moves available
                     findMoves();
 
-                    if (moves.length > 0) {
+                    if (moves.length > 0 && oneTimeE == 0) {
                         // Get a random valid move
                         var move = moves[Math.floor(Math.random() * moves.length)];
 
                         // Simulate a player using the mouse to swap two tiles
                         mouseSwap(move.column1, move.row1, move.column2, move.row2);
                         aibot = false;
+                        oneTimeE = 1;
                     } else {
                         // No moves left, Game Over. We could start a new game.
 
                         aibot = false;
+                        oneTimeE = 0;
                     }
                     animationtime = 0;
+                   
                 }
             }
         } else if (gamestate == gamestates.resolve) {
@@ -453,36 +494,30 @@ window.onload = function () {
 
                         swapSound.play();
                         for (var i = 0; i < clusters.length; i++) {
-                            ////GG add////////
-                            //if (clusters.[i].length > 1) {
-                            //    console.log("cluster length when drawing " + clusters.length);
-                            //    context.drawImage(imgArray2[11], 50, 65);
-
-                            //}
-                            //////GG end /////
-
+                         
                             // Add extra points for longer clusters
                             score += 100 * (clusters[i].length - 2);;
                             levelScoreProgress = levelScoreProgress + (100 * (clusters[i].length - 2));
-                            // Draw score
-                            context.fillStyle = "#ffff00";
-                            context.font = "22px Comic Sans MS";
-                            drawCenterText("Score", 230, level.y + level.height - 30, 275);
-                            context.font = "26px Comic Sans MS";
-                            drawCenterText(score, 230, level.y + level.height -30, 275);
                             matchCount = matchCount + (clusters[i].length - 2);
-                            //progressBar(levelScoreProgress, levelCount);
+
+                            //show and hide player turn message once all clusters resolved
+                            
+                            if ( clusters.length == 1 && aibot == false) {
+                                setTimeout(function () {
+                                    document.getElementById("message").style.display = 'block';
+                                }, 400);
+                                setTimeout(function () {
+                                    document.getElementById("message").style.display = 'none';
+                                    aibot = true;
+                                }, 1900);
+                                setTimeout(function () {
+                                    
+                                    aibot = !aibot;
+                                }, 2100);
+                            }
                         }
                         //GG add - specials for 5 or greater
-                        //if (clusters.length >= 4) {
-                        //    //found 5 or greater- make a special in the center
-                        //    var centerTile = clusters.length / 2;
-                        //    centerTile = Math.round(centerTile);
-                        //    alert(centerTile);
-                        //}
-
-
-                        //GG add end specials
+                       
 
                         // Clusters found, remove them
                         removeClusters();
@@ -717,22 +752,26 @@ window.onload = function () {
         
         //context.fillText(levelCount, 12, level.y + 110);
 
-        //draw current starcash
-        context.fillStyle = "blue";
-        context.drawImage(imgArray2[2], 0, 290);
-        context.font = "12px Comic Sans MS";
-        context.fillText("$" + starCash, 32, 310);
+        
 
         //draw the titlebackground       
         context.drawImage(imgArray2[6], 175, -2);
         context.font = "14px Comic Sans MS";
-        context.fillText("GuiSpellMatch", 240, 22);
+        //context.fillText("GuiSpellMatch", 238, 20);
 
         //draw the bottom bar
-        context.drawImage(imgArray2[19], 180, 277);
+        context.drawImage(imgArray2[19], 180, 282);
         context.fillStyle = "Red";
         context.font = "14px Comic Sans MS";
-        context.fillText("GUIMAGE  Vs.  " + enemyName , 198, 305);
+        context.fillText("GUIMAGE  Vs.  " + enemyName, 198, 305);
+
+        //draw the left and right bars
+        context.drawImage(imgArray2[19], 440, 287, 125, 30);
+        context.drawImage(imgArray2[19], 0, 287, 125 ,30);
+        //draw current starcash
+        context.fillStyle = "blue";
+        context.font = "18px Comic Sans MS";
+        context.fillText("$" + starCash, 15, 275);
         //draw the player
         drawPlayer();
 
@@ -759,7 +798,14 @@ window.onload = function () {
             context.font = "16px Times New Roman";
             var textdim = context.measureText(buttons[i].text);
             context.fillText(buttons[i].text, buttons[i].x + (buttons[i].width - textdim.width) / 2, buttons[i].y + 23);
-            
+
+            //draw button images
+            context.drawImage(imgArray3[0], 12, 288);
+            context.drawImage(imgArray3[1], 47, 288);
+            context.drawImage(imgArray3[2], 82, 288);
+            context.drawImage(imgArray3[3], 452, 288);
+            context.drawImage(imgArray3[4], 487, 288);
+            context.drawImage(imgArray3[5], 522, 288);
         }
     }
 
