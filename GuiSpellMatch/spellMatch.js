@@ -210,7 +210,7 @@ window.onload = function () {
     imgArray2[6].src = 'Images/hudLevel.png';
 
     imgArray2[7] = new Image();
-    imgArray2[7].src = 'Images/HUD/gameOver2.png';
+    imgArray2[7].src = 'Images/HUD/loss.png';
 
     imgArray2[8] = new Image();
     imgArray2[8].src = 'Images/HUD/newGame.png';
@@ -310,10 +310,10 @@ window.onload = function () {
 
         //health bars
         context.drawImage(imgArray2[14], plx + 1, ply + 110, 30, 145);
-        context.drawImage(imgArray2[15], plx + 9, ply + 122 + player1.damage, 14, ((player1.health - player1.damage) / player1.healthMax) * 100);
+        context.drawImage(imgArray2[15], plx + 9, ply + 122 + player1.damage, 14, ((player1.health) / player1.healthMax) * 100);
         //defense bars
         context.drawImage(imgArray2[16], plx + 31, ply + 110, 30, 145);
-        context.drawImage(imgArray2[17], plx + 38, ply + 122 + player1.defenseDrop, 14, ((player1.defense - player1.defenseDrop) / player1.defenseMax) * 100);
+        context.drawImage(imgArray2[17], plx + 38, ply + 122 + player1.defenseDrop, 14, ((player1.defenseMax - player1.defenseDrop) / player1.defenseMax) * 100);
     }
     function drawEnemy() {
         
@@ -345,7 +345,7 @@ window.onload = function () {
         context.drawImage(imgArray2[17], enx + 11, eny + 122 + enemy.defenseDrop, 14, ((enemy.defenseMax - enemy.defenseDrop) / enemy.defenseMax) * 100);
         //enemy health bars
         context.drawImage(imgArray2[14], enx + 29, eny + 110, 30, 145);
-        console.log("enemyHealth= " + enemy.health)
+        //console.log("enemyHealth= " + enemy.health)
         context.drawImage(imgArray2[15], enx + 37, eny + 122 + enemy.damage, 14, ((enemy.health) / enemy.healthMax) * 100);
     }
    
@@ -525,7 +525,7 @@ window.onload = function () {
                     if (clusters.length > 0) {
                         // Add points to the score
                         swapSound.stop();
-
+                        
                         swapSound.play();
                         for (var i = 0; i < clusters.length; i++) {
                          
@@ -550,12 +550,34 @@ window.onload = function () {
                                 enemy.damage = enemy.damage + damageThisTime;
                                 enemy.health = enemy.healthMax - enemy.damage;
                                 if (enemy.health <= 0) { levelUp(); };
+                                enemyTurn = true;
                               
                             }
+                            //enemy attacking player
+                            if (aibot) { //hit player//
+                                var damageThisTime = 15 + (1 * (clusters[i].length - 2));
+                                console.log("damage this time1: " + damageThisTime);
+                                player1.defenseDrop = player1.defenseDrop + damageThisTime;
+                                if (player1.defenseDrop >= player1.defenseMax) { player1.defenseDrop = player1.defenseMax };
+                                player1.defense = player1.defenseMax - player1.defenseDrop;
+                                if (player1.defense <= 0) { player1.defense = 0 };
+                                console.log("Player Defense " + player1.defense);
+                                var defenseAdjust = (player1.defense / player1.defenseMax);
+                                console.log("defenseAdjust " + defenseAdjust);
+                                if (defenseAdjust > 0) { damageThisTime = damageThisTime * defenseAdjust; };
+                                console.log("damage this time2: " + damageThisTime);
+                                player1.damage = player1.damage + damageThisTime;
+                                player1.health = player1.healthMax - player1.damage;
+                                console.log("player health: " + player1.health);
+                                aibot = false;
+                                enemyTurn = false;
+                                
+                                if (player1.health <= 0) { player1.health = 0; gameover = true; };
 
+                            }
                             //show and hide player turn message once all clusters resolved
-                            
-                            if ( clusters.length == 1 && aibot == false) {
+
+                            if (clusters.length == 1 && !aibot && enemy.health > 0 && enemyTurn == true) {
                                 setTimeout(function () {
                                     document.getElementById("message").style.display = 'block';
                                 }, 400);
@@ -563,10 +585,10 @@ window.onload = function () {
                                     document.getElementById("message").style.display = 'none';
                                     aibot = true;
                                 }, 1900);
-                                setTimeout(function () {
+                                //setTimeout(function () {
                                     
-                                    aibot = !aibot;
-                                }, 2100);
+                                //    aibot = false;
+                                //}, 2100);
                             }
                         }
                         //GG add - specials for 5 or greater
@@ -646,7 +668,7 @@ window.onload = function () {
     }
 
     function updateFps(dt) {
-        if (fpstime > 0.25) {
+        if (fpstime > 0.50) {
             // Calculate fps
             fps = Math.round(framecount / fpstime);
 
@@ -713,13 +735,13 @@ window.onload = function () {
             context.fillStyle = "rgba(0, 0, 0, 0.8)";
             context.fillRect(level.x, level.y, levelwidth, levelheight);
             //img overlay
-            context.drawImage(imgArray2[7], 0, 65);
+            context.drawImage(imgArray2[7], 60, 5);
             //document.getElementById("progressBar").style.display = 'none';
-            context.drawImage(imgArray2[8], 60, 545);
-            context.drawImage(imgArray2[9], 190, 545);
-            context.fillStyle = "#cc00cc";
-            context.font = "20px Comic Sans MS";
-            context.fillText(starCash, 175, 504);
+            context.drawImage(imgArray2[8], 110, 215);
+            context.drawImage(imgArray2[9], 300, 215);
+            //context.fillStyle = "#cc00cc";
+            //context.font = "20px Comic Sans MS";
+            //context.fillText(starCash, 175, 104);
             gamestate = gamestates.almostOver;
             // context.fillStyle = "#ffffff";
             // context.font = "24px Comic Sans MS";
@@ -728,7 +750,7 @@ window.onload = function () {
         }
         //level Up overlay
         if (gamestate == gamestates.levelUp) {
-            context.fillStyle = "rgba(255, 0, 255, 0.9)";
+            context.fillStyle = "rgba(22, 30, 29, 0.9)";
             context.fillRect(level.x , level.y , levelwidth , levelheight );
             
 
@@ -743,11 +765,14 @@ window.onload = function () {
 
 
             if (levelBump >= 1) { levelBump2 = 1; }
-
-            context.font = "30px Comic Sans MS";
+            context.font = "14px Comic Sans MS";
             context.fillStyle = "#cc00cc";
-            drawCenterText(" +" + levelRating, 180, 412, 50);
-            drawCenterText(starCash, 180, 469, 50);
+            drawCenterText("YOU  WIN", 250, 50, 70);
+            context.font = "16px Comic Sans MS";
+            context.fillStyle = "#cc00cc";
+            drawCenterText(" +" + levelRating, 270, 140, 50);
+            drawCenterText(starCash, 270, 169, 50);
+
             context.font = "22px Comic Sans MS";
             drawCenterText("Next Level", level.x + 2, level.y + levelheight - 20, levelwidth);
             if (levelBump == 1) {
@@ -758,19 +783,19 @@ window.onload = function () {
                 levelRating = 3;
                 if (totalSeconds <= 30) {
                     levelRating = 5;
-                    context.drawImage(imgArray2[4], 217, 296); //star2
-                    context.drawImage(imgArray2[5], 147, 262); //star3 Bonus star
+                     context.drawImage(imgArray2[4], 305, 65);  //star2
+                     context.drawImage(imgArray2[5], 246, 45); //star3 Bonus star
                 }
                 else if (totalSeconds <= 60) {
                     levelRating = 4;
-                    context.drawImage(imgArray2[4], 217, 296); //star2
+                    context.drawImage(imgArray2[4], 305, 65);  //star2
                 }
                 else if (totalSeconds >= 61) { levelRating = 3; }
                 starCash = starCash + levelRating;
                 localStorage["starCash"] = starCash;
                 context.font = "30px Comic Sans MS";
                 context.fillStyle = "#cc00cc";
-                drawCenterText(" +" + levelRating, 180, 412, 50);
+                drawCenterText(" +" + levelRating, 210, 159, 50);
 
 
             }
@@ -1506,6 +1531,7 @@ window.onload = function () {
         soundLoop.pause();
         gameSoundLoop.pause();
         levelUpSound.play();
+        document.getElementById('message').style.display = 'none';
         levelBump = 1;
         var levelAdjust = levelCount + 1;
 
@@ -1593,5 +1619,6 @@ function resizeGame() {
 
 function hideTitlePage() {
     document.getElementById('titleCover').style.display = 'none';
+    
 
 }
