@@ -2,9 +2,10 @@
     font-family: 'Comic Sans MS';
     text-align: center;
     
-   
+   background-image:url(Images/HUD/background.png);
     background-repeat:no-repeat;
     background-color:darkslateblue;
+    background-size:cover;
 
 }
 /* applies to GIF and PNG images; avoids blurry edges */
@@ -16,9 +17,42 @@ img[src$=".gif"], img[src$=".png"] {
     -ms-interpolation-mode: nearest-neighbor; /* IE (non-standard  property) */
 }
 
-
+#titleCover {
+    position: absolute;
+    transform: translate(-10px,-7px);
+    z-index: 3000;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+}
+#coverImage {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-280px,-160px);
+}
+#ggLogo2 {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-90px,80px);
+}
+#NewGameBtn {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-70px,-10px);
+}
+#btn1Text {
+    position: absolute;
+    transform: translate(-35px,-75px);
+    font-family:'Comic Sans MS';
+    font-size:40px;
+    font-weight:bolder;
+    color:blueviolet;
+}
 #gameTitle {
-    background-color:goldenrod;
+    background-color: goldenrod;
     border-radius: 10px 10px;
     color: magenta;
     max-width: 325px;
@@ -60,6 +94,7 @@ img[src$=".gif"], img[src$=".png"] {
    /*max-width: 360px;*/
     /*max-height: 750px;*/
     border: 1px solid yellow;
+    border-radius: 12px 12px;
     /*transform: translate(-15px, 0px);*/
     /*width:508px;
     height:315px;*/

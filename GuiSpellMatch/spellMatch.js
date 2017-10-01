@@ -87,8 +87,41 @@ window.onload = function () {
     ];
     //orig above
 
+    ////player object
+    var player1 = {
+        health: 100,
+        healthMax: 100,
+        damage: 0,
+        defense: 100,
+        defenseMax: 100,
+        defenseDrop: 0,
+        power: 100,
+        playerLevel: 1,
+        firePower: 1,
+        earthPower: 1,
+        windPower: 1,
+        mysticPower: 1,
+        name: "GuiMage"
+    }
+    ///
 
-
+    ////enemy object
+    var enemy = {
+        health: 100,
+        healthMax: 100,
+        damage: 0,
+        defense: 100,
+        defenseMax: 100,
+        defenseDrop: 0,
+        power: 100,
+        playerLevel: 1,
+        firePower: 1,
+        earthPower: 1,
+        windPower: 1,
+        mysticPower: 1,
+        name: "Arcanus"
+    }
+    ///
     // Clusters and moves that were found
     var clusters = [];  // { column, row, length, horizontal }
     var moves = [];     // { column1, row1, column2, row2 }
@@ -276,16 +309,16 @@ window.onload = function () {
         context.drawImage(imgArray2[22], plx + 83, ply +4);
 
         //health bars
-        context.drawImage(imgArray2[14], plx +1 , ply + 70, 30, 175);
-        context.drawImage(imgArray2[15], plx + 9, ply + 82, 15, 124);
+        context.drawImage(imgArray2[14], plx + 1, ply + 110, 30, 145);
+        context.drawImage(imgArray2[15], plx + 9, ply + 122 + player1.damage, 14, ((player1.health - player1.damage) / player1.healthMax) * 100);
         //defense bars
-        context.drawImage(imgArray2[16], plx + 31, ply + 70, 30, 175);
-        context.drawImage(imgArray2[17], plx + 38, ply + 82, 16, 124);
+        context.drawImage(imgArray2[16], plx + 31, ply + 110, 30, 145);
+        context.drawImage(imgArray2[17], plx + 38, ply + 122 + player1.defenseDrop, 14, ((player1.defense - player1.defenseDrop) / player1.defenseMax) * 100);
     }
     function drawEnemy() {
         
-        var enx = 505;
-        var eny = 2;
+        var enx = 508;
+        var eny = 6;
         var enwidth = 62;
         var enheight = 67;
 
@@ -304,15 +337,16 @@ window.onload = function () {
         //enemyimage
         context.drawImage(imgArray2[18], enx, eny, enwidth, enheight);
         //enemy power bar
-        context.drawImage(imgArray2[21], enx - 110, eny   );
-        context.drawImage(imgArray2[22], enx - 103, eny +8);
+        context.drawImage(imgArray2[21], enx - 114, eny -4  );
+        context.drawImage(imgArray2[22], enx - 107, eny +4);
       
         //enemy defense baars
-        context.drawImage(imgArray2[16], enx + 7 , eny + 70, 28, 175);
-        context.drawImage(imgArray2[17], enx + 15 , eny + 82, 14, 124);
+        context.drawImage(imgArray2[16], enx + 3, eny + 110, 28, 145);
+        context.drawImage(imgArray2[17], enx + 11, eny + 122 + enemy.defenseDrop, 14, ((enemy.defenseMax - enemy.defenseDrop) / enemy.defenseMax) * 100);
         //enemy health bars
-        context.drawImage(imgArray2[14], enx + 34, eny + 70, 30, 175);
-        context.drawImage(imgArray2[15], enx + 41, eny + 82, 16, 124);
+        context.drawImage(imgArray2[14], enx + 29, eny + 110, 30, 145);
+        console.log("enemyHealth= " + enemy.health)
+        context.drawImage(imgArray2[15], enx + 37, eny + 122 + enemy.damage, 14, ((enemy.health) / enemy.healthMax) * 100);
     }
    
     setInterval(setTime, 2000);
@@ -496,9 +530,28 @@ window.onload = function () {
                         for (var i = 0; i < clusters.length; i++) {
                          
                             // Add extra points for longer clusters
-                            score += 100 * (clusters[i].length - 2);;
+                            score += 100 * (clusters[i].length - 2);
                             levelScoreProgress = levelScoreProgress + (100 * (clusters[i].length - 2));
                             matchCount = matchCount + (clusters[i].length - 2);
+
+                            //enemy health and defense adjustment
+                            if (aibot === false) { //hit enemy//
+                                var damageThisTime = 20 + (1 * (clusters[i].length - 2));
+                                console.log("damage this time1: " + damageThisTime);
+                                enemy.defenseDrop = enemy.defenseDrop + damageThisTime;
+                                if (enemy.defenseDrop >= enemy.defenseMax) { enemy.defenseDrop = enemy.defenseMax };
+                                enemy.defense = enemy.defenseMax - enemy.defenseDrop;
+                                if (enemy.defense <= 0) { enemy.defense = 0 };
+                                console.log("Enemy Defense " + enemy.defense);
+                                var defenseAdjust = (enemy.defense / enemy.defenseMax) ;
+                                console.log("defenseAdjust " + defenseAdjust);
+                                if (defenseAdjust > 0) { damageThisTime = damageThisTime * defenseAdjust; };
+                                console.log("damage this time2: " + damageThisTime);
+                                enemy.damage = enemy.damage + damageThisTime;
+                                enemy.health = enemy.healthMax - enemy.damage;
+                                if (enemy.health <= 0) { levelUp(); };
+                              
+                            }
 
                             //show and hide player turn message once all clusters resolved
                             
@@ -676,18 +729,17 @@ window.onload = function () {
         //level Up overlay
         if (gamestate == gamestates.levelUp) {
             context.fillStyle = "rgba(255, 0, 255, 0.9)";
-            context.fillRect(level.x - 10, level.y - 10, levelwidth + 30, levelheight + 210);
-            var elem = document.getElementById("myBar");
-            elem.style.width = '1%';
+            context.fillRect(level.x , level.y , levelwidth , levelheight );
+            
 
 
-            context.drawImage(imgArray2[1], 3, 1); // level up back
-            context.drawImage(imgArray2[10], 115, 375); // star cash1
-            context.drawImage(imgArray2[2], 117, 432); // star cash2
-            context.drawImage(imgArray2[3], 112, 512); //Next Button
-            context.drawImage(imgArray2[4], 87, 296); //star1
-            if (levelRating >= 4) { context.drawImage(imgArray2[4], 217, 296); } //star2
-            if (levelRating >= 5) { context.drawImage(imgArray2[5], 147, 262); }//star3 Bonus star}
+            context.drawImage(imgArray2[1], 170, 30); // level up back
+            //context.drawImage(imgArray2[10], 150, 50); // star cash1
+            context.drawImage(imgArray2[2], 235, 145); // star cash2
+            context.drawImage(imgArray2[3], 210, 215); //Next Button
+            context.drawImage(imgArray2[4], 200, 65); //star1
+            if (levelRating >= 4) { context.drawImage(imgArray2[4], 305, 65); } //star2
+            if (levelRating >= 5) { context.drawImage(imgArray2[5], 246, 45); }//star3 Bonus star}
 
 
             if (levelBump >= 1) { levelBump2 = 1; }
@@ -697,7 +749,7 @@ window.onload = function () {
             drawCenterText(" +" + levelRating, 180, 412, 50);
             drawCenterText(starCash, 180, 469, 50);
             context.font = "22px Comic Sans MS";
-            drawCenterText("Next Level", level.x + 2, level.y + levelheight + 120, levelwidth);
+            drawCenterText("Next Level", level.x + 2, level.y + levelheight - 20, levelwidth);
             if (levelBump == 1) {
                 levelCount++; levelBump = 0;
                 levelUpScore = (levelCount * 1000);
@@ -763,15 +815,15 @@ window.onload = function () {
         context.drawImage(imgArray2[19], 180, 282);
         context.fillStyle = "Red";
         context.font = "14px Comic Sans MS";
-        context.fillText("GUIMAGE  Vs.  " + enemyName, 198, 305);
+        context.fillText(player1.name.toUpperCase() + "  Vs.  " + enemy.name.toUpperCase(), 198, 305);
 
         //draw the left and right bars
         context.drawImage(imgArray2[19], 440, 287, 125, 30);
         context.drawImage(imgArray2[19], 0, 287, 125 ,30);
         //draw current starcash
-        context.fillStyle = "blue";
-        context.font = "18px Comic Sans MS";
-        context.fillText("$" + starCash, 15, 275);
+        context.fillStyle = "#e6e600";
+        context.font = "16px Comic Sans MS";
+        context.fillText("$" + starCash, 12, 280);
         //draw the player
         drawPlayer();
 
@@ -1538,3 +1590,8 @@ function resizeGame() {
     console.log(-newHeight / 2);
     gameBoard.style.marginLeft = (-newWidth / 2) + 'px';
 };	
+
+function hideTitlePage() {
+    document.getElementById('titleCover').style.display = 'none';
+
+}
