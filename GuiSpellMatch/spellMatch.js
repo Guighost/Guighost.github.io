@@ -156,25 +156,25 @@ window.onload = function () {
     var imgArray = new Array();
 
     imgArray[0] = new Image();
-    imgArray[0].src = 'Images/20.png';
+    imgArray[0].src = 'Images/0.png';
 
     imgArray[1] = new Image();
-    imgArray[1].src = 'Images/21.png';
+    imgArray[1].src = 'Images/1.png';
 
     imgArray[2] = new Image();
-    imgArray[2].src = 'Images/22.png';
+    imgArray[2].src = 'Images/2.png';
 
     imgArray[3] = new Image();
-    imgArray[3].src = 'Images/23.png';
+    imgArray[3].src = 'Images/3.png';
 
     imgArray[4] = new Image();
-    imgArray[4].src = 'Images/24.png';
+    imgArray[4].src = 'Images/4.png';
 
     imgArray[5] = new Image();
-    imgArray[5].src = 'Images/25.png';
+    imgArray[5].src = 'Images/5.png';
 
     imgArray[6] = new Image();
-    imgArray[6].src = 'Images/26.png';
+    imgArray[6].src = 'Images/6.png';
 
     imgArray[7] = new Image();
     imgArray[7].src = 'Images/7.png';
@@ -322,7 +322,7 @@ window.onload = function () {
         var enwidth = 62;
         var enheight = 67;
 
-        //draw background for player
+        //draw background for enemy
         var centerX = enx + (enwidth / 2);
         var centerY = eny + (enheight / 2) -3;
         var radius = 45;
@@ -385,7 +385,7 @@ window.onload = function () {
     levelUpSound.play();
 
     var gameOverSound = new Howl({
-        src: ['Sounds/shortOver.mp3'],
+        src: ['Sounds/Evil_laugh.mp3'],
         volume: 0.9,
         preload: true,
 
@@ -449,7 +449,7 @@ window.onload = function () {
 
         if (gamestate == gamestates.ready) {
             // Game is ready for player input
-
+            
 
             // Check for game over
             if (moves.length <= 0) {
@@ -500,7 +500,7 @@ window.onload = function () {
 
                         // Simulate a player using the mouse to swap two tiles
                         mouseSwap(move.column1, move.row1, move.column2, move.row2);
-                        aibot = false;
+                        //aibot = false;
                         oneTimeE = 1;
                     } else {
                         // No moves left, Game Over. We could start a new game.
@@ -533,9 +533,9 @@ window.onload = function () {
                             score += 100 * (clusters[i].length - 2);
                             levelScoreProgress = levelScoreProgress + (100 * (clusters[i].length - 2));
                             matchCount = matchCount + (clusters[i].length - 2);
-
+                            /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                             //enemy health and defense adjustment
-                            if (aibot === false) { //hit enemy//
+                            if (aibot === false ) { //hit enemy//
                                 var damageThisTime = 20 + (1 * (clusters[i].length - 2));
                                 console.log("damage this time1: " + damageThisTime);
                                 enemy.defenseDrop = enemy.defenseDrop + damageThisTime;
@@ -572,25 +572,30 @@ window.onload = function () {
                                 aibot = false;
                                 enemyTurn = false;
                                 
-                                if (player1.health <= 0) { player1.health = 0; gameover = true; };
+                                if (player1.health <= 0) { player1.health = 0; gameover = true; playOnce = 0; };
 
                             }
                             //show and hide player turn message once all clusters resolved
 
-                            if (clusters.length == 1 && !aibot && enemy.health > 0 && enemyTurn == true) {
-                                setTimeout(function () {
-                                    document.getElementById("message").style.display = 'block';
-                                }, 400);
+                            if (clusters.length == 1 && !aibot && enemy.health > 0 ) {
+                                 setTimeout(function () {
+                                     document.getElementById("message").style.display = 'block';
+                                     aibot = true;
+                                     enemyTurn = true;
+                                }, 200);
                                 setTimeout(function () {
                                     document.getElementById("message").style.display = 'none';
-                                    aibot = true;
-                                }, 1900);
+                                    aibot = false;
+                                    enemyTurn = false;
+                                }, 1000);
                                 //setTimeout(function () {
                                     
                                 //    aibot = false;
-                                //}, 2100);
+                                //}, 1200);
                             }
                         }
+
+                        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
                         //GG add - specials for 5 or greater
                        
 
@@ -726,7 +731,8 @@ window.onload = function () {
 
         // Game Over overlay
         if (gameover) {
-            if (playOnce == 1) {
+            
+            if (playOnce == 0) {
                 gameSoundLoop.pause();
                 gameOverSound.play();
                 playOnce++;
@@ -737,8 +743,8 @@ window.onload = function () {
             //img overlay
             context.drawImage(imgArray2[7], 60, 5);
             //document.getElementById("progressBar").style.display = 'none';
-            context.drawImage(imgArray2[8], 110, 215);
-            context.drawImage(imgArray2[9], 300, 215);
+            context.drawImage(imgArray2[8], 110, 230);
+            context.drawImage(imgArray2[9], 315, 230);
             //context.fillStyle = "#cc00cc";
             //context.font = "20px Comic Sans MS";
             //context.fillText(starCash, 175, 104);
@@ -1020,7 +1026,7 @@ window.onload = function () {
             levelScoreProgress = 0; levelCount = 1;
             playOnce = 0; totalSeconds = 0;
             levelScoreProgress = 1;
-            progressBar(1, 1)
+            //progressBar(1, 1)
             for (var q = 0; q <= 6; q++) {
                 var newsource = imgArray[q].src;
                 newsource = "Images/" + q + ".png";
@@ -1032,6 +1038,20 @@ window.onload = function () {
         gameOverSound.stop();
         gameSoundLoop.pause();
         gameSoundLoop.play();
+
+        enemy.health = enemy.healthMax;
+        enemy.defense = enemy.defenseMax;
+        enemy.defenseDrop = 0;
+        enemy.damage = 0;
+        player1.health = player1.healthMax;
+        player1.defense = player1.defenseMax;
+        player1.defenseDrop = 0;
+        player1.damage = 0;
+        player1.playerLevel = player1.playerLevel + 1;
+
+
+
+
         //progressBar(1, levelCount);
         //document.getElementById("progressBar").style.display = 'block';
         // Set the gamestate to ready
@@ -1461,10 +1481,20 @@ window.onload = function () {
                 }
             }
         }
-        if (gamestate == gamestates.levelUp) { newGame(1);  levelScoreProgress = 0; totalSeconds = 0; }
+        if (gamestate == gamestates.levelUp) {
+            newGame(1); levelScoreProgress = 0; totalSeconds = 0;
+           
+        }
         if (gamestate == gamestates.almostOver) {
-            if (pos.x >= 50 && pos.x < 170 && pos.y >= 545 && pos.y < 591) {
-                newGame(0); gamestate = gamestates.ready; gameOver = false; playOnce = 0; totalSeconds = 0;
+            //context.drawImage(imgArray2[8], 110, 230);
+            if (pos.x >= 110 && pos.x < 220 && pos.y >= 230 && pos.y < 280) {
+                newGame(0);
+                gamestate = gamestates.ready;
+                gameOver = false;
+                playOnce = 0;
+                totalSeconds = 0;
+                resizeGame();
+                            
             }
 
             if (pos.x >= 185 && pos.x < 310 && pos.y >= 545 && pos.y < 591) {

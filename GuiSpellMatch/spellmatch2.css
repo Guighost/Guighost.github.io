@@ -248,13 +248,13 @@ img[src$=".gif"], img[src$=".png"] {
 #message {
     position: absolute;
     display: none;
-    height: 200px;
-    min-width: 350px;
-    left: 50%;
-    top: 50%;
+    height: 50px;
+    min-width: 88px;
+    left: 100%;
+    top: 30%;
     background-image: url(Images/HUD/enemyTurn.png);
     z-index: 500;
-    transform: translate(-175px, -100px);
+    transform: translate(-88px, -50px);
 }
 
 
@@ -274,7 +274,7 @@ img[src$=".gif"], img[src$=".png"] {
     top: 25%;
     max-width: 320px;
     color: aliceblue;
-    transform: translate(-100px, 0px);
+    transform: translate(-100 px, 0px);
 }
 @media (max-width: 600px), screen (orientation:portrait) {
     #changeToLandscape {
