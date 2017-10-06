@@ -274,7 +274,60 @@ img[src$=".gif"], img[src$=".png"] {
     top: 25%;
     max-width: 320px;
     color: aliceblue;
-    transform: translate(-100 px, 0px);
+    transform: translate(-100px, 0px);
+}
+#levelUpMaster {
+   position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: black;
+}
+
+#levelUpBack {
+    height: 100%;
+    width: 100%;
+    
+    background-image: url(Images/HUD/HorizLevelUp.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 6500;
+}
+#levelUpGrid {
+    position: absolute;
+    left: 32%;
+    top: 38%;
+    color: white;
+    border: 1px solid white;
+}
+    #levelUpGrid tr td {
+        height: 38px;
+        width: 80px;
+        border: 2px solid white;
+    }
+/*#r4_td2 {
+    left: 59%;
+    width: 90px;
+}*/
+.plusTrait {
+    position: absolute;
+    
+    background-image: url(Images/HUD/ButtonPlus.png);
+    height: 40px;
+    width: 38px;
+}
+.plusTrait2 {
+    position: absolute;
+    
+    background-image: url(Images/HUD/ButtonPlus.png);
+    height: 40px;
+    width: 38px;
+}
+.plusTrait3 {
+    position: absolute;
+   
+    background-image: url(Images/HUD/ButtonPlus.png);
+    height: 40px;
+    width: 38px;
 }
 @media (max-width: 600px), screen (orientation:portrait) {
     #changeToLandscape {
