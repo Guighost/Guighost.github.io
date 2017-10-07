@@ -295,6 +295,15 @@ window.onload = function () {
     imgArray3[9] = new Image();
     imgArray3[9].src = 'Images/HUD/spellLevelUp.png';
 
+    imgArray4 = new Array();
+    imgArray4[0] = new Image();
+    imgArray4[0].src = 'Images/Enemy/idle_3.png';
+
+    imgArray4[1] = new Image();
+    imgArray4[1].src = 'Images/Enemy/idle_10.png';
+
+
+
     drawPlayer();
     
     function drawPlayer() {
@@ -351,7 +360,9 @@ window.onload = function () {
         context.stroke();
         
         //enemyimage
-        context.drawImage(imgArray2[18], enx, eny, enwidth, enheight);
+        var enemythisTime = enemy.playerLevel - 1;
+        console.log(enemythisTime);
+        context.drawImage(imgArray4[enemythisTime], enx, eny, enwidth, enheight);
         //enemy power bar
         context.drawImage(imgArray2[21], enx - 114, eny -4  );
         context.drawImage(imgArray2[22], enx - 107, eny +4);
@@ -407,6 +418,14 @@ window.onload = function () {
 
     });
     gameOverSound.play();
+
+    var spellUpSound = new Howl({
+        src: ['Sounds/spellUp.mp3'],
+        volume: 0.9,
+        preload: true,
+
+    });
+    spellUpSound.play();
 
     //end  howl based sounds
 
@@ -1601,70 +1620,77 @@ window.onload = function () {
 
                 if (skillPoints > 0) {
                     //arcane click
-                    if (pos.x >= 200 && pos.x < 250 && pos.y >= 90 && pos.y < 130) {
+                    if (pos.x >= 100 && pos.x < 250 && pos.y >= 90 && pos.y < 130) {
                         console.log("clicked arcane");
                         skillPoints = skillPoints - 1;
                         player1.arcanePower = player1.arcanePower + 1;
                         var srcName = player1.arcanePower + '0.png';
+                        spellUpSound.play();
                         setTimeout(function () { imgArray[0].src = 'Images/HUD/spellLevelUp.png'}, 100);
                         setTimeout(function () { imgArray[0].src = 'Images/' + srcName; }, 500);
                         
 
                     }
                     /////Spark click
-                    if (pos.x >= 323 && pos.x < 365 && pos.y >= 90 && pos.y < 130) {
+                    if (pos.x >= 323 && pos.x < 400 && pos.y >= 90 && pos.y < 130) {
                         console.log("clicked spark");
                         skillPoints = skillPoints - 1;
                         player1.sparkPower = player1.sparkPower + 1;
                         var srcName = player1.sparkPower + '1.png';
+                        spellUpSound.play();
                         setTimeout(function () { imgArray[1].src = 'Images/HUD/spellLevelUp.png' }, 100);
                         setTimeout(function () { imgArray[1].src = 'Images/' + srcName; }, 500);
                         
                     }
                     //fire click
-                    if (pos.x >= 200 && pos.x < 250 && pos.y >= 135 && pos.y < 175) {
+                    if (pos.x >= 100 && pos.x < 250 && pos.y >= 135 && pos.y < 175) {
                         console.log("clicked fire");
                         skillPoints = skillPoints - 1;
                         player1.firePower = player1.firePower + 1;
                         var srcName = player1.firePower + '2.png';
+                        spellUpSound.play();
                         setTimeout(function () { imgArray[2].src = 'Images/HUD/spellLevelUp.png' }, 100);
                         setTimeout(function () { imgArray[2].src = 'Images/' + srcName; }, 500);
                         
                     }
                     /////Sword click
-                    if (pos.x >= 323 && pos.x < 365 && pos.y >= 135 && pos.y < 175) {
+                    if (pos.x >= 323 && pos.x < 400 && pos.y >= 135 && pos.y < 175) {
                         console.log("clicked sword");
                         skillPoints = skillPoints - 1;
                         player1.swordPower = player1.swordPower + 1;
                         var srcName = player1.swordPower + '3.png';
+                        spellUpSound.play();
                         setTimeout(function () { imgArray[3].src = 'Images/HUD/spellLevelUp.png' }, 100);
                         setTimeout(function () { imgArray[3].src = 'Images/' + srcName; }, 500);
                         
                     }
                     //Meteor click
-                    if (pos.x >= 200 && pos.x < 250 && pos.y >= 180 && pos.y < 225) {
+                    if (pos.x >= 100 && pos.x < 250 && pos.y >= 180 && pos.y < 225) {
                         console.log("clicked Meteor");
                         skillPoints = skillPoints - 1;
                         player1.meteorPower = player1.meteorPower + 1;
                         var srcName = player1.meteorPower + '4.png';
+                        spellUpSound.play();
                         setTimeout(function () { imgArray[4].src = 'Images/HUD/spellLevelUp.png' }, 100);
                         setTimeout(function () { imgArray[4].src = 'Images/' + srcName; }, 500);
                     }
                     //Earth click
-                    if (pos.x >= 323 && pos.x < 365 && pos.y >= 180 && pos.y < 225) {
+                    if (pos.x >= 323 && pos.x < 400 && pos.y >= 180 && pos.y < 225) {
                         console.log("clicked earth");
                         skillPoints = skillPoints - 1;
                         player1.earthPower = player1.earthPower + 1;
                         var srcName = player1.earthPower + '5.png';
+                        spellUpSound.play();
                         setTimeout(function () { imgArray[5].src = 'Images/HUD/spellLevelUp.png' }, 100);
                         setTimeout(function () { imgArray[5].src = 'Images/' + srcName; }, 500);
                     }
                     //Air click
-                    if (pos.x >= 218 && pos.x < 265 && pos.y >= 219 && pos.y < 265) {
+                    if (pos.x >= 218 && pos.x < 300 && pos.y >= 219 && pos.y < 265) {
                         console.log("clicked air");
                         skillPoints = skillPoints - 1;
                         player1.airPower = player1.airPower + 1;
                         var srcName = player1.airPower + '6.png';
+                        spellUpSound.play();
                         setTimeout(function () { imgArray[6].src = 'Images/HUD/spellLevelUp.png' }, 100);
                         setTimeout(function () { imgArray[6].src = 'Images/' + srcName; }, 500);
                     }
@@ -1672,16 +1698,18 @@ window.onload = function () {
                 }
                 if (heroBonus > 0) {
                     //Health click
-                    if (pos.x >= 220 && pos.x < 260 && pos.y >= 270 && pos.y < 310) {
+                    if (pos.x >= 100 && pos.x < 260 && pos.y >= 270 && pos.y < 310) {
                         console.log("clicked health");
+                        spellUpSound.play();
                         heroBonus = heroBonus - 1;
                         var healthAdj = (player1.playerLevel * 10);
                         player1.healthMax = player1.healthMax + healthAdj;
                         player1.health = player1.healthMax;
                     }
                     //Defense click
-                    if (pos.x >= 320 && pos.x < 355 && pos.y >= 270 && pos.y < 310) {
+                    if (pos.x >= 320 && pos.x < 400 && pos.y >= 270 && pos.y < 310) {
                         console.log("clicked defense");
+                        spellUpSound.play();
                         heroBonus = heroBonus - 1;
                         var defenseAdj = (player1.playerLevel * 10);
                         player1.defenseMax = player1.defenseMax + defenseAdj;
@@ -1700,6 +1728,10 @@ window.onload = function () {
                     enemy.defenseMax = player1.defenseMax;
                     enemy.health = enemy.healthMax;
                     enemy.defense = enemy.defenseMax;
+                    enemy.defenseDrop = 0;
+                    enemy.damage = 0;
+                    enemy.playerLevel = enemy.playerLevel + 1;
+                    getNextEnemy();
 
                 }
              }
@@ -1753,29 +1785,18 @@ window.onload = function () {
         };
     }
 
-    //function progressBar(i, levelCount) {
-    //    // alert(i);
-
-    //    var elem = document.getElementById("myBar3");
-    //    var currentWidth = percentwidth(elem);
-    //    // alert("current " + currentWidth);
-    //    var width = currentWidth;
-    //    var increase = ((i / levelUpScore) * 100);
-    //    if (increase < 1) { increase = 1 }
-    //    // alert ("increase = " + increase);
-    //    var id = setInterval(frame, 10);
-    //    function frame() {
-    //        var currentWidth2 = percentwidth(elem);
-    //        if (currentWidth2 <= increase) { width++; elem.style.width = width + '%'; currentWidth = elem.style.width; }
-    //        else { clearInterval(id); }
-    //    }
-    //    if (increase >= 100) { levelUp() }
-
-    //}
-    //function percentwidth(elem) {
-    //    var pa = elem.offsetParent || elem;
-    //    return ((elem.offsetWidth / pa.offsetWidth) * 100).toFixed(2);
-    //}
+    function getNextEnemy() {
+        var newName = '';
+        var enemies = [];
+        enemies[0] = 'Arcannus';
+        enemies[1] = 'GoblinMage';
+        enemies[2] = 'ElfWiz';
+        newName = enemies[enemy.playerLevel];
+        
+        enemy.name = newName;
+        ;
+        
+    }
 
     function levelUp() {
         gamestate = gamestates.levelUp;
@@ -1786,52 +1807,12 @@ window.onload = function () {
         levelBump = 1;
         var levelAdjust = levelCount + 1;
         console.log("level adjust" + levelAdjust);
-        //if (parseInt(levelAdjust) >= 2 && levelAdjust <= 9) {
-        //    for (var q = 0; q <= 6; q++) {
-        //        var newsource = imgArray[q].src;
-        //        newsource = "Images/" + levelAdjust + q + ".png";
-        //        imgArray[q].src = newsource;
-        //    }
-        //}
-        //if (parseInt(levelAdjust) >= 11 && levelAdjust <= 20) {
-        //    levelAdjust = levelAdjust - 10;
-        //    for (var q = 0; q <= 6; q++) {
-        //        var newsource = imgArray[q].src;
-        //        newsource = "Images/" + levelAdjust + q + ".png";
-        //        imgArray[q].src = newsource;
-        //    }
-        //}
-        //if (parseInt(levelAdjust) >= 21 && levelAdjust <= 30) {
-        //    levelAdjust = levelAdjust - 20;
-        //    for (var q = 0; q <= 6; q++) {
-        //        var newsource = imgArray[q].src;
-        //        newsource = "Images/" + levelAdjust + q + ".png";
-        //        imgArray[q].src = newsource;
-        //    }
-        //}
-        //if (parseInt(levelAdjust) >= 31 && levelAdjust <= 40) {
-        //    levelAdjust = levelAdjust - 30;
-        //    for (var q = 0; q <= 6; q++) {
-        //        var newsource = imgArray[q].src;
-        //        newsource = "Images/" + levelAdjust + q + ".png";
-        //        imgArray[q].src = newsource;
-        //    }
-        //}
-        //if (parseInt(levelAdjust) >= 41 && levelAdjust <= 50) {
-        //    levelAdjust = levelAdjust - 40;
-        //    for (var q = 0; q <= 6; q++) {
-        //        var newsource = imgArray[q].src;
-        //        newsource = "Images/" + levelAdjust + q + ".png";
-        //        imgArray[q].src = newsource;
-        //    }
-        //}
+    
     }
     function playerLvlUp() {
         
         plyrLvlUp = true;
-        
-        
-        
+               
     }
     // Call init to start the game
     init();
