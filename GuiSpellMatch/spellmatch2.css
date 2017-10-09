@@ -329,6 +329,8 @@ img[src$=".gif"], img[src$=".png"] {
     height: 40px;
     width: 38px;
 }
+
+
 @media (max-width: 600px), screen (orientation:portrait) {
     #changeToLandscape {
         display: block;

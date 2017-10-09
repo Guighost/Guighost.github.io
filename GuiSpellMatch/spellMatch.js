@@ -50,6 +50,11 @@ window.onload = function () {
     var plyrLvlUp = false;
     var skillPoints = 0;
     var heroBonus = 0;
+    var showPlyrDamage = false;
+    var showEnemyDamage = false;
+    var damageToShowP = 0;
+    var damageToShowE = 0;
+
     if (typeof localStorage["starCash"] === "undefined") { localStorage["starCash"] = 0; starCash = 0; };
     starCash = parseInt(localStorage["starCash"]);
 
@@ -249,7 +254,7 @@ window.onload = function () {
     imgArray2[17].src = 'Images/HUD/defenseBar.png';
 
     imgArray2[18] = new Image();
-    imgArray2[18].src = 'Images/Enemy/idle_3.png';
+    imgArray2[18].src = 'Images/Enemy/lvl1.png';
 
     imgArray2[19] = new Image();
     imgArray2[19].src = 'Images/HUD/bottomBar.png';
@@ -297,12 +302,34 @@ window.onload = function () {
 
     imgArray4 = new Array();
     imgArray4[0] = new Image();
-    imgArray4[0].src = 'Images/Enemy/idle_3.png';
+    imgArray4[0].src = 'Images/Enemy/lvl1.png';
 
     imgArray4[1] = new Image();
-    imgArray4[1].src = 'Images/Enemy/idle_10.png';
+    imgArray4[1].src = 'Images/Enemy/lvl2.png';
 
+    imgArray4[2] = new Image();
+    imgArray4[2].src = 'Images/Enemy/lvl3.png';
 
+    imgArray4[3] = new Image();
+    imgArray4[3].src = 'Images/Enemy/lvl4.png';
+
+    imgArray4[4] = new Image();
+    imgArray4[4].src = 'Images/Enemy/lvl5.png';
+
+    imgArray4[5] = new Image();
+    imgArray4[5].src = 'Images/Enemy/lvl6.png';
+
+    imgArray4[6] = new Image();
+    imgArray4[6].src = 'Images/Enemy/lvl7.png';
+
+    imgArray4[7] = new Image();
+    imgArray4[7].src = 'Images/Enemy/lvl8.png';
+
+    imgArray4[8] = new Image();
+    imgArray4[8].src = 'Images/Enemy/lvl9.png';
+
+    imgArray4[9] = new Image();
+    imgArray4[9].src = 'Images/Enemy/lvl10.png';
 
     drawPlayer();
     
@@ -311,7 +338,7 @@ window.onload = function () {
         var ply = 6;
         var plwidth = 62;
         var plheight = 67;
-      
+        
 
         //draw background for player
         var centerX = plx + (plwidth / 2);
@@ -334,11 +361,25 @@ window.onload = function () {
         context.drawImage(imgArray2[22], plx + 83, ply +4);
 
         //health bars
+        var playerhealthHeight = player1.damage;
+        if (playerhealthHeight > 100) { playerhealthHeight = 100;}
         context.drawImage(imgArray2[14], plx + 1, ply + 110, 30, 145);
-        context.drawImage(imgArray2[15], plx + 9, ply + 122 + player1.damage, 14, ((player1.health) / player1.healthMax) * 100);
+        if (player1.health < 0) { player1.health = 0; }
+        context.drawImage(imgArray2[15], plx + 9, ply + 122 + playerhealthHeight, 14, ((player1.health) / player1.healthMax) * 100);
         //defense bars
+        var playerDefenseHeight = player1.defenseDrop;
+        if (playerDefenseHeight > 100) { playerDefenseHeight = 100; }
         context.drawImage(imgArray2[16], plx + 31, ply + 110, 30, 145);
-        context.drawImage(imgArray2[17], plx + 38, ply + 122 + player1.defenseDrop, 14, ((player1.defenseMax - player1.defenseDrop) / player1.defenseMax) * 100);
+        if (player1.defense < 0) { player1.defense = 0; }
+        context.drawImage(imgArray2[17], plx + 38, ply + 122 + playerDefenseHeight, 14, ((player1.defense) / player1.defenseMax) * 100);
+
+        //player damage during battle
+        if (showPlyrDamage) {
+            context.fillStyle = '#FF0000';
+            context.font = "18px Comic Sans MS";
+            drawCenterText("- " + Math.round(damageToShowP), 5, 85, 50)
+        }
+
     }
     function drawEnemy() {
         
@@ -361,19 +402,32 @@ window.onload = function () {
         
         //enemyimage
         var enemythisTime = enemy.playerLevel - 1;
-        console.log(enemythisTime);
+        //console.log(enemythisTime);
         context.drawImage(imgArray4[enemythisTime], enx, eny, enwidth, enheight);
         //enemy power bar
         context.drawImage(imgArray2[21], enx - 114, eny -4  );
         context.drawImage(imgArray2[22], enx - 107, eny +4);
       
         //enemy defense baars
+        var defensebarHeight = enemy.defenseDrop;
+        if (defensebarHeight > 100) { defensebarHeight = 100; }
         context.drawImage(imgArray2[16], enx + 3, eny + 110, 28, 145);
-        context.drawImage(imgArray2[17], enx + 11, eny + 122 + enemy.defenseDrop, 14, ((enemy.defenseMax - enemy.defenseDrop) / enemy.defenseMax) * 100);
+        if (enemy.defense < 0) { enemy.defense = 0 }
+        context.drawImage(imgArray2[17], enx + 11, eny + 122 + defensebarHeight, 14, ((enemy.defense) / enemy.defenseMax) * 100);
         //enemy health bars
+        var healthBarHeight = enemy.damage;
+        if (healthBarHeight > 100) { healthBarHeight = 100; }
         context.drawImage(imgArray2[14], enx + 29, eny + 110, 30, 145);
         //console.log("enemyHealth= " + enemy.health)
-        context.drawImage(imgArray2[15], enx + 37, eny + 122 + enemy.damage, 14, ((enemy.health) / enemy.healthMax) * 100);
+        if (enemy.health < 0) { enemy.health = 0; }
+        context.drawImage(imgArray2[15], enx + 37, eny + 122 + healthBarHeight, 14, (enemy.health / enemy.healthMax) * 100);
+
+        //enemy damage during battle
+        if (showEnemyDamage) {
+            context.fillStyle = '#FF0000';
+            context.font = "18px Comic Sans MS";
+            drawCenterText("- " + Math.round(damageToShowE), 509, 85, 50);
+        }
     }
    
     setInterval(setTime, 2000);
@@ -582,6 +636,13 @@ window.onload = function () {
                                 console.log("defenseAdjust " + defenseAdjust);
                                 if (defenseAdjust > 0) { damageThisTime = damageThisTime * defenseAdjust; };
                                 console.log("damage this time2: " + damageThisTime);
+                                                            
+                                damageToShowE = damageThisTime;
+                                showEnemyDamage = true;
+                                setTimeout(function () {
+                                    showEnemyDamage = false;
+                                }, 1000);
+
                                 enemy.damage = enemy.damage + damageThisTime;
                                 enemy.health = enemy.healthMax - enemy.damage;
                                 if (enemy.health <= 0) { levelUp(); };
@@ -601,6 +662,14 @@ window.onload = function () {
                                 console.log("defenseAdjust " + defenseAdjust);
                                 if (defenseAdjust > 0) { damageThisTime = damageThisTime * defenseAdjust; };
                                 console.log("damage this time2: " + damageThisTime);
+
+                                damageToShowP = damageThisTime;
+                                showPlyrDamage = true;
+                                setTimeout(function () {
+                                    showPlyrDamage = false;
+                                }, 1000);
+                               
+
                                 player1.damage = player1.damage + damageThisTime;
                                 player1.health = player1.healthMax - player1.damage;
                                 console.log("player health: " + player1.health);
@@ -799,7 +868,7 @@ window.onload = function () {
             context.drawImage(imgArray2[1], 170, 30); // level up back
             //context.drawImage(imgArray2[10], 150, 50); // star cash1
             context.drawImage(imgArray2[2], 235, 145); // star cash2
-            context.drawImage(imgArray2[3], 205, 215); //Next Button
+            context.drawImage(imgArray2[3], 208, 210); //Next Button
             context.drawImage(imgArray2[4], 200, 65); //star1
             if (levelRating >= 4) { context.drawImage(imgArray2[4], 305, 65); } //star2
             if (levelRating >= 5) { context.drawImage(imgArray2[5], 246, 45); }//star3 Bonus star}
@@ -813,7 +882,7 @@ window.onload = function () {
             context.fillStyle = "#cc00cc";
             drawCenterText(" +" + levelRating, 270, 140, 50);
             drawCenterText(starCash, 270, 169, 50);
-
+            drawCenterText(enemy.name + " defeated "  , 260, 202, 50);
             context.font = "22px Comic Sans MS";
             drawCenterText("Next Level", level.x + 2, level.y + levelheight - 25, levelwidth);
             if (levelBump == 1) {
@@ -885,8 +954,8 @@ window.onload = function () {
         //draw the bottom bar
         context.drawImage(imgArray2[19], 180, 282);
         context.fillStyle = "Red";
-        context.font = "14px Comic Sans MS";
-        context.fillText(player1.name.toUpperCase() + "  Vs.  " + enemy.name.toUpperCase(), 198, 305);
+        context.font = "12px Comic Sans MS";
+        context.fillText(player1.name.toUpperCase() + "  Vs.  " + enemy.name.toUpperCase(), 205, 305);
 
         //draw the left and right bars
         context.drawImage(imgArray2[19], 440, 287, 125, 30);
@@ -1011,7 +1080,7 @@ window.onload = function () {
 
        
 
-        context.font = "19px Times New Roman";
+        context.font = "18px Times New Roman";
         //background
         context.drawImage(imgArray3[6], 90, 10);
         drawCenterText("Level " + player1.playerLevel, 235, 40, 100);
@@ -1621,78 +1690,88 @@ window.onload = function () {
                 if (skillPoints > 0) {
                     //arcane click
                     if (pos.x >= 100 && pos.x < 250 && pos.y >= 90 && pos.y < 130) {
-                        console.log("clicked arcane");
-                        skillPoints = skillPoints - 1;
-                        player1.arcanePower = player1.arcanePower + 1;
-                        var srcName = player1.arcanePower + '0.png';
-                        spellUpSound.play();
-                        setTimeout(function () { imgArray[0].src = 'Images/HUD/spellLevelUp.png'}, 100);
-                        setTimeout(function () { imgArray[0].src = 'Images/' + srcName; }, 500);
-                        
+                        if (player1.arcanePower < 5) {
+                            console.log("clicked arcane");
+                            skillPoints = skillPoints - 1;
+                            player1.arcanePower = player1.arcanePower + 1;
+                            var srcName = player1.arcanePower + '0.png';
+                            spellUpSound.play();
+                            setTimeout(function () { imgArray[0].src = 'Images/HUD/spellLevelUp.png' }, 100);
+                            setTimeout(function () { imgArray[0].src = 'Images/' + srcName; }, 500);
+                        }
 
                     }
                     /////Spark click
                     if (pos.x >= 323 && pos.x < 400 && pos.y >= 90 && pos.y < 130) {
-                        console.log("clicked spark");
-                        skillPoints = skillPoints - 1;
-                        player1.sparkPower = player1.sparkPower + 1;
-                        var srcName = player1.sparkPower + '1.png';
-                        spellUpSound.play();
-                        setTimeout(function () { imgArray[1].src = 'Images/HUD/spellLevelUp.png' }, 100);
-                        setTimeout(function () { imgArray[1].src = 'Images/' + srcName; }, 500);
-                        
+                        if (player1.sparkPower < 5) {
+                            console.log("clicked spark");
+                            skillPoints = skillPoints - 1;
+                            player1.sparkPower = player1.sparkPower + 1;
+                            var srcName = player1.sparkPower + '1.png';
+                            spellUpSound.play();
+                            setTimeout(function () { imgArray[1].src = 'Images/HUD/spellLevelUp.png' }, 100);
+                            setTimeout(function () { imgArray[1].src = 'Images/' + srcName; }, 500);
+                        }
                     }
                     //fire click
                     if (pos.x >= 100 && pos.x < 250 && pos.y >= 135 && pos.y < 175) {
-                        console.log("clicked fire");
-                        skillPoints = skillPoints - 1;
-                        player1.firePower = player1.firePower + 1;
-                        var srcName = player1.firePower + '2.png';
-                        spellUpSound.play();
-                        setTimeout(function () { imgArray[2].src = 'Images/HUD/spellLevelUp.png' }, 100);
-                        setTimeout(function () { imgArray[2].src = 'Images/' + srcName; }, 500);
-                        
+                        if (player1.firePower < 5) {
+                            console.log("clicked fire");
+                            skillPoints = skillPoints - 1;
+                            player1.firePower = player1.firePower + 1;
+                            var srcName = player1.firePower + '2.png';
+                            spellUpSound.play();
+                            setTimeout(function () { imgArray[2].src = 'Images/HUD/spellLevelUp.png' }, 100);
+                            setTimeout(function () { imgArray[2].src = 'Images/' + srcName; }, 500);
+                        }
                     }
                     /////Sword click
                     if (pos.x >= 323 && pos.x < 400 && pos.y >= 135 && pos.y < 175) {
-                        console.log("clicked sword");
-                        skillPoints = skillPoints - 1;
-                        player1.swordPower = player1.swordPower + 1;
-                        var srcName = player1.swordPower + '3.png';
-                        spellUpSound.play();
-                        setTimeout(function () { imgArray[3].src = 'Images/HUD/spellLevelUp.png' }, 100);
-                        setTimeout(function () { imgArray[3].src = 'Images/' + srcName; }, 500);
-                        
+                        if (player1.swordPower < 5) {
+                            console.log("clicked sword");
+                            skillPoints = skillPoints - 1;
+                            player1.swordPower = player1.swordPower + 1;
+                            var srcName = player1.swordPower + '3.png';
+                            spellUpSound.play();
+                            setTimeout(function () { imgArray[3].src = 'Images/HUD/spellLevelUp.png' }, 100);
+                            setTimeout(function () { imgArray[3].src = 'Images/' + srcName; }, 500);
+                        }
                     }
                     //Meteor click
                     if (pos.x >= 100 && pos.x < 250 && pos.y >= 180 && pos.y < 225) {
-                        console.log("clicked Meteor");
-                        skillPoints = skillPoints - 1;
-                        player1.meteorPower = player1.meteorPower + 1;
-                        var srcName = player1.meteorPower + '4.png';
-                        spellUpSound.play();
-                        setTimeout(function () { imgArray[4].src = 'Images/HUD/spellLevelUp.png' }, 100);
-                        setTimeout(function () { imgArray[4].src = 'Images/' + srcName; }, 500);
+                        if (player1.meteorPower < 5) {
+                            console.log("clicked Meteor");
+                            skillPoints = skillPoints - 1;
+                            player1.meteorPower = player1.meteorPower + 1;
+                            var srcName = player1.meteorPower + '4.png';
+                            spellUpSound.play();
+                            setTimeout(function () { imgArray[4].src = 'Images/HUD/spellLevelUp.png' }, 100);
+                            setTimeout(function () { imgArray[4].src = 'Images/' + srcName; }, 500);
+                        }
                     }
                     //Earth click
                     if (pos.x >= 323 && pos.x < 400 && pos.y >= 180 && pos.y < 225) {
-                        console.log("clicked earth");
-                        skillPoints = skillPoints - 1;
-                        player1.earthPower = player1.earthPower + 1;
-                        var srcName = player1.earthPower + '5.png';
-                        spellUpSound.play();
-                        setTimeout(function () { imgArray[5].src = 'Images/HUD/spellLevelUp.png' }, 100);
-                        setTimeout(function () { imgArray[5].src = 'Images/' + srcName; }, 500);
+                        if (player1.earthPower < 5) {
+                            console.log("clicked earth");
+                            skillPoints = skillPoints - 1;
+                            player1.earthPower = player1.earthPower + 1;
+                            var srcName = player1.earthPower + '5.png';
+                            spellUpSound.play();
+                            setTimeout(function () { imgArray[5].src = 'Images/HUD/spellLevelUp.png' }, 100);
+                            setTimeout(function () { imgArray[5].src = 'Images/' + srcName; }, 500);
+                        }
                     }
                     //Air click
                     if (pos.x >= 218 && pos.x < 300 && pos.y >= 219 && pos.y < 265) {
-                        console.log("clicked air");
-                        skillPoints = skillPoints - 1;
-                        player1.airPower = player1.airPower + 1;
-                        var srcName = player1.airPower + '6.png';
-                        spellUpSound.play();
-                        setTimeout(function () { imgArray[6].src = 'Images/HUD/spellLevelUp.png' }, 100);
-                        setTimeout(function () { imgArray[6].src = 'Images/' + srcName; }, 500);
+                        if (player1.airPower < 5) {
+                            console.log("clicked air");
+                            skillPoints = skillPoints - 1;
+                            player1.airPower = player1.airPower + 1;
+                            var srcName = player1.airPower + '6.png';
+                            spellUpSound.play();
+                            setTimeout(function () { imgArray[6].src = 'Images/HUD/spellLevelUp.png' }, 100);
+                            setTimeout(function () { imgArray[6].src = 'Images/' + srcName; }, 500);
+                        }
                     }
 
                 }
@@ -1787,11 +1866,11 @@ window.onload = function () {
 
     function getNextEnemy() {
         var newName = '';
-        var enemies = [];
-        enemies[0] = 'Arcannus';
-        enemies[1] = 'GoblinMage';
-        enemies[2] = 'ElfWiz';
-        newName = enemies[enemy.playerLevel];
+        var enemies = ['Arcannus', 'ElfWiz', 'ArticMage','Acidious', 'Blazaron', 'Sylvana', 'Toxigam', 'HarmBringer','Invertus','MasterMage', 'Milfohim', 'Zerlin', 'Yisenda','Firetta','Magentra','Undadish'];
+        //enemies[0] = 'Arcannus';
+        //enemies[1] = 'GoblinMage';
+        //enemies[2] = 'ElfWiz';
+        newName = enemies[enemy.playerLevel - 1];
         
         enemy.name = newName;
         ;
