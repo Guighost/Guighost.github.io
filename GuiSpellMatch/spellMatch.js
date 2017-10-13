@@ -83,8 +83,9 @@ window.onload = function () {
 
 
     //orig below
-    // All of the different tile colors in RGB plus the image
-    var tilecolors = [[255, 128, 128, 0],
+  
+    var tilecolors = [
+    [255, 128, 128, 0],
     [128, 255, 128, 1],
     [128, 128, 255, 2],
     [255, 255, 128, 3],
@@ -353,6 +354,32 @@ window.onload = function () {
         context.strokeStyle = '#003300';
         context.stroke();
 
+        //health bubble
+        radius = 15;
+        context.beginPath();
+        context.arc(15, centerY + 50, radius, 0, 2 * Math.PI, false);
+        context.fillStyle = 'red';
+        context.fill();
+        context.lineWidth = 3;
+        context.strokeStyle = '#003300';
+        context.stroke();
+        context.fillStyle = '#FFFFFF';
+        context.font = "10px Comic Sans MS";
+        drawCenterText(Math.round(player1.health), 4, 93, 20);
+
+        //defense bubble
+        radius = 15;
+        context.beginPath();
+        context.arc(45, centerY + 50, radius, 0, 2 * Math.PI, false);
+        context.fillStyle = 'grey';
+        context.fill();
+        context.lineWidth = 3;
+        context.strokeStyle = '#003300';
+        context.stroke();
+        context.fillStyle = '#FFFFFF';
+        context.font = "10px Comic Sans MS";
+        drawCenterText(Math.round(player1.defense), 34, 93, 20);
+
         //player image
         context.drawImage(imgArray2[13], plx, ply, plwidth, plheight);
 
@@ -361,23 +388,23 @@ window.onload = function () {
         context.drawImage(imgArray2[22], plx + 83, ply +4);
 
         //health bars
-        var playerhealthHeight = player1.damage;
+        var playerhealthHeight = 100 - ((player1.health / player1.healthMax) * 100);
         if (playerhealthHeight > 100) { playerhealthHeight = 100;}
-        context.drawImage(imgArray2[14], plx + 1, ply + 110, 30, 145);
+        context.drawImage(imgArray2[14], plx + 1, ply + 105, 30, 145);
         if (player1.health < 0) { player1.health = 0; }
-        context.drawImage(imgArray2[15], plx + 9, ply + 122 + playerhealthHeight, 14, ((player1.health) / player1.healthMax) * 100);
+        context.drawImage(imgArray2[15], plx + 9, ply + 117 + playerhealthHeight, 14, ((player1.health) / player1.healthMax) * 100);
         //defense bars
-        var playerDefenseHeight = player1.defenseDrop;
+        var playerDefenseHeight = 100 - ((player1.defense / player1.defenseMax) * 100);
         if (playerDefenseHeight > 100) { playerDefenseHeight = 100; }
-        context.drawImage(imgArray2[16], plx + 31, ply + 110, 30, 145);
+        context.drawImage(imgArray2[16], plx + 31, ply + 105, 30, 145);
         if (player1.defense < 0) { player1.defense = 0; }
-        context.drawImage(imgArray2[17], plx + 38, ply + 122 + playerDefenseHeight, 14, ((player1.defense) / player1.defenseMax) * 100);
+        context.drawImage(imgArray2[17], plx + 38, ply + 117 + playerDefenseHeight, 14, ((player1.defense) / player1.defenseMax) * 100);
 
         //player damage during battle
         if (showPlyrDamage) {
             context.fillStyle = '#FF0000';
-            context.font = "18px Comic Sans MS";
-            drawCenterText("- " + Math.round(damageToShowP), 5, 85, 50)
+            context.font = "18px Comic Sans MS Bold";
+            drawCenterText("- " + Math.round(damageToShowP), 5, 15, 50)
         }
 
     }
@@ -399,7 +426,37 @@ window.onload = function () {
         context.lineWidth = 5;
         context.strokeStyle = '#003300';
         context.stroke();
-        
+
+        //defense bubble
+        radius = 14;
+        context.beginPath();
+        context.arc(523, centerY + 50, radius, 0, 2 * Math.PI, false);
+        context.fillStyle = 'grey';
+        context.fill();
+        context.lineWidth = 3;
+        context.strokeStyle = '#003300';
+        context.stroke();
+        context.fillStyle = '#FFFFFF';
+        context.font = "10px Comic Sans MS";
+        drawCenterText(Math.round(enemy.defense), 512, 90, 20);
+
+
+        //health bubble
+        radius = 14;
+        context.beginPath();
+        context.arc(552, centerY + 50, radius, 0, 2 * Math.PI, false);
+        context.fillStyle = 'red';
+        context.fill();
+        context.lineWidth = 3;
+        context.strokeStyle = '#003300';
+        context.stroke();
+        context.fillStyle = '#FFFFFF';
+        context.font = "10px Comic Sans MS";
+        drawCenterText(Math.round(enemy.health), 540, 90, 20);
+
+
+
+
         //enemyimage
         var enemythisTime = enemy.playerLevel - 1;
         //console.log(enemythisTime);
@@ -409,24 +466,25 @@ window.onload = function () {
         context.drawImage(imgArray2[22], enx - 107, eny +4);
       
         //enemy defense baars
-        var defensebarHeight = enemy.defenseDrop;
-        if (defensebarHeight > 100) { defensebarHeight = 100; }
-        context.drawImage(imgArray2[16], enx + 3, eny + 110, 28, 145);
+        var defensebarHeight = 100 - ((enemy.defense / enemy.defenseMax) * 100);
+        //if (defensebarHeight > 100) { defensebarHeight = 100; }
+        context.drawImage(imgArray2[16], enx + 3, eny + 105, 28, 148);
         if (enemy.defense < 0) { enemy.defense = 0 }
-        context.drawImage(imgArray2[17], enx + 11, eny + 122 + defensebarHeight, 14, ((enemy.defense) / enemy.defenseMax) * 100);
+        context.drawImage(imgArray2[17], enx + 9, eny + 116 + defensebarHeight, 14, ((enemy.defense) / enemy.defenseMax) * 100);
+
         //enemy health bars
-        var healthBarHeight = enemy.damage;
-        if (healthBarHeight > 100) { healthBarHeight = 100; }
-        context.drawImage(imgArray2[14], enx + 29, eny + 110, 30, 145);
+        var healthBarHeight = 100 - ((enemy.health / enemy.healthMax) * 100);
+        //if (healthBarHeight > 100) { healthBarHeight = 100; }
+        context.drawImage(imgArray2[14], enx + 29, eny + 106, 28, 148);
         //console.log("enemyHealth= " + enemy.health)
         if (enemy.health < 0) { enemy.health = 0; }
-        context.drawImage(imgArray2[15], enx + 37, eny + 122 + healthBarHeight, 14, (enemy.health / enemy.healthMax) * 100);
+        context.drawImage(imgArray2[15], enx + 35, eny + 116 + healthBarHeight, 14, (enemy.health / enemy.healthMax) * 100) ;
 
         //enemy damage during battle
         if (showEnemyDamage) {
             context.fillStyle = '#FF0000';
             context.font = "18px Comic Sans MS";
-            drawCenterText("- " + Math.round(damageToShowE), 509, 85, 50);
+            drawCenterText("- " + Math.round(damageToShowE), 509, 15, 50);
         }
     }
    
@@ -625,17 +683,17 @@ window.onload = function () {
                             /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                             //enemy health and defense adjustment
                             if (aibot === false ) { //hit enemy//
-                                var damageThisTime = 20 + (1 * (clusters[i].length - 2));
-                                console.log("damage this time1: " + damageThisTime);
+                                var damageThisTime = 6 + (1 * (clusters[i].length - 2));
+                                //console.log("damage this time1: " + damageThisTime);
                                 enemy.defenseDrop = enemy.defenseDrop + damageThisTime;
                                 if (enemy.defenseDrop >= enemy.defenseMax) { enemy.defenseDrop = enemy.defenseMax };
                                 enemy.defense = enemy.defenseMax - enemy.defenseDrop;
                                 if (enemy.defense <= 0) { enemy.defense = 0 };
-                                console.log("Enemy Defense " + enemy.defense);
+                                //console.log("Enemy Defense " + enemy.defense);
                                 var defenseAdjust = (enemy.defense / enemy.defenseMax) ;
-                                console.log("defenseAdjust " + defenseAdjust);
+                                //console.log("defenseAdjust " + defenseAdjust);
                                 if (defenseAdjust > 0) { damageThisTime = damageThisTime * defenseAdjust; };
-                                console.log("damage this time2: " + damageThisTime);
+                                //console.log("damage this time2: " + damageThisTime);
                                                             
                                 damageToShowE = damageThisTime;
                                 showEnemyDamage = true;
@@ -651,17 +709,19 @@ window.onload = function () {
                             }
                             //enemy attacking player
                             if (aibot) { //hit player//
-                                var damageThisTime = 15 + (1 * (clusters[i].length - 2));
-                                console.log("damage this time1: " + damageThisTime);
+                                var damageThisTime = 5 + (1 * (clusters[i].length - 2));
+                               
+
+
                                 player1.defenseDrop = player1.defenseDrop + damageThisTime;
                                 if (player1.defenseDrop >= player1.defenseMax) { player1.defenseDrop = player1.defenseMax };
                                 player1.defense = player1.defenseMax - player1.defenseDrop;
                                 if (player1.defense <= 0) { player1.defense = 0 };
-                                console.log("Player Defense " + player1.defense);
+                                //console.log("Player Defense " + player1.defense);
                                 var defenseAdjust = (player1.defense / player1.defenseMax);
-                                console.log("defenseAdjust " + defenseAdjust);
+                                //console.log("defenseAdjust " + defenseAdjust);
                                 if (defenseAdjust > 0) { damageThisTime = damageThisTime * defenseAdjust; };
-                                console.log("damage this time2: " + damageThisTime);
+                                //console.log("damage this time2: " + damageThisTime);
 
                                 damageToShowP = damageThisTime;
                                 showPlyrDamage = true;
@@ -672,7 +732,7 @@ window.onload = function () {
 
                                 player1.damage = player1.damage + damageThisTime;
                                 player1.health = player1.healthMax - player1.damage;
-                                console.log("player health: " + player1.health);
+                                //console.log("player health: " + player1.health);
                                 aibot = false;
                                 enemyTurn = false;
                                 
@@ -955,7 +1015,7 @@ window.onload = function () {
         context.drawImage(imgArray2[19], 180, 282);
         context.fillStyle = "Red";
         context.font = "12px Comic Sans MS";
-        context.fillText(player1.name.toUpperCase() + "  Vs.  " + enemy.name.toUpperCase(), 205, 305);
+        context.fillText(player1.name.toUpperCase() + "  Vs.  " + enemy.name.toUpperCase(), 210, 305);
 
         //draw the left and right bars
         context.drawImage(imgArray2[19], 440, 287, 125, 30);
