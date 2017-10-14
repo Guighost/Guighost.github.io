@@ -6,6 +6,8 @@
 
 //
 var newGameLoad = 0;
+var enemyNameGlobal = "Arcannus";
+var playerNameGlobal = "GuiMage";
 window.onload = function () {
     // Get the canvas and context
     var canvas = document.getElementById("viewport1");
@@ -54,6 +56,18 @@ window.onload = function () {
     var showEnemyDamage = false;
     var damageToShowP = 0;
     var damageToShowE = 0;
+    var swapTileTriggered = 10;
+    var firstTimeOnly = true;
+    var PowerToApply = [
+        ["arcanePower"],
+        ["sparkPower"],
+        ["firePower"],
+        ["swordPower"],
+        ["meteorPower"],
+        ["earthPower"],
+        ["airPower"]
+    ];
+    var spellBonus = 0;
 
     if (typeof localStorage["starCash"] === "undefined") { localStorage["starCash"] = 0; starCash = 0; };
     starCash = parseInt(localStorage["starCash"]);
@@ -516,7 +530,7 @@ window.onload = function () {
     swapSound.play();
 
     var levelUpSound = new Howl({
-        src: ['Sounds/levelup.mp3'],
+        src: ['Sounds/victory_fanfare.mp3'],
         volume: 0.9,
         preload: true,
 
@@ -678,20 +692,98 @@ window.onload = function () {
                          
                             // Add extra points for longer clusters
                             score += 100 * (clusters[i].length - 2);
+                         
                             levelScoreProgress = levelScoreProgress + (100 * (clusters[i].length - 2));
                             matchCount = matchCount + (clusters[i].length - 2);
-                            /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                            //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////!!!!!!!!!!!!!!!
                             //enemy health and defense adjustment
-                            if (aibot === false ) { //hit enemy//
+                            if (aibot === false) {
+                                //hit enemy//
                                 var damageThisTime = 6 + (1 * (clusters[i].length - 2));
-                                //console.log("damage this time1: " + damageThisTime);
+
+                                var clusterType = level.tiles[clusters[i].column][clusters[i].row].type;
+                                console.log("cluster type " + clusterType);
+                                var getSpellPower = PowerToApply[clusterType];
+                                console.log("power to apply= " + getSpellPower);
+                               
+                                var getSpellPowerVal = read_prop(player1, getSpellPower);
+                                spellBonus = getSpellPowerVal;
+                                console.log("getSpellPowerVal = " + getSpellPowerVal);
+                                /////power adjust////////////
+                                firstTimeOnly = true;
+                                if (swapTileTriggered < 10 && swapTileTriggered >= 0) {
+                                    //console.log("swapTileTriggered2= " + swapTileTriggered);
+                                    //var damageModifierName = PowerToApply[swapTileTriggered];
+                                    //console.log("damageModiferName = " + damageModifierName);
+                                    //var spellModifier = read_prop(player1, damageModifierName)
+                                    //console.log("spellModifier = " + spellModifier);
+                                    //console.log(spellBonus + "= spellBonus");
+                                    console.log(damageThisTime + "= DamageThisTime");
+                                    damageThisTime = damageThisTime + spellBonus;
+                                    console.log("AdjustedDamage= " + damageThisTime);
+
+                                    ////animation
+                                    
+                                    if (getSpellPower == "sparkPower") {
+                                        document.getElementById("lightningFullBack").style.display = 'block';
+                                        setTimeout(function () {
+                                            document.getElementById("lightningFullBack").style.display = 'none';
+                                        }, 1000);
+                                    }
+
+                                    if (getSpellPower == "arcanePower") {
+                                        document.getElementById("arcaneFullBack").style.display = 'block';
+                                        setTimeout(function () {
+                                            document.getElementById("arcaneFullBack").style.display = 'none';
+                                        }, 1000);
+                                    }
+
+                                    if (getSpellPower == "firePower") {
+                                        document.getElementById("fireFullBack").style.display = 'block';
+                                        setTimeout(function () {
+                                            document.getElementById("fireFullBack").style.display = 'none';
+                                        }, 1000);
+                                    }
+                                    if (getSpellPower == "meteorPower") {
+                                        document.getElementById("meteorFullBack").style.display = 'block';
+                                        setTimeout(function () {
+                                            document.getElementById("meteorFullBack").style.display = 'none';
+                                        }, 1000);
+                                    }
+                                    if (getSpellPower == "swordPower") {
+                                        document.getElementById("swordFullBack").style.display = 'block';
+                                        setTimeout(function () {
+                                            document.getElementById("swordFullBack").style.display = 'none';
+                                        }, 1000);
+                                    }
+                                    if (getSpellPower == "earthPower") {
+                                        document.getElementById("earthFullBack").style.display = 'block';
+                                        
+                                        setTimeout(function () {
+                                            document.getElementById("earthFullBack").style.display = 'none';
+                                        }, 1000);
+                                    }
+                                    if (getSpellPower == "airPower") {
+                                        document.getElementById("airFullBack").style.display = 'block';
+                                        setTimeout(function () {
+                                            document.getElementById("airFullBack").style.display = 'none';
+                                        }, 1000);
+                                    }
+
+
+                                    ///cleanup
+                                    spellBonus = 0;
+                                    swapTileTriggered = 10;
+                                }
+
+
                                 enemy.defenseDrop = enemy.defenseDrop + damageThisTime;
                                 if (enemy.defenseDrop >= enemy.defenseMax) { enemy.defenseDrop = enemy.defenseMax };
                                 enemy.defense = enemy.defenseMax - enemy.defenseDrop;
                                 if (enemy.defense <= 0) { enemy.defense = 0 };
-                                //console.log("Enemy Defense " + enemy.defense);
+                              
                                 var defenseAdjust = (enemy.defense / enemy.defenseMax) ;
-                                //console.log("defenseAdjust " + defenseAdjust);
+                                
                                 if (defenseAdjust > 0) { damageThisTime = damageThisTime * defenseAdjust; };
                                 //console.log("damage this time2: " + damageThisTime);
                                                             
@@ -707,7 +799,7 @@ window.onload = function () {
                                 enemyTurn = true;
                               
                             }
-                            //enemy attacking player
+                            //enemy attacking player////////////////////////////////////////////////////////////////////////////////////////////!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                             if (aibot) { //hit player//
                                 var damageThisTime = 5 + (1 * (clusters[i].length - 2));
                                
@@ -892,7 +984,13 @@ window.onload = function () {
         if (showmoves && clusters.length <= 0 && gamestate == gamestates.ready) {
             renderMoves();
         }
-       
+
+        ////spell casting ///////
+
+      
+
+
+
         // Game Over overlay
         if (gameover) {
             
@@ -906,17 +1004,12 @@ window.onload = function () {
             context.fillRect(level.x, level.y, levelwidth, levelheight);
             //img overlay
             context.drawImage(imgArray2[7], 60, 5);
-            //document.getElementById("progressBar").style.display = 'none';
+
             context.drawImage(imgArray2[8], 110, 230);
             context.drawImage(imgArray2[9], 315, 230);
-            //context.fillStyle = "#cc00cc";
-            //context.font = "20px Comic Sans MS";
-            //context.fillText(starCash, 175, 104);
+        
             gamestate = gamestates.almostOver;
-            // context.fillStyle = "#ffffff";
-            // context.font = "24px Comic Sans MS";
-            // drawCenterText("No More Moves", level.x, level.y + levelheight / 2 - 80, levelwidth);
-            // drawCenterText("Game Over!", level.x, level.y + levelheight / 2 - 40, levelwidth);
+      
         }
         //level Up overlay
         if (gamestate == gamestates.levelUp) {
@@ -928,7 +1021,7 @@ window.onload = function () {
             context.drawImage(imgArray2[1], 170, 30); // level up back
             //context.drawImage(imgArray2[10], 150, 50); // star cash1
             context.drawImage(imgArray2[2], 235, 145); // star cash2
-            context.drawImage(imgArray2[3], 208, 210); //Next Button
+            context.drawImage(imgArray2[3], 235, 220); //Next Button
             context.drawImage(imgArray2[4], 200, 65); //star1
             if (levelRating >= 4) { context.drawImage(imgArray2[4], 305, 65); } //star2
             if (levelRating >= 5) { context.drawImage(imgArray2[5], 246, 45); }//star3 Bonus star}
@@ -944,7 +1037,7 @@ window.onload = function () {
             drawCenterText(starCash, 270, 169, 50);
             drawCenterText(enemy.name + " defeated "  , 260, 202, 50);
             context.font = "22px Comic Sans MS";
-            drawCenterText("Next Level", level.x + 2, level.y + levelheight - 25, levelwidth);
+            drawCenterText("Next", level.x + 2, level.y + levelheight - 25, levelwidth);
             if (levelBump == 1) {
                 levelCount++; levelBump = 0;
                 levelUpScore = (levelCount * 1000);
@@ -1064,7 +1157,7 @@ window.onload = function () {
 
 
     // Render tiles
-    function renderTiles() {
+     function renderTiles() {
         for (var i = 0; i < level.columns; i++) {
             for (var j = 0; j < level.rows; j++) {
                 // Get the shift of the tile for animation
@@ -1410,7 +1503,9 @@ window.onload = function () {
                         clusters.push({
                             column: i + 1 - matchlength, row: j,
                             length: matchlength, horizontal: true
+                            
                         });
+                        
                     }
                     //GG add special for a horiz 5 match
                     if (matchlength >= 4) {
@@ -1515,6 +1610,19 @@ window.onload = function () {
             var coffset = 0;
             var roffset = 0;
             for (var j = 0; j < cluster.length; j++) {
+                if (level.tiles[cluster.column][cluster.row].type > -1) {
+                    if (firstTimeOnly) {
+                        swapTileTriggered = level.tiles[cluster.column][cluster.row].type;
+                        console.log("Loop Clusters tile= " + swapTileTriggered);
+                        var damageModifierName = PowerToApply[swapTileTriggered];
+                        console.log("damageModiferName = " + damageModifierName);
+                       
+                        var spellModifier = read_prop(player1, damageModifierName);
+                        console.log("spellModifier = " + spellModifier);
+                        spellBonus = spellModifier;
+                        firstTimeOnly = false;
+                    }
+                }
                 func(i, cluster.column + coffset, cluster.row + roffset, cluster);
 
                 if (cluster.horizontal) {
@@ -1669,6 +1777,7 @@ window.onload = function () {
                 if (canSwap(mt.x, mt.y, level.selectedtile.column, level.selectedtile.row)) {
                     // Swap the tiles
                     mouseSwap(mt.x, mt.y, level.selectedtile.column, level.selectedtile.row);
+                    
                 }
             }
         }
@@ -1696,6 +1805,7 @@ window.onload = function () {
                     } else if (canSwap(mt.x, mt.y, level.selectedtile.column, level.selectedtile.row)) {
                         // Tiles can be swapped, swap the tiles
                         mouseSwap(mt.x, mt.y, level.selectedtile.column, level.selectedtile.row);
+                       
                         swapped = true;
                     }
                 }
@@ -1871,6 +1981,7 @@ window.onload = function () {
                     enemy.damage = 0;
                     enemy.playerLevel = enemy.playerLevel + 1;
                     getNextEnemy();
+                    showVS();
 
                 }
              }
@@ -1931,8 +2042,11 @@ window.onload = function () {
         //enemies[1] = 'GoblinMage';
         //enemies[2] = 'ElfWiz';
         newName = enemies[enemy.playerLevel - 1];
-        
+        var imageUpgrade = "Images/Enemy/lvl" + enemy.playerLevel + ".png";
+        console.log("image upgrade = " + imageUpgrade);
+        document.getElementById('vsEnemy').src = imageUpgrade;
         enemy.name = newName;
+        enemyNameGlobal = newName;
         ;
         
     }
@@ -1953,6 +2067,8 @@ window.onload = function () {
         plyrLvlUp = true;
                
     }
+
+
     // Call init to start the game
     init();
 
@@ -1996,6 +2112,35 @@ function resizeGame() {
 
 function hideTitlePage() {
     document.getElementById('titleCover').style.display = 'none';
-    
+    showVS();
+}
 
+function showVS() {
+    document.getElementById('coverWrapper').style.display = 'block';
+    document.getElementById('vsCover').style.display = 'block';
+    
+    document.getElementById("playerNameP").innerHTML = playerNameGlobal;
+    document.getElementById("enemyNameP").innerHTML = enemyNameGlobal;
+    document.getElementById("countDown").innerHTML = " ";
+    var timeLeft = 6;
+    var timertick = setInterval(function () {
+        timeLeft = timeLeft - 1;
+        
+        document.getElementById("countDown").innerHTML = timeLeft;
+        if (timeLeft == 0) { document.getElementById("countDown").innerHTML = "Go"; }
+        if (timeLeft <= 0) {
+            clearInterval(timertick);
+
+        }
+
+    }, 1000);
+
+    setTimeout(function () {
+        document.getElementById("vsCover").style.display = 'none';
+        document.getElementById('coverWrapper').style.display = 'none';
+    }, 7000);
+}
+
+function read_prop(obj, prop) {
+    return obj[prop];
 }

@@ -5,8 +5,25 @@
     <title>Gui SpellMatch</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,  maximum-scale=2.0, user-scalable=no" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
+    
    
+
+    <link rel="manifest" href="manifest.json">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="SpellMatch">
+    <meta name="apple-mobile-web-app-title" content="SpellMatch">
+    <meta name="theme-color" content="#FFFFFF">
+    <meta name="msapplication-navbutton-color" content="#FFFFFF">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="msapplication-starturl" content="https://guighost.github.io/GuiSpellMatch/">
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">-->
+
+    <link rel="icon" type="image/png" sizes="40X40" href="images/gabbyLogo.png">
+    <link rel="apple-touch-icon" type="image/png" sizes="40X40" href="images/gabbyLogo.png">
+    <link rel="icon" type="image/png" sizes="192X110" href="images/coverImage2.png">
+    <link rel="apple-touch-icon" type="image/png" sizes="192X110" href="coverImage2.png">
+    
     <link rel="icon"
           type="image/png"
           href="favicon.ico">
@@ -71,12 +88,45 @@
             <canvas id="viewport1"></canvas>
             <!--playerTurn message-->
             <div id="message"></div>
-            <!--Level up container-->
-              <!--<div id="levelUpMaster">
-                  <div id="levelUpBack">
-                
-                  </div>
-              </div>-->
+
+            <!--spark effect-->
+            <div id="lightningEffectParent">
+                <img id="lightningFullBack" src="Images/Effects/lightningEffect.gif" alt="icyBack" style="width:100%;height: 100%; z-index: 5085;">
+            </div>
+            <!--arcane effect-->
+            <div id="arcaneEffectParent">
+                <img id="arcaneFullBack" src="Images/Effects/arcane1.gif" alt="arcaneBack" style="width:150px;height: 150px; z-index: 5085;">
+            </div>
+            <!--fire effect-->
+            <div id="fireEffectParent">
+                <img id="fireFullBack" src="Images/Effects/fire1.gif" alt="fireBack" style="width:150px;height: 150px; z-index: 5085;">
+            </div>
+            <!--meteor effect-->
+            <div id="meteorEffectParent">
+                <img id="meteorFullBack" src="Images/Effects/meteor1.gif" alt="meteorBack" style="width:150px;height: 150px; z-index: 5085;">
+            </div>
+            <!--sword effect-->
+            <div id="swordEffectParent">
+                <img id="swordFullBack" src="Images/Effects/sword1.gif" alt="swordBack" style="width:150px;height: 150px; z-index: 5085;">
+            </div>
+            <!--earth effect-->
+            <div id="earthEffectParent">
+                <img id="earthFullBack" src="Images/Effects/earth1.gif" alt="earthBack" style="width:150px;height: 150px; z-index: 5085;">
+            </div>
+            <!--air effect-->
+            <div id="airEffectParent">
+                <img id="airFullBack" src="Images/Effects/air1.gif" alt="airBack" style="width:150px;height: 150px; z-index: 5085;">
+            </div>
+            <div id="coverWrapper">
+                <div id="vsCover">
+                    <p id="countDown">6</p>
+                    <img id="vsEnemy" class="fadeInRight" src="Images/Enemy/lvl1.png" alt="enemyBack" style="width:185px;height: 200px; z-index: 5085;">
+                    <div id="nameWrapper">
+                        <p id="playerNameP"> Player</p>
+                        <p id="enemyNameP" class="fadeInRight"> Enemy</p>
+                    </div>
+                </div>
+            </div>
        </div>
    
         

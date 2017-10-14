@@ -41,13 +41,13 @@ img[src$=".gif"], img[src$=".png"] {
     position: absolute;
     left: 50%;
     top: 50%;
-    transform: translate(-70px,-10px);
+    transform: translate(-40px,-5px);
 }
 #btn1Text {
     position: absolute;
-    transform: translate(-35px,-75px);
+    transform: translate(-28px,-57px);
     font-family:'Comic Sans MS';
-    font-size:40px;
+    font-size:30px;
     font-weight:bolder;
     color:blueviolet;
 }
@@ -61,8 +61,118 @@ img[src$=".gif"], img[src$=".png"] {
     transform: translateY(-10px);
 }
 
+#lightningFullBack {
+    position: absolute;
+    display: none;
+    top: 0px;
+    left: 0px;
+}
+
+#arcaneFullBack {
+    position: absolute;
+    display: none;
+    top: 50%;
+    left: 50%;
+    transform: translate(-75px,-75px);
+}
+#fireFullBack {
+    position: absolute;
+    display: none;
+    top: 50%;
+    left: 50%;
+    transform: translate(-75px,-75px);
+}
+#meteorFullBack {
+    position: absolute;
+    display: none;
+    top: 50%;
+    left: 50%;
+    transform: translate(-75px,-75px);
+}
+#swordFullBack {
+    position: absolute;
+    display: none;
+    top: 50%;
+    left: 50%;
+    transform: translate(-75px,-75px);
+}
+#airFullBack {
+    position: absolute;
+    display: none;
+    top: 50%;
+    left: 50%;
+    transform: translate(-75px,-75px);
+}
+#earthFullBack {
+    position: absolute;
+    display: none;
+    top: 50%;
+    left: 50%;
+    transform: translate(-75px,-75px);
+}
+#coverWrapper {
+    position: absolute;
+    display: none;
+    width: 100%;
+    height: 100%;
+    z-index: 3000;
+    background-color: black;
+    transform: translate(-10px,-10px);
+}
+
+#vsCover {
+    position: absolute;
+    display: none;
+    width: 479px;
+    height:319px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-239px,-160px);
+    background-image: url(Images/HUD/battleMatchBack.png);
+    background-repeat:no-repeat;
+    background-position:center;
+    border: 1px solid red;
+    z-index: 7900;
+}
+#vsEnemy {
+    position: absolute;
+    transform: translate(15px,58px);
+}
+#nameWrapper {
+    margin-top: 208px;
+    width: 479px;
+}
+#playerNameP {
+ float: left;
+ margin-left: 45px;
+ font-family:'Comic Sans MS';
+ font-size:40px;
+ font-weight:bolder;
+ color: darkblue;
+ }
+#enemyNameP {
+    transform: translate(25px,44px);
+    margin-left: 10px;
+    font-family: 'Comic Sans MS';
+    font-size: 40px;
+    font-weight: bolder;
+   color: red;
+}
+
+#countDown {
+    position: absolute;
+    color:darkorange;
+    transform: translate(200px,120px);
+    font-family: 'Comic Sans MS';
+    font-size: 35px;
+    font-weight: bolder;
+    border: 2px solid red;
+    border-radius: 20px;
+    width: 65px;
+    height: 50px;
+    background-color:blueviolet;
+}
 #gameMasterContainer {
-    
     /*left: 50%;
   
     transform: translate(-5px, -8px);
@@ -91,6 +201,7 @@ img[src$=".gif"], img[src$=".png"] {
     min-height: 310px;
     height: 380px;
     width: 508px;
+    z-index:1000;
    /*max-width: 360px;*/
     /*max-height: 750px;*/
     border: 1px solid yellow;
@@ -339,5 +450,21 @@ img[src$=".gif"], img[src$=".png"] {
 @media screen and (orientation:landscape) {
     #changeToLandscape {
         display: none;
+    }
+}
+
+.fadeInRight {
+    animation-name: fadeInRight;
+    animation-duration: 1.5s;
+}
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translate3d(100%, 0, 0);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate(25px,58px);
     }
 }

@@ -1,0 +1,31 @@
+﻿{
+  "name": "Gui SpellMatch",
+  "short_name": "SpellMatch",
+  "description": "Casual Game",
+  "lang": "en-US",
+  "start_url": "https://guighost.github.io/GuiSpellMatch/",
+  "scope": "https://guighost.github.io/GuiSpellMatch/",
+  "display": "fullscreen",
+  "theme_color": "#FFFFFF",
+  "icons": [
+   
+    {
+      "src": "https://guighost.github.io/GuiSpellMatch/images/coverImage2.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "https://guighost.github.io/GuiSpellMatch/images/coverImage3.png",
+      "sizes": "any",
+      "type": "image/png"
+    }
+  ],
+  "background_color": "#00000F",
+  "screenshots": [
+    {
+      "src": "https://guighost.github.io/GuiSpellMatch/images/SpellMatch.png",
+      "sizes": "any",
+      "type": "image/png"
+    }
+  ]
+}
