@@ -172,6 +172,163 @@ img[src$=".gif"], img[src$=".png"] {
     height: 50px;
     background-color:blueviolet;
 }
+
+
+#helpGif {
+    position: absolute;
+    display: none;
+    top: 50%;
+    left: 50%;
+    transform: translate(-265px,-156px);
+    z-index: 7000;
+}
+#skipMe {
+    position: absolute;
+    display: none;
+    top: 50%;
+    left: 50%;
+    color: red;
+    font-weight: bolder;
+    font-size: 22px;
+    z-index: 7100;
+    transform: translate(210px,65px);
+    background-color:blueviolet;
+    border-radius: 10px;
+}
+#difficulty{
+    position: absolute;
+    display: block;
+    top: 50%;
+    left: 50%;
+    width: 750px;
+    height: 359px;
+    background-color: blueviolet;
+    border-radius: 10px;
+    border: 1px red solid;
+    transform: translate(-372px,-177px);
+    z-index: 2000;
+}
+#diffBack {
+    position: absolute;
+    display: block;
+    top: 50%;
+    left: 50%;
+    width: 395px;
+    height: 309px;
+    z-index: 7100;
+    transform: translate(-200px,-170px);
+    background-image: url(Images/HUD/blankBack.png);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+#diffTitle, #homeTitle {
+    display: block;
+    left: 48%;
+    font-family: 'Comic Sans MS';
+    font-weight: bolder;
+    font-size: 22px;
+}
+.diffBtn {
+    position: absolute;
+    display: block;
+    left: 26%;
+    height: 35px;
+    width: 200px;
+    padding-top: 10px;
+    clear: both;
+    font-family: 'Comic Sans MS';
+    font-weight: bolder;
+    font-size: 22px;
+    border: 2px grey inset;
+    border-radius: 10px;
+    text-align:center;
+
+}
+#diff1 {
+    top: 20%;
+    background-color: #66ffb3;
+}
+#diff2 {
+    top: 37%;
+    background-color: #e6e600;
+}
+#diff3 {
+    top: 55%;
+    background-color: #990000;
+}
+#saveDiff {
+    position: absolute;
+    display: block;
+    top: 77%;
+    left: 39%;
+}
+#selectedDiff {
+    position: absolute;
+    display: block;
+    top: 30%;
+    left: 27%;
+}
+#goHome {
+    position: absolute;
+    display: none;
+    top: 50%;
+    left: 50%;
+    width: 750px;
+    height: 359px;
+    background-color: blueviolet;
+    border-radius: 10px;
+    border: 1px red solid;
+    transform: translate(-372px,-177px);
+    z-index: 3000;
+}
+#homeBack {
+    position: absolute;
+    display: block;
+    top: 50%;
+    left: 50%;
+    width: 395px;
+    height: 309px;
+    z-index: 7100;
+    transform: translate(-200px,-170px);
+    background-image: url(Images/HUD/blankBack.png);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+#saveQuit {
+    top: 30%;
+    width: 275px;
+    transform: translate(-40px,0px);
+    background-image: url(Images/HUD/bottomBar.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-y: top;
+    text-decoration: none;
+    color: ghostwhite;
+    border: none;
+}
+#homeMore {
+    top: 48%;
+    width: 275px;
+    transform: translate(-40px,0px);
+    background-image: url(Images/HUD/bottomBar.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-y: top;
+    text-decoration: none;
+    color: ghostwhite;
+    border: none;
+}
+#homeReturn {
+    top: 60%;
+    width: 275px;
+    transform: translate(-40px,0px);
+    background-image: url(Images/HUD/bottomBar.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-y: top;
+    color: ghostwhite;
+    border: none;
+}
 #gameMasterContainer {
     /*left: 50%;
   

@@ -4,10 +4,14 @@
 //
 
 
-//
+//globals///
 var newGameLoad = 0;
 var enemyNameGlobal = "Arcannus";
 var playerNameGlobal = "GuiMage";
+var difficulty = 1;
+var soundOn = true;
+
+
 window.onload = function () {
     // Get the canvas and context
     var canvas = document.getElementById("viewport1");
@@ -686,8 +690,9 @@ window.onload = function () {
                     if (clusters.length > 0) {
                         // Add points to the score
                         swapSound.stop();
+
+                        if (soundOn == true) { swapSound.play(); };
                         
-                        swapSound.play();
                         for (var i = 0; i < clusters.length; i++) {
                          
                             // Add extra points for longer clusters
@@ -699,7 +704,7 @@ window.onload = function () {
                             //enemy health and defense adjustment
                             if (aibot === false) {
                                 //hit enemy//
-                                var damageThisTime = 6 + (1 * (clusters[i].length - 2));
+                                var damageThisTime = 5 + (1 * (clusters[i].length - 2));
 
                                 var clusterType = level.tiles[clusters[i].column][clusters[i].row].type;
                                 console.log("cluster type " + clusterType);
@@ -996,7 +1001,8 @@ window.onload = function () {
             
             if (playOnce == 0) {
                 gameSoundLoop.pause();
-                gameOverSound.play();
+                if (soundOn) { gameOverSound.play(); };
+                
                 playOnce++;
 
             }
@@ -1145,12 +1151,12 @@ window.onload = function () {
             context.fillText(buttons[i].text, buttons[i].x + (buttons[i].width - textdim.width) / 2, buttons[i].y + 23);
 
             //draw button images
-            context.drawImage(imgArray3[0], 12, 288);
-            context.drawImage(imgArray3[1], 47, 288);
-            context.drawImage(imgArray3[2], 82, 288);
-            context.drawImage(imgArray3[3], 452, 288);
-            context.drawImage(imgArray3[4], 487, 288);
-            context.drawImage(imgArray3[5], 522, 288);
+            context.drawImage(imgArray3[0], 12, 288);       //gear - difficulty modal
+            context.drawImage(imgArray3[1], 47, 288);       //house - go home
+            context.drawImage(imgArray3[2], 82, 288);       //sound - volume modal
+            context.drawImage(imgArray3[3], 452, 288);      //Menu - Power modal
+            context.drawImage(imgArray3[4], 487, 288);      // Trophy - ladder modal
+            context.drawImage(imgArray3[5], 522, 288);      //Thumb  - facebook Like
         }
     }
     
@@ -1381,7 +1387,8 @@ window.onload = function () {
         levelUpSound.stop();
         gameOverSound.stop();
         gameSoundLoop.pause();
-        gameSoundLoop.play();
+        if (soundOn) { gameSoundLoop.play();}
+        
 
         enemy.health = enemy.healthMax;
         enemy.defense = enemy.defenseMax;
@@ -1842,6 +1849,49 @@ window.onload = function () {
                 }
             }
         }
+        ///GG buttons
+        if (pos.x >= 12 && pos.x < 44 && pos.y >= 288 && pos.y < 308) {
+            var checkMe = document.getElementById('difficulty').style.display;
+            console.log(checkMe);
+            if ( checkMe == 'block') { document.getElementById('difficulty').style.display = 'none' }
+            else { document.getElementById('difficulty').style.display = 'block'; } ////gear icon --- show difficulty modal
+            
+        }
+        if (pos.x >= 47 && pos.x < 79 && pos.y >= 288 && pos.y < 308) {
+            var checkMe = document.getElementById('goHome').style.display;
+            console.log("checkMe before: " + checkMe);
+            if (checkMe == 'block') { document.getElementById('goHome').style.display = 'none' }
+            else { document.getElementById('goHome').style.display = 'block'; }  ////home icon --- Save and Quit Menu
+            checkMe = document.getElementById('goHome').style.display;
+            console.log("checkMe after: " + checkMe);
+        }
+        if (pos.x >= 82 && pos.x < 112 && pos.y >= 288 && pos.y < 308) {
+            if (soundOn) {
+                //turn sounds off
+                swapSound.pause();
+                gameSoundLoop.pause();
+                soundOn = false;
+                imgArray3[2].src = 'Images/buttons/greySoundOff.png';
+
+            }
+            else {
+                //turn sounds back on
+                soundOn = true;
+                gameSoundLoop.play();
+                imgArray3[2].src = 'Images/buttons/greySound.png';
+            }
+            ////sound icon --- volume control modal
+        }
+        if (pos.x >= 452 && pos.x < 482 && pos.y >= 288 && pos.y < 308) {
+            document.getElementById('difficulty').style.display = 'block';    ////Menu icon --- Powers Modal
+        }
+        if (pos.x >= 487 && pos.x < 518 && pos.y >= 288 && pos.y < 308) {
+            document.getElementById('difficulty').style.display = 'block';    ///Trophy icon --- show ladder modal
+        }
+        if (pos.x >= 522 && pos.x < 555 && pos.y >= 288 && pos.y < 308) {
+            document.getElementById('difficulty').style.display = 'block';    ////Thumb icon --- Like and Share to Facebook
+        }
+
         if (gamestate == gamestates.levelUp) {
             playerLvlUp();
             plyrLvlUp = true;
@@ -1865,7 +1915,7 @@ window.onload = function () {
                             skillPoints = skillPoints - 1;
                             player1.arcanePower = player1.arcanePower + 1;
                             var srcName = player1.arcanePower + '0.png';
-                            spellUpSound.play();
+                            if (soundOn) { spellUpSound.play(); };
                             setTimeout(function () { imgArray[0].src = 'Images/HUD/spellLevelUp.png' }, 100);
                             setTimeout(function () { imgArray[0].src = 'Images/' + srcName; }, 500);
                         }
@@ -1878,7 +1928,7 @@ window.onload = function () {
                             skillPoints = skillPoints - 1;
                             player1.sparkPower = player1.sparkPower + 1;
                             var srcName = player1.sparkPower + '1.png';
-                            spellUpSound.play();
+                            if (soundOn) { spellUpSound.play(); };
                             setTimeout(function () { imgArray[1].src = 'Images/HUD/spellLevelUp.png' }, 100);
                             setTimeout(function () { imgArray[1].src = 'Images/' + srcName; }, 500);
                         }
@@ -1890,7 +1940,7 @@ window.onload = function () {
                             skillPoints = skillPoints - 1;
                             player1.firePower = player1.firePower + 1;
                             var srcName = player1.firePower + '2.png';
-                            spellUpSound.play();
+                            if (soundOn) { spellUpSound.play(); };
                             setTimeout(function () { imgArray[2].src = 'Images/HUD/spellLevelUp.png' }, 100);
                             setTimeout(function () { imgArray[2].src = 'Images/' + srcName; }, 500);
                         }
@@ -1902,7 +1952,7 @@ window.onload = function () {
                             skillPoints = skillPoints - 1;
                             player1.swordPower = player1.swordPower + 1;
                             var srcName = player1.swordPower + '3.png';
-                            spellUpSound.play();
+                            if (soundOn) { spellUpSound.play(); };
                             setTimeout(function () { imgArray[3].src = 'Images/HUD/spellLevelUp.png' }, 100);
                             setTimeout(function () { imgArray[3].src = 'Images/' + srcName; }, 500);
                         }
@@ -1914,7 +1964,7 @@ window.onload = function () {
                             skillPoints = skillPoints - 1;
                             player1.meteorPower = player1.meteorPower + 1;
                             var srcName = player1.meteorPower + '4.png';
-                            spellUpSound.play();
+                            if (soundOn) { spellUpSound.play(); };
                             setTimeout(function () { imgArray[4].src = 'Images/HUD/spellLevelUp.png' }, 100);
                             setTimeout(function () { imgArray[4].src = 'Images/' + srcName; }, 500);
                         }
@@ -1926,7 +1976,7 @@ window.onload = function () {
                             skillPoints = skillPoints - 1;
                             player1.earthPower = player1.earthPower + 1;
                             var srcName = player1.earthPower + '5.png';
-                            spellUpSound.play();
+                            if (soundOn) { spellUpSound.play(); };
                             setTimeout(function () { imgArray[5].src = 'Images/HUD/spellLevelUp.png' }, 100);
                             setTimeout(function () { imgArray[5].src = 'Images/' + srcName; }, 500);
                         }
@@ -1938,7 +1988,7 @@ window.onload = function () {
                             skillPoints = skillPoints - 1;
                             player1.airPower = player1.airPower + 1;
                             var srcName = player1.airPower + '6.png';
-                            spellUpSound.play();
+                            if (soundOn) { spellUpSound.play(); };
                             setTimeout(function () { imgArray[6].src = 'Images/HUD/spellLevelUp.png' }, 100);
                             setTimeout(function () { imgArray[6].src = 'Images/' + srcName; }, 500);
                         }
@@ -1949,7 +1999,7 @@ window.onload = function () {
                     //Health click
                     if (pos.x >= 100 && pos.x < 260 && pos.y >= 270 && pos.y < 310) {
                         console.log("clicked health");
-                        spellUpSound.play();
+                        if (soundOn) { spellUpSound.play(); };
                         heroBonus = heroBonus - 1;
                         var healthAdj = (player1.playerLevel * 10);
                         player1.healthMax = player1.healthMax + healthAdj;
@@ -1958,7 +2008,7 @@ window.onload = function () {
                     //Defense click
                     if (pos.x >= 320 && pos.x < 400 && pos.y >= 270 && pos.y < 310) {
                         console.log("clicked defense");
-                        spellUpSound.play();
+                        if (soundOn) { spellUpSound.play(); };
                         heroBonus = heroBonus - 1;
                         var defenseAdj = (player1.playerLevel * 10);
                         player1.defenseMax = player1.defenseMax + defenseAdj;
@@ -2055,7 +2105,8 @@ window.onload = function () {
         gamestate = gamestates.levelUp;
         soundLoop.pause();
         gameSoundLoop.pause();
-        levelUpSound.play();
+        if (soundOn) { levelUpSound.play(); };
+        
         document.getElementById('message').style.display = 'none';
         levelBump = 1;
         var levelAdjust = levelCount + 1;
@@ -2078,6 +2129,8 @@ function hideIntro() {
 
     var cover = document.getElementById("landingCover");
     cover.style.display = 'none';
+    
+
 
     newGameLoad = 1;
     newGame(0);
@@ -2112,10 +2165,15 @@ function resizeGame() {
 
 function hideTitlePage() {
     document.getElementById('titleCover').style.display = 'none';
-    showVS();
+    document.getElementById('coverWrapper').style.display = 'block';
+    document.getElementById("helpGif").style.display = 'block';
+    document.getElementById("skipMe").style.display = 'block';
+    
 }
 
 function showVS() {
+    document.getElementById("helpGif").style.display = 'none';
+    document.getElementById("skipMe").style.display = 'none';
     document.getElementById('coverWrapper').style.display = 'block';
     document.getElementById('vsCover').style.display = 'block';
     
@@ -2143,4 +2201,29 @@ function showVS() {
 
 function read_prop(obj, prop) {
     return obj[prop];
+}
+
+
+///////////difficulty modal////////////////////////////////////////
+function changeDifficulty(num) {
+    difficulty = num;
+    var slectAdjust = '';
+    if (num == 2) { selectAdjust = '47%' }
+    else if (num == 3) { selectAdjust = '65%' }
+    else { selectAdjust = '30%' };
+    document.getElementById("selectedDiff").style.top = selectAdjust;
+}
+function saveDifficulty() {
+    document.getElementById('difficulty').style.display = 'none';
+}
+
+
+////////////Home Modal////////////////////////////////////////////////
+function homeReturn1() {
+    document.getElementById('goHome').style.display = 'none';
+}
+
+function homeSave() {
+    document.getElementById('goHome').style.display = 'none';
+    ////save values to local storage
 }
