@@ -197,7 +197,7 @@ img[src$=".gif"], img[src$=".png"] {
 }
 #difficulty{
     position: absolute;
-    display: block;
+    display: none;
     top: 50%;
     left: 50%;
     width: 750px;
@@ -221,7 +221,7 @@ img[src$=".gif"], img[src$=".png"] {
     background-repeat: no-repeat;
     background-position: center;
 }
-#diffTitle, #homeTitle {
+#diffTitle, #homeTitle, #inventoryTitle {
     display: block;
     left: 48%;
     font-family: 'Comic Sans MS';
@@ -268,7 +268,7 @@ img[src$=".gif"], img[src$=".png"] {
     top: 30%;
     left: 27%;
 }
-#goHome {
+#goHome, #inventoryParent, #trophyParent {
     position: absolute;
     display: none;
     top: 50%;
@@ -281,7 +281,7 @@ img[src$=".gif"], img[src$=".png"] {
     transform: translate(-372px,-177px);
     z-index: 3000;
 }
-#homeBack {
+#homeBack, #inventoryBack {
     position: absolute;
     display: block;
     top: 50%;
@@ -318,7 +318,7 @@ img[src$=".gif"], img[src$=".png"] {
     color: ghostwhite;
     border: none;
 }
-#homeReturn {
+#homeReturn, #inventoryReturn, #trophyReturn{
     top: 60%;
     width: 275px;
     transform: translate(-40px,0px);
@@ -329,6 +329,171 @@ img[src$=".gif"], img[src$=".png"] {
     color: ghostwhite;
     border: none;
 }
+#inventoryReturn, #trophyReturn {
+    top: 79%;
+}
+#trophyBack{
+    position: absolute;
+    display: block;
+    top: 50%;
+    left: 50%;
+    width: 450px;
+    height: 300px;
+    z-index: 7100;
+    transform: translate(-225px,-170px);
+    background-image: url(Images/HUD/wideBlankBack.png);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+#trophyReturn {
+    transform: translate(-33px, 5px);
+}
+#trophyInnerParent {
+    /*border: 2px inset black;*/
+    border-radius: 20px;
+    height: 200px;
+    width: 535px;
+    transform: translate(-48px, -10px);
+}
+.leftboxes {
+    position: absolute;
+    top: 10px;
+    left: 2px;
+    border: 2px inset saddlebrown;
+    width: 75px;
+    height: 90px;
+    background-color: rosybrown;
+    border-radius: 22px;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.rightboxes {
+    position: absolute;
+    left: 459px;
+    border: 2px inset saddlebrown;
+    width: 75px;
+    height: 90px;
+    background-color: rosybrown;
+    border-radius: 22px;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.lowerboxes {
+    top:110px;
+}
+
+#centerTrophyPane {
+    position: absolute;
+    left: 77px;
+    /*border: 2px inset black;*/
+    width: 380px;
+    height: 200px;
+}
+#leftUpper {
+    background-image: url(Images/HUD/bronzeTrophy.png);
+}
+#leftLower {
+    
+    background-image: url(Images/HUD/star.png);
+}
+#rightUpper {
+    background-image: url(Images/HUD/silverTrophy.png);
+}
+#rightLower {
+    background-image: url(Images/HUD/goldenTrophy.png);
+}
+.clsCenterTrophy {
+    position: absolute;
+    top: 30px;
+    left: 80px;
+    border: 2px inset black;
+    height: 175px;
+    width: 182px;
+    background-color: #8C7853;
+    border-radius: 30px;
+}
+#centerTrophyMiddleRight {
+    left: 273px;
+}
+.trophyRow {
+    position: absolute;
+    top: 35%;
+    width: 175px;
+    height: 33px;
+    /*border: 2px inset purple;*/
+        
+}
+#face1row {top: 1px;}
+#face2row {    top: 36px;}
+#face3row {    top: 70px;}
+#face4row {    top: 105px;}
+#face5row {    top: 140px;}
+
+.clsFaceBubble {
+position: absolute;
+left: 10px;
+width: 45px;
+height: 30px;
+border-radius: 10px;
+border: 1px solid purple;
+background-color: black;
+}
+.clsCol2 {
+    left: 66px;
+}
+.clsCol3 {
+    left: 120px;
+}
+
+#r1-c1 {
+    background-image: url(Images/Enemy/lvl1face.png);
+    background-size:contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+
+
+
+
+
+#centerTopLeft {
+    position: absolute;
+    top: 0px;
+    left: 4px;
+    color: red;
+    background-color: antiquewhite;
+    width: 175px;
+    height:22px;
+    transform: translate(0px, -5px);
+    border-radius: 15px;
+    border: 1px inset black;
+}
+#enemyNameCenter {
+    font-size: 20px;
+    transform: translate(0px, -23px);
+}
+.clsinnerStat {
+    position: absolute;
+    top: 16px;
+    left: 5px;
+    font-size: 18px;
+}
+#innerStat2 {
+    top: 35px;
+}
+#innerStat3 {
+    top: 54px;
+}
+
+
+#innerStory {
+    position: absolute;
+    top: 85px;
+    font-size: 16px;
+}
+
+/*end*/
 #gameMasterContainer {
     /*left: 50%;
   

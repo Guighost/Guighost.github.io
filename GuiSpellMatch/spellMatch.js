@@ -1859,12 +1859,12 @@ window.onload = function () {
         }
         if (pos.x >= 47 && pos.x < 79 && pos.y >= 288 && pos.y < 308) {
             var checkMe = document.getElementById('goHome').style.display;
-            console.log("checkMe before: " + checkMe);
             if (checkMe == 'block') { document.getElementById('goHome').style.display = 'none' }
             else { document.getElementById('goHome').style.display = 'block'; }  ////home icon --- Save and Quit Menu
             checkMe = document.getElementById('goHome').style.display;
-            console.log("checkMe after: " + checkMe);
+            
         }
+        ////sound icon --- volume control modal
         if (pos.x >= 82 && pos.x < 112 && pos.y >= 288 && pos.y < 308) {
             if (soundOn) {
                 //turn sounds off
@@ -1880,13 +1880,18 @@ window.onload = function () {
                 gameSoundLoop.play();
                 imgArray3[2].src = 'Images/buttons/greySound.png';
             }
-            ////sound icon --- volume control modal
         }
+        ////Menu icon --- Inventory Modal
         if (pos.x >= 452 && pos.x < 482 && pos.y >= 288 && pos.y < 308) {
-            document.getElementById('difficulty').style.display = 'block';    ////Menu icon --- Powers Modal
+            var checkMe = document.getElementById('inventoryParent').style.display;
+            if (checkMe == 'block') { document.getElementById('inventoryParent').style.display = 'none' }
+            else { document.getElementById('inventoryParent').style.display = 'block';}
+            
+              
         }
+        ////trophy icon --- trophy Modal
         if (pos.x >= 487 && pos.x < 518 && pos.y >= 288 && pos.y < 308) {
-            document.getElementById('difficulty').style.display = 'block';    ///Trophy icon --- show ladder modal
+            document.getElementById('trophyParent').style.display = 'block';    ///Trophy icon --- show ladder modal
         }
         if (pos.x >= 522 && pos.x < 555 && pos.y >= 288 && pos.y < 308) {
             document.getElementById('difficulty').style.display = 'block';    ////Thumb icon --- Like and Share to Facebook
@@ -2219,11 +2224,14 @@ function saveDifficulty() {
 
 
 ////////////Home Modal////////////////////////////////////////////////
-function homeReturn1() {
-    document.getElementById('goHome').style.display = 'none';
-}
+
 
 function homeSave() {
     document.getElementById('goHome').style.display = 'none';
     ////save values to local storage
+}
+function gameReturn1() {
+    document.getElementById('goHome').style.display = 'none';
+    document.getElementById('inventoryParent').style.display = 'none'; 
+    document.getElementById('trophyParent').style.display = 'none';
 }
