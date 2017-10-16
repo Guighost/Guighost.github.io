@@ -117,7 +117,7 @@
             <div id="airEffectParent">
                 <img id="airFullBack" src="Images/Effects/air1.gif" alt="airBack" style="width:150px;height: 150px; z-index: 5085;">
             </div>
-            <div id="coverWrapper">
+            <div id="coverWrapper" onclick="hideCountDown()">
                 <div id="vsCover">
                     <p id="countDown">6</p>
                     <img id="vsEnemy" class="fadeInRight" src="Images/Enemy/lvl1.png" alt="enemyBack" style="width:185px;height: 200px; z-index: 5085;">
@@ -173,39 +173,46 @@
                             <div id="centerTrophyMiddleLeft" class="clsCenterTrophy">
                                 <div id="centerTopLeft"> <p id="enemyNameCenter"> Arcannus</p></div>
                                 <div id="centerLowerLeft">
-                                    <div id="innerStat1" class="clsinnerStat">Health: 100</div>
-                                    <div id="innerStat2" class="clsinnerStat">Defense: 100</div>
-                                    <div id="innerStat3" class="clsinnerStat">Mage Level: 1</div>
-                                    <div id="innerStory"> Lives in a volcano and studies the ancient arts of fire magic.</div>
+                                    <div id="innerStatBack">
+                                        <div id="innerStat1" class="clsinnerStat">100</div>
+                                        <!--<div id="innerStat2" class="clsinnerStat">1</div>-->
+                                        <div id="innerStat3" class="clsinnerStat">100</div>
+                                    </div>
+                                    
                                 </div>
+                             
                             </div>
+                            <div id="centerLowerLeft2">
+                                <div id="innerStory"> Lives in a volcano, apprentice of Blazaron</div>
+                            </div>
+
 
                             <!--trophy Right Content--> 
                             <div id="centerTrophyMiddleRight" class="clsCenterTrophy">
                                 <div id="face1row" class="trophyRow">
-                                    <div id="r1-c1" class="clsFaceBubble"></div>
-                                    <div id="r1-c2" class="clsFaceBubble clsCol2"></div>
-                                    <div id="r1-c3" class="clsFaceBubble clsCol3"></div>
+                                    <div id="r1-c1" class="clsFaceBubble" onclick="swapEnemyStatsView(1)"></div>
+                                    <div id="r1-c2" class="clsFaceBubble clsCol2" onclick="swapEnemyStatsView(2)"></div>
+                                    <div id="r1-c3" class="clsFaceBubble clsCol3" onclick="swapEnemyStatsView(3)"></div>
                                 </div>
                                 <div id="face2row" class="trophyRow">
-                                    <div id="r2-c1" class="clsFaceBubble"></div>
-                                    <div id="r2-c2" class="clsFaceBubble clsCol2"></div>
-                                    <div id="r2-c3" class="clsFaceBubble clsCol3"></div>
+                                    <div id="r2-c1" class="clsFaceBubble" onclick="swapEnemyStatsView(4)"></div>
+                                    <div id="r2-c2" class="clsFaceBubble clsCol2" onclick="swapEnemyStatsView(5)"></div>
+                                    <div id="r2-c3" class="clsFaceBubble clsCol3" onclick="swapEnemyStatsView(6)"></div>
                                 </div>
                                 <div id="face3row" class="trophyRow">
-                                    <div id="r3-c1" class="clsFaceBubble"></div>
-                                    <div id="r3-c2" class="clsFaceBubble clsCol2"></div>
-                                    <div id="r3-c3" class="clsFaceBubble clsCol3"></div>
+                                    <div id="r3-c1" class="clsFaceBubble" onclick="swapEnemyStatsView(7)"></div>
+                                    <div id="r3-c2" class="clsFaceBubble clsCol2" onclick="swapEnemyStatsView(8)"></div>
+                                    <div id="r3-c3" class="clsFaceBubble clsCol3" onclick="swapEnemyStatsView(9)"></div>
                                 </div>
                                 <div id="face4row" class="trophyRow">
-                                    <div id="r4-c1" class="clsFaceBubble"></div>
-                                    <div id="r4-c2" class="clsFaceBubble clsCol2"></div>
-                                    <div id="r4-c3" class="clsFaceBubble clsCol3"></div>
+                                    <div id="r4-c1" class="clsFaceBubble" onclick="swapEnemyStatsView(10)"></div>
+                                    <div id="r4-c2" class="clsFaceBubble clsCol2" onclick="swapEnemyStatsView(11)"></div>
+                                    <div id="r4-c3" class="clsFaceBubble clsCol3" onclick="swapEnemyStatsView(12)"></div>
                                 </div>
                                 <div id="face5row" class="trophyRow">
-                                    <div id="r5-c1" class="clsFaceBubble"></div>
-                                    <div id="r5-c2" class="clsFaceBubble clsCol2"></div>
-                                    <div id="r5-c3" class="clsFaceBubble clsCol3"></div>
+                                    <div id="r5-c1" class="clsFaceBubble" onclick="swapEnemyStatsView(13)"></div>
+                                    <div id="r5-c2" class="clsFaceBubble clsCol2" onclick="swapEnemyStatsView(14)"></div>
+                                    <div id="r5-c3" class="clsFaceBubble clsCol3" onclick="swapEnemyStatsView(15)"></div>
                                 </div>
                             </div>
                         </div>

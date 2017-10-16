@@ -329,22 +329,26 @@ img[src$=".gif"], img[src$=".png"] {
     color: ghostwhite;
     border: none;
 }
-#inventoryReturn, #trophyReturn {
+#inventoryReturn {
     top: 79%;
 }
-#trophyBack{
-    position: absolute;
-    display: block;
-    top: 50%;
-    left: 50%;
-    width: 450px;
-    height: 300px;
-    z-index: 7100;
-    transform: translate(-225px,-170px);
-    background-image: url(Images/HUD/wideBlankBack.png);
-    background-repeat: no-repeat;
-    background-position: center;
+#trophyReturn {
+    top: 82%;
 }
+    #trophyBack {
+        position: absolute;
+        display: block;
+        top: 50%;
+        left: 50%;
+        width: 450px;
+        height: 300px;
+        z-index: 7100;
+        transform: translate(-225px,-170px);
+        background-image: url(Images/HUD/wideBlankBack.png);
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
 #trophyReturn {
     transform: translate(-33px, 5px);
 }
@@ -398,6 +402,7 @@ img[src$=".gif"], img[src$=".png"] {
 }
 #rightUpper {
     background-image: url(Images/HUD/silverTrophy.png);
+    top: 8px;
 }
 #rightLower {
     background-image: url(Images/HUD/goldenTrophy.png);
@@ -411,6 +416,18 @@ img[src$=".gif"], img[src$=".png"] {
     width: 182px;
     background-color: #8C7853;
     border-radius: 30px;
+}
+#centerTrophyMiddleLeft {
+    height: 145px;
+    background-image: url(Images/Enemy/lvl1.png);
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+#centerLowerLeft2 {
+    position: absolute;
+    top: 130px;
+    left: 80px;
 }
 #centerTrophyMiddleRight {
     left: 273px;
@@ -452,10 +469,98 @@ background-color: black;
     background-position: center;
 }
 
+#r1-c2 {
+    background-image: url(Images/Enemy/lvl2.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+#r1-c3 {
+    background-image: url(Images/Enemy/lvl3.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+#r2-c1 {
+    background-image: url(Images/Enemy/lvl4.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
 
+#r2-c2 {
+    background-image: url(Images/Enemy/lvl5.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
 
+#r2-c3 {
+    background-image: url(Images/Enemy/lvl6.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+#r3-c1 {
+    background-image: url(Images/Enemy/lvl7.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
 
+#r3-c2 {
+    background-image: url(Images/Enemy/lvl8.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
 
+#r3-c3 {
+    background-image: url(Images/Enemy/lvl9.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+#r4-c1 {
+    background-image: url(Images/Enemy/lvl10.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#r4-c2 {
+    background-image: url(Images/Enemy/lvl11.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#r4-c3 {
+    background-image: url(Images/Enemy/lvl12.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+#r5-c1 {
+    background-image: url(Images/Enemy/lvl13.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#r5-c2 {
+    background-image: url(Images/Enemy/lvl14.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#r5-c3 {
+    background-image: url(Images/Enemy/lvl15.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
 
 #centerTopLeft {
     position: absolute;
@@ -473,24 +578,62 @@ background-color: black;
     font-size: 20px;
     transform: translate(0px, -23px);
 }
+#innerStatBack {
+    position: absolute;
+    left: 5px;
+    top: 20px;
+    width: 175px;
+    height: 27px;
+    /*background-image: url("Images/HUD/enemyStats1.png");
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-position: center;*/
+}
 .clsinnerStat {
     position: absolute;
-    top: 16px;
-    left: 5px;
-    font-size: 18px;
+    top: -1px;
+    left: -5px;
+    width: 45px;
+    font-size: 16px;
+    color:azure;
+    border-radius:8px;
+    border: 1px inset black;
+}
+#innerStat1 {
+    background-color: red;
 }
 #innerStat2 {
-    top: 35px;
+    left: 85px;
+    color: azure;
 }
 #innerStat3 {
-    top: 54px;
+    left: 132px;
+    background-color: dimgrey;
 }
-
+#centerLowerLeft2 {
+    position: absolute;
+    top: 128px;
+    left: 83px;
+    width: 180px;
+    height: 125px;
+    /*background-image: url(Images/HUD/bottomBar.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;*/
+}
 
 #innerStory {
     position: absolute;
-    top: 85px;
-    font-size: 16px;
+    top: 47px;
+    left:10px;
+    font-size: 14px;
+    color: darkred;
+    text-shadow: 2px 2px azure;
+    border-radius: 12px;
+    /*background-image: url(Images/HUD/bottomBar.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;*/
 }
 
 /*end*/

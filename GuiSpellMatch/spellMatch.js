@@ -10,6 +10,39 @@ var enemyNameGlobal = "Arcannus";
 var playerNameGlobal = "GuiMage";
 var difficulty = 1;
 var soundOn = true;
+var enemies = ['Arcannus', 'ElfWiz', 'ArticMage', 'Acidious', 'Blazaron', 'Sylvana', 'Toxigam', 'HarmBringer', 'Invertus', 'DeathMage', 'Milfohim', 'Zerlin', 'Yisenda', 'Firetta', 'Magentra', 'Undadish'];
+var enemyStats = {
+    lvl1: { name: "Arcannus", health: 100, defense: 100, status: 0, story: 'Lives in a volcano, apprentice of Blazaron.'    },
+    lvl2: { name: 'ElfWiz', health: 150, defense: 150, status: 0, story: 'Apprentice of Yisenda, from elven Caras Galadhon'    },
+    lvl3: { name: 'ArticMage', health: 200, defense: 200, status: 0, story: 'From the far north; cold hearted power.'    },
+    lvl4: { name: 'Acidious', health: 250, defense: 250, status: 0,  story: 'Some people say he is a bitter man!'    },
+    lvl5: { name: 'Blazaron', health: 300, defense: 300, status: 0,  story: 'Expert at Fire attacks, master of Arcannus'    },
+    lvl6: { name: 'Sylvana', health: 350, defense: 350, status: 0,  story: 'She studies to harness the power of crystals'    },
+    lvl7: { name: 'Toxigam', health: 400, defense: 400, status: 0, story: 'Alchemy and gases consume him'    },
+    lvl8: { name: 'HarmBringer', health: 100, defense: 450, status: 0,  story: 'Focused on pain of others;  not a nice guy!'    },
+    lvl9: { name: 'Invertus', health: 500, defense: 500, status: 0,  story: 'Master of the negative dimension'    },
+    lvl10: { name: 'DeathMage', health: 550, defense: 500, status: 0,  story: 'Battle Master of the dark arts'    },
+    lvl11: { name: 'Milfohim', health: 600, defense: 500, status: 0, story: 'Wise Headmaster of the Mage school'    },
+    lvl12: { name: 'Zerlin', health: 650, defense: 500, status: 0,  story: 'Ancient mage of legend, master of many arts'    },
+    lvl13: { name: 'Yisenda', health: 700, defense: 500, status: 0,  story: 'Elven princess of poweful light magic'    },
+    lvl14: { name: 'Firetta', health: 850, defense: 500, status: 0, story: 'Demon raised by Blazaron from the 9 hells'    },
+    lvl15: { name: 'Magentra', health: 1000, defense: 500, status: 0,  story: 'Evil Mastermind bent on world domination'    },
+    //
+    //'ArticMage',
+    //'Acidious',
+    //'Blazaron',
+    //'Sylvana',
+    //'Toxigam',
+    //'HarmBringer',
+    //'Invertus',
+    //'MasterMage',
+    //'Milfohim',
+    //'Zerlin',
+    //'Yisenda',
+    //'Firetta',
+    //'Magentra',
+    //'Undadish'
+};
 
 
 window.onload = function () {
@@ -2092,7 +2125,7 @@ window.onload = function () {
 
     function getNextEnemy() {
         var newName = '';
-        var enemies = ['Arcannus', 'ElfWiz', 'ArticMage','Acidious', 'Blazaron', 'Sylvana', 'Toxigam', 'HarmBringer','Invertus','MasterMage', 'Milfohim', 'Zerlin', 'Yisenda','Firetta','Magentra','Undadish'];
+        
         //enemies[0] = 'Arcannus';
         //enemies[1] = 'GoblinMage';
         //enemies[2] = 'ElfWiz';
@@ -2123,7 +2156,8 @@ window.onload = function () {
         plyrLvlUp = true;
                
     }
-
+    ////////////////////////////acievement modals
+ 
 
     // Call init to start the game
     init();
@@ -2234,4 +2268,26 @@ function gameReturn1() {
     document.getElementById('goHome').style.display = 'none';
     document.getElementById('inventoryParent').style.display = 'none'; 
     document.getElementById('trophyParent').style.display = 'none';
+}
+function swapEnemyStatsView(lvl) {
+    var enemyNameNew = enemyStats["lvl" + lvl]['name'];
+    var newImageLocation = "url('Images/Enemy/lvl" + lvl + ".png')";
+    console.log(enemyStats["lvl" + lvl]['name']);
+    console.log(enemyStats["lvl" + lvl]['health']);
+    console.log(enemyStats["lvl" + lvl]['defense']);
+    console.log(enemyStats["lvl" + lvl]['story']);
+   
+    document.getElementById("enemyNameCenter").innerHTML = enemyNameNew;//enemyNameCenter
+    document.getElementById("innerStat1").innerHTML = enemyStats["lvl" + lvl]['health'];
+    document.getElementById("innerStat3").innerHTML = enemyStats["lvl" + lvl]['defense'];
+    document.getElementById("innerStory").innerHTML = enemyStats["lvl" + lvl]['story'];
+    document.getElementById("centerTrophyMiddleLeft").style.backgroundImage = newImageLocation;
+    //
+    //innerStat3
+    //innerStory
+    //centerTrophyMiddleLeft
+}
+function hideCountDown() {
+    //coverWrapper
+    document.getElementById('coverWrapper').style.display = 'none';
 }
