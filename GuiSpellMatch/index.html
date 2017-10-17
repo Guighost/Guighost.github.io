@@ -32,7 +32,7 @@
   
 
 </head>
-<body>
+<body onresize="resizeGame()">
 
 
    <!--Facebook stuff-->
@@ -137,7 +137,8 @@
                     <p id="diff1" class="diffBtn" onclick="changeDifficulty(1)"> CASUAL</p>
                     <p id="diff2" class="diffBtn" onclick="changeDifficulty(2)"> CHALLENGE</p>
                     <p id="diff3" class="diffBtn" onclick="changeDifficulty(3)"> EXTREME</p>
-                    <img id="saveDiff" src="Images/HUD/darkGreenSave.png" alt="saveDiff" onclick="saveDifficulty()">
+                    <!--<img id="saveDiff" src="Images/HUD/darkGreenSave.png" alt="saveDiff" onclick="saveDifficulty()">-->
+                    <p id="diffReturn" class="diffBtn" onclick="saveDifficulty()"> Return to Game</p>
                     <img id="selectedDiff" src="Images/buttons/checkMark.png" alt="saveDiff">
                 </div>
             </div>
@@ -163,12 +164,15 @@
                     <p id="trophyTitle"> Achievements</p>
                     <div id="trophyInnerParent">
 
-                        <div id="leftUpper" class="leftboxes"></div>
-                        <div id="rightUpper" class="rightboxes"></div>
-                        <div id="leftLower" class="leftboxes lowerboxes"></div>
-                        <div id="rightLower" class="rightboxes lowerboxes"></div>
+                        <div id="leftUpper" class="leftboxes" onclick="selectCup(0)"></div>
+                        <div id="rightUpper" class="rightboxes" onclick="selectCup(1)"></div>
+                        <div id="leftLower" class="leftboxes lowerboxes" onclick="selectCup(2)"></div>
+                        <div id="rightLower" class="rightboxes lowerboxes" onclick="selectCup(3)"></div>
+                        <div id="trophyLock1" class="rightboxes lockBack" onclick="selectCup(4)"></div>
+                        <div id="trophyLock2" class="rightboxes lowerboxes lockBack" onclick="selectCup(5)"></div>
+
                         <div id="centerTrophyPaneBronze">
-                            <div id="centerTrophyTop"><h3>Bronze Cup</h3></div>
+                            <div id="centerTrophyTop"><h3 id="cupGuiName">Bronze Cup</h3></div>
                             <!--trophy left content-->
                             <div id="centerTrophyMiddleLeft" class="clsCenterTrophy">
                                 <div id="centerTopLeft"> <p id="enemyNameCenter"> Arcannus</p></div>
@@ -189,6 +193,7 @@
 
                             <!--trophy Right Content--> 
                             <div id="centerTrophyMiddleRight" class="clsCenterTrophy">
+                                <div id="trophyLock3" class="lockBack clsCenterTrophy"></div>
                                 <div id="face1row" class="trophyRow">
                                     <div id="r1-c1" class="clsFaceBubble" onclick="swapEnemyStatsView(1)"></div>
                                     <div id="r1-c2" class="clsFaceBubble clsCol2" onclick="swapEnemyStatsView(2)"></div>

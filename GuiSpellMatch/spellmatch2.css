@@ -195,16 +195,16 @@ img[src$=".gif"], img[src$=".png"] {
     background-color:blueviolet;
     border-radius: 10px;
 }
-#difficulty{
+#difficulty {
     position: absolute;
     display: none;
     top: 50%;
     left: 50%;
     width: 750px;
     height: 359px;
-    background-color: blueviolet;
+    background-color: rgba(238,130,238, 0.3);
     border-radius: 10px;
-    border: 1px red solid;
+    border: 1px grey solid;
     transform: translate(-372px,-177px);
     z-index: 2000;
 }
@@ -231,30 +231,37 @@ img[src$=".gif"], img[src$=".png"] {
 .diffBtn {
     position: absolute;
     display: block;
-    left: 26%;
+    left: 25%;
     height: 35px;
-    width: 200px;
+    width: 250px;
     padding-top: 10px;
     clear: both;
+    color: ghostwhite;
     font-family: 'Comic Sans MS';
     font-weight: bolder;
     font-size: 22px;
-    border: 2px grey inset;
+    /*border: 2px grey inset;*/
     border-radius: 10px;
-    text-align:center;
-
+    text-align: center;
+    background-image: url(Images/HUD/bottomBar.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position-y: top;
 }
 #diff1 {
     top: 20%;
-    background-color: #66ffb3;
+    left: 20%;
+    /*background-color: #66ffb3;*/
 }
 #diff2 {
     top: 37%;
-    background-color: #e6e600;
+    left: 20%;
+    /*background-color: #e6e600;*/
 }
 #diff3 {
     top: 55%;
-    background-color: #990000;
+    left: 20%;
+    /*background-color: #990000;*/
 }
 #saveDiff {
     position: absolute;
@@ -266,7 +273,7 @@ img[src$=".gif"], img[src$=".png"] {
     position: absolute;
     display: block;
     top: 30%;
-    left: 27%;
+    left: 28%;
 }
 #goHome, #inventoryParent, #trophyParent {
     position: absolute;
@@ -275,9 +282,9 @@ img[src$=".gif"], img[src$=".png"] {
     left: 50%;
     width: 750px;
     height: 359px;
-    background-color: blueviolet;
+    background-color: rgba(238,130,238, 0.3);
     border-radius: 10px;
-    border: 1px red solid;
+    /*border: 1px red solid;*/
     transform: translate(-372px,-177px);
     z-index: 3000;
 }
@@ -295,7 +302,7 @@ img[src$=".gif"], img[src$=".png"] {
     background-position: center;
 }
 #saveQuit {
-    top: 30%;
+    top: 32%;
     width: 275px;
     transform: translate(-40px,0px);
     background-image: url(Images/HUD/bottomBar.png);
@@ -307,7 +314,7 @@ img[src$=".gif"], img[src$=".png"] {
     border: none;
 }
 #homeMore {
-    top: 48%;
+    top: 60%;
     width: 275px;
     transform: translate(-40px,0px);
     background-image: url(Images/HUD/bottomBar.png);
@@ -318,8 +325,8 @@ img[src$=".gif"], img[src$=".png"] {
     color: ghostwhite;
     border: none;
 }
-#homeReturn, #inventoryReturn, #trophyReturn{
-    top: 60%;
+#homeReturn, #inventoryReturn, #trophyReturn, #diffReturn {
+    top: 79%;
     width: 275px;
     transform: translate(-40px,0px);
     background-image: url(Images/HUD/bottomBar.png);
@@ -329,9 +336,12 @@ img[src$=".gif"], img[src$=".png"] {
     color: ghostwhite;
     border: none;
 }
-#inventoryReturn {
+#diffReturn {
     top: 79%;
 }
+#inventoryReturn {
+        top: 79%;
+    }
 #trophyReturn {
     top: 82%;
 }
@@ -407,6 +417,24 @@ img[src$=".gif"], img[src$=".png"] {
 #rightLower {
     background-image: url(Images/HUD/goldenTrophy.png);
 }
+.lockBack {
+   
+    background-image: url(Images/buttons/goldLock.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+#trophyLock1 {
+    top: 8px;
+}
+#trophyLock3 {
+    position: absolute;
+    display: none;
+    left: 0px;
+    transform: translate(-1px, -31px);
+    z-index: 9000;
+}
 .clsCenterTrophy {
     position: absolute;
     top: 30px;
@@ -440,7 +468,12 @@ img[src$=".gif"], img[src$=".png"] {
     /*border: 2px inset purple;*/
         
 }
-#face1row {top: 1px;}
+#cupGuiName {
+    top:10px;
+}
+#face1row {
+    top: 1px;
+}
 #face2row {    top: 36px;}
 #face3row {    top: 70px;}
 #face4row {    top: 105px;}
@@ -549,14 +582,14 @@ background-color: black;
 }
 
 #r5-c2 {
-    background-image: url(Images/Enemy/lvl14.png);
+    background-image: url(Images/buttons/goldLock.png);
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
 }
 
 #r5-c3 {
-    background-image: url(Images/Enemy/lvl15.png);
+    background-image: url(Images/buttons/goldLock.png);
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -624,7 +657,7 @@ background-color: black;
 
 #innerStory {
     position: absolute;
-    top: 47px;
+    top: 50px;
     left:10px;
     font-size: 14px;
     color: darkred;

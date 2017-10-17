@@ -9,6 +9,16 @@ var newGameLoad = 0;
 var enemyNameGlobal = "Arcannus";
 var playerNameGlobal = "GuiMage";
 var difficulty = 1;
+
+var cupWon = 0;
+var selectedCup = 0;
+var lockedStat1 = "???";
+var lockedStat2 = "???";
+var lockedName = "Silver Cup Champ";
+var lockedName2 = "Gold Cup Champ";
+var lockedStory = "Win the tournament to unlock";
+
+
 var soundOn = true;
 var enemies = ['Arcannus', 'ElfWiz', 'ArticMage', 'Acidious', 'Blazaron', 'Sylvana', 'Toxigam', 'HarmBringer', 'Invertus', 'DeathMage', 'Milfohim', 'Zerlin', 'Yisenda', 'Firetta', 'Magentra', 'Undadish'];
 var enemyStats = {
@@ -19,7 +29,7 @@ var enemyStats = {
     lvl5: { name: 'Blazaron', health: 300, defense: 300, status: 0,  story: 'Expert at Fire attacks, master of Arcannus'    },
     lvl6: { name: 'Sylvana', health: 350, defense: 350, status: 0,  story: 'She studies to harness the power of crystals'    },
     lvl7: { name: 'Toxigam', health: 400, defense: 400, status: 0, story: 'Alchemy and gases consume him'    },
-    lvl8: { name: 'HarmBringer', health: 100, defense: 450, status: 0,  story: 'Focused on pain of others;  not a nice guy!'    },
+    lvl8: { name: 'HarmBringer', health: 100, defense: 450, status: 0,  story: 'Focused on pain of others; not a nice guy!'    },
     lvl9: { name: 'Invertus', health: 500, defense: 500, status: 0,  story: 'Master of the negative dimension'    },
     lvl10: { name: 'DeathMage', health: 550, defense: 500, status: 0,  story: 'Battle Master of the dark arts'    },
     lvl11: { name: 'Milfohim', health: 600, defense: 500, status: 0, story: 'Wise Headmaster of the Mage school'    },
@@ -27,21 +37,7 @@ var enemyStats = {
     lvl13: { name: 'Yisenda', health: 700, defense: 500, status: 0,  story: 'Elven princess of poweful light magic'    },
     lvl14: { name: 'Firetta', health: 850, defense: 500, status: 0, story: 'Demon raised by Blazaron from the 9 hells'    },
     lvl15: { name: 'Magentra', health: 1000, defense: 500, status: 0,  story: 'Evil Mastermind bent on world domination'    },
-    //
-    //'ArticMage',
-    //'Acidious',
-    //'Blazaron',
-    //'Sylvana',
-    //'Toxigam',
-    //'HarmBringer',
-    //'Invertus',
-    //'MasterMage',
-    //'Milfohim',
-    //'Zerlin',
-    //'Yisenda',
-    //'Firetta',
-    //'Magentra',
-    //'Undadish'
+   
 };
 
 
@@ -130,6 +126,7 @@ window.onload = function () {
     //resize handling
     window.addEventListener('resize', resizeGame(), false);
     window.addEventListener('orientationchange', resizeGame(), false);
+
 
 
 
@@ -1916,7 +1913,7 @@ window.onload = function () {
         }
         ////Menu icon --- Inventory Modal
         if (pos.x >= 452 && pos.x < 482 && pos.y >= 288 && pos.y < 308) {
-            var checkMe = document.getElementById('inventoryParent').style.display;
+            var checkMe = document.getElementById('inventoryParent').style.display; ///Menu icon --- show inventory/store modal
             if (checkMe == 'block') { document.getElementById('inventoryParent').style.display = 'none' }
             else { document.getElementById('inventoryParent').style.display = 'block';}
             
@@ -1924,7 +1921,14 @@ window.onload = function () {
         }
         ////trophy icon --- trophy Modal
         if (pos.x >= 487 && pos.x < 518 && pos.y >= 288 && pos.y < 308) {
-            document.getElementById('trophyParent').style.display = 'block';    ///Trophy icon --- show ladder modal
+            var checkMe = document.getElementById('trophyParent').style.display; ///Trophy icon --- show ladder modal
+            if (checkMe == 'block') { document.getElementById('trophyParent').style.display = 'none' }
+            else {
+                document.getElementById('trophyParent').style.display = 'block';
+                if (cupWon > 0) { document.getElementById('trophyLock1').style.display = 'none'}
+                if (cupWon > 1) { document.getElementById('trophyLock2').style.display = 'none' }
+            }
+                
         }
         if (pos.x >= 522 && pos.x < 555 && pos.y >= 288 && pos.y < 308) {
             document.getElementById('difficulty').style.display = 'block';    ////Thumb icon --- Like and Share to Facebook
@@ -2268,26 +2272,123 @@ function gameReturn1() {
     document.getElementById('goHome').style.display = 'none';
     document.getElementById('inventoryParent').style.display = 'none'; 
     document.getElementById('trophyParent').style.display = 'none';
+    selectedCup = 0;
 }
 function swapEnemyStatsView(lvl) {
+    
     var enemyNameNew = enemyStats["lvl" + lvl]['name'];
     var newImageLocation = "url('Images/Enemy/lvl" + lvl + ".png')";
-    console.log(enemyStats["lvl" + lvl]['name']);
-    console.log(enemyStats["lvl" + lvl]['health']);
-    console.log(enemyStats["lvl" + lvl]['defense']);
-    console.log(enemyStats["lvl" + lvl]['story']);
-   
+    //console.log(enemyStats["lvl" + lvl]['name']);
+    //console.log(enemyStats["lvl" + lvl]['health']);
+    //console.log(enemyStats["lvl" + lvl]['defense']);
+    //console.log(enemyStats["lvl" + lvl]['story']);
+
     document.getElementById("enemyNameCenter").innerHTML = enemyNameNew;//enemyNameCenter
     document.getElementById("innerStat1").innerHTML = enemyStats["lvl" + lvl]['health'];
     document.getElementById("innerStat3").innerHTML = enemyStats["lvl" + lvl]['defense'];
     document.getElementById("innerStory").innerHTML = enemyStats["lvl" + lvl]['story'];
     document.getElementById("centerTrophyMiddleLeft").style.backgroundImage = newImageLocation;
+
+   
+
+    if (selectedCup == 0) {
+        document.getElementById("r5-c2").style.backgroundImage = "url('Images/buttons/goldLock.png')";
+        document.getElementById("r5-c3").style.backgroundImage = "url('Images/buttons/goldLock.png')";
+        if (lvl >= 14){
+            document.getElementById("centerTrophyMiddleLeft").style.backgroundImage = "url('Images/buttons/goldLock.png')";
+        document.getElementById("enemyNameCenter").innerHTML = lockedName;
+        document.getElementById("innerStat1").innerHTML = lockedStat1;
+        document.getElementById("innerStat3").innerHTML = lockedStat2;
+        document.getElementById("innerStory").innerHTML = lockedStory;
+        if (lvl == 15) { document.getElementById("enemyNameCenter").innerHTML = lockedName2; }
+    }
+    }
+
+    if (cupWon >= 1 && selectedCup == 1) { document.getElementById("r5-c2").style.backgroundImage = "url('Images/Enemy/lvl14.png')";}
+    if (cupWon == 2 && selectedCup == 3) {
+        document.getElementById("r5-c2").style.backgroundImage = "url('Images/Enemy/lvl14.png')";
+        document.getElementById("r5-c3").style.backgroundImage = "url('Images/Enemy/lvl15.png')";
+    }
+    if (cupWon == 1 && lvl == 14 && selectedCup == 1) {
+        document.getElementById("r5-c2").style.backgroundImage = "url('Images/Enemy/lvl14.png')";
+        document.getElementById("r5-c3").style.backgroundImage = "url('Images/buttons/goldLock.png')";
+        document.getElementById("enemyNameCenter").innerHTML = enemyNameNew;                                                                        ////////Silver Cup
+        document.getElementById("innerStat1").innerHTML = enemyStats["lvl" + lvl]['health'];
+        document.getElementById("innerStat3").innerHTML = enemyStats["lvl" + lvl]['defense'];
+        document.getElementById("innerStory").innerHTML = enemyStats["lvl" + lvl]['story'];
+        document.getElementById("centerTrophyMiddleLeft").style.backgroundImage = newImageLocation;
+
+    }
+    if (cupWon > 1 && lvl == 15 && selectedCup == 2) {
+        document.getElementById("r5-c3").style.backgroundImage = "url('Images/Enemy/lvl15.png')";
+        document.getElementById("enemyNameCenter").innerHTML = enemyNameNew;                                                                        ////////Silver Cup
+        document.getElementById("innerStat1").innerHTML = enemyStats["lvl" + lvl]['health'];
+        document.getElementById("innerStat3").innerHTML = enemyStats["lvl" + lvl]['defense'];
+        document.getElementById("innerStory").innerHTML = enemyStats["lvl" + lvl]['story'];
+        document.getElementById("centerTrophyMiddleLeft").style.backgroundImage = newImageLocation;////////Gold Cup
+
+    }
+
+}
     //
     //innerStat3
     //innerStory
     //centerTrophyMiddleLeft
-}
+
 function hideCountDown() {
     //coverWrapper
     document.getElementById('coverWrapper').style.display = 'none';
+    
+}
+function selectCup(cupArg) {
+    //cupGuiName
+    
+    selectedCup = cupArg;
+    if (selectedCup == 0) {
+        document.getElementById("r5-c3").style.backgroundImage = "url('Images/buttons/goldLock.png')";
+        document.getElementById("r5-c3").style.backgroundImage = "url('Images/buttons/goldLock.png')";
+        document.getElementById("cupGuiName").innerHTML = "Bronze Cup"
+        document.getElementById('trophyLock3').style.display = 'none';
+        
+    }
+    if (selectedCup == 1 && cupWon < 1) {
+
+    }
+    if (selectedCup == 1) {
+        document.getElementById("r5-c3").style.backgroundImage = "url('Images/buttons/goldLock.png')";
+        document.getElementById("cupGuiName").innerHTML = "Silver Cup"
+        document.getElementById('trophyLock3').style.display = 'none';
+    }
+    if (selectedCup == 3) {
+        document.getElementById("cupGuiName").innerHTML = "Gold Cup"
+        document.getElementById('trophyLock3').style.display = 'none';
+    }
+    if (selectedCup == 2) {
+        document.getElementById("cupGuiName").innerHTML = "Star Tracking"
+        document.getElementById('trophyLock3').style.display = 'none';
+    }
+   
+    swapEnemyStatsView(1);
+
+    if (selectedCup == 4) {
+        document.getElementById("centerTrophyMiddleLeft").style.backgroundImage = "url('Images/buttons/goldLock.png')";
+        document.getElementById("cupGuiName").innerHTML = "Win Bronze tournament to unlock";
+        document.getElementById('trophyLock3').style.display = 'block';
+        document.getElementById("centerTrophyMiddleLeft").style.backgroundImage = "url('Images/buttons/goldLock.png')";
+        document.getElementById("enemyNameCenter").innerHTML = lockedName;
+        document.getElementById("innerStat1").innerHTML = lockedStat1;
+        document.getElementById("innerStat3").innerHTML = lockedStat2;
+        document.getElementById("innerStory").innerHTML = lockedStory;
+    }
+    if (selectedCup == 5) {
+        document.getElementById("centerTrophyMiddleLeft").style.backgroundImage = "url('Images/buttons/goldLock.png')";
+        document.getElementById("cupGuiName").innerHTML = "Win Silver tournament to unlock";
+        document.getElementById('trophyLock3').style.display = 'block';
+        document.getElementById("centerTrophyMiddleLeft").style.backgroundImage = "url('Images/buttons/goldLock.png')";
+        document.getElementById("enemyNameCenter").innerHTML = lockedName2;
+        document.getElementById("innerStat1").innerHTML = lockedStat1;
+        document.getElementById("innerStat3").innerHTML = lockedStat2;
+        document.getElementById("innerStory").innerHTML = lockedStory;
+    }
+
 }
