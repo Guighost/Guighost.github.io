@@ -763,27 +763,27 @@ window.onload = function () {
                                         document.getElementById("lightningFullBack").style.display = 'block';
                                         setTimeout(function () {
                                             document.getElementById("lightningFullBack").style.display = 'none';
-                                        }, 1000);
+                                        }, 900);
                                     }
 
                                     if (getSpellPower == "arcanePower") {
                                         document.getElementById("arcaneFullBack").style.display = 'block';
                                         setTimeout(function () {
                                             document.getElementById("arcaneFullBack").style.display = 'none';
-                                        }, 1000);
+                                        }, 900);
                                     }
 
                                     if (getSpellPower == "firePower") {
                                         document.getElementById("fireFullBack").style.display = 'block';
                                         setTimeout(function () {
                                             document.getElementById("fireFullBack").style.display = 'none';
-                                        }, 1000);
+                                        }, 900);
                                     }
                                     if (getSpellPower == "meteorPower") {
                                         document.getElementById("meteorFullBack").style.display = 'block';
                                         setTimeout(function () {
                                             document.getElementById("meteorFullBack").style.display = 'none';
-                                        }, 1000);
+                                        }, 900);
                                     }
                                     if (getSpellPower == "swordPower") {
                                         document.getElementById("swordFullBack").style.display = 'block';
@@ -802,7 +802,7 @@ window.onload = function () {
                                         document.getElementById("airFullBack").style.display = 'block';
                                         setTimeout(function () {
                                             document.getElementById("airFullBack").style.display = 'none';
-                                        }, 1000);
+                                        }, 900);
                                     }
 
 
