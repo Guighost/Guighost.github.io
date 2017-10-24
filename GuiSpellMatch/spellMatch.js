@@ -873,12 +873,12 @@ window.onload = function () {
                                      document.getElementById("message").style.display = 'block';
                                      aibot = true;
                                      enemyTurn = true;
-                                }, 200);
+                                }, 1000);
                                 setTimeout(function () {
                                     document.getElementById("message").style.display = 'none';
                                     aibot = false;
                                     enemyTurn = false;
-                                }, 1000);
+                                }, 1500);
                                 //setTimeout(function () {
                                     
                                 //    aibot = false;

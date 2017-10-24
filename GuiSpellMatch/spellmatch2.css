@@ -863,8 +863,8 @@ background-color: black;
     left: 50%;
     top: 30%;
     background-image: url(Images/HUD/enemyTurn.png);
-    z-index: 500;
-    transform: translate(-75px, -50px);
+    z-index: 2500;
+    /*transform: translate(-75px, -50px);*/
 }
 
 
