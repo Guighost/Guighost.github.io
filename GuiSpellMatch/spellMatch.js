@@ -29,7 +29,7 @@ var enemyStats = {
     lvl5: { name: 'Blazaron', health: 300, defense: 300, status: 0,  story: 'Expert at Fire attacks, master of Arcannus'    },
     lvl6: { name: 'Sylvana', health: 350, defense: 350, status: 0,  story: 'She studies to harness the power of crystals'    },
     lvl7: { name: 'Toxigam', health: 400, defense: 400, status: 0, story: 'Alchemy and gases consume him'    },
-    lvl8: { name: 'HarmBringer', health: 100, defense: 450, status: 0,  story: 'Focused on pain of others; not a nice guy!'    },
+    lvl8: { name: 'HarmBringer', health: 450, defense: 450, status: 0,  story: 'Focused on pain of others; not a nice guy!'    },
     lvl9: { name: 'Invertus', health: 500, defense: 500, status: 0,  story: 'Master of the negative dimension'    },
     lvl10: { name: 'DeathMage', health: 550, defense: 500, status: 0,  story: 'Battle Master of the dark arts'    },
     lvl11: { name: 'Milfohim', health: 600, defense: 500, status: 0, story: 'Wise Headmaster of the Mage school'    },
@@ -204,7 +204,21 @@ window.onload = function () {
 
     // Show available moves
     var showmoves = false;
+    var timer;
+    resetInterval();
+    function resetInterval() {
+        clearInterval(timer);
+        showmoves = false;
+        timer = setInterval(function () {
 
+            showmoves = !showmoves;
+            
+        }, 6000);
+    }
+    //var showMoveTimer = setInterval(function () {
+
+    //    showmoves = !showmoves
+    //}, 4000);
     // The AI bot
     var aibot = false;
     var oneTimeE = 0;
@@ -702,6 +716,7 @@ window.onload = function () {
 
                         aibot = false;
                         oneTimeE = 0;
+                        resetInterval();
                     }
                     animationtime = 0;
                    
@@ -734,7 +749,7 @@ window.onload = function () {
                             //enemy health and defense adjustment
                             if (aibot === false) {
                                 //hit enemy//
-                                var damageThisTime = 5 + (1 * (clusters[i].length - 2));
+                                var damageThisTime = (player1.playerLevel *  6) + (1 * (clusters[i].length - 2));
 
                                 var clusterType = level.tiles[clusters[i].column][clusters[i].row].type;
                                 console.log("cluster type " + clusterType);
@@ -802,7 +817,7 @@ window.onload = function () {
                                         document.getElementById("airFullBack").style.display = 'block';
                                         setTimeout(function () {
                                             document.getElementById("airFullBack").style.display = 'none';
-                                        }, 900);
+                                        }, 1000);
                                     }
 
 
@@ -836,7 +851,7 @@ window.onload = function () {
                             }
                             //enemy attacking player////////////////////////////////////////////////////////////////////////////////////////////!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                             if (aibot) { //hit player//
-                                var damageThisTime = 5 + (1 * (clusters[i].length - 2));
+                                var damageThisTime = (enemy.playerLevel * 5) + (1 * (clusters[i].length - 2));
                                
 
 
@@ -869,15 +884,19 @@ window.onload = function () {
                             //show and hide player turn message once all clusters resolved
 
                             if (clusters.length == 1 && !aibot && enemy.health > 0 ) {
-                                 setTimeout(function () {
+                                
                                      document.getElementById("message").style.display = 'block';
                                      aibot = true;
                                      enemyTurn = true;
-                                }, 1000);
+                                     showmoves = false;
+                                     resetInterval();
+                                
                                 setTimeout(function () {
                                     document.getElementById("message").style.display = 'none';
                                     aibot = false;
                                     enemyTurn = false;
+                                    showmoves = false;
+                                    resetInterval();
                                 }, 1500);
                                 //setTimeout(function () {
                                     
@@ -900,6 +919,8 @@ window.onload = function () {
                         gamestate = gamestates.ready;
                     }
                     animationtime = 0;
+                    clearInterval(showMoveTimer);
+                    showmoves = false;
                 }
             } else if (animationstate == 1) {
                 // Tiles need to be shifted
@@ -1386,8 +1407,8 @@ window.onload = function () {
             var coord2 = getTileCoordinate(moves[i].column2, moves[i].row2, 0, 0);
 
             // Draw a line from tile 1 to tile 2
-            context.strokeStyle = "#ebf442";
-            context.lineWidth = 4;
+            context.strokeStyle = "#ebf100";
+            context.lineWidth = 3;
             context.beginPath();
             context.moveTo(coord1.tilex + level.tilewidth / 2, coord1.tiley + level.tileheight / 2);
             context.lineTo(coord2.tilex + level.tilewidth / 2, coord2.tiley + level.tileheight / 2);
@@ -2065,14 +2086,15 @@ window.onload = function () {
                 if (pos.x >= 0 && pos.x < 80 && pos.y >= 250 && pos.y <=320) {
                     console.log("clicked save");
                     newGame(1); levelScoreProgress = 0; totalSeconds = 0;
-                    enemy.healthMax = player1.healthMax;
-                    enemy.defenseMax = player1.defenseMax;
+                    //enemy.healthMax = player1.healthMax;
+                    //enemy.defenseMax = player1.defenseMax;
+                   
+                    enemy.playerLevel = enemy.playerLevel + 1;
+                    getNextEnemy(enemy.playerLevel);
                     enemy.health = enemy.healthMax;
                     enemy.defense = enemy.defenseMax;
                     enemy.defenseDrop = 0;
                     enemy.damage = 0;
-                    enemy.playerLevel = enemy.playerLevel + 1;
-                    getNextEnemy();
                     showVS();
 
                 }
@@ -2127,7 +2149,7 @@ window.onload = function () {
         };
     }
 
-    function getNextEnemy() {
+    function getNextEnemy(lvl) {
         var newName = '';
         
         //enemies[0] = 'Arcannus';
@@ -2139,6 +2161,25 @@ window.onload = function () {
         document.getElementById('vsEnemy').src = imageUpgrade;
         enemy.name = newName;
         enemyNameGlobal = newName;
+
+        /////////modify enemy stats
+        var newEnemyHealthMax = 0;
+        var newEnemyDefenseMax = 0;
+        var modifierLevel = '';
+        //    console.log(enemyStats["lvl" + lvl]['name']);
+        //console.log(enemyStats["lvl" + lvl]['health']);  
+        //console.log(enemyStats["lvl" + lvl]['defense']);
+         //console.log(enemyStats["lvl" + lvl]['story']);
+
+        
+        newEnemyHealthMax = enemyStats["lvl" + lvl]['health'];
+        newEnemyDefenseMax = enemyStats["lvl" + lvl]['defense'];;
+       
+        enemy.healthMax = newEnemyHealthMax;
+        enemy.defenseMax = newEnemyDefenseMax;
+        //console.log("enemy.defensemax = " + enemy.defenseMax);
+        //console.log("enemy.healthmax = " + enemy.healthMax);
+
         ;
         
     }
