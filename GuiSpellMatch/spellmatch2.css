@@ -107,9 +107,9 @@ img[src$=".gif"], img[src$=".png"] {
 #earthFullBack {
     position: absolute;
     display: none;
-    top: 50%;
-    left: 50%;
-    transform: translate(-75px,-75px);
+    top: 0px;
+    left: 0px;
+    /*transform: translate(-75px,-75px);*/
 }
 #coverWrapper {
     position: absolute;

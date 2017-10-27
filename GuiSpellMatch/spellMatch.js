@@ -753,7 +753,7 @@ window.onload = function () {
 
                                 var clusterType = level.tiles[clusters[i].column][clusters[i].row].type;
                                 console.log("cluster type " + clusterType);
-                                var getSpellPower = PowerToApply[clusterType];
+                                var getSpellPower = PowerToApply[clusterType];    
                                 console.log("power to apply= " + getSpellPower);
                                
                                 var getSpellPowerVal = read_prop(player1, getSpellPower);
@@ -886,11 +886,14 @@ window.onload = function () {
                             if (clusters.length == 1 && !aibot && enemy.health > 0 ) {
                                 
                                      document.getElementById("message").style.display = 'block';
-                                     aibot = true;
-                                     enemyTurn = true;
-                                     showmoves = false;
-                                     resetInterval();
-                                
+                                   
+                                setTimeout(function () {
+                                         aibot = true;
+                                         enemyTurn = true;
+                                         showmoves = false;
+                                         resetInterval();
+                                        
+                                     }, 1200);
                                 setTimeout(function () {
                                     document.getElementById("message").style.display = 'none';
                                     aibot = false;
@@ -2264,7 +2267,7 @@ function showVS() {
     document.getElementById("playerNameP").innerHTML = playerNameGlobal;
     document.getElementById("enemyNameP").innerHTML = enemyNameGlobal;
     document.getElementById("countDown").innerHTML = " ";
-    var timeLeft = 6;
+    var timeLeft = 4;
     var timertick = setInterval(function () {
         timeLeft = timeLeft - 1;
         
@@ -2280,7 +2283,7 @@ function showVS() {
     setTimeout(function () {
         document.getElementById("vsCover").style.display = 'none';
         document.getElementById('coverWrapper').style.display = 'none';
-    }, 7000);
+    }, 5000);
 }
 
 function read_prop(obj, prop) {
