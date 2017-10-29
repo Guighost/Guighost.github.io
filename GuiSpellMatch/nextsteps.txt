@@ -1,0 +1,38 @@
+
+NEXT steps
+
+implement enemyclustercount spell effects
+
+implement localstorage --done
+	player object --done
+	enemy object --done
+	starCash total ---done
+	
+	stars per enemy per tournament
+	tournaments completed --done
+	
+	
+implement Inventory bonuses and create inventory UI items  ---done
+	health potions ---done
+	defense tome ---done
+	power orbs --done
+
+Implement Tournament upgrades and raise enemy difficulty
+	Implement stop at 13 enemies for bronze and 14 for silver
+	show bronze notification  --done
+	modify enemies to acct for images and stats
+	
+	Implement hidden 16th opponent for gold winners
+	
+
+create Tournament win modal
+	Bronze --done
+	Silver
+	
+Create Game Win screen (all tournaments)
+
+create credits modal
+	document and credit all image sources
+	credit rembound original source
+	credit open game art
+	

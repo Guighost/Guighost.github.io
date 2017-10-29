@@ -17,6 +17,8 @@ var lockedStat2 = "???";
 var lockedName = "Silver Cup Champ";
 var lockedName2 = "Gold Cup Champ";
 var lockedStory = "Win the tournament to unlock";
+var playerClusterCount = 0;
+var enemyClusterCount = 0;
 
 
 var soundOn = true;
@@ -40,6 +42,55 @@ var enemyStats = {
    
 };
 
+
+////player object
+var player1 = {
+    health: 100,
+    healthMax: 100,
+    damage: 0,
+    defense: 100,
+    defenseMax: 100,
+    defenseDrop: 0,
+    power: 100,
+    playerLevel: 1,
+    firePower: 1,
+    earthPower: 1,
+    airPower: 1,
+    arcanePower: 1,
+    swordPower: 1,
+    meteorPower: 1,
+    sparkPower: 1,
+
+    name: "GuiMage"
+}
+///
+
+////enemy object
+var enemy = {
+    health: 100,
+    healthMax: 100,
+    damage: 0,
+    defense: 100,
+    defenseMax: 100,
+    defenseDrop: 0,
+    power: 100,
+    playerLevel: 1,
+    firePower: 1,
+    earthPower: 1,
+    windPower: 1,
+    mysticPower: 1,
+    name: "Arcanus"
+}
+
+var starCash = 0;
+if (typeof localStorage["starCash"] === "undefined") { localStorage["starCash"] = 0; starCash = 0; };
+starCash = parseInt(localStorage["starCash"]);
+
+///////////hide Load Saved Game if no local storage of player
+if (typeof localStorage["spellMatch_Player"] === "undefined") {
+    document.getElementById('btnImage2').style.display = 'none';
+    document.getElementById('btn2Text').style.display = 'none';
+};
 
 window.onload = function () {
     // Get the canvas and context
@@ -78,7 +129,6 @@ window.onload = function () {
     var playOnce = 0;
     var addSpecialHoriz = false;
     var addSpecialVert = false;
-    var starCash = 0;
     var totalSeconds = 0;
     var enemyName = "ARCANUS"
     var enemyTurn = false;
@@ -102,8 +152,7 @@ window.onload = function () {
     ];
     var spellBonus = 0;
 
-    if (typeof localStorage["starCash"] === "undefined") { localStorage["starCash"] = 0; starCash = 0; };
-    starCash = parseInt(localStorage["starCash"]);
+    
 
     // Mouse dragging
     var drag = false;
@@ -143,44 +192,44 @@ window.onload = function () {
     ];
     //orig above
 
-    ////player object
-    var player1 = {
-        health: 100,
-        healthMax: 100,
-        damage: 0,
-        defense: 100,
-        defenseMax: 100,
-        defenseDrop: 0,
-        power: 100,
-        playerLevel: 1,
-        firePower: 1,
-        earthPower: 1,
-        airPower: 1,
-        arcanePower: 1,
-        swordPower: 1,
-        meteorPower: 1,
-        sparkPower: 1,
+    //////player object
+    //var player1 = {
+    //    health: 100,
+    //    healthMax: 100,
+    //    damage: 0,
+    //    defense: 100,
+    //    defenseMax: 100,
+    //    defenseDrop: 0,
+    //    power: 100,
+    //    playerLevel: 1,
+    //    firePower: 1,
+    //    earthPower: 1,
+    //    airPower: 1,
+    //    arcanePower: 1,
+    //    swordPower: 1,
+    //    meteorPower: 1,
+    //    sparkPower: 1,
 
-        name: "GuiMage"
-    }
-    ///
+    //    name: "GuiMage"
+    //}
+    /////
 
-    ////enemy object
-    var enemy = {
-        health: 100,
-        healthMax: 100,
-        damage: 0,
-        defense: 100,
-        defenseMax: 100,
-        defenseDrop: 0,
-        power: 100,
-        playerLevel: 1,
-        firePower: 1,
-        earthPower: 1,
-        windPower: 1,
-        mysticPower: 1,
-        name: "Arcanus"
-    }
+    //////enemy object
+    //var enemy = {
+    //    health: 100,
+    //    healthMax: 100,
+    //    damage: 0,
+    //    defense: 100,
+    //    defenseMax: 100,
+    //    defenseDrop: 0,
+    //    power: 100,
+    //    playerLevel: 1,
+    //    firePower: 1,
+    //    earthPower: 1,
+    //    windPower: 1,
+    //    mysticPower: 1,
+    //    name: "Arcanus"
+    //}
     ///
     // Clusters and moves that were found
     var clusters = [];  // { column, row, length, horizontal }
@@ -259,7 +308,7 @@ window.onload = function () {
     imgArray[9] = new Image();
     imgArray[9].src = 'Images/9.png';
 
-
+      ////////////imgArray2
     var imgArray2 = new Array();
 
     imgArray2[0] = new Image();
@@ -314,7 +363,7 @@ window.onload = function () {
     imgArray2[16].src = 'Images/HUD/defenseContainer.png';
 
     imgArray2[17] = new Image();
-    imgArray2[17].src = 'Images/HUD/defenseBar.png';
+    imgArray2[17].src = 'Images/HUD/defenseBar2.png';
 
     imgArray2[18] = new Image();
     imgArray2[18].src = 'Images/Enemy/lvl1.png';
@@ -331,8 +380,12 @@ window.onload = function () {
     imgArray2[22] = new Image();
     imgArray2[22].src = 'Images/HUD/powerInnerBar.png';
 
+    imgArray2[23] = new Image();
+    imgArray2[23].src = 'Images/HUD/bronzeTrophyWon.png';
 
+    ////////////imgArray3
     var imgArray3 = new Array();
+
     imgArray3[0] = new Image();
     imgArray3[0].src = 'Images/buttons/greyGear.png';
 
@@ -363,7 +416,9 @@ window.onload = function () {
     imgArray3[9] = new Image();
     imgArray3[9].src = 'Images/HUD/spellLevelUp.png';
 
+      ////////////imgArray4
     imgArray4 = new Array();
+
     imgArray4[0] = new Image();
     imgArray4[0].src = 'Images/Enemy/lvl1.png';
 
@@ -394,8 +449,62 @@ window.onload = function () {
     imgArray4[9] = new Image();
     imgArray4[9].src = 'Images/Enemy/lvl10.png';
 
+    imgArray4[10] = new Image();
+    imgArray4[10].src = 'Images/Enemy/lvl11.png';
+
+    imgArray4[11] = new Image();
+    imgArray4[11].src = 'Images/Enemy/lvl12.png';
+
+    imgArray4[12] = new Image();
+    imgArray4[12].src = 'Images/Enemy/lvl13.png';
+
+    imgArray4[13] = new Image();
+    imgArray4[13].src = 'Images/Enemy/lvl14.png';
+
+    imgArray4[14] = new Image();
+    imgArray4[14].src = 'Images/Enemy/lvl15.png';
+
     drawPlayer();
-    
+
+    //////////////////////////////////////////////idle animations
+    var swapImage = 1;
+    var attackImage = 1;
+        
+    var animTimer;
+    var animTimer2;
+    function playeranimSwap1() {
+        animTimer = setInterval(function () { 
+            var swapImage2 = 0;
+            swapImage2 = swapImage;
+            if (swapImage == 5) { swapImage2 = 3; }
+            if (swapImage == 6) { swapImage2 = 2; }
+            if (swapImage == 7) { swapImage2 = 1; }
+            imgArray2[13].src = 'Images/Hero/idle_' + swapImage2 + '.png';
+            swapImage = swapImage + 1;
+            if (swapImage > 7) { swapImage = 1; }
+            
+        }, 250);
+              
+    }
+    function stopanimSwap1() {
+        clearInterval(animTimer);
+    }
+    playeranimSwap1();
+
+    function playeranimSwap2() {
+        animTimer2 = setInterval(function () {
+            var attackImage2 = 0;
+            attackImage2 = attackImage;
+            
+            imgArray2[13].src = 'Images/Hero/attack_' + attackImage2 + '.png';
+            attackImage = attackImage + 1;
+            if (attackImage > 3) { attackImage = 1; }
+
+        }, 200);
+    }
+    function stopanimSwap2() {
+        clearInterval(animTimer2);
+    }
     function drawPlayer() {
         var plx = -2;
         var ply = 6;
@@ -446,8 +555,11 @@ window.onload = function () {
         context.drawImage(imgArray2[13], plx, ply, plwidth, plheight);
 
         //player power bar
-        context.drawImage(imgArray2[20], plx + 56, ply -4  );
-        context.drawImage(imgArray2[22], plx + 83, ply +4);
+        var powerAdjustment = 0;
+        powerAdjustment = (playerClusterCount * 12);
+        if (powerAdjustment < 1) { powerAdjustment = 1; };
+        context.drawImage(imgArray2[20], plx + 56, ply - 4);
+        context.drawImage(imgArray2[22], plx + 83, ply + 4, powerAdjustment, 13);
 
         //health bars
         var playerhealthHeight = 100 - ((player1.health / player1.healthMax) * 100);
@@ -731,7 +843,7 @@ window.onload = function () {
                 if (animationtime > animationtimetotal) {
                     // Find clusters
                     findClusters();
-
+                    console.log("# of clusters =====" + clusters.length);
                     if (clusters.length > 0) {
                         // Add points to the score
                         swapSound.stop();
@@ -748,9 +860,16 @@ window.onload = function () {
                             //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////!!!!!!!!!!!!!!!
                             //enemy health and defense adjustment
                             if (aibot === false) {
+                                //stopanimSwap1();
+                                //playeranimSwap2();
+                                //setTimeout(function () {
+                                //    stopanimSwap2();
+                                //    playeranimSwap1();
+                                //}, 1000);
                                 //hit enemy//
-                                var damageThisTime = (player1.playerLevel *  6) + (1 * (clusters[i].length - 2));
-
+                                var damageThisTime = (player1.playerLevel * 6) + (1 * (clusters[i].length - 2));
+                                playerClusterCount = playerClusterCount + 1;
+                                
                                 var clusterType = level.tiles[clusters[i].column][clusters[i].row].type;
                                 console.log("cluster type " + clusterType);
                                 var getSpellPower = PowerToApply[clusterType];    
@@ -773,53 +892,55 @@ window.onload = function () {
                                     console.log("AdjustedDamage= " + damageThisTime);
 
                                     ////animation
-                                    
-                                    if (getSpellPower == "sparkPower") {
-                                        document.getElementById("lightningFullBack").style.display = 'block';
-                                        setTimeout(function () {
-                                            document.getElementById("lightningFullBack").style.display = 'none';
-                                        }, 900);
-                                    }
+                                    console.log("********************PCLUSTERCOUNT " + playerClusterCount);
+                                    if (playerClusterCount >= 8) {
+                                        if (getSpellPower == "sparkPower") {
+                                            document.getElementById("lightningFullBack").style.display = 'block';
+                                            setTimeout(function () {
+                                                document.getElementById("lightningFullBack").style.display = 'none';
+                                            }, 900);
+                                        }
 
-                                    if (getSpellPower == "arcanePower") {
-                                        document.getElementById("arcaneFullBack").style.display = 'block';
-                                        setTimeout(function () {
-                                            document.getElementById("arcaneFullBack").style.display = 'none';
-                                        }, 900);
-                                    }
+                                        if (getSpellPower == "arcanePower") {
+                                            document.getElementById("arcaneFullBack").style.display = 'block';
+                                            setTimeout(function () {
+                                                document.getElementById("arcaneFullBack").style.display = 'none';
+                                            }, 900);
+                                        }
 
-                                    if (getSpellPower == "firePower") {
-                                        document.getElementById("fireFullBack").style.display = 'block';
-                                        setTimeout(function () {
-                                            document.getElementById("fireFullBack").style.display = 'none';
-                                        }, 900);
-                                    }
-                                    if (getSpellPower == "meteorPower") {
-                                        document.getElementById("meteorFullBack").style.display = 'block';
-                                        setTimeout(function () {
-                                            document.getElementById("meteorFullBack").style.display = 'none';
-                                        }, 900);
-                                    }
-                                    if (getSpellPower == "swordPower") {
-                                        document.getElementById("swordFullBack").style.display = 'block';
-                                        setTimeout(function () {
-                                            document.getElementById("swordFullBack").style.display = 'none';
-                                        }, 1000);
-                                    }
-                                    if (getSpellPower == "earthPower") {
-                                        document.getElementById("earthFullBack").style.display = 'block';
-                                        
-                                        setTimeout(function () {
-                                            document.getElementById("earthFullBack").style.display = 'none';
-                                        }, 1000);
-                                    }
-                                    if (getSpellPower == "airPower") {
-                                        document.getElementById("airFullBack").style.display = 'block';
-                                        setTimeout(function () {
-                                            document.getElementById("airFullBack").style.display = 'none';
-                                        }, 1000);
-                                    }
+                                        if (getSpellPower == "firePower") {
+                                            document.getElementById("fireFullBack").style.display = 'block';
+                                            setTimeout(function () {
+                                                document.getElementById("fireFullBack").style.display = 'none';
+                                            }, 900);
+                                        }
+                                        if (getSpellPower == "meteorPower") {
+                                            document.getElementById("meteorFullBack").style.display = 'block';
+                                            setTimeout(function () {
+                                                document.getElementById("meteorFullBack").style.display = 'none';
+                                            }, 900);
+                                        }
+                                        if (getSpellPower == "swordPower") {
+                                            document.getElementById("swordFullBack").style.display = 'block';
+                                            setTimeout(function () {
+                                                document.getElementById("swordFullBack").style.display = 'none';
+                                            }, 1000);
+                                        }
+                                        if (getSpellPower == "earthPower") {
+                                            document.getElementById("earthFullBack").style.display = 'block';
 
+                                            setTimeout(function () {
+                                                document.getElementById("earthFullBack").style.display = 'none';
+                                            }, 1000);
+                                        }
+                                        if (getSpellPower == "airPower") {
+                                            document.getElementById("airFullBack").style.display = 'block';
+                                            setTimeout(function () {
+                                                document.getElementById("airFullBack").style.display = 'none';
+                                            }, 1000);
+                                        }
+                                        playerClusterCount = 0;
+                                    }
 
                                     ///cleanup
                                     spellBonus = 0;
@@ -851,9 +972,9 @@ window.onload = function () {
                             }
                             //enemy attacking player////////////////////////////////////////////////////////////////////////////////////////////!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                             if (aibot) { //hit player//
-                                var damageThisTime = (enemy.playerLevel * 5) + (1 * (clusters[i].length - 2));
-                               
-
+                                var damageThisTime = (enemy.playerLevel * 5) + (1 * (clusters[i].length - 2)) + (difficulty * 2);
+                                enemyClusterCount = enemyClusterCount + 1; 
+                                //(player1.playerLevel * 6) + (1 * (clusters[i].length - 2));
 
                                 player1.defenseDrop = player1.defenseDrop + damageThisTime;
                                 if (player1.defenseDrop >= player1.defenseMax) { player1.defenseDrop = player1.defenseMax };
@@ -922,7 +1043,7 @@ window.onload = function () {
                         gamestate = gamestates.ready;
                     }
                     animationtime = 0;
-                    clearInterval(showMoveTimer);
+                    //clearInterval(showMoveTimer);
                     showmoves = false;
                 }
             } else if (animationstate == 1) {
@@ -1074,37 +1195,40 @@ window.onload = function () {
         //level Up overlay
         if (gamestate == gamestates.levelUp) {
             context.fillStyle = "rgba(22, 30, 29, 0.9)";
-            context.fillRect(level.x , level.y , levelwidth , levelheight );
-            
+            context.fillRect(level.x, level.y, levelwidth, levelheight);
+            if (player1.playerLevel == 14) {
+                context.drawImage(imgArray2[23], 6, 8);
+            }
 
 
-            context.drawImage(imgArray2[1], 170, 30); // level up back
+            context.drawImage(imgArray2[1], 170, 20); // level up back
             //context.drawImage(imgArray2[10], 150, 50); // star cash1
-            context.drawImage(imgArray2[2], 235, 145); // star cash2
-            context.drawImage(imgArray2[3], 235, 220); //Next Button
-            context.drawImage(imgArray2[4], 200, 65); //star1
-            if (levelRating >= 4) { context.drawImage(imgArray2[4], 305, 65); } //star2
-            if (levelRating >= 5) { context.drawImage(imgArray2[5], 246, 45); }//star3 Bonus star}
+            context.drawImage(imgArray2[2], 235, 135); // star cash2
+            context.drawImage(imgArray2[3], 245, 200); //Next Button
+            context.drawImage(imgArray2[4], 200, 55); //star1
+            if (levelRating >= 4) { context.drawImage(imgArray2[4], 305, 55); } //star2
+            if (levelRating >= 5) { context.drawImage(imgArray2[5], 246, 35); }//star3 Bonus star}
 
 
             if (levelBump >= 1) { levelBump2 = 1; }
             context.font = "14px Comic Sans MS";
             context.fillStyle = "#cc00cc";
-            drawCenterText("YOU  WIN", 250, 50, 70);
+            drawCenterText("YOU  WIN", 250, 40, 70);
             context.font = "16px Comic Sans MS";
             context.fillStyle = "#cc00cc";
-            drawCenterText(" +" + levelRating, 270, 140, 50);
-            drawCenterText(starCash, 270, 169, 50);
-            drawCenterText(enemy.name + " defeated "  , 260, 202, 50);
+            drawCenterText(" +" + levelRating, 270, 130, 50);
+            drawCenterText(starCash, 270, 159, 50);
+            
+            drawCenterText(enemy.name + " defeated "  , 260, 192, 50);
             context.font = "22px Comic Sans MS";
-            drawCenterText("Next", level.x + 2, level.y + levelheight - 25, levelwidth);
+            drawCenterText("Next", level.x + 2, level.y + levelheight - 55, levelwidth);
             if (levelBump == 1) {
                 levelCount++; levelBump = 0;
                 levelUpScore = (levelCount * 1000);
                 player1.playerLevel = player1.playerLevel + 1;
                 //check level Rating
                 levelRating = 3;
-                if (totalSeconds <= 30) {
+                if (totalSeconds <= 45) {
                     levelRating = 5;
                      context.drawImage(imgArray2[4], 305, 65);  //star2
                      context.drawImage(imgArray2[5], 246, 45); //star3 Bonus star
@@ -1153,7 +1277,7 @@ window.onload = function () {
         //draw level count
         context.fillStyle = "blue";
         context.font = "8px Comic Sans MS";
-        context.fillText("Level: " + levelCount, 236, level.y + 143);
+        context.fillText("Level: " + levelCount, 236, level.y + 14);
         
         //context.fillText(levelCount, 12, level.y + 110);
 
@@ -1172,11 +1296,13 @@ window.onload = function () {
 
         //draw the left and right bars
         context.drawImage(imgArray2[19], 440, 287, 125, 30);
-        context.drawImage(imgArray2[19], 0, 287, 125 ,30);
+        context.drawImage(imgArray2[19], 0, 287, 125, 30);
+
         //draw current starcash
-        context.fillStyle = "#e6e600";
+        context.drawImage(imgArray2[2], 2, 258, 60, 30);
+        context.fillStyle = "green";
         context.font = "16px Comic Sans MS";
-        context.fillText("$" + starCash, 12, 280);
+        context.fillText( starCash, 26, 278);
         //draw the player
         drawPlayer();
 
@@ -1302,33 +1428,39 @@ window.onload = function () {
 
 
         drawCenterText("Arcane", 130, 118, 100);
-        context.drawImage(imgArray3[7], 205, 93);
+        //context.drawImage(imgArray3[7], 205, 93);
         context.drawImage(imgArray[0], 121, 100, 30, 30);
 
         drawCenterText("Spark", 340, 119, 95);
-        context.drawImage(imgArray3[7], 327, 95);
         context.drawImage(imgArray[1], 415, 101, 30, 30);
 
         drawCenterText("Fire", 130, 165, 100);
-        context.drawImage(imgArray3[7], 205, 139);
         context.drawImage(imgArray[2], 121, 146, 30, 30);
 
 
         drawCenterText("Sword", 340, 165, 100);
-        context.drawImage(imgArray3[7], 328, 140);
         context.drawImage(imgArray[3], 415, 146, 30, 30);
 
         drawCenterText("Meteor", 130, 205, 100);
-        context.drawImage(imgArray3[7], 206, 181);
         context.drawImage(imgArray[4], 121, 187, 30, 30);
 
         drawCenterText("Earth", 340, 205, 100);
-        context.drawImage(imgArray3[7], 328, 181);
         context.drawImage(imgArray[5], 415, 186, 30, 30);
 
         drawCenterText("Air", 260, 245, 50);
-        context.drawImage(imgArray3[7], 220, 220);
         context.drawImage(imgArray[6], 313, 226, 30, 30);
+
+        ///show or hide the plus button based on skill points > 0
+        if (skillPoints > 0) {
+            context.drawImage(imgArray3[7], 205, 93);   //arcane addbtn
+            context.drawImage(imgArray3[7], 327, 95);  //spark addbtn
+            context.drawImage(imgArray3[7], 205, 139); //fire addbtn
+            context.drawImage(imgArray3[7], 328, 140); //sword addbtn
+            context.drawImage(imgArray3[7], 206, 181); //Meteor add btn
+            context.drawImage(imgArray3[7], 328, 181); //earth addbtn
+            context.drawImage(imgArray3[7], 220, 220); //Air addbtn
+        }
+
 
         //skill points
         context.fillStyle = "#ffffff";
@@ -1351,12 +1483,16 @@ window.onload = function () {
         context.fillStyle = "#000000";
         context.font = "18px Times New Roman";
         drawCenterText(player1.healthMax, 163, 295, 60);
-        context.drawImage(imgArray3[7], 220, 275, 25, 25);
+        
         //defense points
         context.fillStyle = "#000000";
         context.font = "18px Times New Roman";
         drawCenterText(player1.defenseMax, 347, 295, 60);
-        context.drawImage(imgArray3[7], 330, 275, 25, 25);
+        
+        if (heroBonus > 0) {
+            context.drawImage(imgArray3[7], 220, 275, 25, 25);
+            context.drawImage(imgArray3[7], 330, 275, 25, 25);
+        }
 
         //label
         context.font = "20px Times New Roman";
@@ -1452,7 +1588,8 @@ window.onload = function () {
         player1.defense = player1.defenseMax;
         player1.defenseDrop = 0;
         player1.damage = 0;
-        
+        playerClusterCount = 0;
+        enemyClusterCount = 0;
 
 
 
@@ -1964,7 +2101,17 @@ window.onload = function () {
             skillPoints = skillPoints + 2;
             heroBonus = heroBonus + 2;
             gamestate = gamestates.levelUpPlyr;            
-                
+            if (player1.playerLevel == 14) {
+                ///show bronze Trophy win
+
+                //adjust the stats on the enemies to Silver Cup
+                ////////?????
+
+                //adjust cupWon
+                cupWon = 1;
+                localStorage.setItem('spellMatch_cupWon', cupWon);
+
+            }
                 //alert(" hit" + plyrLvlUp);
             
         }
@@ -1973,6 +2120,7 @@ window.onload = function () {
             //player level up clicks
             if (plyrLvlUp) {
 
+                if (skillPoints <= 0){}
                 if (skillPoints > 0) {
                     //arcane click
                     if (pos.x >= 100 && pos.x < 250 && pos.y >= 90 && pos.y < 130) {
@@ -2048,7 +2196,7 @@ window.onload = function () {
                         }
                     }
                     //Air click
-                    if (pos.x >= 218 && pos.x < 300 && pos.y >= 219 && pos.y < 265) {
+                    if (pos.x >= 218 && pos.x < 300 && pos.y >= 222 && pos.y < 265) {
                         if (player1.airPower < 5) {
                             console.log("clicked air");
                             skillPoints = skillPoints - 1;
@@ -2091,7 +2239,7 @@ window.onload = function () {
                     newGame(1); levelScoreProgress = 0; totalSeconds = 0;
                     //enemy.healthMax = player1.healthMax;
                     //enemy.defenseMax = player1.defenseMax;
-                   
+                   //dd
                     enemy.playerLevel = enemy.playerLevel + 1;
                     getNextEnemy(enemy.playerLevel);
                     enemy.health = enemy.healthMax;
@@ -2155,9 +2303,6 @@ window.onload = function () {
     function getNextEnemy(lvl) {
         var newName = '';
         
-        //enemies[0] = 'Arcannus';
-        //enemies[1] = 'GoblinMage';
-        //enemies[2] = 'ElfWiz';
         newName = enemies[enemy.playerLevel - 1];
         var imageUpgrade = "Images/Enemy/lvl" + enemy.playerLevel + ".png";
         console.log("image upgrade = " + imageUpgrade);
@@ -2204,14 +2349,41 @@ window.onload = function () {
         plyrLvlUp = true;
                
     }
-    ////////////////////////////acievement modals
  
+
 
     // Call init to start the game
     init();
 
 };
+////////////////////////////Boosts application
+function clkBoostPotion(num) {
+    var healthMod = 0;
+    var defMod = 0;
+    console.log("potion clicked = " + num);
+    if (num == 1) {                                         ///////clicked Health Potion/////////
+        starCash = starCash - 25;
+        localStorage["starCash"] = starCash;
+        healthMod = player1.healthMax / 2;
+        console.log("healthMod = " + healthMod);
+        player1.health = player1.health + healthMod;
+        if (player1.health > player1.healthMax) { player1.health = player1.healthMax; }
+                };
+    if (num == 2) {                                     ///////clicked power orb/////////
+        starCash = starCash - 25;
+        localStorage["starCash"] = starCash;
+        playerClusterCount = 7;
 
+                };
+    if (num == 3) {                                    ///////clicked tome of defense/////////
+         starCash = starCash - 25;
+         localStorage["starCash"] = starCash;
+         defMod = player1.defenseMax - player1.defense;
+         player1.defenseMax = player1.defenseMax + 50;
+         player1.defense = player1.defenseMax - defMod;
+         if (player1.defense > player1.defenseMax) { player1.defense = player1.defenseMax; }
+                };
+}
 function hideIntro() {
 
     var cover = document.getElementById("landingCover");
@@ -2250,20 +2422,47 @@ function resizeGame() {
     gameBoard.style.marginLeft = (-newWidth / 2) + 'px';
 };	
 
-function hideTitlePage() {
-    document.getElementById('titleCover').style.display = 'none';
-    document.getElementById('coverWrapper').style.display = 'block';
-    document.getElementById("helpGif").style.display = 'block';
-    document.getElementById("skipMe").style.display = 'block';
+function hideTitlePage(num) {
+    console.log("num = " + num);
+    if (num == 1) {
+       
+        document.getElementById("helpGif").style.display = 'block';
+        document.getElementById("skipMe").style.display = 'block';
+    }
+    if (num == 2) {
+        /////get values from local storage
+              
+
+        player1 = JSON.parse(localStorage.getItem('spellMatch_Player'));
+        enemy = JSON.parse(localStorage.getItem('spellMatch_Enemy'));
+        cupWon = localStorage.getItem('spellMatch_cupWon');
+
+        var newName = '';
+
+        newName = enemies[enemy.playerLevel - 1];
+        var imageUpgrade = "Images/Enemy/lvl" + enemy.playerLevel + ".png";
+        console.log("Loaded image upgrade = " + imageUpgrade);
+        document.getElementById('vsEnemy').src = imageUpgrade;
+        enemy.name = newName;
+        enemyNameGlobal = newName;
+
+        document.getElementById('titleCover').style.display = 'none';
+        document.getElementById("helpGif").style.display = 'none';
+        document.getElementById('coverWrapper').style.display = 'block';
+        showVS();
+    }
+    
+    
     
 }
 
 function showVS() {
+    document.getElementById('titleCover').style.display = 'none';
     document.getElementById("helpGif").style.display = 'none';
     document.getElementById("skipMe").style.display = 'none';
     document.getElementById('coverWrapper').style.display = 'block';
     document.getElementById('vsCover').style.display = 'block';
-    
+    document.getElementById('goHome').style.display = 'none';
     document.getElementById("playerNameP").innerHTML = playerNameGlobal;
     document.getElementById("enemyNameP").innerHTML = enemyNameGlobal;
     document.getElementById("countDown").innerHTML = " ";
@@ -2283,6 +2482,8 @@ function showVS() {
     setTimeout(function () {
         document.getElementById("vsCover").style.display = 'none';
         document.getElementById('coverWrapper').style.display = 'none';
+        document.getElementById('goHome').style.display = 'none';
+        document.getElementById('difficulty').style.display = 'none';
     }, 5000);
 }
 
@@ -2308,9 +2509,18 @@ function saveDifficulty() {
 ////////////Home Modal////////////////////////////////////////////////
 
 
-function homeSave() {
+function homeSave() {               ////save values to local storage
     document.getElementById('goHome').style.display = 'none';
-    ////save values to local storage
+    //if (typeof localStorage["spellMatchPlayer"] === "undefined") { localStorage["spellMatchPlayer"] = player1.;  };
+    localStorage.setItem('spellMatch_Player', JSON.stringify(player1));
+    localStorage.setItem('spellMatch_Enemy', JSON.stringify(enemy));
+    localStorage.setItem('spellMatch_cupWon', cupWon);
+    // Retrieve the object from storage
+    var retrievedObject = localStorage.getItem('spellMatch_Player');
+
+    console.log('retrievedObject: ', JSON.parse(retrievedObject));
+
+
 }
 function gameReturn1() {
     document.getElementById('goHome').style.display = 'none';

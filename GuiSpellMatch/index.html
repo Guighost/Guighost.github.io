@@ -75,9 +75,15 @@
     </div>
    
         <div id="gameMasterContainer">
+
+            <!--Title Screen-->
            <div id="titleCover"> <img id="coverImage" src="Images/HUD/coverImage.png" />
             <div id="NewGameBtn" >
-               <img id="btnImage1" src="Images/bigButton.png" onclick="hideTitlePage()" /> <a id="btn1Text" onclick="hideTitlePage()"> Play</a>
+               <img id="btnImage1" src="Images/greyButtonLg.png" onclick="hideTitlePage(1)" /> <a id="btn1Text" onclick="hideTitlePage(1)"> New Game</a>
+                
+            </div>
+            <div id="loadSavedGame">
+                <img id="btnImage2" src="Images/greenButtonLg.png" onclick="hideTitlePage(2)" /> <a id="btn2Text" onclick="hideTitlePage(2)">Load Saved</a>
             </div>
                <a href="../index.html">
                    <img id="ggLogo2" src="Images/footerImg.png" />
@@ -117,6 +123,8 @@
             <div id="airEffectParent">
                 <img id="airFullBack" src="Images/Effects/windattack.gif" alt="airBack" style="width:100%;height: 100%; z-index: 5085;">
             </div>
+
+            <!--VS Countdown-->
             <div id="coverWrapper" onclick="hideCountDown()">
                 <div id="vsCover">
                     <p id="countDown">6</p>
@@ -127,10 +135,14 @@
                     </div>
                 </div>
             </div>
+
+            <!--Intro Help Gif-->
             <div id="helpStory">
                 <img id="helpGif"  src="Images/HUD/helpShow.gif" alt="helpShow" >
                 <p id="skipMe" onclick="showVS()"> NEXT</p>
             </div>
+
+            <!--difficulty modal-->
             <div id="difficulty">
                 <div id="diffBack">
                     <p id="diffTitle" > Difficulty</p>
@@ -142,19 +154,25 @@
                     <img id="selectedDiff" src="Images/buttons/checkMark.png" alt="saveDiff">
                 </div>
             </div>
+
+            <!--Home  modal-->
             <div id="goHome">
                 <div id="homeBack">
                     <p id="homeTitle"> Menu</p>
                     <a id="saveQuit" class="diffBtn" onclick="homeSave()" href="index.html"> Save & Quit</a>
-                    <a id="homeMore" class="diffBtn" href="../index.html"> More GuiGhost Games</a>
+                    <a id="homeMore" class="diffBtn" href="../index.html" target="_blank"> More GuiGhost Games</a>
                     <p id="homeReturn"  class="diffBtn" onclick="gameReturn1()"> Return to Game</p>
                 </div>
             </div>
             <!--//inventory-->
             <div id="inventoryParent">
                 <div id="inventoryBack">
-                    <p id="inventoryTitle"> Inventory</p>
-                   
+                    <p id="inventoryTitle"> Boosts</p>
+                   <div id="invHealthPot" class="potions" onclick="clkBoostPotion(1)"> <p class="potTitles">Elixir of Healing</p>  <div id="invHealthBottom" class="invPotBottom"><p id="healthPotText">Quickly Restore 50% Health</p> <img class="buyImage" src="Images/HUD/starCashBack.png"  /> </div>   </div>
+                    <div id="invPowerPot" class="potions" onclick="clkBoostPotion(2)"> <p class="potTitles">Orb of Quick Power</p> <div id="invPowerBottom" class="invPotBottom"> <p id="powerPotText" >Instant Power on Next Move</p> <img class="buyImage" src="Images/HUD/starCashBack.png" /> </div>   </div>
+                    <div id="invDefPot" class="potions" onclick="clkBoostPotion(3)">   <p class="potTitles">Tome of Protection</p>  <div id="invDefBottom" class="invPotBottom"> <p id="defPotText"    >+50 Increase of Max Defense</p> <img class="buyImage" src="Images/HUD/starCashBack.png" /> </div>   </div>
+                    
+
                     <p id="inventoryReturn" class="diffBtn" onclick="gameReturn1()"> Return to Game</p>
                 </div>
             </div>

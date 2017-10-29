@@ -41,15 +41,35 @@ img[src$=".gif"], img[src$=".png"] {
     position: absolute;
     left: 50%;
     top: 50%;
-    transform: translate(-40px,-5px);
+    transform: translate(-99px,-55px);
+    
+}
+#loadSavedGame {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(109px,-55px);
+}
+#btnImage2 {
+    transform: translate(-209px,62px);
 }
 #btn1Text {
     position: absolute;
-    transform: translate(-28px,-57px);
-    font-family:'Comic Sans MS';
-    font-size:30px;
-    font-weight:bolder;
-    color:blueviolet;
+    transform: translate(-100px, -65px);
+    width: 200px;
+    font-family: 'Comic Sans MS';
+    font-size: 28px;
+    font-weight: bolder;
+    color: blueviolet;
+}
+#btn2Text {
+    position: absolute;
+    transform: translate(-310px, -0px);
+    width: 200px;
+    font-family: 'Comic Sans MS';
+    font-size: 28px;
+    font-weight: bolder;
+    color: azure;
 }
 #gameTitle {
     background-color: goldenrod;
@@ -337,12 +357,54 @@ img[src$=".gif"], img[src$=".png"] {
     color: ghostwhite;
     border: none;
 }
+
+
+.potions {
+    margin-top: 10px;
+    display: block;
+    width: 100px;
+    height: 168px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    float: left;
+    border: 1px #AA5939 solid;
+    border-radius: 10px;
+}
+.potTitles {
+    font-size: 14px;
+    transform: translate( 0px, -17px);
+}
+.invPotBottom {
+    transform: translate( 0px, 54px);
+    font-size: 12px;
+    color: darkmagenta;
+}
+.buyImage {
+    transform: translate( 0px, -12px);
+}
+#invHealthPot {
+    margin-left: 41px;
+    background-image: url(Images/HUD/healthPot2.png);
+    left: 5px;
+}
+#invDefPot {
+    background-image: url(Images/HUD/book-3.png);
+    margin-left: 2.5px;
+}
+#invPowerPot {
+    background-image: url(Images/HUD/orbOfPower.png);
+    margin-left: 2.5px;
+}
 #diffReturn {
     top: 79%;
 }
 #inventoryReturn {
         top: 79%;
     }
+
+
+
 #trophyReturn {
     top: 82%;
 }
