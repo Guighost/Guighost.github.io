@@ -19,10 +19,13 @@ var lockedName2 = "Gold Cup Champ";
 var lockedStory = "Win the tournament to unlock";
 var playerClusterCount = 0;
 var enemyClusterCount = 0;
-
+var animTimer;
+var animTimer2;
 
 var soundOn = true;
-var enemies = ['Arcannus', 'ElfWiz', 'ArticMage', 'Acidious', 'Blazaron', 'Sylvana', 'Toxigam', 'HarmBringer', 'Invertus', 'DeathMage', 'Milfohim', 'Zerlin', 'Yisenda', 'Firetta', 'Magentra', 'Undadish'];
+var enemies = ['Arcannus', 'ElfWiz', 'ArticMage', 'Acidious', 'Blazaron', 'Sylvana', 'Toxigam', 'HarmBringer', 'Invertus', 'DeathMage', 'Milfohim', 'Zerlin', 'Yisenda',
+    'Arcannus', 'ElfWiz', 'ArticMage', 'Acidious', 'Blazaron', 'Sylvana', 'Toxigam', 'HarmBringer', 'Invertus', 'DeathMage', 'Milfohim', 'Zerlin', 'Yisenda', 'Firetta',
+    'Arcannus', 'ElfWiz', 'ArticMage', 'Acidious', 'Blazaron', 'Sylvana', 'Toxigam', 'HarmBringer', 'Invertus', 'DeathMage', 'Milfohim', 'Zerlin', 'Yisenda', 'Firetta','Magentra', 'Undadish'];
 var enemyStats = {
     lvl1: { name: "Arcannus", health: 100, defense: 100, status: 0, story: 'Lives in a volcano, apprentice of Blazaron.'    },
     lvl2: { name: 'ElfWiz', health: 150, defense: 150, status: 0, story: 'Apprentice of Yisenda, from elven Caras Galadhon'    },
@@ -31,14 +34,46 @@ var enemyStats = {
     lvl5: { name: 'Blazaron', health: 300, defense: 300, status: 0,  story: 'Expert at Fire attacks, master of Arcannus'    },
     lvl6: { name: 'Sylvana', health: 350, defense: 350, status: 0,  story: 'She studies to harness the power of crystals'    },
     lvl7: { name: 'Toxigam', health: 400, defense: 400, status: 0, story: 'Alchemy and gases consume him'    },
-    lvl8: { name: 'HarmBringer', health: 450, defense: 450, status: 0,  story: 'Focused on pain of others; not a nice guy!'    },
+    lvl8: { name: 'Harmion', health: 450, defense: 450, status: 0,  story: 'Focused on pain of others; not a nice guy!'    },
     lvl9: { name: 'Invertus', health: 500, defense: 500, status: 0,  story: 'Master of the negative dimension'    },
     lvl10: { name: 'DeathMage', health: 550, defense: 500, status: 0,  story: 'Battle Master of the dark arts'    },
     lvl11: { name: 'Milfohim', health: 600, defense: 500, status: 0, story: 'Wise Headmaster of the Mage school'    },
     lvl12: { name: 'Zerlin', health: 650, defense: 500, status: 0,  story: 'Ancient mage of legend, master of many arts'    },
-    lvl13: { name: 'Yisenda', health: 700, defense: 500, status: 0,  story: 'Elven princess of poweful light magic'    },
-    lvl14: { name: 'Firetta', health: 850, defense: 500, status: 0, story: 'Demon raised by Blazaron from the 9 hells'    },
-    lvl15: { name: 'Magentra', health: 1000, defense: 500, status: 0,  story: 'Evil Mastermind bent on world domination'    },
+    lvl13: { name: 'Yisenda', health: 700, defense: 500, status: 0, story: 'Elven princess of poweful light magic' },
+
+    ///silver
+    lvl14: { name: "Arcannus", health: 1100, defense: 1100, status: 0, story: 'Back for more ' },
+    lvl15: { name: 'ElfWiz', health: 1150, defense: 1150, status: 0, story: 'Apprentice of Yisenda, from elven Caras Galadhon' },
+    lvl16: { name: 'ArticMage', health: 1200, defense: 1200, status: 0, story: 'From the far north; cold hearted power.' },
+    lvl17: { name: 'Acidious', health: 1250, defense: 1250, status: 0, story: 'Some people say he is a bitter man!' },
+    lvl18: { name: 'Blazaron', health: 1300, defense: 1300, status: 0, story: 'Expert at Fire attacks, master of Arcannus' },
+    lvl19: { name: 'Sylvana', health: 1350, defense: 1350, status: 0, story: 'She studies to harness the power of crystals' },
+    lvl20: { name: 'Toxigam', health: 1400, defense: 1400, status: 0, story: 'Alchemy and gases consume him' },
+    lvl21: { name: 'Harmion', health: 1450, defense: 1450, status: 0, story: 'Focused on pain of others; not a nice guy!' },
+    lvl22: { name: 'Invertus', health: 1500, defense: 1500, status: 0, story: 'Master of the negative dimension' },
+    lvl23: { name: 'DeathMage', health: 1550, defense: 1500, status: 0, story: 'Battle Master of the dark arts' },
+    lvl24: { name: 'Milfohim', health: 1600, defense: 1500, status: 0, story: 'Wise Headmaster of the Mage school' },
+    lvl25: { name: 'Zerlin', health: 1650, defense: 1500, status: 0, story: 'Ancient mage of legend, master of many arts' },
+    lvl26: { name: 'Yisenda', health: 1700, defense: 1500, status: 0, story: 'Elven princess of poweful light magic' },
+    lvl27: { name: 'Firetta', health: 1850, defense: 1500, status: 0, story: 'Demon raised by Blazaron from the 9 hells' },
+
+    ///gold
+    lvl28: { name: "Arcannus", health: 2100, defense: 2100, status: 0, story: 'Lives in a volcano, apprentice of Blazaron.' },
+    lvl29: { name: 'ElfWiz', health: 2150, defense: 2150, status: 0, story: 'Apprentice of Yisenda, from elven Caras Galadhon' },
+    lvl30: { name: 'ArticMage', health: 2200, defense: 2200, status: 0, story: 'From the far north; cold hearted power.' },
+    lvl31: { name: 'Acidious', health: 2250, defense: 2250, status: 0, story: 'Some people say he is a bitter man!' },
+    lvl32: { name: 'Blazaron', health: 2300, defense: 2300, status: 0, story: 'Expert at Fire attacks, master of Arcannus' },
+    lvl33: { name: 'Sylvana', health: 2350, defense: 2350, status: 0, story: 'She studies to harness the power of crystals' },
+    lvl34: { name: 'Toxigam', health: 2400, defense: 2400, status: 0, story: 'Alchemy and gases consume him' },
+    lvl35: { name: 'Harmion', health: 2450, defense: 2450, status: 0, story: 'Focused on pain of others; not a nice guy!' },
+    lvl36: { name: 'Invertus', health: 2500, defense: 2500, status: 0, story: 'Master of the negative dimension' },
+    lvl37: { name: 'DeathMage', health: 2550, defense: 2500, status: 0, story: 'Battle Master of the dark arts' },
+    lvl38: { name: 'Milfohim', health: 2600, defense: 2500, status: 0, story: 'Wise Headmaster of the Mage school' },
+    lvl39: { name: 'Zerlin', health: 2650, defense: 2500, status: 0, story: 'Ancient mage of legend, master of many arts' },
+    lvl40: { name: 'Yisenda', health: 2700, defense: 2500, status: 0, story: 'Elven princess of poweful light magic' },
+    lvl41: { name: 'Firetta', health: 2850, defense: 2500, status: 0, story: 'Demon raised by Blazaron from the 9 hells' },
+    lvl42: { name: 'Magentra', health: 3000, defense: 2500, status: 0, story: 'Evil Mastermind bent on world domination' },
+    lvl43: { name: 'Malfibo', health: 4000, defense: 3500, status: 0, story: 'The secret evil summoner behind the tournament' } ///////secretboss
    
 };
 
@@ -91,6 +126,200 @@ if (typeof localStorage["spellMatch_Player"] === "undefined") {
     document.getElementById('btnImage2').style.display = 'none';
     document.getElementById('btn2Text').style.display = 'none';
 };
+
+//Images
+var imgArray = new Array();
+
+imgArray[0] = new Image();
+imgArray[0].src = 'Images/0.png';
+
+imgArray[1] = new Image();
+imgArray[1].src = 'Images/1.png';
+
+imgArray[2] = new Image();
+imgArray[2].src = 'Images/2.png';
+
+imgArray[3] = new Image();
+imgArray[3].src = 'Images/3.png';
+
+imgArray[4] = new Image();
+imgArray[4].src = 'Images/4.png';
+
+imgArray[5] = new Image();
+imgArray[5].src = 'Images/5.png';
+
+imgArray[6] = new Image();
+imgArray[6].src = 'Images/6.png';
+
+imgArray[7] = new Image();
+imgArray[7].src = 'Images/7.png';
+
+imgArray[8] = new Image();
+imgArray[8].src = 'Images/8.png';
+
+imgArray[9] = new Image();
+imgArray[9].src = 'Images/9.png';
+
+////////////imgArray2
+var imgArray2 = new Array();
+
+imgArray2[0] = new Image();
+imgArray2[0].src = 'Images/gabbyLogo.png';
+
+imgArray2[1] = new Image();
+imgArray2[1].src = 'Images/HUD/levelUp1.png';
+
+imgArray2[2] = new Image();
+imgArray2[2].src = 'Images/starCashBack.png';
+
+imgArray2[3] = new Image();
+imgArray2[3].src = 'Images/bigButton.png';
+
+imgArray2[4] = new Image();
+imgArray2[4].src = 'Images/star.png';
+
+imgArray2[5] = new Image();
+imgArray2[5].src = 'Images/3rdStar.png';
+
+imgArray2[6] = new Image();
+imgArray2[6].src = 'Images/hudLevel.png';
+
+imgArray2[7] = new Image();
+imgArray2[7].src = 'Images/HUD/loss.png';
+
+imgArray2[8] = new Image();
+imgArray2[8].src = 'Images/HUD/newGame.png';
+
+imgArray2[9] = new Image();
+imgArray2[9].src = 'Images/HUD/buyNow.png';
+
+imgArray2[10] = new Image();
+imgArray2[10].src = 'Images/HUD/levelBonus.png';
+
+imgArray2[11] = new Image();
+imgArray2[11].src = 'Images/HUD/awesome2.gif';
+
+imgArray2[12] = new Image();
+imgArray2[12].src = 'Images/HUD/levelUp1.png';
+
+imgArray2[13] = new Image();
+imgArray2[13].src = 'Images/Hero/idle_1.png';
+
+imgArray2[14] = new Image();
+imgArray2[14].src = 'Images/HUD/healthContainer.png';
+
+imgArray2[15] = new Image();
+imgArray2[15].src = 'Images/HUD/healthBar.png';
+
+imgArray2[16] = new Image();
+imgArray2[16].src = 'Images/HUD/defenseContainer.png';
+
+imgArray2[17] = new Image();
+imgArray2[17].src = 'Images/HUD/defenseBar2.png';
+
+imgArray2[18] = new Image();
+imgArray2[18].src = 'Images/Enemy/lvl1.png';
+
+imgArray2[19] = new Image();
+imgArray2[19].src = 'Images/HUD/bottomBar.png';
+
+imgArray2[20] = new Image();
+imgArray2[20].src = 'Images/HUD/powerBack.png';
+
+imgArray2[21] = new Image();
+imgArray2[21].src = 'Images/HUD/powerBackEnemy.png';
+
+imgArray2[22] = new Image();
+imgArray2[22].src = 'Images/HUD/powerInnerBar.png';
+
+imgArray2[23] = new Image();
+imgArray2[23].src = 'Images/HUD/bronzeTrophyWon.png';
+
+////////////imgArray3
+var imgArray3 = new Array();
+
+imgArray3[0] = new Image();
+imgArray3[0].src = 'Images/buttons/greyGear.png';
+
+imgArray3[1] = new Image();
+imgArray3[1].src = 'Images/buttons/greenHouse.png';
+
+imgArray3[2] = new Image();
+imgArray3[2].src = 'Images/buttons/greySound.png';
+
+imgArray3[3] = new Image();
+imgArray3[3].src = 'Images/buttons/greyMenu.png';
+
+imgArray3[4] = new Image();
+imgArray3[4].src = 'Images/buttons/greenTrophy.png';
+
+imgArray3[5] = new Image();
+imgArray3[5].src = 'Images/buttons/greyThumbUp.png';
+
+imgArray3[6] = new Image();
+imgArray3[6].src = 'Images/HUD/HorizLevelUp.png';
+
+imgArray3[7] = new Image();
+imgArray3[7].src = 'Images/HUD/ButtonPlus.png';
+
+imgArray3[8] = new Image();
+imgArray3[8].src = 'Images/HUD/darkGreenSave.png';
+
+imgArray3[9] = new Image();
+imgArray3[9].src = 'Images/HUD/spellLevelUp.png';
+
+////////////imgArray4
+imgArray4 = new Array();
+
+imgArray4[0] = new Image();
+imgArray4[0].src = 'Images/Enemy/lvl1.png';
+
+imgArray4[1] = new Image();
+imgArray4[1].src = 'Images/Enemy/lvl2.png';
+
+imgArray4[2] = new Image();
+imgArray4[2].src = 'Images/Enemy/lvl3.png';
+
+imgArray4[3] = new Image();
+imgArray4[3].src = 'Images/Enemy/lvl4.png';
+
+imgArray4[4] = new Image();
+imgArray4[4].src = 'Images/Enemy/lvl5.png';
+
+imgArray4[5] = new Image();
+imgArray4[5].src = 'Images/Enemy/lvl6.png';
+
+imgArray4[6] = new Image();
+imgArray4[6].src = 'Images/Enemy/lvl7.png';
+
+imgArray4[7] = new Image();
+imgArray4[7].src = 'Images/Enemy/lvl8.png';
+
+imgArray4[8] = new Image();
+imgArray4[8].src = 'Images/Enemy/lvl9.png';
+
+imgArray4[9] = new Image();
+imgArray4[9].src = 'Images/Enemy/lvl10.png';
+
+imgArray4[10] = new Image();
+imgArray4[10].src = 'Images/Enemy/lvl11.png';
+
+imgArray4[11] = new Image();
+imgArray4[11].src = 'Images/Enemy/lvl12.png';
+
+imgArray4[12] = new Image();
+imgArray4[12].src = 'Images/Enemy/lvl13.png';
+
+imgArray4[13] = new Image();
+imgArray4[13].src = 'Images/Enemy/lvl14.png';
+
+imgArray4[14] = new Image();
+imgArray4[14].src = 'Images/Enemy/lvl15.png';
+
+
+
+
+
 
 window.onload = function () {
     // Get the canvas and context
@@ -258,10 +487,14 @@ window.onload = function () {
     function resetInterval() {
         clearInterval(timer);
         showmoves = false;
+
+
+
         timer = setInterval(function () {
 
             showmoves = !showmoves;
-            
+            playeranimSwap1();
+            setTimeout(function () { stopanimSwap1(); }, 2000);    
         }, 6000);
     }
     //var showMoveTimer = setInterval(function () {
@@ -275,194 +508,7 @@ window.onload = function () {
     var gameover = false;
 
 
-    //Images
-    var imgArray = new Array();
-
-    imgArray[0] = new Image();
-    imgArray[0].src = 'Images/0.png';
-
-    imgArray[1] = new Image();
-    imgArray[1].src = 'Images/1.png';
-
-    imgArray[2] = new Image();
-    imgArray[2].src = 'Images/2.png';
-
-    imgArray[3] = new Image();
-    imgArray[3].src = 'Images/3.png';
-
-    imgArray[4] = new Image();
-    imgArray[4].src = 'Images/4.png';
-
-    imgArray[5] = new Image();
-    imgArray[5].src = 'Images/5.png';
-
-    imgArray[6] = new Image();
-    imgArray[6].src = 'Images/6.png';
-
-    imgArray[7] = new Image();
-    imgArray[7].src = 'Images/7.png';
-
-    imgArray[8] = new Image();
-    imgArray[8].src = 'Images/8.png';
-
-    imgArray[9] = new Image();
-    imgArray[9].src = 'Images/9.png';
-
-      ////////////imgArray2
-    var imgArray2 = new Array();
-
-    imgArray2[0] = new Image();
-    imgArray2[0].src = 'Images/gabbyLogo.png';
-
-    imgArray2[1] = new Image();
-    imgArray2[1].src = 'Images/HUD/levelUp1.png';
-
-    imgArray2[2] = new Image();
-    imgArray2[2].src = 'Images/starCashBack.png';
-
-    imgArray2[3] = new Image();
-    imgArray2[3].src = 'Images/bigButton.png';
-
-    imgArray2[4] = new Image();
-    imgArray2[4].src = 'Images/star.png';
-
-    imgArray2[5] = new Image();
-    imgArray2[5].src = 'Images/3rdStar.png';
-
-    imgArray2[6] = new Image();
-    imgArray2[6].src = 'Images/hudLevel.png';
-
-    imgArray2[7] = new Image();
-    imgArray2[7].src = 'Images/HUD/loss.png';
-
-    imgArray2[8] = new Image();
-    imgArray2[8].src = 'Images/HUD/newGame.png';
-
-    imgArray2[9] = new Image();
-    imgArray2[9].src = 'Images/HUD/buyNow.png';
-
-    imgArray2[10] = new Image();
-    imgArray2[10].src = 'Images/HUD/levelBonus.png';
-
-    imgArray2[11] = new Image();
-    imgArray2[11].src = 'Images/HUD/awesome2.gif';
-
-    imgArray2[12] = new Image();
-    imgArray2[12].src = 'Images/HUD/levelUp1.png';
-
-    imgArray2[13] = new Image();
-    imgArray2[13].src = 'Images/Hero/idle_1.png';
-
-    imgArray2[14] = new Image();
-    imgArray2[14].src = 'Images/HUD/healthContainer.png';
-
-    imgArray2[15] = new Image();
-    imgArray2[15].src = 'Images/HUD/healthBar.png';
-
-    imgArray2[16] = new Image();
-    imgArray2[16].src = 'Images/HUD/defenseContainer.png';
-
-    imgArray2[17] = new Image();
-    imgArray2[17].src = 'Images/HUD/defenseBar2.png';
-
-    imgArray2[18] = new Image();
-    imgArray2[18].src = 'Images/Enemy/lvl1.png';
-
-    imgArray2[19] = new Image();
-    imgArray2[19].src = 'Images/HUD/bottomBar.png';
-
-    imgArray2[20] = new Image();
-    imgArray2[20].src = 'Images/HUD/powerBack.png';
-
-    imgArray2[21] = new Image();
-    imgArray2[21].src = 'Images/HUD/powerBackEnemy.png';
-
-    imgArray2[22] = new Image();
-    imgArray2[22].src = 'Images/HUD/powerInnerBar.png';
-
-    imgArray2[23] = new Image();
-    imgArray2[23].src = 'Images/HUD/bronzeTrophyWon.png';
-
-    ////////////imgArray3
-    var imgArray3 = new Array();
-
-    imgArray3[0] = new Image();
-    imgArray3[0].src = 'Images/buttons/greyGear.png';
-
-    imgArray3[1] = new Image();
-    imgArray3[1].src = 'Images/buttons/greenHouse.png';
-
-    imgArray3[2] = new Image();
-    imgArray3[2].src = 'Images/buttons/greySound.png';
-
-    imgArray3[3] = new Image();
-    imgArray3[3].src = 'Images/buttons/greyMenu.png';
-
-    imgArray3[4] = new Image();
-    imgArray3[4].src = 'Images/buttons/greenTrophy.png';
-
-    imgArray3[5] = new Image();
-    imgArray3[5].src = 'Images/buttons/greyThumbUp.png'; 
-
-    imgArray3[6] = new Image();
-    imgArray3[6].src = 'Images/HUD/HorizLevelUp.png'; 
-
-    imgArray3[7] = new Image();
-    imgArray3[7].src = 'Images/HUD/ButtonPlus.png'; 
-
-    imgArray3[8] = new Image();
-    imgArray3[8].src = 'Images/HUD/darkGreenSave.png';
-
-    imgArray3[9] = new Image();
-    imgArray3[9].src = 'Images/HUD/spellLevelUp.png';
-
-      ////////////imgArray4
-    imgArray4 = new Array();
-
-    imgArray4[0] = new Image();
-    imgArray4[0].src = 'Images/Enemy/lvl1.png';
-
-    imgArray4[1] = new Image();
-    imgArray4[1].src = 'Images/Enemy/lvl2.png';
-
-    imgArray4[2] = new Image();
-    imgArray4[2].src = 'Images/Enemy/lvl3.png';
-
-    imgArray4[3] = new Image();
-    imgArray4[3].src = 'Images/Enemy/lvl4.png';
-
-    imgArray4[4] = new Image();
-    imgArray4[4].src = 'Images/Enemy/lvl5.png';
-
-    imgArray4[5] = new Image();
-    imgArray4[5].src = 'Images/Enemy/lvl6.png';
-
-    imgArray4[6] = new Image();
-    imgArray4[6].src = 'Images/Enemy/lvl7.png';
-
-    imgArray4[7] = new Image();
-    imgArray4[7].src = 'Images/Enemy/lvl8.png';
-
-    imgArray4[8] = new Image();
-    imgArray4[8].src = 'Images/Enemy/lvl9.png';
-
-    imgArray4[9] = new Image();
-    imgArray4[9].src = 'Images/Enemy/lvl10.png';
-
-    imgArray4[10] = new Image();
-    imgArray4[10].src = 'Images/Enemy/lvl11.png';
-
-    imgArray4[11] = new Image();
-    imgArray4[11].src = 'Images/Enemy/lvl12.png';
-
-    imgArray4[12] = new Image();
-    imgArray4[12].src = 'Images/Enemy/lvl13.png';
-
-    imgArray4[13] = new Image();
-    imgArray4[13].src = 'Images/Enemy/lvl14.png';
-
-    imgArray4[14] = new Image();
-    imgArray4[14].src = 'Images/Enemy/lvl15.png';
+  
 
     drawPlayer();
 
@@ -470,8 +516,7 @@ window.onload = function () {
     var swapImage = 1;
     var attackImage = 1;
         
-    var animTimer;
-    var animTimer2;
+   
     function playeranimSwap1() {
         animTimer = setInterval(function () { 
             var swapImage2 = 0;
@@ -489,19 +534,22 @@ window.onload = function () {
     function stopanimSwap1() {
         clearInterval(animTimer);
     }
-    playeranimSwap1();
-
-    function playeranimSwap2() {
-        animTimer2 = setInterval(function () {
-            var attackImage2 = 0;
-            attackImage2 = attackImage;
+   
+    //}
+    //function playeranimSwap2() {
+    //    stopanimSwap1();
+    //    animTimer2 = setInterval(function () {
+    //        var attackImage2 = 0;
+    //        attackImage2 = attackImage;
             
-            imgArray2[13].src = 'Images/Hero/attack_' + attackImage2 + '.png';
-            attackImage = attackImage + 1;
-            if (attackImage > 3) { attackImage = 1; }
+    //        imgArray2[13].src = 'Images/Hero/attack_' + attackImage2 + '.png';
+    //        attackImage = attackImage + 1;
+    //        if (attackImage > 3) { attackImage = 1; }  
 
-        }, 200);
-    }
+    //    }, 250);
+
+    //    setTimeout(function () { stopanimSwap2(); }, 750);
+    //}
     function stopanimSwap2() {
         clearInterval(animTimer2);
     }
@@ -860,7 +908,7 @@ window.onload = function () {
                             //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////!!!!!!!!!!!!!!!
                             //enemy health and defense adjustment
                             if (aibot === false) {
-                                //stopanimSwap1();
+                               
                                 //playeranimSwap2();
                                 //setTimeout(function () {
                                 //    stopanimSwap2();
@@ -966,12 +1014,21 @@ window.onload = function () {
 
                                 enemy.damage = enemy.damage + damageThisTime;
                                 enemy.health = enemy.healthMax - enemy.damage;
+
+                                if (enemy.health < 50 && enemy.level < 3) {
+                                    enemy.health = enemy.health + (enemy.healthMax / 2);
+                                }
+
+
                                 if (enemy.health <= 0) { levelUp(); };
                                 enemyTurn = true;
                               
                             }
                             //enemy attacking player////////////////////////////////////////////////////////////////////////////////////////////!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                             if (aibot) { //hit player//
+
+                                stopanimSwap1();
+
                                 var damageThisTime = (enemy.playerLevel * 5) + (1 * (clusters[i].length - 2)) + (difficulty * 2);
                                 enemyClusterCount = enemyClusterCount + 1; 
                                 //(player1.playerLevel * 6) + (1 * (clusters[i].length - 2));
@@ -1163,6 +1220,8 @@ window.onload = function () {
         // Render moves, when there are no clusters
         if (showmoves && clusters.length <= 0 && gamestate == gamestates.ready) {
             renderMoves();
+           
+
         }
 
         ////spell casting ///////
@@ -1196,7 +1255,7 @@ window.onload = function () {
         if (gamestate == gamestates.levelUp) {
             context.fillStyle = "rgba(22, 30, 29, 0.9)";
             context.fillRect(level.x, level.y, levelwidth, levelheight);
-            if (player1.playerLevel == 14) {
+            if (player1.playerLevel == 14 ) {
                 context.drawImage(imgArray2[23], 6, 8);
             }
 
@@ -1243,6 +1302,9 @@ window.onload = function () {
                 context.font = "30px Comic Sans MS";
                 context.fillStyle = "#cc00cc";
                 drawCenterText(" +" + levelRating, 210, 159, 50);
+
+                ///store levelrating for starcount
+                localStorage.setItem('spellMatch_lvlRating_lvl' + (player1.playerLevel - 1), (levelRating -2));
 
 
             }
@@ -2304,6 +2366,7 @@ window.onload = function () {
         var newName = '';
         
         newName = enemies[enemy.playerLevel - 1];
+              
         var imageUpgrade = "Images/Enemy/lvl" + enemy.playerLevel + ".png";
         console.log("image upgrade = " + imageUpgrade);
         document.getElementById('vsEnemy').src = imageUpgrade;
@@ -2314,20 +2377,13 @@ window.onload = function () {
         var newEnemyHealthMax = 0;
         var newEnemyDefenseMax = 0;
         var modifierLevel = '';
-        //    console.log(enemyStats["lvl" + lvl]['name']);
-        //console.log(enemyStats["lvl" + lvl]['health']);  
-        //console.log(enemyStats["lvl" + lvl]['defense']);
-         //console.log(enemyStats["lvl" + lvl]['story']);
-
-        
+             
         newEnemyHealthMax = enemyStats["lvl" + lvl]['health'];
         newEnemyDefenseMax = enemyStats["lvl" + lvl]['defense'];;
        
         enemy.healthMax = newEnemyHealthMax;
         enemy.defenseMax = newEnemyDefenseMax;
-        //console.log("enemy.defensemax = " + enemy.defenseMax);
-        //console.log("enemy.healthmax = " + enemy.healthMax);
-
+     
         ;
         
     }
@@ -2450,10 +2506,44 @@ function hideTitlePage(num) {
         document.getElementById("helpGif").style.display = 'none';
         document.getElementById('coverWrapper').style.display = 'block';
         showVS();
+        var srcName = '';
+        console.table(player1);
+        function adjustSpellsOnLoad() {
+            if (player1.arcanePower > 1) {
+                srcName = player1.arcanePower + '0.png';
+                imgArray[0].src = 'Images/' + srcName;
+            }
+
+            if (player1.sparkPower > 1) {
+                srcName = player1.sparkPower + '1.png';
+                imgArray[1].src = 'Images/' + srcName;
+            }
+            if (player1.firePower > 1) {
+                srcName = player1.firePower + '2.png';
+                imgArray[2].src = 'Images/' + srcName;
+            }
+            if (player1.swordPower > 1) {
+                srcName = player1.swordPower + '3.png';
+                imgArray[3].src = 'Images/' + srcName;
+            }
+            if (player1.meteorPower > 1) {
+                srcName = player1.meteorPower + '4.png';
+                imgArray[4].src = 'Images/' + srcName;
+            }
+            if (player1.earthPower > 1) {
+                srcName = player1.earthPower + '5.png';
+                imgArray[5].src = 'Images/' + srcName;
+            }
+            if (player1.airPower > 1) {
+                srcName = player1.airPower + '6.png';
+                imgArray[6].src = 'Images/' + srcName;
+            }
+
+        }
+        adjustSpellsOnLoad();
+        
     }
-    
-    
-    
+      
 }
 
 function showVS() {
@@ -2529,13 +2619,15 @@ function gameReturn1() {
     selectedCup = 0;
 }
 function swapEnemyStatsView(lvl) {
-    
+    cupWon = localStorage.getItem('spellMatch_cupWon');
     var enemyNameNew = enemyStats["lvl" + lvl]['name'];
     var newImageLocation = "url('Images/Enemy/lvl" + lvl + ".png')";
     //console.log(enemyStats["lvl" + lvl]['name']);
     //console.log(enemyStats["lvl" + lvl]['health']);
     //console.log(enemyStats["lvl" + lvl]['defense']);
     //console.log(enemyStats["lvl" + lvl]['story']);
+    if (cupWon >= 1 && selectedCup == 1) { lvl = lvl + 13 };
+    if (cupWon == 2 && selectedCup == 2){ lvl = lvl + 27 };
 
     document.getElementById("enemyNameCenter").innerHTML = enemyNameNew;//enemyNameCenter
     document.getElementById("innerStat1").innerHTML = enemyStats["lvl" + lvl]['health'];
@@ -2558,13 +2650,17 @@ function swapEnemyStatsView(lvl) {
     }
     }
 
-    if (cupWon >= 1 && selectedCup == 1) { document.getElementById("r5-c2").style.backgroundImage = "url('Images/Enemy/lvl14.png')";}
+    if (cupWon == 1 && selectedCup == 1) { document.getElementById("r5-c2").style.backgroundImage = "url('Images/Enemy/lvl27.png')"; }
     if (cupWon == 2 && selectedCup == 3) {
-        document.getElementById("r5-c2").style.backgroundImage = "url('Images/Enemy/lvl14.png')";
-        document.getElementById("r5-c3").style.backgroundImage = "url('Images/Enemy/lvl15.png')";
+        document.getElementById("r5-c2").style.backgroundImage = "url('Images/Enemy/lvl27.png')";
+        document.getElementById("r5-c3").style.backgroundImage = "url('Images/Enemy/lvl42.png')";
     }
-    if (cupWon == 1 && lvl == 14 && selectedCup == 1) {
-        document.getElementById("r5-c2").style.backgroundImage = "url('Images/Enemy/lvl14.png')";
+    console.log("level at click " + lvl);
+    console.log("cup won " + cupWon);
+    console.log("selected cup " + selectedCup);
+    if (cupWon == 1 && lvl == 27 && selectedCup == 1) {
+        document.getElementById("centerTrophyMiddleLeft").style.backgroundImage = "url('Images/Enemy/lvl27.png')";
+        document.getElementById("r5-c2").style.backgroundImage = "url('Images/Enemy/lvl27.png')";
         document.getElementById("r5-c3").style.backgroundImage = "url('Images/buttons/goldLock.png')";
         document.getElementById("enemyNameCenter").innerHTML = enemyNameNew;                                                                        ////////Silver Cup
         document.getElementById("innerStat1").innerHTML = enemyStats["lvl" + lvl]['health'];
@@ -2573,9 +2669,10 @@ function swapEnemyStatsView(lvl) {
         document.getElementById("centerTrophyMiddleLeft").style.backgroundImage = newImageLocation;
 
     }
-    if (cupWon > 1 && lvl == 15 && selectedCup == 2) {
-        document.getElementById("r5-c3").style.backgroundImage = "url('Images/Enemy/lvl15.png')";
-        document.getElementById("enemyNameCenter").innerHTML = enemyNameNew;                                                                        ////////Silver Cup
+    if (cupWon > 1 && lvl == 42 && selectedCup == 2) {
+        document.getElementById("centerTrophyMiddleLeft").style.backgroundImage = "url('Images/Enemy/lvl42.png')";
+        document.getElementById("r5-c3").style.backgroundImage = "url('Images/Enemy/lvl42.png')";
+        document.getElementById("enemyNameCenter").innerHTML = enemyNameNew;                                                                        ////////Gold Cup
         document.getElementById("innerStat1").innerHTML = enemyStats["lvl" + lvl]['health'];
         document.getElementById("innerStat3").innerHTML = enemyStats["lvl" + lvl]['defense'];
         document.getElementById("innerStory").innerHTML = enemyStats["lvl" + lvl]['story'];
