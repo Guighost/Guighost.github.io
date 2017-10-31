@@ -2282,8 +2282,8 @@ window.onload = function () {
         if (gamestate == gamestates.levelUp) {
             playerLvlUp();
             plyrLvlUp = true;
-            skillPoints = skillPoints + 2;
-            heroBonus = heroBonus + 2;
+            skillPoints = skillPoints + 1;
+            heroBonus = heroBonus + 1;
             gamestate = gamestates.levelUpPlyr;            
             if (player1.playerLevel == 14) {
                 ///show bronze Trophy win
