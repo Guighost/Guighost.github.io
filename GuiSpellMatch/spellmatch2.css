@@ -60,7 +60,7 @@ img[src$=".gif"], img[src$=".png"] {
     font-family: 'Comic Sans MS';
     font-size: 28px;
     font-weight: bolder;
-    color: blueviolet;
+    color: darkgreen;
 }
 #btn2Text {
     position: absolute;

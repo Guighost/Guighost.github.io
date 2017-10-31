@@ -235,6 +235,12 @@ imgArray2[22].src = 'Images/HUD/powerInnerBar.png';
 imgArray2[23] = new Image();
 imgArray2[23].src = 'Images/HUD/bronzeTrophyWon.png';
 
+imgArray2[24] = new Image();
+imgArray2[24].src = 'Images/HUD/silverTrophyWon.png';
+
+imgArray2[25] = new Image();
+imgArray2[25].src = 'Images/HUD/goldTrophyWon.png';
+
 ////////////imgArray3
 var imgArray3 = new Array();
 
@@ -315,6 +321,113 @@ imgArray4[13].src = 'Images/Enemy/lvl14.png';
 
 imgArray4[14] = new Image();
 imgArray4[14].src = 'Images/Enemy/lvl15.png';
+
+imgArray4[15] = new Image();
+imgArray4[15].src = 'Images/Enemy/lvl16.png';
+
+imgArray4[16] = new Image();
+imgArray4[16].src = 'Images/Enemy/lvl17.png';
+
+imgArray4[17] = new Image();
+imgArray4[17].src = 'Images/Enemy/lvl18.png';
+
+imgArray4[18] = new Image();
+imgArray4[18].src = 'Images/Enemy/lvl19.png';
+
+imgArray4[19] = new Image();
+imgArray4[19].src = 'Images/Enemy/lvl20.png';
+
+imgArray4[20] = new Image();
+imgArray4[20].src = 'Images/Enemy/lvl21.png';
+
+
+imgArray4[21] = new Image();
+imgArray4[21].src = 'Images/Enemy/lvl22.png';
+
+imgArray4[22] = new Image();
+imgArray4[22].src = 'Images/Enemy/lvl23.png';
+
+imgArray4[23] = new Image();
+imgArray4[23].src = 'Images/Enemy/lvl24.png';
+
+imgArray4[24] = new Image();
+imgArray4[24].src = 'Images/Enemy/lvl25.png';
+
+imgArray4[25] = new Image();
+imgArray4[25].src = 'Images/Enemy/lvl26.png';
+
+imgArray4[26] = new Image();
+imgArray4[26].src = 'Images/Enemy/lvl27.png';
+
+
+imgArray4[27] = new Image();
+imgArray4[27].src = 'Images/Enemy/lvl28.png';
+
+imgArray4[28] = new Image();
+imgArray4[28].src = 'Images/Enemy/lvl29.png';
+
+imgArray4[29] = new Image();
+imgArray4[29].src = 'Images/Enemy/lvl30.png';
+
+
+
+imgArray4[30] = new Image();
+imgArray4[30].src = 'Images/Enemy/lvl31.png';
+
+imgArray4[31] = new Image();
+imgArray4[31].src = 'Images/Enemy/lvl32.png';
+
+imgArray4[32] = new Image();
+imgArray4[32].src = 'Images/Enemy/lvl33.png';
+
+imgArray4[33] = new Image();
+imgArray4[33].src = 'Images/Enemy/lvl34.png';
+
+imgArray4[34] = new Image();
+imgArray4[34].src = 'Images/Enemy/lvl35.png';
+
+imgArray4[35] = new Image();
+imgArray4[35].src = 'Images/Enemy/lvl36.png';
+
+imgArray4[36] = new Image();
+imgArray4[36].src = 'Images/Enemy/lvl37.png';
+
+
+imgArray4[37] = new Image();
+imgArray4[37].src = 'Images/Enemy/lvl38.png';
+
+imgArray4[38] = new Image();
+imgArray4[38].src = 'Images/Enemy/lvl39.png';
+
+imgArray4[39] = new Image();
+imgArray4[39].src = 'Images/Enemy/lvl40.png';
+
+
+imgArray4[40] = new Image();
+imgArray4[40].src = 'Images/Enemy/lvl41.png';
+
+
+imgArray4[41] = new Image();
+imgArray4[41].src = 'Images/Enemy/lvl42.png';
+
+imgArray4[42] = new Image();
+imgArray4[42].src = 'Images/Enemy/lvl43.png';
+
+imgArray4[43] = new Image();
+imgArray4[43].src = 'Images/Enemy/lvl44.png';
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1258,7 +1371,12 @@ window.onload = function () {
             if (player1.playerLevel == 14 ) {
                 context.drawImage(imgArray2[23], 6, 8);
             }
-
+            if (player1.playerLevel == 28) {
+                context.drawImage(imgArray2[24], 6, 8);
+            }
+            if (player1.playerLevel == 43) {
+                context.drawImage(imgArray2[25], 6, 8);
+            }
 
             context.drawImage(imgArray2[1], 170, 20); // level up back
             //context.drawImage(imgArray2[10], 150, 50); // star cash1
@@ -1336,10 +1454,8 @@ window.onload = function () {
         //context.fillText("Gui Match", 5, 20);
 
         //context.drawImage(imgArray2[6], 10, 142)
-        //draw level count
-        context.fillStyle = "blue";
-        context.font = "8px Comic Sans MS";
-        context.fillText("Level: " + levelCount, 236, level.y + 14);
+        
+  
         
         //context.fillText(levelCount, 12, level.y + 110);
 
@@ -1349,11 +1465,17 @@ window.onload = function () {
         context.drawImage(imgArray2[6], 175, -2);
         context.font = "14px Comic Sans MS";
         //context.fillText("GuiSpellMatch", 238, 20);
+        //draw level count
+        var levelCountNew = player1.playerLevel;
+        context.fillStyle = "blue";
+        context.font = "12px Comic Sans MS";
+        context.fillText("Level: ", 192, level.y - 8);
+        context.fillText(levelCountNew, 357, level.y - 8);
 
         //draw the bottom bar
         context.drawImage(imgArray2[19], 180, 282);
         context.fillStyle = "Red";
-        context.font = "12px Comic Sans MS";
+        context.font = "10px Comic Sans MS";
         context.fillText(player1.name.toUpperCase() + "  Vs.  " + enemy.name.toUpperCase(), 210, 305);
 
         //draw the left and right bars
@@ -2397,7 +2519,7 @@ window.onload = function () {
         document.getElementById('message').style.display = 'none';
         levelBump = 1;
         var levelAdjust = levelCount + 1;
-        console.log("level adjust" + levelAdjust);
+        //console.log("level adjust" + levelAdjust);
     
     }
     function playerLvlUp() {
