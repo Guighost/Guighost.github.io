@@ -1128,9 +1128,11 @@ window.onload = function () {
                                 enemy.damage = enemy.damage + damageThisTime;
                                 enemy.health = enemy.healthMax - enemy.damage;
 
-                                if (enemy.health < 50 && enemy.level < 3) {
-                                    enemy.health = enemy.health + (enemy.healthMax / 2);
-                                }
+
+                                ////////////////////////////////////////////////////future heal of enemy
+                                //if (enemy.health < 150 && enemy.level > 14) {
+                                //    enemy.health = enemy.health + (enemy.healthMax / 2);
+                                //}
 
 
                                 if (enemy.health <= 0) { levelUp(); };
@@ -1396,7 +1398,7 @@ window.onload = function () {
             drawCenterText(" +" + levelRating, 270, 130, 50);
             drawCenterText(starCash, 270, 159, 50);
             
-            drawCenterText(enemy.name + " defeated "  , 260, 192, 50);
+            drawCenterText(enemy.name + " loses "  , 260, 192, 50);
             context.font = "22px Comic Sans MS";
             drawCenterText("Next", level.x + 2, level.y + levelheight - 55, levelwidth);
             if (levelBump == 1) {
