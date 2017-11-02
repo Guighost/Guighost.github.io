@@ -28,3 +28,6 @@ section {
 #bubstorImg5  {
     transform: translateY(20px);
 }
+#guiSpellMatch {
+    transform: translate(40px, -100px);
+}

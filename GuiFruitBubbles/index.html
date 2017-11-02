@@ -18,639 +18,647 @@
 </head>
 <body>
  
-<img id ="players" src="Hud/together.png" alt="players" style="z-index: 75; margin-left: 30%;"> 
-<canvas id="viewport" width="628" height="628"></canvas>
+    
+        <img id="players" src="Hud/together.png" alt="players" style="z-index: 75; margin-left: 30%;">
+        <canvas id="viewport" width="628" height="628"></canvas>
 
-<!--Hidden Popups - Level Up-->
-<!-- <img id ="levelup1" src="Level_up_icon.png" alt="Level Up" style="width:304px;height:228px; z-index: 100;"> -->
-<img id ="starPop1"  class = "pops" src="Hud/stars1.png" alt="starPops" style="z-index: 100;">
-<!--Hidden Popups - Level Up Main Div-->
-<div id="levelUpBack" class="levelUpBG"><p id="lvlUpStarCash"></p> 
-	<table id="lvlUpTbl"> 
-		
-		<tr id="lvlUpr2" colspan="3">
-		<td colspan="3" id ="lvlImageTile"> 
-		<!-- <img id ="lvlUpAreaImg"  src="fruityForest.png" class ="clsCenterSelectImg" > -->
-		</td>
-		</tr>
-		<tr id="lvlUpr1" >
-		<td class="clsTDLvlUp"> <img id ="lvlStatus1"  src="Hud/redTrophy.png" class="selectSquare"> </td>
-		<td class="clsTDLvlUp"> <img id ="lvlStatus2"  src="Hud/xTrophy.png" class="selectSquare"> </td>
-		<td class="clsTDLvlUp"> <img id ="lvlStatus3"  src="Hud/xTrophy.png" class="selectSquare"> </td>
-		</tr>
-		<tr id="lvlUpr3" >
-		<td class="clsTDLvlUp"> <img id ="lvlStatus4"  src="Hud/xTrophy.png" class="selectSquare"> </td>
-		<td class="clsTDLvlUp"> <img id ="lvlStatus5"  src="Hud/xTrophy.png" class="selectSquare"> </td>
-		<td class="clsTDLvlUp"> <img id ="lvlStatus6"  src="Hud/bossTrophy.png" class="selectSquare"> </td>
-		</tr>
-	</table>
+        <!--Hidden Popups - Level Up-->
+        <!-- <img id ="levelup1" src="Level_up_icon.png" alt="Level Up" style="width:304px;height:228px; z-index: 100;"> -->
+        <img id="starPop1" class="pops" src="Hud/stars1.png" alt="starPops" style="z-index: 100;">
+        <!--Hidden Popups - Level Up Main Div-->
+        <div id="levelUpBack" class="levelUpBG">
+            <p id="lvlUpStarCash"></p>
+            <table id="lvlUpTbl">
 
- </div>
-<!--Hidden Popups-- Bonus-->
-<img id ="awesome" class = "pops" src="awesome2.gif" alt="awesome" style="width:206px;height:76px; z-index: 85;">
-<img id ="nice"  class = "pops"  src="nicemove.gif" alt="nicemove" style="width:250px;height:80px; z-index: 85;">
+                <tr id="lvlUpr2" colspan="3">
+                    <td colspan="3" id="lvlImageTile">
+                        <!-- <img id ="lvlUpAreaImg"  src="fruityForest.png" class ="clsCenterSelectImg" > -->
+                    </td>
+                </tr>
+                <tr id="lvlUpr1">
+                    <td class="clsTDLvlUp"> <img id="lvlStatus1" src="Hud/redTrophy.png" class="selectSquare"> </td>
+                    <td class="clsTDLvlUp"> <img id="lvlStatus2" src="Hud/xTrophy.png" class="selectSquare"> </td>
+                    <td class="clsTDLvlUp"> <img id="lvlStatus3" src="Hud/xTrophy.png" class="selectSquare"> </td>
+                </tr>
+                <tr id="lvlUpr3">
+                    <td class="clsTDLvlUp"> <img id="lvlStatus4" src="Hud/xTrophy.png" class="selectSquare"> </td>
+                    <td class="clsTDLvlUp"> <img id="lvlStatus5" src="Hud/xTrophy.png" class="selectSquare"> </td>
+                    <td class="clsTDLvlUp"> <img id="lvlStatus6" src="Hud/bossTrophy.png" class="selectSquare"> </td>
+                </tr>
+            </table>
 
-<div id="warp"><img id ="warpImage" src="Hud/purpleburst.gif" style="z-index: 10000;"></div>
-<!--Hidden Popups-- Special Power Effects-->
-<!-- <img id ="shockingBlast" class = "clsSpecialPowers lightning" src="Effects/LightningSprite.png" alt="shocking" style=" z-index: 85;"> -->
-<img id ="icyBlast" class = "clsSpecialPowers" src="Effects/icyBlast.gif" alt="icyBlast" style="width:356px;height:272px; z-index: 85;">
-<img id ="icyBlastBack" class = "clsSpecialBacks" src="Effects/snow.gif" alt="icyBack" style="width:100%;height: 100%; z-index: 2085;">
-<img id ="lightningFullBack" class = "clsSpecialBacks" src="Effects/lightningEffect.gif" alt="icyBack" style="width:100%;height: 100%; z-index: 2085;">
-<!--Hidden Popups-- Special Powers Select menu-->
-<div id ="selectPowerMove" >
-	<a id="specialClose" onclick='hideSpecialSelect()' class = "closebtns"> X </a>
-	<p id="specialstarCash" > HERE I </p>
-	<!-- Power Move 1 - Icy Blast-->
-	<div id="power-1" class ="clsSpecialSelect">
-	<a id = "getIcy" class= "getmore"><img id="buyIcy" onclick='buyIcySpecial()' class ="clsBuyTag" src="Effects/starCash15.png" /> </a>
-		 <p id = "pwr1Txt2" class = "clspowerTxt"> 5</p>
-		<img id ="pwr1Img" class = "clspowerImage" onclick='activateIcy()' src="Effects/icyBlast.gif" alt="pwrImg1" style="width:100px;height:80px; z-index: 85; float: left;">
-		 <p class="activate" id="icyAct" onclick='activateIcy()'> Activate</p>
-		</div>
-	<div id="power-2" class ="clsSpecialSelect">
-	<a id = "getLightning" class= "getmore"><img id="buyLightning" onclick='buyShockSpecial()' class ="clsBuyTag" src="Effects/starCash15.png" /> </a>
-		 <p id = "pwr2Txt2" class = "clspowerTxt"> 0</p>
-		 <div id ="pwr2Img" class = "lightning" ></div>
-		 <p class="activate" onclick='activateShock()'> Activate</p>
-		<!-- <img id ="pwr2Img" class = "clspowerImage" onclick='lightningTiming()' src="Effects/lightningBallSprite.png" alt="pwrImg2" style="width:100px;height:80px; z-index: 85; float: left;"> -->
-	</div>
+        </div>
+        <!--Hidden Popups-- Bonus-->
+        <img id="awesome" class="pops" src="awesome2.gif" alt="awesome" style="width:206px;height:76px; z-index: 85;">
+        <img id="nice" class="pops" src="nicemove.gif" alt="nicemove" style="width:250px;height:80px; z-index: 85;">
 
-	</div>
-	
-<!--HotStreak Popups-->
-<img id ="hotstreak"    src="hotstreak.gif" alt="hotstreak" style="z-index: 85;"> 
-<div id="hotstreakTotal" class= "clsHotOut" > <p id="hotstreakScore"> 1000</p> </div>
+        <div id="warp"><img id="warpImage" src="Hud/purpleburst.gif" style="z-index: 10000;"></div>
+        <!--Hidden Popups-- Special Power Effects-->
+        <!-- <img id ="shockingBlast" class = "clsSpecialPowers lightning" src="Effects/LightningSprite.png" alt="shocking" style=" z-index: 85;"> -->
+        <img id="icyBlast" class="clsSpecialPowers" src="Effects/icyBlast.gif" alt="icyBlast" style="width:356px;height:272px; z-index: 85;">
+        <img id="icyBlastBack" class="clsSpecialBacks" src="Effects/snow.gif" alt="icyBack" style="width:100%;height: 100%; z-index: 2085;">
+        <img id="lightningFullBack" class="clsSpecialBacks" src="Effects/lightningEffect.gif" alt="icyBack" style="width:100%;height: 100%; z-index: 2085;">
+        <!--Hidden Popups-- Special Powers Select menu-->
+        <div id="selectPowerMove">
+            <a id="specialClose" onclick='hideSpecialSelect()' class="closebtns"> X </a>
+            <p id="specialstarCash"> HERE I </p>
+            <!-- Power Move 1 - Icy Blast-->
+            <div id="power-1" class="clsSpecialSelect">
+                <a id="getIcy" class="getmore"><img id="buyIcy" onclick='buyIcySpecial()' class="clsBuyTag" src="Effects/starCash15.png" /> </a>
+                <p id="pwr1Txt2" class="clspowerTxt"> 5</p>
+                <img id="pwr1Img" class="clspowerImage" onclick='activateIcy()' src="Effects/icyBlast.gif" alt="pwrImg1" style="width:100px;height:80px; z-index: 85; float: left;">
+                <p class="activate" id="icyAct" onclick='activateIcy()'> Activate</p>
+            </div>
+            <div id="power-2" class="clsSpecialSelect">
+                <a id="getLightning" class="getmore"><img id="buyLightning" onclick='buyShockSpecial()' class="clsBuyTag" src="Effects/starCash15.png" /> </a>
+                <p id="pwr2Txt2" class="clspowerTxt"> 0</p>
+                <div id="pwr2Img" class="lightning"></div>
+                <p class="activate" onclick='activateShock()'> Activate</p>
+                <!-- <img id ="pwr2Img" class = "clspowerImage" onclick='lightningTiming()' src="Effects/lightningBallSprite.png" alt="pwrImg2" style="width:100px;height:80px; z-index: 85; float: left;"> -->
+            </div>
 
-<!-- intro div -->
-<div id ="intro">
-<img id ="fruitylogo" class = "introdiv" src="bubbleStory.gif">
-<a href ="#" id ="playGame" onclick='hideIntro()' class="clsIntroBtn" >New Game</a>
-<a href ="#" id ="loadSaved" onclick='loadSavedLevel()' class="clsIntroBtn">Load Saved</a>
-<a href ="#" id ="levelSelect" onclick='loadLevelSelect()' class="clsIntroBtn">Level Select</a>
-<a href ="../index.html" id ="toMatch" >More Games</a>
-</div>
+        </div>
 
-<!-- Save and Quit Menu -->
-<div id ="saveAndLoad">
-<a href="#" id ="saveClose" class = "closebtns" onclick='closeSave()'>X</a>
-<!-- <img id ="saveImage" src="saveAndQuit.png" alt="saveimage" onclick='saveLevelAndScore()'> -->
-<table id="menuTable"> 
-<tr> <td> <a href ="#" id ="saveScore" class = "savebtns" onclick='saveLevelAndScore()'> Save & Quit</a>  </td></tr>
-<tr> <td> <a href ="#" id ="saveScoreNoQuit" class = "savebtns" onclick='Quit()'> Quit w/o Save</a> </td> </tr>
-<tr> <td> <a href ="#" id ="clearStats" class = "savebtns" onclick='loadLevelSelect()'> Level Select</a> </td> </tr>
-<tr> <td> <a href ="#" id ="clearStats" class = "savebtns" onclick='clearStats1()'> Clear Save Data</a> </td> </tr>
+        <!--HotStreak Popups-->
+        <img id="hotstreak" src="hotstreak.gif" alt="hotstreak" style="z-index: 85;">
+        <div id="hotstreakTotal" class="clsHotOut"> <p id="hotstreakScore"> 1000</p> </div>
 
- 
-</table>
+        <!-- intro div -->
+        <div id="intro">
+            <img id="fruitylogo" class="introdiv" src="bubbleStory.gif">
+            <a href="#" id="playGame" onclick='hideIntro()' class="clsIntroBtn">New Game</a>
+            <a href="#" id="loadSaved" onclick='loadSavedLevel()' class="clsIntroBtn">Load Saved</a>
+            <a href="#" id="levelSelect" onclick='loadLevelSelect()' class="clsIntroBtn">Level Select</a>
+            <a href="../index.html" id="toMatch">More Games</a>
+        </div>
 
-</div>
-<!-- MAP div -->
-<div id ="mapDiv">
-<!-- <a href="#" id ="mapClose" class = "closebtns2" onclick='closeMap()'><b>Close Map</b></a> -->
-<p id ="story"> <b>Gui Bubble Story - </b> Zone 1</p>
+        <!-- Save and Quit Menu -->
+        <div id="saveAndLoad">
+            <a href="#" id="saveClose" class="closebtns" onclick='closeSave()'>X</a>
+            <!-- <img id ="saveImage" src="saveAndQuit.png" alt="saveimage" onclick='saveLevelAndScore()'> -->
+            <table id="menuTable">
+                <tr> <td> <a href="#" id="saveScore" class="savebtns" onclick='saveLevelAndScore()'> Save & Quit</a>  </td></tr>
+                <tr> <td> <a href="#" id="saveScoreNoQuit" class="savebtns" onclick='Quit()'> Quit w/o Save</a> </td> </tr>
+                <tr> <td> <a href="#" id="clearStats" class="savebtns" onclick='loadLevelSelect()'> Level Select</a> </td> </tr>
+                <tr> <td> <a href="#" id="clearStats" class="savebtns" onclick='clearStats1()'> Clear Save Data</a> </td> </tr>
 
-<img id ="mapImg"  src="Maps/mapForest.png" onclick='closeMap()'>
 
-</div>
+            </table>
 
-<!-- Level Select Div -->
-<div id="lvlSelectParent"  width="628" height="628">
- <div id="footDiv">
- <table id="footer">
- <tr colspan ="3" >
- <td id="leftspot" width="70px";> <img class="selectZone1" name = "leftarrow" src="leftarrow.png" onclick='clickLeft()' > </td>
-	<td width="130px"><a id ="lvlSelectFoot1"></a></td>
-	<td width="70px";><img class="selectZone2" src="rightarrow.png" onclick='clickRight()'> </td>
- </tr>
- </table>
- </div>
-<div id="grid1" class="clsCenterSelectGrid">
- <table id ="selectGrid" > 
- <tr colspan="3"> <td colspan="3" class = "clsTblTitle clsSelectText">Collect the Fruit!</td> </tr>
- 
-<tr id= "areaImg" class = "clsTblTitle" colspan="3"> 
-<td colspan="3" ><img id ="mapImg2"  src="fruityForest.png" class ="clsCenterSelectImg" ></td>
- </tr>
-<!--levels 1 - 6 -->
-<tr id="stars1-1" colspan="3" class ="allRow">
-	<td ><img id="starImg1" class="starImg" src="stars0.png"> </td>
-	<td ><img id="starImg2" class="starImg" src="stars0.png">  </td>
-	<td ><img id="starImg3" class="starImg" src="stars0.png"> </td>
- </tr>
- <tr id ="" class ="allRow">
-	<td ><a class="clsLvlNums" id="sel-1">1</a><img id="smg-1"  class="selectSquare" src="green.png"> </td>
-	<td ><a class="clsLvlNums" id="sel-2">2</a><img id="smg-2" class="selectSquare" src="green.png">  </td>
-	<td ><a class="clsLvlNums" id="sel-3">3</a><img id="smg-3" class="selectSquare" src="green.png"> </td>
- </tr>
- <tr id="stars1-2"colspan="3" class ="allRow">
-	<td ><img id="starImg4" class="starImg" src="stars0.png"> </td>
-	<td ><img id="starImg5" class="starImg" src="stars0.png">  </td>
-	<td ><img id="starImg6" class="starImg" src="stars0.png"> </td>
- </tr>
- <tr id ="" class ="allRow">
-	<td ><a class="clsLvlNums" id="sel-4">4</a><img id="smg-4" class="selectSquare" src="green.png"> </td>
-	<td ><a class="clsLvlNums" id="sel-5">5</a><img id="smg-5" class="selectSquare" src="green.png">  </td>
-	<td ><a class="clsLvlNums" id="sel-6">6</a><img id="smg-6" class="selectSquare" src="green.png"> </td>
- </tr>
- <tr colspan="3" class ="allRow"> </tr>
- <tr colspan="3" id="switch1"> 
+        </div>
+        <!-- MAP div -->
+        <div id="mapDiv">
+            <!-- <a href="#" id ="mapClose" class = "closebtns2" onclick='closeMap()'><b>Close Map</b></a> -->
+            <p id="story"> <b>Gui Bubble Story - </b> Zone 1</p>
 
- </table>
- </div>
- <div id ="grid2" class="clsCenterSelectGrid">
+            <img id="mapImg" src="Maps/mapForest.png" onclick='closeMap()'>
 
- <table id ="selectGrid2" > 
-  <tr colspan="3"> <td colspan="3" class = "clsTblTitle clsSelectText">Yummy Candies & Tasty Treats!</td> </tr>
- <tr id= "areaImg2" class = "clsTblTitle" colspan="3"> 
-<td colspan="3" ><img id ="mapImg3"  src="candyTownm.png" class ="clsCenterSelectImg" ></td>
- </tr>
-<!--levels 7 - 12 -->
-<tr id="stars2-1" colspan="3" class ="allRow">
-	<td ><img id="starImg7" class="starImg" src="stars0.png"> </td>
-	<td ><img id="starImg8" class="starImg" src="stars0.png">  </td>
-	<td ><img id="starImg9" class="starImg" src="stars0.png"> </td>
- </tr>
- <tr id ="" class ="allRow">
-	<td ><a class="clsLvlNums" id="sel-7">7</a><img id="smg-7" class="selectSquare" src="red.png"></td>
-	<td ><a class="clsLvlNums" id="sel-8">8</a><img id="smg-8" class="selectSquare" src="red.png"></td>
-	<td ><a class="clsLvlNums" id="sel-9">9</a><img id="smg-9" class="selectSquare" src="red.png"></td>
- </tr>
- <tr id="stars2-2" colspan="3" class ="allRow">
-	<td ><img id="starImg10" class="starImg" src="stars0.png"> </td>
-	<td ><img id="starImg11" class="starImg" src="stars0.png">  </td>
-	<td ><img id="starImg12" class="starImg" src="stars0.png"> </td>
- </tr>
-	<tr id ="" class ="allRow">
-	<td ><a class="clsLvlNums2" id="sel-10">10</a><img id="smg-10" class="selectSquare" src="red.png"></td>
-	<td ><a class="clsLvlNums2" id="sel-11">11</a><img id="smg-11" class="selectSquare" src="red.png"></td>
-	<td ><a class="clsLvlNums2" id="sel-12">12</a><img id="smg-12" class="selectSquare" src="red.png"></td>
- </tr>
-  <tr colspan="3" class ="allRow"> </tr>
+        </div>
 
-  </table>
- </div>
- <div id="grid3" class="clsCenterSelectGrid">
- <table id ="selectGrid3" > 
- <tr colspan="3"> <td colspan="3" class = "clsTblTitle clsSelectText">Spooky Ghosts!</td> </tr>
- <tr id= "areaImg3" class = "clsTblTitle" colspan="3"> 
-<td colspan="3" ><img id ="mapImg4"  src="graveBadge.png" class ="clsCenterSelectImg" ></td>
- </tr>
- <!--levels 13 - 18 -->
- <tr id="stars3-1" colspan="3" class ="allRow">
-	<td ><img id="starImg13" class="starImg" src="stars0.png"> </td>
-	<td ><img id="starImg14" class="starImg" src="stars0.png">  </td>
-	<td ><img id="starImg15" class="starImg" src="stars0.png"> </td>
- </tr>
-	<tr id ="" class ="allRow">
-	<td ><a class="clsLvlNums2" id="sel-13">13</a><img id="smg-13" class="selectSquare" src="grey.png"></td>
-	<td ><a class="clsLvlNums2" id="sel-14">14</a><img id="smg-14" class="selectSquare" src="grey.png"></td>
-	<td ><a class="clsLvlNums2" id="sel-15">15</a><img id="smg-15" class="selectSquare" src="grey.png"></td>
- </tr>
- <tr id="stars3-2" colspan="3" class ="allRow">
-	<td ><img id="starImg16" class="starImg" src="stars0.png"> </td>
-	<td ><img id="starImg17" class="starImg" src="stars0.png">  </td>
-	<td ><img id="starImg18" class="starImg" src="stars0.png"> </td>
- </tr>
-   <tr id ="" class ="allRow">
-	<td ><a class="clsLvlNums2" id="sel-16">16</a><img id="smg-16" class="selectSquare" src="grey.png"></td>
-	<td ><a class="clsLvlNums2" id="sel-17">17</a><img id="smg-17" class="selectSquare" src="grey.png"></td>
-	<td ><a class="clsLvlNums2" id="sel-18">18</a><img id="smg-18" class="selectSquare" src="grey.png"></td>
- </tr>
-  <tr colspan="3" class ="allRow"> </tr>
+        <!-- Level Select Div -->
+        <div id="lvlSelectParent" width="628" height="628">
+            <div id="footDiv">
+                <table id="footer">
+                    <tr colspan="3">
+                        <td id="leftspot" width="70px" ;> <img class="selectZone1" name="leftarrow" src="leftarrow.png" onclick='clickLeft()'> </td>
+                        <td width="130px"><a id="lvlSelectFoot1"></a></td>
+                        <td width="70px" ;><img class="selectZone2" src="rightarrow.png" onclick='clickRight()'> </td>
+                    </tr>
+                </table>
+            </div>
+            <div id="grid1" class="clsCenterSelectGrid">
+                <table id="selectGrid">
+                    <tr colspan="3"> <td colspan="3" class="clsTblTitle clsSelectText">Collect the Fruit!</td> </tr>
 
-  </table>
- </div>
- <div id="grid4" class="clsCenterSelectGrid">
- <table id ="selectGrid4" > 
- <tr colspan="3"> <td colspan="3" class = "clsTblTitle clsSelectText">Blast off to space!</td> </tr>
- <tr id= "areaImg4" class = "clsTblTitle" colspan="3"> 
-<td colspan="3" ><img id ="mapImg5"  src="crazyCosmos.png" class ="clsCenterSelectImg" ></td>
- </tr>
-  <!--levels 19 - 24 -->
-  <tr id="stars4-1" colspan="3" class ="allRow">
-	<td ><img id="starImg19" class="starImg" src="stars0.png"> </td>
-	<td ><img id="starImg20" class="starImg" src="stars0.png">  </td>
-	<td ><img id="starImg21" class="starImg" src="stars0.png"> </td>
- </tr>
-   <tr id ="" class ="allRow">
-	<td ><a class="clsLvlNums2" id="sel-19">19</a><img id="smg-19" class="selectSquare" src="aqua.png"> </td> 
-	<td ><a class="clsLvlNums2" id="sel-20">20</a><img id="smg-20" class="selectSquare" src="aqua.png"> </td> 
-	<td ><a class="clsLvlNums2" id="sel-21">21</a><img id="smg-21" class="selectSquare" src="aqua.png"> </td>  
- </tr> 
- <tr id="stars4-2" colspan="3" class ="allRow">
-	<td ><img id="starImg22" class="starImg" src="stars0.png"> </td>
-	<td ><img id="starImg23" class="starImg" src="stars0.png">  </td>
-	<td ><img id="starImg24" class="starImg" src="stars0.png"> </td>
- </tr>
-    <tr id ="" class ="allRow">
-	<td ><a class="clsLvlNums2" id="sel-22">22</a><img id="smg-22" class="selectSquare" src="aqua.png"> </td> 
-	<td ><a class="clsLvlNums2" id="sel-23">23</a><img id="smg-23" class="selectSquare" src="aqua.png"> </td> 
-	<td ><a class="clsLvlNums2" id="sel-24">24</a><img id="smg-24" class="selectSquare" src="aqua.png"> </td> 
- </tr>
-  <tr colspan="3" class ="allRow"> </tr>
+                    <tr id="areaImg" class="clsTblTitle" colspan="3">
+                        <td colspan="3"><img id="mapImg2" src="fruityForest.png" class="clsCenterSelectImg"></td>
+                    </tr>
+                    <!--levels 1 - 6 -->
+                    <tr id="stars1-1" colspan="3" class="allRow">
+                        <td><img id="starImg1" class="starImg" src="stars0.png"> </td>
+                        <td><img id="starImg2" class="starImg" src="stars0.png">  </td>
+                        <td><img id="starImg3" class="starImg" src="stars0.png"> </td>
+                    </tr>
+                    <tr id="" class="allRow">
+                        <td><a class="clsLvlNums" id="sel-1">1</a><img id="smg-1" class="selectSquare" src="green.png"> </td>
+                        <td><a class="clsLvlNums" id="sel-2">2</a><img id="smg-2" class="selectSquare" src="green.png">  </td>
+                        <td><a class="clsLvlNums" id="sel-3">3</a><img id="smg-3" class="selectSquare" src="green.png"> </td>
+                    </tr>
+                    <tr id="stars1-2" colspan="3" class="allRow">
+                        <td><img id="starImg4" class="starImg" src="stars0.png"> </td>
+                        <td><img id="starImg5" class="starImg" src="stars0.png">  </td>
+                        <td><img id="starImg6" class="starImg" src="stars0.png"> </td>
+                    </tr>
+                    <tr id="" class="allRow">
+                        <td><a class="clsLvlNums" id="sel-4">4</a><img id="smg-4" class="selectSquare" src="green.png"> </td>
+                        <td><a class="clsLvlNums" id="sel-5">5</a><img id="smg-5" class="selectSquare" src="green.png">  </td>
+                        <td><a class="clsLvlNums" id="sel-6">6</a><img id="smg-6" class="selectSquare" src="green.png"> </td>
+                    </tr>
+                    <tr colspan="3" class="allRow"> </tr>
+                    <tr colspan="3" id="switch1">
 
-  </table>
- </div>
-  <div id="grid5" class="clsCenterSelectGrid">
- <table id ="selectGrid5" > 
- <tr colspan="3"> <td colspan="3" class = "clsTblTitle clsSelectText">Fiesty Fish, Crabby Crabs!</td> </tr>
- <tr id= "areaImg5" class = "clsTblTitle" colspan="3"> 
-<td colspan="3" ><img id ="mapImg6"  src="oceanWorld.png" class ="clsCenterSelectImg" ></td>
- </tr>
-  <!-- levels 25 - 31 -->
-  <tr id="stars5-1" colspan="3" class ="allRow">
-	<td ><img id="starImg25" class="starImg" src="stars0.png"> </td>
-	<td ><img id="starImg26" class="starImg" src="stars0.png">  </td>
-	<td ><img id="starImg27" class="starImg" src="stars0.png"> </td>
- </tr>
- <tr id ="" class ="allRow">
-	<td ><a class="clsLvlNums2" id="sel-25">25</a><img id="smg-25" class="selectSquare" src="blue.png"> </td>
-	<td ><a class="clsLvlNums2" id="sel-26">26</a><img id="smg-26" class="selectSquare" src="blue.png"> </td>
-	<td ><a class="clsLvlNums2" id="sel-27">27</a><img id="smg-27" class="selectSquare" src="blue.png"> </td>
- </tr>
- <tr id="stars5-2" colspan="3" class ="allRow">
-	<td ><img id="starImg28" class="starImg" src="stars0.png"> </td>
-	<td ><img id="starImg29" class="starImg" src="stars0.png">  </td>
-	<td ><img id="starImg30" class="starImg" src="stars0.png"> </td>
- </tr>
-   <tr id ="" class ="allRow">
-	<td ><a class="clsLvlNums2" id="sel-28">28</a><img id="smg-28" class="selectSquare" src="blue.png"> </td>
-	<td ><a class="clsLvlNums2" id="sel-29">29</a><img id="smg-29" class="selectSquare" src="blue.png"> </td>
-	<td ><a class="clsLvlNums2" id="sel-30">30</a><img id="smg-30" class="selectSquare" src="blue.png"> </td>
- </tr>
- <tr colspan="3" class ="allRow"> </tr>
- </table>
- </div>
- 
-  <!-- levels 31 - 36 -->
-  <div id="grid6" class="clsCenterSelectGrid">
- <table id ="selectGrid6" > 
- <tr colspan="3"> <td colspan="3" class = "clsTblTitle clsSelectText">Destroy the Aliens and Meteors!</td> </tr>
- <tr id= "areaImg6" class = "clsTblTitle" colspan="3"> 
-<td colspan="3" ><img id ="mapImg7"  src="spaceshipStorm.png" class ="clsCenterSelectImg" ></td>
- </tr>
- 
- <tr id="stars6-1" colspan="3" class ="allRow">
-	<td ><img id="starImg31" class="starImg" src="stars0.png"> </td>
-	<td ><img id="starImg32" class="starImg" src="stars0.png">  </td>
-	<td ><img id="starImg33" class="starImg" src="stars0.png"> </td>
- </tr>
- <tr id ="" class ="allRow">
-	<td ><a class="clsLvlNums2" id="sel-31">31</a><img id="smg-31" class="selectSquare" src="green.png"> </td>
-	<td ><a class="clsLvlNums2" id="sel-32">32</a><img id="smg-32" class="selectSquare" src="green.png"> </td>
-	<td ><a class="clsLvlNums2" id="sel-33">33</a><img id="smg-33" class="selectSquare" src="green.png"> </td>
- </tr>
- <tr id="stars6-2" colspan="3" class ="allRow">
-	<td ><img id="starImg34" class="starImg" src="stars0.png"> </td>
-	<td ><img id="starImg35" class="starImg" src="stars0.png">  </td>
-	<td ><img id="starImg36" class="starImg" src="stars0.png"> </td>
- </tr>
-   <tr id ="" class ="allRow">
-	<td ><a class="clsLvlNums2" id="sel-34">34</a><img id="smg-34" class="selectSquare" src="green.png"> </td>
-	<td ><a class="clsLvlNums2" id="sel-35">35</a><img id="smg-35" class="selectSquare" src="green.png"> </td>
-	<td ><a class="clsLvlNums2" id="sel-36">36</a><img id="smg-36" class="selectSquare" src="green.png"> </td>
- </tr>
- <tr colspan="3" class ="allRow"> </tr>
- </table>
- </div>
- 
- <!-- levels 37 - 42 -->
-   <div id="grid7" class="clsCenterSelectGrid">
- <table id ="selectGrid7" > 
- <tr colspan="3"> <td colspan="3" class = "clsTblTitle clsSelectText">Planet of the Gummies!</td> </tr>
- <tr id= "areaImg7" class = "clsTblTitle" colspan="3"> 
-<td colspan="3" ><img id ="mapImg8"  src="gummyPlanet.png" class ="clsCenterSelectImg" ></td>
- </tr>
-  
- <tr id="stars7-1" colspan="3" class ="allRow">
-	<td ><img id="starImg37" class="starImg" src="stars0.png"> </td>
-	<td ><img id="starImg38" class="starImg" src="stars0.png">  </td>
-	<td ><img id="starImg39" class="starImg" src="stars0.png"> </td>
- </tr>
- <tr id ="" class ="allRow">
-	<td ><a class="clsLvlNums2" id="sel-37">37</a><img id="smg-37" class="selectSquare" src="red.png"> </td>
-	<td ><a class="clsLvlNums2" id="sel-38">38</a><img id="smg-38" class="selectSquare" src="red.png"> </td>
-	<td ><a class="clsLvlNums2" id="sel-39">39</a><img id="smg-39" class="selectSquare" src="red.png"> </td>
- </tr>
- <tr id="7-2" colspan="3" class ="allRow">
-	<td ><img id="starImg40" class="starImg" src="stars0.png"> </td>
-	<td ><img id="starImg41" class="starImg" src="stars0.png">  </td>
-	<td ><img id="starImg42" class="starImg" src="stars0.png"> </td>
- </tr>
-   <tr id ="" class ="allRow">
-	<td ><a class="clsLvlNums2" id="sel-40">40</a><img id="smg-40" class="selectSquare" src="red.png"> </td>
-	<td ><a class="clsLvlNums2" id="sel-41">41</a><img id="smg-41" class="selectSquare" src="red.png"> </td>
-	<td ><a class="clsLvlNums2" id="sel-42">42</a><img id="smg-42" class="selectSquare" src="red.png"> </td>
- </tr>
- <tr colspan="3" class ="allRow"> </tr>
- </table>
- </div>
- 
-  <!-- levels 43 - 48 -->
-   <div id="grid8" class="clsCenterSelectGrid">
- <table id ="selectGrid8" > 
- <tr colspan="3"> <td colspan="3" class = "clsTblTitle clsSelectText">More Gummies, More Fun!</td> </tr>
- <tr id= "areaImg8" class = "clsTblTitle" colspan="3"> 
-<td colspan="3" ><img id ="mapImg9"  src="gummyCastle.png" class ="clsCenterSelectImg" ></td>
- </tr>
-  
- <tr id="stars8-1" colspan="3" class ="allRow">
-	<td ><img id="starImg43" class="starImg" src="stars0.png"> </td>
-	<td ><img id="starImg44" class="starImg" src="stars0.png">  </td>
-	<td ><img id="starImg45" class="starImg" src="stars0.png"> </td>
- </tr>
- <tr id ="" class ="allRow">
-	<td ><a class="clsLvlNums2" id="sel-43">43</a><img id="smg-43" class="selectSquare" src="grey.png"> </td>
-	<td ><a class="clsLvlNums2" id="sel-44">44</a><img id="smg-44" class="selectSquare" src="grey.png"> </td>
-	<td ><a class="clsLvlNums2" id="sel-45">45</a><img id="smg-45" class="selectSquare" src="grey.png"> </td>
- </tr>
- <tr id="stars8-2" colspan="3" class ="allRow">
-	<td ><img id="starImg46" class="starImg" src="stars0.png"> </td>
-	<td ><img id="starImg47" class="starImg" src="stars0.png">  </td>
-	<td ><img id="starImg48" class="starImg" src="stars0.png"> </td>
- </tr>
-   <tr id ="" class ="allRow">
-	<td ><a class="clsLvlNums2" id="sel-46">46</a><img id="smg-46" class="selectSquare" src="grey.png"> </td>
-	<td ><a class="clsLvlNums2" id="sel-47">47</a><img id="smg-47" class="selectSquare" src="grey.png"> </td>
-	<td ><a class="clsLvlNums2" id="sel-48">48</a><img id="smg-48" class="selectSquare" src="grey.png"> </td>
- </tr>
- <tr colspan="3" class ="allRow"> </tr>
- </table>
- </div>
- 
-   <!-- levels 49 - 54 -->
-   <div id="grid9" class="clsCenterSelectGrid">
- <table id ="selectGrid9" > 
- <tr colspan="3"> <td colspan="3" class = "clsTblTitle clsSelectText">Hot Bubbles of Lava Steam!</td> </tr>
- <tr id= "areaImg9" class = "clsTblTitle" colspan="3"> 
-<td colspan="3" ><img id ="mapImg10"  src="lavaCaverns.png" class ="clsCenterSelectImg" ></td>
- </tr>
-  
- <tr id="stars9-1" colspan="3" class ="allRow">
-	<td ><img id="starImg49" class="starImg" src="stars0.png"> </td>
-	<td ><img id="starImg50" class="starImg" src="stars0.png">  </td>
-	<td ><img id="starImg51" class="starImg" src="stars0.png"> </td>
- </tr>
- <tr id ="" class ="allRow">
-	<td ><a class="clsLvlNums2" id="sel-49">49</a><img id="smg-49" class="selectSquare" src="aqua.png"> </td>
-	<td ><a class="clsLvlNums2" id="sel-50">50</a><img id="smg-50" class="selectSquare" src="aqua.png"> </td>
-	<td ><a class="clsLvlNums2" id="sel-51">51</a><img id="smg-51" class="selectSquare" src="aqua.png"> </td>
- </tr>
- <tr id="stars9-2" colspan="3" class ="allRow">
-	<td ><img id="starImg52" class="starImg" src="stars0.png"> </td>
-	<td ><img id="starImg53" class="starImg" src="stars0.png">  </td>
-	<td ><img id="starImg54" class="starImg" src="stars0.png"> </td>
- </tr>
-   <tr id ="" class ="allRow">
-	<td ><a class="clsLvlNums2" id="sel-52">52</a><img id="smg-52" class="selectSquare" src="aqua.png"> </td>
-	<td ><a class="clsLvlNums2" id="sel-53">53</a><img id="smg-53" class="selectSquare" src="aqua.png"> </td>
-	<td ><a class="clsLvlNums2" id="sel-54">54</a><img id="smg-54" class="selectSquare" src="aqua.png"> </td>
- </tr>
- <tr colspan="3" class ="allRow"> </tr>
- </table>
- </div>
- 
-    <!-- levels 55 - 60 -->
-   <div id="grid10" class="clsCenterSelectGrid">
- <table id ="selectGrid10" > 
- <tr colspan="3"> <td colspan="3" class = "clsTblTitle clsSelectText">Watch out - Spells are Flying!</td> </tr>
- <tr id= "areaImg10" class = "clsTblTitle" colspan="3"> 
-<td colspan="3" ><img id ="mapImg11"  src="wizardWorld.png" class ="clsCenterSelectImg" ></td>
- </tr>
-  
- <tr id="stars10-1" colspan="3" class ="allRow">
-	<td ><img id="starImg55" class="starImg" src="stars0.png"> </td>
-	<td ><img id="starImg56" class="starImg" src="stars0.png">  </td>
-	<td ><img id="starImg57" class="starImg" src="stars0.png"> </td>
- </tr>
- <tr id ="" class ="allRow">
-	<td ><a class="clsLvlNums2" id="sel-55">55</a><img id="smg-55" class="selectSquare" src="blue.png"> </td>
-	<td ><a class="clsLvlNums2" id="sel-56">56</a><img id="smg-56" class="selectSquare" src="blue.png"> </td>
-	<td ><a class="clsLvlNums2" id="sel-57">57</a><img id="smg-57" class="selectSquare" src="blue.png"> </td>
- </tr>
- <tr id="stars10-2" colspan="3" class ="allRow">
-	<td ><img id="starImg58" class="starImg" src="stars0.png"> </td>
-	<td ><img id="starImg59" class="starImg" src="stars0.png">  </td>
-	<td ><img id="starImg60" class="starImg" src="stars0.png"> </td>
- </tr>
-   <tr id ="" class ="allRow">
-	<td ><a class="clsLvlNums2" id="sel-58">58</a><img id="smg-58" class="selectSquare" src="blue.png"> </td>
-	<td ><a class="clsLvlNums2" id="sel-59">59</a><img id="smg-59" class="selectSquare" src="blue.png"> </td>
-	<td ><a class="clsLvlNums2" id="sel-60">60</a><img id="smg-60" class="selectSquare" src="blue.png"> </td>
- </tr>
- <tr colspan="3" class ="allRow"> </tr>
- </table>
- </div>
- 
-     <!-- levels 61 - 66 -->
-   <div id="grid11" class="clsCenterSelectGrid">
- <table id ="selectGrid11" > 
- <tr colspan="3"> <td colspan="3" class = "clsTblTitle clsSelectText">Defeat the Master Mage's Magic </td> </tr>
- <tr id= "areaImg11" class = "clsTblTitle" colspan="3"> 
-<td colspan="3" ><img id ="mapImg12"  src="arcanePlanet.png" class ="clsCenterSelectImg" ></td>
- </tr>
-  
- <tr id="stars11-1" colspan="3" class ="allRow">
-	<td ><img id="starImg61" class="starImg" src="stars0.png"> </td>
-	<td ><img id="starImg62" class="starImg" src="stars0.png">  </td>
-	<td ><img id="starImg63" class="starImg" src="stars0.png"> </td>
- </tr>
- <tr id ="" class ="allRow">
-	<td ><a class="clsLvlNums2" id="sel-61">61</a><img id="smg-61" class="selectSquare" src="green.png"> </td>
-	<td ><a class="clsLvlNums2" id="sel-62">62</a><img id="smg-62" class="selectSquare" src="green.png"> </td>
-	<td ><a class="clsLvlNums2" id="sel-63">63</a><img id="smg-63" class="selectSquare" src="green.png"> </td>
- </tr>
- <tr id="stars11-2" colspan="3" class ="allRow">
-	<td ><img id="starImg64" class="starImg" src="stars0.png"> </td>
-	<td ><img id="starImg65" class="starImg" src="stars0.png">  </td>
-	<td ><img id="starImg66" class="starImg" src="stars0.png"> </td>
- </tr>
-   <tr id ="" class ="allRow">
-	<td ><a class="clsLvlNums2" id="sel-64">64</a><img id="smg-64" class="selectSquare" src="green.png"> </td>
-	<td ><a class="clsLvlNums2" id="sel-65">65</a><img id="smg-65" class="selectSquare" src="green.png"> </td>
-	<td ><a class="clsLvlNums2" id="sel-66">66</a><img id="smg-66" class="selectSquare" src="green.png"> </td>
- </tr>
- <tr colspan="3" class ="allRow"> </tr>
- </table>
- </div>
- 
-   <!-- levels 67 - 73 Donuts -->
-   <div id="grid12" class="clsCenterSelectGrid">
- <table id ="selectGrid12" > 
- <tr colspan="3"> <td colspan="3" class = "clsTblTitle clsSelectText">A world full of tasty treats! </td> </tr>
- <tr id= "areaImg12" class = "clsTblTitle" colspan="3"> 
-<td colspan="3" ><img id ="mapImg13"  src="donutWorld.png" class ="clsCenterSelectImg" ></td>
- </tr>
-  
- <tr id="stars12-1" colspan="3" class ="allRow">
-	<td ><img id="starImg67" class="starImg" src="stars0.png"> </td>
-	<td ><img id="starImg68" class="starImg" src="stars0.png">  </td>
-	<td ><img id="starImg69" class="starImg" src="stars0.png"> </td>
- </tr>
- <tr id ="" class ="allRow">
-	<td ><a class="clsLvlNums2" id="sel-67">67</a><img id="smg-67" class="selectSquare" src="green.png"> </td>
-	<td ><a class="clsLvlNums2" id="sel-68">68</a><img id="smg-68" class="selectSquare" src="green.png"> </td>
-	<td ><a class="clsLvlNums2" id="sel-69">69</a><img id="smg-69" class="selectSquare" src="green.png"> </td>
- </tr>
- <tr id="stars12-2" colspan="3" class ="allRow">
-	<td ><img id="starImg70" class="starImg" src="stars0.png"> </td>
-	<td ><img id="starImg71" class="starImg" src="stars0.png">  </td>
-	<td ><img id="starImg72" class="starImg" src="stars0.png"> </td>
- </tr>
-   <tr id ="" class ="allRow">
-	<td ><a class="clsLvlNums2" id="sel-70">70</a><img id="smg-70" class="selectSquare" src="green.png"> </td>
-	<td ><a class="clsLvlNums2" id="sel-71">71</a><img id="smg-71" class="selectSquare" src="green.png"> </td>
-	<td ><a class="clsLvlNums2" id="sel-72">72</a><img id="smg-72" class="selectSquare" src="green.png"> </td>
- </tr>
- <tr colspan="3" class ="allRow"> </tr>
- </table>
- </div>
- 
-    <!-- levels 73 - 78 Rainbow -->
-   <div id="grid13" class="clsCenterSelectGrid">
- <table id ="selectGrid13" > 
- <tr colspan="3"> <td colspan="3" class = "clsTblTitle clsSelectText">Rainbows Everywhere! </td> </tr>
- <tr id= "areaImg13" class = "clsTblTitle" colspan="3"> 
-<td colspan="3" ><img id ="mapImg14"  src="rainbowLand.png" class ="clsCenterSelectImg" ></td>
- </tr>
-  
- <tr id="stars13-1" colspan="3" class ="allRow">
-	<td ><img id="starImg73" class="starImg" src="stars0.png"> </td>
-	<td ><img id="starImg74" class="starImg" src="stars0.png">  </td>
-	<td ><img id="starImg75" class="starImg" src="stars0.png"> </td>
- </tr>
- <tr id ="" class ="allRow">
-	<td ><a class="clsLvlNums2" id="sel-73">73</a><img id="smg-73" class="selectSquare" src="green.png"> </td>
-	<td ><a class="clsLvlNums2" id="sel-74">74</a><img id="smg-74" class="selectSquare" src="green.png"> </td>
-	<td ><a class="clsLvlNums2" id="sel-75">75</a><img id="smg-75" class="selectSquare" src="green.png"> </td>
- </tr>
- <tr id="stars13-2" colspan="3" class ="allRow">
-	<td ><img id="starImg76" class="starImg" src="stars0.png"> </td>
-	<td ><img id="starImg77" class="starImg" src="stars0.png">  </td>
-	<td ><img id="starImg78" class="starImg" src="stars0.png"> </td>
- </tr>
-   <tr id ="" class ="allRow">
-	<td ><a class="clsLvlNums2" id="sel-76">76</a><img id="smg-76" class="selectSquare" src="green.png"> </td>
-	<td ><a class="clsLvlNums2" id="sel-77">77</a><img id="smg-77" class="selectSquare" src="green.png"> </td>
-	<td ><a class="clsLvlNums2" id="sel-78">78</a><img id="smg-78" class="selectSquare" src="green.png"> </td>
- </tr>
- <tr colspan="3" class ="allRow"> </tr>
- </table>
- </div>
- 
-     <!-- levels 79 - 84 Vortex -->
-   <div id="grid14" class="clsCenterSelectGrid">
- <table id ="selectGrid14" > 
- <tr colspan="3"> <td colspan="3" class = "clsTblTitle clsSelectText">Swirling Powers! </td> </tr>
- <tr id= "areaImg14" class = "clsTblTitle" colspan="3"> 
-<td colspan="3" ><img id ="mapImg15"  src="vortexofPower.png" class ="clsCenterSelectImg" ></td>
- </tr>
-  
- <tr id="stars14-1" colspan="3" class ="allRow">
-	<td ><img id="starImg79" class="starImg" src="stars0.png"> </td>
-	<td ><img id="starImg80" class="starImg" src="stars0.png">  </td>
-	<td ><img id="starImg81" class="starImg" src="stars0.png"> </td>
- </tr>
- <tr id ="" class ="allRow">
-	<td ><a class="clsLvlNums2" id="sel-79">79</a><img id="smg-79" class="selectSquare" src="green.png"> </td>
-	<td ><a class="clsLvlNums2" id="sel-80">80</a><img id="smg-80" class="selectSquare" src="green.png"> </td>
-	<td ><a class="clsLvlNums2" id="sel-81">81</a><img id="smg-81" class="selectSquare" src="green.png"> </td>
- </tr>
- <tr id="stars14-2" colspan="3" class ="allRow">
-	<td ><img id="starImg82" class="starImg" src="stars0.png"> </td>
-	<td ><img id="starImg83" class="starImg" src="stars0.png">  </td>
-	<td ><img id="starImg84" class="starImg" src="stars0.png"> </td>
- </tr>
-   <tr id ="" class ="allRow">
-	<td ><a class="clsLvlNums2" id="sel-82">82</a><img id="smg-82" class="selectSquare" src="green.png"> </td>
-	<td ><a class="clsLvlNums2" id="sel-83">83</a><img id="smg-83" class="selectSquare" src="green.png"> </td>
-	<td ><a class="clsLvlNums2" id="sel-84">84</a><img id="smg-84" class="selectSquare" src="green.png"> </td>
- </tr>
- <tr colspan="3" class ="allRow"> </tr>
- </table>
- </div>
- 
-     <!-- levels 85 - 90 Piggy -->
-   <div id="grid15" class="clsCenterSelectGrid">
- <table id ="selectGrid15" > 
- <tr colspan="3"> <td colspan="3" class = "clsTblTitle clsSelectText">Piggy's! </td> </tr>
- <tr id= "areaImg15" class = "clsTblTitle" colspan="3"> 
-<td colspan="3" ><img id ="mapImg16"  src="piggyPlanetBadge.png" class ="clsCenterSelectImg" ></td>
- </tr>
-  
- <tr id="stars15-1" colspan="3" class ="allRow">
-	<td ><img id="starImg85" class="starImg" src="stars0.png"> </td>
-	<td ><img id="starImg86" class="starImg" src="stars0.png">  </td>
-	<td ><img id="starImg87" class="starImg" src="stars0.png"> </td>
- </tr>
- <tr id ="" class ="allRow">
-	<td ><a class="clsLvlNums2" id="sel-85">85</a><img id="smg-85" class="selectSquare" src="green.png"> </td>
-	<td ><a class="clsLvlNums2" id="sel-86">86</a><img id="smg-86" class="selectSquare" src="green.png"> </td>
-	<td ><a class="clsLvlNums2" id="sel-87">87</a><img id="smg-87" class="selectSquare" src="green.png"> </td>
- </tr>
- <tr id="stars14-2" colspan="3" class ="allRow">
-	<td ><img id="starImg88" class="starImg" src="stars0.png"> </td>
-	<td ><img id="starImg89" class="starImg" src="stars0.png">  </td>
-	<td ><img id="starImg90" class="starImg" src="stars0.png"> </td>
- </tr>
-   <tr id ="" class ="allRow">
-	<td ><a class="clsLvlNums2" id="sel-88">88</a><img id="smg-88" class="selectSquare" src="green.png"> </td>
-	<td ><a class="clsLvlNums2" id="sel-89">89</a><img id="smg-89" class="selectSquare" src="green.png"> </td>
-	<td ><a class="clsLvlNums2" id="sel-90">90</a><img id="smg-90" class="selectSquare" src="green.png"> </td>
- </tr>
- <tr colspan="3" class ="allRow"> </tr>
- </table>
- </div>
- 
-     <!-- levels 91 - 96 Emoji -->
-   <div id="grid16" class="clsCenterSelectGrid">
- <table id ="selectGrid15" > 
- <tr colspan="3"> <td colspan="3" class = "clsTblTitle clsSelectText">Flying Emojis </td> </tr>
- <tr id= "areaImg16" class = "clsTblTitle" colspan="3"> 
-<td colspan="3" ><img id ="mapImg17"  src="emotiWorldBadge.png" class ="clsCenterSelectImg" ></td>
- </tr>
-  
- <tr id="stars16-1" colspan="3" class ="allRow">
-	<td ><img id="starImg91" class="starImg" src="stars0.png"> </td>
-	<td ><img id="starImg92" class="starImg" src="stars0.png">  </td>
-	<td ><img id="starImg93" class="starImg" src="stars0.png"> </td>
- </tr>
- <tr id ="" class ="allRow">
-	<td ><a class="clsLvlNums2" id="sel-91">91</a><img id="smg-91" class="selectSquare" src="green.png"> </td>
-	<td ><a class="clsLvlNums2" id="sel-92">92</a><img id="smg-92" class="selectSquare" src="green.png"> </td>
-	<td ><a class="clsLvlNums2" id="sel-93">93</a><img id="smg-93" class="selectSquare" src="green.png"> </td>
- </tr>
- <tr id="stars14-2" colspan="3" class ="allRow">
-	<td ><img id="starImg94" class="starImg" src="stars0.png"> </td>
-	<td ><img id="starImg95" class="starImg" src="stars0.png">  </td>
-	<td ><img id="starImg96" class="starImg" src="stars0.png"> </td>
- </tr>
-   <tr id ="" class ="allRow">
-	<td ><a class="clsLvlNums2" id="sel-94">94</a><img id="smg-94" class="selectSquare" src="green.png"> </td>
-	<td ><a class="clsLvlNums2" id="sel-95">95</a><img id="smg-95" class="selectSquare" src="green.png"> </td>
-	<td ><a class="clsLvlNums2" id="sel-96">96</a><img id="smg-96" class="selectSquare" src="green.png"> </td>
- </tr>
- <tr colspan="3" class ="allRow"> </tr>
- </table>
- </div>
- 
- 
- 
-<div id="closeLvlSelect"> <img class="selectsquare" src="closeLvlSelect.png" onclick='closeLvlSelect()'> </div>
-</div>
-<!-- <footer id ="foot1"> <img id="footerImg" src="Hud/footerImg.png">  </footer> -->
+                </table>
+            </div>
+            <div id="grid2" class="clsCenterSelectGrid">
 
-<!--AUDIO Files-->
-    <!-- <audio controls  id="gameSoundLoop" class="gameSounds" loop autoplay  > -->
+                <table id="selectGrid2">
+                    <tr colspan="3"> <td colspan="3" class="clsTblTitle clsSelectText">Yummy Candies & Tasty Treats!</td> </tr>
+                    <tr id="areaImg2" class="clsTblTitle" colspan="3">
+                        <td colspan="3"><img id="mapImg3" src="candyTownm.png" class="clsCenterSelectImg"></td>
+                    </tr>
+                    <!--levels 7 - 12 -->
+                    <tr id="stars2-1" colspan="3" class="allRow">
+                        <td><img id="starImg7" class="starImg" src="stars0.png"> </td>
+                        <td><img id="starImg8" class="starImg" src="stars0.png">  </td>
+                        <td><img id="starImg9" class="starImg" src="stars0.png"> </td>
+                    </tr>
+                    <tr id="" class="allRow">
+                        <td><a class="clsLvlNums" id="sel-7">7</a><img id="smg-7" class="selectSquare" src="red.png"></td>
+                        <td><a class="clsLvlNums" id="sel-8">8</a><img id="smg-8" class="selectSquare" src="red.png"></td>
+                        <td><a class="clsLvlNums" id="sel-9">9</a><img id="smg-9" class="selectSquare" src="red.png"></td>
+                    </tr>
+                    <tr id="stars2-2" colspan="3" class="allRow">
+                        <td><img id="starImg10" class="starImg" src="stars0.png"> </td>
+                        <td><img id="starImg11" class="starImg" src="stars0.png">  </td>
+                        <td><img id="starImg12" class="starImg" src="stars0.png"> </td>
+                    </tr>
+                    <tr id="" class="allRow">
+                        <td><a class="clsLvlNums2" id="sel-10">10</a><img id="smg-10" class="selectSquare" src="red.png"></td>
+                        <td><a class="clsLvlNums2" id="sel-11">11</a><img id="smg-11" class="selectSquare" src="red.png"></td>
+                        <td><a class="clsLvlNums2" id="sel-12">12</a><img id="smg-12" class="selectSquare" src="red.png"></td>
+                    </tr>
+                    <tr colspan="3" class="allRow"> </tr>
+
+                </table>
+            </div>
+            <div id="grid3" class="clsCenterSelectGrid">
+                <table id="selectGrid3">
+                    <tr colspan="3"> <td colspan="3" class="clsTblTitle clsSelectText">Spooky Ghosts!</td> </tr>
+                    <tr id="areaImg3" class="clsTblTitle" colspan="3">
+                        <td colspan="3"><img id="mapImg4" src="graveBadge.png" class="clsCenterSelectImg"></td>
+                    </tr>
+                    <!--levels 13 - 18 -->
+                    <tr id="stars3-1" colspan="3" class="allRow">
+                        <td><img id="starImg13" class="starImg" src="stars0.png"> </td>
+                        <td><img id="starImg14" class="starImg" src="stars0.png">  </td>
+                        <td><img id="starImg15" class="starImg" src="stars0.png"> </td>
+                    </tr>
+                    <tr id="" class="allRow">
+                        <td><a class="clsLvlNums2" id="sel-13">13</a><img id="smg-13" class="selectSquare" src="grey.png"></td>
+                        <td><a class="clsLvlNums2" id="sel-14">14</a><img id="smg-14" class="selectSquare" src="grey.png"></td>
+                        <td><a class="clsLvlNums2" id="sel-15">15</a><img id="smg-15" class="selectSquare" src="grey.png"></td>
+                    </tr>
+                    <tr id="stars3-2" colspan="3" class="allRow">
+                        <td><img id="starImg16" class="starImg" src="stars0.png"> </td>
+                        <td><img id="starImg17" class="starImg" src="stars0.png">  </td>
+                        <td><img id="starImg18" class="starImg" src="stars0.png"> </td>
+                    </tr>
+                    <tr id="" class="allRow">
+                        <td><a class="clsLvlNums2" id="sel-16">16</a><img id="smg-16" class="selectSquare" src="grey.png"></td>
+                        <td><a class="clsLvlNums2" id="sel-17">17</a><img id="smg-17" class="selectSquare" src="grey.png"></td>
+                        <td><a class="clsLvlNums2" id="sel-18">18</a><img id="smg-18" class="selectSquare" src="grey.png"></td>
+                    </tr>
+                    <tr colspan="3" class="allRow"> </tr>
+
+                </table>
+            </div>
+            <div id="grid4" class="clsCenterSelectGrid">
+                <table id="selectGrid4">
+                    <tr colspan="3"> <td colspan="3" class="clsTblTitle clsSelectText">Blast off to space!</td> </tr>
+                    <tr id="areaImg4" class="clsTblTitle" colspan="3">
+                        <td colspan="3"><img id="mapImg5" src="crazyCosmos.png" class="clsCenterSelectImg"></td>
+                    </tr>
+                    <!--levels 19 - 24 -->
+                    <tr id="stars4-1" colspan="3" class="allRow">
+                        <td><img id="starImg19" class="starImg" src="stars0.png"> </td>
+                        <td><img id="starImg20" class="starImg" src="stars0.png">  </td>
+                        <td><img id="starImg21" class="starImg" src="stars0.png"> </td>
+                    </tr>
+                    <tr id="" class="allRow">
+                        <td><a class="clsLvlNums2" id="sel-19">19</a><img id="smg-19" class="selectSquare" src="aqua.png"> </td>
+                        <td><a class="clsLvlNums2" id="sel-20">20</a><img id="smg-20" class="selectSquare" src="aqua.png"> </td>
+                        <td><a class="clsLvlNums2" id="sel-21">21</a><img id="smg-21" class="selectSquare" src="aqua.png"> </td>
+                    </tr>
+                    <tr id="stars4-2" colspan="3" class="allRow">
+                        <td><img id="starImg22" class="starImg" src="stars0.png"> </td>
+                        <td><img id="starImg23" class="starImg" src="stars0.png">  </td>
+                        <td><img id="starImg24" class="starImg" src="stars0.png"> </td>
+                    </tr>
+                    <tr id="" class="allRow">
+                        <td><a class="clsLvlNums2" id="sel-22">22</a><img id="smg-22" class="selectSquare" src="aqua.png"> </td>
+                        <td><a class="clsLvlNums2" id="sel-23">23</a><img id="smg-23" class="selectSquare" src="aqua.png"> </td>
+                        <td><a class="clsLvlNums2" id="sel-24">24</a><img id="smg-24" class="selectSquare" src="aqua.png"> </td>
+                    </tr>
+                    <tr colspan="3" class="allRow"> </tr>
+
+                </table>
+            </div>
+            <div id="grid5" class="clsCenterSelectGrid">
+                <table id="selectGrid5">
+                    <tr colspan="3"> <td colspan="3" class="clsTblTitle clsSelectText">Fiesty Fish, Crabby Crabs!</td> </tr>
+                    <tr id="areaImg5" class="clsTblTitle" colspan="3">
+                        <td colspan="3"><img id="mapImg6" src="oceanWorld.png" class="clsCenterSelectImg"></td>
+                    </tr>
+                    <!-- levels 25 - 31 -->
+                    <tr id="stars5-1" colspan="3" class="allRow">
+                        <td><img id="starImg25" class="starImg" src="stars0.png"> </td>
+                        <td><img id="starImg26" class="starImg" src="stars0.png">  </td>
+                        <td><img id="starImg27" class="starImg" src="stars0.png"> </td>
+                    </tr>
+                    <tr id="" class="allRow">
+                        <td><a class="clsLvlNums2" id="sel-25">25</a><img id="smg-25" class="selectSquare" src="blue.png"> </td>
+                        <td><a class="clsLvlNums2" id="sel-26">26</a><img id="smg-26" class="selectSquare" src="blue.png"> </td>
+                        <td><a class="clsLvlNums2" id="sel-27">27</a><img id="smg-27" class="selectSquare" src="blue.png"> </td>
+                    </tr>
+                    <tr id="stars5-2" colspan="3" class="allRow">
+                        <td><img id="starImg28" class="starImg" src="stars0.png"> </td>
+                        <td><img id="starImg29" class="starImg" src="stars0.png">  </td>
+                        <td><img id="starImg30" class="starImg" src="stars0.png"> </td>
+                    </tr>
+                    <tr id="" class="allRow">
+                        <td><a class="clsLvlNums2" id="sel-28">28</a><img id="smg-28" class="selectSquare" src="blue.png"> </td>
+                        <td><a class="clsLvlNums2" id="sel-29">29</a><img id="smg-29" class="selectSquare" src="blue.png"> </td>
+                        <td><a class="clsLvlNums2" id="sel-30">30</a><img id="smg-30" class="selectSquare" src="blue.png"> </td>
+                    </tr>
+                    <tr colspan="3" class="allRow"> </tr>
+                </table>
+            </div>
+
+            <!-- levels 31 - 36 -->
+            <div id="grid6" class="clsCenterSelectGrid">
+                <table id="selectGrid6">
+                    <tr colspan="3"> <td colspan="3" class="clsTblTitle clsSelectText">Destroy the Aliens and Meteors!</td> </tr>
+                    <tr id="areaImg6" class="clsTblTitle" colspan="3">
+                        <td colspan="3"><img id="mapImg7" src="spaceshipStorm.png" class="clsCenterSelectImg"></td>
+                    </tr>
+
+                    <tr id="stars6-1" colspan="3" class="allRow">
+                        <td><img id="starImg31" class="starImg" src="stars0.png"> </td>
+                        <td><img id="starImg32" class="starImg" src="stars0.png">  </td>
+                        <td><img id="starImg33" class="starImg" src="stars0.png"> </td>
+                    </tr>
+                    <tr id="" class="allRow">
+                        <td><a class="clsLvlNums2" id="sel-31">31</a><img id="smg-31" class="selectSquare" src="green.png"> </td>
+                        <td><a class="clsLvlNums2" id="sel-32">32</a><img id="smg-32" class="selectSquare" src="green.png"> </td>
+                        <td><a class="clsLvlNums2" id="sel-33">33</a><img id="smg-33" class="selectSquare" src="green.png"> </td>
+                    </tr>
+                    <tr id="stars6-2" colspan="3" class="allRow">
+                        <td><img id="starImg34" class="starImg" src="stars0.png"> </td>
+                        <td><img id="starImg35" class="starImg" src="stars0.png">  </td>
+                        <td><img id="starImg36" class="starImg" src="stars0.png"> </td>
+                    </tr>
+                    <tr id="" class="allRow">
+                        <td><a class="clsLvlNums2" id="sel-34">34</a><img id="smg-34" class="selectSquare" src="green.png"> </td>
+                        <td><a class="clsLvlNums2" id="sel-35">35</a><img id="smg-35" class="selectSquare" src="green.png"> </td>
+                        <td><a class="clsLvlNums2" id="sel-36">36</a><img id="smg-36" class="selectSquare" src="green.png"> </td>
+                    </tr>
+                    <tr colspan="3" class="allRow"> </tr>
+                </table>
+            </div>
+
+            <!-- levels 37 - 42 -->
+            <div id="grid7" class="clsCenterSelectGrid">
+                <table id="selectGrid7">
+                    <tr colspan="3"> <td colspan="3" class="clsTblTitle clsSelectText">Planet of the Gummies!</td> </tr>
+                    <tr id="areaImg7" class="clsTblTitle" colspan="3">
+                        <td colspan="3"><img id="mapImg8" src="gummyPlanet.png" class="clsCenterSelectImg"></td>
+                    </tr>
+
+                    <tr id="stars7-1" colspan="3" class="allRow">
+                        <td><img id="starImg37" class="starImg" src="stars0.png"> </td>
+                        <td><img id="starImg38" class="starImg" src="stars0.png">  </td>
+                        <td><img id="starImg39" class="starImg" src="stars0.png"> </td>
+                    </tr>
+                    <tr id="" class="allRow">
+                        <td><a class="clsLvlNums2" id="sel-37">37</a><img id="smg-37" class="selectSquare" src="red.png"> </td>
+                        <td><a class="clsLvlNums2" id="sel-38">38</a><img id="smg-38" class="selectSquare" src="red.png"> </td>
+                        <td><a class="clsLvlNums2" id="sel-39">39</a><img id="smg-39" class="selectSquare" src="red.png"> </td>
+                    </tr>
+                    <tr id="7-2" colspan="3" class="allRow">
+                        <td><img id="starImg40" class="starImg" src="stars0.png"> </td>
+                        <td><img id="starImg41" class="starImg" src="stars0.png">  </td>
+                        <td><img id="starImg42" class="starImg" src="stars0.png"> </td>
+                    </tr>
+                    <tr id="" class="allRow">
+                        <td><a class="clsLvlNums2" id="sel-40">40</a><img id="smg-40" class="selectSquare" src="red.png"> </td>
+                        <td><a class="clsLvlNums2" id="sel-41">41</a><img id="smg-41" class="selectSquare" src="red.png"> </td>
+                        <td><a class="clsLvlNums2" id="sel-42">42</a><img id="smg-42" class="selectSquare" src="red.png"> </td>
+                    </tr>
+                    <tr colspan="3" class="allRow"> </tr>
+                </table>
+            </div>
+
+            <!-- levels 43 - 48 -->
+            <div id="grid8" class="clsCenterSelectGrid">
+                <table id="selectGrid8">
+                    <tr colspan="3"> <td colspan="3" class="clsTblTitle clsSelectText">More Gummies, More Fun!</td> </tr>
+                    <tr id="areaImg8" class="clsTblTitle" colspan="3">
+                        <td colspan="3"><img id="mapImg9" src="gummyCastle.png" class="clsCenterSelectImg"></td>
+                    </tr>
+
+                    <tr id="stars8-1" colspan="3" class="allRow">
+                        <td><img id="starImg43" class="starImg" src="stars0.png"> </td>
+                        <td><img id="starImg44" class="starImg" src="stars0.png">  </td>
+                        <td><img id="starImg45" class="starImg" src="stars0.png"> </td>
+                    </tr>
+                    <tr id="" class="allRow">
+                        <td><a class="clsLvlNums2" id="sel-43">43</a><img id="smg-43" class="selectSquare" src="grey.png"> </td>
+                        <td><a class="clsLvlNums2" id="sel-44">44</a><img id="smg-44" class="selectSquare" src="grey.png"> </td>
+                        <td><a class="clsLvlNums2" id="sel-45">45</a><img id="smg-45" class="selectSquare" src="grey.png"> </td>
+                    </tr>
+                    <tr id="stars8-2" colspan="3" class="allRow">
+                        <td><img id="starImg46" class="starImg" src="stars0.png"> </td>
+                        <td><img id="starImg47" class="starImg" src="stars0.png">  </td>
+                        <td><img id="starImg48" class="starImg" src="stars0.png"> </td>
+                    </tr>
+                    <tr id="" class="allRow">
+                        <td><a class="clsLvlNums2" id="sel-46">46</a><img id="smg-46" class="selectSquare" src="grey.png"> </td>
+                        <td><a class="clsLvlNums2" id="sel-47">47</a><img id="smg-47" class="selectSquare" src="grey.png"> </td>
+                        <td><a class="clsLvlNums2" id="sel-48">48</a><img id="smg-48" class="selectSquare" src="grey.png"> </td>
+                    </tr>
+                    <tr colspan="3" class="allRow"> </tr>
+                </table>
+            </div>
+
+            <!-- levels 49 - 54 -->
+            <div id="grid9" class="clsCenterSelectGrid">
+                <table id="selectGrid9">
+                    <tr colspan="3"> <td colspan="3" class="clsTblTitle clsSelectText">Hot Bubbles of Lava Steam!</td> </tr>
+                    <tr id="areaImg9" class="clsTblTitle" colspan="3">
+                        <td colspan="3"><img id="mapImg10" src="lavaCaverns.png" class="clsCenterSelectImg"></td>
+                    </tr>
+
+                    <tr id="stars9-1" colspan="3" class="allRow">
+                        <td><img id="starImg49" class="starImg" src="stars0.png"> </td>
+                        <td><img id="starImg50" class="starImg" src="stars0.png">  </td>
+                        <td><img id="starImg51" class="starImg" src="stars0.png"> </td>
+                    </tr>
+                    <tr id="" class="allRow">
+                        <td><a class="clsLvlNums2" id="sel-49">49</a><img id="smg-49" class="selectSquare" src="aqua.png"> </td>
+                        <td><a class="clsLvlNums2" id="sel-50">50</a><img id="smg-50" class="selectSquare" src="aqua.png"> </td>
+                        <td><a class="clsLvlNums2" id="sel-51">51</a><img id="smg-51" class="selectSquare" src="aqua.png"> </td>
+                    </tr>
+                    <tr id="stars9-2" colspan="3" class="allRow">
+                        <td><img id="starImg52" class="starImg" src="stars0.png"> </td>
+                        <td><img id="starImg53" class="starImg" src="stars0.png">  </td>
+                        <td><img id="starImg54" class="starImg" src="stars0.png"> </td>
+                    </tr>
+                    <tr id="" class="allRow">
+                        <td><a class="clsLvlNums2" id="sel-52">52</a><img id="smg-52" class="selectSquare" src="aqua.png"> </td>
+                        <td><a class="clsLvlNums2" id="sel-53">53</a><img id="smg-53" class="selectSquare" src="aqua.png"> </td>
+                        <td><a class="clsLvlNums2" id="sel-54">54</a><img id="smg-54" class="selectSquare" src="aqua.png"> </td>
+                    </tr>
+                    <tr colspan="3" class="allRow"> </tr>
+                </table>
+            </div>
+
+            <!-- levels 55 - 60 -->
+            <div id="grid10" class="clsCenterSelectGrid">
+                <table id="selectGrid10">
+                    <tr colspan="3"> <td colspan="3" class="clsTblTitle clsSelectText">Watch out - Spells are Flying!</td> </tr>
+                    <tr id="areaImg10" class="clsTblTitle" colspan="3">
+                        <td colspan="3"><img id="mapImg11" src="wizardWorld.png" class="clsCenterSelectImg"></td>
+                    </tr>
+
+                    <tr id="stars10-1" colspan="3" class="allRow">
+                        <td><img id="starImg55" class="starImg" src="stars0.png"> </td>
+                        <td><img id="starImg56" class="starImg" src="stars0.png">  </td>
+                        <td><img id="starImg57" class="starImg" src="stars0.png"> </td>
+                    </tr>
+                    <tr id="" class="allRow">
+                        <td><a class="clsLvlNums2" id="sel-55">55</a><img id="smg-55" class="selectSquare" src="blue.png"> </td>
+                        <td><a class="clsLvlNums2" id="sel-56">56</a><img id="smg-56" class="selectSquare" src="blue.png"> </td>
+                        <td><a class="clsLvlNums2" id="sel-57">57</a><img id="smg-57" class="selectSquare" src="blue.png"> </td>
+                    </tr>
+                    <tr id="stars10-2" colspan="3" class="allRow">
+                        <td><img id="starImg58" class="starImg" src="stars0.png"> </td>
+                        <td><img id="starImg59" class="starImg" src="stars0.png">  </td>
+                        <td><img id="starImg60" class="starImg" src="stars0.png"> </td>
+                    </tr>
+                    <tr id="" class="allRow">
+                        <td><a class="clsLvlNums2" id="sel-58">58</a><img id="smg-58" class="selectSquare" src="blue.png"> </td>
+                        <td><a class="clsLvlNums2" id="sel-59">59</a><img id="smg-59" class="selectSquare" src="blue.png"> </td>
+                        <td><a class="clsLvlNums2" id="sel-60">60</a><img id="smg-60" class="selectSquare" src="blue.png"> </td>
+                    </tr>
+                    <tr colspan="3" class="allRow"> </tr>
+                </table>
+            </div>
+
+            <!-- levels 61 - 66 -->
+            <div id="grid11" class="clsCenterSelectGrid">
+                <table id="selectGrid11">
+                    <tr colspan="3"> <td colspan="3" class="clsTblTitle clsSelectText">Defeat the Master Mage's Magic </td> </tr>
+                    <tr id="areaImg11" class="clsTblTitle" colspan="3">
+                        <td colspan="3"><img id="mapImg12" src="arcanePlanet.png" class="clsCenterSelectImg"></td>
+                    </tr>
+
+                    <tr id="stars11-1" colspan="3" class="allRow">
+                        <td><img id="starImg61" class="starImg" src="stars0.png"> </td>
+                        <td><img id="starImg62" class="starImg" src="stars0.png">  </td>
+                        <td><img id="starImg63" class="starImg" src="stars0.png"> </td>
+                    </tr>
+                    <tr id="" class="allRow">
+                        <td><a class="clsLvlNums2" id="sel-61">61</a><img id="smg-61" class="selectSquare" src="green.png"> </td>
+                        <td><a class="clsLvlNums2" id="sel-62">62</a><img id="smg-62" class="selectSquare" src="green.png"> </td>
+                        <td><a class="clsLvlNums2" id="sel-63">63</a><img id="smg-63" class="selectSquare" src="green.png"> </td>
+                    </tr>
+                    <tr id="stars11-2" colspan="3" class="allRow">
+                        <td><img id="starImg64" class="starImg" src="stars0.png"> </td>
+                        <td><img id="starImg65" class="starImg" src="stars0.png">  </td>
+                        <td><img id="starImg66" class="starImg" src="stars0.png"> </td>
+                    </tr>
+                    <tr id="" class="allRow">
+                        <td><a class="clsLvlNums2" id="sel-64">64</a><img id="smg-64" class="selectSquare" src="green.png"> </td>
+                        <td><a class="clsLvlNums2" id="sel-65">65</a><img id="smg-65" class="selectSquare" src="green.png"> </td>
+                        <td><a class="clsLvlNums2" id="sel-66">66</a><img id="smg-66" class="selectSquare" src="green.png"> </td>
+                    </tr>
+                    <tr colspan="3" class="allRow"> </tr>
+                </table>
+            </div>
+
+            <!-- levels 67 - 73 Donuts -->
+            <div id="grid12" class="clsCenterSelectGrid">
+                <table id="selectGrid12">
+                    <tr colspan="3"> <td colspan="3" class="clsTblTitle clsSelectText">A world full of tasty treats! </td> </tr>
+                    <tr id="areaImg12" class="clsTblTitle" colspan="3">
+                        <td colspan="3"><img id="mapImg13" src="donutWorld.png" class="clsCenterSelectImg"></td>
+                    </tr>
+
+                    <tr id="stars12-1" colspan="3" class="allRow">
+                        <td><img id="starImg67" class="starImg" src="stars0.png"> </td>
+                        <td><img id="starImg68" class="starImg" src="stars0.png">  </td>
+                        <td><img id="starImg69" class="starImg" src="stars0.png"> </td>
+                    </tr>
+                    <tr id="" class="allRow">
+                        <td><a class="clsLvlNums2" id="sel-67">67</a><img id="smg-67" class="selectSquare" src="green.png"> </td>
+                        <td><a class="clsLvlNums2" id="sel-68">68</a><img id="smg-68" class="selectSquare" src="green.png"> </td>
+                        <td><a class="clsLvlNums2" id="sel-69">69</a><img id="smg-69" class="selectSquare" src="green.png"> </td>
+                    </tr>
+                    <tr id="stars12-2" colspan="3" class="allRow">
+                        <td><img id="starImg70" class="starImg" src="stars0.png"> </td>
+                        <td><img id="starImg71" class="starImg" src="stars0.png">  </td>
+                        <td><img id="starImg72" class="starImg" src="stars0.png"> </td>
+                    </tr>
+                    <tr id="" class="allRow">
+                        <td><a class="clsLvlNums2" id="sel-70">70</a><img id="smg-70" class="selectSquare" src="green.png"> </td>
+                        <td><a class="clsLvlNums2" id="sel-71">71</a><img id="smg-71" class="selectSquare" src="green.png"> </td>
+                        <td><a class="clsLvlNums2" id="sel-72">72</a><img id="smg-72" class="selectSquare" src="green.png"> </td>
+                    </tr>
+                    <tr colspan="3" class="allRow"> </tr>
+                </table>
+            </div>
+
+            <!-- levels 73 - 78 Rainbow -->
+            <div id="grid13" class="clsCenterSelectGrid">
+                <table id="selectGrid13">
+                    <tr colspan="3"> <td colspan="3" class="clsTblTitle clsSelectText">Rainbows Everywhere! </td> </tr>
+                    <tr id="areaImg13" class="clsTblTitle" colspan="3">
+                        <td colspan="3"><img id="mapImg14" src="rainbowLand.png" class="clsCenterSelectImg"></td>
+                    </tr>
+
+                    <tr id="stars13-1" colspan="3" class="allRow">
+                        <td><img id="starImg73" class="starImg" src="stars0.png"> </td>
+                        <td><img id="starImg74" class="starImg" src="stars0.png">  </td>
+                        <td><img id="starImg75" class="starImg" src="stars0.png"> </td>
+                    </tr>
+                    <tr id="" class="allRow">
+                        <td><a class="clsLvlNums2" id="sel-73">73</a><img id="smg-73" class="selectSquare" src="green.png"> </td>
+                        <td><a class="clsLvlNums2" id="sel-74">74</a><img id="smg-74" class="selectSquare" src="green.png"> </td>
+                        <td><a class="clsLvlNums2" id="sel-75">75</a><img id="smg-75" class="selectSquare" src="green.png"> </td>
+                    </tr>
+                    <tr id="stars13-2" colspan="3" class="allRow">
+                        <td><img id="starImg76" class="starImg" src="stars0.png"> </td>
+                        <td><img id="starImg77" class="starImg" src="stars0.png">  </td>
+                        <td><img id="starImg78" class="starImg" src="stars0.png"> </td>
+                    </tr>
+                    <tr id="" class="allRow">
+                        <td><a class="clsLvlNums2" id="sel-76">76</a><img id="smg-76" class="selectSquare" src="green.png"> </td>
+                        <td><a class="clsLvlNums2" id="sel-77">77</a><img id="smg-77" class="selectSquare" src="green.png"> </td>
+                        <td><a class="clsLvlNums2" id="sel-78">78</a><img id="smg-78" class="selectSquare" src="green.png"> </td>
+                    </tr>
+                    <tr colspan="3" class="allRow"> </tr>
+                </table>
+            </div>
+
+            <!-- levels 79 - 84 Vortex -->
+            <div id="grid14" class="clsCenterSelectGrid">
+                <table id="selectGrid14">
+                    <tr colspan="3"> <td colspan="3" class="clsTblTitle clsSelectText">Swirling Powers! </td> </tr>
+                    <tr id="areaImg14" class="clsTblTitle" colspan="3">
+                        <td colspan="3"><img id="mapImg15" src="vortexofPower.png" class="clsCenterSelectImg"></td>
+                    </tr>
+
+                    <tr id="stars14-1" colspan="3" class="allRow">
+                        <td><img id="starImg79" class="starImg" src="stars0.png"> </td>
+                        <td><img id="starImg80" class="starImg" src="stars0.png">  </td>
+                        <td><img id="starImg81" class="starImg" src="stars0.png"> </td>
+                    </tr>
+                    <tr id="" class="allRow">
+                        <td><a class="clsLvlNums2" id="sel-79">79</a><img id="smg-79" class="selectSquare" src="green.png"> </td>
+                        <td><a class="clsLvlNums2" id="sel-80">80</a><img id="smg-80" class="selectSquare" src="green.png"> </td>
+                        <td><a class="clsLvlNums2" id="sel-81">81</a><img id="smg-81" class="selectSquare" src="green.png"> </td>
+                    </tr>
+                    <tr id="stars14-2" colspan="3" class="allRow">
+                        <td><img id="starImg82" class="starImg" src="stars0.png"> </td>
+                        <td><img id="starImg83" class="starImg" src="stars0.png">  </td>
+                        <td><img id="starImg84" class="starImg" src="stars0.png"> </td>
+                    </tr>
+                    <tr id="" class="allRow">
+                        <td><a class="clsLvlNums2" id="sel-82">82</a><img id="smg-82" class="selectSquare" src="green.png"> </td>
+                        <td><a class="clsLvlNums2" id="sel-83">83</a><img id="smg-83" class="selectSquare" src="green.png"> </td>
+                        <td><a class="clsLvlNums2" id="sel-84">84</a><img id="smg-84" class="selectSquare" src="green.png"> </td>
+                    </tr>
+                    <tr colspan="3" class="allRow"> </tr>
+                </table>
+            </div>
+
+            <!-- levels 85 - 90 Piggy -->
+            <div id="grid15" class="clsCenterSelectGrid">
+                <table id="selectGrid15">
+                    <tr colspan="3"> <td colspan="3" class="clsTblTitle clsSelectText">Piggy's! </td> </tr>
+                    <tr id="areaImg15" class="clsTblTitle" colspan="3">
+                        <td colspan="3"><img id="mapImg16" src="piggyPlanetBadge.png" class="clsCenterSelectImg"></td>
+                    </tr>
+
+                    <tr id="stars15-1" colspan="3" class="allRow">
+                        <td><img id="starImg85" class="starImg" src="stars0.png"> </td>
+                        <td><img id="starImg86" class="starImg" src="stars0.png">  </td>
+                        <td><img id="starImg87" class="starImg" src="stars0.png"> </td>
+                    </tr>
+                    <tr id="" class="allRow">
+                        <td><a class="clsLvlNums2" id="sel-85">85</a><img id="smg-85" class="selectSquare" src="green.png"> </td>
+                        <td><a class="clsLvlNums2" id="sel-86">86</a><img id="smg-86" class="selectSquare" src="green.png"> </td>
+                        <td><a class="clsLvlNums2" id="sel-87">87</a><img id="smg-87" class="selectSquare" src="green.png"> </td>
+                    </tr>
+                    <tr id="stars14-2" colspan="3" class="allRow">
+                        <td><img id="starImg88" class="starImg" src="stars0.png"> </td>
+                        <td><img id="starImg89" class="starImg" src="stars0.png">  </td>
+                        <td><img id="starImg90" class="starImg" src="stars0.png"> </td>
+                    </tr>
+                    <tr id="" class="allRow">
+                        <td><a class="clsLvlNums2" id="sel-88">88</a><img id="smg-88" class="selectSquare" src="green.png"> </td>
+                        <td><a class="clsLvlNums2" id="sel-89">89</a><img id="smg-89" class="selectSquare" src="green.png"> </td>
+                        <td><a class="clsLvlNums2" id="sel-90">90</a><img id="smg-90" class="selectSquare" src="green.png"> </td>
+                    </tr>
+                    <tr colspan="3" class="allRow"> </tr>
+                </table>
+            </div>
+
+            <!-- levels 91 - 96 Emoji -->
+            <div id="grid16" class="clsCenterSelectGrid">
+                <table id="selectGrid15">
+                    <tr colspan="3"> <td colspan="3" class="clsTblTitle clsSelectText">Flying Emojis </td> </tr>
+                    <tr id="areaImg16" class="clsTblTitle" colspan="3">
+                        <td colspan="3"><img id="mapImg17" src="emotiWorldBadge.png" class="clsCenterSelectImg"></td>
+                    </tr>
+
+                    <tr id="stars16-1" colspan="3" class="allRow">
+                        <td><img id="starImg91" class="starImg" src="stars0.png"> </td>
+                        <td><img id="starImg92" class="starImg" src="stars0.png">  </td>
+                        <td><img id="starImg93" class="starImg" src="stars0.png"> </td>
+                    </tr>
+                    <tr id="" class="allRow">
+                        <td><a class="clsLvlNums2" id="sel-91">91</a><img id="smg-91" class="selectSquare" src="green.png"> </td>
+                        <td><a class="clsLvlNums2" id="sel-92">92</a><img id="smg-92" class="selectSquare" src="green.png"> </td>
+                        <td><a class="clsLvlNums2" id="sel-93">93</a><img id="smg-93" class="selectSquare" src="green.png"> </td>
+                    </tr>
+                    <tr id="stars14-2" colspan="3" class="allRow">
+                        <td><img id="starImg94" class="starImg" src="stars0.png"> </td>
+                        <td><img id="starImg95" class="starImg" src="stars0.png">  </td>
+                        <td><img id="starImg96" class="starImg" src="stars0.png"> </td>
+                    </tr>
+                    <tr id="" class="allRow">
+                        <td><a class="clsLvlNums2" id="sel-94">94</a><img id="smg-94" class="selectSquare" src="green.png"> </td>
+                        <td><a class="clsLvlNums2" id="sel-95">95</a><img id="smg-95" class="selectSquare" src="green.png"> </td>
+                        <td><a class="clsLvlNums2" id="sel-96">96</a><img id="smg-96" class="selectSquare" src="green.png"> </td>
+                    </tr>
+                    <tr colspan="3" class="allRow"> </tr>
+                </table>
+            </div>
+
+
+
+            <div id="closeLvlSelect"> <img class="selectsquare" src="closeLvlSelect.png" onclick='closeLvlSelect()'> </div>
+        </div>
+        <!-- <footer id ="foot1"> <img id="footerImg" src="Hud/footerImg.png">  </footer> -->
+        <!--AUDIO Files-->
+        <!-- <audio controls  id="gameSoundLoop" class="gameSounds" loop autoplay  > -->
         <!-- <source src="Sounds\guifruity.mp3" type="audio/mp3"> -->
-            <!-- </audio> -->
-		
-		<audio id="NiceSound" class="gameSounds">
-        <source src="Sounds\JingleWinSynth0.mp3" type="audio/mp3">
-            </audio>
-			
+        <!-- </audio> -->
+    <div id="changeToPortrait">
+        <div id="pleaseSwitch">
+            <h1>Turn Your Device</h1>
+            <h2> Gui Bubble Story is designed to be played in Portrait view </h2>
+            <img id="ggLogo3" src="footerImg.png" />
+        </div>
+    </div>
 
-<script type='text/javascript' src='bubbleStory0.6.js'></script>
+        <audio id="NiceSound" class="gameSounds">
+            <source src="Sounds\JingleWinSynth0.mp3" type="audio/mp3">
+        </audio>
+
+
+        <script type='text/javascript' src='bubbleStory0.6.js'></script>
 </body>
 
 </html> 

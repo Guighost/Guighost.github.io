@@ -94,6 +94,9 @@ margin-right: auto;
     display: block;
     z-index: 2000;
     align-content: center;
+    background-image: url('Images/HUD/coverBack.png');
+    background-position: top;
+    background-repeat: no-repeat;
 }
 #playMatch {
     
@@ -117,7 +120,7 @@ margin-right: auto;
     width: 360px;
     height: 145px;
     margin-left: 50%;
-    transform: translate(-182px, 0px);
+    transform: translate(-170px, 70px);
     top: 70%;
 } 
 

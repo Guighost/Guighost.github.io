@@ -113,6 +113,8 @@ img[src$=".gif"], img[src$=".png"] {
 #swordFullBack {
     position: absolute;
     display: none;
+    top: 0px;
+    left: 0px;
     /*top: 30%;
     left: 40%;
     transform: translate(-175px,-300px);*/
@@ -242,13 +244,280 @@ img[src$=".gif"], img[src$=".png"] {
     background-repeat: no-repeat;
     background-position: center;
 }
-#diffTitle, #homeTitle, #inventoryTitle {
+#diffTitle, #homeTitle, #inventoryTitle, statsTitle, statsTitle2 {
     display: block;
     left: 48%;
     font-family: 'Comic Sans MS';
     font-weight: bolder;
     font-size: 22px;
 }
+#statsTitle {
+    transform: translateY(6px);
+}
+#statsTitle2 {
+    font-family: 'Comic Sans MS';
+    font-weight: bold;
+    font-size: 40px;
+    color: darkviolet;
+    transform: translate(0px, 25px);
+}
+#statsInnerParent {
+    position: absolute;
+    width: 97%;
+    height: 97%;
+    margin:1.5%;
+ /*border: 1px solid black;*/
+ transform: translate(0px, -25px);
+}
+
+#playerHealthOnStats {
+    position:absolute;
+    top: 35px;
+    left: 165px;
+    width: 68px;
+    height: 70px;
+    background-image: url(Images/HUD/cross.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    text-align:center;
+}
+#playerDefOnStats {
+    position: absolute;
+    top: 35px;
+    left: 485px;
+    width: 70px;
+    height: 70px;
+    background-image: url(Images/HUD/sheild.png);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+#healthInnerStat, #defInnerStat {
+    transform: translate(0px,8px);
+}
+#playerLvlOnStats {
+    position: absolute;
+    top: 68px;
+    left: 328px;
+ 
+    font-size: 18px;
+}
+#playerCupStats {
+    position: absolute;
+    top: 135px;
+    left: 115px;
+    font-size: 24px;
+    /*border: 2px solid red;*/
+    height: 155px;
+    width: 155px;
+    text-align: left;
+    background-image: url(Images/Hero/trophy0.png);
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: contain;
+}
+    #playerCupStats > p {
+        color: darkviolet;
+        font-family: 'Comic Sans MS';
+        font-weight: bolder;
+        font-size: 18px;
+        text-decoration: underline;
+        transform: translate(-5px,-46px);
+        width: 185px;
+    }
+#starCashStat {
+    color: forestgreen;
+    font-family: 'Comic Sans MS';
+    font-weight: bolder;
+    font-size: 18px;
+    transform: translate(-170px,225px);
+}
+#returnFromStats {
+    color: ghostwhite;
+    font-family: 'Comic Sans MS';
+    font-weight: bolder;
+    font-size: 28px;
+    transform: translate(0px,150px);
+}
+#playerImageOnStats {
+    position: absolute;
+    top: 90px;
+    left: 270px;
+    width: 185px;
+    height: 215px;
+    background-image: url(Images/Hero/idle_1.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    -webkit-animation: animatePlyr 2.0s infinite;
+    -moz-animation: animatePlyr 2.0s infinite;
+    -o-animation: animatePlyr 2.0s infinite;
+    animation: animatePlyr 2.0s infinite;
+  
+}
+@keyframes animatePlyr{
+    0%, 100% { background-image: url(Images/Hero/idle_1.png);    }
+    20% {  background-image: url(Images/Hero/idle_2.png);    }
+    30% {  background-image: url(Images/Hero/idle_3.png);    }
+    40% {  background-image: url(Images/Hero/idle_4.png);    }
+    50% {  background-image: url(Images/Hero/idle_3.png);    }
+    60% {  background-image: url(Images/Hero/walk_1.png);    }
+    70% {
+        background-image: url(Images/Hero/walk_2.png);
+    }
+    80% {
+        background-image: url(Images/Hero/walk_3.png);
+    }
+    90% {
+        background-image: url(Images/Hero/walk_4.png);
+    }
+}
+@-webkit-keyframes animatePlyr {
+    0%, 100% {
+        background-image: url(Images/Hero/idle_1.png);
+    }
+
+    20% {
+        background-image: url(Images/Hero/idle_2.png);
+    }
+
+    30% {
+        background-image: url(Images/Hero/idle_3.png);
+    }
+
+    40% {
+        background-image: url(Images/Hero/idle_4.png);
+    }
+
+    50% {
+        background-image: url(Images/Hero/idle_3.png);
+    }
+
+    60% {
+        background-image: url(Images/Hero/walk_1.png);
+    }
+
+    70% {
+        background-image: url(Images/Hero/walk_2.png);
+    }
+
+    80% {
+        background-image: url(Images/Hero/walk_3.png);
+    }
+
+    90% {
+        background-image: url(Images/Hero/walk_4.png);
+    }
+}
+@-moz-keyframes animatePlyr {
+    0%, 100% {
+        background-image: url(Images/Hero/idle_1.png);
+    }
+
+    20% {
+        background-image: url(Images/Hero/idle_2.png);
+    }
+
+    30% {
+        background-image: url(Images/Hero/idle_3.png);
+    }
+
+    40% {
+        background-image: url(Images/Hero/idle_4.png);
+    }
+
+    50% {
+        background-image: url(Images/Hero/idle_3.png);
+    }
+
+    60% {
+        background-image: url(Images/Hero/walk_1.png);
+    }
+
+    70% {
+        background-image: url(Images/Hero/walk_2.png);
+    }
+
+    80% {
+        background-image: url(Images/Hero/walk_3.png);
+    }
+
+    90% {
+        background-image: url(Images/Hero/walk_4.png);
+    }
+}
+@-o-keyframes animatePlyr {
+    0%, 100% {
+        background-image: url(Images/Hero/idle_1.png);
+    }
+
+    20% {
+        background-image: url(Images/Hero/idle_2.png);
+    }
+
+    30% {
+        background-image: url(Images/Hero/idle_3.png);
+    }
+
+    40% {
+        background-image: url(Images/Hero/idle_4.png);
+    }
+
+    50% {
+        background-image: url(Images/Hero/idle_3.png);
+    }
+
+    60% {
+        background-image: url(Images/Hero/walk_1.png);
+    }
+
+    70% {
+        background-image: url(Images/Hero/walk_2.png);
+    }
+
+    80% {
+        background-image: url(Images/Hero/walk_3.png);
+    }
+
+    90% {
+        background-image: url(Images/Hero/walk_4.png);
+    }
+}
+playerSpellLvlOnStats {
+position: absolute;
+top: 100px;
+left: 400px;
+border: 1px solid black;
+
+
+}
+.statVals {
+    border: 1px solid black;
+    border-radius: 10px;
+    position: absolute;
+    top: 100px;
+    left: 540px;
+    width: 40px;
+    background-color:chocolate;
+}
+.statRows {
+    
+    position: absolute;
+    top: 110px;
+    left: 470px;
+    width: 80px;
+}
+#arcaneStatVal {
+    top: 110px;
+}
+.row2 {
+    top: 140px;
+}
+.row3 {top: 170px;}
+.row4 {top: 200px;}
+.row5 {top: 230px;}
+.row6 {top: 260px;}
+.row7 {top: 290px;}
+
 .diffBtn {
     position: absolute;
     display: block;
@@ -296,7 +565,7 @@ img[src$=".gif"], img[src$=".png"] {
     top: 30%;
     left: 28%;
 }
-#goHome, #inventoryParent, #trophyParent {
+#goHome, #inventoryParent, #trophyParent, #playerStatsParent {
     position: absolute;
     display: none;
     top: 50%;
@@ -357,7 +626,13 @@ img[src$=".gif"], img[src$=".png"] {
     color: ghostwhite;
     border: none;
 }
-
+#playerStatsParent {
+    display: none;
+    background-image: url(Images/HUD/wideHud21.png);
+    background-repeat: no-repeat;
+    background-size:contain;
+    background-position: center;
+}
 
 .potions {
     margin-top: 10px;
@@ -559,7 +834,7 @@ background-color: black;
 }
 
 #r1-c1 {
-    background-image: url(Images/Enemy/lvl1face.png);
+    background-image: url(Images/Enemy/lvl1.png);
     background-size:contain;
     background-repeat: no-repeat;
     background-position: center;

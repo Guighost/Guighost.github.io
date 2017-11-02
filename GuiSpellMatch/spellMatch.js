@@ -1400,7 +1400,7 @@ window.onload = function () {
             
             drawCenterText(enemy.name + " loses "  , 260, 192, 50);
             context.font = "22px Comic Sans MS";
-            drawCenterText("Next", level.x + 2, level.y + levelheight - 55, levelwidth);
+            drawCenterText("Next", level.x + 1, level.y + levelheight - 55, levelwidth);
             if (levelBump == 1) {
                 levelCount++; levelBump = 0;
                 levelUpScore = (levelCount * 1000);
@@ -2227,6 +2227,15 @@ window.onload = function () {
             }
         }
         ///GG buttons
+        if (pos.x >= 12 && pos.x < 44 && pos.y >= 1 && pos.y < 100) {
+            var checkMe = document.getElementById('playerStatsParent').style.display;
+            console.log(checkMe);
+            if (checkMe == 'block') { document.getElementById('playerStatsParent').style.display = 'none' }
+            else { document.getElementById('playerStatsParent').style.display = 'block'; } ////clicked Plyer icon  -- show stats modal
+            updateStats();
+
+        }
+
         if (pos.x >= 12 && pos.x < 44 && pos.y >= 288 && pos.y < 308) {
             var checkMe = document.getElementById('difficulty').style.display;
             console.log(checkMe);
@@ -2740,6 +2749,7 @@ function gameReturn1() {
     document.getElementById('goHome').style.display = 'none';
     document.getElementById('inventoryParent').style.display = 'none'; 
     document.getElementById('trophyParent').style.display = 'none';
+    document.getElementById('playerStatsParent').style.display = 'none';
     selectedCup = 0;
 }
 function swapEnemyStatsView(lvl) {
@@ -2865,5 +2875,23 @@ function selectCup(cupArg) {
         document.getElementById("innerStat3").innerHTML = lockedStat2;
         document.getElementById("innerStory").innerHTML = lockedStory;
     }
+
+}
+function updateStats() {
+    document.getElementById("healthInnerStat").innerHTML = player1.health;
+    document.getElementById("defInnerStat").innerHTML = player1.defense;
+    document.getElementById("playerLevelTitle").innerHTML = "Level " + player1.playerLevel;
+    var tempA = localStorage.getItem('spellMatch_cupWon');
+    console.log("tempA ===" + tempA);
+    document.getElementById("playerCupStats").style.backgroundImage = "url('Images/Hero/trophy" + tempA +".png')";
+    document.getElementById("starCashStat").innerHTML = starCash;
+
+    document.getElementById("arcaneStatVal").innerHTML = player1.arcanePower;
+    document.getElementById("sparkStatVal").innerHTML = player1.sparkPower;
+    document.getElementById("fireStatVal").innerHTML = player1.firePower;
+    document.getElementById("swordStatVal").innerHTML = player1.swordPower;
+    document.getElementById("meteorStatVal").innerHTML = player1.meteorPower;
+    document.getElementById("earthStatVal").innerHTML = player1.earthPower;
+    document.getElementById("airStatVal").innerHTML = player1.airPower;
 
 }
