@@ -121,6 +121,10 @@ var starCash = 0;
 if (typeof localStorage["starCash"] === "undefined") { localStorage["starCash"] = 0; starCash = 0; };
 starCash = parseInt(localStorage["starCash"]);
 
+if (typeof localStorage["spellMatch_cupWon"] === "undefined") { localStorage["spellMatch_cupWon"] = 0; cupWon = 0; };
+cupWon = parseInt(localStorage["spellMatch_cupWon"]);
+
+
 ///////////hide Load Saved Game if no local storage of player
 if (typeof localStorage["spellMatch_Player"] === "undefined") {
     document.getElementById('btnImage2').style.display = 'none';
@@ -437,6 +441,42 @@ imgArray4[43].src = 'Images/Enemy/lvl44.png';
 window.onload = function () {
     // Get the canvas and context
     var canvas = document.getElementById("viewport1");
+
+
+    //setup touch event handles
+    function touchHandler(event) {
+        var touches = event.changedTouches,
+            first = touches[0],
+            type = "";
+        switch (event.type) {
+            case "touchstart": type = "mousedown"; break;
+            case "touchmove": type = "mousemove"; break;
+            case "touchend": type = "mouseup"; break;
+            default: return;
+        }
+
+        // initMouseEvent(type, canBubble, cancelable, view, clickCount, 
+        //                screenX, screenY, clientX, clientY, ctrlKey, 
+        //                altKey, shiftKey, metaKey, button, relatedTarget);
+
+        var simulatedEvent = document.createEvent("MouseEvent");
+        simulatedEvent.initMouseEvent(type, true, true, window, 1,
+            first.screenX, first.screenY,
+            first.clientX, first.clientY, false,
+            false, false, false, 0/*left*/, null);
+
+        first.target.dispatchEvent(simulatedEvent);
+        event.preventDefault();
+    }
+
+    //add listerner for touch handlers
+    function init() {
+        document.addEventListener("touchstart", touchHandler, true);
+        document.addEventListener("touchmove", touchHandler, true);
+        document.addEventListener("touchend", touchHandler, true);
+        document.addEventListener("touchcancel", touchHandler, true);
+    }
+
     
     canvas.width = window.innerWidth;
     if (canvas.width > 565) { canvas.width = 565 };
