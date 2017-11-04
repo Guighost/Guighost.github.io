@@ -455,9 +455,7 @@ window.onload = function () {
             default: return;
         }
 
-        // initMouseEvent(type, canBubble, cancelable, view, clickCount, 
-        //                screenX, screenY, clientX, clientY, ctrlKey, 
-        //                altKey, shiftKey, metaKey, button, relatedTarget);
+        
 
         var simulatedEvent = document.createEvent("MouseEvent");
         simulatedEvent.initMouseEvent(type, true, true, window, 1,
@@ -466,16 +464,11 @@ window.onload = function () {
             false, false, false, 0/*left*/, null);
 
         first.target.dispatchEvent(simulatedEvent);
-        event.preventDefault();
+        //event.preventDefault();
     }
 
-    //add listerner for touch handlers
-    function init() {
-        document.addEventListener("touchstart", touchHandler, true);
-        document.addEventListener("touchmove", touchHandler, true);
-        document.addEventListener("touchend", touchHandler, true);
-        document.addEventListener("touchcancel", touchHandler, true);
-    }
+   
+    
 
     
     canvas.width = window.innerWidth;
@@ -931,6 +924,12 @@ window.onload = function () {
         canvas.addEventListener("mousedown", onMouseDown);
         canvas.addEventListener("mouseup", onMouseUp);
         canvas.addEventListener("mouseout", onMouseOut);
+        //add listerner for touch handlers
+
+        document.addEventListener("touchstart", touchHandler, true);
+        document.addEventListener("touchmove", touchHandler, true);
+        document.addEventListener("touchend", touchHandler, true);
+        document.addEventListener("touchcancel", touchHandler, true);
 
         // Initialize the two-dimensional tile array
         for (var i = 0; i < level.columns; i++) {
