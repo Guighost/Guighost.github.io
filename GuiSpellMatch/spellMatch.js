@@ -925,10 +925,10 @@ window.onload = function () {
         canvas.addEventListener("mouseout", onMouseOut);
         //add listerner for touch handlers
 
-        //document.addEventListener("touchstart", touchHandler, true);
-        //document.addEventListener("touchmove", touchHandler, true);
-        //document.addEventListener("touchend", touchHandler, true);
-        //document.addEventListener("touchcancel", touchHandler, true);
+        document.addEventListener("touchstart", touchHandler, true);
+        document.addEventListener("touchmove", touchHandler, true);
+        document.addEventListener("touchend", touchHandler, true);
+        document.addEventListener("touchcancel", touchHandler, true);
 
         // Initialize the two-dimensional tile array
         for (var i = 0; i < level.columns; i++) {
