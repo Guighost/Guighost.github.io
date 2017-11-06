@@ -21,7 +21,7 @@ var playerClusterCount = 0;
 var enemyClusterCount = 0;
 var animTimer;
 var animTimer2;
-
+var enemyHeal = true;
 var soundOn = true;
 var enemies = ['Arcannus', 'ElfWiz', 'ArticMage', 'Acidious', 'Blazaron', 'Sylvana', 'Toxigam', 'HarmBringer', 'Invertus', 'DeathMage', 'Milfohim', 'Zerlin', 'Yisenda',
     'Arcannus', 'ElfWiz', 'ArticMage', 'Acidious', 'Blazaron', 'Sylvana', 'Toxigam', 'HarmBringer', 'Invertus', 'DeathMage', 'Milfohim', 'Zerlin', 'Yisenda', 'Firetta',
@@ -417,8 +417,7 @@ imgArray4[41].src = 'Images/Enemy/lvl42.png';
 imgArray4[42] = new Image();
 imgArray4[42].src = 'Images/Enemy/lvl43.png';
 
-imgArray4[43] = new Image();
-imgArray4[43].src = 'Images/Enemy/lvl44.png';
+
 
 
 
@@ -859,7 +858,7 @@ window.onload = function () {
     setInterval(setTime, 2000);
 
     function setTime() {
-        if (newGameLoad == 1) { totalSeconds = 0; newGameLoad = 0; }
+        if (newGameLoad == 1) { totalSeconds = 0; newGameLoad = 0; enemyHeal = true;}
         ++totalSeconds;
         context.fillStyle = "#ffff00";
         context.font = "22px Comic Sans MS";
@@ -1043,7 +1042,7 @@ window.onload = function () {
                 if (animationtime > animationtimetotal) {
                     // Find clusters
                     findClusters();
-                    console.log("# of clusters =====" + clusters.length);
+                    //console.log("# of clusters =====" + clusters.length);
                     if (clusters.length > 0) {
                         // Add points to the score
                         swapSound.stop();
@@ -1071,13 +1070,13 @@ window.onload = function () {
                                 playerClusterCount = playerClusterCount + 1;
                                 
                                 var clusterType = level.tiles[clusters[i].column][clusters[i].row].type;
-                                console.log("cluster type " + clusterType);
+                                //console.log("cluster type " + clusterType);
                                 var getSpellPower = PowerToApply[clusterType];    
-                                console.log("power to apply= " + getSpellPower);
+                                //console.log("power to apply= " + getSpellPower);
                                
                                 var getSpellPowerVal = read_prop(player1, getSpellPower);
                                 spellBonus = getSpellPowerVal;
-                                console.log("getSpellPowerVal = " + getSpellPowerVal);
+                                //console.log("getSpellPowerVal = " + getSpellPowerVal);
                                 /////power adjust////////////
                                 firstTimeOnly = true;
                                 if (swapTileTriggered < 10 && swapTileTriggered >= 0) {
@@ -1087,9 +1086,9 @@ window.onload = function () {
                                     //var spellModifier = read_prop(player1, damageModifierName)
                                     //console.log("spellModifier = " + spellModifier);
                                     //console.log(spellBonus + "= spellBonus");
-                                    console.log(damageThisTime + "= DamageThisTime");
+                                    //console.log(damageThisTime + "= DamageThisTime");
                                     damageThisTime = damageThisTime + spellBonus;
-                                    console.log("AdjustedDamage= " + damageThisTime);
+                                    //console.log("AdjustedDamage= " + damageThisTime);
 
                                     ////animation
                                     console.log("********************PCLUSTERCOUNT " + playerClusterCount);
@@ -1167,11 +1166,27 @@ window.onload = function () {
                                 enemy.damage = enemy.damage + damageThisTime;
                                 enemy.health = enemy.healthMax - enemy.damage;
 
+                              
+                                console.log("*****enemy Heal " + enemyHeal);
+                                ////////////////////////////////////////////////////heal of enemy
+                                if (enemy.health < 250 && enemy.playerLevel >= 14 && enemyHeal == true) {
+                                   
 
-                                ////////////////////////////////////////////////////future heal of enemy
-                                //if (enemy.health < 150 && enemy.level > 14) {
-                                //    enemy.health = enemy.health + (enemy.healthMax / 2);
-                                //}
+                                    //show the enemy Heal anim
+                                    document.getElementById("healNameEnemy").innerHTML = enemy.name;
+                                    document.getElementById("healHeartEnemy").style.display = 'block';
+                                    var oneTimeHealE = true;
+                                    setTimeout(function () {
+                                        document.getElementById("healHeartEnemy").style.display = 'none';
+                                        if (oneTimeHealE) {
+                                            enemy.health = enemy.health + (enemy.healthMax / 2);
+                                            if (enemy.health > enemy.healthMax) { enemy.health = enemy.healthMax; }
+                                            console.log("*****enemy healed for " + (enemy.healthMax / 2));
+                                            enemyHeal = false;
+                                        }
+                                       
+                                    }, 2500);
+                                }
 
 
                                 if (enemy.health <= 0) { levelUp(); };
@@ -1815,6 +1830,7 @@ window.onload = function () {
         player1.damage = 0;
         playerClusterCount = 0;
         enemyClusterCount = 0;
+        enemyHeal = true;
 
 
 
@@ -1880,7 +1896,7 @@ window.onload = function () {
         }
         // While there are clusters left
         while (clusters.length > 0) {
-            console.log(" cluster length = " + clusters.length);
+            //console.log(" cluster length = " + clusters.length);
             // Remove clusters
             removeClusters();
 
@@ -2036,12 +2052,12 @@ window.onload = function () {
                 if (level.tiles[cluster.column][cluster.row].type > -1) {
                     if (firstTimeOnly) {
                         swapTileTriggered = level.tiles[cluster.column][cluster.row].type;
-                        console.log("Loop Clusters tile= " + swapTileTriggered);
+                        //console.log("Loop Clusters tile= " + swapTileTriggered);
                         var damageModifierName = PowerToApply[swapTileTriggered];
-                        console.log("damageModiferName = " + damageModifierName);
+                        //console.log("damageModiferName = " + damageModifierName);
                        
                         var spellModifier = read_prop(player1, damageModifierName);
-                        console.log("spellModifier = " + spellModifier);
+                        //console.log("spellModifier = " + spellModifier);
                         spellBonus = spellModifier;
                         firstTimeOnly = false;
                     }
@@ -2268,7 +2284,7 @@ window.onload = function () {
         ///GG buttons
         if (pos.x >= 12 && pos.x < 44 && pos.y >= 1 && pos.y < 100) {
             var checkMe = document.getElementById('playerStatsParent').style.display;
-            console.log(checkMe);
+            //console.log(checkMe);
             if (checkMe == 'block') { document.getElementById('playerStatsParent').style.display = 'none' }
             else { document.getElementById('playerStatsParent').style.display = 'block'; } ////clicked Plyer icon  -- show stats modal
             updateStats();
@@ -2277,7 +2293,7 @@ window.onload = function () {
 
         if (pos.x >= 12 && pos.x < 44 && pos.y >= 288 && pos.y < 308) {
             var checkMe = document.getElementById('difficulty').style.display;
-            console.log(checkMe);
+            //console.log(checkMe);
             if ( checkMe == 'block') { document.getElementById('difficulty').style.display = 'none' }
             else { document.getElementById('difficulty').style.display = 'block'; } ////gear icon --- show difficulty modal
             
@@ -2359,7 +2375,7 @@ window.onload = function () {
                     //arcane click
                     if (pos.x >= 100 && pos.x < 250 && pos.y >= 90 && pos.y < 130) {
                         if (player1.arcanePower < 5) {
-                            console.log("clicked arcane");
+                            //console.log("clicked arcane");
                             skillPoints = skillPoints - 1;
                             player1.arcanePower = player1.arcanePower + 1;
                             var srcName = player1.arcanePower + '0.png';
@@ -2372,7 +2388,7 @@ window.onload = function () {
                     /////Spark click
                     if (pos.x >= 323 && pos.x < 400 && pos.y >= 90 && pos.y < 130) {
                         if (player1.sparkPower < 5) {
-                            console.log("clicked spark");
+                            //console.log("clicked spark");
                             skillPoints = skillPoints - 1;
                             player1.sparkPower = player1.sparkPower + 1;
                             var srcName = player1.sparkPower + '1.png';
@@ -2384,7 +2400,7 @@ window.onload = function () {
                     //fire click
                     if (pos.x >= 100 && pos.x < 250 && pos.y >= 135 && pos.y < 175) {
                         if (player1.firePower < 5) {
-                            console.log("clicked fire");
+                            //console.log("clicked fire");
                             skillPoints = skillPoints - 1;
                             player1.firePower = player1.firePower + 1;
                             var srcName = player1.firePower + '2.png';
@@ -2396,7 +2412,7 @@ window.onload = function () {
                     /////Sword click
                     if (pos.x >= 323 && pos.x < 400 && pos.y >= 135 && pos.y < 175) {
                         if (player1.swordPower < 5) {
-                            console.log("clicked sword");
+                            //console.log("clicked sword");
                             skillPoints = skillPoints - 1;
                             player1.swordPower = player1.swordPower + 1;
                             var srcName = player1.swordPower + '3.png';
@@ -2408,7 +2424,7 @@ window.onload = function () {
                     //Meteor click
                     if (pos.x >= 100 && pos.x < 250 && pos.y >= 180 && pos.y < 225) {
                         if (player1.meteorPower < 5) {
-                            console.log("clicked Meteor");
+                            //console.log("clicked Meteor");
                             skillPoints = skillPoints - 1;
                             player1.meteorPower = player1.meteorPower + 1;
                             var srcName = player1.meteorPower + '4.png';
@@ -2420,7 +2436,7 @@ window.onload = function () {
                     //Earth click
                     if (pos.x >= 323 && pos.x < 400 && pos.y >= 180 && pos.y < 225) {
                         if (player1.earthPower < 5) {
-                            console.log("clicked earth");
+                            //console.log("clicked earth");
                             skillPoints = skillPoints - 1;
                             player1.earthPower = player1.earthPower + 1;
                             var srcName = player1.earthPower + '5.png';
@@ -2432,7 +2448,7 @@ window.onload = function () {
                     //Air click
                     if (pos.x >= 218 && pos.x < 300 && pos.y >= 222 && pos.y < 265) {
                         if (player1.airPower < 5) {
-                            console.log("clicked air");
+                            //console.log("clicked air");
                             skillPoints = skillPoints - 1;
                             player1.airPower = player1.airPower + 1;
                             var srcName = player1.airPower + '6.png';
@@ -2446,7 +2462,7 @@ window.onload = function () {
                 if (heroBonus > 0) {
                     //Health click
                     if (pos.x >= 100 && pos.x < 260 && pos.y >= 270 && pos.y < 310) {
-                        console.log("clicked health");
+                        //console.log("clicked health");
                         if (soundOn) { spellUpSound.play(); };
                         heroBonus = heroBonus - 1;
                         var healthAdj = (player1.playerLevel * 10);
@@ -2455,7 +2471,7 @@ window.onload = function () {
                     }
                     //Defense click
                     if (pos.x >= 320 && pos.x < 400 && pos.y >= 270 && pos.y < 310) {
-                        console.log("clicked defense");
+                        //console.log("clicked defense");
                         if (soundOn) { spellUpSound.play(); };
                         heroBonus = heroBonus - 1;
                         var defenseAdj = (player1.playerLevel * 10);
@@ -2469,7 +2485,7 @@ window.onload = function () {
 
                 //save and close this modal,  start new game with level and change enemy
                 if (pos.x >= 0 && pos.x < 80 && pos.y >= 250 && pos.y <=320) {
-                    console.log("clicked save");
+                    //console.log("clicked save");
                     newGame(1); levelScoreProgress = 0; totalSeconds = 0;
                     //enemy.healthMax = player1.healthMax;
                     //enemy.defenseMax = player1.defenseMax;
@@ -2540,7 +2556,7 @@ window.onload = function () {
         newName = enemies[enemy.playerLevel - 1];
               
         var imageUpgrade = "Images/Enemy/lvl" + enemy.playerLevel + ".png";
-        console.log("image upgrade = " + imageUpgrade);
+        //console.log("image upgrade = " + imageUpgrade);
         document.getElementById('vsEnemy').src = imageUpgrade;
         enemy.name = newName;
         enemyNameGlobal = newName;
@@ -2588,14 +2604,25 @@ window.onload = function () {
 function clkBoostPotion(num) {
     var healthMod = 0;
     var defMod = 0;
-    console.log("potion clicked = " + num);
+    //console.log("potion clicked = " + num);
     if (num == 1) {                                         ///////clicked Health Potion/////////
-        starCash = starCash - 25;
-        localStorage["starCash"] = starCash;
-        healthMod = player1.healthMax / 2;
-        console.log("healthMod = " + healthMod);
-        player1.health = player1.health + healthMod;
-        if (player1.health > player1.healthMax) { player1.health = player1.healthMax; }
+        if (player1.health < player1.healthMax) {
+            starCash = starCash - 25;
+            localStorage["starCash"] = starCash;
+            healthMod = player1.healthMax / 2;
+            //console.log("healthMod = " + healthMod);
+            //show the player Heal anim
+            document.getElementById("healHeart").style.display = 'block';
+            var oneTimeHeal = true;
+            setTimeout(function () {
+                document.getElementById("healHeart").style.display = 'none';
+                if (oneTimeHeal) {
+                    player1.health = player1.health + healthMod;
+                    if (player1.health > player1.healthMax) { player1.health = player1.healthMax; }
+                }
+
+            }, 2500);
+        }       
                 };
     if (num == 2) {                                     ///////clicked power orb/////////
         starCash = starCash - 25;
@@ -2651,7 +2678,7 @@ function resizeGame() {
 };	
 
 function hideTitlePage(num) {
-    console.log("num = " + num);
+    //console.log("num = " + num);
     if (num == 1) {
        
         document.getElementById("helpGif").style.display = 'block';
@@ -2669,7 +2696,7 @@ function hideTitlePage(num) {
 
         newName = enemies[enemy.playerLevel - 1];
         var imageUpgrade = "Images/Enemy/lvl" + enemy.playerLevel + ".png";
-        console.log("Loaded image upgrade = " + imageUpgrade);
+        //console.log("Loaded image upgrade = " + imageUpgrade);
         document.getElementById('vsEnemy').src = imageUpgrade;
         enemy.name = newName;
         enemyNameGlobal = newName;
@@ -2780,7 +2807,7 @@ function homeSave() {               ////save values to local storage
     // Retrieve the object from storage
     var retrievedObject = localStorage.getItem('spellMatch_Player');
 
-    console.log('retrievedObject: ', JSON.parse(retrievedObject));
+    //console.log('retrievedObject: ', JSON.parse(retrievedObject));
 
 
 }
@@ -2828,9 +2855,9 @@ function swapEnemyStatsView(lvl) {
         document.getElementById("r5-c2").style.backgroundImage = "url('Images/Enemy/lvl27.png')";
         document.getElementById("r5-c3").style.backgroundImage = "url('Images/Enemy/lvl42.png')";
     }
-    console.log("level at click " + lvl);
-    console.log("cup won " + cupWon);
-    console.log("selected cup " + selectedCup);
+    //console.log("level at click " + lvl);
+    //console.log("cup won " + cupWon);
+    //console.log("selected cup " + selectedCup);
     if (cupWon == 1 && lvl == 27 && selectedCup == 1) {
         document.getElementById("centerTrophyMiddleLeft").style.backgroundImage = "url('Images/Enemy/lvl27.png')";
         document.getElementById("r5-c2").style.backgroundImage = "url('Images/Enemy/lvl27.png')";
@@ -2921,7 +2948,7 @@ function updateStats() {
     document.getElementById("defInnerStat").innerHTML = player1.defense;
     document.getElementById("playerLevelTitle").innerHTML = "Level " + player1.playerLevel;
     var tempA = localStorage.getItem('spellMatch_cupWon');
-    console.log("tempA ===" + tempA);
+    //console.log("tempA ===" + tempA);
     document.getElementById("playerCupStats").style.backgroundImage = "url('Images/Hero/trophy" + tempA +".png')";
     document.getElementById("starCashStat").innerHTML = starCash;
 
