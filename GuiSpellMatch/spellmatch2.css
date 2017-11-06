@@ -1033,9 +1033,9 @@ background-color: black;
     position: absolute;
     left: 50%;
     top: 50%;
-    width: 600px;
+    width: 560px;
     min-height: 310px;
-    height: 380px;
+    height: 310px;
     width: 508px;
     z-index:1000;
    /*max-width: 360px;*/
