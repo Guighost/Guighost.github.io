@@ -3,13 +3,24 @@
 <html>
 <head>
 	<title>farming</title>
-	<script type="text/javascript" src="farming_compiled.js"></script>
+	<!--<script type="text/javascript" src="farming_compiled.js"></script>-->
         <style>
-            .lime-scene {display:block !important;}    
+           
             body {background-color:black;}
+          .farms { width: 34%; height: 60%; min-height: 500px;}
+            
         </style>
 </head>
 
-<body onload="farming.start()"></body>
+<body >
+    <div id="wrappertop">
+        <iframe id="farmframe1" src="farming_compiled.html" class="farms"></iframe>
+        <iframe id="farmframe2" src="farming_compiled.html" class="farms"></iframe>
+        <!--<iframe id="farmframe3" src="farming_compiled.html" class="farms"></iframe>-->
+        
+    </div>
+ 
+
+</body>
 
 </html>
