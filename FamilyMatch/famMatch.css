@@ -13,19 +13,19 @@ margin-left: 450px;
             -moz-border-image: url(Images/pictureFrame.png) 15 14 18 15 round;
             -webkit-border-image: url(Images/pictureFrame.png) 15 14 18 15 round;   
             -o-border-image: url(Images/pictureFrame.png) 15 14 18 15 round;
-            border-image: url(Images/Frame2.jpg) 30 30 30 30  stretch;
+            border-image: url(Images/Frame2.jpg) 25 25 25 25  stretch;
             border-radius: 5px;
             margin-bottom:10px;
             margin-left: 0px;
-            width: 540px;
-            height: 640px;
-            padding: 4px;
-            padding-bottom: 25px;
-            padding-top: 25px;
+            width: 920px;
+            height: 440px;
+            /*padding: 4px;*/
+            padding-bottom: 15px;
+            /*padding-top: 25px;*/
             padding-right: 5px;
-            min-height:520px;
-            max-width: 500px;
-            padding-left: 5px;
+            min-height:440px;
+            max-width: 920px;
+            /*padding-left: 5px;*/
             background-color:palevioletred;
             float:left;
             display: none;
@@ -33,6 +33,7 @@ margin-left: 450px;
 
         #memory_board > div {
             background: url(tile_bg.jpg) no-repeat;
+            background-clip:padding-box;
             border: #000 1px solid;
             border-radius: 30px;
             width: 70px;
@@ -44,6 +45,7 @@ margin-left: 450px;
             cursor: pointer;
             text-align: center;
             float: left;
+            color: darkblue;
         }
             video#bgvid {
                 position: absolute; right: 0; bottom: 0;
@@ -55,7 +57,7 @@ margin-left: 450px;
 #sideBar1 {
                 background-color: chocolate;
                 width: 130px;
-                height: 560px;
+                height: 540px;
                 float:left;
                 border: solid 2px;
                 border-radius: 5px;
