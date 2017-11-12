@@ -1,9 +1,37 @@
 ﻿<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title></title>
+    <title>GuiGems</title>
+    <script>
+        function resizeGame() {
+            //alert("resize");
+            var gameBoard = document.getElementById('viewport1');
+            var widthToHeight = 5/2;
+
+            var newWidth = window.innerWidth - 10;
+            //if (newWidth > 900) { newWidth = 900 }
+            var newHeight = window.innerHeight - 10;
+            //if (newHeight > 319) { newHeight = 320;}
+            var newWidthToHeight = newWidth / newHeight;
+
+            if (newWidthToHeight > widthToHeight) {  // window width is too wide relative to desired game width
+                gameBoard.style.height = newHeight + 'px';
+                newWidth = newHeight * widthToHeight;
+                gameBoard.style.width = newWidth + 'px';
+            } else {  // window height is too high relative to desired game height
+                gameBoard.style.width = newWidth + 'px';
+                newHeight = newWidth / widthToHeight;
+                gameBoard.style.height = newHeight + 'px';
+            }
+
+            // center the canvas
+            gameBoard.style.marginTop = (-newHeight / 2) + 'px';
+            console.log(-newHeight / 2);
+            gameBoard.style.marginLeft = (-newWidth / 2) + 'px';
+        };
+    </script>
 </head>
-<body onload="MainStart()">
+<body onload="MainStart(); resizeGame(); ">
     <link type="text/css" rel="stylesheet" href="GemsCSS.css" />
     <link type="text/css" rel="stylesheet" href="../navstylesheet.css" />
     <link type="text/css" rel="stylesheet" href="../layoutstylesheet.css" />
@@ -27,7 +55,7 @@
         Your browser does not support the audio element.
     </audio>
 
-    <div id="nav">
+    <!--<div id="nav">
         <ul>
             <li><a href="../TestLayout.html" id="A1" title="Ready to Go Home?">Home</a></li>
             <li><a href="../TestLayout2.html" id="A2" title="Who are we">About</a></li>
@@ -60,7 +88,7 @@
       
         <br class="clearboth" />
         <br class="clearboth" />
-</div>
+</div>-->
 
     <div id="main">
         <div id="matchPanel">
