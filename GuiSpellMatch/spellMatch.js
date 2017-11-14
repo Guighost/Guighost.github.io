@@ -473,7 +473,7 @@ window.onload = function () {
     canvas.width = window.innerWidth;
     if (canvas.width > 565) { canvas.width = 565 };
     canvas.height = window.innerHeight;
-    if (canvas.height > 318) { canvas.height = 318 };
+    if (canvas.height > 310) { canvas.height = 310 };
     canvas.style.width = canvas.width.toString() + "px";
     canvas.style.height = canvas.height.toString() + "px";
 
