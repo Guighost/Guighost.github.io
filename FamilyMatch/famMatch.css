@@ -10,7 +10,7 @@ margin-left: 450px;
     position:absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-170px, -100px);
+    transform: translate(-550px, -280px);
 }
       #memory_board {
           border-style: solid;
@@ -32,7 +32,9 @@ margin-left: 450px;
             max-width: 920px;
             /*padding-left: 5px;*/
             background-color:palevioletred;
-            float:left;
+           position:absolute;
+           left: 130px;
+           top: 10px;
             display: none;
         }
 
@@ -53,12 +55,13 @@ margin-left: 450px;
             color: darkblue;
             
         }
-            video#bgvid {
+       #bgvid {
                 position: absolute; right: 0; bottom: 0;
                 min-width: 100%; min-height: 100%;
                 width: auto; height: auto; z-index: -100;
                 background: url(Images\swords2.jpg) no-repeat;
                 background-size: cover;
+
 }
 #sideBar1 {
                 background-color: chocolate;
@@ -68,6 +71,7 @@ margin-left: 450px;
                 border: solid 2px;
                 border-radius: 5px;
                 text-align: center;
+                display: none;
             }
 #gameLogoImg {
             width: 100px;
@@ -122,15 +126,15 @@ visibility: hidden;
 }
 #introDiv {
     position: absolute;
-top: 75px;
-right:auto;
+top: 40px;
+right:150px;
 bottom: auto;
 left: 350px; 
 background-color: chocolate;
 z-index:+1;
 text-align: center;
 width: 500px;
-height:390px;
+height:310px;
 border: 3px groove black;
 border-radius: 34px;
 display: block;

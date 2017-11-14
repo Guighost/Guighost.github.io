@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
 </head>
-<body onload="newBoard()">
+<body onload="newBoard(); resizeGame();">
     <video autoplay loop poster="../Video/MysticRed.mp4" id="bgvid">
 
         <source src="../Video\MysticRed.mp4" type="video/mp4">
@@ -91,16 +91,16 @@
            </div></div>
     <script src="famMatch.js" type="text/javascript"></script>  
     <script>
-          resizeGame();
+          
           function resizeGame() {
               //alert("resize");
-              var gameBoard = document.getElementById('gameBoard');
-              var widthToHeight = 2/ 1;
+              var gameBoard = document.body;
+              var widthToHeight = 5/ 1;
 
               var newWidth = window.innerWidth - 10;
-              if (newWidth > 800) { newWidth = 800 }
+              if (newWidth > 900) { newWidth = 900 }
               var newHeight = window.innerHeight - 10;
-              //if (newHeight > 310) { newHeight = 310;}
+              if (newHeight > 310) { newHeight = 310;}
               var newWidthToHeight = newWidth / newHeight;
 
               if (newWidthToHeight > widthToHeight) {  // window width is too wide relative to desired game width
@@ -118,7 +118,7 @@
               console.log("this is new height" + -newHeight / 2);
               gameBoard.style.marginLeft = (-newWidth / 2) + 'px';
           };
-
+          resizeGame();
     </script>
 
 </body>

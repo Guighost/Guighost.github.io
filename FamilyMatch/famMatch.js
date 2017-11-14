@@ -223,6 +223,7 @@ setInterval(function () {
         document.getElementById("submitter").style.display = 'none';
         document.getElementById("introDiv").style.display = 'none';
         document.getElementById("memory_board").style.display = 'block';
+        document.getElementById("sideBar1").style.display = 'block';
         if (o.textContent !== undefined) {
             o.textContent = v;
         } else {
