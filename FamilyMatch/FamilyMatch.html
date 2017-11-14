@@ -56,7 +56,7 @@
     </ul>
 
     </div>-->
-   
+   <div id="gameBoard">
    <div id ="sideBar1">
        <a ><img id="gameLogoImg" src="Images/FamilyPhotoMatchLogo1.png" /></a>
        <p id="plyrNameLabel"><strong>Player Name</strong><p></p>
@@ -77,6 +77,7 @@
        <btn id="newPlyr" onclick="newPlyr1()">New Player</btn>
    </div>
         <div id="memory_board"></div>
+    </div>
     <br/>
        <div id= "introDiv"> 
         <h1>Family Photo Match</h1>
@@ -89,6 +90,36 @@
 
            </div></div>
     <script src="famMatch.js" type="text/javascript"></script>  
-   
+    <script>
+          resizeGame();
+          function resizeGame() {
+              //alert("resize");
+              var gameBoard = document.getElementById('gameBoard');
+              var widthToHeight = 2/ 1;
+
+              var newWidth = window.innerWidth - 10;
+              if (newWidth > 800) { newWidth = 800 }
+              var newHeight = window.innerHeight - 10;
+              //if (newHeight > 310) { newHeight = 310;}
+              var newWidthToHeight = newWidth / newHeight;
+
+              if (newWidthToHeight > widthToHeight) {  // window width is too wide relative to desired game width
+                  gameBoard.style.height = newHeight + 'px';
+                  newWidth = newHeight * widthToHeight;
+                  gameBoard.style.width = newWidth + 'px';
+              } else {  // window height is too high relative to desired game height
+                  gameBoard.style.width = newWidth + 'px';
+                  newHeight = newWidth / widthToHeight;
+                  gameBoard.style.height = newHeight + 'px';
+              }
+
+              // center the canvas
+              gameBoard.style.marginTop = (-newHeight / 2) + 'px';
+              console.log("this is new height" + -newHeight / 2);
+              gameBoard.style.marginLeft = (-newWidth / 2) + 'px';
+          };
+
+    </script>
+
 </body>
 </html>

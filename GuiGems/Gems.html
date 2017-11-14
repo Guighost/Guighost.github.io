@@ -2,34 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title>GuiGems</title>
-    <script>
-        function resizeGame() {
-            //alert("resize");
-            var gameBoard = document.getElementById('viewport1');
-            var widthToHeight = 5/2;
-
-            var newWidth = window.innerWidth - 10;
-            //if (newWidth > 900) { newWidth = 900 }
-            var newHeight = window.innerHeight - 10;
-            //if (newHeight > 319) { newHeight = 320;}
-            var newWidthToHeight = newWidth / newHeight;
-
-            if (newWidthToHeight > widthToHeight) {  // window width is too wide relative to desired game width
-                gameBoard.style.height = newHeight + 'px';
-                newWidth = newHeight * widthToHeight;
-                gameBoard.style.width = newWidth + 'px';
-            } else {  // window height is too high relative to desired game height
-                gameBoard.style.width = newWidth + 'px';
-                newHeight = newWidth / widthToHeight;
-                gameBoard.style.height = newHeight + 'px';
-            }
-
-            // center the canvas
-            gameBoard.style.marginTop = (-newHeight / 2) + 'px';
-            console.log(-newHeight / 2);
-            gameBoard.style.marginLeft = (-newWidth / 2) + 'px';
-        };
-    </script>
+    <!--<meta name="viewport" content="width=device-width" />-->
 </head>
 <body onload="MainStart(); resizeGame(); ">
     <link type="text/css" rel="stylesheet" href="GemsCSS.css" />
@@ -100,7 +73,7 @@
                 <p id="Score"></p>
                 <p id="TopTitle"><strong>Top Scores</strong></p>
 
-                <table id="scoreList">
+                <!--<table id="scoreList">
                     <thead><tr><td>Player</td><td>Score</td></tr></thead>
                     <tr><td id="best1Name" class="clsScoreTable">Zack</td><td id="best1Val" class="clsScoreTable">2045</td></tr>
                     <tr><td id="best2Name" class="clsScoreTable">George</td><td id="best2Val" class="clsScoreTable">1946</td></tr>
@@ -108,7 +81,7 @@
                     <tr><td id="best4Name" class="clsScoreTable">Bart</td><td id="best4Val" class="clsScoreTable">1525</td></tr>
                     <tr><td id="best5Name" class="clsScoreTable"> Jackson</td><td id="best5Val" class="clsScoreTable">1060</td></tr>
                 </table>
-                <br />
+                <br />-->
                 <btn id="newPlyr" onclick="newPlyr1()">New Player</btn>
                 <btn id="mute" onclick="muteSound()">Mute</btn>
                     <p id="timerLabel"> Time remaining</p>
@@ -246,7 +219,36 @@
 
 
         <script type="text/javascript" src="GemsJS.js"></script>
+    <script>
+        resizeGame();
+           function resizeGame() {
+               //alert("resize");
+               var gameBoard = document.getElementById('main');
+               var widthToHeight = 468 / 320;
 
+               var newWidth = window.innerWidth - 10;
+               if (newWidth > 800) { newWidth = 800 }
+               var newHeight = window.innerHeight - 10;
+               //if (newHeight > 310) { newHeight = 310;}
+               var newWidthToHeight = newWidth / newHeight;
+
+               if (newWidthToHeight > widthToHeight) {  // window width is too wide relative to desired game width
+                   gameBoard.style.height = newHeight + 'px';
+                   newWidth = newHeight * widthToHeight;
+                   gameBoard.style.width = newWidth + 'px';
+               } else {  // window height is too high relative to desired game height
+                   gameBoard.style.width = newWidth + 'px';
+                   newHeight = newWidth / widthToHeight;
+                   gameBoard.style.height = newHeight + 'px';
+               }
+
+               // center the canvas
+               gameBoard.style.marginTop = (-newHeight / 2) + 'px';
+               console.log("this is new height"+ -newHeight / 2);
+               gameBoard.style.marginLeft = (-newWidth / 2) + 'px';
+        };
+ 
+    </script>
 
 
 </body>

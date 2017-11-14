@@ -3,6 +3,15 @@
    
     
 }
+#main {
+    position:absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-100px, -15px);
+
+    margin: 0px 2px 0px 2px;
+    
+}
 .gameSounds {
 visibility: hidden;
 }
@@ -12,26 +21,28 @@ height: 30px;
 width: 300px;
 float:right;
 margin-left: 100px;
-}  
+}
 .Gem1 {
-    border: 2px solid azure;
-    width: 30px;
-    height: 30px;
+    /*border: 2px solid azure;*/
+  
+    background-color: black;
 }
 .clsGemTD {
-width: 40px;
-height: 40px;
-border:groove azure 2px;
-
-margin: 2px 2px 2px 2px;
-
+    width: 20px;
+    height: 20px;
+    /*border:groove azure 1px;*/
+    margin: 0px 0px 0px 0px;
+    margin-top: -5px;
 }
 #matchPanel {
-border: 3px groove blue;
-width: 770px;
-height:650px;
-background-color:darkturquoise;
-border-radius: 15px;
+    position: absolute;
+    top: 10px;
+    border: 1px groove blue;
+    width: 750px;
+    height: 600px;
+    background-color: darkturquoise;
+    border-radius: 15px;
+    margin-top: 10px;
 }
 #levelH {
     border: 3px groove grey;
@@ -48,7 +59,7 @@ font: bold 20px arial;
 
 }
 #matchTbl {
-    margin: 20px 20px 2px 1px;
+    margin: 20px 5px 1px 1px;
     background-color: black;
     display: none;
     float:left;
@@ -56,12 +67,12 @@ font: bold 20px arial;
 #leftPanel {
     background-color:cadetblue;
                 width: 130px;
-                height: 610px;
+                height: 480px;
                 float:left;
                 border: solid 2px;
                 border-radius: 5px;
                 text-align: center;
-                margin: 20px 10px 20px 2px;
+                margin: 28px 10px 1px 2px;
 }
 #playerName {
 background-color:antiquewhite;

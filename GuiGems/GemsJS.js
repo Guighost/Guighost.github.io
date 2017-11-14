@@ -627,6 +627,7 @@ function secondPassed() {
  //new game//
 function newGame() {
     didClickIt = true;
+    seconds = 120;
     document.getElementById("timeUp").style.display = 'none';
     document.getElementById("matchTbl").style.display = 'block';
     
