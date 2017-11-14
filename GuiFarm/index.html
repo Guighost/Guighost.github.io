@@ -2,7 +2,9 @@
 
 <html>
 <head>
-	<title>farming</title>
+    <title>Gui Farm</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,  maximum-scale=2.0, user-scalable=no" />
 	<!--<script type="text/javascript" src="farming_compiled.js"></script>-->
         <style>
            
@@ -10,13 +12,25 @@
           .farms { width: 34%; height: 60%; min-height: 500px;}
             
         </style>
+    <link rel="stylesheet" href="guiFarm.css">
 </head>
 
 <body >
     <div id="wrappertop">
-        <iframe id="farmframe1" src="farming_compiled.html" class="farms"></iframe>
-        <iframe id="farmframe2" src="farming_compiled.html" class="farms"></iframe>
+        <div id="farmHeader">
+            <a id="gameTitle"> GuiFarm </a>
+            <a href="../index.html">
+                <img id="ggLogo2" src="../Images/Homepage/footerImg.png" />
+            </a>
+        </div>
+        <div id="frameWrapper">
+            <iframe id="farmframe1" src="farming_compiled.html" class="farms"></iframe>
+        </div>
         <!--<iframe id="farmframe3" src="farming_compiled.html" class="farms"></iframe>-->
+
+    
+                
+
         
     </div>
  

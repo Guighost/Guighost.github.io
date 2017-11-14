@@ -1,0 +1,50 @@
+﻿body {
+    font-size: 28px;
+    font-family: 'Comic Sans MS';
+    text-align: center;
+}
+#wrappertop {
+    position: absolute;
+    left: 50%;
+    width: 960px;
+    height: 940px;
+    transform: translate( -455px, 0px);
+    border: 1px solid blue;
+    background-image: url("images/UI/southFarm.png");
+    background-position:center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+#farmHeader {
+    position: absolute;
+    top: 0px;
+    width: 99%;
+    left: 0.5%;
+    height: 60px;
+    border: 1px solid azure;
+    background-color: darkmagenta;
+}
+#gameTitle {
+    position:absolute;
+    color: azure;
+    top: 5px;
+    left: 50%;
+    font-size: 40px;
+    transform: translate( -80px, 0px);
+}
+
+#ggLogo2 {
+    /*position: absolute;*/
+    left: 250px;
+    transform: translate( 240px, -8px);
+    height:70px;
+}
+#farmframe1 {
+    position: absolute;
+    /*width: 810px;*/
+    height:730px;
+    width: 60%;
+    left: 50%;
+    transform: translate( -280px, 62px);
+    /*border: 1px solid yellow;*/
+}
