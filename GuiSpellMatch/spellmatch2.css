@@ -1035,7 +1035,7 @@ background-color: black;
     top: 50%;
     /*width: 560px;*/
     min-height: 300px;
-    height: 300px;
+    height: 310px;
     width: 518px;
     z-index:1000;
    /*max-width: 360px;*/
@@ -1365,5 +1365,11 @@ background-color: black;
 @media screen and (orientation:landscape) {
     #changeToLandscape {
         display: none;
+    }
+}
+@media (max-height: 319px), screen (orientation:landscape) {
+    #viewport{
+        max-height: 300px;
+        max-width: 560px;
     }
 }
