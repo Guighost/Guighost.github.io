@@ -1,4 +1,4 @@
-<!DOCTYPE HTML>
+﻿<!DOCTYPE HTML>
 
 <html>
 <head>
@@ -33,7 +33,36 @@
 
         
     </div>
- 
+    <script>
+        //resizeGame();
+           function resizeGame() {
+               //alert("resize");
+               var gameBoard = document.getElementById('wrappertop');
+               var widthToHeight = 310 / 420;
+
+               var newWidth = window.innerWidth - 10;
+               //if (newWidth > 1000) { newWidth = 1000 }
+               var newHeight = window.innerHeight - 10;
+               //if (newHeight > 310) { newHeight = 310;}
+               var newWidthToHeight = newWidth / newHeight;
+
+               if (newWidthToHeight > widthToHeight) {  // window width is too wide relative to desired game width
+                   gameBoard.style.height = newHeight + 'px';
+                   newWidth = newHeight * widthToHeight;
+                   gameBoard.style.width = newWidth + 'px';
+               } else {  // window height is too high relative to desired game height
+                   gameBoard.style.width = newWidth + 'px';
+                   newHeight = newWidth / widthToHeight;
+                   gameBoard.style.height = newHeight + 'px';
+               }
+
+               // center the canvas
+               gameBoard.style.marginTop = (-newHeight / 2) + 'px';
+               console.log("this is new height"+ -newHeight / 2);
+               gameBoard.style.marginLeft = (-newWidth / 2) + 'px';
+        };
+
+    </script>
 
 </body>
 

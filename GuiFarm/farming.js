@@ -95,7 +95,7 @@ farming.start = function(){
         .setSize(gameObj.controlsLayer_w, gameObj.controlsLayer_h)
         .setFill('#0D0D0D')
     controlsLayer.appendChild(controlArea);
-    
+
     //shop button
     var shopButton = new lime.GlossyButton().setColor('#133242').setText('Shop')
         .setPosition(60, gameObj.height-gameObj.controlsLayer_h/2)
