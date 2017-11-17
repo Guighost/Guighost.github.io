@@ -45,10 +45,10 @@
 #farmframe1 {
     position: absolute;
     /*width: 810px;*/
-    height: 190px;
+    height: 560px;
     width: 310px;
     left: 50%;
     top: 30%;
     transform: translate( -150px, -150px);
-    border: 1px solid yellow;
+    /*border: 1px solid yellow;*/
 }

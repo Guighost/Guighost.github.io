@@ -1,0 +1,69 @@
+﻿<!DOCTYPE HTML>
+
+<html>
+<head>
+    <title>Gui Farm</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,  maximum-scale=2.0, user-scalable=no" />
+	<!--<script type="text/javascript" src="farming_compiled.js"></script>-->
+        <style>
+           
+            body {background-color:black;}
+          .farms { width: 34%; height: 60%; min-height: 500px;}
+            
+        </style>
+    <link rel="stylesheet" href="guiFarm.css">
+</head>
+
+<body >
+    <div id="wrappertop">
+        <div id="farmHeader">
+            <a id="gameTitle"> GuiFarm </a>
+            <a href="../index.html">
+                <img id="ggLogo2" src="../Images/Homepage/footerImg.png" />
+            </a>
+        </div>
+        <div id="frameWrapper">
+            <iframe id="farmframe1" src="farming_compiled.html" class="farms"></iframe>
+        </div>
+        <!--<iframe id="farmframe3" src="farming_compiled.html" class="farms"></iframe>-->
+
+    
+                
+
+        
+    </div>
+    <script>
+        //resizeGame();
+           function resizeGame() {
+               //alert("resize");
+               var gameBoard = document.getElementById('wrappertop');
+               var widthToHeight = 310 / 420;
+
+               var newWidth = window.innerWidth - 10;
+               //if (newWidth > 1000) { newWidth = 1000 }
+               var newHeight = window.innerHeight - 10;
+               //if (newHeight > 310) { newHeight = 310;}
+               var newWidthToHeight = newWidth / newHeight;
+
+               if (newWidthToHeight > widthToHeight) {  // window width is too wide relative to desired game width
+                   gameBoard.style.height = newHeight + 'px';
+                   newWidth = newHeight * widthToHeight;
+                   gameBoard.style.width = newWidth + 'px';
+               } else {  // window height is too high relative to desired game height
+                   gameBoard.style.width = newWidth + 'px';
+                   newHeight = newWidth / widthToHeight;
+                   gameBoard.style.height = newHeight + 'px';
+               }
+
+               // center the canvas
+               gameBoard.style.marginTop = (-newHeight / 2) + 'px';
+               console.log("this is new height"+ -newHeight / 2);
+               gameBoard.style.marginLeft = (-newWidth / 2) + 'px';
+        };
+
+    </script>
+
+</body>
+
+</html>
