@@ -492,16 +492,30 @@ COMPILED&&!a&&this.domElement.parentNode==document.body)&&(alert("Please install
 lime.Director.prototype.keyUpHandler_ = function (a) { a.altKey && "d" == String.fromCharCode(a.keyCode).toLowerCase() && (this.debugModeOn_ ? (goog.style.uninstallStyles(this.debugModeOn_), this.debugModeOn_ = null) : this.debugModeOn_ = goog.style.installStyles(".lime-scene div,.lime-scene img,.lime-scene canvas{border: 1px solid #c00;}"), a.stopPropagation(), a.preventDefault()) }; lime.Director.prototype.hitTest = function (a) { a && a.screenPosition && (a.position = this.screenToLocal(a.screenPosition)); return !0 };
 
 farming.start = function () {
-    var a = { width: 310, height: 540, tile_size: 39, num_tiles_x: 8, num_tiles_y: 10, landLayer_w: 320, landLayer_h: 388, controlsLayer_w: 320, controlsLayer_h: 75, costPlowing: 3, shop_margin_x: 50, shop_margin_y: 35 },
+    var a = { width: 310, height: 540, tile_size: 36, num_tiles_x: 4, num_tiles_y: 4, landLayer_w: 320, landLayer_h: 388, controlsLayer_w: 320, controlsLayer_h: 75, costPlowing: 3, shop_margin_x: 50, shop_margin_y: 35 },
         b = { money: 300, currentCrop: 0 };
     a.crops = [
-        { name: "Tomatoes  ", cost: 10, revenue: 20, time_to_ripe: 15, time_to_death: 30, image: "tomato.png" },
-        { name: "Lettuce    ", cost: 15, revenue: 26, time_to_ripe: 30, time_to_death: 60, image: "lettuce.png" },
-        { name: "Artichoke  ", cost: 20, revenue: 38, time_to_ripe: 60, time_to_death: 60, image: "artichoke.png" },
-        { name: "Eggplant ", cost: 30, revenue: 78, time_to_ripe: 100, time_to_death: 100, image: "eggplant.png" },
-        { name: "Peppers  ", cost: 40, revenue: 82, time_to_ripe: 140, time_to_death: 140, image: "peppers.png" },
-        { name: "Corn  ", cost: 50, revenue: 100, time_to_ripe: 180, time_to_death: 180, image: "corn.png" }
+        { name: "Tomatoes  ", cost: 10, revenue: 20, time_to_ripe: 15, time_to_death: 60, image: "tomato.png" },
+        { name: "Lettuce    ", cost: 15, revenue: 30, time_to_ripe: 30, time_to_death: 60, image: "lettuce.png" },
+        { name: "Artichoke  ", cost: 20, revenue: 40, time_to_ripe: 60, time_to_death: 60, image: "artichoke.png" },
+        { name: "Eggplant ", cost: 30, revenue: 60, time_to_ripe: 90, time_to_death: 100, image: "eggplant.png" },
+        { name: "Peppers  ", cost: 40, revenue: 80, time_to_ripe: 120, time_to_death: 140, image: "peppers.png" },
+        { name: "Corn  ", cost: 50, revenue: 100, time_to_ripe: 140, time_to_death: 180, image: "corn.png" }
     ];
+    a.barnyard = [
+        { name: "yard", image: "grass.png" },
+        { name: "road", image: "vertRoad.png" },
+        { name: "well", image: "well.png" }
+    ];
+    a.barnlevel = [
+        { name: "Basic Shed", image: "barn1.png" },
+        { name: "Small Barn", image: "barn2.png" },
+        { name: "Large Barn", image: "barn3.png" },
+        { name: "XLarge Barn", image: "barn4.png" },
+        { name: "Double Silo Barn", image: "barn5.png" },
+        { name: "Pasture", image: "pasture.png" }
+    ];
+
     var c = new lime.Director(document.body, a.width, a.height); c.makeMobileWebAppCapable(); c.setDisplayFPS(!1);
         var d = (new lime.Scene).setRenderer(lime.Renderer.CANVAS),
             e = (new lime.Layer).setAnchorPoint(0, 50),
@@ -529,7 +543,14 @@ farming.start = function () {
 
         for (f = 0; f < a.num_tiles_x; f++)
             for (var i = 0; i < a.num_tiles_y; i++){
-                var j = (new farming.Land(a, b)).setPosition(f * a.tile_size, i * a.tile_size + 50); e.appendChild(j)
+                var midback = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(0, 196).setSize(a.controlsLayer_w, 100).setFill("images/" + a.barnyard[0].image); e.appendChild(midback)
+                var vertroad = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(144, 0).setSize(21, 440).setFill("images/" + a.barnyard[1].image); e.appendChild(vertroad)
+                var barn = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(75, 200).setSize(160, 88).setFill("images/" + a.barnlevel[4].image); e.appendChild(barn)
+                var j = (new farming.Land(a, b)).setPosition(f * a.tile_size, i * a.tile_size + 52); e.appendChild(j)
+                var v = (new farming.Land(a, b)).setPosition(f * a.tile_size + 165, i * a.tile_size + 52); e.appendChild(v)
+                
+                var u = (new farming.Land(a, b)).setPosition(f * a.tile_size, i * a.tile_size + 296); e.appendChild(u)
+                var t = (new farming.Land(a, b)).setPosition(f * a.tile_size + 165, i * a.tile_size + 296); e.appendChild(t)
         } c.replaceScene(d);
         var l = (new lime.Scene).setRenderer(lime.Renderer.CANVAS),
             e = (new lime.Layer).setAnchorPoint(0, 0),
