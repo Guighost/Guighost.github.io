@@ -513,7 +513,9 @@ farming.start = function () {
         { name: "shelter2", image: "shelter2.png" },
         { name: "crate1", image: "eggplantCrate.png" },
         { name: "crate2", image: "cornCrate.png" },
-        { name: "well", image: "well.png" }
+        { name: "well", image: "well.png" },
+        { name: "anvil", image: "anvil1.png" },
+        { name: "anvil2", image: "anvil2.png" }
     ];
     a.barnlevel = [
         { name: "Basic Shed", image: "barn1.png" },
@@ -553,7 +555,7 @@ farming.start = function () {
         var vertroad = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(144, 60).setSize(21, 440).setFill("images/" + a.barnyard[1].image); e.appendChild(vertroad)
         var well = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(3, 93).setSize(300, 68).setFill("images/" + a.barnyard[10].image); e.appendChild(well)
         var sacks = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(-5, 94).setSize(40, 22).setFill("images/" + a.barnyard[2].image); e.appendChild(sacks)
-        var sacks2 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(21, 102).setSize(40, 22).setFill("images/" + a.barnyard[2].image); e.appendChild(sacks2)
+        var sacks2 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(20, 100).setSize(40, 22).setFill("images/" + a.barnyard[2].image); e.appendChild(sacks2)
         var sacks3 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(44, 94).setSize(40, 22).setFill("images/" + a.barnyard[2].image); e.appendChild(sacks3)
         
         var vertFence9 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(-3, 33).setSize(8, 90).setFill("images/" + a.barnyard[4].image); e.appendChild(vertFence9)
@@ -571,10 +573,10 @@ farming.start = function () {
         var market = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(221, 45).setSize(90, 60).setFill("images/" + a.barnyard[3].image); e.appendChild(market)
         var eggplantCrate = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(283, 78).setSize(20, 30).setFill("images/" + a.barnyard[8].image); e.appendChild(eggplantCrate)
         var cornCrate = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(283, 95).setSize(20, 30).setFill("images/" + a.barnyard[9].image); e.appendChild(cornCrate)
-        var shelter = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(4, 48).setSize(20, 70).setFill("images/" + a.barnyard[6].image); e.appendChild(shelter)
-        var shelter3 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(63, 48).setSize(20, 70).setFill("images/" + a.barnyard[6].image); e.appendChild(shelter3)
-        var shelter2 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(24, 48).setSize(40, 78).setFill("images/" + a.barnyard[7].image); e.appendChild(shelter2)
-        
+        var shelter = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(4, 48).setSize(18, 65).setFill("images/" + a.barnyard[6].image); e.appendChild(shelter)
+        var shelter3 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(59, 48).setSize(18, 65).setFill("images/" + a.barnyard[6].image); e.appendChild(shelter3)
+        var shelter2 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(22, 48).setSize(37, 72).setFill("images/" + a.barnyard[7].image); e.appendChild(shelter2)
+        var anvil1 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(30, 129).setSize(25, 25).setFill("images/" + a.barnyard[12].image); e.appendChild(anvil1)
         var barn = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(84, 46).setSize(142, 85).setFill("images/" + a.barnlevel[4].image); e.appendChild(barn)
 
 
