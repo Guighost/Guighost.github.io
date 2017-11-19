@@ -492,7 +492,7 @@ COMPILED&&!a&&this.domElement.parentNode==document.body)&&(alert("Please install
 lime.Director.prototype.keyUpHandler_ = function (a) { a.altKey && "d" == String.fromCharCode(a.keyCode).toLowerCase() && (this.debugModeOn_ ? (goog.style.uninstallStyles(this.debugModeOn_), this.debugModeOn_ = null) : this.debugModeOn_ = goog.style.installStyles(".lime-scene div,.lime-scene img,.lime-scene canvas{border: 1px solid #c00;}"), a.stopPropagation(), a.preventDefault()) }; lime.Director.prototype.hitTest = function (a) { a && a.screenPosition && (a.position = this.screenToLocal(a.screenPosition)); return !0 };
 
 farming.start = function () {
-    var a = { width: 310, height: 540, tile_size: 36, num_tiles_x: 4, num_tiles_y: 4, landLayer_w: 320, landLayer_h: 388, controlsLayer_w: 320, controlsLayer_h: 75, costPlowing: 3, shop_margin_x: 50, shop_margin_y: 35 },
+    var a = { width: 310, height: 540, tile_size: 30, num_tiles_x: 4, num_tiles_y: 4, landLayer_w: 320, landLayer_h: 388, controlsLayer_w: 320, controlsLayer_h: 75, costPlowing: 3, shop_margin_x: 50, shop_margin_y: 35 },
         b = { money: 300, currentCrop: 0 };
     a.crops = [
         { name: "Tomatoes  ", cost: 10, revenue: 20, time_to_ripe: 15, time_to_death: 60, image: "tomato.png" },
@@ -505,6 +505,14 @@ farming.start = function () {
     a.barnyard = [
         { name: "yard", image: "grass.png" },
         { name: "road", image: "vertRoad.png" },
+        { name: "sacks", image: "sacks.png" },
+        { name: "market", image: "market.png" },
+        { name: "vertFence", image: "vertFence.png" },
+        { name: "horizFence", image: "horizFence.png" },
+        { name: "shelter1", image: "shelter1.png" },
+        { name: "shelter2", image: "shelter2.png" },
+        { name: "crate1", image: "eggplantCrate.png" },
+        { name: "crate2", image: "cornCrate.png" },
         { name: "well", image: "well.png" }
     ];
     a.barnlevel = [
@@ -522,9 +530,9 @@ farming.start = function () {
             f = (new lime.Layer).setAnchorPoint(0, 50);
         d.appendChild(e);
         d.appendChild(f);
-        var gg = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(0, 0).setSize(a.controlsLayer_w, a.controlsLayer_h - 20).setFill("#8b008b");
+        var gg = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(0, 0).setSize(a.controlsLayer_w, a.controlsLayer_h - 30).setFill("#8b008b");
         f.appendChild(gg);
-        gg = (new lime.GlossyButton).setColor("#663300").setText("Home").setPosition(40, a.height - (a.height -30) ).setSize(50, 40);
+        gg = (new lime.GlossyButton).setColor("#663300").setText("Home").setPosition(40, a.height - (a.height -15) ).setSize(50, 30);
         f.appendChild(gg);
         var ggg = (new lime.Label).setText("Gui Farm").setFontColor("#E8FC08").setPosition(a.controlsLayer_w - 165, 30).setFontSize(30);
         f.appendChild(ggg);
@@ -541,16 +549,43 @@ farming.start = function () {
         var z = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(a.controlsLayer_w / 2 - (20), a.height - a.controlsLayer_h / 2 - 44).setFill("images/" + a.crops[hh].image).setSize(a.tile_size * 1.2, a.tile_size * 1.2);
         f.appendChild(z);
 
+        var midback = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(0, 45).setSize(a.controlsLayer_w, a.landLayer_h +5).setFill("images/" + a.barnyard[0].image); e.appendChild(midback)
+        var vertroad = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(144, 60).setSize(21, 440).setFill("images/" + a.barnyard[1].image); e.appendChild(vertroad)
+        var well = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(3, 93).setSize(300, 68).setFill("images/" + a.barnyard[10].image); e.appendChild(well)
+        var sacks = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(-5, 94).setSize(40, 22).setFill("images/" + a.barnyard[2].image); e.appendChild(sacks)
+        var sacks2 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(21, 102).setSize(40, 22).setFill("images/" + a.barnyard[2].image); e.appendChild(sacks2)
+        var sacks3 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(44, 94).setSize(40, 22).setFill("images/" + a.barnyard[2].image); e.appendChild(sacks3)
+        
+        var vertFence9 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(-3, 33).setSize(8, 90).setFill("images/" + a.barnyard[4].image); e.appendChild(vertFence9)
+        var vertFence10 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(302, 33).setSize(8, 90).setFill("images/" + a.barnyard[4].image); e.appendChild(vertFence10)
+        var vertFence1 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(-3, 203).setSize(8, 90).setFill("images/" + a.barnyard[4].image); e.appendChild(vertFence1)
+        var vertFence2 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(302, 203).setSize(8, 90).setFill("images/" + a.barnyard[4].image); e.appendChild(vertFence2)
+        var vertFence3 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(-3, 123).setSize(8, 90).setFill("images/" + a.barnyard[4].image); e.appendChild(vertFence3)
+        var vertFence4 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(302, 123).setSize(8, 90).setFill("images/" + a.barnyard[4].image); e.appendChild(vertFence4)
+        var vertFence5 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(-3, 293).setSize(8, 90).setFill("images/" + a.barnyard[4].image); e.appendChild(vertFence5)
+        var vertFence6 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(302, 293).setSize(8, 90).setFill("images/" + a.barnyard[4].image); e.appendChild(vertFence6)
+        var vertFence7 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(-3, 383).setSize(8, 90).setFill("images/" + a.barnyard[4].image); e.appendChild(vertFence7)
+        var vertFence8 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(302, 383).setSize(8, 90).setFill("images/" + a.barnyard[4].image); e.appendChild(vertFence8)
+        var horizFence1 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(-4, 35).setSize(315, 30).setFill("images/" + a.barnyard[5].image); e.appendChild(horizFence1)
+        var horizFence2 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(-4, 410).setSize(315, 30).setFill("images/" + a.barnyard[5].image); e.appendChild(horizFence2)
+        var market = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(221, 45).setSize(90, 60).setFill("images/" + a.barnyard[3].image); e.appendChild(market)
+        var eggplantCrate = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(283, 78).setSize(20, 30).setFill("images/" + a.barnyard[8].image); e.appendChild(eggplantCrate)
+        var cornCrate = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(283, 95).setSize(20, 30).setFill("images/" + a.barnyard[9].image); e.appendChild(cornCrate)
+        var shelter = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(4, 48).setSize(20, 70).setFill("images/" + a.barnyard[6].image); e.appendChild(shelter)
+        var shelter3 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(63, 48).setSize(20, 70).setFill("images/" + a.barnyard[6].image); e.appendChild(shelter3)
+        var shelter2 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(24, 48).setSize(40, 78).setFill("images/" + a.barnyard[7].image); e.appendChild(shelter2)
+        
+        var barn = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(84, 46).setSize(142, 85).setFill("images/" + a.barnlevel[4].image); e.appendChild(barn)
+
+
         for (f = 0; f < a.num_tiles_x; f++)
             for (var i = 0; i < a.num_tiles_y; i++){
-                var midback = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(0, 196).setSize(a.controlsLayer_w, 100).setFill("images/" + a.barnyard[0].image); e.appendChild(midback)
-                var vertroad = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(144, 0).setSize(21, 440).setFill("images/" + a.barnyard[1].image); e.appendChild(vertroad)
-                var barn = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(75, 200).setSize(160, 88).setFill("images/" + a.barnlevel[4].image); e.appendChild(barn)
-                var j = (new farming.Land(a, b)).setPosition(f * a.tile_size, i * a.tile_size + 52); e.appendChild(j)
-                var v = (new farming.Land(a, b)).setPosition(f * a.tile_size + 165, i * a.tile_size + 52); e.appendChild(v)
+               
+                var j = (new farming.Land(a, b)).setPosition(f * a.tile_size +18, i * a.tile_size + 161); e.appendChild(j)
+                var v = (new farming.Land(a, b)).setPosition(f * a.tile_size + 172, i * a.tile_size + 161); e.appendChild(v)
                 
-                var u = (new farming.Land(a, b)).setPosition(f * a.tile_size, i * a.tile_size + 296); e.appendChild(u)
-                var t = (new farming.Land(a, b)).setPosition(f * a.tile_size + 165, i * a.tile_size + 296); e.appendChild(t)
+                var u = (new farming.Land(a, b)).setPosition(f * a.tile_size +18 , i * a.tile_size + 296); e.appendChild(u)
+                var t = (new farming.Land(a, b)).setPosition(f * a.tile_size + 172, i * a.tile_size + 296); e.appendChild(t)
         } c.replaceScene(d);
         var l = (new lime.Scene).setRenderer(lime.Renderer.CANVAS),
             e = (new lime.Layer).setAnchorPoint(0, 0),
