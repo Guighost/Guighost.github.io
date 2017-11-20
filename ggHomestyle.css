@@ -3,6 +3,14 @@
     text-align: center;
     background-image: url(Images/background.png);
     background-size: cover;
+    font-family: 'Comic Sans MS';
+    font-size: 18px;
+}
+header {
+    height: 140px;
+    width: 94%;
+    margin-left: 3%;
+    color: azure;
 }
 h1 {
     transform: translateY(-35px);
@@ -23,12 +31,47 @@ img {
 section {
     border: 3px inset black;
     transform: translateY(-10px);
-    height: 550px;
+    height: 700px;
+    width: 99%;
 }
-#bubstorImg5 {
-    transform: scale(.75) translateY(-175px);
-    height: 650px;
+#farmImg {
+    transform:  translateY(-60px);
+    height:550px;
 }
 #guiSpellMatch {
-    transform: translate(40px, -100px);
+    transform: translate(10px, -100px);
+}
+.infoDivs {
+    height: 110px;
+    font-family: 'Comic Sans MS';
+    font-size: 18px;
+    color:azure;
+    background-color:darkviolet;
+   border-radius: 15px;
+    width: 80%;
+    padding-top: 20px;
+    padding-bottom:5px;
+    margin-top:30px;
+    margin-left: 10%;
+    margin-bottom: 10px;
+    clear: both;
+    /*transform: translateX(-160px);*/
+    text-align: center;
+    text-decoration: none;
+}
+#infoSpellMat{
+    transform: translateY(-122px);
+    height: 50px;
+}
+#infoGuiFarm {
+    transform: translateY(-102px);
+    height: 50px;
+}
+#infoGuiMatch {
+    transform: translateY(-240px);
+    height: 40px;
+}
+#infoSoduku {
+    transform: translateY(-220px);
+    height: 40px;
 }
