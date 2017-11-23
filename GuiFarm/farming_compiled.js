@@ -408,10 +408,14 @@ var farming = {
         lime.scheduleManager.scheduleWithDelay(function () {
         this.state == farming.GROWING ? 0 >= this.ripeTime ? (this.state = farming.READY, this.setFill("images/" +
                 a.crops[this.crop].image)) : this.ripeTime -= dt : this.state == farming.READY && (0 >= this.deathTime ? (this.state = farming.EMPTY, this.setFill("images/bare_land.png")) : this.deathTime -= dt)
+       
         }, this, dt)
+        
     }
 };
-goog.inherits(farming.Land, lime.Sprite); lime.Scene = function () { lime.Node.call(this); this.setAnchorPoint(0, 0); this.domClassName = "lime-scene"; this.createDomElement() }; goog.inherits(lime.Scene, lime.Node); lime.Scene.prototype.getScene = function () { return this }; lime.Scene.prototype.measureContents = function () { return this.getFrame() }; lime.Button = function (a, b) {
+goog.inherits(farming.Land, lime.Sprite);
+
+lime.Scene = function () { lime.Node.call(this); this.setAnchorPoint(0, 0); this.domClassName = "lime-scene"; this.createDomElement() }; goog.inherits(lime.Scene, lime.Node); lime.Scene.prototype.getScene = function () { return this }; lime.Scene.prototype.measureContents = function () { return this.getFrame() }; lime.Button = function (a, b) {
     lime.Layer.call(this); this.domClassName = "lime-button"; goog.isDef(a) && this.setUpState(a); goog.isDef(b) && this.setDownState(b); var c = this; goog.events.listen(this, ["mousedown", "touchstart", "touchmove"], function (a) {
         c.setState(lime.Button.State.DOWN); a.swallow("mousemove", function (a) { c.hitTest(a) ? c.setState(lime.Button.State.DOWN) : c.setState(lime.Button.State.UP) }); a.swallow("touchmove", function (a) { c.hitTest(a) || (c.setState(lime.Button.State.UP), a.release()) }); a.swallow(["mouseup",
 "touchend"],function(a){c.hitTest(a)&&c.dispatchEvent({type:lime.Button.Event.CLICK});this.setState(lime.Button.State.UP)})})};goog.inherits(lime.Button,lime.Layer);lime.Button.State={UP:0,DOWN:1};lime.Button.Event={UP:"up",DOWN:"down",CLICK:"click"};lime.Button.prototype.setUpState=function(a){this.upstate=a;this.appendChild(this.upstate);this.state_=-1;return this.setState(lime.Button.State.UP)};lime.Button.prototype.setDownState=function(a){this.downstate=a;this.appendChild(a);this.state_=-1;return this.setState(lime.Button.State.UP)};
@@ -506,6 +510,12 @@ document.body&&(this.overflowStyle_&&goog.style.uninstallStyles(this.overflowSty
 lime.Director.prototype.makeMobileWebAppCapable=function(){var a=document.createElement("meta");a.name="apple-mobile-web-app-capable";a.content="yes";document.getElementsByTagName("head").item(0).appendChild(a);a=document.createElement("meta");a.name="apple-mobile-web-app-status-bar-style";a.content="black";document.getElementsByTagName("head").item(0).appendChild(a);a=!1;goog.isDef(localStorage)&&(a=localStorage.getItem("_lime_visited"));/(ipod|iphone|ipad)/i.test(navigator.userAgent)&&(!window.navigator.standalone&&
 COMPILED&&!a&&this.domElement.parentNode==document.body)&&(alert("Please install this page as a web app by clicking Share + Add to home screen."),goog.isDef(localStorage)&&localStorage.setItem("_lime_visited",!0))};lime.Director.prototype.updateDomOffset_=function(){this.domOffset=goog.style.getPageOffset(this.domElement.parentNode)};
 lime.Director.prototype.keyUpHandler_ = function (a) { a.altKey && "d" == String.fromCharCode(a.keyCode).toLowerCase() && (this.debugModeOn_ ? (goog.style.uninstallStyles(this.debugModeOn_), this.debugModeOn_ = null) : this.debugModeOn_ = goog.style.installStyles(".lime-scene div,.lime-scene img,.lime-scene canvas{border: 1px solid #c00;}"), a.stopPropagation(), a.preventDefault()) }; lime.Director.prototype.hitTest = function (a) { a && a.screenPosition && (a.position = this.screenToLocal(a.screenPosition)); return !0 };
+lime.Node.prototype.setHidden = function (value) {
+    this.hidden_ = value;
+    this.setDirty(lime.Dirty.VISIBILITY);
+    this.autoHide_ = 0;
+    return this;
+};
 
 var player = {
     playerLevel: 1,
@@ -513,17 +523,20 @@ var player = {
     shopLevel: 1,
     fields: 2,
     farms: 1,
-    tools: 10
+    tools: 150,
+    money: 300,
+    currentCrop: 0
 };
 if (typeof localStorage["farm_Player"] === "undefined") { localStorage.setItem('farm_Player', JSON.stringify(player));};
 player = JSON.parse(localStorage.getItem('farm_Player'));
+console.log
 
 var starCash = 0;
 if (typeof localStorage["starCash"] === "undefined") { localStorage["starCash"] = 0; starCash = 0; };
 starCash = parseInt(localStorage["starCash"]);
 
 farming.start = function () {
-    var a = { width: 310, height: 540, tile_size: 30, num_tiles_x: 4, num_tiles_y: 4, landLayer_w: 320, landLayer_h: 388, controlsLayer_w: 320, controlsLayer_h: 75, costPlowing: 3, shop_margin_x: 50, shop_margin_y: 35 },
+    var a = { width: 310, height: 540, tile_size: 30, num_tiles_x: 4, num_tiles_y: 4, landLayer_w: 320, landLayer_h: 388, controlsLayer_w: 320, controlsLayer_h: 75, costPlowing: 0, shop_margin_x: 50, shop_margin_y: 35 },
         b = { money: 300, currentCrop: 0 };
     a.crops = [
         { name: "Tomatoes  ", cost: 10, revenue: 20, time_to_ripe: 15, time_to_death: 60, image: "tomato.png" },
@@ -544,12 +557,14 @@ farming.start = function () {
         { name: "shelter2", image: "shelter2.png" },
         { name: "crate1", image: "eggplantCrate.png" },
         { name: "crate2", image: "cornCrate.png" },
-        { name: "well", image: "well.png" },
+        { name: "well", image: "well2.png" },
         { name: "anvil", image: "anvil1.png" },
         { name: "anvil2", image: "anvil2.png" },
         { name: "trees1", image: "leftTrees.png" },
         { name: "trees2", image: "rightTrees.png" },
-        { name: "horizRoad", image: "horizRoad.png" }
+        { name: "horizRoad", image: "horizRoad.png" },
+        { name: "toolTable", image: "toolTable.png" },
+        { name: "forge", image: "forge1.png" }
     ];
     a.barnlevel = [
         { name: "Basic Shed", image: "barn1.png" },
@@ -566,19 +581,23 @@ farming.start = function () {
             f = (new lime.Layer).setAnchorPoint(0, 50);
         d.appendChild(e);
         d.appendChild(f);
-        var gg = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(0, 0).setSize(a.controlsLayer_w, a.controlsLayer_h - 35).setFill("#8b008b");
+        var gg = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(0, 0).setSize(a.controlsLayer_w, a.controlsLayer_h - 31).setFill("#8b008b");
         f.appendChild(gg);
-        gg = (new lime.GlossyButton).setColor("#663300").setText("Home").setPosition(40, a.height - (a.height -15) ).setSize(50, 30);
+        gg = (new lime.GlossyButton).setColor("#663300").setText("Home").setPosition(40, 20 ).setSize(50, 30);
         f.appendChild(gg);
-        var ggg = (new lime.Label).setText("Gui Farm").setFontColor("#E8FC08").setPosition(a.controlsLayer_w - 165, 30).setFontSize(30);
+        var ggg = (new lime.Label).setText("Gui Farm").setFontColor("#E8FC08").setPosition(a.controlsLayer_w - 175, 30).setFontSize(30);
         f.appendChild(ggg);
         var g = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(0, a.height - a.controlsLayer_h -5).setSize(a.controlsLayer_w, a.controlsLayer_h).setFill("#0D0D0D");
         f.appendChild(g);
-        g = (new lime.GlossyButton).setColor("#663300").setText("Change Seed").setPosition(65, a.height - a.controlsLayer_h / 2 +5).setSize(105, 40);
+        g = (new lime.GlossyButton).setColor("#663300").setText("Seeds").setPosition(65, a.height - a.controlsLayer_h / 2 + 5).setSize(105, 40);
         f.appendChild(g);
-        var h = (new lime.Label).setText("$" + b.money).setFontColor("#E8FC08").setPosition(a.controlsLayer_w - 50, a.height - a.controlsLayer_h / 2 - 26);
+        var h = (new lime.Label).setText("$ " + b.money).setFontColor("#E8FC08").setPosition(a.controlsLayer_w - 50, a.height - a.controlsLayer_h / 2 - 26);
         f.appendChild(h);
-        a.updateMoney = function () { h.setText("$" + b.money) };
+        a.updateMoney = function () { h.setText("$ " + b.money) };
+
+        var toolCount = (new lime.Label).setText("Tools  " + player.tools).setFontColor("#E8FC08").setPosition(a.controlsLayer_w - 65, a.height - a.controlsLayer_h / 2 + 15);
+        f.appendChild(toolCount);
+        a.updateTools = function () { toolCount.setText("Tools:  " + player.tools) };
         var hh = b.currentCrop;
         var w = (new lime.Label).setText("Planting " + a.crops[0].name ).setFontColor("#E8FC08").setFontSize(12).setPosition(a.controlsLayer_w / 2 +5 , a.height - a.controlsLayer_h / 2 - 26);
         f.appendChild(w);
@@ -587,10 +606,10 @@ farming.start = function () {
 
         var midback = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(0, 45).setSize(a.controlsLayer_w, a.landLayer_h +5).setFill("images/" + a.barnyard[0].image); e.appendChild(midback)
         var vertroad = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(144, 60).setSize(21, 440).setFill("images/" + a.barnyard[1].image); e.appendChild(vertroad)
-        var well = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(3, 93).setSize(300, 68).setFill("images/" + a.barnyard[10].image); e.appendChild(well)
-        var sacks = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(-5, 94).setSize(40, 22).setFill("images/" + a.barnyard[2].image); e.appendChild(sacks)
-        var sacks2 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(20, 100).setSize(40, 22).setFill("images/" + a.barnyard[2].image); e.appendChild(sacks2)
-        var sacks3 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(44, 94).setSize(40, 22).setFill("images/" + a.barnyard[2].image); e.appendChild(sacks3)
+        var well = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(3, 93).setSize(300, 79).setFill("images/" + a.barnyard[10].image); e.appendChild(well)
+        var sacks = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(75,65).setSize(40, 22).setFill("images/" + a.barnyard[2].image); e.appendChild(sacks)
+        var sacks2 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(190, 72).setSize(40, 22).setFill("images/" + a.barnyard[2].image); e.appendChild(sacks2)
+        var sacks3 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(197, 74).setSize(40, 22).setFill("images/" + a.barnyard[2].image); e.appendChild(sacks3)
         
         var vertFence9 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(-3, 33).setSize(8, 90).setFill("images/" + a.barnyard[4].image); e.appendChild(vertFence9)
         var vertFence10 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(302, 33).setSize(8, 90).setFill("images/" + a.barnyard[4].image); e.appendChild(vertFence10)
@@ -605,47 +624,107 @@ farming.start = function () {
         var horizFence1 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(-4, 35).setSize(315, 30).setFill("images/" + a.barnyard[5].image); e.appendChild(horizFence1)
         var horizRoad = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(0, 436).setSize(320, 25).setFill("images/" + a.barnyard[15].image); e.appendChild(horizRoad)
         var horizFence2 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(-4, 410).setSize(315, 30).setFill("images/" + a.barnyard[5].image); e.appendChild(horizFence2)
-        var market = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(221, 45).setSize(90, 60).setFill("images/" + a.barnyard[3].image); e.appendChild(market)
-        var eggplantCrate = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(283, 78).setSize(20, 30).setFill("images/" + a.barnyard[8].image); e.appendChild(eggplantCrate)
-        var cornCrate = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(283, 95).setSize(20, 30).setFill("images/" + a.barnyard[9].image); e.appendChild(cornCrate)
-        var shelter = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(4, 48).setSize(18, 65).setFill("images/" + a.barnyard[6].image); e.appendChild(shelter)
-        var shelter3 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(59, 48).setSize(18, 65).setFill("images/" + a.barnyard[6].image); e.appendChild(shelter3)
-        var shelter2 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(22, 48).setSize(37, 72).setFill("images/" + a.barnyard[7].image); e.appendChild(shelter2)
-        var anvil1 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(30, 129).setSize(25, 25).setFill("images/" + a.barnyard[12].image); e.appendChild(anvil1)
-        
-        var barn = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(84, 46).setSize(142, 85).setFill("images/" + a.barnlevel[(4)].image); e.appendChild(barn)
+        var market = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(224, 45).setSize(85, 55).setFill("images/" + a.barnyard[3].image); e.appendChild(market)
+        var eggplantCrate = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(283, 78).setSize(20, 27).setFill("images/" + a.barnyard[8].image); e.appendChild(eggplantCrate)
+        var cornCrate = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(283, 95).setSize(20, 27).setFill("images/" + a.barnyard[9].image); e.appendChild(cornCrate)
+        //var shelter = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(35, 48).setSize(18, 65).setFill("images/" + a.barnyard[6].image); e.appendChild(shelter)
+        //var shelter3 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(4, 48).setSize(18, 65).setFill("images/" + a.barnyard[6].image); e.appendChild(shelter3)
+        //var shelter2 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(22, 48).setSize(37, 72).setFill("images/" + a.barnyard[7].image); e.appendChild(shelter2)
+                
+        var forge = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(4, 50).setSize(75, 85).setFill("images/" + a.barnyard[17].image); e.appendChild(forge)
+        var anvil1 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(64, 82).setSize(22, 22).setFill("images/" + a.barnyard[12].image); e.appendChild(anvil1)
+        var toolTable = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(5, 111).setSize(19, 22).setFill("images/" + a.barnyard[16].image); e.appendChild(toolTable)
+        var barn = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(88.5, 4).setSize(132, 155).setFill("images/" + a.barnlevel[(0)].image); e.appendChild(barn)
 
 
         for (f = 0; f < a.num_tiles_x; f++)
             for (var i = 0; i < a.num_tiles_y; i++){
                
-                var j = (new farming.Land(a, b)).setPosition(f * a.tile_size +18, i * a.tile_size + 161); e.appendChild(j)
-                var v = (new farming.Land(a, b)).setPosition(f * a.tile_size + 172, i * a.tile_size + 161); e.appendChild(v)
-               
-                if (player.fields > 2) {
-                    var u = (new farming.Land(a, b)).setPosition(f * a.tile_size + 18, i * a.tile_size + 296); e.appendChild(u)
-                    if (player.fields >3) {
-                        var t = (new farming.Land(a, b)).setPosition(f * a.tile_size + 172, i * a.tile_size + 296); e.appendChild(t)
+                var j = (new farming.Land(a, b)).setPosition(f * a.tile_size + 20, i * a.tile_size + 163); e.appendChild(j)
+                var v = (new farming.Land(a, b)).setPosition(f * a.tile_size + 172, i * a.tile_size + 163); e.appendChild(v)
+
+                var u = (new farming.Land(a, b)).setPosition(f * a.tile_size + 20, i * a.tile_size + 296); e.appendChild(u)
+                //u.setHidden(true);
+                var t = (new farming.Land(a, b)).setPosition(f * a.tile_size + 172, i * a.tile_size + 296); e.appendChild(t)
+                //t.setHidden(true);
+                if (player.fields < 2) {
+                    u.setHidden(false);
+                    if (player.fields < 3) {
+                        t.setHidden(false);    
                     }
                     
                 }
                
             }
-
+        var treeUnlockBtn = (new lime.GlossyButton).setColor("#663300").setText("Unlock").setPosition(79, 351).setSize(130, 130).setOpacity(.8);
+        var treeUnlockBtn2 = (new lime.GlossyButton).setColor("#663300").setText("Unlock").setPosition(229, 351).setSize(130, 130).setOpacity(.8);
+        //var barnUnlockBtn = (new lime.GlossyButton).setColor("#663300").setText("Upgrade").setPosition(140, 95).setSize(70, 30).setOpacity(.8); e.appendChild(barnUnlockBtn)
+        var barnUnlock = (new lime.Label).setAnchorPoint(0, 0).setFontColor("#E8FC08").setPosition(93, 130).setSize(120, 120).setText("Upgrade"); e.appendChild(barnUnlock)
         if (player.fields < 3) {
+            e.appendChild(treeUnlockBtn);
             var trees1 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(18, 295).setSize(120, 120).setFill("images/" + a.barnyard[13].image); e.appendChild(trees1)
-            var treeUnlock1 = (new lime.Label).setAnchorPoint(0, 0).setFontColor("#E8FC08").setPosition(18, 345).setSize(120, 120).setText("Clear the Forest   50 Tools"); e.appendChild(treeUnlock1)
+            var treeUnlock1 = (new lime.Label).setAnchorPoint(0, 0).setFontColor("#E8FC08").setPosition(16, 345).setSize(120, 120).setText("Clear the Forest   50 Tools"); e.appendChild(treeUnlock1)
+            
+           
 
         }
         if (player.fields < 4) {
+            e.appendChild(treeUnlockBtn2);
             var trees2 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(172, 295).setSize(120, 120).setFill("images/" + a.barnyard[14].image); e.appendChild(trees2)
             var treeUnlock2 = (new lime.Label).setAnchorPoint(0, 0).setFontColor("#E8FC08").setPosition(172, 345).setSize(120, 120).setText("Clear the Forest   50 Tools"); e.appendChild(treeUnlock2)
+           
+            
         }
         c.replaceScene(d);
-            goog.events.listen(trees1, ["mousedown", "touchstart"], function () {
-               
-                
-            });
+        goog.events.listen(treeUnlockBtn, ["mousedown", "touchstart"], function () {
+            console.log("hit it");
+            if (player.tools >= 50) {
+                console.log("inside If begin");
+                player.fields = player.fields + 1;
+                console.log("fields " + player.fields);
+                player.tools = player.tools - 50;
+                console.log("tools " + player.tools);
+                a.updateTools();
+                trees1.setHidden(true);
+                treeUnlock1.setHidden(true);
+                treeUnlockBtn.setHidden(true);        
+                player.barnLevel = 2;
+                localStorage.setItem('farm_Player', JSON.stringify(player));
+              
+            }
+            
+        }, { passive: false });
+        goog.events.listen(barn, ["mousedown", "touchstart"], function () {
+            console.log("hit it");
+            if (player.tools >= 100) {
+                barnUnlock.setHidden(true);
+                //barnUnlockBtn.setHidden(true);
+                player.barnLevel += 1;
+                player.tools = player.tools - 100;
+                localStorage.setItem('farm_Player', JSON.stringify(player));
+                //player.barnLevel = 2;
+                if (player.barnLevel > 5) { player.barnLevel = 5 };
+                if (player.barnLevel == 2) { barn.setFill('images/barn2.png'); };
+                if (player.barnLevel == 3) { barn.setFill('images/barn3.png'); };
+                if (player.barnLevel == 4) { barn.setFill('images/barn4.png'); };
+                if (player.barnLevel == 5) { barn.setFill('images/barn5.png'); };
+                a.updateTools();
+
+            }
+
+        }, { passive: false });
+        //c.replaceScene(d);
+        u.setHidden(false);
+        //dt = 1000;
+        //lime.scheduleManager.scheduleWithDelay(function () {
+        //    if (player.fields > 2) {
+        //        e.removeChild(treeUnlockBtn);
+        //        e.removeChild(trees1);
+        //        e.removeChild(treeUnlock1);
+        //        c.replaceScene(l);
+        //        console.log("tick tick");
+        //    }
+        //}, this, dt);
 
         var l = (new lime.Scene).setRenderer(lime.Renderer.CANVAS),
             e = (new lime.Layer).setAnchorPoint(0, 0),
@@ -655,6 +734,7 @@ farming.start = function () {
             e.appendChild(f);
             goog.events.listen(g, ["mousedown", "touchstart"], function () { c.replaceScene(l) });
             goog.events.listen(f, ["mousedown", "touchstart"], function () { c.replaceScene(d) });
+           
             //for (f = 0; f < a.crops.length; f++)
             for (f = 0; f < (player.barnLevel +1); f++)
                 g = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(a.shop_margin_x -35, (a.shop_margin_y + (a.shop_margin_y + a.tile_size) * f) + (f * 9) - (f *1)).setFill("images/" + a.crops[f].image).setSize(a.tile_size *1.3, a.tile_size *1.3), e.appendChild(g),
