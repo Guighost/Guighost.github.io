@@ -114,7 +114,8 @@ farming.start = function(){
     
     //create land elements
     for(var i=0; i<gameObj.num_tiles_x; i++) {
-        for(var j=0; j<gameObj.num_tiles_y; j++) {
+        for (var j = 0; j < gameObj.num_tiles_y; j++) {
+
             var landElement = new farming.Land(gameObj, playerObj).setPosition(i*gameObj.tile_size, j*gameObj.tile_size);
             landLayer.appendChild(landElement);
         }
