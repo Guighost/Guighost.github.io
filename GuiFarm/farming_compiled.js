@@ -411,22 +411,19 @@ var farming = {
         //var locationPicked = this.getPosition;
         //console.log(where2);
         goog.events.listen(this, ["mousedown", "touchstart"], function (d) {
-            //function getMousePos(canvas, evt) {
-                
-            //    return {
-            //        x: Math.round((evt.clientX - rect.left) / (rect.right - rect.left) * canvas.width),
-            //        y: Math.round((evt.clientY - rect.top) / (rect.bottom - rect.top) * canvas.height),
-            //    };
-            //}
-            //getMousePos();
+            var toPlant = a.crops[b.currentCrop].grow1;
             d.event.stopPropagation(); c.state == farming.EMPTY && b.money >= a.costPlowing ?
+
                 (c.setFill("images/plowed.png"),
                     c.state = farming.PLOWED,
                     b.money -= a.costPlowing,
                     a.updateMoney()
                 )
                 : c.state == farming.PLOWED && b.money >= a.crops[b.currentCrop].cost ?
-                    (c.setFill("images/growing.png"),
+                    
+                    (  
+                        
+                        c.setFill("images/" + toPlant),
                         c.state = farming.GROWING,
                         c.crop = b.currentCrop,
                         c.ripeTime = 1E3 * a.crops[b.currentCrop].time_to_ripe,
@@ -446,8 +443,26 @@ var farming = {
         });
         dt = 1E3;
         lime.scheduleManager.scheduleWithDelay(function () {
-        this.state == farming.GROWING ? 0 >= this.ripeTime ? (this.state = farming.READY, this.setFill("images/" +
-                a.crops[this.crop].image)) : this.ripeTime -= dt : this.state == farming.READY && (0 >= this.deathTime ? (this.state = farming.EMPTY, this.setFill("images/bare_land.png")) : this.deathTime -= dt)
+            this.state == farming.GROWING ?
+                0 >= this.ripeTime ?
+                    (
+                        this.state = farming.READY, this.setFill("images/" + a.crops[this.crop].image)
+                    ) :
+                    this.ripeTime -= dt :
+                this.state == farming.READY &&
+                (
+                    0 >= this.deathTime ?
+                        (this.state = farming.EMPTY, this.setFill("images/bare_land.png")
+                        )
+                        : this.deathTime -= dt
+                )
+            this.state == farming.GROWING &&
+                (
+                4000 >= this.ripeTime ?
+                    (this.setFill("images/" + a.crops[this.crop].grow2)
+                        )
+                        : this.deathTime -= dt
+                )
        
         }, this, dt)
         
@@ -556,6 +571,242 @@ lime.Node.prototype.setHidden = function (value) {
     this.autoHide_ = 0;
     return this;
 };
+goog.provide('lime.transitions.MoveInDown');
+
+goog.provide('lime.transitions.MoveInLeft');
+goog.provide('lime.transitions.MoveInRight');
+goog.provide('lime.transitions.MoveInUp');
+goog.provide('lime.transitions.SlideIn');
+
+
+goog.provide('lime.transitions.SlideInDown');
+goog.provide('lime.transitions.SlideInLeft');
+goog.provide('lime.transitions.SlideInRight');
+goog.provide('lime.transitions.SlideInUp');
+goog.require('goog.math.Coordinate');
+goog.require('lime.Sprite');
+goog.require('lime.animation.Animation');
+
+goog.require('lime.animation.MoveBy');
+
+
+lime.animation.MoveBy = function (delta, opt_y) {
+    lime.animation.Animation.call(this);
+
+    if (arguments.length == 2) {
+        this.delta_ = new goog.math.Coordinate(arguments[0], arguments[1]);
+    } else {
+        this.delta_ = /** @type {!goog.math.Coordinate} */ (delta);
+    }
+
+
+};
+goog.inherits(lime.animation.MoveBy, lime.animation.Animation);
+
+
+lime.animation.MoveBy.prototype.scope = 'move';
+
+
+lime.animation.MoveBy.prototype.setSpeed = function (speed) {
+    this.speed_ = speed;
+    this.calcDurationFromSpeed_();
+    return this;
+};
+
+
+lime.animation.MoveBy.prototype.makeTargetProp = function (target) {
+    if (this.useTransitions()) {
+        target.addTransition(lime.Transition.POSITION,
+            goog.math.Coordinate.sum(target.getPosition(), this.delta_),
+            this.duration_, this.getEasing());
+        target.setDirty(lime.Dirty.POSITION);
+    }
+    return {
+        startpos: target.getPosition()
+    };
+};
+
+
+lime.animation.MoveBy.prototype.calcDurationFromSpeed_ = function () {
+    if (!this.speed_) return;
+
+    this.setDuration(this.speed_ * goog.math.Coordinate.distance(
+        this.delta_, new goog.math.Coordinate(0, 0)) / 100);
+
+    this.speedCalcDone_ = 1;
+}
+
+
+lime.animation.MoveBy.prototype.update = function (t, target) {
+    if (this.status_ == 0) return;
+    var prop = this.getTargetProp(target);
+
+    target.setPosition(
+        prop.startpos.x + this.delta_.x * t,
+        prop.startpos.y + this.delta_.y * t);
+
+};
+
+
+lime.animation.MoveBy.prototype.clearTransition = function (target) {
+
+    if (this.useTransitions()) {
+        target.clearTransition(lime.Transition.POSITION);
+        target.setDirty(lime.Dirty.POSITION);
+    }
+
+
+};
+
+
+lime.animation.MoveBy.prototype.reverse = function () {
+    var d = this.delta_.clone();
+    d.x *= -1;
+    d.y *= -1;
+
+    return new lime.animation.MoveBy(d).cloneParam(this);
+};
+
+
+
+
+
+goog.require('lime.transitions.Transition');
+lime.transitions.SlideIn = function (outgoing, incoming, opt_movein) {
+    goog.base(this, outgoing, incoming);
+
+    this.mode_ = lime.transitions.SlideIn.Mode.LEFT;
+
+    this.movein_ = opt_movein || false;
+
+};
+goog.inherits(lime.transitions.SlideIn, lime.transitions.Transition);
+
+lime.transitions.SlideIn.Mode = {
+    LEFT: 0,
+    UP: 1,
+    RIGHT: 2,
+    DOWN: 4
+};
+
+/**inheritDoc */
+lime.transitions.SlideIn.prototype.start = function () {
+    var size = this.incoming_.getSize();
+    var delta = new goog.math.Coordinate(0, 0);
+
+    switch (this.mode_) {
+        case lime.transitions.SlideIn.Mode.LEFT:
+            this.incoming_.setPosition(-size.width, 0);
+            delta.x = size.width;
+            break;
+
+        case lime.transitions.SlideIn.Mode.UP:
+            this.incoming_.setPosition(0, -size.height);
+            delta.y = size.height;
+            break;
+
+        case lime.transitions.SlideIn.Mode.RIGHT:
+            this.incoming_.setPosition(size.width, 0);
+            delta.x = -size.width;
+            break;
+
+        case lime.transitions.SlideIn.Mode.DOWN:
+            this.incoming_.setPosition(0, size.height);
+            delta.y = -size.height;
+            break;
+    }
+    this.incoming_.setHidden(false);
+
+    var move = new lime.animation.MoveBy(delta).
+        setDuration(this.getDuration());
+
+    if (this.outgoing_ && !this.movein_) move.addTarget(this.outgoing_);
+
+    move.addTarget(this.incoming_);
+
+    goog.events.listen(move, lime.animation.Event.STOP,
+        this.finish, false, this);
+
+    move.play();
+};
+
+/**inheritDoc */
+lime.transitions.SlideIn.prototype.finish = function () {
+    if (this.outgoing_)
+        this.outgoing_.setPosition(0, 0);
+
+    lime.transitions.Transition.prototype.finish.call(this);
+};
+
+/**
+ * Set the mode for transition. Mode defines the animation direction.
+ * param {lime.transitions.SlideIn.Mode} value New mode.
+ * return {lime.transitions.SlideIn} object itself.
+ */
+lime.transitions.SlideIn.prototype.setMode = function (value) {
+    this.mode_ = value;
+    return this;
+};
+
+
+/**
+ * inheritDoc
+ * extends lime.transitions.SlideIn
+ */
+lime.transitions.SlideInLeft = lime.transitions.SlideIn;
+
+/**
+ * inheritDoc
+ * constructor
+ * extends lime.transitions.SlideIn
+ */
+lime.transitions.SlideInUp = function (outgoing, incoming, opt_movein) {
+    goog.base(this, outgoing, incoming, opt_movein);
+
+    this.setMode(lime.transitions.SlideIn.Mode.UP);
+};
+goog.inherits(lime.transitions.SlideInUp, lime.transitions.SlideIn);
+
+/**
+ * inheritDoc
+ * constructor
+ * extends lime.transitions.SlideIn
+ */
+lime.transitions.SlideInRight = function (outgoing, incoming, opt_movein) {
+    goog.base(this, outgoing, incoming, opt_movein);
+
+    this.setMode(lime.transitions.SlideIn.Mode.RIGHT);
+};
+goog.inherits(lime.transitions.SlideInRight, lime.transitions.SlideIn);
+
+/**
+ * inheritDoc
+ * constructor
+ * extends lime.transitions.SlideIn
+ */
+lime.transitions.SlideInDown = function (outgoing, incoming, opt_movein) {
+    goog.base(this, outgoing, incoming, opt_movein);
+
+    this.setMode(lime.transitions.SlideIn.Mode.DOWN);
+};
+goog.inherits(lime.transitions.SlideInDown, lime.transitions.SlideIn);
+lime.transitions.MoveInLeft = function (outgoing, incoming) {
+    goog.base(this, outgoing, incoming, true);
+};
+goog.inherits(lime.transitions.MoveInLeft, lime.transitions.SlideInLeft);
+lime.transitions.MoveInUp = function (outgoing, incoming) {
+    goog.base(this, outgoing, incoming, true);
+};
+goog.inherits(lime.transitions.MoveInUp, lime.transitions.SlideInUp);
+lime.transitions.MoveInRight = function (outgoing, incoming) {
+    goog.base(this, outgoing, incoming, true);
+};
+goog.inherits(lime.transitions.MoveInRight, lime.transitions.SlideInRight);
+
+lime.transitions.MoveInDown = function (outgoing, incoming) {
+    goog.base(this, outgoing, incoming, true);
+};
+goog.inherits(lime.transitions.MoveInDown, lime.transitions.SlideInDown);
 
 var player = {
     playerLevel: 1,
@@ -579,12 +830,12 @@ farming.start = function () {
     var a = { width: 310, height: 540, tile_size: 30, num_tiles_x: 4, num_tiles_y: 4, landLayer_w: 320, landLayer_h: 388, controlsLayer_w: 320, controlsLayer_h: 75, costPlowing: 0, shop_margin_x: 50, shop_margin_y: 35 },
         b = { money: 300, currentCrop: 0 };
     a.crops = [
-        { name: "Tomatoes  ", cost: 5, revenue: 20, time_to_ripe: 5, time_to_death: 60, image: "tomato.png", harvest:"tomato2.png" },
-        { name: "Lettuce    ", cost: 7, revenue: 30, time_to_ripe: 30, time_to_death: 60, image: "lettuce.png", harvest: "lettuce2.png" },
-        { name: "Artichoke  ", cost: 10, revenue: 40, time_to_ripe: 60, time_to_death: 60, image: "artichoke.png", harvest: "artichoke2.png" },
-        { name: "Eggplant ", cost: 15, revenue: 60, time_to_ripe: 90, time_to_death: 100, image: "eggplant.png", harvest: "eggplant2.png" },
-        { name: "Peppers  ", cost: 20, revenue: 80, time_to_ripe: 120, time_to_death: 140, image: "peppers.png", harvest: "peppers2.png" },
-        { name: "Corn  ", cost: 25, revenue: 100, time_to_ripe: 140, time_to_death: 180, image: "corn.png", harvest: "corn2.png" }
+        { name: "Tomatoes  ", cost: 5, revenue: 20, time_to_ripe: 15, time_to_death: 60, image: "tomato.png", harvest: "tomato2.png", grow1: "tomatoGrow1.png", grow2: "tomatoGrow2.png" },
+        { name: "Carrots    ", cost: 7, revenue: 30, time_to_ripe: 30, time_to_death: 60, image: "carrots.png", harvest: "carrots2.png", grow1: "carrotGrow1.png", grow2: "carrotGrow2.png" },
+        { name: "Artichoke  ", cost: 10, revenue: 40, time_to_ripe: 60, time_to_death: 120, image: "artichoke.png", harvest: "artichoke2.png", grow1: "artiGrow1.png", grow2: "artiGrow2.png" },
+        { name: "Eggplant ", cost: 15, revenue: 60, time_to_ripe: 90, time_to_death: 180, image: "eggplant.png", harvest: "eggplant2.png", grow1: "eggplantGrow1.png", grow2: "eggplantGrow2.png" },
+        { name: "Peppers  ", cost: 20, revenue: 80, time_to_ripe: 120, time_to_death: 240, image: "peppers.png", harvest: "peppers2.png", grow1: "pepperGrow1.png", grow2: "pepperGrow2.png" },
+        { name: "Corn  ", cost: 25, revenue: 100, time_to_ripe: 140, time_to_death: 280, image: "corn.png", harvest: "corn2.png", grow1: "cornGrow1.png", grow2: "cornGrow2.png" }
     ];
     
     a.barnyard = [
@@ -674,10 +925,10 @@ farming.start = function () {
             var diffX = (x - 130) /7;            var diffY = (y - 80) / 7;
             var diffX2 = x - diffX;            var diffY2 = y - diffY;
             
-            for (f = 0; f < 10; f++){
-                fadeAdj = "." + ( 9 - f);
+            for (f = 0; f < 7; f++){
+                fadeAdj = "." + ( 7 - f);
                 setTimeout(function () { harvest1.setPosition(diffX2, diffY2);  diffX2 = (diffX2 - diffX); diffY2 = (diffY2 - diffY); }, ((f * 70) +1));
-                setTimeout(function () { harvest1.setOpacity(1.0); harvest1.setHidden(true); }, 1500);
+                setTimeout(function () { harvest1.setOpacity(1.0); harvest1.setHidden(true); }, 800);
                 }
         };
 
@@ -811,16 +1062,7 @@ farming.start = function () {
         }, { passive: false });
         //c.replaceScene(d);
         u.setHidden(false);
-        //dt = 1000;
-        //lime.scheduleManager.scheduleWithDelay(function () {
-        //    if (player.fields > 2) {
-        //        e.removeChild(treeUnlockBtn);
-        //        e.removeChild(trees1);
-        //        e.removeChild(treeUnlock1);
-        //        c.replaceScene(l);
-        //        console.log("tick tick");
-        //    }
-        //}, this, dt);
+      
 
         var l = (new lime.Scene).setRenderer(lime.Renderer.CANVAS),
             e = (new lime.Layer).setAnchorPoint(0, 0),
@@ -829,7 +1071,7 @@ farming.start = function () {
             f = (new lime.GlossyButton).setColor("#133242").setText("Back").setPosition(a.width / 2, a.height - 25).setSize(80, 40);
             e.appendChild(f);
             goog.events.listen(g, ["mousedown", "touchstart"], function () {
-                c.replaceScene(l)
+                c.replaceScene(l,lime.transitions.SlideInDown)
                 for (f = 0; f < (player.barnLevel + 1); f++)
                     g = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(a.shop_margin_x - 35, (a.shop_margin_y + (a.shop_margin_y + a.tile_size) * f) + (f * 9) - (f * 1)).setFill("images/" + a.crops[f].image).setSize(a.tile_size * 1.3, a.tile_size * 1.3), e.appendChild(g),
                         i = (new lime.Label).setText(a.crops[f].name + " (" + a.crops[f].time_to_ripe + " days) ").setFontColor("#E8FC08").setFontSize(22).setPosition(a.shop_margin_x + 130, (1.4 * a.shop_margin_y + (a.shop_margin_y + a.tile_size) * f) + (f * 7) - (f * 1)), e.appendChild(i),
@@ -850,7 +1092,7 @@ farming.start = function () {
 
 
             });
-            goog.events.listen(f, ["mousedown", "touchstart"], function () { c.replaceScene(d) });
+            goog.events.listen(f, ["mousedown", "touchstart"], function () { c.replaceScene(d, lime.transitions.SlideInUp) });
            
           
 
