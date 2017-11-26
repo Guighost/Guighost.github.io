@@ -394,7 +394,10 @@ lime.Node.prototype.localToScreen = function (coord) {
 
     return this.getParent().localToScreen(this.localToParent(coord));
 };
+//goog.require('lime.parser.JSON');
+//goog.require('lime.ASSETS.blacksmith.json');
 
+//var ss = new lime.SpriteSheet('images/', lime.ASSETS.blacksmith.json, lime.parse)
 var farming = {
     EMPTY: 0, PLOWED: 1, GROWING: 2, READY: 3,
     Land: function (a, b, posX, posY) {
@@ -835,7 +838,8 @@ farming.start = function () {
         { name: "Artichoke  ", cost: 10, revenue: 40, time_to_ripe: 60, time_to_death: 120, image: "artichoke.png", harvest: "artichoke2.png", grow1: "artiGrow1.png", grow2: "artiGrow2.png" },
         { name: "Eggplant ", cost: 15, revenue: 60, time_to_ripe: 90, time_to_death: 180, image: "eggplant.png", harvest: "eggplant2.png", grow1: "eggplantGrow1.png", grow2: "eggplantGrow2.png" },
         { name: "Peppers  ", cost: 20, revenue: 80, time_to_ripe: 120, time_to_death: 240, image: "peppers.png", harvest: "peppers2.png", grow1: "pepperGrow1.png", grow2: "pepperGrow2.png" },
-        { name: "Corn  ", cost: 25, revenue: 100, time_to_ripe: 140, time_to_death: 280, image: "corn.png", harvest: "corn2.png", grow1: "cornGrow1.png", grow2: "cornGrow2.png" }
+        { name: "Corn  ", cost: 25, revenue: 100, time_to_ripe: 140, time_to_death: 280, image: "corn.png", harvest: "corn2.png", grow1: "cornGrow1.png", grow2: "cornGrow2.png" },
+        { name: "Hay  ", cost: 10, revenue: 50, time_to_ripe: 60, time_to_death: 280, image: "hay.png", harvest: "hayCartFull.png", grow1: "hayGrow1.png", grow2: "hayGrow2.png" }
     ];
     
     a.barnyard = [
@@ -866,7 +870,10 @@ farming.start = function () {
         { name: "Double Silo Barn", image: "barn5.png" },
         { name: "Pasture", image: "pasture.png" }
     ];
-
+    a.pasture = [
+        { name: "pond1", image: "water.png" }
+        
+    ]
 
     //////////----------------tooltimer---------------------//////
     dt = 10000;
@@ -878,7 +885,7 @@ farming.start = function () {
     }, this, dt)
 
 
-
+    var horizRoad = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(0, 436).setSize(320, 25).setFill("images/" + a.barnyard[15].image); 
 
     var c = new lime.Director(document.body, a.width, a.height); c.makeMobileWebAppCapable(); c.setDisplayFPS(!1);
         var d = (new lime.Scene).setRenderer(lime.Renderer.CANVAS),
@@ -890,7 +897,7 @@ farming.start = function () {
         f.appendChild(gg);
         gg = (new lime.GlossyButton).setColor("#663300").setText("Home").setPosition(40, 20 ).setSize(50, 30);
         f.appendChild(gg);
-        var ggg = (new lime.Label).setText("Gui Farm").setFontColor("#E8FC08").setPosition(a.controlsLayer_w - 175, 20).setFontSize(24);
+        var ggg = (new lime.Label).setText("GuiGhost Farms").setFontColor("#E8FC08").setPosition(a.controlsLayer_w - 175, 20).setFontSize(20);
         f.appendChild(ggg);
         var g = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(0, a.height - a.controlsLayer_h -5).setSize(a.controlsLayer_w, a.controlsLayer_h).setFill("#0D0D0D");
         f.appendChild(g);
@@ -956,9 +963,25 @@ farming.start = function () {
         var vertFence6 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(302, 293).setSize(8, 90).setFill("images/" + a.barnyard[4].image); e.appendChild(vertFence6)
         var vertFence7 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(-3, 383).setSize(8, 90).setFill("images/" + a.barnyard[4].image); e.appendChild(vertFence7)
         var vertFence8 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(302, 383).setSize(8, 90).setFill("images/" + a.barnyard[4].image); e.appendChild(vertFence8)
+
         var horizFence1 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(-4, 35).setSize(315, 30).setFill("images/" + a.barnyard[5].image); e.appendChild(horizFence1)
-        var horizRoad = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(0, 436).setSize(320, 25).setFill("images/" + a.barnyard[15].image); e.appendChild(horizRoad)
+        //var horizRoad = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(0, 436).setSize(320, 25).setFill("images/" + a.barnyard[15].image); 
         var horizFence2 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(-4, 410).setSize(315, 30).setFill("images/" + a.barnyard[5].image); e.appendChild(horizFence2)
+        // scene change btns
+        var roadLeft = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(5, 10).setSize(15, 15)
+        horizRoad.appendChild(roadLeft)
+        roadLeft = (new lime.GlossyButton).setColor("#8b008b").setText("< Pasture").setPosition(42, 12).setSize(80, 15)
+        horizRoad.appendChild(roadLeft)
+
+        var roadRight = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(285, 10).setSize(15, 15)
+        horizRoad.appendChild(roadRight)
+        roadRight = (new lime.GlossyButton).setColor("#8b008b").setText("Orchard >").setPosition(265, 12).setSize(80, 15)
+        horizRoad.appendChild(roadRight)
+
+        
+
+        e.appendChild(horizRoad)
+
         var market = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(224, 45).setSize(80, 52).setFill("images/" + a.barnyard[3].image); e.appendChild(market)
         var eggplantCrate = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(283, 78).setSize(20, 27).setFill("images/" + a.barnyard[8].image); e.appendChild(eggplantCrate)
         var cornCrate = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(283, 95).setSize(20, 27).setFill("images/" + a.barnyard[9].image); e.appendChild(cornCrate)
@@ -997,7 +1020,7 @@ farming.start = function () {
             }
         var treeUnlockBtn = (new lime.GlossyButton).setColor("#663300").setText("Unlock").setPosition(79, 351).setSize(130, 130).setOpacity(.8);
         var treeUnlockBtn2 = (new lime.GlossyButton).setColor("#663300").setText("Unlock").setPosition(229, 351).setSize(130, 130).setOpacity(.8);
-        //var barnUnlockBtn = (new lime.GlossyButton).setColor("#663300").setText("Upgrade").setPosition(140, 95).setSize(70, 30).setOpacity(.8); e.appendChild(barnUnlockBtn)
+  
         var barnUnlock = (new lime.Label).setAnchorPoint(0, 0).setFontColor("#E8FC08").setPosition(115, 85).setSize(80, 140).setFontWeight(600).setText("Upgrade 100 Tools");
         if (player.barnLevel == 5) { barnUnlock.setHidden(true) }; 
        
@@ -1012,8 +1035,14 @@ farming.start = function () {
             var trees2 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(172, 295).setSize(120, 120).setFill("images/" + a.barnyard[14].image); e.appendChild(trees2)
             var treeUnlock2 = (new lime.Label).setAnchorPoint(0, 0).setFontColor("#E8FC08").setPosition(172, 345).setSize(120, 120).setText("Clear the Forest   50 Tools"); e.appendChild(treeUnlock2)
         }
+
+   
+
+    //replace the scene
         c.replaceScene(d);
 
+
+        //var roadLeft = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(0, 436).setSize(320, 25).setFill("images/" + a.barnyard[15].image); e.appendChild(roadLeft)
     //event handlers
         goog.events.listen(treeUnlockBtn, ["mousedown", "touchstart"], function () {            //left field
             if (player.tools >= 50) {
@@ -1066,21 +1095,26 @@ farming.start = function () {
 
         var l = (new lime.Scene).setRenderer(lime.Renderer.CANVAS),
             e = (new lime.Layer).setAnchorPoint(0, 0),
-            f = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(0, 0).setSize(a.width, a.height).setFill("#0D0D0D"); e.appendChild(f);
+            f = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(0, 0).setSize(a.width, a.height).setFill("#0D0D0D");
+            e.appendChild(f);
             l.appendChild(e);
             f = (new lime.GlossyButton).setColor("#133242").setText("Back").setPosition(a.width / 2, a.height - 25).setSize(80, 40);
             e.appendChild(f);
             goog.events.listen(g, ["mousedown", "touchstart"], function () {
                 c.replaceScene(l,lime.transitions.SlideInDown)
                 for (f = 0; f < (player.barnLevel + 1); f++)
-                    g = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(a.shop_margin_x - 35, (a.shop_margin_y + (a.shop_margin_y + a.tile_size) * f) + (f * 9) - (f * 1)).setFill("images/" + a.crops[f].image).setSize(a.tile_size * 1.3, a.tile_size * 1.3), e.appendChild(g),
-                        i = (new lime.Label).setText(a.crops[f].name + " (" + a.crops[f].time_to_ripe + " days) ").setFontColor("#E8FC08").setFontSize(22).setPosition(a.shop_margin_x + 130, (1.4 * a.shop_margin_y + (a.shop_margin_y + a.tile_size) * f) + (f * 7) - (f * 1)), e.appendChild(i),
-                        i = (new lime.Label).setText("Seeds: $" + a.crops[f].cost + " ").setFontColor("#133242").setFill("#C14825").setFontSize(16).setPosition(a.shop_margin_x + 80, (2.1 * a.shop_margin_y + (a.shop_margin_y + a.tile_size) * f) + ((f * 9) - f)), e.appendChild(i),
-                        i = (new lime.Label).setText("Crops: $" + a.crops[f].revenue + " ").setFontColor("#133242").setFill("#25C12A").setFontSize(16).setPosition(a.shop_margin_x + 190, (2.1 * a.shop_margin_y + (a.shop_margin_y + a.tile_size) * f) + ((f * 9) - f)), e.appendChild(i),
+                    g = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(a.shop_margin_x - 35, (a.shop_margin_y + (a.shop_margin_y + a.tile_size) * f) + (f * 9) - (f * 1)).setFill("images/" + a.crops[f].image).setSize(a.tile_size * 1.3, a.tile_size * 1.3),
+                        e.appendChild(g),
+                        i = (new lime.Label).setText(a.crops[f].name + " (" + a.crops[f].time_to_ripe + " days) ").setFontColor("#E8FC08").setFontSize(22).setPosition(a.shop_margin_x + 130, (1.4 * a.shop_margin_y + (a.shop_margin_y + a.tile_size) * f) + (f * 7) - (f * 1)),
+                        e.appendChild(i),
+                        i = (new lime.Label).setText("Seeds: $" + a.crops[f].cost + " ").setFontColor("#133242").setFill("#C14825").setFontSize(16).setPosition(a.shop_margin_x + 80, (2.1 * a.shop_margin_y + (a.shop_margin_y + a.tile_size) * f) + ((f * 9) - f)),
+                        e.appendChild(i),
+                        i = (new lime.Label).setText("Crops: $" + a.crops[f].revenue + " ").setFontColor("#133242").setFill("#25C12A").setFontSize(16).setPosition(a.shop_margin_x + 190, (2.1 * a.shop_margin_y + (a.shop_margin_y + a.tile_size) * f) + ((f * 9) - f)),
+                        e.appendChild(i),
                         function (y, e) {
                             goog.events.listen(y, ["mousedown", "touchstart"],
                                 function () {
-                                    b.currentCrop = e; c.replaceScene(d);
+                                    b.currentCrop = e; c.replaceScene(d, lime.transitions.SlideInUp);
                                     var z = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(a.controlsLayer_w / 2 - (20), a.height - a.controlsLayer_h / 2 - 12).setFill("images/" + a.crops[e].image).setSize(a.tile_size * 1.2, a.tile_size * 1.2);
                                     w.setText("Planting " + a.crops[e].name);
                                     d.appendChild(z);
@@ -1093,7 +1127,71 @@ farming.start = function () {
 
             });
             goog.events.listen(f, ["mousedown", "touchstart"], function () { c.replaceScene(d, lime.transitions.SlideInUp) });
-           
-          
 
+    //pasture scene
+            var pastureScene = (new lime.Scene).setRenderer(lime.Renderer.CANVAS),
+                pastureLayer = (new lime.Layer).setAnchorPoint(0, 0),
+                pastureFill1 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(0, 0).setSize(a.width, a.height -100 ).setFill("#0D0D0D");
+            pastureScene.appendChild(pastureFill1);
+            pastureScene.appendChild(pastureLayer);
+            backBtn1 = (new lime.GlossyButton).setColor("#133242").setText("Back").setPosition(a.width / 2, a.height - 25).setSize(80, 40);
+            pastureLayer.appendChild(backBtn1);
+            var horizRoad2 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(0, 435).setSize(320, 25).setFill("images/" + a.barnyard[15].image); 
+            pastureLayer.appendChild(horizRoad2);
+            var midbackP = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(0, 45).setSize(a.controlsLayer_w, a.landLayer_h + 5).setFill("images/" + a.barnyard[0].image);
+            pastureLayer.appendChild(midbackP)
+
+            var vertFence9 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(-3, 33).setSize(8, 90).setFill("images/" + a.barnyard[4].image); pastureLayer.appendChild(vertFence9)
+            var vertFence10 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(302, 33).setSize(8, 90).setFill("images/" + a.barnyard[4].image); pastureLayer.appendChild(vertFence10)
+            var vertFence1 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(-3, 203).setSize(8, 90).setFill("images/" + a.barnyard[4].image); pastureLayer.appendChild(vertFence1)
+            var vertFence2 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(302, 203).setSize(8, 90).setFill("images/" + a.barnyard[4].image); pastureLayer.appendChild(vertFence2)
+            var vertFence3 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(-3, 123).setSize(8, 90).setFill("images/" + a.barnyard[4].image); pastureLayer.appendChild(vertFence3)
+            var vertFence4 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(302, 123).setSize(8, 90).setFill("images/" + a.barnyard[4].image); pastureLayer.appendChild(vertFence4)
+            var vertFence5 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(-3, 293).setSize(8, 90).setFill("images/" + a.barnyard[4].image); pastureLayer.appendChild(vertFence5)
+            var vertFence6 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(302, 293).setSize(8, 90).setFill("images/" + a.barnyard[4].image); pastureLayer.appendChild(vertFence6)
+            var vertFence7 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(-3, 383).setSize(8, 90).setFill("images/" + a.barnyard[4].image); pastureLayer.appendChild(vertFence7)
+            var vertFence8 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(302, 383).setSize(8, 90).setFill("images/" + a.barnyard[4].image); pastureLayer.appendChild(vertFence8)
+
+            var horizFence1P = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(-4, 35).setSize(315, 30).setFill("images/" + a.barnyard[5].image); pastureLayer.appendChild(horizFence1P)
+            //var horizRoad = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(0, 436).setSize(320, 25).setFill("images/" + a.barnyard[15].image); 
+            var horizFence2P = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(-4, 315).setSize(315, 30).setFill("images/" + a.barnyard[5].image); pastureLayer.appendChild(horizFence2P)
+
+            var pond1P = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(110, 115).setSize(80, 80).setFill("images/Pasture/" + a.pasture[0].image); pastureLayer.appendChild(pond1P)
+
+            //pasture - hayfields
+            for (f = 0; f < a.num_tiles_x; f++)
+                for (var i = 0; i < 3; i++) {
+                    var posX = f * a.tile_size + 15;
+                    var posY = i * a.tile_size + 348;
+                    var hay1 = (new farming.Land(a, b, posX, posY)).setPosition(f * a.tile_size + 15, i * a.tile_size + 348); pastureLayer.appendChild(hay1)
+
+                    posX = f * a.tile_size + 172;
+                    var hay2 = (new farming.Land(a, b, posX, posY)).setPosition(f * a.tile_size + 172, i * a.tile_size + 348); pastureLayer.appendChild(hay2)
+                }
+            var vertroadP = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(143, 345).setSize(21, 92).setFill("images/" + a.barnyard[1].image); pastureLayer.appendChild(vertroadP)
+            var oldCrop = b.currentCrop;
+            b.currentCrop = 6;
+
+
+
+
+        //event handling
+            goog.events.listen(roadLeft, ["mousedown", "touchstart"], function () { c.replaceScene(pastureScene, lime.transitions.SlideInLeft) });
+            goog.events.listen(backBtn1, ["mousedown", "touchstart"], function () { c.replaceScene(d, lime.transitions.SlideInRight); b.currentCrop = oldCrop });
+
+    //orchard scene
+            var orchardScene = (new lime.Scene).setRenderer(lime.Renderer.CANVAS),
+                orchardLayer = (new lime.Layer).setAnchorPoint(0, 0),
+                orchardFill1 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(0, 0).setSize(a.width, a.height).setFill("#0D0D0D");
+            orchardScene.appendChild(orchardFill1);
+            orchardScene.appendChild(orchardLayer);
+            backBtn2 = (new lime.GlossyButton).setColor("#133242").setText("Back").setPosition(a.width / 2, a.height - 25).setSize(80, 40);
+            orchardLayer.appendChild(backBtn2);
+            var horizRoad3 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(0, 435).setSize(320, 25).setFill("images/" + a.barnyard[15].image);
+            orchardLayer.appendChild(horizRoad3);
+            var midbackO = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(0, 45).setSize(a.controlsLayer_w, a.landLayer_h + 5).setFill("images/" + a.barnyard[0].image);
+            orchardLayer.appendChild(midbackO)
+    //event handling
+            goog.events.listen(roadRight, ["mousedown", "touchstart"], function () { c.replaceScene(orchardScene, lime.transitions.SlideInRight) });
+            goog.events.listen(backBtn2, ["mousedown", "touchstart"], function () { c.replaceScene(d, lime.transitions.SlideInLeft) });
 };
