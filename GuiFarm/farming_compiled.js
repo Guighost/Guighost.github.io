@@ -871,7 +871,8 @@ farming.start = function () {
         { name: "Pasture", image: "pasture.png" }
     ];
     a.pasture = [
-        { name: "pond1", image: "water.png" }
+        { name: "pond1", image: "water.png" },
+        { name: "dairyBarnP", image: "dairyBarn.png" }
         
     ]
 
@@ -1156,8 +1157,10 @@ farming.start = function () {
             //var horizRoad = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(0, 436).setSize(320, 25).setFill("images/" + a.barnyard[15].image); 
             var horizFence2P = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(-4, 315).setSize(315, 30).setFill("images/" + a.barnyard[5].image); pastureLayer.appendChild(horizFence2P)
 
-            var pond1P = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(110, 115).setSize(80, 80).setFill("images/Pasture/" + a.pasture[0].image); pastureLayer.appendChild(pond1P)
-
+            var pond1P = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(20, 215).setSize(80, 80).setFill("images/Pasture/" + a.pasture[0].image); pastureLayer.appendChild(pond1P)
+            var dairyBarnP = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(52, 35).setSize(200, 80).setFill("images/Pasture/" + a.pasture[1].image); pastureLayer.appendChild(dairyBarnP)
+            var vertFence9 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(130, 250).setSize(8, 90).setFill("images/" + a.barnyard[4].image); pastureLayer.appendChild(vertFence9)
+            var vertFence10 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(168, 250).setSize(8, 90).setFill("images/" + a.barnyard[4].image); pastureLayer.appendChild(vertFence10)
             //pasture - hayfields
             for (f = 0; f < a.num_tiles_x; f++)
                 for (var i = 0; i < 3; i++) {
