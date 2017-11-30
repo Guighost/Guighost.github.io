@@ -895,11 +895,17 @@ farming.start = function () {
         { name: "treeBlockP", image: "treeBlockP.png" }
     ];
     a.orchard = [
-        { name: "waterfallMtn", image: "Waterfall2.png" },
+        { name: "waterfallMtn", image: "Orchard/OrchardBack2.png" },
         { name: "shack", image: "FeedBinsRight.png" }
-
     ];
-
+    a.waterfallImg = [
+        { name: "waterfall1", image: "Orchard/waterfall1.png" },
+        { name: "waterfall2", image: "Orchard/waterfall2.png" },
+        { name: "waterfall3", image: "Orchard/waterfall3.png" },
+        { name: "waterfall4", image: "Orchard/waterfall4.png" },
+        { name: "movingWater1", image: "Orchard/waterMoving1.png" },
+        { name: "movingWater2", image: "Orchard/waterMoving2.png" }
+    ];
     //////////----------------tooltimer---------------------//////
     dt = 10000;
     lime.scheduleManager.scheduleWithDelay(function () {
@@ -1190,7 +1196,7 @@ farming.start = function () {
 
             var roadRight2 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(285, 10).setSize(15, 15)
             horizRoad2.appendChild(roadRight2)
-            roadRight2 = (new lime.GlossyButton).setColor("#8b008b").setText("Home >").setPosition(265, 12).setSize(80, 15)
+            roadRight2 = (new lime.GlossyButton).setColor("#8b008b").setText("Base >").setPosition(265, 12).setSize(80, 15)
             horizRoad2.appendChild(roadRight2)
 
 
@@ -1354,14 +1360,13 @@ farming.start = function () {
                 orchardFill1 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(0, 0).setSize(a.width, a.height).setFill("#0D0D0D");
             orchardScene.appendChild(orchardFill1);
             orchardScene.appendChild(orchardLayer);
-            backBtn2 = (new lime.GlossyButton).setColor("#133242").setText("Back").setPosition(a.width / 2, a.height - 25).setSize(80, 40);
-            orchardLayer.appendChild(backBtn2);
+            
             //var horizRoad3 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(0, 435).setSize(300, 25).setFill("images/" + a.barnyard[15].image);
             //orchardLayer.appendChild(horizRoad3);
             var midbackO = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(0, 45).setSize(a.controlsLayer_w, a.landLayer_h + 29).setFill("images/" + a.barnyard[0].image);
             orchardLayer.appendChild(midbackO)
-            var watefallMtn = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(0, 44).setSize(310, 420).setFill("images/" + a.orchard[0].image);
-            orchardLayer.appendChild(watefallMtn)
+            var waterfallMtn = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(0, 44).setSize(310, 420).setFill("images/" + a.orchard[0].image);
+            orchardLayer.appendChild(waterfallMtn)
             var horizRoad3 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(0, 435).setSize(109, 25).setFill("images/" + a.barnyard[15].image);
             orchardLayer.appendChild(horizRoad3);
             var horizRoad4 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(152, 435).setSize(170, 25).setFill("images/" + a.barnyard[15].image);
@@ -1369,18 +1374,66 @@ farming.start = function () {
             //var vertroadO = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(0, 200).setSize(25, 240).setFill("images/" + a.barnyard[1].image); orchardLayer.appendChild(vertroadO)
 
     ///orchard farming land
-            var posXO =  a.tile_size + 15;
-            var posYO =  a.tile_size + 348;
-            var tree1 = (new farming.Land(a, b, posXO, posYO)).setPosition(2, 188); orchardLayer.appendChild(tree1)
-            var tree2 = (new farming.Land(a, b, posXO, posYO)).setPosition(70, 188); orchardLayer.appendChild(tree2)
-            var tree3 = (new farming.Land(a, b, posXO, posYO)).setPosition(2,240); orchardLayer.appendChild(tree3)
-            var tree4 = (new farming.Land(a, b, posXO, posYO)).setPosition(70, 240); orchardLayer.appendChild(tree4)
-            var tree5 = (new farming.Land(a, b, posXO, posYO)).setPosition(2, 290); orchardLayer.appendChild(tree5)
-            var tree6 = (new farming.Land(a, b, posXO, posYO)).setPosition(70, 290); orchardLayer.appendChild(tree6)
-            var tree7 = (new farming.Land(a, b, posXO, posYO)).setPosition(2, 340); orchardLayer.appendChild(tree7)
-            var tree8 = (new farming.Land(a, b, posXO, posYO)).setPosition(70, 340); orchardLayer.appendChild(tree8)
-    
+            var posXO =  a.tile_size + 5;
+            var posYO = a.tile_size + 180;
+            var tree1 = (new farming.Land(a, b, posXO, posYO)).setPosition(5, 180); tree1.setSize(40, 50); tree1.setFill("images/bare_trees.png");orchardLayer.appendChild(tree1)
+            var tree2 = (new farming.Land(a, b, posXO, posYO)).setPosition(65, 180); tree2.setSize(40, 50); tree2.setFill("images/growing_trees.png"); orchardLayer.appendChild(tree2)
+            var tree3 = (new farming.Land(a, b, posXO, posYO)).setPosition(5, 245); tree3.setSize(40, 50); tree3.setFill("images/growing2_trees.png"); orchardLayer.appendChild(tree3)
+            var tree4 = (new farming.Land(a, b, posXO, posYO)).setPosition(65, 245); tree4.setSize(40, 50); tree4.setFill("images/ready_trees.png"); orchardLayer.appendChild(tree4)
+            var tree5 = (new farming.Land(a, b, posXO, posYO)).setPosition(5, 310); tree5.setSize(40, 50); tree5.setFill("images/bare_trees.png"); orchardLayer.appendChild(tree5)
+            var tree6 = (new farming.Land(a, b, posXO, posYO)).setPosition(65, 310); tree6.setSize(40, 50); tree6.setFill("images/growing_trees.png"); orchardLayer.appendChild(tree6)
+            var tree7 = (new farming.Land(a, b, posXO, posYO)).setPosition(5, 375); tree7.setSize(40, 50); tree7.setFill("images/growing2_trees.png"); orchardLayer.appendChild(tree7)
+            var tree8 = (new farming.Land(a, b, posXO, posYO)).setPosition(65, 375); tree8.setSize(40, 50); tree8.setFill("images/ready_trees.png"); orchardLayer.appendChild(tree8)
+    //right trees
+            var tree9 = (new farming.Land(a, b, posXO, posYO)).setPosition(215, 245); tree9.setSize(40, 50); tree9.setFill("images/growing2_trees.png"); orchardLayer.appendChild(tree9)
+            var tree10 = (new farming.Land(a, b, posXO, posYO)).setPosition(250, 180); tree10.setSize(40, 50); tree10.setFill("images/ready_trees.png"); orchardLayer.appendChild(tree10)
+            var tree11 = (new farming.Land(a, b, posXO, posYO)).setPosition(160, 245); tree11.setSize(40, 50); tree11.setFill("images/bare_trees.png"); orchardLayer.appendChild(tree11)
+            var tree12 = (new farming.Land(a, b, posXO, posYO)).setPosition(160, 310); tree12.setSize(40, 50); tree12.setFill("images/growing_trees.png"); orchardLayer.appendChild(tree12)
+            var tree13 = (new farming.Land(a, b, posXO, posYO)).setPosition(160, 375); tree13.setSize(40, 50); tree13.setFill("images/growing2_trees.png"); orchardLayer.appendChild(tree13)
+            var tree14 = (new farming.Land(a, b, posXO, posYO)).setPosition(215, 375); tree14.setSize(40, 50); tree14.setFill("images/ready_trees.png"); orchardLayer.appendChild(tree14)
+            var tree15 = (new farming.Land(a, b, posXO, posYO)).setPosition(270, 375); tree15.setSize(40, 50); tree15.setFill("images/growing2_trees.png"); orchardLayer.appendChild(tree15)
+            var tree16 = (new farming.Land(a, b, posXO, posYO)).setPosition(215, 310); tree16.setSize(40, 50); tree16.setFill("images/growing2_trees.png"); orchardLayer.appendChild(tree16)
+            var tree17 = (new farming.Land(a, b, posXO, posYO)).setPosition(270, 310); tree17.setSize(40, 50); tree17.setFill("images/bare_trees.png"); orchardLayer.appendChild(tree17)
+            var tree18 = (new farming.Land(a, b, posXO, posYO)).setPosition(270, 245); tree18.setSize(40, 50); tree18.setFill("images/ready_trees.png"); orchardLayer.appendChild(tree18)
 
+            //var tree5 = (new farming.Land(a, b, posXO, posYO)).setPosition(2, 290); orchardLayer.appendChild(tree5)
+            //var tree6 = (new farming.Land(a, b, posXO, posYO)).setPosition(70, 290); orchardLayer.appendChild(tree6)
+            //var tree7 = (new farming.Land(a, b, posXO, posYO)).setPosition(2, 340); orchardLayer.appendChild(tree7)
+            //var tree8 = (new farming.Land(a, b, posXO, posYO)).setPosition(70, 340); orchardLayer.appendChild(tree8)
+
+
+            //orchard waterfall animation
+            var waterfallAnim = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(155, 88).setSize(36, 75).setFill("images/" + a.waterfallImg[0].image);
+            orchardLayer.appendChild(waterfallAnim);
+            var waterMoving = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(120, 290).setSize(22, 44).setFill("images/" + a.waterfallImg[4].image);
+            orchardLayer.appendChild(waterMoving);
+            var waterMoving2 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(120, 350).setSize(22, 44).setFill("images/" + a.waterfallImg[4].image);
+            orchardLayer.appendChild(waterMoving2);
+            a.waterAnim = function () {
+                var imgW = 0;
+                var imgW2 = 0;
+                setInterval(function () {
+                    if (imgW > 3) { imgW = 0; };
+                    if (imgW2 > 3) { imgW2 = 0; };
+                    waterfallAnim.setFill("images/" + a.waterfallImg[imgW].image);
+                    if (imgW2 == 0) {
+                        waterMoving.setFill("images/" + a.waterfallImg[5].image); 
+                        waterMoving2.setFill("images/" + a.waterfallImg[5].image);
+                    }
+                    if (imgW2 > 1) {
+                        waterMoving.setFill("images/" + a.waterfallImg[4].image); 
+                        waterMoving2.setFill("images/" + a.waterfallImg[4].image); 
+                    }
+                    imgW = imgW + 1; imgW2 = imgW2 + 1;
+                    
+                
+                   
+                
+                    
+                    //console.log("running imgW =" + imgW);
+                }, 400);
+            }
+            a.waterAnim();
 
     ///orchard controls
             var ggO = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(0, 0).setSize(a.controlsLayer_w, a.controlsLayer_h - 31).setFill("#8b008b");
@@ -1389,7 +1442,17 @@ farming.start = function () {
             orchardLayer.appendChild(ggO);
             var gggO = (new lime.Label).setText("GuiGhost Farms").setFontColor("#E8FC08").setPosition(a.controlsLayer_w - 175, 20).setFontSize(20);
             orchardLayer.appendChild(gggO);
-
+            var roadLeftO = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(5, 448).setSize(15, 15)
+            orchardLayer.appendChild(roadLeftO)
+    //orchard btns
+            roadLeftO = (new lime.GlossyButton).setColor("#8b008b").setText("< Base").setPosition(42, 448).setSize(80, 15)
+            orchardLayer.appendChild(roadLeftO)
+            var menuO = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(35, a.height - 25).setSize(70, 25).setFill("#0D0D0D");
+            orchardLayer.appendChild(menuO);
+            menuO = (new lime.GlossyButton).setColor("#663300").setText("Menu").setPosition(35, a.height - 25).setSize(70, 25);
+            orchardLayer.appendChild(menuO);
+            var actionsO = (new lime.GlossyButton).setColor("#663300").setText("Actions").setPosition(35, a.height - a.height -50 ).setSize(70, 25);
+            orchardLayer.appendChild(actionsO);
 
     ///Menu button layer
             var menuScene = (new lime.Scene).setRenderer(lime.Renderer.CANVAS),
@@ -1405,5 +1468,5 @@ farming.start = function () {
             goog.events.listen(menu, ["mousedown", "touchstart"], function () { c.replaceScene(menuScene, lime.transitions.SlideInUp); });  ////menu btn
             goog.events.listen(backBtnMenu, ["mousedown", "touchstart"], function () { c.replaceScene(d, lime.transitions.SlideInDown) });
             goog.events.listen(roadRight, ["mousedown", "touchstart"], function () { c.replaceScene(orchardScene, lime.transitions.SlideInRight) });
-            goog.events.listen(backBtn2, ["mousedown", "touchstart"], function () { c.replaceScene(d, lime.transitions.SlideInLeft) });
+            goog.events.listen(roadLeftO, ["mousedown", "touchstart"], function () { c.replaceScene(d, lime.transitions.SlideInLeft) });
 };
