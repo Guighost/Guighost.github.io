@@ -1,3 +1,5 @@
+This game was originall based on source code from the following:
+
 HTML5 Farming Demo created by Pablo Farias Navarro
 @ZenvaTweets
 www.pablofarias.com
