@@ -1076,7 +1076,7 @@ farming.start = function () {
 
         var barnUnlock = (new lime.Label).setAnchorPoint(0, 0).setFontColor("#E8FC08").setPosition(115, 45).setSize(80, 140).setFontWeight(600).setText("Lvl " + player.barnLevel + "/5");
         //var barnUnlock2 = (new lime.Label).setAnchorPoint(0, 0).setFontColor("#E8FC08").setPosition(65, 105).setSize(180, 80).setFontWeight(600).setText(" 100 ");
-        var barnUnlock3 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(140, 66).setSize(36, 42).setFill("images/ToolUp1.png");
+        var barnUnlock3 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(137, 66).setSize(36, 42).setFill("images/toolUp1.png");
         lime.scheduleManager.scheduleWithDelay(function () {
             //add upgrade anim
             var currentPos = barnUnlock3.getPosition();
@@ -1266,7 +1266,7 @@ farming.start = function () {
             var dairyBarnP = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(54, 36).setSize(200, 137).setFill("images/Pasture/" + a.pasture[1].image); pastureLayer.appendChild(dairyBarnP)
             
             var pasUpLabel2 = (new lime.Label).setText("Lvl " + player.pastureLevel + "/3 ").setFontColor("#E8FC08").setFontWeight(600).setPosition(155, 62).setSize(100, 50); 
-            var barnUnlock3P = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(135, 66).setSize(36, 42).setFill("images/ToolUp2.png");
+            var barnUnlock3P = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(135, 66).setSize(36, 42).setFill("images/toolUp2.png");
             lime.scheduleManager.scheduleWithDelay(function () {
                 //add upgrade anim
                 var currentPos = barnUnlock3P.getPosition();
