@@ -1594,18 +1594,20 @@ farming.start = function () {
                 marketFill1 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(0, 0).setSize(a.width, a.height).setFill("#0D0D0D");
             marketScene.appendChild(marketFill1);
             marketScene.appendChild(marketLayer);
-            var menuBackMarket = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(10, 6).setSize(280, a.height- 50).setFill("images/UI/farmersMarket.png");
+            var menuBackMarket = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(5, 6).setSize(300, a.height- 50).setFill("images/UI/farmersMarket.png");
             marketLayer.appendChild(menuBackMarket);
             var backBtnMsrket = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(a.width / 4 - 20, 510).setSize(a.width / 2 + 40, 50).setFill("#663300");
-            backBtnMarket = (new lime.GlossyButton).setColor("#663300").setText("Back to Game").setPosition(150, 510).setSize(a.width / 2 + 40, 50);
+            backBtnMarket = (new lime.GlossyButton).setColor("#663300").setText("Back to Game").setPosition(150, 510).setSize(a.width / 2 , 50);
             marketLayer.appendChild(backBtnMarket);
             goog.events.listen(market, ["mousedown", "touchstart"], function () {
                 for (f = 0; f < (a.crops.length); f++)
-                    count = (new lime.Label).setText(player.cropsStored[f].stored).setSize(45, 25).setFill("#133242").setFontColor("#E8FC08").setFontSize(16).setPosition(90, (1.1 * a.shop_margin_y + (a.shop_margin_y - 10) * f) + ((f * 9) - f) + 75),
-                        marketLayer.appendChild(count),
-                        g = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(92, (1.1 * a.shop_margin_y + (a.shop_margin_y - 10) * f) + ((f * 9) - f) - 10 + 70).setFill("images/" + a.crops[f].harvest).setSize(30, 30),
+                    rowBack = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(78, (1.1 * a.shop_margin_y + (a.shop_margin_y - 10) * f) + ((f * 9) - f) - 10 + 85).setSize(150, 25).setFill("#663300"),
+                        marketLayer.appendChild(rowBack),
+                        rowBack = (new lime.Label).setText(player.cropsStored[f].stored).setFontSize(14).setFontColor("#1aff1a").setFontSize(14).setPosition(97, (1.1 * a.shop_margin_y + (a.shop_margin_y - 10) * f) + ((f * 9) - f) + 87),
+                        marketLayer.appendChild(rowBack),
+                        g = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(115, (1.1 * a.shop_margin_y + (a.shop_margin_y - 10) * f) + ((f * 9) - f) - 10 + 83).setFill("images/" + a.crops[f].harvest).setSize(30, 30),
                         marketLayer.appendChild(g),
-                        i = (new lime.Label).setText("Sell For: $" + a.crops[f].revenue + " ").setFontColor("#133242").setFill("#25C12A").setFontSize(16).setPosition(170, (1.1 * a.shop_margin_y + (a.shop_margin_y - 10) * f) + ((f * 9) - f) + 75),
+                        i = (new lime.Label).setText("Sell $" + a.crops[f].revenue + " ").setFontColor("#E8FC08").setFontSize(14).setPosition(187, (1.1 * a.shop_margin_y + (a.shop_margin_y - 10) * f) + ((f * 9) - f) + 87),
                         marketLayer.appendChild(i),
                         function (y, e) {
                             goog.events.listen(y, ["mousedown", "touchstart"],
@@ -1615,7 +1617,7 @@ farming.start = function () {
 
 
                                 })
-                        }(g, f);
+                        }(i, f);
 
 
 
