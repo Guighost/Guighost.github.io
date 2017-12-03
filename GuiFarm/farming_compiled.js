@@ -719,6 +719,9 @@ imgArray[12].src = 'images/blacksmith13.png';
 imgArray[13] = new Image();
 imgArray[13].src = 'images/blacksmith14.png';
 
+imgArray[14] = new Image();
+imgArray[14].src = 'images/UI/CoverImg.png';
+
 //var ss = new lime.SpriteSheet('images/', lime.ASSETS.blacksmith.json, lime.parse)
 var farming = {
     EMPTY: 0, PLOWED: 1, GROWING: 2, READY: 3,
@@ -2307,6 +2310,25 @@ farming.start = function () {
                 }
             }
 
+//////////////////////////////////Intro Scene///////////////////////////////////////////
+            
 
-
+            var introScene = (new lime.Scene).setRenderer(lime.Renderer.CANVAS),
+                introLayer = (new lime.Layer).setAnchorPoint(0, 0),
+                introFill1 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(0, 0).setSize(a.width, a.height).setFill("#0D0D02");
+            introScene.appendChild(introLayer);
+            introLayer.appendChild(introFill1);
+               
+                
+                //var playGameBtn = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(a.width / 2 - 50, 510).setSize(50, 50).setFill("#663300");
+                playGameBtn = (new lime.GlossyButton).setColor("#663300").setText("Play Game").setPosition(150, 260).setSize(a.width / 2 + 20, 50);
+                introLayer.appendChild(playGameBtn);
+                moreGameBtn = (new lime.GlossyButton).setColor("#663300").setText("More GuiGhost Games").setPosition(150, 330).setSize(a.width / 2 + 20, 50);
+                introLayer.appendChild(moreGameBtn);
+                var introFill2 = (new lime.Sprite).setPosition(157, 260).setSize(300, 490).setFill("images/UI/CoverImg.png");
+                introScene.appendChild(introFill2);
+                //Intro event handler
+                goog.events.listen(playGameBtn, ["mousedown", "touchstart"], function () { c.replaceScene(d, lime.transitions.SlideInUp); sceneBefore = 1; themeSong.play(true); smithSound.play(); });
+                goog.events.listen(moreGameBtn, ["mousedown", "touchstart"], function () { window.open("../", "_self"); });
+                c.replaceScene(introScene, lime.transitions.SlideInUp);
 };
