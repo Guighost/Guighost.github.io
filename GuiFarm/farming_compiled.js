@@ -1695,8 +1695,15 @@ farming.start = function () {
             pastureLayer.appendChild(horizRoad2);
             var roadLeft2 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(5, 10).setSize(15, 15)
             horizRoad2.appendChild(roadLeft2)
-            roadLeft2 = (new lime.GlossyButton).setColor("#8b008b").setText("< Locked").setPosition(42, 12).setSize(80, 15)
+            roadLeft2 = (new lime.GlossyButton).setColor("#8b008b").setText("< Vinyard").setPosition(42, 12).setSize(80, 15)
             horizRoad2.appendChild(roadLeft2)
+
+            goog.events.listen(roadLeft2, ["mousedown", "touchstart"], function () {
+                a.sceneBefore = 4;                                                                                                                              ///from pature to Market
+                c.replaceScene(vinyardScene, lime.transitions.SlideInLeft);
+
+            });
+
           
         //var gLabel8 = (new lime.Label).setPosition((260), 39).setSize(20, 16).setText(player.cropsStored[8].stored).setFontColor("#E8FC08"); f.appendChild(gLabel8);
         //var gLabel9 = (new lime.Label).setPosition((290), 39).setSize(20, 16).setText(player.cropsStored[9].stored).setFontColor("#E8FC08"); f.appendChild(gLabel9);
@@ -1737,7 +1744,7 @@ farming.start = function () {
             
 
             goog.events.listen(menuP, ["mousedown", "touchstart"], function () {
-                a.sceneBefore = 2;                                                                                                                              ///from pature to Market
+                a.sceneBefore = 2;                                                                                                                              ///from pasture to Market
                 c.replaceScene(menuScene, lime.transitions.SlideInUp);
 
             });
@@ -1899,7 +1906,7 @@ farming.start = function () {
 
     /// havestMilk    ////////// PASTURE BARN LEVEL + # OF PASTURES (1 OR 2) = HAY EATEN & MILK RETURNED
             a.harvestMilk = function () {
-                if (player.cropsStored[6].stored >= 1) {
+                if (player.cropsStored[6].stored >= 2) {
                     player.cropsStored[6].stored = player.cropsStored[6].stored - (player.pastureLevel + player.treesP);
                     player.cropsStored[7].stored = player.cropsStored[7].stored + (player.pastureLevel + player.treesP);
                     count6.setText(player.cropsStored[6].stored);
@@ -2394,6 +2401,9 @@ farming.start = function () {
                 if (a.sceneBefore == 3) {
                     c.replaceScene(orchardScene, lime.transitions.SlideInUp);
                 }
+                if (a.sceneBefore == 4) {
+                    c.replaceScene(vinyardScene, lime.transitions.SlideInUp);
+                }
             });
             goog.events.listen(rowBack, ["mousedown", "touchstart"], function () { a.updateCropsandCash(0); });
             goog.events.listen(rowBack2, ["mousedown", "touchstart"], function () { a.updateCropsandCash(1); });
@@ -2508,10 +2518,67 @@ farming.start = function () {
 
                 //c.replaceScene(liveStockScene, lime.transitions.SlideInUp);
 
-    //////////////////////////////////Lake Scene///////////////////////////////////////////  //////////////////////////////////Intro Scene///////////////////////////////////////////
+    //////////////////////////////////Lake Scene///////////////////////////////////////////  //////////////////////////////////Lake Scene///////////////////////////////////////////
 
 
 
+
+
+
+
+    //////////////////////////////////Vinyard Scene///////////////////////////////////////////  //////////////////////////////////Vinyard Scene///////////////////////////////////////////
+
+                var vinyardScene = (new lime.Scene).setRenderer(lime.Renderer.CANVAS),
+                    vinyardLayer = (new lime.Layer).setAnchorPoint(0, 0),
+                    vinyardFill1 = (new lime.Sprite).setPosition(0, 0).setSize(a.width, a.height).setFill("#663300");
+                vinyardScene.appendChild(vinyardLayer);
+                vinyardLayer.appendChild(vinyardFill1);
+
+                var ggV = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(0, 0).setSize(a.controlsLayer_w, a.controlsLayer_h - 29).setFill("#8b008b");
+                vinyardLayer.appendChild(ggV);
+                var topLogoV = (new lime.Sprite).setPosition(155, 10).setSize(150, 22).setFill("images/UI/topMenuPlain.png");
+                vinyardLayer.appendChild(topLogoV);
+                var vinyardCash = (new lime.Label).setText("$ " + player.money).setFontColor("#E8FC08").setPosition(270, 20);
+                vinyardLayer.appendChild(vinyardCash);
+                var vinyardBack = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(0, 40).setSize(a.controlsLayer_w, 423).setFill("images/vinyard/vinyardBack.png");
+                vinyardLayer.appendChild(vinyardBack);
+                var horizRoadV = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(200, 436).setSize(120, 25).setFill("images/" + a.barnyard[15].image);
+                vinyardLayer.appendChild(horizRoadV);
+                roadRightV = (new lime.GlossyButton).setColor("#8b008b").setText("Dairy >").setPosition(64, 12).setSize(80, 15)
+                horizRoadV.appendChild(roadRightV)
+
+                var toolCountImgV = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(5, 10).setSize(20, 20).setFill("images/toolsIcon.png");
+                var toolCountV = (new lime.Label).setText(player.tools).setFontColor("#E8FC08").setPosition(36, 20);
+                vinyardLayer.appendChild(toolCountImgV);
+                vinyardLayer.appendChild(toolCountV);
+
+
+                var menuV = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(0, a.height - 36).setSize(70, 25).setFill("#0D0D0D");
+                vinyardLayer.appendChild(menuV);
+                menuV = (new lime.GlossyButton).setColor("#663300").setText("Menu").setPosition(35, a.height - 25).setSize(70, 25);
+                vinyardLayer.appendChild(menuV);
+                var actionsV = (new lime.GlossyButton).setColor("#663300").setText("Actions").setPosition(35, 485).setSize(70, 25);
+                vinyardLayer.appendChild(actionsV);
+                var marketV = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(214, a.height - a.controlsLayer_h + 1).setSize(90, 65).setFill("images/" + a.barnyard[3].image);
+                vinyardLayer.appendChild(marketV)
+                goog.events.listen(marketV, ["mousedown", "touchstart"], function () {
+                    sceneBefore = 4
+                    c.replaceScene(marketScene, lime.transitions.SlideInDown);
+                    count0.setText(player.cropsStored[0].stored);
+                    count1.setText(player.cropsStored[1].stored);
+                    count2.setText(player.cropsStored[2].stored);
+                    count3.setText(player.cropsStored[3].stored);
+                    count4.setText(player.cropsStored[4].stored);
+                    count5.setText(player.cropsStored[5].stored);
+                    count6.setText(player.cropsStored[6].stored);
+                    count7.setText(player.cropsStored[7].stored);
+                    count8.setText(player.cropsStored[8].stored);
+                    count9.setText(player.cropsStored[9].stored);
+                });
+
+                goog.events.listen(roadRightV, ["mousedown", "touchstart"], function () {
+                    c.replaceScene(pastureScene, lime.transitions.SlideInRight);
+                });
 
     //////end of farming.start
 };
