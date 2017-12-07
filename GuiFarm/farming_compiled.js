@@ -729,6 +729,38 @@ imgArray[16] = new Image();
 imgArray[16].src = 'images/UI/greySoundOff.png';
 
 
+//growing images
+var imgArray2 = new Array();
+
+imgArray[0] = new Image();imgArray[0].src = 'images/UI/artiGrow1.png';
+
+imgArray[1] = new Image();imgArray[1].src = 'images/UI/artiGrow2.png';
+
+imgArray[2] = new Image(); imgArray[2].src = 'images/UI/plowed.png';
+
+imgArray[3] = new Image(); imgArray[3].src = 'images/UI/tomatoGrow1.png';
+
+imgArray[4] = new Image(); imgArray[4].src = 'images/UI/tomatoGrow2.png';
+
+imgArray[5] = new Image(); imgArray[5].src = 'images/UI/pepperGrow1.png';
+
+imgArray[6] = new Image(); imgArray[6].src = 'images/UI/pepperGrow2.png';
+
+imgArray[7] = new Image(); imgArray[7].src = 'images/UI/cornGrow1.png';
+
+imgArray[8] = new Image(); imgArray[8].src = 'images/UI/cornGrow2.png';
+
+imgArray[9] = new Image(); imgArray[9].src = 'images/UI/eggplantGrow1.png';
+
+imgArray[10] = new Image(); imgArray[10].src = 'images/UI/eggplantGrow2.png';
+
+imgArray[11] = new Image(); imgArray[11].src = 'images/UI/carrotGrow1.png';
+
+imgArray[12] = new Image(); imgArray[12].src = 'images/UI/carrotGrow2.png';
+
+imgArray[13] = new Image(); imgArray[13].src = 'images/UI/hayGrow1.png';
+
+imgArray[14] = new Image(); imgArray[14].src = 'images/UI/hayGrow2.png';
 
 
 
@@ -1180,7 +1212,7 @@ var player = {
     fields: 2,
     farms: 3,
     tools: 150,
-    money: 300,
+    money: 500,
     currentCrop: 0,
     treesP: 0,
 
@@ -1194,14 +1226,16 @@ cropsStored: [
         { name: "Hay", stored: 0 },
         { name: "Milk", stored: 0 },
         { name: "Apple", stored: 0 },
-        { name: "Pear", stored: 0 }
+        { name: "Pear", stored: 0 },
+        { name: "Bacon", stored: 0 },
+        { name: "Eggs", stored: 0 }
     ]
 };
 console.log(player.cropsStored);
 console.log(player.cropsStored[0]);
 
-if (typeof localStorage["farm_Player"] === "undefined") { localStorage.setItem('farm_Player', JSON.stringify(player));};
-player = JSON.parse(localStorage.getItem('farm_Player'));
+if (typeof localStorage["GuiGhostFarms_player"] === "undefined") { localStorage.setItem('GuiGhostFarms_player', JSON.stringify(player));};
+player = JSON.parse(localStorage.getItem('GuiGhostFarms_player'));
 console.log(player);
 
 var starCash = 0;
@@ -1210,7 +1244,7 @@ starCash = parseInt(localStorage["starCash"]);
 
 farming.start = function () {
     var a = { width: 310, height: 540, tile_size: 30, num_tiles_x: 4, num_tiles_y: 4, landLayer_w: 320, landLayer_h: 388, controlsLayer_w: 320, controlsLayer_h: 75, costPlowing: 0, shop_margin_x: 50, shop_margin_y: 35 },
-        b = { money: 300, currentCrop: 0 };
+        b = { money: 500, currentCrop: 0 };
     
     a.crops = [
         { name: "Tomatoes  ", cost: 5, revenue: 20, time_to_ripe: 15, time_to_death: 60, image: "tomato.png", harvest: "tomato2.png", grow1: "tomatoGrow1.png", grow2: "tomatoGrow2.png", stored: 0},
@@ -1223,6 +1257,8 @@ farming.start = function () {
         { name: "Milk  ", cost: 30, revenue: 50, time_to_ripe: 60, time_to_death: 22280, image: "milk.png", harvest: "milk.png", grow1: "milk.png", grow2: "milk.png", stored: 0},
         { name: "Apple", cost: 30, revenue: 120, time_to_ripe: 60, time_to_death: 100, image: "Orchard/ready_Apples.png", harvest: "apple.png", grow1: "Orchard/growing2_trees.png", grow2: "Orchard/growing3_trees.png", stored: 0 },
         { name: "Pear", cost: 30, revenue: 120, time_to_ripe: 60, time_to_death: 100, image: "pear.png", harvest: "pear.png", grow1: "pear.png", grow2: "pear.png", stored: 0 },
+        { name: "Bacon", cost: 30, revenue: 150, time_to_ripe: 60, time_to_death: 100, image: "livestockPens/bacon.png", harvest: "livestockPens/bacon.png", grow1: "livestockPens/bacon.png", grow2: "livestockPens/bacon.png", stored: 0 },
+        { name: "Eggs", cost: 30, revenue: 100, time_to_ripe: 60, time_to_death: 100, image: "livestockPens/eggs.png", harvest: "livestockPens/eggs.png", grow1: "livestockPens/eggs.png", grow2: "livestockPens/eggs.png", stored: 0 },
     ];
     
     a.barnyard = [
@@ -1282,7 +1318,7 @@ farming.start = function () {
         { name: "cowRight2", image: "cowRight2.png" },
     ];
     a.orchard = [
-        { name: "waterfallMtn", image: "Orchard/OrchardBack2.png" },
+        { name: "waterfallMtn", image: "Orchard/OrchardBack3.png" },
         { name: "shack", image: "FeedBinsRight.png" }
     ];
     a.waterfallImg = [
@@ -1374,7 +1410,7 @@ farming.start = function () {
             
             //b.money = player.money ;
             h.setText("$ " + player.money); pastureCash.setText("$ " + player.money); marketCash.setText("$ " + player.money); liveStockCash.setText("$ " + player.money); orchardCash.setText("$ " + player.money);
-            localStorage.setItem('farm_Player', JSON.stringify(player));
+            localStorage.setItem('GuiGhostFarms_player', JSON.stringify(player));
         };
 
         var toolCountImg = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(5, 9).setSize(20,20).setFill("images/toolsIcon.png");
@@ -1602,7 +1638,7 @@ farming.start = function () {
                 console.log("cleared field 3 ");
                 a.updateTools();
                 trees1.setHidden(true); treeUnlock1.setHidden(true); treeUnlockBtn.setHidden(true); trees1Img.setHidden(true);      
-                localStorage.setItem('farm_Player', JSON.stringify(player));
+                localStorage.setItem('GuiGhostFarms_player', JSON.stringify(player));
               }            
         }, { passive: false });
 
@@ -1613,7 +1649,7 @@ farming.start = function () {
                 console.log("Cleared field 4 " );
                 a.updateTools();
                 trees2.setHidden(true); treeUnlock2.setHidden(true); treeUnlockBtn2.setHidden(true); trees2Img.setHidden(true); 
-                localStorage.setItem('farm_Player', JSON.stringify(player));
+                localStorage.setItem('GuiGhostFarms_player', JSON.stringify(player));
             }
         }, { passive: false });
 
@@ -1626,11 +1662,11 @@ farming.start = function () {
                 player.barnLevel = player.barnLevel + 1;
                 console.log("barn level is " + player.barnLevel);
                 player.tools = player.tools - 100;
-                localStorage.setItem('farm_Player', JSON.stringify(player));
+                localStorage.setItem('GuiGhostFarms_player', JSON.stringify(player));
                 //player.barnLevel = 2;
                 if (player.barnLevel > 5) { player.barnLevel = 5; };
                
-                localStorage.setItem('farm_Player', JSON.stringify(player));
+                localStorage.setItem('GuiGhostFarms_player', JSON.stringify(player));
                 if (player.barnLevel == 2) { barn.setFill('images/barn2.png'); };
                 if (player.barnLevel == 3) { barn.setFill('images/barn3.png'); };
                 if (player.barnLevel == 4) { barn.setFill('images/barn4.png'); };
@@ -1913,7 +1949,7 @@ farming.start = function () {
                     gLabel6.setText(player.cropsStored[6].stored);
                     count7.setText(player.cropsStored[7].stored);
                     gLabel7.setText(player.cropsStored[7].stored);
-                    localStorage.setItem('farm_Player', JSON.stringify(player));
+                    localStorage.setItem('GuiGhostFarms_player', JSON.stringify(player));
                     a.haySize();
                 }
             }
@@ -1995,7 +2031,7 @@ farming.start = function () {
                     console.log("cleared trees on right Pasture ");
                     a.updateTools();
                     treeUnlockBtnP.setHidden(true); treeBlockP.setHidden(true); treesImgP.setHidden(true);
-                    localStorage.setItem('farm_Player', JSON.stringify(player));
+                    localStorage.setItem('GuiGhostFarms_player', JSON.stringify(player));
                 }
             }, { passive: false });
         // pasture BarnUpgrades
@@ -2007,11 +2043,11 @@ farming.start = function () {
                     
                    console.log("pasture level is " + parseInt(player.pastureLevel));
                     player.tools = player.tools - 250;
-                    localStorage.setItem('farm_Player', JSON.stringify(player));
+                    localStorage.setItem('GuiGhostFarms_player', JSON.stringify(player));
                     
                     if (player.pastureLevel > 3) { player.pastureLevel = 3 };
 
-                    localStorage.setItem('farm_Player', JSON.stringify(player));
+                    localStorage.setItem('GuiGhostFarms_player', JSON.stringify(player));
 
                     if (player.pastureLevel >= 2) { stallLeft.setHidden(false);  };
                     if (player.pastureLevel >= 3) { stallRight.setHidden(false); pasUpLabel2.setHidden(true); barnUnlock3P.setHidden(true);};
@@ -2222,13 +2258,13 @@ farming.start = function () {
             goog.events.listen(roadLeftO, ["mousedown", "touchstart"], function () { c.replaceScene(d, lime.transitions.SlideInLeft); sceneBefore = 1; waterfallSound.stop(); b.currentCrop = oldCrop; });
 
         //save & Quit
-            goog.events.listen(saveQuit, ["mousedown", "touchstart"], function () { localStorage.setItem('farm_Player', JSON.stringify(player)); window.open("../", "_self") });
+            goog.events.listen(saveQuit, ["mousedown", "touchstart"], function () { localStorage.setItem('GuiGhostFarms_player', JSON.stringify(player)); window.open("../", "_self") });
         //clear data
-            goog.events.listen(clearData, ["mousedown", "touchstart"], function () { localStorage.removeItem('farm_Player'); window.open("../", "_self") });
+            goog.events.listen(clearData, ["mousedown", "touchstart"], function () { localStorage.removeItem('GuiGhostFarms_player'); window.open("../", "_self") });
         //star cash convert
             goog.events.listen(convertStarCash, ["mousedown", "touchstart"], function () {
                 if (starCash > 5) {
-                player.money += 500; a.updateMoney(); localStorage.setItem('farm_Player', JSON.stringify(player));
+                player.money += 500; a.updateMoney(); localStorage.setItem('GuiGhostFarms_player', JSON.stringify(player));
                 successDiv.setHidden(false);
                 successDiv.setText("+500 = $" + player.money);
                 }
@@ -2248,7 +2284,7 @@ farming.start = function () {
             });
 
 
-    ///Market Scene
+    ///Market Scene/////////////////////////////////////////Market Scene///Market Scene/////////////////////////////////////////Market Scene///Market Scene/////////////////////////////////////////Market Scene
            
             var marketScene = (new lime.Scene).setRenderer(lime.Renderer.CANVAS),
                 marketLayer = (new lime.Layer).setAnchorPoint(0, 0),
@@ -2462,6 +2498,8 @@ farming.start = function () {
                 goog.events.listen(moreGameBtn, ["mousedown", "touchstart"], function () { window.open("../", "_self"); });
                 c.replaceScene(introScene, lime.transitions.SlideInUp);
 
+
+
     /////LiveStockPens Scene/////////////////////////////LiveStockPens///////////////////////////////////////////  //////////////////////////////////LiveStockPens Scene///////////////////////////////////////////
                 var liveStockScene = (new lime.Scene).setRenderer(lime.Renderer.CANVAS),
                     liveStockLayer = (new lime.Layer).setAnchorPoint(0, 0),
@@ -2469,13 +2507,13 @@ farming.start = function () {
                 liveStockScene.appendChild(liveStockLayer);
                 liveStockLayer.appendChild(liveStockFill1);
                 
-                var ggLS = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(0, 0).setSize(a.controlsLayer_w, a.controlsLayer_h - 29).setFill("#8b008b");
+                var ggLS = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(0, 0).setSize(a.controlsLayer_w, a.controlsLayer_h + 10 ).setFill("#8b008b");
                 liveStockLayer.appendChild(ggLS);
                 var topLogoLS = (new lime.Sprite).setPosition(155, 10).setSize(150, 22).setFill("images/UI/topMenuPlain.png");
                 liveStockLayer.appendChild(topLogoLS);
                 var liveStockCash = (new lime.Label).setText("$ " + player.money).setFontColor("#E8FC08").setPosition(270, 20);
                 liveStockLayer.appendChild(liveStockCash);
-                var liveStockBack = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(0, 40).setSize(a.controlsLayer_w, 423).setFill("images/livestockPens/livestockPensBack.png");
+                var liveStockBack = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(0, 45).setSize(a.controlsLayer_w, 417).setFill("images/livestockPens/livestockPensBack.png");
                 liveStockLayer.appendChild(liveStockBack);
                 var horizRoadLS = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(0, 436).setSize(320, 25).setFill("images/" + a.barnyard[15].image); 
                 liveStockLayer.appendChild(horizRoadLS);
@@ -2486,6 +2524,19 @@ farming.start = function () {
                 var toolCountLS = (new lime.Label).setText(player.tools).setFontColor("#E8FC08").setPosition(36, 20);
                 liveStockLayer.appendChild(toolCountImgLS);
                 liveStockLayer.appendChild(toolCountLS);
+
+                var baconIcon = (new lime.Sprite).setPosition(130, 28).setFill("images/" + a.crops[10].harvest).setSize(20, 20);
+                liveStockLayer.appendChild(baconIcon);
+                var eggsIcon = (new lime.Sprite).setPosition(180, 26).setFill("images/" + a.crops[11].harvest).setSize(20, 20);
+                liveStockLayer.appendChild(eggsIcon);
+
+                var gLabelBacon = (new lime.Label).setPosition(128, 38).setSize(20, 16).setText(player.cropsStored[10].stored).setFontColor("#E8FC08");
+                liveStockLayer.appendChild(gLabelBacon);
+                var gLabelEggs = (new lime.Label).setPosition((176), 38).setSize(20, 16).setText(player.cropsStored[11].stored).setFontColor("#E8FC08");
+                liveStockLayer.appendChild(gLabelEggs);
+
+
+
 
 
                 var menuLS = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(0, a.height - 36).setSize(70, 25).setFill("#0D0D0D");
@@ -2540,11 +2591,11 @@ farming.start = function () {
                 vinyardLayer.appendChild(topLogoV);
                 var vinyardCash = (new lime.Label).setText("$ " + player.money).setFontColor("#E8FC08").setPosition(270, 20);
                 vinyardLayer.appendChild(vinyardCash);
-                var vinyardBack = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(0, 40).setSize(a.controlsLayer_w, 423).setFill("images/vinyard/vinyardBack.png");
+                var vinyardBack = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(0, 40).setSize(a.controlsLayer_w, 423).setFill("images/vinyard/vinyardBack2.png");
                 vinyardLayer.appendChild(vinyardBack);
                 var horizRoadV = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(200, 436).setSize(120, 25).setFill("images/" + a.barnyard[15].image);
                 vinyardLayer.appendChild(horizRoadV);
-                roadRightV = (new lime.GlossyButton).setColor("#8b008b").setText("Dairy >").setPosition(64, 12).setSize(80, 15)
+                roadRightV = (new lime.GlossyButton).setColor("#8b008b").setText("Dairy >").setPosition(68, 12).setSize(75, 15)
                 horizRoadV.appendChild(roadRightV)
 
                 var toolCountImgV = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(5, 10).setSize(20, 20).setFill("images/toolsIcon.png");
