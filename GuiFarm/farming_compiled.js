@@ -775,6 +775,7 @@ var farming = {
         this.setSize(a.tile_size, a.tile_size);
         this.setFill("images/bare_land.png");
         if (scene == 3) { this.setFill("images/Orchard/prune_trees.png"); };
+        if (scene == 32) { this.setFill("images/Orchard/prune_trees.png"); };
         if (scene == 5) { this.setFill("images/vinyard/grapes_ClearBrush.png"); };
         this.state = farming.EMPTY;
        
@@ -786,13 +787,17 @@ var farming = {
         //var locationPicked = this.getPosition;
         //console.log(where2);
         goog.events.listen(this, ["mousedown", "touchstart"], function (d) {
+            if (scene == 32) { b.currentCrop = 9; };
+            if (scene == 3) { b.currentCrop = 8; };
             var toPlant = a.crops[b.currentCrop].grow1;
             d.event.stopPropagation();
+
             c.state == farming.EMPTY && player.money >= a.costPlowing ?
                 (c.setFill("images/plowed.png"),
                     c.state = farming.PLOWED,
                     player.money -= a.costPlowing,
                     scene == 3 && (c.setFill("images/Orchard/fertilize_trees.png")),
+                     scene == 32 && (c.setFill("images/Orchard/fertilize_trees.png")),
                     scene == 5 && (c.setFill("images/vinyard/grapes_Fertilize.png")),
                     a.updateMoney()
 
@@ -813,6 +818,7 @@ var farming = {
                      
                     : c.state == farming.READY && (c.setFill("images/bare_land.png"),
                         scene == 3 && (c.setFill("images/Orchard/prune_trees.png")),
+                        scene == 32 && (c.setFill("images/Orchard/prune_trees.png")),
                         scene == 5 && (c.setFill("images/vinyard/grapes_ClearBrush.png")),
                         c.state = farming.EMPTY,
                         //player.money += a.crops[c.crop].revenue,
@@ -830,6 +836,7 @@ var farming = {
             
         });
         if (scene == 3 && c.state == farming.EMPTY) { c.setFill("images/Orchard/prune_trees.png") }
+        if (scene == 32 && c.state == farming.EMPTY) { c.setFill("images/Orchard/prune_trees.png") }
         if (scene == 5 && c.state == farming.EMPTY) { c.setFill("images/vinyard/grapes_ClearBrush.png") }
         dt = 1E3;
         lime.scheduleManager.scheduleWithDelay(function () {
@@ -853,6 +860,7 @@ var farming = {
                       
                 )
             if (a.crops[this.crop] == 8 && this.deathTime < 0) { this.setFill("images/Orchard/prune_trees.png") }
+            if (a.crops[this.crop] == 9 && this.deathTime < 0) { this.setFill("images/Orchard/prune_trees.png") }
             if (a.crops[this.crop] == 12 && this.deathTime < 0) { this.setFill("images/vinyard/grapes_ClearBrush.png") }
             this.state == farming.GROWING &&
                 (
@@ -862,6 +870,7 @@ var farming = {
                         : this.deathTime -= dt
                 )
             if (scene == 3 && c.state == farming.EMPTY) { c.setFill("images/Orchard/prune_trees.png") }
+            if (scene == 32 && c.state == farming.EMPTY) { c.setFill("images/Orchard/prune_trees.png") }
             if (scene == 5 && c.state == farming.EMPTY) { c.setFill("images/vinyard/grapes_ClearBrush.png") }
         }, this, dt)
         
@@ -1220,6 +1229,7 @@ var player = {
     money: 500,
     currentCrop: 0,
     treesP: 0,
+   
 
 cropsStored: [
         { name: "Tomatoes", stored: 0 },
@@ -1238,17 +1248,36 @@ cropsStored: [
         { name: "Jelly", stored: 0 },
 
     ]
+   
 };
-console.log(player.cropsStored);
-console.log(player.cropsStored[0]);
+//console.log(player.cropsStored);
+//console.log(player.cropsStored[0]);
 
 if (typeof localStorage["GuiGhostFarms_player"] === "undefined") { localStorage.setItem('GuiGhostFarms_player', JSON.stringify(player));};
 player = JSON.parse(localStorage.getItem('GuiGhostFarms_player'));
+
 console.log(player);
 
 var starCash = 0;
 if (typeof localStorage["starCash"] === "undefined") { localStorage["starCash"] = 0; starCash = 0; };
 starCash = parseInt(localStorage["starCash"]);
+
+var orchardTreeBlock = 1;
+var vinyardBlocks = 1;
+var vinyardBlocks2 = 1;
+var vinyardHouseLevel = 1;
+if (typeof localStorage["GuiGhostFarms_vinyardBlocks"] === "undefined") { localStorage["GuiGhostFarms_vinyardBlocks"] = 1;  };
+vinyardBlocks = localStorage.getItem["GuiGhostFarms_vinyardBlocks"];
+if (typeof localStorage["GuiGhostFarms_vinyardBlocks2"] === "undefined") { localStorage["GuiGhostFarms_vinyardBlocks2"] = 1; };
+vinyardBlocks2 = localStorage.getItem["GuiGhostFarms_vinyardBlocks2"];
+
+if (typeof localStorage["GuiGhostFarms_vinyardHouseLevel"] === "undefined") { localStorage["GuiGhostFarms_vinyardHouseLevel"] = 1; };
+vinyardHouseLevel = parseInt(localStorage["GuiGhostFarms_vinyardHouseLevel"]);
+if (typeof localStorage["GuiGhostFarms_orchardTreeBlock"] === "undefined") { localStorage["GuiGhostFarms_orchardTreeBlock"] = 1; };
+orchardTreeBlock = parseInt(localStorage["GuiGhostFarms_orchardTreeBlock"]);
+
+
+
 
 farming.start = function () {
     var a = { width: 310, height: 540, tile_size: 30, num_tiles_x: 4, num_tiles_y: 4, landLayer_w: 320, landLayer_h: 388, controlsLayer_w: 320, controlsLayer_h: 75, costPlowing: 0, shop_margin_x: 50, shop_margin_y: 35 },
@@ -1264,10 +1293,10 @@ farming.start = function () {
         { name: "Hay  ", cost: 10, revenue: 20, time_to_ripe: 30, time_to_death: 280, image: "hay.png", harvest: "hayCartFull.png", grow1: "hayGrow1.png", grow2: "hayGrow2.png", stored: 0 },
         { name: "Milk  ", cost: 30, revenue: 50, time_to_ripe: 60, time_to_death: 22280, image: "milk.png", harvest: "milk.png", grow1: "milk.png", grow2: "milk.png", stored: 0},
         { name: "Apple", cost: 30, revenue: 120, time_to_ripe: 60, time_to_death: 100, image: "Orchard/ready_Apples.png", harvest: "apple.png", grow1: "Orchard/growing2_trees.png", grow2: "Orchard/growing3_trees.png", stored: 0 },
-        { name: "Pear", cost: 30, revenue: 120, time_to_ripe: 60, time_to_death: 100, image: "pear.png", harvest: "pear.png", grow1: "pear.png", grow2: "pear.png", stored: 0 },
+        { name: "Pear", cost: 30, revenue: 120, time_to_ripe: 60, time_to_death: 100, image: "Orchard/ready_treesPear.png", harvest: "pear.png", grow1: "Orchard/growing22_trees.png", grow2: "Orchard/growing4_trees.png", stored: 0 },
         { name: "Bacon", cost: 30, revenue: 150, time_to_ripe: 60, time_to_death: 100, image: "livestockPens/bacon.png", harvest: "livestockPens/bacon.png", grow1: "livestockPens/bacon.png", grow2: "livestockPens/bacon.png", stored: 0 },
         { name: "Eggs", cost: 30, revenue: 100, time_to_ripe: 60, time_to_death: 100, image: "livestockPens/eggs.png", harvest: "livestockPens/eggs.png", grow1: "livestockPens/eggs.png", grow2: "livestockPens/eggs.png", stored: 0 },
-        { name: "Grapes", cost: 30, revenue: 100, time_to_ripe: 60, time_to_death: 100, image: "vinyard/grapes_ready.png", harvest: "vinyard/grapes.png", grow1: "vinyard/grapes_Grow1.png", grow2: "vinyard/grapes_Grow2.png", stored: 0 },
+        { name: "Grapes", cost: 30, revenue: 100, time_to_ripe: 60, time_to_death: 100, image: "vinyard/grapes_ready.png", harvest: "vinyard/grapes2.png", grow1: "vinyard/grapes_Grow1.png", grow2: "vinyard/grapes_Grow2.png", stored: 0 },
         { name: "Jelly", cost: 30, revenue: 100, time_to_ripe: 60, time_to_death: 100, image: "vinyard/jelly.png", harvest: "vinyard/jelly.png", grow1: "vinyard/jelly.png", grow2: "vinyard/jelly.png", stored: 0 },
 
     ];
@@ -1403,6 +1432,10 @@ farming.start = function () {
             gLabel7.setText(player.cropsStored[7].stored); 
             gLabel8.setText(player.cropsStored[8].stored); 
             gLabel9.setText(player.cropsStored[9].stored); 
+            gLabel10.setText(player.cropsStored[10].stored);
+            gLabel11.setText(player.cropsStored[11].stored);
+            gLabel12.setText(player.cropsStored[12].stored);
+            gLabel13.setText(player.cropsStored[13].stored); 
         };
 
     //lower menu
@@ -1442,7 +1475,7 @@ farming.start = function () {
             setTimeout(function () { toolUpCount.setPosition(55, 105); toolUpCount.setOpacity(.6); toolCountImg.setSize(20, 20); toolCountImgP.setSize(20, 20); toolCountImgO.setSize(20, 20); toolCountImgLS.setSize(20, 20); toolCountImgV.setSize(20, 20); }, 250);
             setTimeout(function () { toolUpCount.setPosition(55, 100); toolUpCount.setOpacity(.8); toolCountImg.setSize(25, 25); toolCountImgP.setSize(25, 25); toolCountImgO.setSize(25, 25); toolCountImgLS.setSize(25, 25); toolCountImgV.setSize(25, 25); }, 500);
             setTimeout(function () {
-                toolCount.setFontColor("#E8FC08"); toolCountP.setFontColor("#E8FC08"); toolCountO.setFontColor("#E8FC08");
+                toolCount.setFontColor("#E8FC08"); toolCountP.setFontColor("#E8FC08"); toolCountO.setFontColor("#E8FC08"); toolCountV.setFontColor("#E8FC08");
                 toolUpCount.setFontColor("#E8FC08"); toolUpCount.setPosition(55, 95); toolUpCount.setOpacity(.9); toolCountImg.setSize(20, 20); toolCountImgP.setSize(20, 20); toolCountImgO.setSize(20, 20); toolCountImgLS.setSize(20, 20); toolCountImgV.setSize(20, 20); 
             }, 750); 
             setTimeout(function () { toolUpCount.setPosition(55, 90); toolUpCount.setOpacity(.8);   }, 1000);
@@ -1748,9 +1781,10 @@ farming.start = function () {
             horizRoad2.appendChild(roadLeft2)
 
             goog.events.listen(roadLeft2, ["mousedown", "touchstart"], function () {
-                a.sceneBefore = 4;                                                                                                                              ///from pature to Market
+                a.sceneBefore = 4;                                                                                                                              
                 c.replaceScene(vinyardScene, lime.transitions.SlideInLeft);
-               b.currentCrop = 12;
+                b.currentCrop = 12;
+                //a.sceneBefore = 5;
                 
             });
 
@@ -1947,11 +1981,12 @@ farming.start = function () {
           
 
 
-       //cow sound + milk harvest timer
+       //cow sound + milk + Jelly harvest timer
             lime.scheduleManager.scheduleWithDelay(function () {
           
                 if (sceneBefore == 2) { cowSound.play(); }
                 if (player.farms > 1) { a.harvestMilk(); };
+                if (vinyardHouseLevel > 1) { a.makeJelly(); };
             }, this, 30000)
 
     /// havestMilk    ////////// PASTURE BARN LEVEL + # OF PASTURES (1 OR 2) = HAY EATEN & MILK RETURNED
@@ -1967,6 +2002,27 @@ farming.start = function () {
                     a.haySize();
                 }
             }
+    ///make Jelly
+            a.makeJelly = function () {
+                if (player.cropsStored[12].stored >= 2) {
+                    player.cropsStored[12].stored = player.cropsStored[12].stored - 2;
+                    player.cropsStored[13].stored = player.cropsStored[13].stored + 1;
+                    count12.setText(player.cropsStored[12].stored);
+                    gLabel12.setText(player.cropsStored[12].stored);
+                    count13.setText(player.cropsStored[13].stored);
+                    gLabel13.setText(player.cropsStored[13].stored);
+                    localStorage.setItem('GuiGhostFarms_player', JSON.stringify(player));
+                    setTimeout(function () { jellyUpCount.setHidden(false); jellyUpCount.setPosition(145, 320); jellyUpCount.setOpacity(1.0); }, 500);
+                    setTimeout(function () { jellyUpCount.setHidden(false); jellyUpCount.setPosition(145, 310); jellyUpCount.setOpacity(.8); }, 1000);
+                    setTimeout(function () { jellyUpCount.setHidden(false); jellyUpCount.setPosition(145, 300); jellyUpCount.setOpacity(.6); }, 1500);
+                    setTimeout(function () { jellyUpCount.setHidden(false); jellyUpCount.setPosition(145, 290); jellyUpCount.setOpacity(.4); }, 2000);
+                    setTimeout(function () { jellyUpCount.setHidden(false); jellyUpCount.setPosition(145, 280); jellyUpCount.setOpacity(.2); }, 2500);
+                    setTimeout(function () { jellyUpCount.setHidden(true); }, 3000);
+
+                    
+                }
+            }
+
     //update haystack sizes       /////SET SIZE OF HAYSTACKS BASED ON INVENTORY
             a.haySize = function () {
                 if (player.cropsStored[6].stored <= 0) { hayStack1.setHidden(true); hayStack2.setHidden(true); }
@@ -2105,16 +2161,16 @@ farming.start = function () {
             var tree7 = (new farming.Land(a, b, posXO, posYO, 3)).setPosition(5, 375); tree7.setSize(40, 50);  orchardLayer.appendChild(tree7)
             var tree8 = (new farming.Land(a, b, posXO, posYO, 3)).setPosition(65, 375); tree8.setSize(40, 50);  orchardLayer.appendChild(tree8)
     //right trees
-            var tree9 = (new farming.Land(a, b, posXO, posYO, 3)).setPosition(215, 245); tree9.setSize(40, 50);  orchardLayer.appendChild(tree9)
-            var tree10 = (new farming.Land(a, b, posXO, posYO, 3)).setPosition(250, 180); tree10.setSize(40, 50); orchardLayer.appendChild(tree10)
-            var tree11 = (new farming.Land(a, b, posXO, posYO, 3)).setPosition(160, 245); tree11.setSize(40, 50);  orchardLayer.appendChild(tree11)
-            var tree12 = (new farming.Land(a, b, posXO, posYO, 3)).setPosition(160, 310); tree12.setSize(40, 50);  orchardLayer.appendChild(tree12)
-            var tree13 = (new farming.Land(a, b, posXO, posYO, 3)).setPosition(160, 375); tree13.setSize(40, 50);  orchardLayer.appendChild(tree13)
-            var tree14 = (new farming.Land(a, b, posXO, posYO, 3)).setPosition(215, 375); tree14.setSize(40, 50);  orchardLayer.appendChild(tree14)
-            var tree15 = (new farming.Land(a, b, posXO, posYO, 3)).setPosition(270, 375); tree15.setSize(40, 50);  orchardLayer.appendChild(tree15)
-            var tree16 = (new farming.Land(a, b, posXO, posYO, 3)).setPosition(215, 310); tree16.setSize(40, 50);  orchardLayer.appendChild(tree16)
-            var tree17 = (new farming.Land(a, b, posXO, posYO, 3)).setPosition(270, 310); tree17.setSize(40, 50);  orchardLayer.appendChild(tree17)
-            var tree18 = (new farming.Land(a, b, posXO, posYO, 3)).setPosition(270, 245); tree18.setSize(40, 50); orchardLayer.appendChild(tree18)
+            var tree9 = (new farming.Land(a, b, posXO, posYO, 32)).setPosition(215, 245); tree9.setSize(40, 50);  orchardLayer.appendChild(tree9)
+            var tree10 = (new farming.Land(a, b, posXO, posYO, 32)).setPosition(250, 180); tree10.setSize(40, 50); orchardLayer.appendChild(tree10)
+            var tree11 = (new farming.Land(a, b, posXO, posYO, 32)).setPosition(160, 245); tree11.setSize(40, 50);  orchardLayer.appendChild(tree11)
+            var tree12 = (new farming.Land(a, b, posXO, posYO, 32)).setPosition(160, 310); tree12.setSize(40, 50);  orchardLayer.appendChild(tree12)
+            var tree13 = (new farming.Land(a, b, posXO, posYO, 32)).setPosition(160, 375); tree13.setSize(40, 50);  orchardLayer.appendChild(tree13)
+            var tree14 = (new farming.Land(a, b, posXO, posYO, 32)).setPosition(215, 375); tree14.setSize(40, 50);  orchardLayer.appendChild(tree14)
+            var tree15 = (new farming.Land(a, b, posXO, posYO, 32)).setPosition(270, 375); tree15.setSize(40, 50);  orchardLayer.appendChild(tree15)
+            var tree16 = (new farming.Land(a, b, posXO, posYO, 32)).setPosition(215, 310); tree16.setSize(40, 50);  orchardLayer.appendChild(tree16)
+            var tree17 = (new farming.Land(a, b, posXO, posYO, 32)).setPosition(270, 310); tree17.setSize(40, 50);  orchardLayer.appendChild(tree17)
+            var tree18 = (new farming.Land(a, b, posXO, posYO, 32)).setPosition(270, 245); tree18.setSize(40, 50); orchardLayer.appendChild(tree18)
 
             //var tree5 = (new farming.Land(a, b, posXO, posYO)).setPosition(2, 290); orchardLayer.appendChild(tree5)
             //var tree6 = (new farming.Land(a, b, posXO, posYO)).setPosition(70, 290); orchardLayer.appendChild(tree6)
@@ -2154,6 +2210,34 @@ farming.start = function () {
                 }, 400);
             }
             a.waterAnim();
+
+    ///orchard Tree Block
+            var orchardTreeBlockO = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(158, 150).setSize(150, 280).setFill("images/Orchard/treeBlockO.png");
+            orchardLayer.appendChild(orchardTreeBlockO);
+            var treeUnlockBtnO = (new lime.Label).setText("Clear Forest").setFontColor("#E8FC08").setFontWeight(600).setPosition(240, 350).setSize(90, 160);
+            orchardLayer.appendChild(treeUnlockBtnO);
+            var treesImgO = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(225, 290).setSize(35, 35).setFill("images/tools500.png");
+            orchardLayer.appendChild(treesImgO);
+
+            if (orchardTreeBlock > 1) { orchardTreeBlockO.setHidden(true); treeUnlockBtnO.setHidden(true); treesImgO.setHidden(true); };
+
+            goog.events.listen(treeUnlockBtnO, ["mousedown", "touchstart"], function () {
+                console.log("inside click2 " + player.tools);
+                if (player.tools >= 500) {
+                    player.tools = player.tools - 500;
+                    console.log("inside click2");
+                    a.updateTools();
+                    orchardTreeBlock = 2;
+                    localStorage["GuiGhostFarms_orchardTreeBlock"] = 2;
+                    orchardTreeBlockO.setHidden(true);
+                    treeUnlockBtnO.setHidden(true);
+                    treesImgO.setHidden(true); 
+
+                }
+            });
+            
+
+
 
     ///orchard controls
             var ggO = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(0, 0).setSize(a.controlsLayer_w, 50).setFill("#8b008b");
@@ -2295,6 +2379,16 @@ farming.start = function () {
                 if (a.sceneBefore == 3) {
                     c.replaceScene(orchardScene, lime.transitions.SlideInDown);
                 }
+                if (a.sceneBefore == 4) {
+                    c.replaceScene(vinyardScene, lime.transitions.SlideInDown);
+                }
+                if (a.sceneBefore == 5) {
+                    c.replaceScene(liveStockScene, lime.transitions.SlideInDown);
+                }
+
+
+
+
             });
 
 
@@ -2454,7 +2548,7 @@ farming.start = function () {
 
             count12 = (new lime.Label).setText(player.cropsStored[index].stored).setFontSize(16).setFontColor("#1aff1a").setPosition(100, marketY + 15);
             marketLayer.appendChild(count12);
-            g13 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(115, marketY).setFill("images/" + a.crops[index].harvest).setSize(30, 30);      //carrots
+            g13 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(115, marketY).setFill("images/" + a.crops[index].harvest).setSize(25, 30);      //carrots
             marketLayer.appendChild(g13);
             i13 = (new lime.Label).setText("Sell $" + a.crops[index].revenue + " ").setFontColor("#E8FC08").setFontSize(12).setPosition(120, marketY + 35);
             marketLayer.appendChild(i13);
@@ -2495,6 +2589,9 @@ farming.start = function () {
                     c.replaceScene(orchardScene, lime.transitions.SlideInUp);
                 }
                 if (a.sceneBefore == 4) {
+                    c.replaceScene(vinyardScene, lime.transitions.SlideInUp);
+                }
+                if (a.sceneBefore == 5) {
                     c.replaceScene(vinyardScene, lime.transitions.SlideInUp);
                 }
             });
@@ -2552,10 +2649,12 @@ farming.start = function () {
             introLayer.appendChild(introFill1);
                
                 
-                //var playGameBtn = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(a.width / 2 - 50, 510).setSize(50, 50).setFill("#663300");
-                playGameBtn = (new lime.GlossyButton).setColor("#663300").setText("Play Game").setPosition(150, 260).setSize(a.width / 2 + 20, 50);
-                introLayer.appendChild(playGameBtn);
-                moreGameBtn = (new lime.GlossyButton).setColor("#663300").setText("More GuiGhost Games").setPosition(150, 330).setSize(a.width / 2 + 20, 50);
+            //var playGameBtn = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(a.width / 2 - 50, 510).setSize(50, 50).setFill("#663300");
+            playGameBtn = (new lime.GlossyButton).setColor("#663300").setText("").setPosition(150, 210).setSize(a.width / 2 + 10, 70);
+            introLayer.appendChild(playGameBtn);
+            var playButtonLabel = (new lime.Label).setText("PLAY").setFontFamily("Comic Sans MS").setFontColor("#E8FC08").setPosition(150, 210).setFontSize(36);
+                introLayer.appendChild(playButtonLabel);
+                moreGameBtn = (new lime.GlossyButton).setColor("#663300").setText("More Games").setPosition(150, 300).setSize(a.width / 2 + 20, 50);
                 introLayer.appendChild(moreGameBtn);
                 var introFill2 = (new lime.Sprite).setPosition(157, 260).setSize(300, 490).setFill("images/UI/CoverImg.png");
                 introScene.appendChild(introFill2);
@@ -2596,10 +2695,10 @@ farming.start = function () {
                 var eggsIcon = (new lime.Sprite).setPosition(180, 26).setFill("images/" + a.crops[11].harvest).setSize(20, 20);
                 liveStockLayer.appendChild(eggsIcon);
 
-                var gLabelBacon = (new lime.Label).setPosition(128, 38).setSize(20, 16).setText(player.cropsStored[10].stored).setFontColor("#E8FC08");
-                liveStockLayer.appendChild(gLabelBacon);
-                var gLabelEggs = (new lime.Label).setPosition((176), 38).setSize(20, 16).setText(player.cropsStored[11].stored).setFontColor("#E8FC08");
-                liveStockLayer.appendChild(gLabelEggs);
+                var gLabel10 = (new lime.Label).setPosition(128, 38).setSize(20, 16).setText(player.cropsStored[10].stored).setFontColor("#E8FC08");
+                liveStockLayer.appendChild(gLabel10);
+                var gLabel11 = (new lime.Label).setPosition((176), 38).setSize(20, 16).setText(player.cropsStored[11].stored).setFontColor("#E8FC08");
+                liveStockLayer.appendChild(gLabel11);
 
 
                 var controlsBackLS = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(0, a.height - a.controlsLayer_h - 5).setSize(a.controlsLayer_w, a.controlsLayer_h).setFill("#0D0D0D");
@@ -2626,6 +2725,10 @@ farming.start = function () {
                     count7.setText(player.cropsStored[7].stored);
                     count8.setText(player.cropsStored[8].stored);
                     count9.setText(player.cropsStored[9].stored);
+                    count10.setText(player.cropsStored[10].stored);
+                    count11.setText(player.cropsStored[11].stored);
+                    count12.setText(player.cropsStored[12].stored);
+                    count13.setText(player.cropsStored[13].stored);
                 });
 
 
@@ -2652,17 +2755,17 @@ farming.start = function () {
                 vinyardScene.appendChild(vinyardLayer);
                 vinyardLayer.appendChild(vinyardFill1);
 
-                var ggV = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(0, 0).setSize(a.controlsLayer_w, a.controlsLayer_h - 29).setFill("#8b008b");
+                var ggV = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(0, 0).setSize(a.controlsLayer_w, a.controlsLayer_h - 20).setFill("#8b008b");
                 vinyardLayer.appendChild(ggV);
                 var topLogoV = (new lime.Sprite).setPosition(155, 10).setSize(150, 22).setFill("images/UI/topMenuPlain.png");
                 vinyardLayer.appendChild(topLogoV);
                 var vinyardCash = (new lime.Label).setText("$ " + player.money).setFontColor("#E8FC08").setPosition(270, 20);
                 vinyardLayer.appendChild(vinyardCash);
-                var vinyardBack = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(0, 40).setSize(a.controlsLayer_w, 423).setFill("images/vinyard/vinyardBack3.png");
+                var vinyardBack = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(0, 45).setSize(a.controlsLayer_w, 423).setFill("images/vinyard/vinyardBack5.png");
                 vinyardLayer.appendChild(vinyardBack);
-                var horizRoadV = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(200, 436).setSize(120, 25).setFill("images/" + a.barnyard[15].image);
+                var horizRoadV = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(225, 436).setSize(100, 25).setFill("images/" + a.barnyard[15].image);
                 vinyardLayer.appendChild(horizRoadV);
-                roadRightV = (new lime.GlossyButton).setColor("#8b008b").setText("Dairy >").setPosition(68, 12).setSize(75, 15)
+                roadRightV = (new lime.GlossyButton).setColor("#8b008b").setText("Dairy >").setPosition(48, 12).setSize(75, 15)
                 horizRoadV.appendChild(roadRightV)
 
                 var toolCountImgV = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(5, 10).setSize(20, 20).setFill("images/toolsIcon.png");
@@ -2670,34 +2773,309 @@ farming.start = function () {
                 vinyardLayer.appendChild(toolCountImgV);
                 vinyardLayer.appendChild(toolCountV);
 
-
-                var hhV = b.currentCrop;
-                var wV = (new lime.Label).setText("Growing " + a.crops[12].name).setFontColor("#E8FC08").setFontSize(12).setPosition(a.controlsLayer_w / 2 + 5, a.height - a.controlsLayer_h / 2 - 26);
-                vinyardLayer.appendChild(wV);
-                var zV = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(a.controlsLayer_w / 2 - (15), a.height - a.controlsLayer_h / 2 - 12).setFill("images/" + a.crops[12].harvest).setSize(a.tile_size * 1.2, a.tile_size * 1.2);
-                vinyardLayer.appendChild(zV);
-
-
-
+                var isblocked1 = localStorage.getItem("GuiGhostFarms_vinyardBlocks");
+                var isblocked2 = localStorage.getItem("GuiGhostFarms_vinyardBlocks2");
+                console.log(isblocked1);
+                console.log(isblocked2);
                 var posXO = a.tile_size + 5;
                 var posYO = a.tile_size + 180;
-                var vine0 = (new farming.Land(a, b, posXO, posYO, 5)).setPosition(80, 110); vine0.setSize(40, 50); vinyardLayer.appendChild(vine0)
-                var vine1 = (new farming.Land(a, b, posXO, posYO, 5)).setPosition(135, 100); vine1.setSize(40, 50); vinyardLayer.appendChild(vine1)
-                var vine2 = (new farming.Land(a, b, posXO, posYO, 5)).setPosition(200, 95); vine2.setSize(40, 50); vinyardLayer.appendChild(vine2)
-                var vine3 = (new farming.Land(a, b, posXO, posYO, 5)).setPosition(260, 105); vine3.setSize(40, 50); vinyardLayer.appendChild(vine3)
-                var vine4 = (new farming.Land(a, b, posXO, posYO, 5)).setPosition(105, 200); vine4.setSize(40, 50); vinyardLayer.appendChild(vine4)
-                var vine5 = (new farming.Land(a, b, posXO, posYO, 5)).setPosition(175, 215); vine5.setSize(40, 50); vinyardLayer.appendChild(vine5)
-                var vine6 = (new farming.Land(a, b, posXO, posYO, 5)).setPosition(240, 228); vine6.setSize(40, 50); vinyardLayer.appendChild(vine6)
-                var vine7 = (new farming.Land(a, b, posXO, posYO, 5)).setPosition(45, 210); vine7.setSize(40, 50); vinyardLayer.appendChild(vine7)
-                var vine8 = (new farming.Land(a, b, posXO, posYO, 5)).setPosition(85, 360); vine8.setSize(40, 50); vinyardLayer.appendChild(vine8)
-                var vine9 = (new farming.Land(a, b, posXO, posYO, 5)).setPosition(25, 335); vine9.setSize(40, 50); vinyardLayer.appendChild(vine9)
-                var vine10 = (new farming.Land(a, b, posXO, posYO, 5)).setPosition(140, 320); vine10.setSize(40, 50); vinyardLayer.appendChild(vine10)
-                var vine11 = (new farming.Land(a, b, posXO, posYO, 5)).setPosition(198, 310); vine11.setSize(40, 50); vinyardLayer.appendChild(vine11)
-                var vine12 = (new farming.Land(a, b, posXO, posYO, 5)).setPosition(245, 330); vine12.setSize(40, 50); vinyardLayer.appendChild(vine12)
+                var vine0 = (new farming.Land(a, b, posXO, posYO, 5)).setPosition(80, 110); vine0.setSize(45, 50); vinyardLayer.appendChild(vine0)
+                var vine1 = (new farming.Land(a, b, posXO, posYO, 5)).setPosition(135, 100); vine1.setSize(45, 50); vinyardLayer.appendChild(vine1)
+                var vine2 = (new farming.Land(a, b, posXO, posYO, 5)).setPosition(200, 95); vine2.setSize(45, 50); vinyardLayer.appendChild(vine2)
+                var vine3 = (new farming.Land(a, b, posXO, posYO, 5)).setPosition(260, 105); vine3.setSize(45, 50); vinyardLayer.appendChild(vine3)
+                if (isblocked2 == 1) {
+                    vine0.setHidden(true);
+                    vine1.setHidden(true);
+                    vine2.setHidden(true);
+                    vine3.setHidden(true);
+                }
+                if (isblocked2 == 2) {
+                    vine0.setHidden(false);
+                    vine1.setHidden(false);
+                    vine2.setHidden(false);
+                    vine3.setHidden(false);
+                }
 
+                var vine4 = (new farming.Land(a, b, posXO, posYO, 5)).setPosition(105, 200); vine4.setSize(45, 50); vinyardLayer.appendChild(vine4)
+                var vine5 = (new farming.Land(a, b, posXO, posYO, 5)).setPosition(175, 215); vine5.setSize(45, 50); vinyardLayer.appendChild(vine5)
+                var vine6 = (new farming.Land(a, b, posXO, posYO, 5)).setPosition(240, 228); vine6.setSize(45, 50); vinyardLayer.appendChild(vine6)
+                var vine7 = (new farming.Land(a, b, posXO, posYO, 5)).setPosition(45, 210); vine7.setSize(45, 50); vinyardLayer.appendChild(vine7)
+                if (isblocked1 == 1) {
+                    vine4.setHidden(true);
+                    vine5.setHidden(true);
+                    vine6.setHidden(true);
+                    vine7.setHidden(true);
+                }
+
+                var vine8 = (new farming.Land(a, b, posXO, posYO, 5)).setPosition(75, 370); vine8.setSize(45, 50); vinyardLayer.appendChild(vine8)
+                var vine9 = (new farming.Land(a, b, posXO, posYO, 5)).setPosition(25, 350); vine9.setSize(45, 50); vinyardLayer.appendChild(vine9)
+                var vine10 = (new farming.Land(a, b, posXO, posYO, 5)).setPosition(126, 360); vine10.setSize(45, 50); vinyardLayer.appendChild(vine10)
+                var vine11 = (new farming.Land(a, b, posXO, posYO, 5)).setPosition(219, 315); vine11.setSize(45, 50); vinyardLayer.appendChild(vine11)
+                var vine12 = (new farming.Land(a, b, posXO, posYO, 5)).setPosition(262, 350); vine12.setSize(45, 50); vinyardLayer.appendChild(vine12)
+
+                ///vinyard tree blocks
+                //console.log("vinBlocks = " + localStorage["GuiGhostFarms_vinyardBlocks"]);
+                //console.log("vinBlocks2 = " + localStorage["GuiGhostFarms_vinyardBlocks2"]);
+                //console.log("vinHouse = " + localStorage["GuiGhostFarms_vinyardHouseLevel"]);
+
+        //vinyard tree blocks
+                var vinyardTreeBlock1 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(55, 195).setSize(240, 105).setFill("images/vinyard/treeBlock1.png");
+                vinyardLayer.appendChild(vinyardTreeBlock1);
+                var treeUnlockBtnV = (new lime.Label).setText("Clear Forest").setFontColor("#E8FC08").setFontWeight(600).setPosition(170, 280).setSize(90, 130); vinyardLayer.appendChild(treeUnlockBtnV);
+                var treesImgV = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(150, 240).setSize(35, 35).setFill("images/tools500.png"); vinyardScene.appendChild(treesImgV);
+
+                vinyardTreeBlock1.setHidden(true);
+                treeUnlockBtnV.setHidden(true);
+                treesImgV.setHidden(true);
+
+                if (isblocked1 == 1) {
+                    vinyardTreeBlock1.setHidden(false);
+                    treeUnlockBtnV.setHidden(false);
+                    treesImgV.setHidden(false);
+                }
+
+                var vinyardTreeBlock2 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(72, 78).setSize(235, 100).setFill("images/vinyard/treeBlock2.png");
+                vinyardLayer.appendChild(vinyardTreeBlock2);
+                var treeUnlockBtnV2 = (new lime.Label).setText("Clear Forest").setFontColor("#E8FC08").setFontWeight(600).setPosition(170, 165).setSize(90, 130); vinyardLayer.appendChild(treeUnlockBtnV2);
+                var treesImgV2 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(150, 130).setSize(35, 35).setFill("images/tools500.png"); vinyardScene.appendChild(treesImgV2);
+                vinyardTreeBlock2.setHidden(true);
+                treeUnlockBtnV2.setHidden(true);
+                treesImgV2.setHidden(true);
+
+                if (isblocked2 == 1) {
+                    vinyardTreeBlock2.setHidden(false);
+                    treeUnlockBtnV2.setHidden(false);
+                    treesImgV2.setHidden(false);
+                }
+
+                goog.events.listen(treeUnlockBtnV, ["mousedown", "touchstart"], function () {
+                    console.log("inside click1 " + player.tools);
+                    if (player.tools >= 500) {
+                        player.tools = player.tools - 500;
+                        a.updateTools();
+                        a.vinyardBlocksControl(1);
+                        vinyardBlocks2 = 2;
+                        isblocked1 = 2;
+                        localStorage["GuiGhostFarms_vinyardBlocks"] = isblocked1;
+
+
+
+                    }
+                });
+                goog.events.listen(treeUnlockBtnV2, ["mousedown", "touchstart"], function () {
+                    console.log("inside click2 " + player.tools);
+                    if (player.tools >= 500) {
+                        player.tools = player.tools - 500;
+                        console.log("inside click2");
+                        a.updateTools();
+                        a.vinyardBlocksControl(2);
+                        vinyardBlocks = 2;
+                        isblocked2 = 2;
+                        localStorage["GuiGhostFarms_vinyardBlocks2"] = isblocked2;
+
+                    }
+                });
+
+                a.vinyardBlocksControl = function (num) {
+                    if (num == 1) {
+                        console.log("inside if 1");
+                        vinyardTreeBlock1.setHidden(true);
+                        treeUnlockBtnV.setHidden(true);
+                        treesImgV.setHidden(true);
+                        vine4.setHidden(false);
+                        vine5.setHidden(false);
+                        vine6.setHidden(false);
+                        vine7.setHidden(false);
+                    };
+                    if (num == 2) {
+                        console.log("inside if 2");
+                       
+                        vinyardTreeBlock2.setHidden(true);
+                        treeUnlockBtnV2.setHidden(true);
+                        treesImgV2.setHidden(true);
+
+                        vine0.setHidden(false);
+                        vine1.setHidden(false);
+                        vine2.setHidden(false);
+                        vine3.setHidden(false);
+
+                    };
+                };
+
+                var vinyardBarn = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(62, 247).setSize(118, 115).setFill("images/vinyard/house4.png");
+                vinyardLayer.appendChild(vinyardBarn);
+
+
+
+                ///vinyard house upgrades
+
+                
+                var HouseVUnlock3 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(78, 275).setSize(39, 42).setFill("images/toolUp3.png");
+                vinyardLayer.appendChild(HouseVUnlock3);
+              
+                if (vinyardHouseLevel > 1) { vinyardBarn.setFill("images/vinyard/house4Upgrade2.png") };
+                lime.scheduleManager.scheduleWithDelay(function () {
+                    //add upgrade anim
+                    var currentPosV = HouseVUnlock3.getPosition();
+                    currentPosV.y -= 5;
+                    //console.log(currentPos)/*;*/
+                    if (currentPosV.y < 270) { currentPosV.y = 275 };
+                    HouseVUnlock3.setPosition(currentPosV);
+                }, this, 500)
+                if (vinyardHouseLevel > 1) { HouseVUnlock3.setHidden(true);   }
+                if (parseInt(player.barnLevel) >= 5) { HouseVUnlock3.setHidden(true); }; 
+                goog.events.listen(HouseVUnlock3, ["mousedown", "touchstart"], function () {
+                    vinyardBarn.setFill("images/vinyard/house4Upgrade2.png");
+                    HouseVUnlock3.setHidden(true);
+                    vinyardHouseLevel = 2;
+                    jellyBonus.setHidden(false);
+                    treesImgV.setHidden(true);
+                    treesImgV2.setHidden(true);
+                    setTimeout(function () { jellyBonus.setSize(255, 255); jellyBonus.setPosition(25, 125) }, 500);
+                    setTimeout(function () { jellyBonus.setSize(260, 260); jellyBonus.setPosition(20, 120) }, 1000);
+                    setTimeout(function () { jellyBonus.setSize(255, 255); jellyBonus.setPosition(25, 125) }, 1500);
+                    setTimeout(function () { jellyBonus.setSize(250, 250); jellyBonus.setPosition(30, 130) }, 2000);
+                    setTimeout(function () { jellyBonus.setOpacity(0.9) }, 3500);
+                    setTimeout(function () { jellyBonus.setOpacity(0.8) }, 3600);
+                    setTimeout(function () { jellyBonus.setOpacity(0.7) }, 3700);
+                    setTimeout(function () { jellyBonus.setOpacity(0.5) }, 3800);
+                    setTimeout(function () { jellyBonus.setOpacity(0.3) }, 3900);
+                    setTimeout(function () {
+                        jellyBonus.setHidden(true);
+                        if (isblocked1 == 1) { treesImgV.setHidden(false); }
+                        if (isblocked2 == 1) { treesImgV2.setHidden(false); }
+                        a.makeJelly();
+                    }, 4000);
+
+                    localStorage["GuiGhostFarms_vinyardHouseLevel"] = vinyardHouseLevel;
+                   
+                });
+                var jellyBonus = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(30, 130).setSize(250, 250).setFill("images/vinyard/jellyBonus2.png");
+                vinyardLayer.appendChild(jellyBonus);
+                jellyBonus.setHidden(true);
+
+                var jellyUpCount = (new lime.Label).setText("+ 1 Jelly").setFontWeight(600).setFontColor("#E8FC08").setPosition(145, 335).setOpacity(.4);
+                vinyardLayer.appendChild(jellyUpCount);
+                jellyUpCount.setHidden(true);
+                
+               
 
                 var controlsBackVin = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(0, a.height - a.controlsLayer_h - 5).setSize(a.controlsLayer_w, a.controlsLayer_h).setFill("#0D0D0D");
                 vinyardLayer.appendChild(controlsBackVin);
+        //vinyard growing set
+                var hhV = b.currentCrop;
+                var wV = (new lime.Label).setText("Growing " + a.crops[12].name).setFontColor("#E8FC08").setFontSize(12).setPosition(a.controlsLayer_w / 2 -20, a.height - a.controlsLayer_h / 2 - 26);
+                vinyardLayer.appendChild(wV);
+                var zV = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(a.controlsLayer_w / 2 - 35, a.height - a.controlsLayer_h / 2 - 18).setFill("images/" + a.crops[12].harvest).setSize(32, 46);
+                vinyardLayer.appendChild(zV);
+        //vinyard inventory icons
+                var grapesIcon = (new lime.Sprite).setPosition(140, 28).setFill("images/" + a.crops[12].harvest).setSize(18,25);
+                vinyardLayer.appendChild(grapesIcon);
+                var jellyIcon = (new lime.Sprite).setPosition(170, 27).setFill("images/" + a.crops[13].harvest).setSize(26, 26);
+                vinyardLayer.appendChild(jellyIcon);
+                var gLabel12 = (new lime.Label).setPosition(133, 40).setSize(20, 16).setText(player.cropsStored[12].stored).setFontColor("#E8FC08");
+                vinyardLayer.appendChild(gLabel12);
+                var gLabel13 = (new lime.Label).setPosition(182, 40).setSize(20, 16).setText(player.cropsStored[13].stored).setFontColor("#E8FC08");
+                vinyardLayer.appendChild(gLabel13);
+
+
+
+    //vinyard farmer anim
+                var vinFarmer = (new lime.Sprite).setPosition(60, 350).setFill("images/vinyard/vinFarmer1.png").setSize(26, 26);
+                vinyardLayer.appendChild(vinFarmer);
+                var vinFarmerI = 0
+                lime.scheduleManager.scheduleWithDelay(function () {
+                    //add upgrade anim
+
+                    vinFarmerI = vinFarmerI + 1;
+                    if (vinFarmerI > 58) { vinFarmerI = 1 };
+                    if (vinFarmerI < 11) { vinFarmer.setFill("images/vinyard/vinFarmer" + vinFarmerI + ".png"); };
+
+                    if (vinFarmerI == 2) { vinFarmer.setPosition(65, 350) };
+                    if (vinFarmerI == 3) { vinFarmer.setPosition(70, 350) };
+                    if (vinFarmerI == 4) { vinFarmer.setPosition(75, 350); vinFarmer.setFill("images/vinyard/vinFarmer4.png");  };
+                    if (vinFarmerI == 5) { vinFarmer.setPosition(75, 355);  };
+                    if (vinFarmerI == 6) { vinFarmer.setPosition(75, 360);   };
+                    if (vinFarmerI == 7) { vinFarmer.setPosition(75, 365); vinFarmer.setFill("images/vinyard/vinFarmer4.png"); };
+                    if (vinFarmerI == 8) { vinFarmer.setPosition(75, 360);  };
+                    if (vinFarmerI == 9) { vinFarmer.setPosition(75, 355);  };
+                    if (vinFarmerI == 10) { vinFarmer.setPosition(75, 350); };
+                    if (vinFarmerI == 11) { vinFarmer.setPosition(80, 350); vinFarmer.setFill("images/vinyard/vinFarmer1.png"); };
+                    if (vinFarmerI == 12) { vinFarmer.setPosition(85, 350); vinFarmer.setFill("images/vinyard/vinFarmer2.png"); };
+                    if (vinFarmerI == 13) { vinFarmer.setPosition(90, 350); vinFarmer.setFill("images/vinyard/vinFarmer3.png"); };
+                    if (vinFarmerI == 14) { vinFarmer.setPosition(95, 350); vinFarmer.setFill("images/vinyard/vinFarmer1.png"); };
+                    if (vinFarmerI == 15) { vinFarmer.setPosition(100, 350); vinFarmer.setFill("images/vinyard/vinFarmer2.png"); };
+                    if (vinFarmerI == 16) { vinFarmer.setPosition(105, 350); vinFarmer.setFill("images/vinyard/vinFarmer3.png"); };
+                    if (vinFarmerI == 17) { vinFarmer.setPosition(110, 350); vinFarmer.setFill("images/vinyard/vinFarmer1.png"); };
+                    if (vinFarmerI == 18) { vinFarmer.setPosition(115, 350); vinFarmer.setFill("images/vinyard/vinFarmer2.png"); };
+                    if (vinFarmerI == 19) { vinFarmer.setPosition(120, 350); vinFarmer.setFill("images/vinyard/vinFarmer3.png"); };
+                    if (vinFarmerI == 20) { vinFarmer.setPosition(125, 350); vinFarmer.setFill("images/vinyard/vinFarmer1.png"); };
+                    if (vinFarmerI == 21) { vinFarmer.setPosition(130, 350); vinFarmer.setFill("images/vinyard/vinFarmer2.png"); };
+                    if (vinFarmerI == 22) { vinFarmer.setPosition(135, 350); vinFarmer.setFill("images/vinyard/vinFarmer3.png"); };
+                    if (vinFarmerI == 23) { vinFarmer.setPosition(140, 350); vinFarmer.setFill("images/vinyard/vinFarmer2.png"); };
+                    if (vinFarmerI == 24) { vinFarmer.setPosition(140, 350); vinFarmer.setFill("images/vinyard/vinFarmer8.png"); };
+                    if (vinFarmerI == 25) { vinFarmer.setPosition(140, 350); vinFarmer.setFill("images/vinyard/vinFarmer8.png"); };
+
+                    if (vinFarmerI == 26) { vinFarmer.setPosition(140, 350); vinFarmer.setFill("images/vinyard/vinFarmer18.png"); };
+                    if (vinFarmerI == 27) { vinFarmer.setPosition(140, 350); vinFarmer.setFill("images/vinyard/vinFarmer18.png"); };
+                    if (vinFarmerI == 28) { vinFarmer.setPosition(140, 350); vinFarmer.setFill("images/vinyard/vinFarmer18.png"); };
+                    if (vinFarmerI == 29) { vinFarmer.setPosition(140, 350); vinFarmer.setFill("images/vinyard/vinFarmer9.png"); };
+
+                    if (vinFarmerI == 30) { vinFarmer.setPosition(140, 350); vinFarmer.setFill("images/vinyard/vinFarmer3.png"); };
+                    if (vinFarmerI == 31) { vinFarmer.setPosition(140, 350); vinFarmer.setFill("images/vinyard/vinFarmer3.png"); };
+                    if (vinFarmerI == 32) { vinFarmer.setPosition(140, 350); vinFarmer.setFill("images/vinyard/vinFarmer3.png"); };
+
+                    if (vinFarmerI == 33) { vinFarmer.setPosition(145, 350); vinFarmer.setFill("images/vinyard/vinFarmer1.png"); };
+                    if (vinFarmerI == 34) { vinFarmer.setPosition(150, 350); vinFarmer.setFill("images/vinyard/vinFarmer2.png"); };
+                    if (vinFarmerI == 35) { vinFarmer.setPosition(155, 350); vinFarmer.setFill("images/vinyard/vinFarmer3.png"); };
+                    if (vinFarmerI == 36) { vinFarmer.setPosition(160, 350); vinFarmer.setFill("images/vinyard/vinFarmer1.png"); };
+                    if (vinFarmerI == 37) { vinFarmer.setPosition(165, 350); vinFarmer.setFill("images/vinyard/vinFarmer2.png"); };
+                    if (vinFarmerI == 38) { vinFarmer.setPosition(165, 350); vinFarmer.setFill("images/vinyard/vinFarmer4.png"); };
+
+                    if (vinFarmerI == 39) { vinFarmer.setPosition(160, 350); vinFarmer.setFill("images/vinyard/vinFarmer18.png"); };
+                    if (vinFarmerI == 40) { vinFarmer.setPosition(155, 350); vinFarmer.setFill("images/vinyard/vinFarmer17.png"); };
+                    if (vinFarmerI == 41) { vinFarmer.setPosition(150, 350); vinFarmer.setFill("images/vinyard/vinFarmer18.png"); };
+
+                    if (vinFarmerI == 42) { vinFarmer.setPosition(145, 350); vinFarmer.setFill("images/vinyard/vinFarmer19.png"); };
+                    if (vinFarmerI == 43) { vinFarmer.setPosition(140, 350); vinFarmer.setFill("images/vinyard/vinFarmer18.png"); };
+               
+
+
+                  
+
+                    if (vinFarmerI == 44) { vinFarmer.setPosition(135, 350); vinFarmer.setFill("images/vinyard/vinFarmer18.png"); };
+                    if (vinFarmerI == 45) { vinFarmer.setPosition(130, 350); vinFarmer.setFill("images/vinyard/vinFarmer17.png"); };
+                    if (vinFarmerI == 46) { vinFarmer.setPosition(125, 350); vinFarmer.setFill("images/vinyard/vinFarmer18.png"); };
+                    if (vinFarmerI == 47) { vinFarmer.setPosition(120, 350); vinFarmer.setFill("images/vinyard/vinFarmer19.png"); };
+                    if (vinFarmerI == 48) { vinFarmer.setPosition(115, 350); vinFarmer.setFill("images/vinyard/vinFarmer17.png"); };
+                    if (vinFarmerI == 49) { vinFarmer.setPosition(110, 350); vinFarmer.setFill("images/vinyard/vinFarmer18.png"); };
+                    if (vinFarmerI == 50) { vinFarmer.setPosition(105, 350); vinFarmer.setFill("images/vinyard/vinFarmer19.png"); };
+                    if (vinFarmerI == 51) { vinFarmer.setPosition(100, 350); vinFarmer.setFill("images/vinyard/vinFarmer18.png"); };
+                    if (vinFarmerI == 52) { vinFarmer.setPosition(95, 350); vinFarmer.setFill("images/vinyard/vinFarmer17.png"); };
+                    if (vinFarmerI == 53) { vinFarmer.setPosition(90, 350); vinFarmer.setFill("images/vinyard/vinFarmer18.png"); };
+                    if (vinFarmerI == 54) { vinFarmer.setPosition(85, 350); vinFarmer.setFill("images/vinyard/vinFarmer19.png"); };
+                    if (vinFarmerI == 55) { vinFarmer.setPosition(80, 350); vinFarmer.setFill("images/vinyard/vinFarmer18.png"); };
+                    if (vinFarmerI == 56) { vinFarmer.setPosition(75, 350); vinFarmer.setFill("images/vinyard/vinFarmer17.png"); };
+                    if (vinFarmerI == 57) { vinFarmer.setPosition(70, 350); vinFarmer.setFill("images/vinyard/vinFarmer18.png"); };
+                    if (vinFarmerI == 58) { vinFarmer.setPosition(65, 350); vinFarmer.setFill("images/vinyard/vinFarmer4.png"); };
+                    //if (vinFarmerI == 15) { vinFarmer.setPosition(50, 80); vinFarmer.setFill("images/blacksmith13.png"); };
+                    //if (vinFarmerI == 16) { vinFarmer.setPosition(50, 75); vinFarmer.setFill("images/blacksmith1.png") };
+                    //if (vinFarmerI == 17) { vinFarmer.setPosition(50, 75); vinFarmer.setFill("images/blacksmith2.png") };
+                    //if (vinFarmerI == 18) { vinFarmer.setPosition(50, 77); vinFarmer.setFill("images/blacksmith1.png") };
+                    //if (vinFarmerI == 19) { vinFarmer.setPosition(50, 77); vinFarmer.setFill("images/blacksmith2.png") };
+
+
+                }, this, 250)
+
+
+
+
+
+
+
+
+
+
 
                 var menuV = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(0, a.height - 36).setSize(70, 25).setFill("#0D0D0D");
                 vinyardLayer.appendChild(menuV);
@@ -2720,11 +3098,19 @@ farming.start = function () {
                     count7.setText(player.cropsStored[7].stored);
                     count8.setText(player.cropsStored[8].stored);
                     count9.setText(player.cropsStored[9].stored);
+                    count10.setText(player.cropsStored[10].stored);
+                    count11.setText(player.cropsStored[11].stored);
+                    count12.setText(player.cropsStored[12].stored);
+                    count13.setText(player.cropsStored[13].stored);
                 });
 
                 goog.events.listen(roadRightV, ["mousedown", "touchstart"], function () {
-                    c.replaceScene(pastureScene, lime.transitions.SlideInRight);
+                    c.replaceScene(pastureScene, lime.transitions.SlideInRight); sceneBefore = 2;
                 });
+               
+
+               
+
 
     //////end of farming.start
 };
