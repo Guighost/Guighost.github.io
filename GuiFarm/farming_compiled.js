@@ -2358,7 +2358,14 @@ farming.start = function () {
         //save & Quit
             goog.events.listen(saveQuit, ["mousedown", "touchstart"], function () { localStorage.setItem('GuiGhostFarms_player', JSON.stringify(player)); window.open("../", "_self") });
         //clear data
-            goog.events.listen(clearData, ["mousedown", "touchstart"], function () { localStorage.removeItem('GuiGhostFarms_player'); window.open("../", "_self") });
+            goog.events.listen(clearData, ["mousedown", "touchstart"], function () {
+                localStorage.removeItem('GuiGhostFarms_player');
+                localStorage.removeItem('GuiGhostFarms_vinyardBlocks');
+                localStorage.removeItem('GuiGhostFarms_vinyardBlocks2');
+                localStorage.removeItem('GuiGhostFarms_vinyardHouseLevel');
+                localStorage.removeItem('GuiGhostFarms_orchardTreeBlock');
+                window.open("../", "_self")
+            });
         //star cash convert
             goog.events.listen(convertStarCash, ["mousedown", "touchstart"], function () {
                 if (starCash > 5) {
