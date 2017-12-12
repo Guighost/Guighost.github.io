@@ -732,35 +732,84 @@ imgArray[16].src = 'images/UI/greySoundOff.png';
 //growing images
 var imgArray2 = new Array();
 
-imgArray[0] = new Image();imgArray[0].src = 'images/artiGrow1.png';
+imgArray2[0] = new Image(); imgArray2[0].src = 'images/artiGrow1.png';
 
-imgArray[1] = new Image();imgArray[1].src = 'images/artiGrow2.png';
+imgArray2[1] = new Image(); imgArray2[1].src = 'images/artiGrow2.png';
 
-imgArray[2] = new Image(); imgArray[2].src = 'images/plowed.png';
+imgArray2[2] = new Image(); imgArray2[2].src = 'images/plowed.png';
 
-imgArray[3] = new Image(); imgArray[3].src = 'images/tomatoGrow1.png';
+imgArray2[3] = new Image(); imgArray2[3].src = 'images/tomatoGrow1.png';
 
-imgArray[4] = new Image(); imgArray[4].src = 'images/tomatoGrow2.png';
+imgArray2[4] = new Image(); imgArray2[4].src = 'images/tomatoGrow2.png';
 
-imgArray[5] = new Image(); imgArray[5].src = 'images/pepperGrow1.png';
+imgArray2[5] = new Image(); imgArray2[5].src = 'images/pepperGrow1.png';
 
-imgArray[6] = new Image(); imgArray[6].src = 'images/pepperGrow2.png';
+imgArray2[6] = new Image(); imgArray2[6].src = 'images/pepperGrow2.png';
 
-imgArray[7] = new Image(); imgArray[7].src = 'images/cornGrow1.png';
+imgArray2[7] = new Image(); imgArray2[7].src = 'images/cornGrow1.png';
 
-imgArray[8] = new Image(); imgArray[8].src = 'images/cornGrow2.png';
+imgArray2[8] = new Image(); imgArray2[8].src = 'images/cornGrow2.png';
 
-imgArray[9] = new Image(); imgArray[9].src = 'images/eggplantGrow1.png';
+imgArray2[9] = new Image(); imgArray2[9].src = 'images/eggplantGrow1.png';
 
-imgArray[10] = new Image(); imgArray[10].src = 'images/eggplantGrow2.png';
+imgArray2[10] = new Image(); imgArray2[10].src = 'images/eggplantGrow2.png';
 
-imgArray[11] = new Image(); imgArray[11].src = 'images/carrotGrow1.png';
+imgArray2[11] = new Image(); imgArray2[11].src = 'images/carrotGrow1.png';
 
-imgArray[12] = new Image(); imgArray[12].src = 'images/carrotGrow2.png';
+imgArray2[12] = new Image(); imgArray2[12].src = 'images/carrotGrow2.png';
 
-imgArray[13] = new Image(); imgArray[13].src = 'images/hayGrow1.png';
+imgArray2[13] = new Image(); imgArray2[13].src = 'images/hayGrow1.png';
 
-imgArray[14] = new Image(); imgArray[14].src = 'images/hayGrow2.png';
+imgArray2[14] = new Image(); imgArray2[14].src = 'images/hayGrow2.png';
+
+
+//animation images
+var imgArray3 = new Array();
+
+imgArray3[0] = new Image(); imgArray3[0].src = 'images/livestockPens/chicken_down1.png';
+
+imgArray3[1] = new Image(); imgArray3[1].src = 'images/livestockPens/chicken_down2.png';
+
+imgArray3[2] = new Image(); imgArray3[2].src = 'images/livestockPens/chicken_down3.png';
+
+imgArray3[3] = new Image(); imgArray3[3].src = 'images/livestockPens/chicken_eatLeft1.png';
+
+imgArray3[4] = new Image(); imgArray3[4].src = 'images/livestockPens/chicken_eatLeft2.png';
+
+imgArray3[5] = new Image(); imgArray3[5].src = 'images/livestockPens/chicken_eatLeft3.png';
+
+imgArray3[6] = new Image(); imgArray3[6].src = 'images/livestockPens/chicken_eatLeft4.png';
+
+imgArray3[7] = new Image(); imgArray3[7].src = 'images/livestockPens/chicken_eatRight1.png';
+
+imgArray3[8] = new Image(); imgArray3[8].src = 'images/livestockPens/chicken_eatRight2.png';
+
+imgArray3[9] = new Image(); imgArray3[9].src = 'images/livestockPens/chicken_up1.png';
+
+imgArray3[10] = new Image(); imgArray3[10].src = 'images/livestockPens/chicken_up2.png';
+
+imgArray3[11] = new Image(); imgArray3[11].src = 'images/livestockPens/chicken_up3.png';
+
+imgArray3[12] = new Image(); imgArray3[12].src = 'images/livestockPens/chicken_walkLeft1.png';
+
+imgArray3[13] = new Image(); imgArray3[13].src = 'images/livestockPens/chicken_walkLeft2.png';
+
+imgArray3[14] = new Image(); imgArray3[14].src = 'images/livestockPens/chicken_walkLeft3.png';
+
+imgArray3[15] = new Image(); imgArray3[15].src = 'images/livestockPens/chicken_walkRight1.png';
+
+imgArray3[16] = new Image(); imgArray3[16].src = 'images/livestockPens/chicken_walkRight2.png';
+
+imgArray3[17] = new Image(); imgArray3[17].src = 'images/livestockPens/chicken_walkRight3.png';
+
+imgArray3[18] = new Image(); imgArray3[18].src = 'images/livestockPens/chicken_walkRight4.png';
+
+imgArray3[19] = new Image(); imgArray3[19].src = 'images/livestockPens/eggs.png';
+
+imgArray3[20] = new Image(); imgArray3[20].src = 'images/livestockPens/bacon.png';
+
+imgArray3[21] = new Image(); imgArray3[21].src = 'images/livestockPens/pig_left3.png';
+
 
 
 
@@ -2710,6 +2759,61 @@ farming.start = function () {
 
                 var controlsBackLS = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(0, a.height - a.controlsLayer_h - 5).setSize(a.controlsLayer_w, a.controlsLayer_h).setFill("#0D0D0D");
                 liveStockLayer.appendChild(controlsBackLS);
+
+
+        //livestock animals
+                var chicken1 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(175, 350).setSize(23, 22 ).setFill("images/livestockPens/chicken_eatLeft1.png");
+                liveStockLayer.appendChild(chicken1);
+                var chicken2 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(100, 305).setSize(23, 22).setFill("images/livestockPens/chicken_eatLeft1.png");
+                liveStockLayer.appendChild(chicken2);
+                var chicken1Timer = 0
+                a.movechicken = function () {
+                    lime.scheduleManager.scheduleWithDelay(function () {
+                        //add upgrade anim
+                        chicken1Timer++;
+                        if (chicken1Timer > 30) { chicken1Timer = 1; };
+
+                        if (chicken1Timer == 1) { chicken1.setFill("images/livestockPens/chicken_eatLeft1.png"); chicken2.setFill("images/livestockPens/chicken_eatLeft2.png"); chicken2.setPosition(100, 305); };
+                        if (chicken1Timer == 2) { chicken1.setFill("images/livestockPens/chicken_eatLeft2.png"); chicken2.setFill("images/livestockPens/chicken_eatLeft3.png"); chicken2.setPosition(100, 305);  };
+                        if (chicken1Timer == 3) { chicken1.setFill("images/livestockPens/chicken_eatLeft3.png"); chicken2.setFill("images/livestockPens/chicken_eatLeft2.png"); chicken2.setPosition(100, 305); };
+                        if (chicken1Timer == 4) { chicken1.setFill("images/livestockPens/chicken_eatLeft2.png"); chicken2.setFill("images/livestockPens/chicken_eatLeft2.png"); chicken2.setPosition(100, 305); };
+                        if (chicken1Timer == 5) { chicken1.setFill("images/livestockPens/chicken_eatLeft3.png"); chicken2.setFill("images/livestockPens/chicken_walkLeft1.png"); chicken2.setPosition(95, 305); };
+                        if (chicken1Timer == 6) { chicken1.setFill("images/livestockPens/chicken_eatLeft4.png"); chicken2.setFill("images/livestockPens/chicken_walkLeft2.png"); chicken2.setPosition(90, 305); };
+                        if (chicken1Timer == 7) { chicken1.setFill("images/livestockPens/chicken_eatLeft1.png"); chicken2.setFill("images/livestockPens/chicken_walkLeft3.png"); chicken2.setPosition(85, 305); };
+                        if (chicken1Timer == 8) { chicken1.setFill("images/livestockPens/chicken_walkLeft1.png"); chicken1.setPosition(170, 350); chicken2.setFill("images/livestockPens/chicken_walkLeft2.png"); chicken2.setPosition(80, 305);};
+                        if (chicken1Timer == 9) { chicken1.setFill("images/livestockPens/chicken_walkLeft2.png"); chicken1.setPosition(165, 350); chicken2.setFill("images/livestockPens/chicken_walkLeft1.png"); chicken2.setPosition(75, 305);};
+                        if (chicken1Timer == 10) { chicken1.setFill("images/livestockPens/chicken_walkLeft3.png"); chicken1.setPosition(160, 350); chicken2.setFill("images/livestockPens/chicken_walkLeft2.png"); chicken2.setPosition(70, 305); };
+                        if (chicken1Timer == 11) { chicken1.setFill("images/livestockPens/chicken_walkLeft1.png"); chicken1.setPosition(155, 350); chicken2.setFill("images/livestockPens/chicken_up1.png"); chicken2.setPosition(70, 305);};
+                        if (chicken1Timer == 12) { chicken1.setFill("images/livestockPens/chicken_walkLeft2.png"); chicken1.setPosition(150, 350); chicken2.setFill("images/livestockPens/chicken_up2.png"); chicken2.setPosition(70, 300);};
+                        if (chicken1Timer == 13) { chicken1.setFill("images/livestockPens/chicken_walkLeft3.png"); chicken1.setPosition(145, 350); chicken2.setFill("images/livestockPens/chicken_up3.png"); chicken2.setPosition(70, 295);};
+                        if (chicken1Timer == 14) { chicken1.setFill("images/livestockPens/chicken_eatLeft2.png"); chicken2.setFill("images/livestockPens/chicken_walkRight1.png"); chicken2.setPosition(70, 290); };
+                        if (chicken1Timer == 15) { chicken1.setFill("images/livestockPens/chicken_eatLeft3.png"); chicken2.setFill("images/livestockPens/chicken_walkRight2.png"); chicken2.setPosition(75, 290); };
+                        if (chicken1Timer == 16) { chicken1.setFill("images/livestockPens/chicken_eatLeft2.png"); chicken2.setFill("images/livestockPens/chicken_walkRight3.png"); chicken2.setPosition(80, 290);};
+                        if (chicken1Timer == 17) { chicken1.setFill("images/livestockPens/chicken_eatLeft3.png"); chicken2.setFill("images/livestockPens/chicken_walkRight3.png"); chicken2.setPosition(80, 290); };
+                        if (chicken1Timer == 18) { chicken1.setFill("images/livestockPens/chicken_down3.png"); chicken2.setFill("images/livestockPens/chicken_walkRight1.png"); chicken2.setPosition(85, 290);};
+                        if (chicken1Timer == 19) { chicken1.setFill("images/livestockPens/chicken_walkRight1.png"); chicken1.setPosition(145, 350); chicken2.setFill("images/livestockPens/chicken_walkRight2.png"); chicken2.setPosition(90, 290); };
+                        if (chicken1Timer == 20) { chicken1.setFill("images/livestockPens/chicken_walkRight2.png"); chicken1.setPosition(150, 350); chicken2.setFill("images/livestockPens/chicken_walkRight3.png"); chicken2.setPosition(95, 290);  };
+                        if (chicken1Timer == 21) { chicken1.setFill("images/livestockPens/chicken_walkRight3.png"); chicken1.setPosition(155, 350); chicken2.setFill("images/livestockPens/chicken_walkRight2.png"); chicken2.setPosition(100, 290); };
+                        if (chicken1Timer == 22) { chicken1.setFill("images/livestockPens/chicken_walkRight1.png"); chicken1.setPosition(160, 350); chicken2.setFill("images/livestockPens/chicken_eatRight1.png"); chicken2.setPosition(100, 290); };
+                        if (chicken1Timer == 23) { chicken1.setFill("images/livestockPens/chicken_walkRight2.png"); chicken1.setPosition(165, 350); chicken2.setFill("images/livestockPens/chicken_eatRight2.png"); chicken2.setPosition(100, 290); };
+                        if (chicken1Timer == 24) { chicken1.setFill("images/livestockPens/chicken_walkRight3.png"); chicken1.setPosition(170, 350); chicken2.setFill("images/livestockPens/chicken_eatRight1.png"); chicken2.setPosition(100, 290); };
+                        if (chicken1Timer == 25) { chicken1.setFill("images/livestockPens/chicken_eatRight1.png"); chicken1.setPosition(175, 350);  chicken2.setFill("images/livestockPens/chicken_down2.png"); chicken2.setPosition(100, 290); };
+                        if (chicken1Timer == 26) { chicken1.setFill("images/livestockPens/chicken_eatRight2.png"); chicken1.setPosition(175, 350); chicken2.setFill("images/livestockPens/chicken_down1.png"); chicken2.setPosition(100, 295); };
+                        if (chicken1Timer == 27) { chicken1.setFill("images/livestockPens/chicken_eatRight1.png"); chicken1.setPosition(175, 350); chicken2.setFill("images/livestockPens/chicken_down2.png"); chicken2.setPosition(100, 300); };
+                        if (chicken1Timer == 28) { chicken1.setFill("images/livestockPens/chicken_eatRight2.png"); chicken1.setPosition(175, 350); chicken2.setFill("images/livestockPens/chicken_eatLeft1.png"); chicken2.setPosition(100, 305); };
+                        if (chicken1Timer == 29) { chicken1.setFill("images/livestockPens/chicken_down1.png"); chicken2.setFill("images/livestockPens/chicken_eatLeft2.png");};
+                        if (chicken1Timer == 30) { chicken1.setFill("images/livestockPens/chicken_down1.png"); chicken2.setFill("images/livestockPens/chicken_eatLeft3.png");};
+                       
+                        
+                    }, this, 250)
+                    
+                }
+                a.movechicken();
+
+                var pig1 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(170, 180).setSize(35, 21).setFill("images/livestockPens/pig_Left3.png");
+                liveStockLayer.appendChild(pig1);
+                var pig2 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(110, 100).setSize(20, 33).setFill("images/livestockPens/pig_down1.png");
+                liveStockLayer.appendChild(pig2);
 
 
                 var menuLS = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(0, a.height - 36).setSize(70, 25).setFill("#0D0D0D");
