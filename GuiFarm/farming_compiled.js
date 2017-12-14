@@ -2734,9 +2734,9 @@ farming.start = function () {
                 liveStockLayer.appendChild(topLogoLS);
                 var liveStockCash = (new lime.Label).setText("$ " + player.money).setFontColor("#E8FC08").setPosition(270, 20);
                 liveStockLayer.appendChild(liveStockCash);
-                var liveStockBack = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(0, 45).setSize(a.controlsLayer_w, 417).setFill("images/livestockPens/livestockPensBack.png");
+                var liveStockBack = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(0, 45).setSize(a.controlsLayer_w, 417).setFill("images/livestockPens/livestockPensBack3.png");
                 liveStockLayer.appendChild(liveStockBack);
-                var horizRoadLS = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(0, 436).setSize(320, 25).setFill("images/" + a.barnyard[15].image); 
+                var horizRoadLS = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(0, 436).setSize(245, 25).setFill("images/" + a.barnyard[15].image); 
                 liveStockLayer.appendChild(horizRoadLS);
                 roadLeftLS = (new lime.GlossyButton).setColor("#8b008b").setText("<Orchard").setPosition(45, 12).setSize(80, 15)
                 horizRoadLS.appendChild(roadLeftLS)
@@ -2759,6 +2759,16 @@ farming.start = function () {
 
                 var controlsBackLS = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(0, a.height - a.controlsLayer_h - 5).setSize(a.controlsLayer_w, a.controlsLayer_h).setFill("#0D0D0D");
                 liveStockLayer.appendChild(controlsBackLS);
+
+
+                ///livestock eggs mechanics
+
+                var egg1 = (new lime.Sprite).setPosition(85, 280).setFill("images/livestockPens/eggCollect.png").setSize(32, 32);
+                liveStockLayer.appendChild(egg1);
+                var egg2 = (new lime.Sprite).setPosition(122, 280).setFill("images/livestockPens/eggCollect.png").setSize(32, 32);
+                liveStockLayer.appendChild(egg2);
+                var egg3 = (new lime.Sprite).setPosition(160, 280).setFill("images/livestockPens/eggCollect.png").setSize(32, 32);
+                liveStockLayer.appendChild(egg3);
 
 
         //livestock animals
@@ -2815,9 +2825,10 @@ farming.start = function () {
                     
                 }
                 a.movechicken();
-
+    
                
-
+               
+    ///livestock layer menu
 
                 var menuLS = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(0, a.height - 36).setSize(70, 25).setFill("#0D0D0D");
                 liveStockLayer.appendChild(menuLS);
