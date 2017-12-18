@@ -1495,7 +1495,10 @@ farming.start = function () {
     //MUTE Home
         var muteBtn = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(75, 503).setSize(25, 25).setFill(imgArray[15]); f.appendChild(muteBtn);
         goog.events.listen(muteBtn, ["mousedown", "touchstart"], function () {
-            var isMuted = lime.audio.getMute(); console.log("muted " + isMuted); if (isMuted) { lime.audio.setMute(false); themeSong.play(true); } else { lime.audio.setMute(true); }
+            var isMuted = lime.audio.getMute(); console.log("muted " + isMuted); if (isMuted) {
+                lime.audio.setMute(false); themeSong.play(true);
+                setMute(2)
+            } else { lime.audio.setMute(true); setMute(1);}
                     });
      
     //update money
@@ -1888,7 +1891,12 @@ farming.start = function () {
             //MUTE From Pasture
             var muteBtnP = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(75, 503).setSize(25, 25).setFill(imgArray[15]); pastureLayer.appendChild(muteBtnP);
             goog.events.listen(muteBtnP, ["mousedown", "touchstart"], function () {
-                var isMuted = lime.audio.getMute(); console.log("muted " + isMuted); if (isMuted) { lime.audio.setMute(false); themeSong.play(true); } else { lime.audio.setMute(true); }
+                var isMuted = lime.audio.getMute(); console.log("muted " + isMuted);
+                if (isMuted) {
+                    lime.audio.setMute(false); themeSong.play(true);
+                    setMute(2);
+
+                } else { lime.audio.setMute(true); setMute(1); }
             });
 
 
@@ -2330,7 +2338,10 @@ farming.start = function () {
        //MUTE From Orchard
             var muteBtnO = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(75, 503).setSize(25, 25).setFill(imgArray[15]); orchardLayer.appendChild(muteBtnO);
             goog.events.listen(muteBtnO, ["mousedown", "touchstart"], function () {
-                var isMuted = lime.audio.getMute(); console.log("muted " + isMuted); if (isMuted) { lime.audio.setMute(false); themeSong.play(true); waterfallSound.play(true); } else { lime.audio.setMute(true); }
+                var isMuted = lime.audio.getMute(); console.log("muted " + isMuted); if (isMuted) {
+                    lime.audio.setMute(false); themeSong.play(true); waterfallSound.play(true); muteBtnO.setFill(imgArray[15]);
+                    setMute(2);
+                } else { lime.audio.setMute(true); setMute(1); }
             });
             var hhO = b.currentCrop;
             var wO = (new lime.Label).setText("Tending " + a.crops[8].name + " Trees").setFontColor("#E8FC08").setFontSize(12).setPosition(a.controlsLayer_w / 2 - 15, a.height - a.controlsLayer_h / 2 - 26);
@@ -2763,13 +2774,201 @@ farming.start = function () {
 
                 ///livestock eggs mechanics
 
-                var egg1 = (new lime.Sprite).setPosition(85, 280).setFill("images/livestockPens/eggCollect.png").setSize(32, 32);
+                var egg1 = (new lime.Sprite).setPosition(90, 282).setFill("images/livestockPens/egg3.png").setSize(17, 13);
                 liveStockLayer.appendChild(egg1);
-                var egg2 = (new lime.Sprite).setPosition(122, 280).setFill("images/livestockPens/eggCollect.png").setSize(32, 32);
+                var egg2 = (new lime.Sprite).setPosition(123, 282).setFill("images/livestockPens/egg5.png").setSize(17, 13);
                 liveStockLayer.appendChild(egg2);
-                var egg3 = (new lime.Sprite).setPosition(160, 280).setFill("images/livestockPens/eggCollect.png").setSize(32, 32);
+                var egg3 = (new lime.Sprite).setPosition(155, 282).setFill("images/livestockPens/egg3.png").setSize(17, 13);
                 liveStockLayer.appendChild(egg3);
+                var sparkle1 = (new lime.Sprite).setPosition(159, 285).setFill("images/livestockPens/stars4.png").setSize(25, 30);
+                liveStockLayer.appendChild(sparkle1);
+                var lsHarvest = 0;
+                var eggHidden = {
+                    egg1: false,
+                    egg2: false,
+                    egg3: false
+                };
 
+                var eggOnce = {
+                    egg1: false,
+                    egg2: false,
+                    egg3: false
+                }; 
+    
+                var eggX = 90;
+                var sparkleH = 0;
+                var sparkleVis = 1;
+                var eggPick = 0;
+                a.sparkles = function () {
+                    lime.scheduleManager.scheduleWithDelay(function () {
+                        //var eggPos = egg1.getPosition();
+                        //var eggPosX = eggPos.x;
+                        //egg1.setPostion = ((eggPosX - 1), 282);
+                        sparkleH = sparkleH + 1;
+                        sparkleVis = sparkleVis + 1;
+                        
+                        
+                            if (sparkleVis == 2) {
+                                sparkle1.setHidden(true);
+                                if (eggHidden[egg1] == false && eggPick == 0) { egg1.setPosition(90, 279); }
+                                if (eggHidden[egg2] == false && eggPick == 0) { egg2.setPosition(123, 282); }
+                                if (eggHidden[egg3] == false && eggPick == 0) { egg3.setPosition(159, 279); }
+                            } else {
+                                sparkle1.setHidden(false); sparkleVis = 1;
+                                if (eggHidden[egg1] == false && eggPick == 0) { egg1.setPosition(90, 282); }
+                                if (eggHidden[egg2] == false && eggPick == 0) { egg2.setPosition(123, 279); }
+                                if (eggHidden[egg3] == false && eggPick == 0) { egg3.setPosition(159, 282); }
+                            }
+
+                        sparkle1.setHidden(true);
+                        
+                        if (sparkleH > 3) { sparkleH = 0; };
+
+                    }, this, 500)
+
+                };
+                a.sparkles();
+              
+    
+                a.LivestockHarvest = function () {
+                    lime.scheduleManager.scheduleWithDelay(function () {
+                        lsHarvest = lsHarvest + 1;
+                        if (lsHarvest >= 2 ) { egg1.setHidden(false); eggHidden[egg1] = false; }
+                        if (lsHarvest >= 3 ) { egg2.setHidden(false); eggHidden[egg2] = false;}
+                        if (lsHarvest >= 4 ) { egg3.setHidden(false); eggHidden[egg3] = false;}
+                        if (lsHarvest > 4) { lsHarvest = 4;}
+
+                    }, this, 5000)
+                }
+                a.LivestockHarvest();
+
+        ///egg clicks
+                goog.events.listen(egg1, ["mousedown", "touchstart"], function () {
+                    a.eggClick(1);
+                });
+                goog.events.listen(egg2, ["mousedown", "touchstart"], function () {
+                    a.eggClick(2);
+                });
+                goog.events.listen(egg3, ["mousedown", "touchstart"], function () {
+                    a.eggClick(3);
+                });
+
+                a.eggClick = function (clicked) {
+                    if (clicked == 1) {
+                        eggOnce[egg1] = true;
+                        player.cropsStored[11].stored = player.cropsStored[11].stored + 3;
+                        eggHidden[egg1] = true;
+                        lsHarvest = 0;
+                        eggPick = 1;
+                        count11.setText(player.cropsStored[11].stored);
+                        gLabel11.setText(player.cropsStored[11].stored);
+                        localStorage.setItem('GuiGhostFarms_player', JSON.stringify(player));
+
+                        setTimeout(function () { egg1.setPosition(90, 272); }, 100);
+                        setTimeout(function () { egg1.setPosition(90, 262); }, 200);
+                        setTimeout(function () { egg1.setPosition(90, 242); }, 300);
+                        setTimeout(function () { egg1.setPosition(90, 222); }, 400);
+                        setTimeout(function () { egg1.setPosition(90, 182); }, 500);
+                        setTimeout(function () { egg1.setPosition(90, 150); }, 600);
+                        setTimeout(function () { egg1.setPosition(90, 130); }, 700);
+                        setTimeout(function () { egg1.setPosition(90, 120); }, 730);
+                        setTimeout(function () { egg1.setPosition(90, 110); }, 760);
+                        setTimeout(function () { egg1.setPosition(90, 100); }, 790);
+                        setTimeout(function () { egg1.setPosition(90, 90); }, 820);
+                        setTimeout(function () { egg1.setPosition(90, 70); }, 850);
+                        setTimeout(function () { egg1.setPosition(90, 50); }, 875);
+                        setTimeout(function () { egg1.setHidden(true); eggPick = 0; eggOnce[egg1] = false; }, 900);
+                        setTimeout(function () { egg1.setPosition(90, 282); }, 1000);
+
+
+                        //lime.scheduleManager.scheduleWithDelay(function egg1Anim() {
+                        //    if (eggOnce[egg1] == true) {
+                        //        var posE1 = egg1.getPosition();
+                        //        var posE1move = posE1.y - 25;
+                        //        egg1.setPosition(90, posE1move);
+                        //        if (posE1move <= 120) { egg1.setHidden(true); egg1.setPosition(90, 282); eggPick = 0; eggOnce[egg1] = false; };
+
+                        //    }
+                        //    }, this, 100)
+                    
+
+                    }
+                    if (clicked == 2) {
+                        
+                        player.cropsStored[11].stored = player.cropsStored[11].stored + 3;
+                        eggPick = 2;
+                        lsHarvest = 0;
+                        eggOnce[egg2] = true;
+                        count11.setText(player.cropsStored[11].stored);
+                        gLabel11.setText(player.cropsStored[11].stored);
+                        localStorage.setItem('GuiGhostFarms_player', JSON.stringify(player));
+
+                        setTimeout(function () { egg2.setPosition(123, 272); }, 100);
+                        setTimeout(function () { egg2.setPosition(123, 262); }, 200);
+                        setTimeout(function () { egg2.setPosition(123, 242); }, 300);
+                        setTimeout(function () { egg2.setPosition(123, 222); }, 400);
+                        setTimeout(function () { egg2.setPosition(123, 182); }, 500);
+                        setTimeout(function () { egg2.setPosition(123, 150); }, 600);
+                        setTimeout(function () { egg2.setPosition(123, 130); }, 700);
+                        setTimeout(function () { egg2.setPosition(123, 120); }, 730);
+                        setTimeout(function () { egg2.setPosition(123, 110); }, 760);
+                        setTimeout(function () { egg2.setPosition(123, 100); }, 790);
+                        setTimeout(function () { egg2.setPosition(123, 90); }, 820);
+                        setTimeout(function () { egg2.setPosition(123, 70); }, 850);
+                        setTimeout(function () { egg2.setPosition(123, 50); }, 875);
+                        setTimeout(function () { egg2.setHidden(true); eggPick = 0; eggOnce[egg2] = false; }, 900);
+                        setTimeout(function () { egg2.setPosition(123, 282); }, 1000);
+
+
+                        //lime.scheduleManager.scheduleWithDelay(function egg2Anim() {
+                        //    if (eggOnce[egg2] == true) {
+                        //        var posE2 = egg2.getPosition();
+                        //        var posE2move = posE2.y - 25;
+                        //        egg2.setPosition(123, posE2move);
+                        //        if (posE2move <= 120) { egg2.setHidden(true); egg2.setPosition(123, 282); eggPick = 0; eggOnce[egg2] = false;};
+                        //    }
+
+                        //}, this, 100)
+                        
+                    }
+                    if (clicked == 3) {
+                       
+                        player.cropsStored[11].stored = player.cropsStored[11].stored + 3;
+                        eggPick = 3;
+                        lsHarvest = 0;
+                        eggOnce[egg3] = true;
+                        count11.setText(player.cropsStored[11].stored);
+                        gLabel11.setText(player.cropsStored[11].stored);
+                        localStorage.setItem('GuiGhostFarms_player', JSON.stringify(player));
+                        setTimeout(function () { egg3.setPosition(155, 272); }, 100);
+                        setTimeout(function () { egg3.setPosition(155, 262); }, 200);
+                        setTimeout(function () { egg3.setPosition(155, 242); }, 300);
+                        setTimeout(function () { egg3.setPosition(155, 222); }, 400);
+                        setTimeout(function () { egg3.setPosition(155, 182); }, 500);
+                        setTimeout(function () { egg3.setPosition(155, 150); }, 600);
+                        setTimeout(function () { egg3.setPosition(155, 130); }, 700);
+                        setTimeout(function () { egg3.setPosition(155, 120); }, 730);
+                        setTimeout(function () { egg3.setPosition(155, 110); }, 760);
+                        setTimeout(function () { egg3.setPosition(155, 100); }, 790);
+                        setTimeout(function () { egg3.setPosition(155, 90); }, 820);
+                        setTimeout(function () { egg3.setPosition(155, 70); }, 850);
+                        setTimeout(function () { egg3.setPosition(155, 50); }, 875);
+                        setTimeout(function () { egg3.setHidden(true); eggPick = 0; eggOnce[egg3] = false; }, 900);
+                        setTimeout(function () { egg3.setPosition(155, 282); }, 1000);
+
+
+                        //lime.scheduleManager.scheduleWithDelay(function egg3Anim() {
+                        //    if (eggOnce[egg3] == true) {
+                        //        var posE3 = egg3.getPosition();
+                        //        var posE3move = posE3.y - 25;
+                        //        egg3.setPosition(155, posE3move);
+                        //        if (posE3move <= 120) { egg3.setHidden(true); egg3.setPosition(155, 282); eggPick = 0; eggOnce[egg3] = false; };
+
+                        //    }
+                        //}, this, 100)
+
+                    }
+                }
 
         //livestock animals
                 var chicken1 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(175, 350).setSize(23, 22 ).setFill("images/livestockPens/chicken_eatLeft1.png");
@@ -2777,9 +2976,9 @@ farming.start = function () {
                 var chicken2 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(100, 305).setSize(23, 22).setFill("images/livestockPens/chicken_eatLeft1.png");
                 liveStockLayer.appendChild(chicken2);
 
-                var pig1 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(170, 180).setSize(37, 23).setFill("images/livestockPens/pig_Left3.png");
+                var pig1 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(170, 180).setSize(37, 25).setFill("images/livestockPens/pig_Left3.png");
                 liveStockLayer.appendChild(pig1);
-                var pig2 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(150, 100).setSize(20, 33).setFill("images/livestockPens/pig_down1.png");
+                var pig2 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(150, 100).setSize(22, 33).setFill("images/livestockPens/pig_down1.png");
                 liveStockLayer.appendChild(pig2);
 
                 var chicken1Timer = 0
@@ -2825,8 +3024,7 @@ farming.start = function () {
                     
                 }
                 a.movechicken();
-    
-               
+             
                
     ///livestock layer menu
 
@@ -2856,17 +3054,20 @@ farming.start = function () {
                     count13.setText(player.cropsStored[13].stored);
                 });
 
-
+                //MUTE From Livestock
+                var muteBtnLS = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(75, 503).setSize(25, 25).setFill(imgArray[15]); liveStockLayer.appendChild(muteBtnLS);
+                goog.events.listen(muteBtnLS, ["mousedown", "touchstart"], function () {
+                    var isMuted = lime.audio.getMute(); console.log("muted " + isMuted); if (isMuted) {
+                        lime.audio.setMute(false); themeSong.play(true);
+                        setMute(2);
+                    } else { lime.audio.setMute(true); setMute(1); }
+                });
 
 
 
                 goog.events.listen(roadLeftLS, ["mousedown", "touchstart"], function () { c.replaceScene(orchardScene, lime.transitions.SlideInLeft); sceneBefore = 3; waterfallSound.play(); });
 
                 //c.replaceScene(liveStockScene, lime.transitions.SlideInUp);
-
-    //////////////////////////////////Lake Scene///////////////////////////////////////////  //////////////////////////////////Lake Scene///////////////////////////////////////////
-
-
 
 
 
@@ -3208,6 +3409,19 @@ farming.start = function () {
                 vinyardLayer.appendChild(menuV);
                 var actionsV = (new lime.GlossyButton).setColor("#663300").setText("Actions").setPosition(35, 485).setSize(70, 25);
                 vinyardLayer.appendChild(actionsV);
+
+                //MUTE From Vinyard
+                var muteBtnV = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(75, 503).setSize(25, 25).setFill(imgArray[15]); vinyardLayer.appendChild(muteBtnV);
+                goog.events.listen(muteBtnV, ["mousedown", "touchstart"], function () {
+                    var isMuted = lime.audio.getMute(); console.log("muted " + isMuted); if (isMuted) {
+                        lime.audio.setMute(false); themeSong.play(true); 
+                        setMute(2);
+                    } else { lime.audio.setMute(true); setMute(1); }
+                });
+
+
+
+
                 var marketV = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(214, a.height - a.controlsLayer_h + 1).setSize(90, 65).setFill("images/" + a.barnyard[3].image);
                 vinyardLayer.appendChild(marketV)
                 goog.events.listen(marketV, ["mousedown", "touchstart"], function () {
@@ -3236,6 +3450,12 @@ farming.start = function () {
 
                
 
-
+                function setMute(state) {
+                    if (state == 1) {
+                        muteBtnP.setFill(imgArray[16]); muteBtn.setFill(imgArray[16]); muteBtnO.setFill(imgArray[16]); muteBtnV.setFill(imgArray[16]); muteBtnLS.setFill(imgArray[16]);
+                    } else {
+                        muteBtnP.setFill(imgArray[15]); muteBtn.setFill(imgArray[15]); muteBtnO.setFill(imgArray[15]); muteBtnV.setFill(imgArray[15]); muteBtnLS.setFill(imgArray[15]);
+                    }
+                }
     //////end of farming.start
 };
