@@ -1529,9 +1529,9 @@ farming.start = function () {
         f.appendChild(toolCount);
 
         ///// day/year count Label
-        var dayLabel = (new lime.Label).setFontSize(10).setPosition(35, 40).setSize(70, 13).setFill("#C14825").setText("Day " + dayCount).setFontColor("#ffffff");
+        var dayLabel = (new lime.Label).setFontSize(10).setPosition(35, 40).setSize(60, 13).setFill("#C14825").setText("Day " + dayCount).setFontColor("#ffffff");
         f.appendChild(dayLabel); 
-        var yearLabel = (new lime.Label).setFontSize(10).setPosition(275, 40).setSize(70, 13).setFill("#C14825").setText("Year " + yearCount).setFontColor("#ffffff");
+        var yearLabel = (new lime.Label).setFontSize(10).setPosition(275, 40).setSize(60, 13).setFill("#C14825").setText("Year " + yearCount).setFontColor("#ffffff");
         f.appendChild(yearLabel); 
      
         setInterval( function () {
@@ -1604,6 +1604,7 @@ farming.start = function () {
     ///market control
         var market = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(214, a.height - a.controlsLayer_h + 1).setSize(90, 65).setFill("images/" + a.barnyard[3].image); f.appendChild(market)
         goog.events.listen(market, ["mousedown", "touchstart"], function () {
+            a.sceneBefore = 1;
             c.replaceScene(marketScene, lime.transitions.SlideInDown);
             count0.setText(player.cropsStored[0].stored);
             count1.setText(player.cropsStored[1].stored);
@@ -1906,9 +1907,9 @@ farming.start = function () {
             var gLabel7 = (new lime.Label).setPosition((180), 37).setSize(20, 16).setText(player.cropsStored[7].stored).setFontColor("#E8FC08");
             pastureLayer.appendChild(gLabel7);
 
-            var dayLabelP = (new lime.Label).setFontSize(10).setPosition(35, 40).setSize(70, 13).setFill("#C14825").setText("Day " + dayCount).setFontColor("#ffffff");
+            var dayLabelP = (new lime.Label).setFontSize(10).setPosition(35, 40).setSize(60, 13).setFill("#C14825").setText("Day " + dayCount).setFontColor("#ffffff");
             pastureLayer.appendChild(dayLabelP);
-            var yearLabelP = (new lime.Label).setFontSize(10).setPosition(275, 40).setSize(70, 13).setFill("#C14825").setText("Year " + yearCount).setFontColor("#ffffff");
+            var yearLabelP = (new lime.Label).setFontSize(10).setPosition(275, 40).setSize(60, 13).setFill("#C14825").setText("Year " + yearCount).setFontColor("#ffffff");
             pastureLayer.appendChild(yearLabelP); 
          
             var g = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(0, a.height - a.controlsLayer_h - 5).setSize(a.controlsLayer_w, a.controlsLayer_h).setFill("#0D0D0D");
@@ -2284,6 +2285,7 @@ farming.start = function () {
             a.waterAnim = function () {
                 var imgW = 0;
                 var imgW2 = 0;
+                
                 setInterval(function () {
                     if (imgW > 3) { imgW = 0; };
                     if (imgW2 > 3) { imgW2 = 0; };
@@ -2297,6 +2299,7 @@ farming.start = function () {
                         waterMoving2.setFill("images/" + a.waterfallImg[4].image); 
                     }
                     imgW = imgW + 1; imgW2 = imgW2 + 1;
+                   
                     
                 
                    
@@ -2360,13 +2363,77 @@ farming.start = function () {
             orchardLayer.appendChild(toolCountImgO);
             orchardLayer.appendChild(toolCountO);
 
-            var dayLabelO = (new lime.Label).setFontSize(10).setPosition(35, 40).setSize(70, 13).setFill("#C14825").setText("Day " + dayCount).setFontColor("#ffffff");
+            var dayLabelO = (new lime.Label).setFontSize(10).setPosition(35, 40).setSize(60, 13).setFill("#C14825").setText("Day " + dayCount).setFontColor("#ffffff");
             orchardLayer.appendChild(dayLabelO);
-            var yearLabelO = (new lime.Label).setFontSize(10).setPosition(275, 40).setSize(70, 13).setFill("#C14825").setText("Year " + yearCount).setFontColor("#ffffff");
+            var yearLabelO = (new lime.Label).setFontSize(10).setPosition(275, 40).setSize(60, 13).setFill("#C14825").setText("Year " + yearCount).setFontColor("#ffffff");
             orchardLayer.appendChild(yearLabelO); 
+
+    /// orchard girl anim
+            var orchardGirl = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(44, 230).setSize(25, 26).setFill("images/Orchard/girlF1.png");
+            orchardLayer.appendChild(orchardGirl);
+            var girlMove = 1;
+            a.moveGirl = function () {
+                girlMove = girlMove + 1;
+                if (girlMove > 53) { girlMove = 1 };
+                if (girlMove == 2) { orchardGirl.setPosition(44, 235); orchardGirl.setFill("images/Orchard/girlF2.png"); }
+                if (girlMove == 3) { orchardGirl.setPosition(44, 240); orchardGirl.setFill("images/Orchard/girlF3.png"); }
+                if (girlMove == 4) { orchardGirl.setPosition(44, 245); orchardGirl.setFill("images/Orchard/girlF2.png"); }
+                if (girlMove == 5) { orchardGirl.setPosition(44, 250); orchardGirl.setFill("images/Orchard/girlF1.png"); }
+                if (girlMove == 6) { orchardGirl.setPosition(44, 255); orchardGirl.setFill("images/Orchard/girlF2.png"); }
+                if (girlMove == 7) { orchardGirl.setPosition(44, 260); orchardGirl.setFill("images/Orchard/girlF3.png"); }
+                if (girlMove == 8) { orchardGirl.setPosition(44, 265); orchardGirl.setFill("images/Orchard/girlF2.png"); }
+                if (girlMove == 9) { orchardGirl.setPosition(44, 270); orchardGirl.setFill("images/Orchard/girlF1.png"); }
+                if (girlMove == 10) { orchardGirl.setPosition(44, 275); orchardGirl.setFill("images/Orchard/girlF2.png"); }
+                if (girlMove == 11) { orchardGirl.setPosition(44, 280); orchardGirl.setFill("images/Orchard/girlF3.png"); }
+                if (girlMove == 12) { orchardGirl.setPosition(44, 285); orchardGirl.setFill("images/Orchard/girlF2.png"); }
+                if (girlMove == 13) { orchardGirl.setPosition(44, 290); orchardGirl.setFill("images/Orchard/girlF1.png"); }
+                if (girlMove == 14) { orchardGirl.setPosition(44, 295); orchardGirl.setFill("images/Orchard/girlF2.png"); }
+                if (girlMove == 15) { orchardGirl.setPosition(44, 300); orchardGirl.setFill("images/Orchard/girlF3.png"); }
+                if (girlMove == 16) { orchardGirl.setPosition(44, 305); orchardGirl.setFill("images/Orchard/girlF2.png"); }
+                if (girlMove == 17) { orchardGirl.setPosition(44, 310); orchardGirl.setFill("images/Orchard/girlF1.png"); }
+                if (girlMove == 18) { orchardGirl.setPosition(44, 315); orchardGirl.setFill("images/Orchard/girlF2.png"); }
+                if (girlMove == 19) { orchardGirl.setPosition(44, 320); orchardGirl.setFill("images/Orchard/girlF3.png"); }
+                if (girlMove == 20) { orchardGirl.setPosition(44, 325); orchardGirl.setFill("images/Orchard/girlF2.png"); }
+                if (girlMove == 21) { orchardGirl.setPosition(44, 330); orchardGirl.setFill("images/Orchard/girlF1.png"); }
+                if (girlMove == 22) { orchardGirl.setPosition(44, 335); orchardGirl.setFill("images/Orchard/girlF2.png"); }
+                if (girlMove == 23) { orchardGirl.setPosition(44, 340); orchardGirl.setFill("images/Orchard/girlF3.png"); }
+                if (girlMove == 24) { orchardGirl.setPosition(44, 345); orchardGirl.setFill("images/Orchard/girlF2.png"); }
+                if (girlMove == 25) { orchardGirl.setPosition(44, 350); orchardGirl.setFill("images/Orchard/girlF1.png"); }
+                if (girlMove == 26) { orchardGirl.setPosition(44, 350); orchardGirl.setFill("images/Orchard/girlL1.png"); }
+                if (girlMove == 27) { orchardGirl.setPosition(44, 350); orchardGirl.setFill("images/Orchard/girlF1.png"); }
+                if (girlMove == 28) { orchardGirl.setPosition(44, 350); orchardGirl.setFill("images/Orchard/girlR1.png"); }
+                if (girlMove == 29) { orchardGirl.setPosition(44, 345); orchardGirl.setFill("images/Orchard/girlUp1.png"); }
+                if (girlMove == 30) { orchardGirl.setPosition(44, 345); orchardGirl.setFill("images/Orchard/girlUp2.png"); }
+                if (girlMove == 31) { orchardGirl.setPosition(44, 340); orchardGirl.setFill("images/Orchard/girlUp3.png"); }
+                if (girlMove == 32) { orchardGirl.setPosition(44, 335); orchardGirl.setFill("images/Orchard/girlUp2.png"); }
+                if (girlMove == 33) { orchardGirl.setPosition(44, 330); orchardGirl.setFill("images/Orchard/girlUp1.png"); }
+                if (girlMove == 34) { orchardGirl.setPosition(44, 325); orchardGirl.setFill("images/Orchard/girlUp2.png"); }
+                if (girlMove == 35) { orchardGirl.setPosition(44, 320); orchardGirl.setFill("images/Orchard/girlUp3.png"); }
+                if (girlMove == 36) { orchardGirl.setPosition(44, 315); orchardGirl.setFill("images/Orchard/girlUp2.png"); }
+                if (girlMove == 37) { orchardGirl.setPosition(44, 310); orchardGirl.setFill("images/Orchard/girlUp1.png"); }
+                if (girlMove == 38) { orchardGirl.setPosition(44, 305); orchardGirl.setFill("images/Orchard/girlUp2.png"); }
+                if (girlMove == 39) { orchardGirl.setPosition(44, 300); orchardGirl.setFill("images/Orchard/girlUp3.png"); }
+                if (girlMove == 40) { orchardGirl.setPosition(44, 295); orchardGirl.setFill("images/Orchard/girlUp2.png"); }
+                if (girlMove == 41) { orchardGirl.setPosition(44, 290); orchardGirl.setFill("images/Orchard/girlUp3.png"); }
+                if (girlMove == 42) { orchardGirl.setPosition(44, 285); orchardGirl.setFill("images/Orchard/girlUp2.png"); }
+                if (girlMove == 43) { orchardGirl.setPosition(44, 280); orchardGirl.setFill("images/Orchard/girlUp1.png"); }
+                if (girlMove == 44) { orchardGirl.setPosition(44, 275); orchardGirl.setFill("images/Orchard/girlUp2.png"); }
+                if (girlMove == 45) { orchardGirl.setPosition(44, 270); orchardGirl.setFill("images/Orchard/girlUp3.png"); }
+                if (girlMove == 46) { orchardGirl.setPosition(44, 265); orchardGirl.setFill("images/Orchard/girlUp2.png"); }
+                if (girlMove == 47) { orchardGirl.setPosition(44, 260); orchardGirl.setFill("images/Orchard/girlUp1.png"); }
+                if (girlMove == 48) { orchardGirl.setPosition(44, 255); orchardGirl.setFill("images/Orchard/girlUp2.png"); }
+                if (girlMove == 49) { orchardGirl.setPosition(44, 250); orchardGirl.setFill("images/Orchard/girlUp3.png"); }
+
+                if (girlMove == 50) { orchardGirl.setPosition(44, 245); orchardGirl.setFill("images/Orchard/girlUp2.png"); }
+                if (girlMove == 51) { orchardGirl.setPosition(44, 240); orchardGirl.setFill("images/Orchard/girlUp1.png"); }
+                if (girlMove == 52) { orchardGirl.setPosition(44, 235); orchardGirl.setFill("images/Orchard/girlUp2.png"); }
+                if (girlMove == 53) { orchardGirl.setPosition(44, 230); orchardGirl.setFill("images/Orchard/girlR1.png"); }
+            };
+            lime.scheduleManager.scheduleWithDelay(function () {
+                a.moveGirl();
+            }, this, 300)
+           
           
-
-
     //orchard btns
             roadLeftO = (new lime.GlossyButton).setColor("#8b008b").setText("< Home").setPosition(42, 448).setSize(80, 15)
             orchardLayer.appendChild(roadLeftO)
@@ -2706,7 +2773,7 @@ farming.start = function () {
                     c.replaceScene(vinyardScene, lime.transitions.SlideInUp);
                 }
                 if (a.sceneBefore == 5) {
-                    c.replaceScene(vinyardScene, lime.transitions.SlideInUp);
+                    c.replaceScene(liveStockScene, lime.transitions.SlideInUp);
                 }
             });
             goog.events.listen(rowBack, ["mousedown", "touchstart"], function () { a.updateCropsandCash(0); });
@@ -2842,9 +2909,9 @@ farming.start = function () {
                 var gLabel11 = (new lime.Label).setPosition((176), 38).setSize(20, 16).setText(player.cropsStored[11].stored).setFontColor("#E8FC08");
                 liveStockLayer.appendChild(gLabel11);
 
-                var dayLabelLS = (new lime.Label).setFontSize(10).setPosition(35, 40).setSize(70, 13).setFill("#C14825").setText("Day " + dayCount).setFontColor("#ffffff");
+                var dayLabelLS = (new lime.Label).setFontSize(10).setPosition(35, 40).setSize(60, 13).setFill("#C14825").setText("Day " + dayCount).setFontColor("#ffffff");
                 liveStockLayer.appendChild(dayLabelLS);
-                var yearLabelLS = (new lime.Label).setFontSize(10).setPosition(275, 40).setSize(70, 13).setFill("#C14825").setText("Year " + yearCount).setFontColor("#ffffff");
+                var yearLabelLS = (new lime.Label).setFontSize(10).setPosition(275, 40).setSize(60, 13).setFill("#C14825").setText("Year " + yearCount).setFontColor("#ffffff");
                 liveStockLayer.appendChild(yearLabelLS); 
 
                 var controlsBackLS = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(0, a.height - a.controlsLayer_h - 5).setSize(a.controlsLayer_w, a.controlsLayer_h).setFill("#0D0D0D");
@@ -3091,6 +3158,7 @@ farming.start = function () {
                 var marketLS = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(214, a.height - a.controlsLayer_h + 1).setSize(90, 65).setFill("images/" + a.barnyard[3].image);
                 liveStockLayer.appendChild(marketLS)
                 goog.events.listen(marketLS, ["mousedown", "touchstart"], function () {
+                    a.sceneBefore = 5;
                     c.replaceScene(marketScene, lime.transitions.SlideInDown);
                     count0.setText(player.cropsStored[0].stored);
                     count1.setText(player.cropsStored[1].stored);
@@ -3358,9 +3426,9 @@ farming.start = function () {
                 var gLabel13 = (new lime.Label).setPosition(182, 40).setSize(20, 16).setText(player.cropsStored[13].stored).setFontColor("#E8FC08");
                 vinyardLayer.appendChild(gLabel13);
 
-                var dayLabelV = (new lime.Label).setFontSize(10).setPosition(35, 40).setSize(70, 13).setFill("#C14825").setText("Day " + dayCount).setFontColor("#ffffff");
+                var dayLabelV = (new lime.Label).setFontSize(10).setPosition(35, 40).setSize(60, 13).setFill("#C14825").setText("Day " + dayCount).setFontColor("#ffffff");
                 vinyardLayer.appendChild(dayLabelV);
-                var yearLabelV = (new lime.Label).setFontSize(10).setPosition(275, 40).setSize(70, 13).setFill("#C14825").setText("Year " + yearCount).setFontColor("#ffffff");
+                var yearLabelV = (new lime.Label).setFontSize(10).setPosition(275, 40).setSize(60, 13).setFill("#C14825").setText("Year " + yearCount).setFontColor("#ffffff");
                 vinyardLayer.appendChild(yearLabelV); 
 
     //vinyard farmer anim
@@ -3482,7 +3550,7 @@ farming.start = function () {
                 var marketV = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(214, a.height - a.controlsLayer_h + 1).setSize(90, 65).setFill("images/" + a.barnyard[3].image);
                 vinyardLayer.appendChild(marketV)
                 goog.events.listen(marketV, ["mousedown", "touchstart"], function () {
-                    sceneBefore = 4
+                    a.sceneBefore = 4;
                     c.replaceScene(marketScene, lime.transitions.SlideInDown);
                     count0.setText(player.cropsStored[0].stored);
                     count1.setText(player.cropsStored[1].stored);
@@ -3501,7 +3569,7 @@ farming.start = function () {
                 });
 
                 goog.events.listen(roadRightV, ["mousedown", "touchstart"], function () {
-                    c.replaceScene(pastureScene, lime.transitions.SlideInRight); sceneBefore = 2;
+                    c.replaceScene(pastureScene, lime.transitions.SlideInRight); sceneBefore = 2; b.currentCrop = 6;
                 });
 
 
