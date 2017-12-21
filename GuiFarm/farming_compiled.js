@@ -1250,7 +1250,7 @@ console.log(player);
 var starCash = 0;
 if (typeof localStorage["starCash"] === "undefined") { localStorage["starCash"] = 0; starCash = 0; };
 starCash = parseInt(localStorage["starCash"]);
-
+var fsClicked = 0;
 var orchardTreeBlock = 1;
 var vinyardBlocks = 1;
 var vinyardBlocks2 = 1;
@@ -1290,8 +1290,14 @@ if (typeof localStorage["GuiGhostFarms_moneyEver"] === "undefined") { localStora
 moneyEver = parseInt(localStorage["GuiGhostFarms_moneyEver"]);
 
 var boughtStarCash = false;
+if (typeof localStorage["GuiGhostFarms_boughtStarCash"] === "undefined") { localStorage["GuiGhostFarms_boughtStarCash"] = false; };
+boughtStarCash = parseInt(localStorage["GuiGhostFarms_boughtStarCash"]);
+
+
+
+
 farming.start = function () {
-    var a = { width: 310, height: 540, tile_size: 30, num_tiles_x: 4, num_tiles_y: 4, landLayer_w: 320, landLayer_h: 388, controlsLayer_w: 320, controlsLayer_h: 75, costPlowing: 0, shop_margin_x: 50, shop_margin_y: 35 },
+    var a = { width: 310, height: 540, tile_size: 30, num_tiles_x: 4, num_tiles_y: 4, landLayer_w: 320, landLayer_h: 388, controlsLayer_w: 320, controlsLayer_h: 70, costPlowing: 0, shop_margin_x: 50, shop_margin_y: 35 },
         b = { money: 500, currentCrop: 0 };
 
     a.crops = [
@@ -1388,12 +1394,24 @@ farming.start = function () {
     a.achievements = JSON.parse(localStorage.getItem('GuiGhostFarms_achievements'));
     a.sceneBefore = 1;
 
+    var acres = [
+        { name: "Home", owned: 0, cost: 0, text: "Home Sweet Home" },
+        { name: "Dairy", owned: 0, cost: 2500, text: "MOOOOOO.....Got Milk?" },
+        { name: "Orchard", owned: 0, cost: 5000, text: "Apples and Pears" },
+        { name: "Vineyard", owned: 0, cost: 7500, text: "Grapes & Jelly - YUM!" },
+        { name: "StockPens", owned: 0, cost: 10000, text: "Livestock Pens" }
+    ];
+    if (typeof localStorage["GuiGhostFarms_acres"] === "undefined") { localStorage.setItem('GuiGhostFarms_acres', JSON.stringify(acres)); };
+    acres = JSON.parse(localStorage.getItem('GuiGhostFarms_acres'));
+    a.sceneBefore = 1;
+
 
     //////////----------------tooltimer---------------------//////
     dt = 10000;
     lime.scheduleManager.scheduleWithDelay(function () {
         player.tools = player.tools + (5) + player.barnLevel;
-        toolsEver + toolsEver + (5) + player.barnLevel;
+        toolsEver = toolsEver + (5) + player.barnLevel;
+        localStorage["GuiGhostFarms_toolsEver"] = toolsEver
         a.updateTools();
 
 
@@ -1410,7 +1428,7 @@ farming.start = function () {
 
     var horizRoad = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(0, 436).setSize(320, 25).setFill("images/" + a.barnyard[15].image);
 
-    var c = new lime.Director(document.body, a.width, a.height); c.makeMobileWebAppCapable(); c.setDisplayFPS(1);
+    var c = new lime.Director(document.body, a.width, a.height); c.makeMobileWebAppCapable(); c.setDisplayFPS(!1);
     var d = (new lime.Scene).setRenderer(lime.Renderer.CANVAS),
         e = (new lime.Layer).setAnchorPoint(0, 50),
         f = (new lime.Layer).setAnchorPoint(0, 50);
@@ -1418,7 +1436,7 @@ farming.start = function () {
     d.appendChild(f);
 
     //top bar
-    var gg = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(0, 0).setSize(a.controlsLayer_w, a.controlsLayer_h - 29).setFill("#8b008b");
+    var gg = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(0, 0).setSize(a.controlsLayer_w, a.controlsLayer_h - 22).setFill("#8b008b");
     f.appendChild(gg);
     var topLogo = (new lime.Sprite).setPosition(155, 11).setSize(150, 22).setFill("images/UI/topMenuPlain.png");
     f.appendChild(topLogo);
@@ -1468,6 +1486,7 @@ farming.start = function () {
     //MUTE Home
     var muteBtn = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(85, 503).setSize(25, 25).setFill(imgArray[15]); f.appendChild(muteBtn);
     var achieveBtn = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(185, 503).setSize(25, 25).setFill("images/greenTrophy.png"); f.appendChild(achieveBtn);
+    //var map = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(114, a.height - a.controlsLayer_h + 1).setSize(25, 25).setFill("images/mapIcon.png"); f.appendChild(map)
     goog.events.listen(muteBtn, ["mousedown", "touchstart"], function () {
         var isMuted = lime.audio.getMute(); console.log("muted " + isMuted); if (isMuted) {
             lime.audio.setMute(false); themeSong.play(true);
@@ -1490,7 +1509,7 @@ farming.start = function () {
         localStorage.setItem('GuiGhostFarms_yearCount', yearCount);
         localStorage.setItem('GuiGhostFarms_toolsEver', toolsEver);
         localStorage.setItem('GuiGhostFarms_pickedEver', pickedEver);
-        localStorage.setItem('GuiGhostFarms_moneyEver', moneyEver);
+        localStorage.setItem('GuiGhostFarms_moneyEver', parseInt(moneyEver));
     };
 
     var toolCountImg = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(5, 9).setSize(20, 20).setFill("images/toolsIcon.png");
@@ -1571,8 +1590,9 @@ farming.start = function () {
     f.appendChild(w);
     var z = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(130, a.height - a.controlsLayer_h / 2 - 12).setFill("images/" + a.crops[hh].harvest).setSize(a.tile_size * 1.2, a.tile_size * 1.2);
     f.appendChild(z);
+    
     ///market control
-    var market = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(214, a.height - a.controlsLayer_h + 1).setSize(90, 65).setFill("images/" + a.barnyard[3].image); f.appendChild(market)
+    var market = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(214, a.height - a.controlsLayer_h - 4).setSize(90, 65).setFill("images/" + a.barnyard[3].image); f.appendChild(market)
     goog.events.listen(market, ["mousedown", "touchstart"], function () {
         a.sceneBefore = 1;
         c.replaceScene(marketScene, lime.transitions.SlideInDown);
@@ -1625,10 +1645,15 @@ farming.start = function () {
     horizRoad.appendChild(roadRight)
     roadRight = (new lime.GlossyButton).setColor("#8b008b").setText("Orchard >").setPosition(265, 12).setSize(80, 15)
     horizRoad.appendChild(roadRight)
-
-
-
+    
     e.appendChild(horizRoad)
+
+    var forSaleP = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(5 , 414).setSize(43, 50).setFill("images/UI/forSaleDairy.png")
+    e.appendChild(forSaleP)
+    var forSaleO = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(260, 414).setSize(43, 50).setFill("images/UI/forSaleOrchard.png")
+    e.appendChild(forSaleO)
+    
+   
 
 
     //var shelter = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(35, 48).setSize(18, 65).setFill("images/" + a.barnyard[6].image); e.appendChild(shelter)
@@ -1727,14 +1752,52 @@ farming.start = function () {
         var trees2Img = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(215, 355).setSize(35, 35).setFill("images/tools50.png"); e.appendChild(trees2Img)
     }
 
-
-
+///For Sale confirm modal
+    var confirmSale = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(95, 160).setSize(120, 108).setFill("images/UI/saleBack.png");
+    e.appendChild(confirmSale);
+    var confirmText = (new lime.Label).setAnchorPoint(0, 0).setFontColor("#000000").setPosition(2, 53).setSize(115, 60).setFontSize(17).setText("Dairy Farm $2500");
+    confirmSale.appendChild(confirmText);
+    var confirmTextSub = (new lime.Label).setAnchorPoint(0, 0).setFontColor("#FF0000").setPosition(5, 87).setSize(110, 60).setFontSize(10).setText("Earn more $ to buy");
+    confirmSale.appendChild(confirmTextSub);
+    var confirmBtn = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(65, 98).setSize(50, 22).setFill("images/UI/achieveTile.png");
+    confirmSale.appendChild(confirmBtn);
+    var cancelBtn = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(5, 98).setSize(50, 22).setFill("images/UI/achieveTile.png");
+    confirmSale.appendChild(cancelBtn);
+    confirmSale.setHidden(true);
     //replace the scene
     c.replaceScene(d);
+   
 
+//for sale click  handlers
+    goog.events.listen(forSaleP, ["mousedown", "touchstart"], function () {            //for sale pasture
+        fsClicked = 1;
+        confirmSale.setHidden(false);
+        confirmText.setText("Dairy Farm $2500")
+        if (player.money >= 2500) { confirmTextSub.setHidden(true); } else { confirmBtn.setHidden(true); };
+    }, { passive: false });
 
-    //var roadLeft = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(0, 436).setSize(320, 25).setFill("images/" + a.barnyard[15].image); e.appendChild(roadLeft)
-    //event handlers
+    goog.events.listen(forSaleO, ["mousedown", "touchstart"], function () {            //for sale orchard
+        fsClicked = 2;
+        confirmSale.setHidden(false);
+        if (player.money >= 5000) { confirmTextSub.setHidden(true); } else { confirmBtn.setHidden(true); };
+        confirmText.setText("Fruit Orchard $5000");
+
+    }, { passive: false });
+
+    goog.events.listen(confirmBtn, ["mousedown", "touchstart"], function () {            //forsale confirm
+        //console.log("clicked it and fsClicked = " + fsClicked);
+        confirmSale.setHidden(true);
+        if (fsClicked == 1) { player.money = player.money - 2500; a.updateMoney(); roadLeft.setHidden(false); forSaleP.setHidden(true); confirmSale.setHidden(true); acres[1].owned = 1; }
+        if (fsClicked == 2) { player.money = player.money - 5000; a.updateMoney(); roadRight.setHidden(false); forSaleO.setHidden(true); confirmSale.setHidden(true); acres[2].owned = 1; }
+        localStorage.setItem('GuiGhostFarms_acres', JSON.stringify(acres));
+    }, { passive: false });
+
+    goog.events.listen(cancelBtn, ["mousedown", "touchstart"], function () { confirmSale.setHidden(true); }, { passive: false });     //forsale cancel
+       
+         
+ 
+
+////Home tree unlocks
     goog.events.listen(treeUnlockBtn, ["mousedown", "touchstart"], function () {            //left field
         if (player.tools >= 50) {
             player.fields = player.fields + 1;
@@ -1824,6 +1887,8 @@ farming.start = function () {
 
 
     });
+
+
     ////from seeds menu back to home farm
     goog.events.listen(f, ["mousedown", "touchstart"], function () { c.replaceScene(d, lime.transitions.SlideInUp) });
 
@@ -1833,16 +1898,19 @@ farming.start = function () {
 
     var pastureScene = (new lime.Scene).setRenderer(lime.Renderer.CANVAS),
         pastureLayer = (new lime.Layer).setAnchorPoint(0, 0),
-        pastureFill1 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(0, 0).setSize(a.width, a.height - 100).setFill("#0D0D0D");
+        pastureFill1 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(0, 0).setSize(a.width, a.height - 90).setFill("#0D0D0D");
     pastureScene.appendChild(pastureFill1);
     pastureScene.appendChild(pastureLayer);
     //backBtn1 = (new lime.GlossyButton).setColor("#133242").setText("Back").setPosition(a.width / 2, a.height - 25).setSize(80, 40);
     //pastureLayer.appendChild(backBtn1);
+    var midbackP = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(0, 40).setSize(a.controlsLayer_w, a.landLayer_h + 37).setFill("images/" + a.barnyard[0].image);
+    pastureLayer.appendChild(midbackP)
+
     var horizRoad2 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(0, 435).setSize(320, 25).setFill("images/" + a.barnyard[15].image);
     pastureLayer.appendChild(horizRoad2);
     var roadLeft2 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(5, 10).setSize(15, 15)
     horizRoad2.appendChild(roadLeft2)
-    roadLeft2 = (new lime.GlossyButton).setColor("#8b008b").setText("< Vinyard").setPosition(42, 12).setSize(80, 15)
+    roadLeft2 = (new lime.GlossyButton).setColor("#8b008b").setText("< Vineyard").setPosition(42, 12).setSize(82, 15)
     horizRoad2.appendChild(roadLeft2)
 
     goog.events.listen(roadLeft2, ["mousedown", "touchstart"], function () {
@@ -1854,8 +1922,6 @@ farming.start = function () {
     });
 
 
-    //var gLabel8 = (new lime.Label).setPosition((260), 39).setSize(20, 16).setText(player.cropsStored[8].stored).setFontColor("#E8FC08"); f.appendChild(gLabel8);
-    //var gLabel9 = (new lime.Label).setPosition((290), 39).setSize(20, 16).setText(player.cropsStored[9].stored).setFontColor("#E8FC08"); f.appendChild(gLabel9);
 
 
     var roadRight2 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(285, 10).setSize(15, 15)
@@ -1864,8 +1930,7 @@ farming.start = function () {
     horizRoad2.appendChild(roadRight2)
 
 
-    var midbackP = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(0, 40).setSize(a.controlsLayer_w, a.landLayer_h + 12).setFill("images/" + a.barnyard[0].image);
-    pastureLayer.appendChild(midbackP)
+   
 
     var gg = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(0, 0).setSize(a.controlsLayer_w, 50).setFill("#8b008b");
     pastureLayer.appendChild(gg);
@@ -1908,6 +1973,8 @@ farming.start = function () {
     //MUTE From Pasture
     var muteBtnP = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(85, 503).setSize(25, 25).setFill(imgArray[15]); pastureLayer.appendChild(muteBtnP);
     var achieveBtnP = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(187, 503).setSize(25, 25).setFill("images/greenTrophy.png"); pastureLayer.appendChild(achieveBtnP);
+   
+
     goog.events.listen(muteBtnP, ["mousedown", "touchstart"], function () {
         var isMuted = lime.audio.getMute(); console.log("muted " + isMuted);
         if (isMuted) {
@@ -2069,7 +2136,7 @@ farming.start = function () {
 
     /// havestMilk    ////////// PASTURE BARN LEVEL + # OF PASTURES (1 OR 2) = HAY EATEN & MILK RETURNED
     a.harvestMilk = function () {
-        if (player.cropsStored[6].stored >= 2) {
+        if (player.cropsStored[6].stored >= (player.pastureLevel + player.treesP) ) {
             player.cropsStored[6].stored = player.cropsStored[6].stored - (player.pastureLevel + player.treesP);
             player.cropsStored[7].stored = player.cropsStored[7].stored + (player.pastureLevel + player.treesP);
             count6.setText(player.cropsStored[6].stored);
@@ -2133,13 +2200,13 @@ farming.start = function () {
 
     //pasture - hayfields
     for (f = 0; f < a.num_tiles_x; f++)
-        for (var i = 0; i < 3; i++) {
-            var posX = f * a.tile_size + 15;
-            var posY = i * a.tile_size + 348;
-            var hay1 = (new farming.Land(a, b, posX, posY)).setPosition(f * a.tile_size + 15, i * a.tile_size + 348); pastureLayer.appendChild(hay1)
+        for (var i = 0; i < 2; i++) {
+            var posX = f * a.tile_size + 12;
+            var posY = i * a.tile_size + 352;
+            var hay1 = (new farming.Land(a, b, posX, posY)).setPosition(f * a.tile_size + 12, i * a.tile_size + 352); pastureLayer.appendChild(hay1)
 
-            posX = f * a.tile_size + 172;
-            var hay2 = (new farming.Land(a, b, posX, posY)).setPosition(f * a.tile_size + 172, i * a.tile_size + 348); pastureLayer.appendChild(hay2)
+            posX = f * a.tile_size + 175;
+            var hay2 = (new farming.Land(a, b, posX, posY)).setPosition(f * a.tile_size + 175, i * a.tile_size + 352); pastureLayer.appendChild(hay2)
         }
     var dirtRoad3 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(143, 345).setSize(21, 92).setFill("images/Pasture/" + a.pasture[5].image); pastureLayer.appendChild(dirtRoad3)
     var oldCrop = b.currentCrop;
@@ -2151,9 +2218,44 @@ farming.start = function () {
 
 
 
+    ///For Sale confirm modal
+    var forSaleV = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(5, 414).setSize(43, 50).setFill("images/UI/forSaleVineyard.png")
+    pastureLayer.appendChild(forSaleV)
+    var confirmSaleV = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(95, 160).setSize(120, 108).setFill("images/UI/saleBack.png");
+    pastureLayer.appendChild(confirmSaleV);
+    var confirmTextV = (new lime.Label).setAnchorPoint(0, 0).setFontColor("#000000").setPosition(2, 53).setSize(115, 60).setFontSize(17).setText("Vineyard $7500");
+    confirmSaleV.appendChild(confirmTextV);
+    var confirmTextSubV = (new lime.Label).setAnchorPoint(0, 0).setFontColor("#FF0000").setPosition(5, 87).setSize(110, 60).setFontSize(10).setText("Earn more $ to buy");
+    confirmSaleV.appendChild(confirmTextSubV);
+    var confirmBtnV = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(65, 98).setSize(50, 22).setFill("images/UI/achieveTile.png");
+    confirmSaleV.appendChild(confirmBtnV);
+    var cancelBtnV = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(5, 98).setSize(50, 22).setFill("images/UI/achieveTile.png");
+    confirmSaleV.appendChild(cancelBtnV);
+    confirmSaleV.setHidden(true);
+
+    goog.events.listen(forSaleV, ["mousedown", "touchstart"], function () {            //for sale vinyard
+        fsClicked = 3;
+        confirmSaleV.setHidden(false);
+        if (player.money >= 7500) { confirmTextSubV.setHidden(true); } else { confirmBtnV.setHidden(true); };
+        confirmTextV.setText("Vineyard $7500");
+
+    }, { passive: false });
+
+    goog.events.listen(confirmBtnV, ["mousedown", "touchstart"], function () {            //forsale confirm
+        //console.log("clicked it and fsClicked = " + fsClicked);
+        confirmSaleV.setHidden(true);
+        player.money = player.money - 7500;
+        a.updateMoney();
+        roadLeft2.setHidden(false); forSaleV.setHidden(true); confirmSaleV.setHidden(true); acres[3].owned = 1;
+        localStorage.setItem('GuiGhostFarms_acres', JSON.stringify(acres));
+
+    }, { passive: false });
+    goog.events.listen(cancelBtnV, ["mousedown", "touchstart"], function () { confirmSaleV.setHidden(true); }, { passive: false });     //forsale cancel
+
+
     //pasture market entrance
     ///market control
-    var marketP = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(216, a.height - a.controlsLayer_h + 1).setSize(90, 65).setFill("images/" + a.barnyard[3].image); pastureLayer.appendChild(marketP)
+    var marketP = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(216, a.height - a.controlsLayer_h - 4).setSize(90, 65).setFill("images/" + a.barnyard[3].image); pastureLayer.appendChild(marketP)
 
     //event handling
     goog.events.listen(marketP, ["mousedown", "touchstart"], function () {
@@ -2221,7 +2323,7 @@ farming.start = function () {
 
     //var horizRoad3 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(0, 435).setSize(300, 25).setFill("images/" + a.barnyard[15].image);
     //orchardLayer.appendChild(horizRoad3);
-    var midbackO = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(0, 40).setSize(a.controlsLayer_w, a.landLayer_h + 34).setFill("images/" + a.barnyard[0].image);
+    var midbackO = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(0, 40).setSize(a.controlsLayer_w, a.landLayer_h + 37).setFill("images/" + a.barnyard[0].image);
     orchardLayer.appendChild(midbackO)
     var waterfallMtn = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(0, 44).setSize(310, 420).setFill("images/" + a.orchard[0].image);
     orchardLayer.appendChild(waterfallMtn)
@@ -2430,8 +2532,47 @@ farming.start = function () {
     orchardLayer.appendChild(menuO);
     menuO = (new lime.GlossyButton).setColor("#663300").setText("Menu").setPosition(35, a.height - 40).setSize(70, 25);
     orchardLayer.appendChild(menuO);
+
+    var forSaleLS = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(260, 414).setSize(43, 50).setFill("images/UI/forSaleStockPens.png");
+    orchardLayer.appendChild(forSaleLS);
     //var actionsO = (new lime.GlossyButton).setColor("#663300").setText("Actions").setPosition(35, 485).setSize(70, 25);
     //orchardLayer.appendChild(actionsO);
+
+    ///For Sale confirm modal
+   
+    var confirmSaleLS = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(95, 160).setSize(120, 108).setFill("images/UI/saleBack.png");
+    orchardLayer.appendChild(confirmSaleLS);
+    var confirmTextLS = (new lime.Label).setAnchorPoint(0, 0).setFontColor("#000000").setPosition(2, 53).setSize(115, 60).setFontSize(17).setText("StockPens $10,000");
+    confirmSaleLS.appendChild(confirmTextLS);
+    var confirmTextSubLS = (new lime.Label).setAnchorPoint(0, 0).setFontColor("#FF0000").setPosition(5, 87).setSize(110, 60).setFontSize(10).setText("Earn more $ to buy");
+    confirmSaleLS.appendChild(confirmTextSubLS);
+    var confirmBtnLS = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(65, 98).setSize(50, 22).setFill("images/UI/achieveTile.png");
+    confirmSaleLS.appendChild(confirmBtnLS);
+    var cancelBtnLS = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(5, 98).setSize(50, 22).setFill("images/UI/achieveTile.png");
+    confirmSaleLS.appendChild(cancelBtnLS);
+    confirmSaleLS.setHidden(true);
+
+    goog.events.listen(forSaleLS, ["mousedown", "touchstart"], function () {            //for sale vinyard
+        fsClicked = 4;
+        confirmSaleLS.setHidden(false);
+        if (player.money >= 10000) { confirmTextSubLS.setHidden(true); } else { confirmBtnLS.setHidden(true); };
+        confirmTextLS.setText("StockPens $10,000");
+
+    }, { passive: false });
+
+    goog.events.listen(confirmBtnLS, ["mousedown", "touchstart"], function () {            //for sale confirm
+        //console.log("clicked it and fsClicked = " + fsClicked);
+        confirmSaleLS.setHidden(true);
+        player.money = player.money - 10000;
+        a.updateMoney();
+        roadRightO.setHidden(false); forSaleLS.setHidden(true); confirmSaleLS.setHidden(true); acres[4].owned = 1;
+        localStorage.setItem('GuiGhostFarms_acres', JSON.stringify(acres));
+
+    }, { passive: false });
+    goog.events.listen(cancelBtnLS, ["mousedown", "touchstart"], function () { confirmSaleLS.setHidden(true); }, { passive: false });     //for sale cancel
+
+
+
     //MUTE From Orchard
     var muteBtnO = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(85, 503).setSize(25, 25).setFill(imgArray[15]); orchardLayer.appendChild(muteBtnO);
     var achieveBtnO = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(185, 503).setSize(25, 25).setFill("images/greenTrophy.png"); orchardLayer.appendChild(achieveBtnO);
@@ -2452,9 +2593,11 @@ farming.start = function () {
     var zO = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(a.controlsLayer_w / 2 - (35), a.height - a.controlsLayer_h / 2 - 17).setFill("images/" + a.crops[8].harvest).setSize(a.tile_size * 1.2, a.tile_size * 1.2);
     orchardLayer.appendChild(zO);
 
+
+
     ////Orchard market entrance
     ///market control
-    var marketO = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(214, a.height - a.controlsLayer_h + 1).setSize(90, 65).setFill("images/" + a.barnyard[3].image); orchardLayer.appendChild(marketO)
+    var marketO = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(214, a.height - a.controlsLayer_h - 4).setSize(90, 65).setFill("images/" + a.barnyard[3].image); orchardLayer.appendChild(marketO)
 
     //event handling
     goog.events.listen(menuO, ["mousedown", "touchstart"], function () {
@@ -2540,6 +2683,10 @@ farming.start = function () {
         localStorage.removeItem('GuiGhostFarms_toolsEver');
         localStorage.removeItem('GuiGhostFarms_pickedEver');
         localStorage.removeItem('GuiGhostFarms_moneyEver');
+        localStorage.removeItem('GuiGhostFarms_achievements');
+        localStorage.removeItem('GuiGhostFarms_acres');
+        localStorage.removeItem('GuiGhostFarms_boughtStarCash');
+        localStorage.removeItem('GuiGhostFarms_coopLevel');
         window.open("../", "_self")
     });
     //star cash convert
@@ -2801,6 +2948,7 @@ farming.start = function () {
 
             player.money = player.money + (a.crops[crop].revenue * player.cropsStored[crop].stored);
             moneyEver = moneyEver + (a.crops[crop].revenue * player.cropsStored[crop].stored);
+            localStorage["GuiGhostFarms_moneyEver"] = moneyEver;
             purchaseSound.play();
             player.cropsStored[crop].stored = 0;
             count0.setText(player.cropsStored[0].stored);
@@ -2863,7 +3011,7 @@ farming.start = function () {
     liveStockLayer.appendChild(topLogoLS);
     var liveStockCash = (new lime.Label).setText("$ " + player.money).setFontColor("#E8FC08").setPosition(270, 20);
     liveStockLayer.appendChild(liveStockCash);
-    var liveStockBack = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(0, 45).setSize(a.controlsLayer_w, 417).setFill("images/livestockPens/livestockPensBack3.png");
+    var liveStockBack = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(0, 45).setSize(a.controlsLayer_w, 420).setFill("images/livestockPens/livestockPensBack3.png");
     if (coopLevel > 1) { liveStockBack.setFill("images/livestockPens/livestockPensBackUpCoop.png") }
     liveStockLayer.appendChild(liveStockBack);
 
@@ -3198,7 +3346,7 @@ farming.start = function () {
                 liveStockLayer.appendChild(menuLS);
                 //var actionsLS = (new lime.GlossyButton).setColor("#663300").setText("Actions").setPosition(35, 485).setSize(70, 25);
                 //liveStockLayer.appendChild(actionsLS);
-                var marketLS = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(214, a.height - a.controlsLayer_h + 1).setSize(90, 65).setFill("images/" + a.barnyard[3].image);
+                var marketLS = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(214, a.height - a.controlsLayer_h - 4).setSize(90, 65).setFill("images/" + a.barnyard[3].image);
                 liveStockLayer.appendChild(marketLS)
                 goog.events.listen(marketLS, ["mousedown", "touchstart"], function () {
                     a.sceneBefore = 5;
@@ -3591,7 +3739,7 @@ farming.start = function () {
 
 
 
-                var marketV = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(214, a.height - a.controlsLayer_h + 1).setSize(90, 65).setFill("images/" + a.barnyard[3].image);
+                var marketV = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(214, a.height - a.controlsLayer_h - 4).setSize(90, 65).setFill("images/" + a.barnyard[3].image);
                 vinyardLayer.appendChild(marketV)
                 goog.events.listen(marketV, ["mousedown", "touchstart"], function () {
                     a.sceneBefore = 4;
@@ -3731,7 +3879,7 @@ farming.start = function () {
                 var starCashLabelA = (new lime.Label).setAnchorPoint(0.0).setFill("#C14825").setFontColor("#5c00e6").setFontSize(18).setPosition(160, 470).setText(starCash).setSize(152, 40); achieveLayer.appendChild(starCashLabelA);
 
                 function checkAchieves() {
-                    console.table(a.achievements);
+                    //console.table(a.achievements);
                     if (a.achievements[1] == false) { achieve1Check.setHidden(true); }
                     if (a.achievements[2] == false) { achieve2Check.setHidden(true); }
                     if (a.achievements[3] == false) { achieve3Check.setHidden(true); }
@@ -3763,27 +3911,29 @@ farming.start = function () {
 
     ////achievement checks
                 function checkAchieves2() {
-
-                    if (a.achievements[1] == false && pickedEver >= 500) { a.achievements[1] == true; achieve1Check.setHidden(false); starCash = starCash + 5;};
-                    if (a.achievements[2] == false && pickedEver >= 5000) { a.achievements[2] == true; achieve2Check.setHidden(false); starCash = starCash + 10; };
-                    if (a.achievements[3] == false && player.farms > 1) { a.achievements[3] == true; achieve3Check.setHidden(false); starCash = starCash + 5; };
-                    if (a.achievements[4] == false && player.barnLevel >= 5) { a.achievements[4] == true; achieve4Check.setHidden(false); starCash = starCash + 5; };
-                    if (a.achievements[5] == false && toolsEver >= 500) { a.achievements[5] == true; achieve5Check.setHidden(false); starCash = starCash + 5; };
-                    if (a.achievements[6] == false && toolsEver >= 5000) { a.achievements[6] == true; achieve6Check.setHidden(false); starCash = starCash + 10; };
-                    if (a.achievements[7] == false && yearCount >= 2) { a.achievements[7] == true; achieve7Check.setHidden(false); starCash = starCash + 5; };
-                    if (a.achievements[8] == false && player.farms >= 5) { a.achievements[8] == true; achieve8Check.setHidden(false); starCash = starCash + 10; };
-                    if (a.achievements[9] == false && vinyardHouseLevel > 1) { a.achievements[9] == true; achieve9Check.setHidden(false); starCash = starCash + 10; };
-                    if (a.achievements[10] == false && orchardTreeBlock > 1 && vinyardBlocks > 1 && vinyardBlocks2 > 1 && player.fields >= 3) { a.achievements[10] == true; achieve10Check.setHidden(false); starCash = starCash + 5; };
-                    if (a.achievements[11] == false && player.cropsStored[10].stored >= 100 && player.cropsStored[11].stored >= 100) { a.achievements[11] == true; achieve11Check.setHidden(false); starCash = starCash + 10; };
+                    var acresOwned = acres[1].owned + acres[2].owned + acres[3].owned + acres[4].owned;
+                    //console.log(acresOwned + "owned value");
+                    if (a.achievements[1] == false && pickedEver >= 500) { a.achievements[1] = true; achieve1Check.setHidden(false); starCash = starCash + 5;};
+                    if (a.achievements[2] == false && pickedEver >= 5000) { a.achievements[2] = true; achieve2Check.setHidden(false); starCash = starCash + 10; };
+                    if (a.achievements[3] == false && player.farms > 1) { a.achievements[3] = true; achieve3Check.setHidden(false); starCash = starCash + 5; };
+                    if (a.achievements[4] == false && player.barnLevel >= 5) { a.achievements[4] = true; achieve4Check.setHidden(false); starCash = starCash + 5; };
+                    if (a.achievements[5] == false && toolsEver >= 500) { a.achievements[5] = true; achieve5Check.setHidden(false); starCash = starCash + 5; };
+                    if (a.achievements[6] == false && toolsEver >= 5000) { a.achievements[6] = true; achieve6Check.setHidden(false); starCash = starCash + 10; };
+                    if (a.achievements[7] == false && yearCount >= 2) { a.achievements[7] = true; achieve7Check.setHidden(false); starCash = starCash + 5; };
+                    if (a.achievements[8] == false && acresOwned >= 4) { a.achievements[8] = true; achieve8Check.setHidden(false); starCash = starCash + 10; };
+                    if (a.achievements[9] == false && vinyardHouseLevel > 1) { a.achievements[9] = true; achieve9Check.setHidden(false); starCash = starCash + 10; };
+                    if (a.achievements[10] == false && orchardTreeBlock > 1 && vinyardBlocks > 1 && vinyardBlocks2 > 1 && player.fields >= 3) { a.achievements[10] = true; achieve10Check.setHidden(false); starCash = starCash + 5; };
+                    if (a.achievements[11] == false && player.cropsStored[10].stored >= 100 && player.cropsStored[11].stored >= 100) { a.achievements[11] = true; achieve11Check.setHidden(false); starCash = starCash + 10; };
                     if (a.achievements[12] == false && player.cropsStored[0] >= 1 && player.cropsStored[1] >= 1 && player.cropsStored[2] >= 1 && player.cropsStored[3] >= 1 && player.cropsStored[4] >= 1
                         && player.cropsStored[5] >= 1 && player.cropsStored[6] >= 1 && player.cropsStored[7] >= 1 && player.cropsStored[8] >= 1 && player.cropsStored[9] >= 1 && player.cropsStored[10] >= 1
-                        && player.cropsStored[11] >= 1 && player.cropsStored[12] >= 1 && player.cropsStored[13] >= 1) {a.achievements[12] == true; achieve12Check.setHidden(false); starCash = starCash + 10;
+                        && player.cropsStored[11] >= 1 && player.cropsStored[12] >= 1 && player.cropsStored[13] >= 1) {a.achievements[12] = true; achieve12Check.setHidden(false); starCash = starCash + 10;
                     };
-                    if (a.achievements[13] == false && player.pastureLevel >= 3) { a.achievements[13] == true; achieve13Check.setHidden(false); starCash = starCash + 5; };
-                    if (a.achievements[14] == false && moneyEver >= 5000) { a.achievements[14] == true; achieve14Check.setHidden(false); starCash = starCash + 5; };
-                    if (a.achievements[15] == false && boughtStarCash == true) { a.achievements[15] == true; achieve15Check.setHidden(false); starCash = starCash + 10; };
-                    if (a.achievements[16] == false && yearCount >= 10) { a.achievements[15] == true; achieve16Check.setHidden(false); starCash = starCash + 50; };
-                    starCashLabelA = starCash;
+                    if (a.achievements[13] == false && player.pastureLevel >= 3) { a.achievements[13] = true; achieve13Check.setHidden(false); starCash = starCash + 5; };
+                    if (a.achievements[14] == false && moneyEver >= 5000) { a.achievements[14] = true; achieve14Check.setHidden(false); starCash = starCash + 5; };
+                    if (a.achievements[15] == false && boughtStarCash == true) { a.achievements[15] = true; achieve15Check.setHidden(false); starCash = starCash + 10; };
+                    if (a.achievements[16] == false && yearCount >= 10) { a.achievements[16] = true; achieve16Check.setHidden(false); starCash = starCash + 50; };
+                    starCashLabelA.setText(starCash);
+                    localStorage.setItem('GuiGhostFarms_achievements', JSON.stringify(a.achievements));
                 }
 
 
@@ -3799,5 +3949,14 @@ farming.start = function () {
                         muteBtnP.setFill(imgArray[15]); muteBtn.setFill(imgArray[15]); muteBtnO.setFill(imgArray[15]); muteBtnV.setFill(imgArray[15]); muteBtnLS.setFill(imgArray[15]);
                     }
                 }
+
+
+                function checkAcres() {
+                    if (acres[1].owned == 0) { forSaleP.setHidden(false); roadLeft.setHidden(true); } else { forSaleP.setHidden(true); roadLeft.setHidden(false);}
+                    if (acres[2].owned == 0) { forSaleO.setHidden(false); roadRight.setHidden(true); } else { forSaleO.setHidden(true); roadRight.setHidden(false); }
+                    if (acres[3].owned == 0) { forSaleV.setHidden(false); roadLeft2.setHidden(true); } else { forSaleV.setHidden(true); roadLeft2.setHidden(false); }
+                    if (acres[4].owned == 0) { forSaleLS.setHidden(false); roadRightO.setHidden(true); } else { forSaleLS.setHidden(true); roadRightO.setHidden(false); }
+                }
+                checkAcres();
     //////end of farming.start
 };
