@@ -800,7 +800,7 @@ var farming = {
                         c.crop = b.currentCrop,
                         c.ripeTime = 2000 * a.crops[b.currentCrop].time_to_ripe,
                         c.deathTime = 2000 * a.crops[b.currentCrop].time_to_death,
-                        player.money -= a.crops[b.currentCrop].cost,
+                        player.money -= parseInt(a.crops[b.currentCrop].cost),
                         a.updateMoney()
                     )
                      
@@ -812,7 +812,7 @@ var farming = {
                         //player.money += a.crops[c.crop].revenue,
                         //a.crops[c.crop].stored += 1,
                         player.cropsStored[c.crop].stored += 1,
-                        pickedEver = pickedEver +1,
+                        pickedEver = pickedEver + 1,
 
                         console.log("location Picked " + posX + " " + posY),
                         a.updateMoney(),
@@ -1430,8 +1430,8 @@ farming.start = function () {
 
     var c = new lime.Director(document.body, a.width, a.height); c.makeMobileWebAppCapable(); c.setDisplayFPS(!1);
     var d = (new lime.Scene).setRenderer(lime.Renderer.CANVAS),
-        e = (new lime.Layer).setAnchorPoint(0, 50),
-        f = (new lime.Layer).setAnchorPoint(0, 50);
+        e = (new lime.Layer).setAnchorPoint(0, 0),
+        f = (new lime.Layer).setAnchorPoint(0, 0);
     d.appendChild(e);
     d.appendChild(f);
 
@@ -1606,6 +1606,10 @@ farming.start = function () {
         count7.setText(player.cropsStored[7].stored);
         count8.setText(player.cropsStored[8].stored);
         count9.setText(player.cropsStored[9].stored);
+        count10.setText(player.cropsStored[10].stored);
+        count11.setText(player.cropsStored[11].stored);
+        count12.setText(player.cropsStored[12].stored);
+        count13.setText(player.cropsStored[13].stored);
     });
 
 
@@ -1876,7 +1880,8 @@ farming.start = function () {
                     goog.events.listen(y, ["mousedown", "touchstart"],
                         function () {
                             b.currentCrop = e; c.replaceScene(d, lime.transitions.SlideInUp);
-                            var z = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(130, a.height - a.controlsLayer_h / 2 - 12).setFill("images/" + a.crops[e].harvest).setSize(a.tile_size * 1.2, a.tile_size * 1.2);
+                            //var z = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(130, a.height - a.controlsLayer_h / 2 - 12).setFill("images/" + a.crops[e].harvest).setSize(a.tile_size * 1.2, a.tile_size * 1.2);
+                            z.setFill("images/" + a.crops[e].harvest);
                             w.setText("Planting " + a.crops[e].name);
                             d.appendChild(z);
 
@@ -2673,7 +2678,7 @@ farming.start = function () {
     });
     //clear data
     goog.events.listen(clearData, ["mousedown", "touchstart"], function () {
-        localStorage.removeItem('GuiGhostFarms_player');
+        localStorage.removeItem('GuiGhostFarms_player'); 
         localStorage.removeItem('GuiGhostFarms_vinyardBlocks');
         localStorage.removeItem('GuiGhostFarms_vinyardBlocks2');
         localStorage.removeItem('GuiGhostFarms_vinyardHouseLevel');
@@ -3051,14 +3056,26 @@ farming.start = function () {
     liveStockLayer.appendChild(toolCountImgLS);
     liveStockLayer.appendChild(toolCountLS);
 
-    var porkIcon = (new lime.Sprite).setPosition(125, 28).setFill("images/" + a.crops[10].harvest).setSize(25, 20);
+   
+
+    var cornIconLS = (new lime.Sprite).setPosition(90, 28).setFill("images/" + a.crops[5].harvest).setSize(25, 20);
+    liveStockLayer.appendChild(cornIconLS);
+    var appleIconLS = (new lime.Sprite).setPosition(125, 28).setFill("images/" + a.crops[8].harvest).setSize(25, 20);
+    liveStockLayer.appendChild(appleIconLS);
+
+    var porkIcon = (new lime.Sprite).setPosition(170, 28).setFill("images/" + a.crops[10].harvest).setSize(25, 20);
     liveStockLayer.appendChild(porkIcon);
-    var eggsIcon = (new lime.Sprite).setPosition(180, 26).setFill("images/" + a.crops[11].harvest).setSize(20, 20);
+    var eggsIcon = (new lime.Sprite).setPosition(205, 26).setFill("images/" + a.crops[11].harvest).setSize(20, 20);
     liveStockLayer.appendChild(eggsIcon);
 
-    var gLabel10 = (new lime.Label).setPosition(128, 38).setSize(20, 16).setText(player.cropsStored[10].stored).setFontColor("#E8FC08");
+    var gLabel5LS = (new lime.Label).setPosition(90, 38).setSize(20, 16).setText(player.cropsStored[5].stored).setFontColor("#E8FC08");
+    liveStockLayer.appendChild(gLabel5LS);
+    var gLabel8LS = (new lime.Label).setPosition(125, 38).setSize(20, 16).setText(player.cropsStored[8].stored).setFontColor("#E8FC08");
+    liveStockLayer.appendChild(gLabel8LS);
+
+    var gLabel10 = (new lime.Label).setPosition(170, 38).setSize(20, 16).setText(player.cropsStored[10].stored).setFontColor("#E8FC08");
     liveStockLayer.appendChild(gLabel10);
-    var gLabel11 = (new lime.Label).setPosition((176), 38).setSize(20, 16).setText(player.cropsStored[11].stored).setFontColor("#E8FC08");
+    var gLabel11 = (new lime.Label).setPosition(205, 38).setSize(20, 16).setText(player.cropsStored[11].stored).setFontColor("#E8FC08");
     liveStockLayer.appendChild(gLabel11);
 
     var dayLabelLS = (new lime.Label).setFontSize(10).setPosition(35, 40).setSize(60, 13).setFill("#C14825").setText("Day " + dayCount).setFontColor("#ffffff");
@@ -3133,12 +3150,15 @@ farming.start = function () {
     a.LivestockHarvest = function () {
         lime.scheduleManager.scheduleWithDelay(function () {
             lsHarvest = lsHarvest + 1;
-            if (lsHarvest >= 2) { egg1.setHidden(false); eggHidden[egg1] = false; }
-            if (lsHarvest >= 3) { egg3.setHidden(false); eggHidden[egg3] = false; }
-            if (lsHarvest >= 4 && coopLevel > 1) { egg2.setHidden(false); eggHidden[egg2] = false; }
-            if (lsHarvest > 4) { lsHarvest = 4; }
-
-        }, this, 5000)
+            if (player.cropsStored[5].stored >= 1) {
+               
+                if (lsHarvest == 2) { egg1.setHidden(false); eggHidden[egg1] = false; player.cropsStored[5].stored = player.cropsStored[5].stored - 1;}
+                if (lsHarvest == 3) { egg3.setHidden(false); eggHidden[egg3] = false; player.cropsStored[5].stored = player.cropsStored[5].stored - 1;}
+                if (lsHarvest == 4 && coopLevel > 1) { egg2.setHidden(false); eggHidden[egg2] = false; player.cropsStored[5].stored = player.cropsStored[5].stored - 1;}
+                if (lsHarvest > 5) { lsHarvest = 5; }
+                gLabel5LS.setText(player.cropsStored[5].stored);
+            }
+        }, this, 15000)
     }
     a.LivestockHarvest();
 
@@ -3302,7 +3322,7 @@ farming.start = function () {
 
           /// livestock pork Pork harvest mechanics
 
-                var porkUpCount = (new lime.Label).setText("+ 2 Pork").setFontWeight(600).setFontColor("#E8FC08").setPosition(155, 110).setOpacity(.9).setSize(200, 20);
+                var porkUpCount = (new lime.Label).setText("+ 2 Ham").setFontWeight(600).setFontColor("#E8FC08").setPosition(155, 110).setOpacity(.9).setSize(200, 20);
                 liveStockLayer.appendChild(porkUpCount);
                 var porkUpIcon = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(95, 95).setSize(35, 24).setFill("images/" + a.crops[10].harvest);
                 liveStockLayer.appendChild(porkUpIcon);
@@ -3314,9 +3334,9 @@ farming.start = function () {
                    //add upgrade anim
                    porkTimer = porkTimer + 1;
                    var porkPos = porkUpCount.getPosition();
-                   var porkPosY = porkPos.y - 10;
+                   var porkPosY = porkPos.y - 5;
                    if (porkPosY < 70) { porkPosY = 110 };
-                   if (porkTimer > 240) {
+                   if (porkTimer > 240 && player.cropsStored[8].stored >= 1) {
                        porkUpCount.setHidden(false);
                        porkUpCount.setPosition(155, porkPosY);
                        porkUpIcon.setHidden(false);
@@ -3324,7 +3344,10 @@ farming.start = function () {
                        if (porkOnce == 0) {
                            porkOnce = 1;
                            player.cropsStored[10].stored = player.cropsStored[10].stored + 2;
-
+                           player.cropsStored[8].stored = player.cropsStored[8].stored - 1;
+                           count8.setText(player.cropsStored[8].stored);
+                           gLabel8.setText(player.cropsStored[8].stored);
+                           gLabel8LS.setText(player.cropsStored[8].stored);
                            count10.setText(player.cropsStored[10].stored);
                            gLabel10.setText(player.cropsStored[10].stored);
                            localStorage.setItem('GuiGhostFarms_player', JSON.stringify(player));
@@ -3566,7 +3589,7 @@ farming.start = function () {
                     HouseVUnlock3.setPosition(currentPosV);
                 }, this, 500)
                 if (vinyardHouseLevel > 1) { HouseVUnlock3.setHidden(true);   }
-                if (parseInt(player.barnLevel) >= 5) { HouseVUnlock3.setHidden(true); }; 
+                //if (parseInt(player.barnLevel) >= 5) { HouseVUnlock3.setHidden(true); }; 
                 goog.events.listen(HouseVUnlock3, ["mousedown", "touchstart"], function () {
                     vinyardBarn.setFill("images/vinyard/house4Upgrade2.png");
                     HouseVUnlock3.setHidden(true);
