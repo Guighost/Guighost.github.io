@@ -1830,6 +1830,10 @@ farming.start = function () {
     
     goog.events.listen(confirmBtnA, ["mousedown", "touchstart"], function () {            //for sale pasture
         achieveNotif.setHidden(true);
+        achieveNotifP.setHidden(true);
+        achieveNotifV.setHidden(true);
+        achieveNotifO.setHidden(true);
+        achieveNotifLS.setHidden(true);
     }, { passive: false });
 
 
@@ -2340,7 +2344,11 @@ farming.start = function () {
     achieveNotifP.setHidden(true);
 
     goog.events.listen(confirmBtnAP, ["mousedown", "touchstart"], function () {            //for sale pasture
+        achieveNotif.setHidden(true);
         achieveNotifP.setHidden(true);
+        achieveNotifV.setHidden(true);
+        achieveNotifO.setHidden(true);
+        achieveNotifLS.setHidden(true);
     }, { passive: false });
 
 
@@ -2705,7 +2713,11 @@ farming.start = function () {
     achieveNotifO.setHidden(true);
 
     goog.events.listen(confirmBtnAO, ["mousedown", "touchstart"], function () {            //for sale pasture
+        achieveNotif.setHidden(true);
+        achieveNotifP.setHidden(true);
+        achieveNotifV.setHidden(true);
         achieveNotifO.setHidden(true);
+        achieveNotifLS.setHidden(true);
     }, { passive: false });
 
 
@@ -3561,6 +3573,10 @@ farming.start = function () {
                 achieveNotifLS.setHidden(true);
 
                 goog.events.listen(confirmBtnALS, ["mousedown", "touchstart"], function () {            //for sale pasture
+                    achieveNotif.setHidden(true);
+                    achieveNotifP.setHidden(true);
+                    achieveNotifV.setHidden(true);
+                    achieveNotifO.setHidden(true);
                     achieveNotifLS.setHidden(true);
                 }, { passive: false });
 
@@ -3957,7 +3973,11 @@ farming.start = function () {
                 achieveNotifV.setHidden(true);
 
                 goog.events.listen(confirmBtnAV, ["mousedown", "touchstart"], function () {            //for sale pasture
+                    achieveNotif.setHidden(true);
+                    achieveNotifP.setHidden(true);
                     achieveNotifV.setHidden(true);
+                    achieveNotifO.setHidden(true);
+                    achieveNotifLS.setHidden(true);
                 }, { passive: false });
 
 
