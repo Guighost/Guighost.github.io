@@ -1809,9 +1809,9 @@ farming.start = function () {
     confirmSale.appendChild(confirmText);
     var confirmTextSub = (new lime.Label).setAnchorPoint(0, 0).setFontColor("#FF0000").setPosition(5, 87).setSize(110, 60).setFontSize(10).setText("Earn more $ to buy");
     confirmSale.appendChild(confirmTextSub);
-    var confirmBtn = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(65, 98).setSize(50, 22).setFill("images/UI/achieveTile.png");
+    var confirmBtn = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(75, 102).setSize(35,35).setFill("images/UI/checkButton.png");
     confirmSale.appendChild(confirmBtn);
-    var cancelBtn = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(5, 98).setSize(50, 22).setFill("images/UI/achieveTile.png");
+    var cancelBtn = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(10, 102).setSize(35, 35).setFill("images/UI/XButton.png");
     confirmSale.appendChild(cancelBtn);
     confirmSale.setHidden(true);
   
