@@ -1433,8 +1433,8 @@ farming.start = function () {
     dt = 10000;
     lime.scheduleManager.scheduleWithDelay(function () {
         player.tools = player.tools + (5) + player.barnLevel;
-        toolsEver = toolsEver + (5) + player.barnLevel;
-        localStorage["GuiGhostFarms_toolsEver"] = toolsEver
+        toolsEver = toolsEver + (5 + parseInt(player.barnLevel));
+        localStorage["GuiGhostFarms_toolsEver"] = toolsEver;
         a.updateTools();
 
 
