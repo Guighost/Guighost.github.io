@@ -1214,7 +1214,7 @@ var player = {
     barnLevel: 1,
     pastureLevel: 1,
     fields: 2,
-    farms: 3,
+    farms: 1,
     tools: 150,
     money: 500,
     currentCrop: 0,
