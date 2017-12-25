@@ -20,12 +20,44 @@
 
 </head>
 <body>
+    <script>
+      window.fbAsyncInit = function () {
+          FB.init({
+              appId: '1794229017542670',
+              cookie: true,
+              xfbml: true,
+              version: 'v2.11'
+          });
+
+          FB.AppEvents.logPageView();
+
+      };
+
+      (function (d, s, id) {
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) { return; }
+          js = d.createElement(s); js.id = id;
+          js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.11&appId=1794229017542670";
+          fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+
+
+    </script>
+    <!--
+      Below we include the Login Button social plugin. This button uses
+      the JavaScript SDK to present a graphical Login button that triggers
+      the FB.login() function when clicked.
+    -->
+  
     <menu></menu>
     <div>
         <img id="bubstorImg1" src="Images/Homepage/footerImg.png" onclick=""/>
         <header><h3>Multi-Platform Family Friendly Games</h3> 
                 Our games share a unified bonus <b>GuiStarCash</b> that can be earned and spent for bonuses in any game. Stuck on one and no cash for bonues? Try another game to build up your cash!
-            <br/>Play optomized for Mobile, PC, and Tablet fun. No app to download!</header>
+            <br/>Play optomized for Mobile, PC, and Tablet fun. No app to download!
+            <br /> <div class="fb-login-button" data-max-rows="1" data-size="medium" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="true" data-use-continue-as="false"></div>
+        </header>
+        
         <section>
             <h1>Gui Bubble Story</h1>
             <div>
