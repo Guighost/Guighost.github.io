@@ -7,7 +7,7 @@
     font-size: 18px;
 }
 header {
-    height: 140px;
+    height: 150px;
     width: 94%;
     margin-left: 3%;
     color: azure;
@@ -74,4 +74,10 @@ section {
 #infoSoduku {
     transform: translateY(-220px);
     height: 40px;
+}
+#fbLogin {
+    position: absolute;
+    left: 75%;
+    top: 25px;
+    
 }
