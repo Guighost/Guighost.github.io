@@ -1849,17 +1849,17 @@ farming.start = function () {
     }, { passive: false });
 
     ////facebook Modal
-    var fbNotif = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(45, 130).setSize(210, 220).setFill("images/UI/achieveNotif.png");
-    var fbTextSub = (new lime.Label).setAnchorPoint(0, 0).setFontColor("#08fcef").setPosition(30, 35).setSize(150, 60).setFontSize(12).setText("Achieve Text");
-    fbNotif.appendChild(fbTextSub);
-    var fbText = (new lime.Label).setAnchorPoint(0, 0).setFontColor("#E8FC08").setPosition(13, 160).setSize(190, 60).setFontSize(16).setText("Blacksmith I");
-    fbNotif.appendChild(fbText);
+    //var fbNotif = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(45, 130).setSize(210, 220).setFill("images/UI/achieveNotif.png");
+    //var fbTextSub = (new lime.Label).setAnchorPoint(0, 0).setFontColor("#08fcef").setPosition(30, 35).setSize(150, 60).setFontSize(12).setText("Achieve Text");
+    //fbNotif.appendChild(fbTextSub);
+    //var fbText = (new lime.Label).setAnchorPoint(0, 0).setFontColor("#E8FC08").setPosition(13, 160).setSize(190, 60).setFontSize(16).setText("Blacksmith I");
+    //fbNotif.appendChild(fbText);
    
-    var confirmFBBtn = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(180, 202).setSize(35, 35).setFill("images/UI/checkButton.png");
-    fbNotif.appendChild(confirmFBBtn);
-    var cancelFBBtn = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(30, 202).setSize(35, 35).setFill("images/UI/XButton.png");
-    fbNotif.appendChild(cancelFBBtn);
-    e.appendChild(fbNotif);
+    //var confirmFBBtn = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(180, 202).setSize(35, 35).setFill("images/UI/checkButton.png");
+    //fbNotif.appendChild(confirmFBBtn);
+    //var cancelFBBtn = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(30, 202).setSize(35, 35).setFill("images/UI/XButton.png");
+    //fbNotif.appendChild(cancelFBBtn);
+    //e.appendChild(fbNotif);
     //achieveNotif.setHidden(true);
 
     //replace the scene
