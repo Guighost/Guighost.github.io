@@ -1210,7 +1210,7 @@ goog.inherits(lime.transitions.MoveInDown, lime.transitions.SlideInDown);
 /////start globals
 var sceneBefore = 1;
 var player = {
-    playerLevel: 1,
+    playerLevel: 1, 
     barnLevel: 1,
     pastureLevel: 1,
     fields: 2,
@@ -1447,7 +1447,10 @@ farming.start = function () {
     var cowSound = new lime.audio.Audio('audio/cow1.mp3');
     var waterfallSound = new lime.audio.Audio('audio/waterfallSound.mp3');
     var purchaseSound = new lime.audio.Audio('audio/nice.mp3');
-
+    var chickenSound = new lime.audio.Audio('audio/chickens.mp3');
+    var pig1Sound = new lime.audio.Audio('audio/snort.mp3');
+    var pig2Sound = new lime.audio.Audio('audio/ofarm.mp3');
+    var pig3Sound = new lime.audio.Audio('audio/pig3.mp3');
 
     var horizRoad = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(0, 436).setSize(320, 25).setFill("images/" + a.barnyard[15].image);
 
@@ -1845,6 +1848,19 @@ farming.start = function () {
         achieveNotifLS.setHidden(true);
     }, { passive: false });
 
+    ////facebook Modal
+    var fbNotif = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(45, 130).setSize(210, 220).setFill("images/UI/achieveNotif.png");
+    var fbTextSub = (new lime.Label).setAnchorPoint(0, 0).setFontColor("#08fcef").setPosition(30, 35).setSize(150, 60).setFontSize(12).setText("Achieve Text");
+    fbNotif.appendChild(fbTextSub);
+    var fbText = (new lime.Label).setAnchorPoint(0, 0).setFontColor("#E8FC08").setPosition(13, 160).setSize(190, 60).setFontSize(16).setText("Blacksmith I");
+    fbNotif.appendChild(fbText);
+   
+    var confirmFBBtn = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(180, 202).setSize(35, 35).setFill("images/UI/checkButton.png");
+    fbNotif.appendChild(confirmFBBtn);
+    var cancelFBBtn = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(30, 202).setSize(35, 35).setFill("images/UI/XButton.png");
+    fbNotif.appendChild(cancelFBBtn);
+    e.appendChild(fbNotif);
+    //achieveNotif.setHidden(true);
 
     //replace the scene
     c.replaceScene(d);
@@ -2800,9 +2816,13 @@ farming.start = function () {
 
     });
     goog.events.listen(roadRightO, ["mousedown", "touchstart"], function () {
-        a.sceneBefore = 4;                                                                                                                              ///from pature to Market
+        a.sceneBefore = 5;                                                                                                                              ///from pature to Market
         c.replaceScene(liveStockScene, lime.transitions.SlideInRight);
         waterfallSound.stop();
+        chickenSound.play();
+        pig1Sound.play();
+        setTimeout(function () { pig2Sound.play(); }, 5000);
+       
         checkShortage();
 
     });
@@ -2911,7 +2931,10 @@ farming.start = function () {
             c.replaceScene(vinyardScene, lime.transitions.SlideInDown); checkShortage();
         }
         if (a.sceneBefore == 5) {
-            c.replaceScene(liveStockScene, lime.transitions.SlideInDown);
+            c.replaceScene(liveStockScene, lime.transitions.SlideInDown); chickenSound.play();
+            pig1Sound.play();
+            setTimeout(function () { pig2Sound.play(); }, 1000);
+            setTimeout(function () { pig3Sound.play(); }, 2000);
         }
 
 
@@ -3120,7 +3143,9 @@ farming.start = function () {
             c.replaceScene(vinyardScene, lime.transitions.SlideInUp);
         }
         if (a.sceneBefore == 5) {
-            c.replaceScene(liveStockScene, lime.transitions.SlideInUp);
+            c.replaceScene(liveStockScene, lime.transitions.SlideInUp); chickenSound.play();
+            pig1Sound.play();
+         
         }
     });
     goog.events.listen(rowBack, ["mousedown", "touchstart"], function () { a.updateCropsandCash(0); });
@@ -3202,6 +3227,11 @@ farming.start = function () {
     liveStockScene.appendChild(liveStockLayer);
     liveStockLayer.appendChild(liveStockFill1);
 
+
+    
+    if (sceneBefore != 5) { chickenSound.stop(); pig1Sound.stop(); pig2Sound.stop(); pig3Sound.stop();   }
+
+    //if (sceneBefore != 5) { chickenSound.play(true);}
     var ggLS = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(0, 0).setSize(a.controlsLayer_w, a.controlsLayer_h + 10).setFill("#8b008b");
     liveStockLayer.appendChild(ggLS);
     var topLogoLS = (new lime.Sprite).setPosition(155, 10).setSize(150, 22).setFill("images/UI/topMenuPlain.png");
@@ -3469,6 +3499,15 @@ farming.start = function () {
     var pig3 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(195, 135).setSize(21, 33).setFill("images/livestockPens/pig_down1.png");
     liveStockLayer.appendChild(pig3);
 
+    goog.events.listen(pig1, ["mousedown", "touchstart"], function () {
+        pig1Sound.play();
+    });
+    goog.events.listen(pig2, ["mousedown", "touchstart"], function () {
+        pig2Sound.play();
+    });
+    goog.events.listen(pig3, ["mousedown", "touchstart"], function () {
+        pig3Sound.play();
+    });
                 var chicken1Timer = 0
                 a.movechicken = function () {
                     lime.scheduleManager.scheduleWithDelay(function () {
@@ -3609,7 +3648,10 @@ farming.start = function () {
                 });
                 var menuLS = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(7,473).setSize(30, 30).setFill("images/UI/gearButton.png");
                 liveStockLayer.appendChild(menuLS);
-               
+                goog.events.listen(menuLS, ["mousedown", "touchstart"], function () {
+                    sceneBefore = 5;
+                    c.replaceScene(menuScene, lime.transitions.SlideInUp);
+                });
                 //MUTE From Livestock
                 var muteBtnLS = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(7, 505).setSize(30, 30).setFill(imgArray[15]); liveStockLayer.appendChild(muteBtnLS);
                 var achieveBtnLS = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(42, 473).setSize(30, 30).setFill("images/greenTrophy.png"); liveStockLayer.appendChild(achieveBtnLS);
@@ -3629,7 +3671,9 @@ farming.start = function () {
                 liveStockLayer.appendChild(raising);
 
     ////back to Orchard from pens
-                goog.events.listen(roadLeftLS, ["mousedown", "touchstart"], function () { c.replaceScene(orchardScene, lime.transitions.SlideInLeft); sceneBefore = 3; waterfallSound.play(); });
+                goog.events.listen(roadLeftLS, ["mousedown", "touchstart"], function () {
+                    c.replaceScene(orchardScene, lime.transitions.SlideInLeft); sceneBefore = 3; waterfallSound.play(); chickenSound.stop(); pig1Sound.stop(); pig2Sound.stop(); pig3Sound.stop();
+                });
 
                 //c.replaceScene(liveStockScene, lime.transitions.SlideInUp);
 
