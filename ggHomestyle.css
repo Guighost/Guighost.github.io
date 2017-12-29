@@ -24,7 +24,7 @@ img {
     transform:scale(.75) translateY(-185px);
 }
 #bubstorImg1 {
-    transform: scale(1.0) translateY(-10px)    translateX(20px);
+    transform: scale(1.2) translateY(-10px)    translateX(10px);
 }
 #bubstorImg2 {
     transform: scale(1.2) translateY(0px);
@@ -45,17 +45,17 @@ padding-top: 50px;
     transform: translate(10px, -100px) scale(.9);
 }
 .infoDivs {
-    height: 160px;
+    /*height: 160px;*/
     font-family: 'Comic Sans MS';
     font-size: 20px;
     color:azure;
     /*background-color:black;*/
    border-radius: 15px;
-    width: 60%;
+    width: 70%;
     padding-top: 40px;
     padding-bottom:5px;
     margin-top:30px;
-    margin-left: 20%;
+    margin-left: 15%;
     margin-bottom: 10px;
     clear: both;
     /*transform: translateX(160px);*/
@@ -88,6 +88,7 @@ padding-top: 50px;
 #fbShare {
     position: absolute;
     left: 50%;
-    top: 130px;
-    transform: translateX(-20px);
+    top: 155px;
+    transform: translateX(-30px);
+    /*transform: scale(1.2);*/
 }
