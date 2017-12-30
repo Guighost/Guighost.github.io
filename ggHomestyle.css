@@ -13,6 +13,13 @@ header {
     color: azure;
     transform: translateY(-45px);
 }
+.playBtns {
+    text-decoration:none;
+    background-color: blueviolet;
+    border-radius: 5px;
+    font-size:larger;
+    color: black;
+}
 h2 {
     transform: translateY(-25px);
     font-family: 'Comic Sans MS';
@@ -73,13 +80,13 @@ section {
     height: 700px;
 }
 #sodukuSection {
-    height: 600px;
+    height: 620px;
 }
 #guiSpellMatchImg {
     transform: translate(10px, -110px) scale(.9);
 }
-spellMatchSection {
-    height: 750px;
+#spellMatchSection {
+    height: 680px;
 }
 #farmImg {
     transform: translateY(-30px) scale(.9);
@@ -88,7 +95,7 @@ spellMatchSection {
 #guiMatchImg { transform: translate(10px, -50px) scale(.9);
 }
 #sodukuImg {
-    transform: translate(10px, -70px) scale(.8);
+    transform: translate(10px, -70px) scale(.7);
 }
 .infoDivs {
     /*height: 160px;*/
@@ -121,7 +128,7 @@ spellMatchSection {
     height: 50px;
 }
 #infoSoduku {
-    transform: translateY(-120px);
+    transform: translateY(-140px);
     height: 30px;
 }
 /*#fbLogin {
