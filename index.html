@@ -2,6 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8" />
+    <meta name=viewport content="width=device-width, initial-scale=1">
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta property="og:url" content="http://guighostgames.com/index.html" />
     <meta property="og:type" content="website" />
@@ -78,16 +79,18 @@
     <menu></menu>
     <div>
         <img id="bubstorImg1" src="Images/Homepage/gabbyLogo.png" onclick="" />
-        <img id="logo2" src="Images/Homepage/gabbyLogo.png" onclick="" />
+       
+        <div id="fbShare" class="fb-share-button"
+             data-href="http://guighostgames.com/index.html"
+             data-layout="button"
+             data-size="large"
+             data-mobile-iframe="true">
+            <a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fguighostgames.com%2Findex.html&amp;src=sdkpreparse">Share The Fun</a>
+        </div>
         <header>
+
             <h3 id="headH3"> <span id="_applicationCategory2" itemprop="applicationCategory">Family Friendly Free Online Games</span></h3>
-            <div id="fbShare" class="fb-share-button"
-                 data-href="http://guighostgames.com/index.html"
-                 data-layout="button"
-                 data-size="large"
-                 data-mobile-iframe="true">
-                <a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fguighostgames.com%2Findex.html&amp;src=sdkpreparse">Share The Fun</a>
-            </div>
+          
             <br />
             <div id="headDesc"><span id="_operatingSystem3" itemprop="operatingSystem">Multi-Platform </span> Online Play optomized for <span id="_requirements4" itemprop="requirements">Mobile, PC, and Tablet</span>  fun. <br /> Mobile users can "Add to Home screen" for full screen play.  No app download required.
                 <br /> Earn unified bonus <b>StarCash</b> that can used in all our games.
@@ -99,17 +102,19 @@
         </header>
 
         <section>
-           
             <div>
-                <h2>Gui Bubble Story</h2>
-                <a href="GuiFruitBubbles/" target="_blank">
-                    <img itemprop="screenshot" id="bubstorImg2" src="Images/Homepage/bubstorImg.png" />
-                </a>
+                <div>
+                    <h2>Gui Bubble Story</h2>
+                    <a href="GuiFruitBubbles/" target="_blank">
+                        <img itemprop="screenshot" id="bubstorImg2" src="Images/Homepage/bubstorImg.png" />
+                    </a>
+                </div>
+                <div id="infoBubStor" class="infoDivs">
+                    <a class="playBtns" href="GuiFruitBubbles/" target="_blank">PLAY</a> <br />
+                    Follow the kids as they help the wizard free the world from the mayhem of the evil bubble wizard. 96 levels of Bubble popping fun with new zones every six boards.
+                    Warp your away across the universe with Bubble Popping fun like you have never seen.
+                </div>
             </div>
-            <div id="infoBubStor" class="infoDivs"> <a class="playBtns" href="GuiFruitBubbles/" target="_blank">PLAY</a> <br/>
-                Follow the kids as they help the wizard free the world from the mayhem of the evil bubble wizard. 96 levels of Bubble popping fun with new zones every six boards.
-                Warp your away across the universe with Bubble Popping fun like you have never seen. 
-</div>
         </section>
         <section id="spellMatchSection">
             <div>
@@ -163,8 +168,9 @@
             <span itemscope itemtype="http://schema.org/SoftwareApplication" itemref="bubstorImg5 _author5 _name9">
                 <span itemprop="applicationCategory">free/online games</span>
             </span>
+            <img itemprop="screenshot" id="footerImg" src="Images/Homepage/footerImg.png" />
         </div>
-        <img itemprop="screenshot" id="bubstorImg5" src="Images/Homepage/footerImg.png" />
+        
     </footer>
 </body>
 </html>

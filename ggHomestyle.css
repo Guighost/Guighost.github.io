@@ -7,95 +7,66 @@
     font-size: 18px;
 }
 header {
-    height: 150px;
+    min-height: 150px;
     width: 94%;
     margin-left: 3%;
     color: azure;
     transform: translateY(-45px);
-}
-.playBtns {
-    text-decoration:none;
-    background-color: blueviolet;
-    border-radius: 5px;
-    font-size:larger;
-    color: black;
-}
-h2 {
-    transform: translateY(-25px);
-    font-family: 'Comic Sans MS';
-    font-weight: bold;
-    font-size: 30px;
-    color: magenta;
-}
-/*img {
-    transform:scale(.75) translateY(-185px);
-}*/
-#bubstorImg1 {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    height: 150px;
- 
-}
-#logo2 {
-    position: absolute;
-    top: 10px;
-    left: 99%;
-    height: 150px;
-    transform: translateX(-150px);
+    clear:both;
 }
 #headH3 {
-    position: absolute;
-    top: 25px;
-    left: 50%;
-    height: 100px;
-    transform: translateX(-190px);
+    margin-top: 32px;
 }
 #headDesc {
-    position: absolute;
-    top: 85px;
-    left: 50%;
-    font-size: medium;
-    width: 650px;
-    transform: translateX(-350px);
+    transform: translateY(-40px);
+}
+h2 {
+    transform: translateY(-40px);
+    font-family: 'Comic Sans MS';
+    font-weight: bold;
+    font-size: 36px;
+    color: magenta;
+}
+img {
+    transform:scale(.75) translateY(-185px);
+}
+#bubstorImg1 {
+    transform: scale(1.1) translateY(-10px);
 }
 #bubstorImg2 {
-    transform: translateY(-30px);
-}
-#guiMatchImg {
-    transform: translateY(-50px);
-    height: 475px;
+    transform: scale(1.0) translateY(-20px);
+    max-width: 95%;
 }
 section {
     display:block;
-    padding-top: 20px;
+padding-top: 50px;
     border: 1px inset grey;
-    border-radius: 35px;
-    /*transform: translateY(-10px);*/
-    height: 675px;
-    width: 99%;
-    clear: both;
-}
-#guiMatchSection {
-    height: 700px;
-}
-#sodukuSection {
-    height: 620px;
-}
-#guiSpellMatchImg {
-    transform: translate(10px, -110px) scale(.9);
-}
-#spellMatchSection {
-    height: 680px;
+    border-radius: 25px;
+    transform: translateY(-10px);
+    height: 750px;
+    min-width: 99%;
+    clear:both;
 }
 #farmImg {
-    transform: translateY(-30px) scale(.9);
-    height: 475px;
+    transform: translateY(-40px) scale(1.0);
+    
+    max-width: 95%;
 }
-#guiMatchImg { transform: translate(10px, -50px) scale(.9);
+#guiMatchImg {
+    transform: translateY(-75px) scale(.9);
+    max-width: 90%;
+    max-height: 85%;
+}
+#guiSpellMatch {
+    transform: translate(10px, -100px) scale(.9);
+}
+#guiSpellMatchImg {
+    max-width: 95%;
+    transform: translate(0px, -90px) scale(0.9);
 }
 #sodukuImg {
-    transform: translate(10px, -70px) scale(.7);
+    max-width: 95%;
+    transform: translate(0px, -40px) scale(1.0);
 }
 .infoDivs {
     /*height: 160px;*/
@@ -105,31 +76,34 @@ section {
     /*background-color:black;*/
     border-radius: 15px;
     width: 70%;
-    padding-top: 10px;
+    padding-top: 40px;
     padding-bottom: 5px;
-    margin-top: 5px;
+    margin-top: 30px;
     margin-left: 15%;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
     clear: both;
     /*transform: translateX(160px);*/
     text-align: center;
     text-decoration: none;
 }
-#infoSpellMat{
-    transform: translateY(-122px);
+#infoBubStor {
+    transform: translateY(-50px);
+}
+#infoSpellMat {
+    transform: translateY(-132px);
     height: 50px;
 }
 #infoGuiFarm {
-    transform: translateY(-50px);
+    transform: translateY(-102px);
     height: 50px;
 }
 #infoGuiMatch {
-    transform: translateY(-50px);
-    height: 50px;
+    transform: translateY(-170px);
+    height: 40px;
 }
 #infoSoduku {
-    transform: translateY(-140px);
-    height: 30px;
+    transform: translateY(-110px);
+    height: 40px;
 }
 /*#fbLogin {
     position: absolute;
@@ -140,8 +114,13 @@ section {
 
 #fbShare {
     position: absolute;
-    left: 77%;
-    top: 50px;
-    transform: translate(-20px, 0px);
-    transform: scale(1.2);
+    left: 85%;
+    top: 5px;
+    transform: translateX(-30px);
+    /*transform: scale(1.2);*/
+}
+#footerImg {
+    left: 50%;
+    transform: translateX(-20px);
+    max-width: 90%;
 }
