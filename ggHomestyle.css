@@ -13,50 +13,96 @@ header {
     color: azure;
     transform: translateY(-45px);
 }
-h1 {
-    transform: translateY(-35px);
+h2 {
+    transform: translateY(-25px);
     font-family: 'Comic Sans MS';
     font-weight: bold;
-    font-size: 36px;
+    font-size: 30px;
     color: magenta;
 }
-img {
+/*img {
     transform:scale(.75) translateY(-185px);
-}
+}*/
 #bubstorImg1 {
-    transform: scale(1.2) translateY(-10px)    translateX(10px);
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    height: 150px;
+ 
+}
+#logo2 {
+    position: absolute;
+    top: 10px;
+    left: 99%;
+    height: 150px;
+    transform: translateX(-150px);
+}
+#headH3 {
+    position: absolute;
+    top: 25px;
+    left: 50%;
+    height: 100px;
+    transform: translateX(-190px);
+}
+#headDesc {
+    position: absolute;
+    top: 85px;
+    left: 50%;
+    font-size: medium;
+    width: 650px;
+    transform: translateX(-350px);
 }
 #bubstorImg2 {
-    transform: scale(1.2) translateY(0px);
+    transform: translateY(-30px);
+}
+#guiMatchImg {
+    transform: translateY(-50px);
+    height: 475px;
 }
 section {
-padding-top: 50px;
-    border: 3px inset black;
-    transform: translateY(-10px);
-    height: 800px;
+    display:block;
+    padding-top: 20px;
+    border: 1px inset grey;
+    border-radius: 35px;
+    /*transform: translateY(-10px);*/
+    height: 675px;
     width: 99%;
-    clear:both;
+    clear: both;
+}
+#guiMatchSection {
+    height: 700px;
+}
+#sodukuSection {
+    height: 600px;
+}
+#guiSpellMatchImg {
+    transform: translate(10px, -110px) scale(.9);
+}
+spellMatchSection {
+    height: 750px;
 }
 #farmImg {
-    transform: translateY(-60px) scale(.9);
-    height: 550px;
+    transform: translateY(-30px) scale(.9);
+    height: 475px;
 }
-#guiSpellMatch {
-    transform: translate(10px, -100px) scale(.9);
+#guiMatchImg { transform: translate(10px, -50px) scale(.9);
+}
+#sodukuImg {
+    transform: translate(10px, -70px) scale(.8);
 }
 .infoDivs {
     /*height: 160px;*/
     font-family: 'Comic Sans MS';
     font-size: 20px;
-    color:azure;
+    color: azure;
     /*background-color:black;*/
-   border-radius: 15px;
+    border-radius: 15px;
     width: 70%;
-    padding-top: 40px;
-    padding-bottom:5px;
-    margin-top:30px;
+    padding-top: 10px;
+    padding-bottom: 5px;
+    margin-top: 5px;
     margin-left: 15%;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     clear: both;
     /*transform: translateX(160px);*/
     text-align: center;
@@ -67,16 +113,16 @@ padding-top: 50px;
     height: 50px;
 }
 #infoGuiFarm {
-    transform: translateY(-102px);
+    transform: translateY(-50px);
     height: 50px;
 }
 #infoGuiMatch {
-    transform: translateY(-240px);
-    height: 40px;
+    transform: translateY(-50px);
+    height: 50px;
 }
 #infoSoduku {
-    transform: translateY(-220px);
-    height: 40px;
+    transform: translateY(-120px);
+    height: 30px;
 }
 /*#fbLogin {
     position: absolute;
@@ -87,8 +133,8 @@ padding-top: 50px;
 
 #fbShare {
     position: absolute;
-    left: 50%;
-    top: 155px;
-    transform: translateX(-30px);
-    /*transform: scale(1.2);*/
+    left: 77%;
+    top: 50px;
+    transform: translate(-20px, 0px);
+    transform: scale(1.2);
 }

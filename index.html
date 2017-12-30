@@ -26,133 +26,144 @@
 </head>
 <body>
     <script>
-      window.fbAsyncInit = function () {
-          FB.init({
-              appId: '1794229017542670',
-              cookie: true,
-              xfbml: true,
-              version: 'v2.11'
-          });
+        window.fbAsyncInit = function () {
+            FB.init({
+                appId: '1794229017542670',
+                cookie: true,
+                xfbml: true,
+                version: 'v2.11'
+            });
 
-          FB.AppEvents.logPageView();
-          //FB.ui({
-          //    method: 'share_open_graph',
-          //    action_type: 'og.likes',
-          //    action_properties: JSON.stringify({
-          //        object: 'https://developers.facebook.com/docs/',
-          //    })
-          //}, function (response) {
-          //    // Debug response (optional)
-          //    console.log(response);
-          //});
-          FB.getLoginStatus(function (response) {
-              if (response.status === 'connected') {
-                  console.log('Logged in.');
-              }
-              else {
-                  console.log('NOT Logged in.');
-                  FB.login();
-              }
-          });
-      };
+            FB.AppEvents.logPageView();
+            //FB.ui({
+            //    method: 'share_open_graph',
+            //    action_type: 'og.likes',
+            //    action_properties: JSON.stringify({
+            //        object: 'https://developers.facebook.com/docs/',
+            //    })
+            //}, function (response) {
+            //    // Debug response (optional)
+            //    console.log(response);
+            //});
+            FB.getLoginStatus(function (response) {
+                if (response.status === 'connected') {
+                    console.log('Logged in.');
+                }
+                else {
+                    console.log('NOT Logged in.');
+                    //FB.login();
+                }
+            });
+        };
 
-      (function (d, s, id) {
-          var js, fjs = d.getElementsByTagName(s)[0];
-          if (d.getElementById(id)) { return; }
-          js = d.createElement(s); js.id = id;
-          js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.11&appId=1794229017542670";
-          fjs.parentNode.insertBefore(js, fjs);
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) { return; }
+            js = d.createElement(s); js.id = id;
+            js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.11&appId=1794229017542670";
+            fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));
-       
+
 
     </script>
     <script>
-     
+
     </script>
     <!--
       Below we include the Login Button social plugin. This button uses
       the JavaScript SDK to present a graphical Login button that triggers
       the FB.login() function when clicked.
     -->
-  
+
     <menu></menu>
     <div>
-        <img id="bubstorImg1" src="Images/Homepage/footerImg.png" onclick=""/>
-       
-        <header><h3>Multi-Platform Family Friendly Fun Online Games</h3> 
-
-                 <br /> 
-            Online Play optomized for Mobile, PC, and Tablet fun. Play in your browser, or Mobile users can "Add to Home screen" for full screen play.  No app download required.
-            <br /> Our games share a unified bonus <b>GuiStarCash</b> that can be earned and spent for bonuses in any game. Stuck on one and no cash for bonues? Try another game to build up your cash!
-            <br /> 
-            <!--<div id="fbLogin" class="fb-login-button" data-max-rows="1" data-size="medium" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="false"></div>-->
-            <div id="fbShare" class="fb-share-button" 
+        <img id="bubstorImg1" src="Images/Homepage/gabbyLogo.png" onclick="" />
+        <img id="logo2" src="Images/Homepage/gabbyLogo.png" onclick="" />
+        <header>
+            <h3 id="headH3"> <span id="_applicationCategory2" itemprop="applicationCategory">Family Friendly Free Online Games</span></h3>
+            <div id="fbShare" class="fb-share-button"
                  data-href="http://guighostgames.com/index.html"
                  data-layout="button"
                  data-size="large"
                  data-mobile-iframe="true">
                 <a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fguighostgames.com%2Findex.html&amp;src=sdkpreparse">Share The Fun</a>
             </div>
-        </header>
-        
-        <section>
-            <h1>Gui Bubble Story</h1>
-            <div>
-                <a href="GuiFruitBubbles/" target="_blank">
-                    <img id="bubstorImg2" src="Images/Homepage/bubstorImg.png" />
-                    </a>
+            <br />
+            <div id="headDesc"><span id="_operatingSystem3" itemprop="operatingSystem">Multi-Platform </span> Online Play optomized for <span id="_requirements4" itemprop="requirements">Mobile, PC, and Tablet</span>  fun. <br /> Mobile users can "Add to Home screen" for full screen play.  No app download required.
+                <br /> Earn unified bonus <b>StarCash</b> that can used in all our games.
             </div>
-            <div id="infoBubStor" class="infoDivs">Follow the kids as they help the wizard free the world from the mayhem of the evil bubble wizard. 96 levels of Bubble popping fun with new zones every six boards.
-            Warp your away across the universe with Bubble Popping fun like you have never seen. <br /> Like all other GuiGhost Games, earn GuiStarCash with every level and spend it on powerups in any of our games!  </div>
-        </section>
-        <section>
+                    
+            <br />
+            <!--<div id="fbLogin" class="fb-login-button" data-max-rows="1" data-size="medium" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="false"></div>-->
+           
+        </header>
 
+        <section>
+           
             <div>
-                <h1> Gui SpellMatch </h1>
+                <h2>Gui Bubble Story</h2>
+                <a href="GuiFruitBubbles/" target="_blank">
+                    <img itemprop="screenshot" id="bubstorImg2" src="Images/Homepage/bubstorImg.png" />
+                </a>
+            </div>
+            <div id="infoBubStor" class="infoDivs">
+                Follow the kids as they help the wizard free the world from the mayhem of the evil bubble wizard. 96 levels of Bubble popping fun with new zones every six boards.
+                Warp your away across the universe with Bubble Popping fun like you have never seen. 
+            </div>
+        </section>
+        <section id="spellMatchSection">
+            <div>
+                <h2> Gui SpellMatch </h2>
                 <br /> <br /><br />
                 <a href="GuiSpellMatch/" target="_blank">
-                    <img id="guiSpellMatch" src="Images/Homepage/SpellMatch.png" /> 
-                  
+                    <img itemprop="screenshot" id="guiSpellMatchImg" src="Images/Homepage/SpellMatch.png" />
                 </a>
             </div>
-            <div id="infoSpellMat" class="infoDivs"> Match 3 fun like you have never experienced. Batlle through 3 tournaments, matching spells to attack. But watch out, they fight back! Level your spells for increase damage! Player variants and style of play are all based on your hero upgrade choices. Can you win the SpellMatch?</div>
-    </section>
-        <section>
-            <h1>GuiGhost Farms</h1>
+            <div id="infoSpellMat" class="infoDivs"> Match 3 fun like you have never experienced. Batlle through 3 tournaments, matching spells to attack. But watch out, they fight back! Level your spells for increase damage! Can you win the SpellMatch?</div>
+        </section>
+        <section>        
             <div>
+                <h2>GuiGhost Farms</h2>
                 <a href="GuiFarm/" target="_blank">
-                    <img id="farmImg" src="Images/Homepage/GuiFarm.png" />
-                    
-                </a>
-            </div>
-            <div id="infoGuiFarm" class="infoDivs"> Farming fun for all ages. Grow crops, level your barnyard, and more! This is my current project under contruction.</div>
-        </section>
-        <section>
-            <h1>Gui Match</h1>
-            <div>
-                <a href="GuiMatch/" target="_blank">
-                    <img id="bubstorImg3" src="Images/Homepage/GuiMatch.png" />
-                    
-                    </a>
-            </div>
-            <div id="infoGuiMatch" class="infoDivs"> Classic match 3 with lots of kid friendly images to match with as you level up. This game is intentionally slowed down and designed for younger players ages 2 and up.</div>
-        </section>
-        <section>
-            <h1>Gui Suduku</h1>
-            <div>
-                <a href="Gui-Soduku/" target="_blank">
-                    <img id="bubstorImg4" src="Images/Homepage/guiSoduku.png" />
-                    
-                </a>
-            </div>
-            <div id="infoSoduku" class="infoDivs"> Classic Soduku made for my daughter. Can you master Soduku?</div>
-        </section>
-      
+                    <img itemprop="screenshot" id="farmImg" src="Images/Homepage/GuiFarm.png" />
 
+                </a>
+            </div>
+            <div itemscope itemtype="http://schema.org/SoftwareApplication" itemref="_author5 _name9"   id="infoGuiFarm" class="infoDivs"> <span itemprop="applicationCategory">Farming</span> fun for all ages. Grow crops, level your barnyard, and more! This is my current project under contruction.</div>
+        </section>
+        <section id="guiMatchSection">           
+            <div>
+                <h2>Gui Match</h2>
+                <a href="GuiMatch/" target="_blank">
+                    <img itemprop="screenshot" id="guiMatchImg" src="Images/Homepage/GuiMatch.png" />
+                </a>
+            </div>
+            <div id="infoGuiMatch" class="infoDivs"> Classic match 3 with lots of <span id="_applicationCategory17" itemprop="applicationCategory">kid friendly</span>  images to match with as you level up. This game is intentionally slowed down and designed for younger players ages 2 and up.</div>
+        </section>
+        <section id="sodukuSection">          
+            <div>
+                <h2>Gui Suduku</h2>
+                <a href="Gui-Soduku/" target="_blank">
+                    <img itemprop="screenshot" id="sodukuImg" src="Images/Homepage/guiSoduku.png" />
+
+                </a>
+                <div id="infoSoduku" class="infoDivs"> Classic Soduku made for my daughter. Can you master Soduku?</div>
+            </div>
+            
+        </section>
     </div>
-<footer>
-    <div id="infoSoduku" class="infoDivs"> GuiGhost Games free/online games</div>
-    <img id="bubstorImg5" src="Images/Homepage/footerImg.png" />
-</footer>
+    <footer>
+        <div >
+            <span itemscope itemtype="http://schema.org/SoftwareApplication" itemref="_applicationCategory17 _author5 _name9">
+                <span itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+                    <span itemprop="name">GuiGhost Games</span>
+                </span>
+            </span>
+            <span itemscope itemtype="http://schema.org/SoftwareApplication" itemref="bubstorImg5 _author5 _name9">
+                <span itemprop="applicationCategory">free/online games</span>
+            </span>
+        </div>
+        <img itemprop="screenshot" id="bubstorImg5" src="Images/Homepage/footerImg.png" />
+    </footer>
 </body>
 </html>
