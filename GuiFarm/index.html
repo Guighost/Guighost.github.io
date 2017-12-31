@@ -31,14 +31,14 @@
                 background-repeat: no-repeat;
             }
             #fbshare {
-                background-color: magenta;
+                background-color: #8a2be2;
                 height: 350px;
                 width: 300px;
                 border: 4px solid brown;
                 border-radius: 20px;
                 position: absolute;
                 left: 50%;
-                top: 35%;
+                top: 50%;
                 transform: translate(-154px,-200px);
                 display: none;
                 z-index: 2000;
@@ -161,7 +161,7 @@
                         alert('Error occurred.');
                     } else if (response.error) {
                         document.getElementById('result').innerHTML =
-                            'Error: ' + response.error.message;
+                            'You have already liked us: ';
                     } else {
                         var target = "https://www.facebook.com/me/activity/" + response.id;
                         window.open(target);
@@ -183,6 +183,7 @@
          
         };
         function closeFBShare() {
+            //e.preventDefault();
             document.getElementById("fbshare").style.display = 'none';
         }
         
@@ -212,7 +213,7 @@
                 
                 <div class="fb-share-button" data-href="http://guighostgames.com/GuiFarm/" data-layout="button" data-size="large" data-mobile-iframe="false">
                     <a id="shareLink" class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fguighostgames.com%2FGuiFarm%2F&amp;src=sdkpreparse" onclick="postLike();">Share</a>
-                </div>
+                </div> 
                 
             </div>
 

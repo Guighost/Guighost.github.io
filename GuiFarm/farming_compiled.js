@@ -4354,9 +4354,11 @@ farming.start = function () {
                     }
                 }
 
-
+                var showingFB = 0; 
                 function shareFacebook() {
-                    document.getElementById("fbshare").style.display = 'block';
+                    if (showingFB == 1) { document.getElementById("fbshare").style.display = 'none'; showingFB = 0; }
+                                      
+                    else { document.getElementById("fbshare").style.display = 'block'; showingFB = 1;}
 
 
                 };
