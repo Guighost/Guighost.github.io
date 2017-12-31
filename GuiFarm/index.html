@@ -38,7 +38,7 @@
                 border-radius: 20px;
                 position: absolute;
                 left: 50%;
-                top: 50%;
+                top: 55%;
                 transform: translate(-150px,-200px);
                 display: none;
                 z-index: 2000;
@@ -46,15 +46,15 @@
             #closeFB {
                 background-color: azure;
                 height: 30px;
-                width: 70px;
+                width: 60px;
                 border: 2px groove grey;
                 border-radius: 10px;
                 position: absolute;
-                left: 20%;
+                left: 10%;
                 top: 85%;
-                transform: translate(-35px,-2px);
+                transform: translate(-25px,-2px);
                 font-family: 'Comic Sans MS';
-                font-size:x-large;
+                font-size:large;
                 text-align:center;
             }
             #fbshareTitle {
@@ -69,7 +69,7 @@
             }
             #aroundShare {
                 position: absolute;
-                left: 60%;
+                left: 35%;
                 top: 85%;
              
                 border: 2px groove grey;
@@ -85,10 +85,20 @@
                 text-align: center;
                 width: 95%;
             }
-            #shareLink{
+            /*#shareLink{
                 width: 90%;
+            }*/
+            #postToWall {
+                position: absolute;
+                left: 63%;
+                top: 90%;
             }
-            
+
+            #postToWall2 {
+                position: absolute;
+                left: 70%;
+                top: 80%;
+            }
         </style>
 
 </head>
@@ -143,13 +153,20 @@
                         document.getElementById('result').innerHTML =
                             '<a href=\"https://www.facebook.com/me/activity/' +
                             response.id + '\">' +
-                            'Story created.  ID is ' +
-                            response.id + '</a>';
+                            'See your activity.' ;
                     }
                 }
             );
         }
-        
+        function sendInvite(){
+            FB.ui({
+                method: 'apprequests',
+                message: 'Come Join the Fun and play GuiGhost Farms'
+            }, function (response) {
+                console.log( "response " + response);
+                });
+         
+        };
         
     </script>
     <!--
@@ -181,13 +198,18 @@
                 
             </div>
 
-            <!--<div id="postToWall">
+            <div id="postToWall">
                 <input type="button"
-                       value="Post on your wall"
+                       value="Invite Friends"
+                       onclick="sendInvite();">
+            </div>
+            <div id="postToWall2">
+                <input type="button"
+                       value="Like It"
                        onclick="postLike();">
             </div>
 
-            <div id="result"></div>-->
+            <div id="result"></div>
             
             <br/>
         </div>
