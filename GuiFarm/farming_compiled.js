@@ -1527,6 +1527,9 @@ farming.start = function () {
         sceneBefore = 1;
         achieve(sceneBefore);
     });
+    goog.events.listen(fbBtnH, ["mousedown", "touchstart"], function () {
+        shareFacebook();
+    });
    
 
     //update money
@@ -3216,7 +3219,7 @@ farming.start = function () {
     //Intro event handler
     goog.events.listen(playGameBtn, ["mousedown", "touchstart"], function () { c.replaceScene(d, lime.transitions.SlideInUp); sceneBefore = 1; themeSong.play(true); smithSound.play(); });
     goog.events.listen(moreGameBtn, ["mousedown", "touchstart"], function () { window.open("../", "_self"); });
-    c.replaceScene(introScene, lime.transitions.SlideInUp);
+    c.replaceScene(introScene);
 
 
 
@@ -4350,5 +4353,15 @@ farming.start = function () {
                         milkBlocked.setHidden(false);
                     }
                 }
+
+
+                function shareFacebook() {
+                    document.getElementById("fbshare").style.display = 'block';
+
+
+                };
     //////end of farming.start
 };
+function closeFBShare() {
+    document.getElementById("fbshare").style.display = 'none';
+}
