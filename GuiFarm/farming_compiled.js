@@ -2086,6 +2086,9 @@ farming.start = function () {
     pastureLayer.appendChild(achieveBtnP);
     var facebookP = (new lime.Sprite).setFill("images/UI/fbButton.png").setAnchorPoint(0, 0).setPosition(42, 505).setSize(30, 30);
     pastureLayer.appendChild(facebookP);
+    goog.events.listen(facebookP, ["mousedown", "touchstart"], function () {
+        shareFacebook();
+    });
  
     //MUTE From Pasture
     var muteBtnP = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(7, 505).setSize(30, 30).setFill(imgArray[15]);
@@ -2759,6 +2762,9 @@ farming.start = function () {
     orchardLayer.appendChild(menuO);
     var fbBtnO = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(42, 505).setSize(30, 30).setFill("images/UI/fbButton.png");
     orchardLayer.appendChild(fbBtnO);
+    goog.events.listen(fbBtnO, ["mousedown", "touchstart"], function () {
+        shareFacebook();
+    });
  
 
     //MUTE From Orchard
@@ -3665,7 +3671,9 @@ farming.start = function () {
                         setMute(2);
                     } else { lime.audio.setMute(true); setMute(1); }
                 });
-
+                goog.events.listen(fbBtnLS, ["mousedown", "touchstart"], function () {
+                    shareFacebook();
+                });
                 goog.events.listen(achieveBtnLS, ["mousedown", "touchstart"], function () {
                     sceneBefore = 5;
                     achieve(sceneBefore);
@@ -4031,6 +4039,9 @@ farming.start = function () {
                 var muteBtnV = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(7, 505).setSize(30, 30).setFill(imgArray[15]); vinyardLayer.appendChild(muteBtnV);
                 var achieveBtnV = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(42, 473).setSize(30, 30).setFill("images/greenTrophy.png"); vinyardLayer.appendChild(achieveBtnV);
                 var fbBtnV = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(42, 505).setSize(30, 30).setFill("images/UI/fbButton.png"); vinyardLayer.appendChild(fbBtnV);
+                goog.events.listen(fbBtnV, ["mousedown", "touchstart"], function () {
+                    shareFacebook();
+                });
                 goog.events.listen(muteBtnV, ["mousedown", "touchstart"], function () {
                     var isMuted = lime.audio.getMute(); console.log("muted " + isMuted); if (isMuted) {
                         lime.audio.setMute(false); themeSong.play(true); 

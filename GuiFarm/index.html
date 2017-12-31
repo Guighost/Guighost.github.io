@@ -34,48 +34,45 @@
                 background-color: #8a2be2;
                 height: 350px;
                 width: 300px;
-                border: 4px solid brown;
+                border: 4px solid #9e5a2a;
                 border-radius: 20px;
                 position: absolute;
                 left: 50%;
-                top: 50%;
+                top: 42%;
                 transform: translate(-154px,-200px);
                 display: none;
+              font-family:'Comic Sans MS';
+              font-size: 14px;
                 z-index: 2000;
             }
             #closeFB {
-                background-color: azure;
-                height: 30px;
-                width: 60px;
+                background-image: url( "images/UI/XButton.png");
+               background-size:contain;
+                height: 70px;
+                width: 70px;
                 border: 2px groove grey;
                 border-radius: 10px;
                 position: absolute;
                 left: 50%;
-                top: 90%;
-                transform: translate(-25px,-2px);
+                top: 95%;
+                transform: translate(-35px,-2px);
                 font-family: 'Comic Sans MS';
-                font-size:large;
-                text-align:center;
+                font-size: large;
+                text-align: center;
             }
             #fbshareTitle {
                 background-color: azure;
-                height: 35px;
+                height: 30px;
                 width: 99%;
                 border: 2px inset grey;
                 border-radius: 10px;
                 font-family: 'Comic Sans MS';
-                font-size:x-large;
+                font-size:large;
                 text-align: center;
             }
-            #aroundShare {
-                position: absolute;
-                left: 15%;
-                top: 61%;
-             transform: scale(1.4);
-                /*border: 2px groove grey;*/
-            }
+         
             #logoImg3 {
-                transform: translate(5px,10px);
+                transform: translate(5px,5px);
                 height:90px;
                 width:240px;
             }
@@ -90,20 +87,37 @@
             }*/
             #postInviteToWall {
                 position: absolute;
-                left: 25%;
-                top: 75%;
+                left: 2%;
+                top: 78%;
+               
             }
             #inviteFB {
-                background-image: url('images/UI/inviteFB.png');
-                background-size: cover;
-                width: 150px;
-                height: 44px;
+                background-image: url('images/UI/inviteFB2.png');
+                background-size: contain;
+                width: 130px;
+                height: 40px;
+               
+            }
+            #inviteText {
+                position: absolute;
+                left: 138px;
+                /*top: 100px;*/
+                width: 160px;
+                height: 60px;
+                transform: translate(0px,-40px);
             }
 
-            #postPlayingToWall {
+            #socialPlugins1 {
                 position: absolute;
-                left: 55%;
-                top: 60%;
+                left: 4%;
+                top: 55%;
+                transform: scale(1.1);
+                background-color: azure;
+                padding: 5px;
+                border: 2px inset grey;
+                border-radius: 10px;
+                width: 260px;
+                height: 110px;
             }
             #likeFB {
                 background-image: url('images/UI/likeFB.png');
@@ -111,6 +125,8 @@
                 width:95px;
                 height: 40px;
             }
+         
+           
            
         </style>
 
@@ -196,7 +212,7 @@
 
     <!--<div class="fb-login-button" data-max-rows="1" data-size="medium" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="true" data-use-continue-as="false"></div>-->
     <div id="fbshare">
-        <div id="fbshareTitle"> Share the Fun  </div>
+        <div id="fbshareTitle"> Share the Fun on Facebook  </div>
         <!--<div class="fb-login-button"
              data-show-faces="false"
              data-width="300"
@@ -209,33 +225,30 @@
              Tell your friends you are having fun playing 
                 <img id="logoImg3" src="images/UI/MenuTop.png" alt="FarmImg" />
             </div>
-            <div id="aroundShare">
-                
-                <div class="fb-share-button" data-href="http://guighostgames.com/GuiFarm/" data-layout="button" data-size="large" data-mobile-iframe="false">
-                    <a id="shareLink" class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fguighostgames.com%2FGuiFarm%2F&amp;src=sdkpreparse" onclick="postLike();">Share</a>
-                </div> 
-                
-            </div>
+         
 
-            <div id="postInviteToWall"  ontouchstart= "sendInvite();">
-                <input id="inviteFB" type="button"
-                       
-                       onclick="sendInvite();">
-            </div>
-            <div id="postPlayingToWall" ontouchstart= "postLike();">
-                <input id="likeFB"
+          
+            <div id="socialPlugins1" ">
+                <!--<input id="likeFB"
                        type="button"
                        onclick="postLike();"
                       
-                       >
-
+                       >-->
+             
+                <div class="fb-like" data-href="http://guighostgames.com/GuiFarm/" data-width="260" data-layout="standard" data-action="like" data-size="large" data-show-faces="true" data-share="true"></div>
+                <!--<div class="fb-follow" data-href="https://www.facebook.com/GuiGhostFarms/" data-width="260" data-height="50" data-layout="standard" data-size="large" data-show-faces="false"></div>-->
             </div>
-
+            <div id="postInviteToWall" ontouchstart="sendInvite();">
+                <input id="inviteFB" type="button"
+                       onclick="sendInvite();">
+                <div id="inviteText">Invite friends to play GuiGhost Farms</div>
+            </div>
+         
             <div id="result"></div>
             
             <br/>
         </div>
-        <div id="fbshareFooter"> <a id="closeFB" onclick="closeFBShare()" ontouchstart="closeFBShare()">Close</a></div>
+        <div id="fbshareFooter"> <a id="closeFB" onclick="closeFBShare()" ontouchstart="closeFBShare()"></a></div>
 
     </div>
 
