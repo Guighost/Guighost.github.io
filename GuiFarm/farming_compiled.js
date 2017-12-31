@@ -4362,6 +4362,3 @@ farming.start = function () {
                 };
     //////end of farming.start
 };
-function closeFBShare() {
-    document.getElementById("fbshare").style.display = 'none';
-}
