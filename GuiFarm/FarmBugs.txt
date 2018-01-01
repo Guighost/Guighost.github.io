@@ -1,1 +1,8 @@
-Farm
+
+returning from Market Scene to correct location
+
+image flashing (declare all images)
+
+forcing crops by zone
+
+smooth out pig anims

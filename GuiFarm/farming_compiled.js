@@ -1866,15 +1866,15 @@ farming.start = function () {
     a.checkTutSeen();
    
 ///For Sale confirm modal
-    var confirmSale = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(95, 160).setSize(120, 108).setFill("images/UI/saleBack.png");
+    var confirmSale = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(45, 100).setSize(210, 220).setFill("images/UI/saleBack.png");
     e.appendChild(confirmSale);
-    var confirmText = (new lime.Label).setAnchorPoint(0, 0).setFontColor("#000000").setPosition(2, 53).setSize(115, 60).setFontSize(17).setText("Dairy Farm $2500");
+    var confirmText = (new lime.Label).setAnchorPoint(0, 0).setFontColor("#000000").setPosition(45, 145).setSize(125, 60).setFontSize(20).setText("Dairy Farm $2500");
     confirmSale.appendChild(confirmText);
-    var confirmTextSub = (new lime.Label).setAnchorPoint(0, 0).setFontColor("#FF0000").setPosition(5, 87).setSize(110, 60).setFontSize(10).setText("Earn more $ to buy");
+    var confirmTextSub = (new lime.Label).setAnchorPoint(0, 0).setFontColor("#FF0000").setPosition(55, 195).setSize(110, 60).setFontSize(10).setText("Earn more $ to buy");
     confirmSale.appendChild(confirmTextSub);
-    var confirmBtn = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(75, 102).setSize(35,35).setFill("images/UI/checkButton.png");
+    var confirmBtn = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(100, 212).setSize(75, 35).setFill("images/UI/greenBuy.png");
     confirmSale.appendChild(confirmBtn);
-    var cancelBtn = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(10, 102).setSize(35, 35).setFill("images/UI/XButton.png");
+    var cancelBtn = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(50, 212).setSize(35, 35).setFill("images/UI/XButton.png");
     confirmSale.appendChild(cancelBtn);
     confirmSale.setHidden(true);
   
@@ -2412,17 +2412,17 @@ farming.start = function () {
 
 
     ///For Sale confirm modal
-    var forSaleV = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(5, 414).setSize(43, 50).setFill("images/UI/forSaleVineyard.png")
+    var forSaleV = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(5, 414).setSize(50, 50).setFill("images/UI/forSaleVineyard.png")
     pastureLayer.appendChild(forSaleV)
-    var confirmSaleV = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(95, 160).setSize(120, 108).setFill("images/UI/saleBack.png");
+    var confirmSaleV = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(45, 100).setSize(210, 220).setFill("images/UI/saleBack.png");
     pastureLayer.appendChild(confirmSaleV);
-    var confirmTextV = (new lime.Label).setAnchorPoint(0, 0).setFontColor("#000000").setPosition(2, 53).setSize(115, 60).setFontSize(17).setText("Vineyard $7500");
+    var confirmTextV = (new lime.Label).setAnchorPoint(0, 0).setFontColor("#000000").setPosition(50, 145).setSize(115, 60).setFontSize(22).setText("Vineyard $7500");
     confirmSaleV.appendChild(confirmTextV);
-    var confirmTextSubV = (new lime.Label).setAnchorPoint(0, 0).setFontColor("#FF0000").setPosition(5, 87).setSize(110, 60).setFontSize(10).setText("Earn more $ to buy");
+    var confirmTextSubV = (new lime.Label).setAnchorPoint(0, 0).setFontColor("#FF0000").setPosition(55, 195).setSize(110, 60).setFontSize(10).setText("Earn more $ to buy");
     confirmSaleV.appendChild(confirmTextSubV);
-    var confirmBtnV = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(65, 98).setSize(50, 22).setFill("images/UI/checkButton.png");
+    var confirmBtnV = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(100, 212).setSize(75, 35).setFill("images/UI/greenBuy.png");
     confirmSaleV.appendChild(confirmBtnV);
-    var cancelBtnV = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(5, 98).setSize(50, 22).setFill("images/UI/XButton.png");
+    var cancelBtnV = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(50, 212).setSize(35, 35).setFill("images/UI/XButton.png");
     confirmSaleV.appendChild(cancelBtnV);
     confirmSaleV.setHidden(true);
 
@@ -2775,15 +2775,15 @@ farming.start = function () {
 
     ///For Sale confirm modal
    
-    var confirmSaleLS = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(95, 160).setSize(120, 108).setFill("images/UI/saleBack.png");
+    var confirmSaleLS = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(50, 150).setSize(210, 220).setFill("images/UI/saleBack.png");
     orchardLayer.appendChild(confirmSaleLS);
-    var confirmTextLS = (new lime.Label).setAnchorPoint(0, 0).setFontColor("#000000").setPosition(2, 53).setSize(115, 60).setFontSize(17).setText("StockPens $10,000");
+    var confirmTextLS = (new lime.Label).setAnchorPoint(0, 0).setFontColor("#000000").setPosition(50, 145).setSize(115, 60).setFontSize(22).setText("StockPens $10,000");
     confirmSaleLS.appendChild(confirmTextLS);
-    var confirmTextSubLS = (new lime.Label).setAnchorPoint(0, 0).setFontColor("#FF0000").setPosition(5, 87).setSize(110, 60).setFontSize(10).setText("Earn more $ to buy");
+    var confirmTextSubLS = (new lime.Label).setAnchorPoint(0, 0).setFontColor("#FF0000").setPosition(55, 195).setSize(110, 60).setFontSize(10).setText("Earn more $ to buy");
     confirmSaleLS.appendChild(confirmTextSubLS);
-    var confirmBtnLS = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(65, 98).setSize(50, 22).setFill("images/UI/checkButton.png");
+    var confirmBtnLS = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(100, 212).setSize(75, 35).setFill("images/UI/greenBuy.png");
     confirmSaleLS.appendChild(confirmBtnLS);
-    var cancelBtnLS = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(5, 98).setSize(50, 22).setFill("images/UI/XButton.png");
+    var cancelBtnLS = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(50, 212).setSize(35, 35).setFill("images/UI/XButton.png");
     confirmSaleLS.appendChild(cancelBtnLS);
     confirmSaleLS.setHidden(true);
 
