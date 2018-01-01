@@ -752,6 +752,15 @@ imgArray4[15] = new Image(); imgArray4[15].src = 'images/Orchard/Orchardback4.pn
 imgArray4[16] = new Image(); imgArray4[16].src = 'images/Orchard/growing22_trees.png'
 
 
+var imgArray5 = new Array();
+imgArray5[0] = new Image(); imgArray5[0].src = 'images/UI/tut1.png'
+imgArray5[1] = new Image(); imgArray5[1].src = 'images/UI/tut2.png'
+imgArray5[2] = new Image(); imgArray5[2].src = 'images/UI/tut3.png'
+imgArray5[3] = new Image(); imgArray5[3].src = 'images/UI/tut4.png'
+imgArray5[4] = new Image(); imgArray5[4].src = 'images/UI/tut5.png'
+imgArray5[5] = new Image(); imgArray5[5].src = 'images/UI/tut6.png'
+imgArray5[6] = new Image(); imgArray5[6].src = 'images/UI/tut7.png'
+imgArray5[7] = new Image(); imgArray5[7].src = 'images/UI/tut8.png'
 
 
 //var ss = new lime.SpriteSheet('images/', lime.ASSETS.blacksmith.json, lime.parse)
@@ -959,9 +968,13 @@ lime.Director.prototype.addCover=function(a,b){goog.userAgent.WEBKIT&&goog.userA
 lime.Director.prototype.getBounds=function(a){var b=this.getPosition(),c=this.getScale();return new goog.math.Box(a.top-b.y/c.y,a.right-b.x/c.x,a.bottom-b.y/c.y,a.left-b.x/c.x)};lime.Director.prototype.screenToLocal=function(a){a=a.clone();a.x-=this.domOffset.x+this.position_.x;a.y-=this.domOffset.y+this.position_.y;a.x/=this.scale_.x;a.y/=this.scale_.y;return a};
 lime.Director.prototype.localToScreen=function(a){a=a.clone();a.x*=this.scale_.x;a.y*=this.scale_.y;a.x+=this.domOffset.x+this.position_.x;a.y+=this.domOffset.y+this.position_.y;return a};lime.Director.prototype.update=function(){lime.Node.prototype.update.call(this);for(var a=this.coverStack_.length;0<=--a;)this.coverStack_[a].update()};
 lime.Director.prototype.invalidateSize_=function(){var a=goog.style.getSize(this.domElement.parentNode);this.domElement.parentNode==document.body&&(window.scrollTo(0,0),goog.isNumber(window.innerHeight)&&(a.height=window.innerHeight));var b=this.getSize().clone().scaleToFit(a);this.setScale(b.width/this.getSize().width);a.aspectRatio()<b.aspectRatio()?this.setPosition(0,(a.height-b.height)/2):this.setPosition((a.width-b.width)/2,0);this.updateDomOffset_();goog.userAgent.MOBILE&&this.domElement.parentNode==
-document.body&&(this.overflowStyle_&&goog.style.uninstallStyles(this.overflowStyle_),this.overflowStyle_=goog.style.installStyles("html{height:"+(a.height+120)+"px;overflow:hidden;}"))};
-lime.Director.prototype.makeMobileWebAppCapable=function(){var a=document.createElement("meta");a.name="apple-mobile-web-app-capable";a.content="yes";document.getElementsByTagName("head").item(0).appendChild(a);a=document.createElement("meta");a.name="apple-mobile-web-app-status-bar-style";a.content="black";document.getElementsByTagName("head").item(0).appendChild(a);a=!1;goog.isDef(localStorage)&&(a=localStorage.getItem("_lime_visited"));/(ipod|iphone|ipad)/i.test(navigator.userAgent)&&(!window.navigator.standalone&&
-COMPILED&&!a&&this.domElement.parentNode==document.body)&&(alert("Please install this page as a web app by clicking Share + Add to home screen."),goog.isDef(localStorage)&&localStorage.setItem("_lime_visited",!0))};lime.Director.prototype.updateDomOffset_=function(){this.domOffset=goog.style.getPageOffset(this.domElement.parentNode)};
+    document.body && (this.overflowStyle_ && goog.style.uninstallStyles(this.overflowStyle_), this.overflowStyle_ = goog.style.installStyles("html{height:" + (a.height + 120) + "px;overflow:hidden;}"))
+};
+
+lime.Director.prototype.makeMobileWebAppCapable = function () {
+    var a = document.createElement("meta"); a.name = "apple-mobile-web-app-capable"; a.content = "yes"; document.getElementsByTagName("head").item(0).appendChild(a); a = document.createElement("meta"); a.name = "apple-mobile-web-app-status-bar-style"; a.content = "black"; document.getElementsByTagName("head").item(0).appendChild(a); a = !1; goog.isDef(localStorage) && localStorage.setItem("_lime_visited", !0);
+};
+lime.Director.prototype.updateDomOffset_ = function () { this.domOffset = goog.style.getPageOffset(this.domElement.parentNode) };
 lime.Director.prototype.keyUpHandler_ = function (a) { a.altKey && "d" == String.fromCharCode(a.keyCode).toLowerCase() && (this.debugModeOn_ ? (goog.style.uninstallStyles(this.debugModeOn_), this.debugModeOn_ = null) : this.debugModeOn_ = goog.style.installStyles(".lime-scene div,.lime-scene img,.lime-scene canvas{border: 1px solid #c00;}"), a.stopPropagation(), a.preventDefault()) }; lime.Director.prototype.hitTest = function (a) { a && a.screenPosition && (a.position = this.screenToLocal(a.screenPosition)); return !0 };
 lime.Node.prototype.setHidden = function (value) {
     this.hidden_ = value;
@@ -1294,8 +1307,11 @@ var boughtStarCash = false;
 if (typeof localStorage["GuiGhostFarms_boughtStarCash"] === "undefined") { localStorage["GuiGhostFarms_boughtStarCash"] = false; };
 boughtStarCash = parseInt(localStorage["GuiGhostFarms_boughtStarCash"]);
 
-
-
+var tutSeen  = 0;
+if (typeof localStorage["GuiGhostFarms_tutSeen"] === "undefined") { localStorage.setItem('GuiGhostFarms_tutSeen', 0); };
+console.log("initial checkTut =" + tutSeen);
+tutSeen = parseInt(localStorage["GuiGhostFarms_tutSeen"]);
+console.log("2nd checkTut =" + tutSeen);
 
 farming.start = function () {
     var a = { width: 310, height: 540, tile_size: 30, num_tiles_x: 4, num_tiles_y: 4, landLayer_w: 320, landLayer_h: 388, controlsLayer_w: 320, controlsLayer_h: 70, costPlowing: 0, shop_margin_x: 50, shop_margin_y: 35 },
@@ -1505,6 +1521,9 @@ farming.start = function () {
         
         
     };
+
+
+
 
     //lower menu
     var g = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(0, a.height - a.controlsLayer_h - 5).setSize(a.controlsLayer_w, a.controlsLayer_h).setFill("#0D0D0D");
@@ -1816,7 +1835,36 @@ farming.start = function () {
         var treeUnlock2 = (new lime.Label).setAnchorPoint(0, 0).setFontColor("#E8FC08").setPosition(182, 335).setSize(120, 120).setText("Clear the Forest"); e.appendChild(treeUnlock2)
         var trees2Img = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(225, 355).setSize(35, 35).setFill("images/tools50.png"); e.appendChild(trees2Img)
     }
+    var tutStep = 1;
+/// tutorial Modal
+    var tutModal = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(48, 130).setSize(210, 220).setFill("images/UI/tut1.png");
+    e.appendChild(tutModal);
+    var nextBtn = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(90, 210).setSize(35, 35).setFill("images/UI/nextButton.png");
+    tutModal.appendChild(nextBtn);
+    goog.events.listen(nextBtn, ["mousedown", "touchstart"], function () {
+       
+        if (tutStep <= 7) {
+            tutModal.setFill(imgArray5[tutStep]);
+            }
+       
+        if (tutStep >= 8) {
+            tutModal.setHidden(true);
+            tutSeen = 1;
+            localStorage.setItem('GuiGhostFarms_tutSeen', 1);
+        }
+        tutStep = tutStep + 1;
+        console.log("tutstep = " + tutStep);
+    }, { passive: false });
+    a.checkTutSeen = function () {
 
+        console.log("hit the check tutSeen = " + tutSeen);
+        if (tutSeen == 1) {
+
+            tutModal.setHidden(true);
+        };
+    }
+    a.checkTutSeen();
+   
 ///For Sale confirm modal
     var confirmSale = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(95, 160).setSize(120, 108).setFill("images/UI/saleBack.png");
     e.appendChild(confirmSale);
@@ -3223,7 +3271,10 @@ farming.start = function () {
     var introFill2 = (new lime.Sprite).setPosition(157, 260).setSize(300, 490).setFill("images/UI/CoverImg.png");
     introScene.appendChild(introFill2);
     //Intro event handler
-    goog.events.listen(playGameBtn, ["mousedown", "touchstart"], function () { c.replaceScene(d, lime.transitions.SlideInUp); sceneBefore = 1; themeSong.play(true); smithSound.play(); });
+    goog.events.listen(playGameBtn, ["mousedown", "touchstart"], function () {
+        c.replaceScene(d, lime.transitions.SlideInUp); sceneBefore = 1; themeSong.play(true); smithSound.play(); a.checkTutSeen();
+       
+    });
     goog.events.listen(moreGameBtn, ["mousedown", "touchstart"], function () { window.open("../", "_self"); });
     c.replaceScene(introScene);
 
@@ -4348,6 +4399,7 @@ farming.start = function () {
                     if (acres[2].owned == 0) { forSaleO.setHidden(false); roadRight.setHidden(true); } else { forSaleO.setHidden(true); roadRight.setHidden(false); }
                     if (acres[3].owned == 0) { forSaleV.setHidden(false); roadLeft2.setHidden(true); } else { forSaleV.setHidden(true); roadLeft2.setHidden(false); }
                     if (acres[4].owned == 0) { forSaleLS.setHidden(false); roadRightO.setHidden(true); } else { forSaleLS.setHidden(true); roadRightO.setHidden(false); }
+                   
                 }
                 checkAcres();
 
@@ -4364,6 +4416,8 @@ farming.start = function () {
                         milkBlocked.setHidden(false);
                     }
                 }
+               
+
 
                 var showingFB = 0; 
                 function shareFacebook() {
