@@ -106,7 +106,15 @@
                 height: 60px;
                 transform: translate(0px,-40px);
             }
-
+            #inviteImg2 {
+                position: absolute;
+                left: 135px;
+                transform: translate(0px,-70px);
+                background-image: url('images/UI/bonusStarCash.png');
+                background-size: contain;
+                width: 150px;
+                height: 31px;
+            }
             #socialPlugins1 {
                 position: absolute;
                 left: 4%;
@@ -240,7 +248,8 @@
             </div>
             <div id="postInviteToWall" ontouchstart="sendInvite();">
                 <input id="inviteFB" type="button"
-                       onclick="sendInvite();">
+                       onclick="sendInvite(); inviteBonus();">
+                <div id="inviteImg2"></div>
                 <div id="inviteText">Invite friends to play GuiGhost Farms</div>
             </div>
          

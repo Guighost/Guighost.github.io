@@ -2372,9 +2372,9 @@ farming.start = function () {
     confirmSaleV.appendChild(confirmTextV);
     var confirmTextSubV = (new lime.Label).setAnchorPoint(0, 0).setFontColor("#FF0000").setPosition(5, 87).setSize(110, 60).setFontSize(10).setText("Earn more $ to buy");
     confirmSaleV.appendChild(confirmTextSubV);
-    var confirmBtnV = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(65, 98).setSize(50, 22).setFill("images/UI/achieveTile.png");
+    var confirmBtnV = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(65, 98).setSize(50, 22).setFill("images/UI/checkButton.png");
     confirmSaleV.appendChild(confirmBtnV);
-    var cancelBtnV = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(5, 98).setSize(50, 22).setFill("images/UI/achieveTile.png");
+    var cancelBtnV = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(5, 98).setSize(50, 22).setFill("images/UI/XButton.png");
     confirmSaleV.appendChild(cancelBtnV);
     confirmSaleV.setHidden(true);
 
@@ -2733,9 +2733,9 @@ farming.start = function () {
     confirmSaleLS.appendChild(confirmTextLS);
     var confirmTextSubLS = (new lime.Label).setAnchorPoint(0, 0).setFontColor("#FF0000").setPosition(5, 87).setSize(110, 60).setFontSize(10).setText("Earn more $ to buy");
     confirmSaleLS.appendChild(confirmTextSubLS);
-    var confirmBtnLS = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(65, 98).setSize(50, 22).setFill("images/UI/achieveTile.png");
+    var confirmBtnLS = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(65, 98).setSize(50, 22).setFill("images/UI/checkButton.png");
     confirmSaleLS.appendChild(confirmBtnLS);
-    var cancelBtnLS = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(5, 98).setSize(50, 22).setFill("images/UI/achieveTile.png");
+    var cancelBtnLS = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(5, 98).setSize(50, 22).setFill("images/UI/XButton.png");
     confirmSaleLS.appendChild(cancelBtnLS);
     confirmSaleLS.setHidden(true);
 
@@ -4373,5 +4373,8 @@ farming.start = function () {
 
 
                 };
+                function inviteBonus() {
+                    starcash = starcash + 10;
+                }
     //////end of farming.start
 };
