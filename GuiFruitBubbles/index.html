@@ -6,6 +6,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta property="og:url" content="http://guighostgames.com/GuiFruitBubbles/" />
+    <meta property="og:type" content="game" />
+    <meta property="og:title" content="Gui Bubble Story" />
+    <meta property="og:description" content="Bubble Popping Fun- 96 levels to play - Free Online Game" />
+    <meta property="og:image" content="http://guighostgames.com/Images/Homepage/bubstorImg.png" />
 <title>Gui Bubble Story</title>
 
 
@@ -17,7 +22,27 @@
 
 </head>
 <body>
- 
+    <script>
+     window.fbAsyncInit = function () {
+         FB.init({
+             appId: '540526902963631',
+             cookie: true,
+             xfbml: true,
+             version: 'v2.11'
+         });
+
+         FB.AppEvents.logPageView();
+
+     };
+
+     (function (d, s, id) {
+         var js, fjs = d.getElementsByTagName(s)[0];
+         if (d.getElementById(id)) { return; }
+         js = d.createElement(s); js.id = id;
+         js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.11&appId=540526902963631';
+         fjs.parentNode.insertBefore(js, fjs);
+     }(document, 'script', 'facebook-jssdk'));
+    </script>
     
         <img id="players" src="Hud/together.png" alt="players" style="z-index: 75; margin-left: 30%;">
         <canvas id="viewport" width="628" height="628"></canvas>
@@ -85,11 +110,14 @@
 
         <!-- intro div -->
         <div id="intro">
+            <div class="fb-like" data-href="http://guighostgames.com/GuiFruitBubbles/" data-width="300" data-layout="standard" data-action="like" data-size="small" data-show-faces="false" data-share="true"></div>
             <img id="fruitylogo" class="introdiv" src="bubbleStory.gif">
+            
             <a href="#" id="playGame" onclick='hideIntro()' class="clsIntroBtn">New Game</a>
             <a href="#" id="loadSaved" onclick='loadSavedLevel()' class="clsIntroBtn">Load Saved</a>
             <a href="#" id="levelSelect" onclick='loadLevelSelect()' class="clsIntroBtn">Level Select</a>
             <a href="../index.html" id="toMatch">More Games</a>
+           
         </div>
 
         <!-- Save and Quit Menu -->
