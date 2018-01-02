@@ -1550,7 +1550,7 @@ farming.start = function () {
         shareFacebook();
     });
    
-
+    var warningSeen = 0;
     //update money
     a.updateMoney = function () {
 
@@ -1563,6 +1563,10 @@ farming.start = function () {
         localStorage.setItem('GuiGhostFarms_toolsEver', toolsEver);
         localStorage.setItem('GuiGhostFarms_pickedEver', pickedEver);
         localStorage.setItem('GuiGhostFarms_moneyEver', parseInt(moneyEver));
+        if (player.money <= 0 && warningSeen == 0) {
+            outOfCash.setHidden(false);
+            warningSeen = 1;
+        }
     };
 
     var toolCountImg = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(5, 9).setSize(20, 20).setFill("images/toolsIcon.png");
@@ -1864,9 +1868,34 @@ farming.start = function () {
         };
     }
     a.checkTutSeen();
-   
+
+ ///Out of Cash modal
+    var outOfCash = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(45, 100).setSize(210, 220).setFill("images/UI/outOfCash.png");
+    e.appendChild(outOfCash);
+    var buyStarCash = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(122, 212).setSize(75, 35).setFill("images/UI/buyStarCash.png");
+    outOfCash.appendChild(buyStarCash);
+    var marketBtn1 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(15, 212).setSize(75, 35).setFill("images/UI/marketBtn.png");
+    outOfCash.appendChild(marketBtn1);
+    var cancelBtnCash = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(89, 212).setSize(35, 35).setFill("images/UI/XButton.png");
+    outOfCash.appendChild(cancelBtnCash);
+    outOfCash.setHidden(true);
+    goog.events.listen(buyStarCash, ["mousedown", "touchstart"], function () {            //starCash Button
+        outOfCash.setHidden(true);
+        c.replaceScene(menuScene, lime.transitions.SlideInUp);
+    }, { passive: false });
+    goog.events.listen(marketBtn1, ["mousedown", "touchstart"], function () {            //market Button
+        outOfCash.setHidden(true);
+        c.replaceScene(marketScene, lime.transitions.SlideInDown);
+    }, { passive: false });
+    goog.events.listen(cancelBtnCash, ["mousedown", "touchstart"], function () {            //cancel Button
+        outOfCash.setHidden(true);
+
+    }, { passive: false });
+
+
+
 ///For Sale confirm modal
-    var confirmSale = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(45, 100).setSize(210, 220).setFill("images/UI/saleBack.png");
+    var confirmSale = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(45, 140).setSize(210, 220).setFill("images/UI/saleBack.png");
     e.appendChild(confirmSale);
     var confirmText = (new lime.Label).setAnchorPoint(0, 0).setFontColor("#000000").setPosition(45, 145).setSize(125, 60).setFontSize(20).setText("Dairy Farm $2500");
     confirmSale.appendChild(confirmText);
@@ -1940,7 +1969,7 @@ farming.start = function () {
         localStorage.setItem('GuiGhostFarms_acres', JSON.stringify(acres));
     }, { passive: false });
 
-    goog.events.listen(cancelBtn, ["mousedown", "touchstart"], function () { confirmSale.setHidden(true); }, { passive: false });     //forsale cancel
+    goog.events.listen(cancelBtn, ["mousedown", "touchstart"], function () { sceneBefore = 1; confirmSale.setHidden(true); }, { passive: false });     //forsale cancel
        
          
  
@@ -1975,13 +2004,14 @@ farming.start = function () {
     goog.events.listen(barn, ["mousedown", "touchstart"], function () {                 //barnUpgrades
         //console.log("hit it");
         if (player.tools >= 100 && player.barnLevel < 6) {
-            barnUnlock.setHidden(true); barnUnlock3.setHidden(true);
+            barnUnlock3.setHidden(true);
             //barnUnlockBtn.setHidden(true);
             player.barnLevel = player.barnLevel + 1;
             console.log("barn level is " + player.barnLevel);
             player.tools = player.tools - 100;
             localStorage.setItem('GuiGhostFarms_player', JSON.stringify(player));
             //player.barnLevel = 2;
+            
             if (player.barnLevel > 5) { player.barnLevel = 5; };
 
             localStorage.setItem('GuiGhostFarms_player', JSON.stringify(player));
@@ -1993,6 +2023,8 @@ farming.start = function () {
             if (player.barnLevel == 3) { barn.setFill('images/barn3.png'); };
             if (player.barnLevel == 4) { barn.setFill('images/barn4.png'); };
             if (player.barnLevel == 5) { barn.setFill('images/barn5.png'); };
+            barnUnlock.setText("Lvl " + player.barnLevel + "/5");
+            if (player.barnLevel < 5) {  barnUnlock3.setHidden(false); }
             a.updateTools();
 
         }

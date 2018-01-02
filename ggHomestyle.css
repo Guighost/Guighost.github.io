@@ -31,7 +31,12 @@ img {
     transform:scale(.75) translateY(-185px);
 }
 #bubstorImg1 {
-    transform: scale(1.1) translate(-30px, -8px);
+    margin-left: 2.5%;
+    transform:  translate(0px, -8px);
+    width: 90%;
+    max-height: 313px;
+    max-width: 1000px;
+
 }
 #bubstorImg2 {
     transform: scale(1.0) translateY(-20px);
@@ -47,13 +52,15 @@ padding-top: 50px;
     min-width: 99%;
     clear:both;
 }
+#farmSection {
+    height: 840px;
+}
 #farmImg {
-    transform: translateY(-40px) scale(1.0);
-    
+    transform: translateY(-90px) scale(0.9);
     max-width: 95%;
 }
 #guiMatchImg {
-    transform: translateY(-75px) scale(.9);
+    transform: translateY(-100px) scale(.7);
     max-width: 90%;
     max-height: 85%;
 }
@@ -94,11 +101,11 @@ padding-top: 50px;
     height: 50px;
 }
 #infoGuiFarm {
-    transform: translateY(-110px) scale(0.8);
+    transform: translateY(-160px) ;
     height: 50px;
 }
 #infoGuiMatch {
-    transform: translateY(-170px);
+    transform: translateY(-210px);
     height: 40px;
 }
 #infoSoduku {
@@ -114,7 +121,7 @@ padding-top: 50px;
 
 #fbShare {
     position: absolute;
-    left: 85%;
+    left: 80%;
     top: 5px;
     transform: translateX(-30px);
     /*transform: scale(1.2);*/
@@ -123,4 +130,17 @@ padding-top: 50px;
     left: 50%;
     transform: translateX(-20px);
     max-width: 90%;
+}
+.playBtns {
+    background-color: azure;
+    border-radius: 20px;
+    height: 40px;
+    width: 90px;
+    margin-left: 15px;
+    margin-top: 15px;
+    text-decoration: none;
+    color: blueviolet;
+    font-family: 'Comic Sans MS';
+    font-size: 20px;
+    transform: translateX(-30px);
 }
