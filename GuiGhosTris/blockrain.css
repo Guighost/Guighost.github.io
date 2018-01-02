@@ -10,8 +10,8 @@
 /* Touch Controls */
 .blockrain-touch {
   position: absolute;
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   display: block;
   border-radius: 100%;
   border: 1px solid white;
@@ -32,44 +32,45 @@
 }
 
 .blockrain-touch-left {
-  left: -60px;
-  bottom: 10px;
+  left: -45px;
+  bottom: 5px;
 }
-.blockrain-touch-left::after {
-  content: "<";
-}
+    .blockrain-touch-left::after {
+        content: url(assets/images/arrowL.png);
+    }
 .blockrain-touch-right {
-  right: -60px;
-  bottom: 10px;
+  right: -45px;
+  bottom: 5px;
 }
-.blockrain-touch-right::after {
-  content: ">";
-}
+    .blockrain-touch-right::after {
+        content: url(assets/images/arrowR.png);
+       
+    }
 
 .blockrain-touch-rotate-left {
-  left: -60px;
+  left: -45px;
   bottom: 80px;
 }
-.blockrain-touch-rotate-left::after {
-  content: "<o";
-}
+    .blockrain-touch-rotate-left::after {
+        content: url(assets/images/rotateL.png);
+    }
 
 .blockrain-touch-rotate-right {
-  right: -60px;
+  right: -45px;
   bottom: 80px;
 }
-.blockrain-touch-rotate-right::after {
-  content: "o>";
-}
+    .blockrain-touch-rotate-right::after {
+        content: url(assets/images/rotateR.png);
+    }
 
 .blockrain-touch-drop {
   left: 50%;
   margin-left: -25px;
-  bottom: -60px;
+  bottom: -45px;
 }
-.blockrain-touch-drop::after {
-  content: ".";
-}
+    .blockrain-touch-drop::after {
+        content: url(assets/images/drop.png);
+    }
 
 /* Buttons */
 .blockrain-btn {

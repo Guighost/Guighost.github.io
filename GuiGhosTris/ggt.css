@@ -8,6 +8,7 @@
 .wrapper {
     background-repeat: no-repeat;
     background-color: darkred;
+    transform: translate(0px,15px);
 }
 .game {
     /*width: 320px;
@@ -16,4 +17,55 @@
     margin-left: auto;
     margin-right: auto;
     
+}
+#footerImgTet {
+    background-image: url("../Images/footerImg.png");
+    background-position:right;
+    background-size:contain;
+    background-repeat: no-repeat;
+   transform: translate(13px,-5px);
+    height: 60px;
+}
+#titleImg {
+    background-image: url("assets/images/titleLogo.png");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 40px;
+    width:100%;
+    position: absolute;
+    top: 2px;
+    z-index: 5000;
+    display: block !important;
+}
+@media (device-width: 414px) {
+    #gameDiv {
+        max-height: 620px;
+        max-width: 330px;
+    }
+}
+@media (device-width: 412px) {
+    #gameDiv {
+        max-height: 620px;
+        max-width: 330px;
+    }
+}
+@media (device-width: 375px) {
+    #gameDiv {
+        max-height: 550px;
+        max-width: 290px;
+    }
+}
+@media (device-width: 360px) {
+    #gameDiv {
+        max-height: 520px;
+        max-width: 280px;
+    }
+}
+
+@media (device-width: 320px) {
+    #gameDiv {
+        max-height: 380px;
+        max-width: 235px;
+    }
 }

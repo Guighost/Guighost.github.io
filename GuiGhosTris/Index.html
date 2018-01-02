@@ -1,4 +1,5 @@
 ﻿<!DOCTYPE html>
+
 <html>
 <head>
     <meta charset="utf-8" />
@@ -7,13 +8,17 @@
     <link rel="stylesheet" href="ggt.css">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui" />
     <link rel="shortcut icon" href="assets/images/favicon.png">
-  
+    <script src="assets/js/jquery-1.11.1.min.js"></script>
+    <script src="src/blockrain.jquery.libs.js"></script>
+    <script src="blockrain.jquery.js"></script>
+    <script src="src/blockrain.jquery.themes.js"></script>
 </head>
+
 <body>
-    <a href="">GuiGhosTris</a>
+    <div id="titleImg"></div>
     <div class="wrapper" id="gameWrapper">
         <!--The Game-->
-        <div class="game" id="gameDiv" style="width:600px; height:600px;"></div>
+        <div class="game" id="gameDiv" style="width:500px; height:555px;"></div>
         
         <!--The Controls-->
         <!--<div id="controls">
@@ -25,15 +30,12 @@
         </div>-->
     </div>
 
-    <footer> GuiGhost Games</footer>
-    <script src="assets/js/jquery-1.11.1.min.js"></script>
-    <script src="src/blockrain.jquery.libs.js"></script>
-    <script src="blockrain.jquery.js"></script>
-    <script src="src/blockrain.jquery.themes.js"></script>
+    <footer><div id="footerImgTet"> </div> </footer>
+  
     <script>
         //Start Game
         $('.game').blockrain();
-        $('.game').blockrain('controls', true);
+        $('.game').blockrain('controls', false);
         //Resize functions
         window.addEventListener('resize', resizeGame, false);
         window.addEventListener('orientationchange', resizeGame, false);
