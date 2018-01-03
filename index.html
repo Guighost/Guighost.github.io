@@ -67,22 +67,39 @@
 
 
     </script>
-    <script>
+  
 
-    </script>
-    <!--
-      Below we include the Login Button social plugin. This button uses
-      the JavaScript SDK to present a graphical Login button that triggers
-      the FB.login() function when clicked.
-    -->
+    <menu>
+        <div class="topnav" id="myTopnav">
+    
+            <a href="#home" class="active">Home</a>
+   
+            <a href="#guibubbles" > Gui Bubble Story</a>
+    
+            <a href="#farmSection"> GuiGhost Farms</a>
+   
+            <a href="#spellMatchSection"> Gui SpellMatch</a>
 
-    <menu></menu>
+            <a href="#guiMatchSection"> GuiMatch</a>
+
+            <a href="#tetrisSection"> GuiGhosTris</a>
+
+            
+
+            
+                <div id="fbShare" class="fb-share-button" data-href="http://guighostgames.com/index.html" data-layout="button" data-size="large" data-mobile-iframe="true">
+                    <a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fguighostgames.com%2Findex.html&amp;src=sdkpreparse">Share</a>
+                </div>
+           
+           
+    
+            <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="menuFunction()">&#9776;</a>
+        </div>
+    </menu>
     <div>
         <img id="bubstorImg1" src="Images/Homepage/logoImg-2.png" onclick="" />
        
-        <div id="fbShare"class="fb-share-button" data-href="http://guighostgames.com/index.html" data-layout="button" data-size="large" data-mobile-iframe="true">
-        <a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fguighostgames.com%2Findex.html&amp;src=sdkpreparse">Share</a>
-        </div>
+        
         <header>
             <br/>
             <h3 id="headH3"> <span id="_applicationCategory2" itemprop="applicationCategory">Family Friendly Free Online Games</span></h3>
@@ -100,7 +117,7 @@
         <section>
             <div>
                 <div>
-                    <h2>Gui Bubble Story</h2>
+                    <h2 id="guibubbles">Gui Bubble Story</h2>
                     <a href="GuiFruitBubbles/" >
                         <img itemprop="screenshot" id="bubstorImg2" src="Images/Homepage/bubstorImg.png" />
                     </a>
@@ -112,9 +129,25 @@
                 </div>
             </div>
         </section>
+        <section id="farmSection">
+            <div>
+                <h2 id="guifarm">GuiGhost Farms</h2>
+
+                <a href="GuiFarm/">
+                    <img itemprop="screenshot" id="farmImg" src="Images/Homepage/GuiFarm3.png" />
+
+                </a>
+            </div>
+
+            <div itemscope itemtype="http://schema.org/SoftwareApplication" itemref="_author5 _name9" id="infoGuiFarm" class="infoDivs">
+                <a class="playBtns" href="GuiFarm/"> -PLAY- </a><br /> <br /><a class="playBtns" href="https://www.facebook.com/GuiGhostFarms/" target="_blank"> -Community- </a> <br />
+                <br />
+                <span itemprop="applicationCategory">Farming</span> fun for all ages. Grow crops, level your barnyard, raise livestock, and more! 5 farms to play.
+            </div>
+        </section>
         <section id="spellMatchSection">
             <div>
-                <h2> Gui SpellMatch </h2>
+                <h2 id="guispellmatch"> Gui SpellMatch </h2>
                 <br /> <br />
                 <a href="GuiSpellMatch/">
                     <img itemprop="screenshot" id="guiSpellMatchImg" src="Images/Homepage/SpellMatch.png" />
@@ -123,43 +156,19 @@
             <div id="infoSpellMat" class="infoDivs"> <a class="playBtns" href="GuiSpellMatch/">-PLAY-</a>  
             <br/>Match 3 fun like you have never experienced. Batlle through 3 tournaments, matching spells to attack. But watch out, they fight back! Level your spells for increased damage! <br/> Can you win the SpellMatch? </div>
         </section>
-        <section id="farmSection">        
-            <div>
-                <h2>GuiGhost Farms</h2>
-                
-                <a href="GuiFarm/" >
-                    <img itemprop="screenshot" id="farmImg" src="Images/Homepage/GuiFarm3.png" />
-
-                </a>
-            </div>
-            
-            <div itemscope itemtype="http://schema.org/SoftwareApplication" itemref="_author5 _name9"   id="infoGuiFarm" class="infoDivs"><a class="playBtns" href="GuiFarm/" > -PLAY- </a><br /> <br/><a class="playBtns" href="https://www.facebook.com/GuiGhostFarms/" target="_blank"> -Community- </a> <br/>
-            <br/>
-            <span itemprop="applicationCategory">Farming</span> fun for all ages. Grow crops, level your barnyard, raise livestock, and more! 5 farms to play.</div>
-        </section>
+        
         <section id="guiMatchSection">           
             <div>
-                <h2>Gui Match</h2>
+                <h2 id="guimatch">Gui Match</h2>
                 <a href="GuiMatch/" >
                     <img itemprop="screenshot" id="guiMatchImg" src="Images/Homepage/GuiMatch.png" />
                 </a>
             </div>
             <div id="infoGuiMatch" class="infoDivs"> <a class="playBtns" href="GuiMatch/" > -PLAY- </a> <br/> Classic match 3 with lots of <span id="_applicationCategory17" itemprop="applicationCategory">kid friendly</span>  images to match with as you level up. This game is designed for younger players. </div>
         </section>
-        <section id="sodukuSection">          
-            <div>
-                <h2>Gui Suduku</h2>
-                <a href="Gui-Soduku/" >
-                    <img itemprop="screenshot" id="sodukuImg" src="Images/Homepage/guiSoduku.png" />
-
-                </a>
-                <div id="infoSoduku" class="infoDivs"> <a class="playBtns" href="Gui-Soduku/" > -PLAY- </a> <br/> Classic Soduku made for my daughter. Can you master Soduku?  </div>
-            </div>
-            
-        </section>
         <section id="tetrisSection">
             <div>
-                <h2>GuiGhosTris</h2>
+                <h2 id="guighostris">GuiGhosTris</h2>
                 <a href="GuiGhosTris/index.html">
                     <img itemprop="screenshot" id="sodukuImg" src="Images/Homepage/GuiGhosTris.png" />
 
@@ -168,6 +177,18 @@
             </div>
 
         </section>
+        <section id="sodukuSection">          
+            <div>
+                <h2 id="guisukuku">Gui Suduku</h2>
+                <a href="Gui-Soduku/" >
+                    <img itemprop="screenshot" id="sodukuImg" src="Images/Homepage/guiSoduku.png" />
+
+                </a>
+                <div id="infoSoduku" class="infoDivs"> <a class="playBtns" href="Gui-Soduku/" > -PLAY- </a> <br/> Classic Soduku made for my daughter. Can you master Soduku?  </div>
+            </div>
+            
+        </section>
+        
     </div>
     <footer>
         <div >
@@ -183,5 +204,24 @@
         </div>
         
     </footer>
+    <script>
+          function menuFunction() {
+              var x = document.getElementById("myTopnav");
+              if (x.className === "topnav") {
+                  x.className += " responsive";
+              } else {
+                  x.className = "topnav";
+              }
+        }
+          function changeActive() {
+              var x = document.getElementById(this);
+              if (x.className === "active") {
+                  x.className += "";
+              } else {
+                  x.className = "active";
+              }
+          }
+    </script>
+
 </body>
 </html>
