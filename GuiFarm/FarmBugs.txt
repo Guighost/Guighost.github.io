@@ -1,8 +1,8 @@
 
-returning from Market Scene to correct location
+Player can run out of money
 
 image flashing (declare all images)
 
-forcing crops by zone
-
-smooth out pig anims
+Seeds cost $ to plant
+Sell your crops at Market
+to keep planting

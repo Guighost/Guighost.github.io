@@ -4,18 +4,8 @@
 	
 		Implement login days in a row counter (maybe)
 		
-	create Tutorial intro sequence
-		Welcome to GuiGhost Farms
-							Next
-		Here's how to get Started. Touch/Click a empty plot to plow
-							Next
-				Hide modal and point at gound (boucing)
-					Once complete show the next modal
-			Now touch again to plant
-			
-		
-		
 	
+		
 -Implement Achievements 
 	achievements
 	1	Harvester I - collect 500 crops
@@ -51,10 +41,7 @@
 	
 -for sale
 
-	
-	
--Market
-	
+
 
 
 
