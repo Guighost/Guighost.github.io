@@ -18,7 +18,7 @@
     <div id="titleImg"></div>
     <div class="wrapper" id="gameWrapper">
         <!--The Game-->
-        <div class="game" id="gameDiv" style="width:500px; height:555px;"></div>
+        <div class="game" id="gameDiv" style="width:700px; height:755px;"></div>
         
         <!--The Controls-->
         <!--<div id="controls">
@@ -30,17 +30,28 @@
         </div>-->
     </div>
 
-    <footer><div id="footerImgTet"> </div> </footer>
+    <footer><div id="footDiv">
+    <span itemscope itemtype="http://schema.org/SoftwareApplication" itemref="_applicationCategory17 _author5 _name9">
+        <span itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+            <span itemprop="name">GuiGhost Games  &nbsp;</span>
+        </span>
+    </span>
+    <span itemscope itemtype="http://schema.org/SoftwareApplication" itemref="bubstorImg5 _author5 _name9">
+        <span itemprop="applicationCategory">free/online games &nbsp; &nbsp;</span>
+    </span>
+   <br/>
+    <a href="privacypolicy.htm">Privacy Policy</a>
+</div> </footer>
   
     <script>
         //Start Game
         $('.game').blockrain();
-        $('.game').blockrain('controls', false);
+        $('.game').blockrain('controls', true);
         //Resize functions
         window.addEventListener('resize', resizeGame, false);
         window.addEventListener('orientationchange', resizeGame, false);
         function resizeGame() {
-            var gameBoard = document.getElementById('gameDiv');
+            var gameBoard = document.getElementById('gameWrapper');
             var widthToHeight = 1 / 2;
 
             var newWidth = window.innerWidth;
@@ -61,7 +72,7 @@
             gameBoard.style.marginTop = (-newHeight / 2) + 'px';
             gameBoard.style.marginLeft = (-newWidth / 2) + 'px';
         };
-
+        //resizeGame();
 
 
     </script>

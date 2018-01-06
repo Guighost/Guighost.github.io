@@ -23,13 +23,13 @@
       theme: 'candy', // The theme name or a theme object
       //blockWidth: 10, // How many blocks wide the field is (The standard is 10 blocks)
       autoBlockWidth: true, // The blockWidth is dinamically calculated based on the autoBlockSize. Disabled blockWidth. Useful for responsive backgrounds
-      autoBlockSize: 24, // The max size of a block for autowidth mode
+      autoBlockSize: 28, // The max size of a block for autowidth mode
       difficulty: 'normal', // Difficulty (normal|nice|evil).
       speed: 15, // The speed of the game. The higher, the faster the pieces go.
       asdwKeys: true, // Enable ASDW keys
 
       // Copy
-      playText: 'Play Blockrain',
+      playText: 'Play using the touch controls on Mobile and Tablets <br/> or use &#8592 &#8593 &#8594 &#8595 on your PC ',
       playButtonText: 'Play',
       gameOverText: 'Game Over',
       restartButtonText: 'Play Again',
@@ -1247,6 +1247,7 @@
             '<div class="blockrain-start-msg">'+ this.options.playText +'</div>'+
             '<a class="blockrain-btn blockrain-start-btn">'+ this.options.playButtonText +'</a>'+
           '</div>'+
+
         '</div>').hide();
       game._$gameholder.append(game._$start);
 

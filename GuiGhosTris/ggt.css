@@ -7,37 +7,70 @@
 
 .wrapper {
     background-repeat: no-repeat;
-    background-color: darkred;
-    transform: translate(0px,15px);
+    /*background-color:magenta;*/
+    /*transform: translate(0px,5px);*/
+
+    /*display: none;*/
 }
 .game {
-    /*width: 320px;
-    height: 500px;*/
-    border: 1px solid blue;
+    /*width: 320px;*/
+    /*height: 90%;*/
+    border: 30px solid magenta;
+    border-radius:15px;
     margin-left: auto;
     margin-right: auto;
     
 }
-#footerImgTet {
-    background-image: url("../Images/footerImg.png");
-    background-position:right;
-    background-size:contain;
-    background-repeat: no-repeat;
-   transform: translate(13px,-5px);
-    height: 60px;
+
+#footDiv {
+    position: absolute;
+    display: block;
+    clear: both;
+    bottom: 1px;
+    font-size: 10px;
+    width: 100%;
+    /*transform: translate(0px,15px);*/
+    height: 30px;
 }
 #titleImg {
-    background-image: url("assets/images/titleLogo.png");
+    background-image: url("assets/images/titleLogo2.png");
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
     height: 40px;
-    width:100%;
+    width: 100%;
     position: absolute;
     top: 2px;
     z-index: 5000;
+    transform: translate(-10px,-1px);
     display: block !important;
 }
+@media screen and (min-width: 1920px) {
+    #gameDiv {
+        max-height: 1000px;
+        max-width: 500px;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    #gameDiv {
+        max-height: 725px;
+        max-width: 600px;
+    }
+}
+@media screen and (min-width: 1024px) {
+    #gameDiv {
+        max-height: 725px;
+        max-width: 530px;
+    }
+}
+@media screen and (min-width: 1024px) and (min-height: 1366px){
+    #gameDiv {
+        max-height: 1350px;
+        max-width: 930px;
+    }
+}
+
 @media (device-width: 414px) {
     #gameDiv {
         max-height: 620px;
@@ -65,7 +98,7 @@
 
 @media (device-width: 320px) {
     #gameDiv {
-        max-height: 380px;
+        max-height: 365px;
         max-width: 235px;
     }
 }
