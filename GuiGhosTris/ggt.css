@@ -2,7 +2,9 @@
     font-family: 'Comic Sans MS';
     text-align: center;
     background-repeat: no-repeat;
-    background-color: darkslateblue;
+    background: radial-gradient( darkslateblue, black, magenta);
+    background-size: cover;
+    /*background-repeat: no-repeat;*/
 }
 
 .wrapper {
@@ -62,6 +64,9 @@
     #gameDiv {
         max-height: 725px;
         max-width: 530px;
+    }
+    .optionBtns {
+        height: 100px;
     }
 }
 @media screen and (min-width: 1024px) and (min-height: 1366px){

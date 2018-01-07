@@ -147,6 +147,44 @@ color: black;
 text-align:left;
 font-size: 28px;
 }
+.optionBtns {
+    background-position: bottom;
+    background-repeat: no-repeat;
+    /*background-size: contain;*/
+    height: 65px;
+    width: 65px;
+    color: green;
+    font-weight: bolder;
+    background-color: darkslateblue;
+}
+.candy-btn {
+    background-color: darkslateblue;
+    background-image: url("assets/images/candy.png");
+}
+.modern-btn {
+    background-image: url("assets/images/modern.png");
+}
+.aerolab-btn {
+    background-image: url("assets/images/blackout.png");
+}
+.custom-btn {
+    background-image: url("assets/images/circuit.png");
+}
+.retro-btn {
+    background-image: url("assets/images/retro.png");
+}
+.vim-btn {
+    background-image: url("assets/images/binary.png");
+}
+.gameboy-btn {
+    background-image: url("assets/images/classic.png");
+}
+.blockrain-option-msg {
+
+}
+.gummy-btn {
+    background-image: url("assets/images/gummy.png");
+}
 .blockrain-option-holder {
     position: absolute;
     top: 0;
