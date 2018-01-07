@@ -185,6 +185,9 @@ font-size: 28px;
 .gummy-btn {
     background-image: url("assets/images/gummy.png");
 }
+.cracked-btn {
+    background-image: url("assets/images/cracked.png");
+}
 .blockrain-option-holder {
     position: absolute;
     top: 0;
@@ -288,5 +291,8 @@ font-size: 28px;
         width: 310px;
         margin-left: 50%;
         transform: translateX(-130px);
+    }
+    .optionBtns {
+        height:55px;
     }
 }
