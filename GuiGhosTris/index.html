@@ -39,14 +39,18 @@
     <span itemscope itemtype="http://schema.org/SoftwareApplication" itemref="bubstorImg5 _author5 _name9">
         <span itemprop="applicationCategory">free/online games &nbsp; &nbsp;</span>
     </span>
-   <br/>
-    <a href="privacypolicy.htm">Privacy Policy</a>
+  
+    <a href="../privacypolicy.htm">Privacy Policy</a>
+        <div id="poweredBy">GuiGhosTris is based on the open source <a href="https://github.com/Aerolab/blockrain.js">Blockrain</a> engine</div>
 </div> </footer>
   
     <script>
         //Start Game
         $('.game').blockrain();
         $('.game').blockrain('controls', true);
+     
+       
+
         //Resize functions
         window.addEventListener('resize', resizeGame, false);
         window.addEventListener('orientationchange', resizeGame, false);

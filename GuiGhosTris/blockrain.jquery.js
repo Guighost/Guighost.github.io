@@ -20,7 +20,7 @@
       autoplay: false, // Let a bot play the game
       autoplayRestart: true, // Restart the game automatically once a bot loses
       showFieldOnStart: true, // Show a bunch of random blocks on the start screen (it looks nice)
-      theme: 'candy', // The theme name or a theme object
+      theme: 'vim', // The theme name or a theme object
       //blockWidth: 10, // How many blocks wide the field is (The standard is 10 blocks)
       autoBlockWidth: true, // The blockWidth is dinamically calculated based on the autoBlockSize. Disabled blockWidth. Useful for responsive backgrounds
       autoBlockSize: 28, // The max size of a block for autowidth mode
@@ -30,7 +30,7 @@
 
       // Copy
       playText: 'Play using the touch controls on Mobile and Tablets <br/> or use &#8592 &#8593 &#8594 &#8595 on your PC ',
-      playButtonText: 'Play',
+      playButtonText: 'PLAY',
       gameOverText: 'Game Over',
       restartButtonText: 'Play Again',
       scoreText: 'Score',
@@ -46,7 +46,7 @@
       onLine: function(lines, scoreIncrement, score){}
     },
 
-
+     
     /**
      * Start/Restart Game
      */
@@ -132,6 +132,10 @@
       this._$gameover.show();
     },
 
+    showOptionsSelect: function() {
+        this._$optionsSelect.show();
+    },
+
     /**
      * Update the sizes of the renderer (this makes the game responsive)
      */
@@ -156,7 +160,7 @@
 
 
     theme: function(newTheme){
-
+        
       if( typeof newTheme === 'undefined' ) {
         return this.options.theme || this._theme;
       }
@@ -1245,30 +1249,120 @@
         '<div class="blockrain-start-holder" style="position:absolute;">'+
           '<div class="blockrain-start">'+
             '<div class="blockrain-start-msg">'+ this.options.playText +'</div>'+
-            '<a class="blockrain-btn blockrain-start-btn">'+ this.options.playButtonText +'</a>'+
-          '</div>'+
+          '<a class="blockrain-btn blockrain-start-btn">' + this.options.playButtonText + '</a>' +
+          '<br/>' +
+          '<a class="blockrain-btn blockrain-option-btn">' + "Options" + '</a>' +
+          '</div>' +
+          '</div>' +
 
         '</div>').hide();
       game._$gameholder.append(game._$start);
 
-      game._$start.find('.blockrain-start-btn').click(function(event){
-        event.preventDefault();
-        game.start();
-      });
+    
+     
 
+
+      game._$start.find('.blockrain-start-btn').click(function (event) {
+          event.preventDefault();
+          game.start();
+      });
+      
       // Create the game over menu
       game._$gameover = $(
         '<div class="blockrain-game-over-holder" style="position:absolute;">'+
           '<div class="blockrain-game-over">'+
             '<div class="blockrain-game-over-msg">'+ this.options.gameOverText +'</div>'+
             '<a class="blockrain-btn blockrain-game-over-btn">'+ this.options.restartButtonText +'</a>'+
-          '</div>'+
+          '<br/>' +
+          '<a class="blockrain-btn blockrain-Home-btn" id="homeBtn">' + "Home" + '</a>' +
+          '</div>' +
+         
         '</div>').hide();
       game._$gameover.find('.blockrain-game-over-btn').click(function(event){
         event.preventDefault();
         game.restart();
       });
+
+      game._$gameover.find('.blockrain-Home-btn').click(function (event) {
+
+          //alert("yep");
+          game._$gameover.hide();
+          game._$start.show();
+
+      });
       game._$gameholder.append(game._$gameover);
+
+      game._$start.find('.blockrain-option-btn').click(function (event) {
+          event.preventDefault();
+          game._$optionsSelect = $(
+              '<div class="blockrain-option-holder" style="position:absolute;">' +
+              '<div class="blockrain-optionInner">' +
+              '<div class="blockrain-option-msg">' + "<div style='color:magenta'>Options<div>" + 
+              
+              '<a class="blockrain-btn candy-btn">' + "Candy" + '</a>' +
+              '<br/>' +
+              '<a class="blockrain-btn modern-btn">' + "Modern" + '</a>' +
+              '<br/>' +
+              '<a class="blockrain-btn aerolab-btn">' + "Blackout" + '</a>' +
+              '<br/>' +
+
+              '<a class="blockrain-btn custom-btn">' + "Circuit" + '</a>' +
+              '<br/>' +
+              '<a id="retroBtn" class="blockrain-btn retro-btn">' + "Retro" + '</a>' +
+              '<br/>' +
+              '<a id="retroBtn" class="blockrain-btn vim-btn">' + "Binary" + '</a>' +
+              '<br/>' +
+              '<a id="retroBtn" class="blockrain-btn gameboy-btn">' + "Classic" + '</a>' +
+              '</div>' +
+              '</div>' +
+              '</div>').show();
+          var themeNameGG = 'candy';
+          game._$optionsSelect.find('.candy-btn').click(function (event) {
+              event.preventDefault();
+              themeNameGG = 'candy';
+              loadThemeGG(themeNameGG); game._$optionsSelect.hide();
+
+          });
+
+          game._$optionsSelect.find('.modern-btn').click(function (event) {
+              event.preventDefault(); themeNameGG = 'modern';
+              loadThemeGG(themeNameGG); game._$optionsSelect.hide();
+
+          });
+          game._$optionsSelect.find('.aerolab-btn').click(function (event) {
+              event.preventDefault(); themeNameGG = 'aerolab';
+              loadThemeGG(themeNameGG); game._$optionsSelect.hide();
+
+          });
+          game._$optionsSelect.find('.custom-btn').click(function (event) {
+              event.preventDefault();
+              themeNameGG = 'custom';
+              loadThemeGG(themeNameGG); game._$optionsSelect.hide();
+
+          });
+          game._$optionsSelect.find('.retro-btn').click(function (event) {
+              event.preventDefault();
+              themeNameGG = 'retro';
+              loadThemeGG(themeNameGG); game._$optionsSelect.hide();
+
+          });
+          game._$optionsSelect.find('.vim-btn').click(function (event) {
+              event.preventDefault();
+              themeNameGG = 'vim';
+              loadThemeGG(themeNameGG); game._$optionsSelect.hide();
+
+          });
+          game._$optionsSelect.find('.gameboy-btn').click(function (event) {
+              event.preventDefault();
+              themeNameGG = 'gameboy';
+              loadThemeGG(themeNameGG); game._$optionsSelect.hide();
+
+          });
+          game._$gameholder.append(game._$optionsSelect);
+      });
+
+
+
 
       this._createControls();
     },
@@ -1627,8 +1721,48 @@
     }
 
   });
+  function loadThemeGG(themeNameGG) {
+      console.log("in load " + themeNameGG);
+      $('.game').blockrain('theme', themeNameGG );
+      function changeBorder() {
+          var elem = $(".game").attr("style");
+          console.log(elem + " is")
+         
+          var colorName = "";
+          switch (themeNameGG) {
+              case 'modern':
+                  colorName = 'yellow';
+                  break;
+              case 'aerolab':
+                  colorName = 'black';
+                  break;
+              case 'custom':
+                  colorName = 'purple';
+                  break;
+              case 'retro':
+                  colorName = 'green';
+                  break;
+              case 'vim':
+                  colorName = '#C2FFAE';
+                  break;
+              case 'gameboy':
+                  colorName = 'darkgrey';
+                  break;
+              default:
+                  colorName = 'magenta';
+          }
 
+
+          $(".game").css("border", "30px solid " + colorName);
+          //$(".game").attr("style").border = "30px solid blue" ;
+
+      };
+      changeBorder(themeNameGG);
+      $('.game').blockrain('start');
+  }
 })(jQuery));
+
+
 /**
  * Themes. You can add more custom themes to this object.
  */

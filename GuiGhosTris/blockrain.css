@@ -91,55 +91,81 @@
   background: none;
   color: #ffffff;
   text-decoration: none;
-  border: 2px solid #ffffff;
-  padding: 8px 30px;
+  margin:5px;
+  border: 2px groove #ffffff;
+  padding: 4px 10px;
   font-size: 18px;
   text-align: center;
   cursor: default;
+  border-radius:10px;
 }
-.blockrain-btn::before {
-  position: absolute;
-  content: "";
-  top: 100%;
-  left: 0px;
-  bottom: 0px;
-  right: 0px;
-  border: 2px solid #ffffff;
-  border-top: none;
-  border-right: none;
-  transition: all 0.2s ease;
-}
-.blockrain-btn::after {
-  position: absolute;
-  content: "";
-  top: 0px;
-  left: 100%;
-  bottom: 0px;
-  right: 0px;
-  border: 2px solid #ffffff;
-  border-left: none;
-  border-bottom: none;
-  transition: all 0.2s ease;
-}
+    .blockrain-btn::before {
+        position: absolute;
+        content: "";
+        top: 100%;
+        left: 0px;
+        bottom: 0px;
+        right: 0px;
+        border: 2px groove #ffffff;
+        border-top: none;
+        border-right: none;
+        transition: all 0.2s ease;
+        border-radius: 10px;
+        border-top-right-radius:10px;
+    }
+    .blockrain-btn::after {
+        position: absolute;
+        content: "";
+        top: 0px;
+        left: 100%;
+        bottom: 0px;
+        right: 0px;
+        border: 2px groove #ffffff;
+        border-left: none;
+        border-bottom: none;
+        transition: all 0.2s ease;
+        border-radius: 10px;
+    }
 
-.blockrain-btn:hover::before {
-  left: 5px;
-  bottom: -8px;
-  right: -8px;
+    .blockrain-btn:hover::before {
+        left: 5px;
+        bottom: -8px;
+        right: -8px;
+        border-radius: 10px;
+    }
+    .blockrain-btn:hover::after {
+        top: 5px;
+        bottom: -8px;
+        right: -8px;
+        border-radius: 10px;
+    }
+.blockrain-start-btn {
+background-color:greenyellow;
+height: 40px;
+width: 60px;
+color: black;
+text-align:left;
+font-size: 28px;
 }
-.blockrain-btn:hover::after {
-  top: 5px;
-  bottom: -8px;
-  right: -8px;
+.blockrain-option-holder {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.8);
+    z-index: 7000;
 }
+#blockrain-optionInner{
+    position: relative;
 
-
+}
 /* Score */
 .blockrain-score-holder {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  text-align: right;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    text-align: right;
 }
 .blockrain-score-msg {
   font-size: 14px;  
