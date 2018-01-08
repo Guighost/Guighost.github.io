@@ -1,0 +1,98 @@
+body {
+    font-family: 'Comic Sans MS';
+    text-align: center;
+    background-repeat: no-repeat;
+    background: radial-gradient( darkslateblue, black, magenta);
+    background-size: cover;
+    background-repeat: repeat;
+    
+}
+canvas {
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  margin: auto;
+  box-shadow: 2px 2px 5px white;
+  border-radius: 10px;
+  cursor: pointer;
+  max-width: 95%;
+  max-height: 90%;
+}
+
+button {
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  margin: auto;
+  cursor: pointer;
+}
+
+#facebook {
+  display: none;
+  top: -40px;
+  width: 130px;
+  height: 50px;
+  font-size: 1.1em;
+  color: white;
+  background-color: #3c5698;
+  border: none;
+  z-index: 10000;
+  border-radius: 20px;
+}
+
+#facebook:hover {
+  background-color: #31467c;
+}
+
+#headLogo {
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    margin:auto;
+    width: 500px;
+    height: 80px;
+    transform: translate(90px, -280px);
+    background-repeat: no-repeat;
+    background-image: url("../sprites/logo.png");
+    background-size: contain;
+    display: block;
+    z-index: 3000;
+}
+#footLogo {
+    background-repeat: no-repeat;
+    background: linear-gradient( black, magenta);
+    background-size: cover;
+}
+@media (device-height: 414px) {
+    #headLogo {
+        transform: translate(90px, -217px);
+    }
+}
+@media (device-height: 375px) {
+    #headLogo {
+        transform: translate(90px, -192px);
+    }
+}
+@media (device-height: 360px) {
+    #headLogo {
+        transform: translate(90px, -190px);
+    }
+}
+@media (device-height: 320px) {
+    #headLogo {
+        transform: translate(90px, -162px);
+    }
+
+    
+}
+@media (device-width: 320px){
+    #headLogo {
+        transform: translate(20px, -122px);
+    }
+}

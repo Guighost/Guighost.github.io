@@ -125,13 +125,16 @@ padding-top: 50px;
     transform: translateY(-100px);
     height: 40px;
 }
+#infoGraveyard {
+    transform: translateY(-100px);
+    height: 40px;
+}
 /*#fbLogin {
     position: absolute;
     left: 75%;
     top: 120px;
     
 }*/
-
 #aroundShare {
     /*position: absolute;
     left: 80%;
