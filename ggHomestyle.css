@@ -56,6 +56,9 @@ padding-top: 50px;
 #farmSection {
     height: 840px;
 }
+#guiStackSection {
+    height: 840px;
+}
 #farmImg {
     transform: translateY(-70px) ;
     width: 95%;
@@ -83,6 +86,8 @@ padding-top: 50px;
 #sodukuImg {
     max-width: 95%;
     transform: translate(0px, -40px) scale(1.0);
+}
+#guiStackImg { max-width: 95%; transform: translate(0px, -120px) scale(0.8);
 }
 .infoDivs {
     /*height: 160px;*/
@@ -127,6 +132,10 @@ padding-top: 50px;
 }
 #infoGraveyard {
     transform: translateY(-100px);
+    height: 40px;
+}
+#infoGuiStack {
+    transform: translateY(-160px);
     height: 40px;
 }
 /*#fbLogin {

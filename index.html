@@ -9,7 +9,7 @@
     <meta property="og:title" content="GuiGhost Games - Family Friendly Mobile Ready Free Online Games" />
     <meta property="og:description" content="Family Friendly Mobile Ready Free Online Games. Bubble Shooter game, Match 3 games, Farm Simulation game, Classic Tetris game, Classic Soduku game " />
     <meta property="og:image" content="http://guighostgames.com/GuiSpellMatch/Images/gabbyLogo.png" />
-    <title>GuiGhost Games - Home</title>
+    <title>GuiGhost Games - Free Online Games</title>
     <link rel="alternate" href="http://guighostgames.com/" hreflang="en-us" />
     <link rel="stylesheet" href="ggHomestyle.css">
     <link rel="icon"
@@ -195,7 +195,17 @@
 
         </section>
 
+        <section id="guiStackSection">
+            <div>
+                <h2 id="guiStack">GuiStack - Tower of Balance</h2>
+                <a href="GuiStack/">
+                    <img itemprop="screenshot" id="guiStackImg" src="Images/Homepage/guiStack.png" />
 
+                </a>
+                <div id="infoGuiStack" class="infoDivs"> <a class="playBtns" href="GuiStack/"> -PLAY- </a> <br /> Stack the boxes and get the high score. Quick 60 game sessions!.  </div>
+            </div>
+
+        </section>
 
         <section id="sodukuSection">          
             <div>
@@ -253,6 +263,20 @@
         </div>
         
     </footer>
+    <!--FIREBASE-->
+    <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyCh2cwFUUPEmBl5OfnOHBe79RRvFDgVn9Y",
+            authDomain: "guighost-games.firebaseapp.com",
+            databaseURL: "https://guighost-games.firebaseio.com",
+            projectId: "guighost-games",
+            storageBucket: "guighost-games.appspot.com",
+            messagingSenderId: "113008996581"
+        };
+        firebase.initializeApp(config);
+    </script>
     <script>
           function menuFunction() {
               var x = document.getElementById("myTopnav");
