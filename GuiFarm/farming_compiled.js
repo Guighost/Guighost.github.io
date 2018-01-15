@@ -763,6 +763,17 @@ imgArray5[6] = new Image(); imgArray5[6].src = 'images/UI/tut7.png'
 imgArray5[7] = new Image(); imgArray5[7].src = 'images/UI/tut8.png'
 
 
+var imgArray6 = new Array();
+imgArray6[0] = new Image(); imgArray6[0].src = 'images/UI/barn1.png'
+imgArray6[1] = new Image(); imgArray6[1].src = 'images/UI/barn2.png'
+imgArray6[2] = new Image(); imgArray6[2].src = 'images/UI/barn3.png'
+imgArray6[3] = new Image(); imgArray6[3].src = 'images/UI/barn4.png'
+imgArray6[4] = new Image(); imgArray6[4].src = 'images/UI/barn5.png'
+imgArray6[5] = new Image(); imgArray6[5].src = "images/bare_land.png"
+imgArray6[6] = new Image(); imgArray6[6].src = "images/plowed.png"
+
+
+
 //var ss = new lime.SpriteSheet('images/', lime.ASSETS.blacksmith.json, lime.parse)
 var farming = {
     EMPTY: 0, PLOWED: 1, GROWING: 2, READY: 3,
@@ -770,7 +781,7 @@ var farming = {
         lime.Sprite.call(this);
         this.setAnchorPoint(0, 0);
         this.setSize(a.tile_size, a.tile_size);
-        this.setFill("images/bare_land.png");
+        this.setFill(imgArray6[5]);
         if (scene == 3) { this.setFill("images/Orchard/prune_trees.png"); };
         if (scene == 32) { this.setFill("images/Orchard/prune_trees.png"); };
         if (scene == 5) { this.setFill("images/vinyard/grapes_ClearBrush.png"); };
