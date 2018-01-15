@@ -728,7 +728,7 @@ imgArray3[17] = new Image(); imgArray3[17].src = 'images/livestockPens/chicken_w
 imgArray3[18] = new Image(); imgArray3[18].src = 'images/livestockPens/chicken_walkRight4.png';
 imgArray3[19] = new Image(); imgArray3[19].src = 'images/livestockPens/eggs.png';
 imgArray3[20] = new Image(); imgArray3[20].src = 'images/livestockPens/hams.png';
-imgArray3[21] = new Image(); imgArray3[21].src = 'images/livestockPens/pig_left3.png';
+imgArray3[21] = new Image(); imgArray3[21].src = 'images/livestockPens/pig_Left3.png';
 
 
 var imgArray4 = new Array();
@@ -748,7 +748,7 @@ imgArray4[11] = new Image(); imgArray4[11].src = 'images/Orchard/growing4_trees.
 imgArray4[12] = new Image(); imgArray4[12].src = 'images/Orchard/ready_Apples.png'
 imgArray4[13] = new Image(); imgArray4[13].src = 'images/Orchard/ready_treesPear.png'
 imgArray4[14] = new Image(); imgArray4[14].src = 'images/Orchard/treeBlockO.png'
-imgArray4[15] = new Image(); imgArray4[15].src = 'images/Orchard/Orchardback4.png'
+imgArray4[15] = new Image(); imgArray4[15].src = 'images/Orchard/OrchardBack4.png'
 imgArray4[16] = new Image(); imgArray4[16].src = 'images/Orchard/growing22_trees.png'
 
 
@@ -813,7 +813,11 @@ var farming = {
                         a.updateMoney(),
                         a.displayCost(posX, posY, a.crops[b.currentCrop].cost)
                     )
-                     
+                    : c.state == farming.PLOWED && player.money < a.crops[b.currentCrop].cost ?    ///player doesnt have enough to plant that crop
+
+                        (                          
+                             a.displayCost(posX, posY,  a.crops[b.currentCrop].cost + " Required")
+                        )
                     : c.state == farming.READY && (c.setFill("images/bare_land.png"),
                         scene == 3 && (c.setFill("images/Orchard/prune_trees.png")),
                         scene == 32 && (c.setFill("images/Orchard/prune_trees.png")),
@@ -1228,7 +1232,7 @@ var player = {
     pastureLevel: 1,
     fields: 2,
     farms: 1,
-    tools: 150,
+    tools: 50,
     money: 500,
     currentCrop: 0,
     treesP: 0,
@@ -1553,7 +1557,9 @@ farming.start = function () {
     var warningSeen = 0;
     //update money
     a.updateMoney = function () {
-
+        if (Math.sign(player.money) == -1) {
+            player.money == 200;
+        }
         //b.money = player.money ;
         h.setText("$ " + player.money); pastureCash.setText("$ " + player.money); marketCash.setText("$ " + player.money);
         liveStockCash.setText("$ " + player.money); orchardCash.setText("$ " + player.money); vinyardCash.setText("$ " + player.money);
@@ -1563,9 +1569,12 @@ farming.start = function () {
         localStorage.setItem('GuiGhostFarms_toolsEver', toolsEver);
         localStorage.setItem('GuiGhostFarms_pickedEver', pickedEver);
         localStorage.setItem('GuiGhostFarms_moneyEver', parseInt(moneyEver));
-        if (player.money <= 0 && warningSeen == 0) {
-            outOfCash.setHidden(false);
+        if (player.money < 5 && warningSeen == 0) {
+            outOfCash.setHidden(false); marketBtn1.setHidden(false); buyStarCash.setHidden(false);
             warningSeen = 1;
+        }
+        if (Math.sign(player.money) == -1) {
+
         }
     };
 
@@ -1878,17 +1887,17 @@ farming.start = function () {
     outOfCash.appendChild(marketBtn1);
     var cancelBtnCash = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(89, 212).setSize(35, 35).setFill("images/UI/XButton.png");
     outOfCash.appendChild(cancelBtnCash);
-    outOfCash.setHidden(true);
+    outOfCash.setHidden(true); marketBtn1.setHidden(true); buyStarCash.setHidden(true);
     goog.events.listen(buyStarCash, ["mousedown", "touchstart"], function () {            //starCash Button
-        outOfCash.setHidden(true);
+        outOfCash.setHidden(true); marketBtn1.setHidden(true); buyStarCash.setHidden(true);
         c.replaceScene(menuScene, lime.transitions.SlideInUp);
     }, { passive: false });
     goog.events.listen(marketBtn1, ["mousedown", "touchstart"], function () {            //market Button
-        outOfCash.setHidden(true);
+        outOfCash.setHidden(true); marketBtn1.setHidden(true); buyStarCash.setHidden(true);
         c.replaceScene(marketScene, lime.transitions.SlideInDown);
     }, { passive: false });
     goog.events.listen(cancelBtnCash, ["mousedown", "touchstart"], function () {            //cancel Button
-        outOfCash.setHidden(true);
+        outOfCash.setHidden(true); marketBtn1.setHidden(true); buyStarCash.setHidden(true);
 
     }, { passive: false });
 
