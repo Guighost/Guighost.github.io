@@ -1,5 +1,5 @@
 let chicken = {
-    x: 50,
+    x: 150,
     y: 0,
     height: chicken_sprite[0].height,
     width: chicken_sprite[0].width,

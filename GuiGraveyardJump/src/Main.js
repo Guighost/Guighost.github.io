@@ -11,10 +11,14 @@ function main() {
     backgroundContext.id = 'background';
     backgroundContext = backgroundContext.create();
 
+    lifemeterContext = canvasCreator;
+    lifemeterContext.id = 'life';
+    lifemeterContext =    lifemeterContext.create();
+
     document.addEventListener("mousedown", click);
     document.addEventListener("keydown", keyDown);
     document.addEventListener("touchstart", touch, false);
-
+    
     currentState = states.start;
     rank = localStorage.getItem("rank");
 

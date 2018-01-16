@@ -16,6 +16,7 @@ let background_sprite = new Sprite(0, 0, 667, 500, "src/sprites/background.png")
     menu_sprite = new Sprite(0, 0, 601, 498, "src/sprites/main-menu.png"),
     sand = new Sprite(0, 0, 600, 128, "src/sprites/ground.png");
 
+
 collider[0] = new Sprite(0, 0, 108, 111, "src/sprites/cactus.png");
 collider[1] = new Sprite(0, 0, 70, 45, "src/sprites/cactus2.png");
 collider[2] = new Sprite(0, 0, 86, 96, "src/sprites/cactus3.png");

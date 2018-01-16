@@ -3,7 +3,7 @@ var game;
 
 var gameOptions = {
     timeLimit: 60,
-    gravity: 2000,
+    gravity: 2300,
     crateSpeed: 1000,
     crateHorizontalRange: 540,
     fallingHeight: 700,

@@ -16,6 +16,7 @@ let background = {
     draw: function () {
         for (let count = 0, size = 5; count <= size; count++) {
             background_sprite.draw(backgroundContext, this.x + background_sprite.width * count, this.y);
+            
         }
     }
 }

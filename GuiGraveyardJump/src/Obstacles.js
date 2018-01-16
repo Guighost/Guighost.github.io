@@ -1,3 +1,5 @@
+var onlyOnce = false;
+
 let obstacles = {
     _obs: [],
     widths: [108, 70, 86, 124, 131, 145],
@@ -26,11 +28,20 @@ let obstacles = {
             // Collision
             if (chicken.x < obs.x + this.widths[obs.number] && chicken.x + chicken.width >=
                 obs.x && chicken.y + chicken.height >= ground.y - this.heights[obs.number]) {
-                currentState = states.lost;
-                if (soundEnabled) {
-                    sounds.lostSound();
+                if (onlyOnce === false) {
+                    onlyOnce = true; hitCount++; console.log(hitCount);
+                    chicken.y = chicken.y - 70;
+                    chicken.x = chicken.x + 10;
+                    setTimeout(function () { onlyOnce = false; }, 500)
                 }
-                chicken.collided();
+                if (hitCount >= 8) {
+                    currentState = states.lost;
+                    if (soundEnabled) {
+                        sounds.lostSound();
+                    }
+                    chicken.collided();
+                }
+               
             }
             else if (obs.x <= -obs.x + -250) {
                 // Score increment
