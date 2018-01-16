@@ -4,7 +4,7 @@ var levelScore = 0;
 var LEVEL = 1;
 var gameOptions = {
     timeLimit: 60,
-    gravity: 1500,
+    gravity: 3500,
     crateSpeed: 1000,
     crateHorizontalRange: 540,
     fallingHeight: 700,
