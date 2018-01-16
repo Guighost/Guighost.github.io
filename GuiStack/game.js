@@ -1,6 +1,7 @@
 
 var game;
-
+var levelScore = 0;
+var LEVEL = 1;
 var gameOptions = {
     timeLimit: 60,
     gravity: 2300,
@@ -45,6 +46,7 @@ playGame.prototype = {
         game.load.image("sky", "assets/sprites/sky.png");
         game.load.image("crate", "assets/sprites/crate.png");
         game.load.image("title", "assets/sprites/title.png");
+        game.load.image("title2", "assets/sprites/title2.png");
         game.load.image("tap", "assets/sprites/tap.png");
         game.load.audio("hit01", ["assets/sounds/hit01.mp3", "assets/sounds/hit01.ogg"]);
         game.load.audio("hit02", ["assets/sounds/hit02.mp3", "assets/sounds/hit02.ogg"]);
@@ -74,6 +76,7 @@ playGame.prototype = {
         this.gameOverSound = game.add.audio("gameover");
         this.removeSound = game.add.audio("remove");
         this.score = 0;
+        if (LEVEL > 1) { this.score = levelScore; }
         GROUNDHEIGHT = game.cache.getImage("ground").height;
         CRATEHEIGHT = game.cache.getImage("crate").height;
         this.firstCrate = true;
@@ -125,9 +128,16 @@ playGame.prototype = {
         var tap = game.add.sprite(game.width / 2, game.height - 240, "tap");
         tap.anchor.set(0.5);
         this.menuGroup.add(tap);
-        var title = game.add.image(game.width / 2, tap.y - 470, "title");
-        title.anchor.set(0.5, 0);
-        this.menuGroup.add(title);
+        if (LEVEL <= 1) {
+            var title = game.add.image(game.width / 2, tap.y - 470, "title");
+            title.anchor.set(0.5, 0);
+            this.menuGroup.add(title);
+        }
+        else {
+            var title2 = game.add.image(game.width / 2, tap.y - 470, "title2");
+            title2.anchor.set(0.5, 0);
+            this.menuGroup.add(title2);
+        }
         var hiScoreText = game.add.bitmapText(game.width / 2, game.height - 74, "smallfont", "BEST SCORE", 24);
         hiScoreText.anchor.set(0.5);
         this.menuGroup.add(hiScoreText);
@@ -144,7 +154,8 @@ playGame.prototype = {
             this.menuGroup.destroy();
             this.timer = 0;
             this.timerEvent = game.time.events.loop(Phaser.Timer.SECOND, this.tick, this);
-            this.timeText = game.add.bitmapText(game.width  - 110,  90, "font", gameOptions.timeLimit.toString(), 72);
+            this.timeText = game.add.bitmapText(game.width - 110, 90, "font", gameOptions.timeLimit.toString(), 72);
+            this.levelText = game.add.bitmapText(game.width - (game.width -10), 90, "font", "Level: " + LEVEL.toString(), 48);
             
         }
         if (this.canDrop && this.timer <= gameOptions.timeLimit) {
@@ -241,12 +252,27 @@ playGame.prototype = {
             scoreText.anchor.set(0.5);
             var scoreDisplayText = game.add.bitmapText(game.width / 2, game.height / 4 + 120, "font", this.score.toString(), 144);
             scoreDisplayText.anchor.set(0.5);
+            
             localStorage.setItem(gameOptions.localStorageName, JSON.stringify({
                 score: Math.max(this.score, this.savedData.score)
             }));
-            game.time.events.add(Phaser.Timer.SECOND * 5, function () {
-                game.state.start("PlayGame");
-            }, this);
+            if (this.score > (LEVEL * 40)) {
+                var lvlUpDisplayText = game.add.bitmapText(game.width / 2, game.height / 4 + 260, "smallfont", "Level Up", 48);
+                lvlUpDisplayText.anchor.set(0.5);
+                LEVEL = LEVEL + 1;
+                levelScore = this.score;
+                game.time.events.add(Phaser.Timer.SECOND * 5, function () {
+                    game.state.start("PlayGame");
+                }, this);
+            }
+           
+            else {
+                var lvlUpDisplayText = game.add.bitmapText(game.width / 2, game.height / 4 + 260, "smallfont", "Get "+(LEVEL * 40) + " to Level Up", 48);
+                lvlUpDisplayText.anchor.set(0.5);
+                game.time.events.add(Phaser.Timer.SECOND * 7, function () {
+                    game.state.start("PlayGame");
+                }, this);}
+           
         }
     }
 }
