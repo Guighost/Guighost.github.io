@@ -103,7 +103,7 @@ playGame.prototype = {
         this.cameraGroup.add(this.movingCrate);
         var crateTween = game.add.tween(this.movingCrate).to({
             x: (game.width + gameOptions.crateHorizontalRange) / 2
-        }, gameOptions.crateSpeed + 200, Phaser.Easing.Linear.None, true, 0, -1, true);
+        }, gameOptions.crateSpeed , Phaser.Easing.Linear.None, true, 0, -1, true);
 
         game.physics.box2d.enable(ground);
         ground.body.friction = 1;
