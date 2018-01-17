@@ -147,6 +147,7 @@ playGame.prototype = {
         var tapTween = game.add.tween(tap).to({
             alpha: 0
         }, 150, Phaser.Easing.Cubic.InOut, true, 0, -1, true);
+        this.levelText = game.add.bitmapText(game.width - (game.width - 10), 90, "font", "Level: " + LEVEL.toString(), 48);
     },
     dropCrate: function () {
         if (this.firstCrate) {
@@ -155,7 +156,7 @@ playGame.prototype = {
             this.timer = 0;
             this.timerEvent = game.time.events.loop(Phaser.Timer.SECOND, this.tick, this);
             this.timeText = game.add.bitmapText(game.width - 110, 90, "font", gameOptions.timeLimit.toString(), 72);
-            this.levelText = game.add.bitmapText(game.width - (game.width -10), 90, "font", "Level: " + LEVEL.toString(), 48);
+           
             
         }
         if (this.canDrop && this.timer <= gameOptions.timeLimit) {
