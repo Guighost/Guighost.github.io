@@ -9,7 +9,7 @@ background-position: center;
   
 }
 body, html { overflow-x:hidden; 
-screen.lockOrientation("portrait");
+
 }
 #changeToPortrait {
     position: absolute;
@@ -644,6 +644,17 @@ z-index: 5000;
 }
 
 /* Media queries */
+
+@media only screen and (device-width: 1366px) {
+    #viewport {
+        max-height: 92vh;
+        width: auto;
+        top: 10px;
+        left: 50px;
+        margin-top: 1%;
+        margin-left: 31%;
+    }
+}
 /* <!--1280 Galaxy tablets --> */
 @media (device-width: 1280px) {
 	

@@ -4,8 +4,8 @@ var levelScore = 0;
 var LEVEL = 1;
 var gameOptions = {
     timeLimit: 60,
-    gravity: 2300,
-    crateSpeed: 1000,
+    gravity: 2000,
+    crateSpeed: 500,
     crateHorizontalRange: 540,
     fallingHeight: 700,
     localStorageName: "GuiStack_HighScore",
@@ -103,7 +103,7 @@ playGame.prototype = {
         this.cameraGroup.add(this.movingCrate);
         var crateTween = game.add.tween(this.movingCrate).to({
             x: (game.width + gameOptions.crateHorizontalRange) / 2
-        }, gameOptions.crateSpeed, Phaser.Easing.Linear.None, true, 0, -1, true);
+        }, gameOptions.crateSpeed + 200, Phaser.Easing.Linear.None, true, 0, -1, true);
 
         game.physics.box2d.enable(ground);
         ground.body.friction = 1;
