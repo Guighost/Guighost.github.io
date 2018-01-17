@@ -276,19 +276,19 @@ playGame.prototype = {
         }
     }
 }
-  function menuFunction() {
-              var x = document.getElementById("myTopnav");
-              if (x.className === "topnav") {
-                  x.className += " responsive";
-              } else {
-                  x.className = "topnav";
-              }
-        }
-          function changeActive() {
-              var x = document.getElementById(this);
-              if (x.className === "active") {
-                  x.className += "";
-              } else {
-                  x.className = "active";
-              }
-          }
+  //function menuFunction() {
+  //            var x = document.getElementById("myTopnav");
+  //            if (x.className === "topnav") {
+  //                x.className += " responsive";
+  //            } else {
+  //                x.className = "topnav";
+  //            }
+  //      }
+  //        function changeActive() {
+  //            var x = document.getElementById(this);
+  //            if (x.className === "active") {
+  //                x.className += "";
+  //            } else {
+  //                x.className = "active";
+  //            }
+  //        }
