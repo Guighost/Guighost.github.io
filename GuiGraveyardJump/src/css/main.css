@@ -71,28 +71,46 @@ button {
 }
 @media (device-height: 414px) {
     #headLogo {
-        transform: translate(90px, -217px);
+        transform: translate(0px, -2px);
+        width: 30vw;
+        height: auto;
+    }
+}
+@media (device-height: 412px) {
+    #headLogo {
+        transform: translate(0px, -2px);
+        width: 30vw;
+        height: auto;
     }
 }
 @media (device-height: 375px) {
     #headLogo {
-        transform: translate(90px, -192px);
+        transform: translate(0px, -2px);
+        width: 25vw;
+        height: auto;
+        
     }
 }
 @media (device-height: 360px) {
     #headLogo {
-        transform: translate(90px, -190px);
+        transform: translate(0px, -5px);
+        width: 35vw;
+        height: auto;
     }
 }
 @media (device-height: 320px) {
     #headLogo {
-        transform: translate(90px, -162px);
+        transform: translate(0px, -2px);
+        width: 35vw;
+        height: auto;
     }
 
     
 }
 @media (device-width: 320px){
     #headLogo {
-        transform: translate(20px, -122px);
+        transform: translate(-20px, -2px);
+        width: 35vw;
+        height: auto;
     }
 }
