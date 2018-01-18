@@ -11,12 +11,12 @@
     background-repeat: no-repeat;
     /*background-color:magenta;*/
     /*transform: translate(0px,5px);*/
-
+    max-width: 90%;
     /*display: none;*/
 }
 .game {
-    /*width: 320px;*/
-    /*height: 90%;*/
+   
+    height: 90%;
     border: 30px solid magenta;
     border-radius:15px;
     margin-left: auto;
