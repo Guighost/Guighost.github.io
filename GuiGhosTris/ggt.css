@@ -11,13 +11,14 @@
     background-repeat: no-repeat;
     /*background-color:magenta;*/
     /*transform: translate(0px,5px);*/
-    max-width: 90%;
+    max-width: 95%;
+    height: 95%;
     /*display: none;*/
 }
 .game {
    
-    height: 90%;
-    border: 30px solid magenta;
+    max-height: 85%;
+    border: 10px solid magenta;
     border-radius:15px;
     margin-left: auto;
     margin-right: auto;
@@ -29,8 +30,9 @@
     display: block;
     clear: both;
     bottom: 4px;
+    color: azure;
     font-size: 10px;
-    width: 100%;
+    width: 90%;
     /*transform: translate(0px,15px);*/
     height: 30px;
 }
@@ -53,7 +55,12 @@
         max-width: 500px;
     }
 }
-
+@media screen and (min-width: 1440px) {
+    #gameDiv {
+        height: 525px;
+        max-width: 600px;
+    }
+}
 @media screen and (min-width: 1200px) {
     #gameDiv {
         max-height: 725px;
@@ -62,17 +69,21 @@
 }
 @media screen and (min-width: 1024px) {
     #gameDiv {
-        max-height: 725px;
-        max-width: 530px;
+        max-height: 925px;
+        max-width: 630px;
     }
     .optionBtns {
         height: 100px;
     }
 }
 @media screen and (min-width: 1024px) and (min-height: 1366px){
+    #wrapper {
+        transform: translateX(-100px);
+    }
     #gameDiv {
-        max-height: 1350px;
-        max-width: 930px;
+        max-height: 1300px;
+        max-width: 900px;
+        
     }
 }
 
@@ -91,7 +102,8 @@
 @media (device-width: 375px) {
     #gameDiv {
         max-height: 550px;
-        max-width: 290px;
+        max-width: 320px;
+        transform: translateX(10px);
     }
 }
 @media (device-width: 360px) {
