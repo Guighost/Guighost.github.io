@@ -1,13 +1,14 @@
 
 var game;
 var levelScore = 0;
+var oldLevelScore = 0;
 var LEVEL = 1;
 var gameOptions = {
     timeLimit: 60,
     gravity: 2000,
     crateSpeed: 500,
     crateHorizontalRange: 540,
-    fallingHeight: 700,
+    fallingHeight: 650,
     localStorageName: "GuiStack_HighScore",
     gameWidth: 640,
     gameHeight: 960
@@ -57,7 +58,7 @@ playGame.prototype = {
         game.load.bitmapFont("smallfont", "assets/fonts/smallfont.png", "assets/fonts/smallfont.xml");
     },
     create: function () {
-        if (!Phaser.Device.desktop) {
+        if (!Phaser.Device.desktop && gameOptions.gameHeight < 768 ) {
             game.scale.forceOrientation(false, true);
             game.scale.enterIncorrectOrientation.add(function () {
                 game.paused = true;
@@ -76,7 +77,7 @@ playGame.prototype = {
         this.gameOverSound = game.add.audio("gameover");
         this.removeSound = game.add.audio("remove");
         this.score = 0;
-        if (LEVEL > 1) { this.score = levelScore; }
+        if (LEVEL > 1) { oldLevelScore = this.score;   this.score = levelScore; }
         GROUNDHEIGHT = game.cache.getImage("ground").height;
         CRATEHEIGHT = game.cache.getImage("crate").height;
         this.firstCrate = true;
@@ -90,10 +91,16 @@ playGame.prototype = {
         game.physics.box2d.gravity.y = gameOptions.gravity;
         this.canDrop = true;
 
+        
+
         var randomSpot1 = Math.floor((Math.random() * 9) +2);
         var randomSpot2 = Math.floor(Math.random() * 9);
         var ground = game.add.sprite(game.width / 2, game.height, "ground");
         ground.y = game.height - ground.height / 2;
+        game.add.bitmapText(game.width - (game.width / 4), 60, "font", "Score", 45);
+        game.add.bitmapText(game.width - (game.width / 4) + 45  , 100, "font", "" + this.score, 40);
+        game.add.bitmapText(10, 60, "font", "Level" , 45);
+        game.add.bitmapText(55, 100, "font", "" + LEVEL, 40);
         var ground2 = game.add.sprite(game.width / randomSpot1, game.height, "ground2");
         ground2.y = game.height - (game.height / 2.4);
         var ground3 = game.add.sprite((game.width - (game.width / randomSpot1)), game.height, "ground2");
@@ -124,6 +131,7 @@ playGame.prototype = {
         this.cameraGroup.add(ground3);
 
         game.input.onDown.add(this.dropCrate, this);
+
         this.menuGroup = game.add.group();
         var tap = game.add.sprite(game.width / 2, game.height - 240, "tap");
         tap.anchor.set(0.5);
@@ -138,7 +146,7 @@ playGame.prototype = {
             title2.anchor.set(0.5, 0);
             this.menuGroup.add(title2);
         }
-        var hiScoreText = game.add.bitmapText(game.width / 2, game.height - 74, "smallfont", "BEST SCORE", 24);
+        var hiScoreText = game.add.bitmapText(game.width / 2, game.height - 74, "smallfont", "YOUR TOP SCORE", 24);
         hiScoreText.anchor.set(0.5);
         this.menuGroup.add(hiScoreText);
         var hiScore = game.add.bitmapText(game.width / 2, game.height - 20, "font", this.savedData.score.toString(), 72);
@@ -155,7 +163,7 @@ playGame.prototype = {
             this.menuGroup.destroy();
             this.timer = 0;
             this.timerEvent = game.time.events.loop(Phaser.Timer.SECOND, this.tick, this);
-            this.timeText = game.add.bitmapText(game.width - 110, 90, "font", gameOptions.timeLimit.toString(), 72);
+            this.timeText = game.add.bitmapText(game.width - (game.width / 2) - 60, 60, "font", gameOptions.timeLimit.toString(), 72);
            
             
         }
@@ -268,7 +276,7 @@ playGame.prototype = {
             }
            
             else {
-                var lvlUpDisplayText = game.add.bitmapText(game.width / 2, game.height / 4 + 260, "smallfont", "Get "+(LEVEL * 40) + " to Level Up", 48);
+                var lvlUpDisplayText = game.add.bitmapText(game.width / 2, game.height / 4 + 260, "smallfont", "Get " + (LEVEL * 40) + " to Level Up", 48);
                 lvlUpDisplayText.anchor.set(0.5);
                 game.time.events.add(Phaser.Timer.SECOND * 7, function () {
                     game.state.start("PlayGame");
