@@ -97,10 +97,10 @@ playGame.prototype = {
         var randomSpot2 = Math.floor(Math.random() * 9);
         var ground = game.add.sprite(game.width / 2, game.height, "ground");
         ground.y = game.height - ground.height / 2;
-        game.add.bitmapText(game.width - (game.width / 4), 60, "font", "Score", 45);
-        game.add.bitmapText(game.width - (game.width / 4) + 45  , 100, "font", "" + this.score, 40);
-        game.add.bitmapText(10, 60, "font", "Level" , 45);
-        game.add.bitmapText(55, 100, "font", "" + LEVEL, 40);
+        game.add.bitmapText(game.width - (game.width / 4), 65, "font", "Score", 45);
+        game.add.bitmapText(game.width - (game.width / 4) + 45  , 105, "font", "" + this.score, 40);
+        game.add.bitmapText(10, 65, "font", "Level" , 45);
+        game.add.bitmapText(55, 105, "font", "" + LEVEL, 40);
         var ground2 = game.add.sprite(game.width / randomSpot1, game.height, "ground2");
         ground2.y = game.height - (game.height / 2.4);
         var ground3 = game.add.sprite((game.width - (game.width / randomSpot1)), game.height, "ground2");
