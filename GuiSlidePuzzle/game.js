@@ -1,3 +1,6 @@
+//GuiSlide Puzzle - GuiGhost Games 2018
+//Credits to http://www.emanueleferonato.com/ for the tuturial on the javascript that started this project
+
 var game;
 var gameOptions = {
     gameWidth: 320,
@@ -58,6 +61,7 @@ playGame.prototype = {
         game.load.image("multiBonus", "multiMatch.png", 128, 128);
         game.load.image("levelUpPop", "levelUp.png", 150, 131);
         game.load.image("timeUp", "timeUp2.png", 128, 128);
+        game.load.image("cover1", "borderedFull.png", gameOptions.gameWidth, gameOptions.gameHeight);
         game.load.image("slide1", "slide1.png", gameOptions.gameWidth, gameOptions.gameHeight);
         game.load.image("slide2", "slide2.png", gameOptions.gameWidth, gameOptions.gameHeight);
         game.load.image("slide3", "slide3.png", gameOptions.gameWidth, gameOptions.gameHeight);
@@ -102,6 +106,8 @@ playGame.prototype = {
        this.textStyle3 = { font: "28px Comic Sans MS", fill: "Black", align: "center" };
        this.textStyle4 = { font: "16px Comic Sans MS", fill: "Green", align: "center" };
        this.textStyle4 = { font: "12px Comic Sans MS", fill: "Yellow", align: "center" };
+       this.textStyle5 = { font: "20px Comic Sans MS", fill: "Yellow", align: "center", align: 'center', wordWrap: true, wordWrapWidth: 250  };
+      
        var leveltext = game.add.text(20, 345, "Level", textStyle);
        this.levelScore = game.add.text(40, 371, playerLevel, textStyle);
        var scoretext = game.add.text(235, 345, "Score", textStyle);
@@ -132,13 +138,29 @@ playGame.prototype = {
         game.input.onDown.add(this.pickTile, this);
         this.bonusGraphic = game.add.sprite(95, 50, "multiBonus");
         this.bonusGraphic.visible = false;
+        
 
-
-         var gameCover = game.add.sprite(0, 0, "slide1");
-        var newBtn1 = game.add.sprite(105, 295, "newGame");
+        this.gameCover = game.add.sprite(0, 0, "cover1");
+        var tutText = game.add.text(162, 190, "Unique Match 3 Play  where players can slide blocks as far as they want", this.textStyle5);
+        function scrollText() {
+            setTimeout(function () { tutText.text = "Columns and Rows wrap around for you to make optimal matches"; }, 3500);
+            setTimeout(function () { tutText.text = "WATCH YOUR TIME - Earn the Level Goal at the bottom to gain Bonus Time"; }, 7500);
+            setTimeout(function () { tutText.text = "Earn GuiGhost STARCASH for each level you achieve!"; }, 11000);
+            setTimeout(function () { tutText.text = "WHAT ARE YOU WAITING FOR?"; }, 14000);
+            setTimeout(function () { tutText.text = "PLAY NOW!"; scrollText(); }, 15600);
+            setTimeout(function () { tutText.text = "Unique Match 3 Play  where players can slide blocks as far as they want"; scrollText(); }, 17000);
+        };
+        scrollText();
+      
+        tutText.anchor.set(0.5);
+        var newBtn1 = game.add.sprite(105, 255, "newGame");
         newBtn1.inputEnabled = true;
         newBtn1.events.onInputDown.add(startIt, this);
-        function startIt() { newBtn1.destroy(); gameCover.destroy(); game.input.onDown.add(this.pickTile, this); timer.start(); }
+        function startIt() {
+            newBtn1.destroy(); this.gameCover.destroy(); tutText.destroy();
+            game.input.onDown.add(this.pickTile, this);
+            timer.start();
+        }
         //this.animateCover();
         this.gameState = GAME_STATE_IDLE;
     },

@@ -1,4 +1,5 @@
-
+//GuiStack - Tower of Balance - GuiGhost Games 2018
+//Credits to http://www.emanueleferonato.com/ for the tuturial on the javascript that started this project
 var game;
 var levelScore = 0;
 var oldLevelScore = 0;
