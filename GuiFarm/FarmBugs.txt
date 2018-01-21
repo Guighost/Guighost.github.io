@@ -1,8 +1,4 @@
 
-Player can run out of money
-
+???? Needs testing
 image flashing (declare all images)
 
-Seeds cost $ to plant
-Sell your crops at Market
-to keep planting

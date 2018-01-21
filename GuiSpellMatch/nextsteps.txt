@@ -1,5 +1,5 @@
 
-NEXT steps
+GuiSpellMatch NEXT steps
 
 implement enemyclustercount spell effects
 
