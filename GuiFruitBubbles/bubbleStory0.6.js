@@ -2178,11 +2178,11 @@ function hideIntro() {
 		document.getElementById("mapImg").src="Story/story1.gif";
 		setTimeout(function(){
 			document.getElementById("mapImg").src="Maps/mapForest.png"; storySeen = 1; localStorage["storySeen"] = 1;
-			document.getElementById("warp").style.display = 'block';
+			//document.getElementById("warp").style.display = 'block';
 							}, 25000)
-		setTimeout(function(){
-			document.getElementById("warp").style.display = 'none';
-							}, 28000)
+		//setTimeout(function(){
+		//	document.getElementById("warp").style.display = 'none';
+		//					}, 28000)
 	}
 	
 	};

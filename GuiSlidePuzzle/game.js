@@ -101,7 +101,7 @@ playGame.prototype = {
        this.textStyle2 = { font: "18px Arial", fill: "Azure", align: "center" };
        this.textStyle3 = { font: "28px Comic Sans MS", fill: "Black", align: "center" };
        this.textStyle4 = { font: "16px Comic Sans MS", fill: "Green", align: "center" };
-       this.textStyle4 = { font: "12px Comic Sans MS", fill: "blue", align: "center" };
+       this.textStyle4 = { font: "12px Comic Sans MS", fill: "Yellow", align: "center" };
        var leveltext = game.add.text(20, 345, "Level", textStyle);
        this.levelScore = game.add.text(40, 371, playerLevel, textStyle);
        var scoretext = game.add.text(235, 345, "Score", textStyle);
@@ -681,7 +681,7 @@ playGame.prototype = {
         }
         if (playerScore >= highScore) {
             highScore = playerScore;
-            highScoreTxt2 = game.add.text(90, 260, "A New High Score! ", this.textStyle4);
+            highScoreTxt2 = game.add.text(100, 260, "A New High Score! ", this.textStyle4);
             localStorage.setItem("GuiPuzzleSlide_highScore", highScore);
             
         }
