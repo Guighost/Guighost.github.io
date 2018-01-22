@@ -55,18 +55,41 @@ padding-top: 50px;
 }
 #farmSection {
     height: 840px;
+    background-image: url(Images/Homepage/battleback10.png);
+    background-size: cover;
 }
 #guiStackSection {
     height: 840px;
+  
+}
+#bubbleSection {
+    height: 840px;
+    background-image: url(Images/Homepage/cloudsSolid.png );
+    background-size: cover;
+    color: darkmagenta;
+}
+#guiSlideSection {
+    background-image: url(Images/background.png);
+    background-size: cover;
+    height: 800px;
+}
+
+#graveyardSection {
+    background-image: url(Images/Homepage/spookyBack.jpg);
+    background-size: cover;
+    color: darkmagenta;
+}
+#aboutSection {
+    height: 840px;
 }
 #farmImg {
-    transform: translateY(-70px) ;
+    transform: translateY(-70px);
     width: 95%;
-    max-width:1024px;
+    max-width: 1024px;
     min-width: 300px;
 }
 #guiMatchImg {
-    transform: translateY(-120px) scale(.7);
+    transform: translateY(-130px) scale(.7);
     max-width: 90%;
     max-height: 85%;
 }
@@ -75,7 +98,7 @@ padding-top: 50px;
 }
 #guiSpellMatchImg {
     max-width: 95%;
-    transform: translate(0px, -90px) scale(0.9);
+    transform: translate(0px, -110px) scale(0.9);
 }
 #ghostrisImg {
     transform: translateY(-70px);
@@ -89,10 +112,14 @@ padding-top: 50px;
 }
 #guiStackImg { max-width: 95%; transform: translate(0px, -120px) scale(0.8);
 }
+#guiSlideImg {
+    max-width: 95%;
+    transform: translate(0px, -120px) scale(0.7);
+}
 .infoDivs {
     /*height: 160px;*/
     font-family: 'Comic Sans MS';
-    font-size: 20px;
+    font-size: 24px;
     color: azure;
     /*background-color:black;*/
     border-radius: 15px;
@@ -108,22 +135,24 @@ padding-top: 50px;
     text-decoration: none;
 }
 #infoBubStor {
-    transform: translateY(-50px);
+    transform: translateY(-80px);
+    color:darkmagenta;
 }
 #infoSpellMat {
-    transform: translateY(-132px);
+    transform: translateY(-200px);
     height: 50px;
 }
 #infoGuiFarm {
-    transform: translateY(-140px) ;
+    transform: translateY(-140px);
     height: 50px;
+    color: darkmagenta;
 }
 #infoGuiMatch {
-    transform: translateY(-210px);
+    transform: translateY(-240px);
     height: 40px;
 }
 #infoSoduku {
-    transform: translateY(-110px);
+    transform: translateY(-130px);
     height: 40px;
 }
 #infoTetris {
@@ -131,13 +160,20 @@ padding-top: 50px;
     height: 40px;
 }
 #infoGraveyard {
-    transform: translateY(-100px);
+    transform: translateY(-180px);
     height: 40px;
+
 }
 #infoGuiStack {
-    transform: translateY(-160px);
+    transform: translateY(-190px);
     height: 40px;
 }
+#infoGuiSlide {
+    transform: translateY(-250px);
+    height: 40px;
+    
+}
+
 /*#fbLogin {
     position: absolute;
     left: 75%;
@@ -201,8 +237,9 @@ padding-top: 50px;
     background-position-x: 10px;
 }
 #infoAbout {
-    min-height: 700px;
-    transform: translateY(-110px);
+    min-height: 740px;
+    transform: translateY(-150px);
+    font-size: 20px;
 }
 
 #famHead {
@@ -222,10 +259,13 @@ padding-top: 50px;
 }
 
 #footDiv {
+    display: block;
+    clear: both;
     font-family: 'Comic Sans MS';
     font-size: 20px;
     color: azure;
     text-decoration: none;
+    background-color: #333;
 }
 
 /*menu Stuff/**/

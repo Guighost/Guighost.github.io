@@ -142,13 +142,15 @@ playGame.prototype = {
 
         this.gameCover = game.add.sprite(0, 0, "cover1");
         var tutText = game.add.text(162, 190, "Unique Match 3 Play  where players can slide blocks as far as they want", this.textStyle5);
+       
         function scrollText() {
+            
             setTimeout(function () { tutText.text = "Columns and Rows wrap around for you to make optimal matches"; }, 3500);
             setTimeout(function () { tutText.text = "WATCH YOUR TIME - Earn the Level Goal at the bottom to gain Bonus Time"; }, 7500);
             setTimeout(function () { tutText.text = "Earn GuiGhost STARCASH for each level you achieve!"; }, 11000);
             setTimeout(function () { tutText.text = "WHAT ARE YOU WAITING FOR?"; }, 14000);
             setTimeout(function () { tutText.text = "PLAY NOW!"; scrollText(); }, 15600);
-            setTimeout(function () { tutText.text = "Unique Match 3 Play  where players can slide blocks as far as they want"; scrollText(); }, 17000);
+            setTimeout(function () { tutText.text = "Unique Match 3 Play  where players can slide blocks as far as they want"; }, 17000);
         };
         scrollText();
       

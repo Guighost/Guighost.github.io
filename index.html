@@ -7,7 +7,7 @@
     <meta property="og:url" content="http://guighostgames.com/index.html" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="GuiGhost Games - Family Friendly Mobile Ready Free Online Games" />
-    <meta property="og:description" content="Family Friendly Mobile Ready Free Online Games. Bubble Shooter game, Match 3 games, Farm Simulation game, Classic Tetris game, Classic Soduku game " />
+    <meta property="og:description" content="Family Friendly Mobile Ready Free Online Games. Bubble Shooter, Match 3 games, Farm Simulation game, Classic Tetris game, Classic Soduku game, Physics game " />
     <meta property="og:image" content="http://guighostgames.com/GuiSpellMatch/Images/gabbyLogo.png" />
     <title>GuiGhost Games - Free Online Games</title>
     <link rel="alternate" href="http://guighostgames.com/" hreflang="en-us" />
@@ -83,9 +83,9 @@
     <menu>
         <div class="topnav" id="myTopnav">
     
-            <a href="#home" class="active">Home</a>
+            <a href="#parentDiv" class="active">Home</a>
    
-            <a href="#guibubbles" > Gui Bubble Story</a>
+            <a href="#myTopnav" > Gui Bubble Story</a>
     
             <a href="#farmSection"> GuiGhost Farms</a>
    
@@ -111,7 +111,7 @@
             <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="menuFunction()">&#9776;</a>
         </div>
     </menu>
-    <div>
+    <div id="parentDiv">
         <img id="bubstorImg1" src="Images/Homepage/logoImg-2.png" onclick="" />
        
         
@@ -129,21 +129,7 @@
            
         </header>
      
-        <section>
-            <div>
-                <div>
-                    <h2 id="guibubbles">Gui Bubble Story</h2>
-                    <a href="GuiFruitBubbles/" >
-                        <img itemprop="screenshot" id="bubstorImg2" src="Images/Homepage/bubstorImg.png" />
-                    </a>
-                </div>
-                <div id="infoBubStor" class="infoDivs">
-                    <a class="playBtns" href="GuiFruitBubbles/" >-PLAY-</a> <br />
-                    Follow the kids as they help the wizard free the world from the mayhem of the evil bubble wizard. 96 levels of Bubble popping fun with new zones every six boards.
-                    Warp your away across the universe with Bubble Popping fun like you have never seen.
-                </div>
-            </div>
-        </section>
+   
         <section id="farmSection">
             <div>
                 <h2 id="guifarm">GuiGhost Farms</h2>
@@ -169,9 +155,49 @@
                 </a>
             </div>
             <div id="infoSpellMat" class="infoDivs"> <a class="playBtns" href="GuiSpellMatch/">-PLAY-</a>  
-            <br/>Match 3 fun like you have never experienced. Batlle through 3 tournaments, matching spells to attack. But watch out, they fight back! Level your spells for increased damage! <br/> Can you win the SpellMatch? </div>
+            Match 3 fun like you have never experienced. Battle through 3 tournaments, matching spells to attack. But watch out, they fight back! Level your spells for increased damage! <br/> Can you win the SpellMatch? </div>
         </section>
-        
+        <section id="bubbleSection">
+            <div>
+                <div>
+                    <h2 id="guibubbles">Gui Bubble Story</h2>
+                    <a href="GuiFruitBubbles/">
+                        <img itemprop="screenshot" id="bubstorImg2" src="Images/Homepage/bubstorImg.png" />
+                    </a>
+                </div>
+                <div id="infoBubStor" class="infoDivs">
+                    <a class="playBtns" href="GuiFruitBubbles/">-PLAY-</a> 
+                    Follow the kids as they help the wizard free the world from the mayhem of the evil bubble wizard. 96 levels of Bubble popping fun with new zones every six boards.
+                    Warp your away across the universe with Bubble Popping fun like you have never seen.
+                </div>
+            </div>
+        </section>
+        <section id="guiStackSection">
+            <div>
+                <h2 id="guiStack">GuiStack - Tower of Balance</h2>
+                <a href="GuiStack/">
+                    <img itemprop="screenshot" id="guiStackImg" src="Images/Homepage/guiStack.png" />
+
+                </a>
+                <div id="infoGuiStack" class="infoDivs"> <a class="playBtns" href="GuiStack/"> -PLAY- </a> Stack the boxes and get the high score. Quick 60 game sessions!.  </div>
+            </div>
+
+        </section>
+
+        <section id="guiSlideSection">
+            <div>
+                <h2 id="guiSlide">Gui Slide Puzzle</h2>
+                <a href="GuiStack/">
+                    <img itemprop="screenshot" id="guiSlideImg" src="Images/Homepage/guiSlidePuzzle.png" />
+
+                </a>
+                <div id="infoGuiSlide" class="infoDivs">
+                <a class="playBtns" href="GuiSlidePuzzle/"> -PLAY- </a>  Unique Match 3 play where the whole row or column can be rotated as far as you want. Watch the timer and earn the Score Goal to Level Up and gain more time. Earn StarCash for every level completed!   </div>
+            </div>
+
+        </section>
+
+
         <section id="guiMatchSection">           
             <div>
                 <h2 id="guimatch">Gui Match</h2>
@@ -179,7 +205,19 @@
                     <img itemprop="screenshot" id="guiMatchImg" src="Images/Homepage/GuiMatch.png" />
                 </a>
             </div>
-            <div id="infoGuiMatch" class="infoDivs"> <a class="playBtns" href="GuiMatch/" > -PLAY- </a> <br/> Classic match 3 with lots of <span id="_applicationCategory17" itemprop="applicationCategory">kid friendly</span>  images to match with as you level up. This game is designed for younger players. </div>
+            <div id="infoGuiMatch" class="infoDivs"> <a class="playBtns" href="GuiMatch/" > -PLAY- </a> Classic match 3 with lots of <span id="_applicationCategory17" itemprop="applicationCategory">kid friendly</span>  images to match with as you level up. This game is designed for younger players. </div>
+        </section>
+        
+        <section id="graveyardSection">
+            <div>
+                <h2 id="guiGraveyard">GuiGhost Graveyard Jump</h2>
+                <a href="GuiGraveyardJump/index.html">
+                    <img itemprop="screenshot" id="sodukuImg" src="Images/Homepage/graveyardJump.png" />
+
+                </a>
+                <div id="infoGraveyard" class="infoDivs"> <a class="playBtns" href="GuiGraveyardJump/index.html"> -PLAY- </a>  Flappy..... Ghost? A very simple endless sidescroller where you click or touch to jump and avoid the obstacles. Beat your high score and brag to your friends on Facebook!  </div>
+            </div>
+
         </section>
         <section id="tetrisSection">
             <div>
@@ -188,34 +226,14 @@
                     <img itemprop="screenshot" id="ghostrisImg" src="Images/Homepage/GuiGhosTris2.png" />
 
                 </a>
-                <div id="infoTetris" class="infoDivs"> <a class="playBtns" href="GuiGhosTris/index.html"> -PLAY- </a> 
-                <br /> GuiGhost skinned Tetris. Classic Fun that's mobile friendly. Choose from multiple themes to match your style.  Touch or keyboard controls.  </div>
+                <div id="infoTetris" class="infoDivs">
+                    <a class="playBtns" href="GuiGhosTris/index.html"> -PLAY- </a>
+                    <br /> GuiGhost skinned Tetris. Classic Fun that's mobile friendly. Choose from multiple themes to match your style.  Touch or keyboard controls.
+                </div>
             </div>
 
         </section>
-        <section id="graveyardSection">
-            <div>
-                <h2 id="guiGraveyard">GuiGhost Graveyard Jump</h2>
-                <a href="GuiGraveyardJump/index.html">
-                    <img itemprop="screenshot" id="sodukuImg" src="Images/Homepage/graveyardJump.png" />
-
-                </a>
-                <div id="infoGraveyard" class="infoDivs"> <a class="playBtns" href="GuiGraveyardJump/index.html"> -PLAY- </a> <br /> Flappy..... Ghost? A very simple endless sidescroller where you click or touch to jump and avoid the obstacles. Beat your high score and brag to your friends on Facebook!  </div>
-            </div>
-
-        </section>
-
-        <section id="guiStackSection">
-            <div>
-                <h2 id="guiStack">GuiStack - Tower of Balance</h2>
-                <a href="GuiStack/">
-                    <img itemprop="screenshot" id="guiStackImg" src="Images/Homepage/guiStack.png" />
-
-                </a>
-                <div id="infoGuiStack" class="infoDivs"> <a class="playBtns" href="GuiStack/"> -PLAY- </a> <br /> Stack the boxes and get the high score. Quick 60 game sessions!.  </div>
-            </div>
-
-        </section>
+        
 
         <section id="sodukuSection">          
             <div>
@@ -224,7 +242,7 @@
                     <img itemprop="screenshot" id="sodukuImg" src="Images/Homepage/guiSoduku.png" />
 
                 </a>
-                <div id="infoSoduku" class="infoDivs"> <a class="playBtns" href="Gui-Soduku/" > -PLAY- </a> <br/> Classic Soduku made for my daughter. Can you master Soduku?  </div>
+                <div id="infoSoduku" class="infoDivs"> <a class="playBtns" href="Gui-Soduku/" > -PLAY- </a> Classic Soduku made for my daughter. Can you master Soduku?  </div>
             </div>
             
         </section>
@@ -246,7 +264,7 @@
                 <div id="starCashSpot"><h3>Unified Bonus Currency</h3> </div>
                     All GuiGhost Games use a unified "StarCash" system. This means what you earn in one game can be spent on bonuses and power ups  to help in another! Need boosts to beat that next opponent in SpellMatch? Head on over to Gui Bubble Story to play a few levels and earn some StarCash. Then head back to SpellMatch and show that wizard who's boss!
                 
-                    <h3>Always growing and improving</h3>
+                    <h4>Always growing and improving</h4>
                 GuiGhost games is always working on improving existing games, as well as working on new and exciting projects to come. Seriously, I don't sleep! Check back often as we continue to expand our library of casual <span id="_applicationCategory3" itemprop="applicationCategory">Family Friendly Free Online Games</span>.
 
                 
