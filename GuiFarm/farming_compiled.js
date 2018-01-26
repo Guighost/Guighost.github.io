@@ -819,7 +819,7 @@ var farming = {
                         c.crop = b.currentCrop,
                         c.ripeTime = 2000 * a.crops[b.currentCrop].time_to_ripe,
                         c.deathTime = 2000 * a.crops[b.currentCrop].time_to_death,
-                        player.money = (player.money - parseInt(a.crops[b.currentCrop].cost)),
+                        player.money = player.money - a.crops[b.currentCrop].cost,
                          
                         a.updateMoney(),
                         a.displayCost(posX, posY, a.crops[b.currentCrop].cost)
@@ -839,7 +839,7 @@ var farming = {
                         player.cropsStored[c.crop].stored += 1,
                         pickedEver = pickedEver + 1,
 
-                        console.log("location Picked " + posX + " " + posY),
+                        //console.log("location Picked " + posX + " " + posY),
                         a.updateMoney(),
                       
                         a.updateHarvest(posX, posY, c.crop),
@@ -1568,8 +1568,8 @@ farming.start = function () {
     var warningSeen = 0;
     //update money
     a.updateMoney = function () {
-        if (Math.sign(player.money) == -1) {
-            player.money == 200;
+        if (Math.sign(player.money) <= -1) {
+            player.money = 200;
         }
         //b.money = player.money ;
         h.setText("$ " + player.money); pastureCash.setText("$ " + player.money); marketCash.setText("$ " + player.money);
@@ -1584,9 +1584,7 @@ farming.start = function () {
             outOfCash.setHidden(false); marketBtn1.setHidden(false); buyStarCash.setHidden(false);
             warningSeen = 1;
         }
-        if (Math.sign(player.money) == -1) {
-
-        }
+    
     };
 
     var toolCountImg = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(5, 9).setSize(20, 20).setFill("images/toolsIcon.png");
@@ -1969,15 +1967,15 @@ farming.start = function () {
     goog.events.listen(forSaleP, ["mousedown", "touchstart"], function () {            //for sale pasture
         fsClicked = 1;
         confirmSale.setHidden(false);
-        confirmText.setText("Dairy Farm $2500")
-        if (player.money >= 2500) { confirmTextSub.setHidden(true); } else { confirmBtn.setHidden(true); };
+        confirmText.setText("Dairy Farm $2500");
+        if (player.money >= 2500) { confirmTextSub.setHidden(true); confirmBtn.setHidden(false); } else { confirmBtn.setHidden(true);}
     }, { passive: false });
 
     goog.events.listen(forSaleO, ["mousedown", "touchstart"], function () {            //for sale orchard
         fsClicked = 2;
         confirmSale.setHidden(false);
-        if (player.money >= 5000) { confirmTextSub.setHidden(true); } else { confirmBtn.setHidden(true); };
-        confirmText.setText("Fruit Orchard $5000");
+        if (player.money >= 2500) { confirmTextSub.setHidden(true); } else { confirmBtn.setHidden(true); };
+        confirmText.setText("Fruit Orchard $2500");
 
     }, { passive: false });
 
