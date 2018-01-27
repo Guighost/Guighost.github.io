@@ -89,7 +89,7 @@ window.onload = function() {
     // Animation variables
     var animationstate = 0;
     var animationtime = 0;
-    var animationtimetotal = 0.3;
+    var animationtimetotal = 0.1;
     
     // Show available moves
     var showmoves = false;
