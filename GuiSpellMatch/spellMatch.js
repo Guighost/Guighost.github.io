@@ -437,7 +437,7 @@ imgArray4[42].src = 'Images/Enemy/lvl43.png';
 
 
 
-window.onload = function () {
+function loadGameSM(){
     // Get the canvas and context
     var canvas = document.getElementById("viewport1");
 
@@ -2680,7 +2680,7 @@ function resizeGame() {
 function hideTitlePage(num) {
     //console.log("num = " + num);
     if (num == 1) {
-       
+        loadGameSM();
         document.getElementById("helpGif").style.display = 'block';
         document.getElementById("skipMe").style.display = 'block';
     }
