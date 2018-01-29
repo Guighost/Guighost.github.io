@@ -83,7 +83,7 @@ gameTitle = {
 		
 		*/
 		
-          var bubblesEmitter = game.add.emitter(160, -30, 50);
+          var bubblesEmitter = game.add.emitter(160, -30, 30);
           
           /*
           

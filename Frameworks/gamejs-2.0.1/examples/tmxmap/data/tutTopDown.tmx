@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="10" height="20" tilewidth="16" tileheight="16" nextobjectid="25">
+ <tileset firstgid="1" source="../../../../../../TILED/tutTopDown.tsx"/>
+ <layer name="backgroundLayer" width="10" height="20">
+  <data encoding="csv">
+93,93,93,93,93,179,93,93,93,93,
+93,93,93,93,93,225,93,93,93,93,
+93,225,225,225,225,225,225,225,225,93,
+93,225,225,225,225,225,225,225,225,93,
+93,225,225,225,225,225,225,225,225,93,
+93,93,179,225,93,93,93,93,93,93,
+93,93,223,225,93,93,93,93,93,93,
+93,312,312,312,312,312,312,312,312,93,
+93,312,312,312,312,312,312,312,312,93,
+93,312,312,312,312,312,312,312,312,93,
+93,312,312,312,312,312,312,312,312,93,
+93,312,312,312,312,312,312,312,312,93,
+93,312,312,312,312,312,312,312,312,93,
+93,312,312,312,312,312,312,312,312,93,
+93,93,93,93,3182,93,93,93,93,93,
+93,93,93,93,3226,93,93,93,93,93,
+93,3270,3270,3270,3270,3270,3270,3270,3270,93,
+93,3314,3314,3314,3314,3314,3314,3314,3314,93,
+93,3358,3358,3358,3358,3358,3358,3358,3358,93,
+93,93,93,93,93,93,93,93,93,93
+</data>
+ </layer>
+ <layer name="blockedLayer" width="10" height="20">
+  <data encoding="csv">
+223,179,179,179,179,179,179,179,179,223,
+223,223,223,223,223,0,223,223,223,223,
+223,0,0,0,0,0,0,0,0,223,
+223,0,0,0,0,0,0,0,0,223,
+223,0,0,0,0,0,0,0,0,223,
+223,179,0,0,179,179,179,179,179,223,
+223,223,0,0,223,223,223,223,223,223,
+223,0,0,0,0,0,0,0,0,223,
+223,0,0,0,0,0,0,0,0,223,
+223,0,0,0,0,0,0,0,0,223,
+223,0,0,0,0,0,0,0,0,223,
+223,0,0,0,0,0,0,0,0,223,
+223,0,0,0,0,0,0,0,0,223,
+223,0,0,0,0,0,0,0,0,223,
+223,179,179,179,0,179,179,179,179,223,
+223,223,223,223,0,223,223,223,223,223,
+223,0,0,0,0,0,0,0,0,223,
+223,0,0,0,0,0,0,0,0,223,
+223,0,0,0,0,0,0,0,0,223,
+223,223,223,223,223,223,223,223,223,223
+</data>
+ </layer>
+ <objectgroup name="objectLayer">
+  <object id="1" gid="2007" x="122.5" y="131" width="16" height="16">
+   <properties>
+    <property name="type" value="key"/>
+   </properties>
+  </object>
+  <object id="2" gid="2278" x="16.5" y="221" width="16" height="16">
+   <properties>
+    <property name="sprite" value="blueDiamond"/>
+    <property name="type" value="item"/>
+   </properties>
+  </object>
+  <object id="5" gid="2278" x="124.5" y="277.5" width="16" height="16">
+   <properties>
+    <property name="sprite" value="blueDiamond"/>
+    <property name="type" value="item"/>
+   </properties>
+  </object>
+  <object id="8" gid="2191" x="113" y="76.5" width="16" height="16">
+   <properties>
+    <property name="sprite" value="redDiamond"/>
+    <property name="type" value="item"/>
+   </properties>
+  </object>
+  <object id="9" gid="2191" x="17" y="47.5" width="16" height="16">
+   <properties>
+    <property name="sprite" value="redDiamond"/>
+    <property name="type" value="item"/>
+   </properties>
+  </object>
+  <object id="10" gid="2191" x="18.5" y="273" width="16" height="16">
+   <properties>
+    <property name="sprite" value="redDiamond"/>
+    <property name="type" value="item"/>
+   </properties>
+  </object>
+  <object id="17" name="Door1" gid="446" x="79.5" y="32.5" width="16" height="16">
+   <properties>
+    <property name="sprite" value="browndoor"/>
+    <property name="targetTilemap" value="level2"/>
+    <property name="targetX" value="20"/>
+    <property name="targetY" value="30"/>
+    <property name="type" value="door"/>
+   </properties>
+  </object>
+  <object id="19" gid="71" x="33.5" y="295" width="16" height="16">
+   <properties>
+    <property name="type" value="playerStart"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>
