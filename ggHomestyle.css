@@ -42,15 +42,19 @@ h2 {
     transform: scale(1.0) translateY(-20px);
     max-width: 95%;
 }
+#gemTraxImg {
+    transform: scale(0.8) translateY(-150px);
+    max-width: 95%;
+}
 section {
-    display:block;
-padding-top: 50px;
+    display: block;
+    padding-top: 50px;
     border: 1px inset grey;
     border-radius: 25px;
     transform: translateY(-10px);
     height: 750px;
     min-width: 99%;
-    clear:both;
+    clear: both;
     margin-top: 30px;
 }
 #farmSection {
@@ -73,7 +77,10 @@ padding-top: 50px;
     background-size: cover;
     height: 800px;
 }
+#guiGemTraxSection {
 
+    height: 850px;
+}
 #graveyardSection {
     background-image: url(Images/Homepage/spookyBack.jpg);
     background-size: cover;
@@ -168,10 +175,13 @@ padding-top: 50px;
     transform: translateY(-190px);
     height: 40px;
 }
+#infoGemTrax {
+    transform: translateY(-250px);
+    height: 40px;
+}
 #infoGuiSlide {
     transform: translateY(-250px);
     height: 40px;
-    
 }
 
 /*#fbLogin {

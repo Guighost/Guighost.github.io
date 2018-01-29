@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+     
+		<meta charset = "UTF-8" />
+		<meta http-equiv = "X-UA-Compatible" content = "IE = edge,chrome = 1" />
+		
+		<!-- the name of your game -->
+		<title>Gui GemTrax</title>
+		
+		<meta name = "viewport" content = "width = device-width, initial-scale = 1.0, maximum-scale = 1.0, minimum-scale = 1.0, user-scalable = no, minimal-ui" />
+		<meta name = "apple-mobile-web-app-capable" content = "yes" />
+		<meta name = "apple-mobile-web-app-status-bar-style" content = "black" />
+		<meta name = "HandheldFriendly" content = "true" />
+		
+		<meta name = "mobile-web-app-capable" content = "yes" />
+		
+		<!-- a 256x256 icon should ho here, this is your favicon -->
+		<link rel = "shortcut icon" sizes = "256x256" href = "icon-256.png" />
+		<link rel = "apple-touch-icon" sizes = "256x256" href = "icon-256.png" />
+        <link rel="icon"
+              type="image/png"
+              href="../favicon.ico">
+          <style type = "text/css">
+			* {
+				padding: 0;
+				margin: 0;
+			}
+			body {
+				background-image: url("assets/sprites/back5.jpg");
+                background-position:center;
+                background-size:cover;
+				color: #fff;
+				overflow: hidden;
+				-ms-touch-action: none;
+			}
+			canvas {
+				touch-action-delay: none;
+				touch-action: none;
+				-ms-touch-action: none;
+			}
+    		</style>
+		
+    		<script src = "phaser.min.js"></script>
+          
+		<script src = "src/boot.js"></script>
+          <script src = "src/preload.js"></script>
+          <script src = "src/gametitle.js"></script>
+          <script src = "src/howtoplay.js"></script>
+          <script src = "src/thegame.js"></script>
+          <script src = "src/gameover.js"></script>
+          
+          <!-- main.js is the script which will start the game -->
+          <script src = "src/main.js"></script>
+          
+    </head>
+    
+    <body>
+    </body>
+    
+</html>
