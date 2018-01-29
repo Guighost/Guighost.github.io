@@ -87,6 +87,7 @@ gameOver = {
             db- adding high score
         */
           var oldScore = JSON.parse(localStorage.getItem("GuiGemTrax_HighScore"));
+          if (oldScore == null) { oldScore.savedScore = 0 };
           console.log("oldScore = " + oldScore.savedScore);
           if (oldScore < savedScore) {
               localStorage.setItem("GuiGemTrax_HighScore", JSON.stringify({
