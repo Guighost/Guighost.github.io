@@ -95,11 +95,8 @@ gameOver = {
         
           console.log("oldScore = " + game.global.highScore);
           if (game.global.highScore < savedScore) {
-              localStorage.setItem("GuiGemTrax_HighScore", JSON.stringify({
-                  savedScore
-              }));
-            
-          }
+              localStorage.setItem("GuiGemTrax_HighScore", JSON.stringify( savedScore ))            
+          };
           highscoreTextM = game.add.bitmapText(40, 270, "systemfont", "Best: ", 36);
           highscoreText = game.add.bitmapText(155, 270, "scorefont", oldScore, 36);
           highscoreText.align = "center";

@@ -188,8 +188,13 @@ gameTitle = {
           
           */
                    
-  		playButton = game.add.button(160, 280, "playbutton", this.playTheGame, this).anchor.setTo(0.5);
-  		
+  		playButton = game.add.button(160, 210, "playbutton", this.playTheGame, this).anchor.setTo(0.5);
+
+            /* GG add for More Games button when touched/clicked        	            */
+            var moreButton1 = game.add.button(160, 340, "morebutton", function () { window.location.href = "../index.html" }, this).anchor.setTo(0.5);
+            moreButton1.clicked = false;
+
+         
           /*
           
           we can also set custom attributes like in this case, where a Boolean
@@ -197,7 +202,7 @@ gameTitle = {
           clicked yet, we just created it.
           
           */  
-            
+             
           playButton.clicked = false;
 		
           /* 
@@ -260,7 +265,11 @@ gameTitle = {
      it has an argument, which is the button that called the function itself
      
      */
-     
+    loadGG1: function(button) {
+            
+    window.open("http://guighostgames.com/", "_self")
+
+    },
 	playTheGame: function(button){
      
           /*
