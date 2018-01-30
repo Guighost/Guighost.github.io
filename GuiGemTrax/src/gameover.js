@@ -86,16 +86,21 @@ gameOver = {
 		/*
             db- adding high score
         */
-          var oldScore = game.global.highScore;
-          //try { oldScore = JSON.parse(localStorage.getItem("GuiGemTrax_HighScore"));}
-          //catch (error) {
-          //    console.log(error);
-          //    oldScore.savedScore = 0;
-          //        }
-        
-          console.log("oldScore = " + game.global.highScore);
-          if (game.global.highScore < savedScore) {
-              localStorage.setItem("GuiGemTrax_HighScore", JSON.stringify( savedScore ))            
+          var oldScore = 0;
+          try { oldScore = localStorage.getItem("GuiGemTrax_HighScore"); }
+          catch (error) {
+              console.log(error);
+              oldScore = 0;
+          }
+          var output = 0;
+          function conVerter() { output = Number(oldScore); console.log("output " + output); }
+          conVerter();
+          
+          console.log("oldScore " + output);
+          console.log("savedScore" + savedScore);
+
+          if (output < savedScore) {
+              localStorage.setItem("GuiGemTrax_HighScore", savedScore);            
           };
           highscoreTextM = game.add.bitmapText(40, 270, "systemfont", "Best: ", 36);
           highscoreText = game.add.bitmapText(155, 270, "scorefont", oldScore, 36);
@@ -147,7 +152,8 @@ gameOver = {
      
 	playTheGame: function(button){
 		if(!button.cliked){
-			button.cliked = true;
+            button.cliked = true;
+            game.global.playerLevel = 1;
 			var blackFade = game.add.sprite(0 ,0, "blackfade");
 			blackFade.alpha = 0;
 			var fadeTween = game.add.tween(blackFade);

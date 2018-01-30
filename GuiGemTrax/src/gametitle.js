@@ -67,7 +67,7 @@ gameTitle = {
           
 		*/
           
-		for(var i = 0; i < game.global.tileTypes; i ++){
+		for(var i = 0; i < 8; i ++){
 			particleArray.push(i)
 		}
 		
@@ -83,7 +83,7 @@ gameTitle = {
 		
 		*/
 		
-          var bubblesEmitter = game.add.emitter(160, -30, 25);
+          var bubblesEmitter = game.add.emitter(160, -30, 35);
           
           /*
           
@@ -115,7 +115,7 @@ gameTitle = {
           
           */
           
-          bubblesEmitter.setYSpeed(30, 40);
+          bubblesEmitter.setYSpeed(50, 80);
           
           /*
           
@@ -165,7 +165,7 @@ gameTitle = {
           
           */
           
-          bubblesEmitter.flow(15000, 2000);
+          bubblesEmitter.flow(12000, 1750);
 		
           /*
   		

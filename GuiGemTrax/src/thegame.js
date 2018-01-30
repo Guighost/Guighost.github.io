@@ -346,7 +346,7 @@ theGame = {
 		
 		*/
 		
-		emitter.gravity = 250;
+		emitter.gravity = 300;
 		
 		/*
 		
@@ -1072,7 +1072,7 @@ theGame = {
 				
 				*/
 				                            
-		          emitter.start(true, 4000, 250, 5);
+		          emitter.start(true, 2000, 250, 2);
 				
 				/*
 				
@@ -1100,16 +1100,25 @@ theGame = {
 				
 				*/
 
-                if (score >= (game.global.playerLevel * 100000) && score <= (game.global.playerLevel  + 1) * 100000) {
+                if (score >= (game.global.playerLevel * 100000) && score <= (game.global.playerLevel + 1) * 100000) {
+
                     game.global.playerLevel += 1;
+
+                    if (game.global.playerLevel == 3 || game.global.playerLevel == 6 || game.global.playerLevel == 9 || game.global.playerLevel == 12) {
+                        console.log("%c  level up 3 - Add a new Tile ", "color:white;background:blue");
+                        game.global.tileTypes += 1;
+                        if (game.global.tileTypes > 8) { game.global.tileTypes = 8; }
+                    }
+                                      
+                   
                     levelText2.text = game.global.playerLevel;
                     timeLeft += 30;
                     if (timeLeft > game.global.gameTime) {
                         timeLeft = game.global.gameTime;
 
                     }
-                    console.log(timeLeft);
-                    var levelNotif = game.add.image((game.width / 2) - 75, 212, "levelUp");
+                    //console.log(timeLeft);
+                    var levelNotif = game.add.image((game.width / 2) - 75, 310, "levelUp");
                     game.time.events.add(Phaser.Timer.SECOND * 1, fadePicture, this);
                     game.time.events.add(Phaser.Timer.SECOND * 3, removeBonus, this);
                 }
