@@ -86,19 +86,28 @@ gameOver = {
 		/*
             db- adding high score
         */
-          var oldScore = JSON.parse(localStorage.getItem("GuiGemTrax_HighScore"));
-          if (oldScore == null) { oldScore.savedScore = 0 };
-          console.log("oldScore = " + oldScore.savedScore);
-          if (oldScore < savedScore) {
+          var oldScore = game.global.highScore;
+          //try { oldScore = JSON.parse(localStorage.getItem("GuiGemTrax_HighScore"));}
+          //catch (error) {
+          //    console.log(error);
+          //    oldScore.savedScore = 0;
+          //        }
+        
+          console.log("oldScore = " + game.global.highScore);
+          if (game.global.highScore < savedScore) {
               localStorage.setItem("GuiGemTrax_HighScore", JSON.stringify({
                   savedScore
               }));
             
           }
           highscoreTextM = game.add.bitmapText(40, 270, "systemfont", "Best: ", 36);
-          highscoreText = game.add.bitmapText(155, 270, "scorefont", oldScore.savedScore, 36);
+          highscoreText = game.add.bitmapText(155, 270, "scorefont", oldScore, 36);
           highscoreText.align = "center";
-          highscoreText.x = ((game.width - scoreText.textWidth) / 2) + 20 ;
+          highscoreText.x = ((game.width - scoreText.textWidth) / 2) + 20;
+
+          if (oldScore < savedScore) {
+              highscoreText.bitmapText = (155, 270, "scorefont", savedScore, 36);
+          }
 
 
         /*
