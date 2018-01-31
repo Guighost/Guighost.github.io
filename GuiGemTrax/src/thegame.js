@@ -126,7 +126,7 @@ theGame = {
 	*/
 	
   	create: function(){
-            this.savedData = localStorage.getItem("GuiGemTrax_HighScore") == null ? { savedScore: 0 } : JSON.parse(localStorage.getItem("GuiGemTrax_HighScore"));
+            this.savedData = localStorage.getItem("GuiGemTrax_BestScore") == null ? { savedScore: 0 } : localStorage.getItem("GuiGemTrax_BestScore");
             console.log(this.savedData);
             highScore2 = this.savedData.savedScore;
             console.log("highscore = " + highScore2);

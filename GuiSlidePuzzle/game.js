@@ -24,7 +24,7 @@ var GAME_STATE_STOP = 2;
 
 
 
-var roundTime = 30;
+var roundTime = 60;
 var playerLevel = 1;
 var playerScore = 0;
 
@@ -113,7 +113,7 @@ playGame.prototype = {
        var scoretext = game.add.text(235, 345, "Score", textStyle);
        this.scoreScore = game.add.text(250, 371, playerScore, textStyle);
        this.timerText = game.add.text(125, 46, "Time: " + roundTime, this.textStyle2);
-       var pointsToGo = (playerLevel * 75) - playerScore;
+       var pointsToGo = (playerLevel * 100) - playerScore;
        this.LevelUpText = game.add.text(106, 345, pointsToGo + " pts to gain time ", this.textStyle4);
 
 
@@ -545,7 +545,7 @@ playGame.prototype = {
                     if (colorStreak == 6) { playerScore = playerScore + 14; }
                     this.scoreScore.text = playerScore;
                     this.checkLevelUp(playerScore);
-                    pointsToGo = (playerLevel * 75) - playerScore;
+                    pointsToGo = (playerLevel * 100) - playerScore;
                     this.LevelUpText.text = pointsToGo + " pts to gain time "
 
                     currentColor = this.tileAt(i, j).tileValue
@@ -584,7 +584,7 @@ playGame.prototype = {
                     if (colorStreak == 6) { playerScore = playerScore + 14; }
                     this.scoreScore.text = playerScore;
                     this.checkLevelUp(playerScore);
-                    pointsToGo = (playerLevel * 75) - playerScore;
+                    pointsToGo = (playerLevel * 100) - playerScore;
                     this.LevelUpText.text = pointsToGo + " pts to gain time "
 
                     
@@ -654,7 +654,7 @@ playGame.prototype = {
     },
     
     checkLevelUp: function(playerScore) {
-        if (playerScore >= playerLevel * 75) {
+        if (playerScore >= playerLevel * 100) {
             var notifLvlUp = game.add.sprite(80, 275, "levelUpPop");
             setTimeout(function () { notifLvlUp.alpha = 0.8 }, 900);
             setTimeout(function () { notifLvlUp.alpha = 0.4 }, 1400);

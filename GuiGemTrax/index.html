@@ -1,7 +1,28 @@
 ﻿<!DOCTYPE html>
+    <!--Gui Gem Trax   2018 GuiGhost Games-->
+
 <html>
 	<head>
-     
+        <!--Adsense stuff-->
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({
+                google_ad_client: "ca-pub-1294525458634610",
+                enable_page_level_ads: true
+            });
+        </script>
+
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-97706544-2"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() { dataLayer.push(arguments); }
+            gtag('js', new Date());
+
+            gtag('config', 'UA-97706544-2');
+        </script>
+
+
 		<meta charset = "UTF-8" />
 		<meta http-equiv = "X-UA-Compatible" content = "IE = edge,chrome = 1" />
 		
@@ -43,6 +64,22 @@
 				touch-action: none;
 				-ms-touch-action: none;
 			}
+              #socialDiv{
+                  position: absolute;
+                  top: 50%;
+                  left:48%;
+                  height: 100px;
+                  width: 290px;
+                  background-color: black;
+              }
+              /*.fb-like {
+                  height: 100px;
+                  width: 100px;
+                  background-image: url("assets/sprites/fbButton.png");
+                  background-position: center;
+                  background-repeat:no-repeat;
+                  background-size: cover;
+              }*/
     		</style>
 		
     		<script src = "phaser.min.js"></script>
@@ -53,13 +90,15 @@
           <script src = "src/howtoplay.js"></script>
           <script src = "src/thegameMin.js"></script>
           <script src = "src/gameoverMin.js"></script>
-          
-          <!-- main.js is the script which will start the game -->
+      
           <script src = "src/main.js"></script>
           
     </head>
     
     <body>
+        <!--<div id="socialDiv">
+            <div class="fb-like" data-href="http://guighostgames.com/GuiGemTrax" data-width="260" data-layout="standard" data-action="like" data-size="large" data-show-faces="true" data-share="true"></div>
+        </div>-->
     </body>
     
 </html>

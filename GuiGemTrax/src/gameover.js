@@ -87,7 +87,7 @@ gameOver = {
             db- adding high score
         */
           var oldScore = 0;
-          try { oldScore = localStorage.getItem("GuiGemTrax_HighScore"); }
+          try { oldScore = localStorage.getItem("GuiGemTrax_BestScore"); }
           catch (error) {
               console.log(error);
               oldScore = 0;
@@ -100,12 +100,14 @@ gameOver = {
           console.log("savedScore" + savedScore);
 
           if (output < savedScore) {
-              localStorage.setItem("GuiGemTrax_HighScore", savedScore);            
+              localStorage.setItem("GuiGemTrax_BestScore", savedScore);   
+              newhighscoreText = game.add.bitmapText(170, 235, "systemfont", "New High Score! ", 24);
+              newhighscoreText.x = (game.width - newhighscoreText.textWidth) / 2 ;
           };
           highscoreTextM = game.add.bitmapText(40, 270, "systemfont", "Best: ", 36);
           highscoreText = game.add.bitmapText(155, 270, "scorefont", oldScore, 36);
           highscoreText.align = "center";
-          highscoreText.x = ((game.width - scoreText.textWidth) / 2) + 20;
+          highscoreText.x = ((game.width - highscoreText.textWidth) / 2) + 20;
 
           if (oldScore < savedScore) {
               highscoreText.bitmapText = (155, 270, "scorefont", savedScore, 36);
