@@ -8,17 +8,23 @@
 }
 header {
     min-height: 150px;
-    width: 94%;
-    margin-left: 3%;
+    width: 100%;
     color: azure;
-    transform: translateY(-45px);
-    clear:both;
+    margin-left:0px;
+    margin-right:0px;
+    padding: 0px,0px,0px,0px;
+    /*transform: translateY(-45px);*/
+    background: #3b679e; /* Old browsers */
+    background: -moz-linear-gradient(top, #3b679e 0%, #2b88d9 50%, #207cca 51%, #7db9e8 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, #3b679e 0%,#2b88d9 50%,#207cca 51%,#7db9e8 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, #3b679e 0%,#2b88d9 50%,#207cca 51%,#7db9e8 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3b679e', endColorstr='#7db9e8',GradientType=0 ); /* IE6-9 */
 }
 #headH3 {
     margin-top: 50px;
 }
 #headDesc {
-    /*transform: translateY(10px);*/
+    font-size: 30px;
 }
 h2 {
     transform: translateY(-45px);
@@ -30,18 +36,67 @@ h2 {
 /*img {
     transform:scale(.75) translateY(-185px);
 }*/
-#bubstorImg1 {
+#topLogo {
     margin-left: 2.5%;
-    transform:  translate(0px, 30px);
+    transform:  translate(-10px, 30px);
     width: 90%;
-    max-height: 300px;
-    max-width: 1000px;
+    max-height: 180px;
+    max-width: 600px;
 
 }
 #bubstorImg2 {
     transform: scale(1.0) translateY(-20px);
     max-width: 95%;
 }
+
+#quicktilesParent {
+    width: 100%;
+    height: 100px;
+    border: none;
+    padding: 0px;
+}
+#quickTileWraper {
+    width: 90%;
+    margin-top: 0px;
+    margin-left:10%;
+    min-height: 100px;
+}
+.gameTiles {
+    display: block;
+    float: left;
+    height: 160px;
+    width: 200px;
+    /*background-color: darkred;*/
+    margin: 1%;
+    margin-top: 0px;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+#g1 { background-image: url(Images/Homepage/Badges/farmBadge.png);}
+
+#g2 {
+    background-image: url(Images/Homepage/Badges/bubbleStoryBadge.png);
+}
+#g3 {
+    background-image: url(Images/Homepage/Badges/gemtraxBadge.png);
+}
+#g4 {
+    background-image: url(Images/Homepage/Badges/slidePuzzleBadge.png);
+}
+#g5 {
+    background-image: url(Images/Homepage/Badges/spellMatchBadge.png);
+}
+#g6 {
+    background-image: url(Images/Homepage/Badges/stackBadge.png);
+}
+#g7 {
+    background-image: url(Images/Homepage/Badges/guiMatchBadge.png);
+}
+#g8 {
+    background-image: url(Images/Homepage/Badges/graveyardJumpBadge.png);
+}
+
 #gemTraxImg {
     transform: scale(0.8) translateY(-150px);
     max-width: 95%;
@@ -355,6 +410,17 @@ section {
         float: right;
         display: block;
     }
+    #quickTileWraper {
+        width: 95%;
+        margin-top: 0px;
+        margin-left: 3%;
+        min-height: 100px;
+    }
+
+    .gameTiles {
+        height: 95px;
+        width: 145px;
+    }
 }
 
 @media screen and (max-width: 600px) {
@@ -405,5 +471,16 @@ section {
             margin-left: 1%;
             margin-bottom: 10px;
             transform: translate(0px, -70px);
+        }
+        #quickTileWraper {
+            width: 100%;
+            margin-top: 0px;
+            margin-left: 0%;
+            min-height: 100px;
+        }
+        .gameTiles{
+            height: 95px;
+            width: 145px;
+
         }
     }
