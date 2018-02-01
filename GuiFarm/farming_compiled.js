@@ -1485,7 +1485,10 @@ farming.start = function () {
 
     var horizRoad = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(0, 436).setSize(320, 25).setFill("images/" + a.barnyard[15].image);
 
+    ////start drawing Lime Scene
+
     var c = new lime.Director(document.body, a.width, a.height); c.makeMobileWebAppCapable(); c.setDisplayFPS(!1);
+   
     var d = (new lime.Scene).setRenderer(lime.Renderer.CANVAS),
         e = (new lime.Layer).setAnchorPoint(0, 0),
         f = (new lime.Layer).setAnchorPoint(0, 0);
