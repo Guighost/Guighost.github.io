@@ -69,6 +69,51 @@ button {
     background: linear-gradient( black, magenta);
     background-size: cover;
 }
+
+#changeToLandscape {
+    position: absolute;
+    background-color: black;
+    width: 99%;
+    height: 99%;
+    left: 0%;
+    top: 0%;
+    z-index: 5000;
+    display: none;
+}
+
+#pleaseSwitch {
+    position: absolute;
+    left: 50%;
+    top: 25%;
+    max-width: 320px;
+    color: aliceblue;
+    transform: translate(-100px, 0px);
+}
+@media (max-width: 600px), screen (orientation:portrait) {
+    #changeToLandscape {
+        display: block;
+    }
+    body {
+        background:none;
+    }
+}
+
+@media screen and (orientation:landscape) {
+    #changeToLandscape {
+        display: none;
+    }
+    body {
+        background-repeat: no-repeat;
+        background: radial-gradient( darkslateblue, black, magenta);
+        background-size: cover;
+        background-repeat: repeat;
+    }
+}
+
+
+
+
+
 @media (device-height: 414px) {
     #headLogo {
         transform: translate(0px, -2px);
