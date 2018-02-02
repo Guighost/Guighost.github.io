@@ -58,6 +58,34 @@
                  /*left: 50%;
                  transform: translateX(-150px);*/
              }
+
+             #leftAdBar {
+                 position: absolute;
+                 left: 0px;
+                 top: 0px;
+                 width: 10%;
+                 height: 99%;
+                 background-color: black;
+             }
+
+             #rightAdBar {
+                 position: absolute;
+                 left: 89%;
+                 top: 0px;
+                 width: 10%;
+                 height: 99%;
+                 background-color: black;
+             }
+
+             @media (max-width: 64em) {
+                 #rightAdBar {
+                     display: none;
+                 }
+
+                 #leftAdBar {
+                     display: none;
+                 }
+             }
 	     </style>
 
         <!--Adsense stuff-->
@@ -90,6 +118,30 @@
        
         </div>
         <script type="text/javascript" src="game.js"></script>
+        <div id="leftAdBar">
+            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+            <!-- Ad unit 1 -->
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-1294525458634610"
+                 data-ad-slot="1936199137"
+                 data-ad-format="auto"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+        <div id="rightAdBar">
+            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+            <!-- Ad unit 1 -->
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-1294525458634610"
+                 data-ad-slot="1936199137"
+                 data-ad-format="auto"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
 	</body>
 
 </html>
