@@ -80,6 +80,33 @@
                   background-repeat:no-repeat;
                   background-size: cover;
               }*/
+              #leftAdBar {
+                  position: absolute;
+                  left: 0px;
+                  top: 0%;
+                  width: 9%;
+                  height: 100%;
+                  background-color: black;
+              }
+
+              #rightAdBar {
+                  position: absolute;
+                  left: 91%;
+                  top: 0%;
+                  width: 9%;
+                  height: 100%;
+                  background-color: black;
+              }
+
+              @media (max-width: 62em) {
+                  #rightAdBar {
+                      display: none;
+                  }
+
+                  #leftAdBar {
+                      display: none;
+                  }
+              }
     		</style>
 		
     		<script src = "phaser.min.js"></script>
@@ -99,6 +126,30 @@
         <!--<div id="socialDiv">
             <div class="fb-like" data-href="http://guighostgames.com/GuiGemTrax" data-width="260" data-layout="standard" data-action="like" data-size="large" data-show-faces="true" data-share="true"></div>
         </div>-->
+        <div id="leftAdBar">
+            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+            <!-- Ad unit 1 -->
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-1294525458634610"
+                 data-ad-slot="1936199137"
+                 data-ad-format="auto"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+        <div id="rightAdBar">
+            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+            <!-- Ad unit 1 -->
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-1294525458634610"
+                 data-ad-slot="1936199137"
+                 data-ad-format="auto"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
     </body>
     
 </html>
