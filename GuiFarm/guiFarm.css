@@ -14,7 +14,7 @@
     margin-right:1%;
     transform: translate( -10px, 0px);
     border: 1px solid blue;
-    background-image: url("images/UI/southFarm.png");
+    /*background-image: url("images/UI/southFarm.png");*/
     background-position:center;
     background-size: contain;
     background-repeat: no-repeat;

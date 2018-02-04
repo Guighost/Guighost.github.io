@@ -3308,8 +3308,8 @@ farming.start = function () {
 
 
     var introScene = (new lime.Scene).setRenderer(lime.Renderer.CANVAS),
-        introLayer = (new lime.Layer).setAnchorPoint(0, 0),
-        introFill1 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(0, 0).setSize(a.width, a.height).setFill("images/UI/cloudsSolid.png");
+        introLayer = (new lime.Layer).setAnchorPoint(0, 0)
+        introFill1 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(0, 0).setSize(a.width, a.height);
     introScene.appendChild(introLayer);
     introLayer.appendChild(introFill1);
 
