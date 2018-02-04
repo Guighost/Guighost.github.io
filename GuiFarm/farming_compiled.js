@@ -3330,7 +3330,8 @@ farming.start = function () {
     });
     goog.events.listen(moreGameBtn, ["mousedown", "touchstart"], function () { window.open("../", "_self"); });
     c.replaceScene(introScene);
-
+    var hideloading = document.getElementById("loadingGG");
+    hideloading.style.display = 'none';
 
 
     /////LiveStockPens Scene/////////////////////////////LiveStockPens///////////////////////////////////////////  //////////////////////////////////LiveStockPens Scene///////////////////////////////////////////
