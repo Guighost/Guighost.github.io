@@ -2372,7 +2372,7 @@ farming.start = function () {
     lime.scheduleManager.scheduleWithDelay(function () {
 
         if (sceneBefore == 2) { cowSound.play(); }
-        if (player.farms > 1) { a.harvestMilk(); };
+        if (acres[1].owned == 1) { a.harvestMilk(); };
         if (vinyardHouseLevel > 1) { a.makeJelly(); };
     }, this, 30000)
 
