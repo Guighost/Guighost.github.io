@@ -772,6 +772,7 @@ imgArray6[4] = new Image(); imgArray6[4].src = 'images/UI/barn5.png'
 imgArray6[5] = new Image(); imgArray6[5].src = "images/bare_land.png"
 imgArray6[6] = new Image(); imgArray6[6].src = "images/plowed.png"
 
+var moneyBefore = 0;
 
 
 //var ss = new lime.SpriteSheet('images/', lime.ASSETS.blacksmith.json, lime.parse)
@@ -797,16 +798,17 @@ var farming = {
             if (scene == 32) { b.currentCrop = 9; };
             if (scene == 3) { b.currentCrop = 8; };
             var toPlant = a.crops[b.currentCrop].grow1;
+            moneyBefore = player.money;
             d.event.stopPropagation();
 
-            c.state == farming.EMPTY && player.money >= a.costPlowing ?
+            c.state == farming.EMPTY ?
                 (c.setFill("images/plowed.png"),
                     c.state = farming.PLOWED,
-                    player.money -= a.costPlowing,
+                    //player.money = player.money - a.costPlowing,
                     scene == 3 && (c.setFill("images/Orchard/fertilize_trees.png")),
                     scene == 32 && (c.setFill("images/Orchard/fertilize_trees.png")),
-                    scene == 5 && (c.setFill("images/vinyard/grapes_Fertilize.png")),
-                    a.updateMoney()
+                    scene == 5 && (c.setFill("images/vinyard/grapes_Fertilize.png"))
+                    //a.updateMoney()
 
                 )
 
@@ -819,8 +821,8 @@ var farming = {
                         c.crop = b.currentCrop,
                         c.ripeTime = 2000 * a.crops[b.currentCrop].time_to_ripe,
                         c.deathTime = 2000 * a.crops[b.currentCrop].time_to_death,
-                        player.money = player.money - a.crops[b.currentCrop].cost,
-                         
+                        player.money = player.money - (a.crops[b.currentCrop].cost),
+                          
                         a.updateMoney(),
                         a.displayCost(posX, posY, a.crops[b.currentCrop].cost)
                     )
@@ -1571,10 +1573,8 @@ farming.start = function () {
     var warningSeen = 0;
     //update money
     a.updateMoney = function () {
-        if (Math.sign(player.money) <= -1) {
-            player.money = 200;
-        }
-        //b.money = player.money ;
+        if (player.money < 0) (player.money = moneyBefore);
+        b.money = player.money ;
         h.setText("$ " + player.money); pastureCash.setText("$ " + player.money); marketCash.setText("$ " + player.money);
         liveStockCash.setText("$ " + player.money); orchardCash.setText("$ " + player.money); vinyardCash.setText("$ " + player.money);
         localStorage.setItem('GuiGhostFarms_player', JSON.stringify(player));
@@ -2482,7 +2482,7 @@ farming.start = function () {
     goog.events.listen(forSaleV, ["mousedown", "touchstart"], function () {            //for sale vinyard
         fsClicked = 3;
         confirmSaleV.setHidden(false);
-        if (player.money >= 7500) { confirmTextSubV.setHidden(true); } else { confirmBtnV.setHidden(true); };
+        if (player.money >= 7500) { confirmTextSubV.setHidden(true); confirmBtnV.setHidden(false);} else { confirmBtnV.setHidden(true); };
         confirmTextV.setText("Vineyard $7500");
 
     }, { passive: false });
@@ -2843,7 +2843,7 @@ farming.start = function () {
     goog.events.listen(forSaleLS, ["mousedown", "touchstart"], function () {            //for sale vinyard
         fsClicked = 4;
         confirmSaleLS.setHidden(false);
-        if (player.money >= 10000) { confirmTextSubLS.setHidden(true); } else { confirmBtnLS.setHidden(true); };
+        if (player.money >= 10000) { confirmTextSubLS.setHidden(true); confirmBtnLS.setHidden(false);} else { confirmBtnLS.setHidden(true); };
         confirmTextLS.setText("StockPens $10,000");
 
     }, { passive: false });
@@ -3491,7 +3491,7 @@ farming.start = function () {
                 if (lsHarvest == 2) { egg1.setHidden(false); eggHidden[egg1] = false; player.cropsStored[5].stored = player.cropsStored[5].stored - 1;}
                 if (lsHarvest == 3) { egg3.setHidden(false); eggHidden[egg3] = false; player.cropsStored[5].stored = player.cropsStored[5].stored - 1;}
                 if (lsHarvest == 4 && coopLevel > 1) { egg2.setHidden(false); eggHidden[egg2] = false; player.cropsStored[5].stored = player.cropsStored[5].stored - 1;}
-                if (lsHarvest > 5) { lsHarvest = 5; }
+                if (lsHarvest > 5) { lsHarvest = 0; }
                 gLabel5LS.setText(player.cropsStored[5].stored);
                 gLabel5Pork.setText(player.cropsStored[5].stored);
             }
