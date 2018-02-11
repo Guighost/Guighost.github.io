@@ -1,0 +1,300 @@
+body{background-image:url("cloudsSolid.png");background-size:100% 100%;background-color:black;background-repeat:repeat-y;background-position:center;}
+body, html{overflow-x:hidden;}
+#changeToPortrait{position:absolute;background-color:black;width:100%;height:100%;left:0%;top:0%;z-index:5000;display:none;}
+#pleaseSwitch{position:absolute;left:48%;top:15%;text-align:center;max-width:525px;color:aliceblue;transform:translate(-130px, 0px);}
+@media (max-height:600px), screen (orientation:landscape){#changeToPortrait{display:block;}
+}
+@media screen and (orientation:portrait){#changeToPortrait{display:none;}
+}
+#viewport{top:50%;display:block;padding:15px;margin-left:auto;margin-right:auto;border-radius:2px;}
+#players{position:absolute;padding:1px;margin-left:auto;margin-right:auto;height:80px;}
+.gameSounds{display:none;}
+#fruitylogo{margin-left:1%;top:1%;}
+#selectPowerMove{background-image:url("Hud/powerMoveBack.png");width:95%;max-width:300px;height:400px;position:absolute;z-index:3000;left:50%;transform:translate3d(-275px,-500px, 0);display:block;}
+#selectPowerMove{display:none;}
+#shockingBlast{transform:translate(430px,310px);z-index:5000;}
+.clsSpecialBacks{display:none;position:absolute;top:0px;left:0px;}
+.clsSpecialSelect{position:inherit;border:2px groove blue;min-width:225px;max-width:225px;height:190px;border-radius:20px;background:-webkit-radial-gradient(#3385ff, #ffb3d1);background:-o-radial-gradient(#3385ff, #ffb3d1);background:-moz-radial-gradient(#3385ff, #ffb3d1);background:radial-gradient(#3385ff, #ffb3d1);max-height:105px;max-width:225px;margin-top:105px;margin-left:32px;margin-right:10px;clear:left;}
+#power-2{position:relative;clear:both;top:115px;}
+.activate{background-color:blue;color:azure;min-width:80px;clear:both;position:inherit;display:block;float:right;transform:translate3d(-23px,-90px, 0);border-radius:15px;text-align:center;font-family:Comic Sans MS;font-size:14px;}
+#icyAct{transform:translate3d(120px,70px, 0);}
+.clspowerImage{transform:translate3d(35px,-45px, 0);float:right;}
+#pwr2Img{float:right;}
+.lightning{margin-top:10px;transform:translate3d(-8px,-68px, 0);width:110px;height:101px;display:block;background:url("Effects/LightningSprite.png");animation:playLightning 1s steps(8)infinite;}
+@keyframes playLightning{100%{background-position:0px 808px;}
+}
+.clspowerTxt{position:relative;float:left;margin-top:5px;margin-left:10px;font-size:18px;font-weight:bold;font-style:Comic Sans MS;color:#cc3399;}
+#pwr1Txt2, #pwr2Txt2{transform:translate3d(-60px,55px, 0);font-size:18px;font-weight:bold;text-decoration:none;padding-top:3px;border:2px solid blue;border-radius:15px;width:40px;background-color:#ffb3d1;text-align:center;}
+.getMore{width:100px;}
+.clsBuyTag{width:75px;height:60px;position:relative;float:left;transform:translate3d(10px,-1px, 0);}
+#specialstarCash{position:absolute;margin-left:140px;top:40px;font-style:Comic Sans MS;font-weight:bold;font-size:24px;z-index:2000;color:#8a2be2;}
+#lvlUpStarCash{position:absolute;margin-left:140px;top:40px;font-style:Comic Sans MS;font-weight:bold;font-size:24px;z-index:3000;color:#8a2be2;}
+#LevelDisplay{position:absolute;min-width:100%;top:110px;font-style:Comic Sans MS;font-weight:bold;font-size:44px;z-index:3000;color:#8a2be2;text-align:center;}
+.levelUpBG{background-image:url("Hud/levelUpBack.png");min-width:315px;height:359px;position:absolute;left:50%;transform:translate3d(-275px,-570px, 0);display:none;}
+#lvlUpTbl{margin-top:100px;}
+#lvlImageTile{margin-left:15%;background-image:url("fruityForest.png");height:100px;width:250px;text-align:center;vertical-align:middle;background-repeat:no-repeat;background-size:cover;overflow-x:hidden;transform:translate3d(29px,45px, 0);}
+.clsTDLvlUp{clear:both;position:relative;min-width:33%;max-height:50px;min-height:50px;margin-left:auto;padding-right:15px;}
+#lvlUpr1{transform:translate3d(15px,-100px, 0);padding-left:10px;z-index:5500;}
+#lvlUpr3{transform:translate3d(15px,-35px, 0);padding-left:10px;z-index:5500;}
+#levelup1{position:absolute;left:50%;transform:translate3d(-265px,0, 0);top:5%;margin-left:auto;margin-right:auto;display:none;}
+.starsUp{z-index:5000;display:block;}
+#logo{position:absolute;padding:1px;margin-left:auto;margin-right:auto;height:100px;}
+.pops{position:absolute;left:34%;top:50%;margin-left:auto;margin-right:auto;display:none;}
+#starPop1{position:absolute;margin-top:10px;left:36%;transform:translate(115px,10px) scale(.9,.9);z-index:2500;}
+#hotstreak{position:absolute;z-index:2000;left:48%;transform:translate(-240px,-694px);display:none;}
+.clsInStreakDown{animation-name:inStreakDown;animation-duration:1.0s;}
+@keyframes inStreakDown{from{opacity:0;left:48%;transform:translate(-240px,-694px);transform:translate3d(0, -100%, 0);}
+to{opacity:1;transform:none;}
+}
+.clsInStreakUp{animation-name:inStreakUp;animation-duration:1.0s;}
+@keyframes inStreakUp{from{opacity:1;}
+to{opacity:0;transform:translate3d(0, -100%, 0);}
+}
+#hotstreakTotal{width:150px;height:175px;position:absolute;background-image:url("streakBonus.png");margin-left:50%;transform:translate(-185px, -320px);z-index:2000;display:none;}
+.clsHotIn{animation-name:hotMoveIn;animation-duration:1.5s;}
+@keyframes hotMoveIn{from{opacity:0;transform:translate3d(-400px, -2000px, 0);}
+25%{opacity:0.25;}
+75%{opacity:0.75;}
+to{opacity:1;}
+}
+.clsHotOut{animation-name:hotMoveOut;animation-duration:2s;}
+@keyframes hotMoveOut{from{opacity:1;}
+to{opacity:0;display:none;}
+}
+.clsStreakOut{animation-name:streakOut;animation-duration:2s;}
+@keyframes streakOut{from{opacity:1;}
+to{opacity:0;transform:translate3d(0, -100%, 0);}
+}
+#hotstreakScore{margin-top:85px;color:blue;font-family:Comic Sans MS;font-size:24px;font-weight:bold;text-align:center;}
+#playGame{position:absolute;margin-right:auto;width:160px;height:30px;max-height:100px;border:2px solid blue;border-radius:15px;background-color:#FFBCD9;color:blue;font-family:Comic Sans MS;font-size:18px;top:20%;text-align:center;left:50%;transform:translate(-90px,10px);}
+#intro{position:absolute;width:100%;height:100%;top:0px;left:0px;background-image:url("cloudsSolid.png");background-color:#cccccc;z-index:200;}
+#toMatch{position:absolute;margin-left:50%;transform:translate(-155px,-20px);}
+.clsIntroBtn{position:absolute;margin-right:auto;width:160px;height:30px;max-height:100px;border:2px solid blue;border-radius:15px;background-color:#FFBCD9;color:blue;font-family:Comic Sans MS;font-size:18px;top:28%;text-align:center;left:50%;transform:translate(-90px,-5px);margin-top:10px;}
+#levelSelect{transform:translate(-90px,40px);}
+.introdiv{position:relative;display:block;left:50%;transform:translate(-160px,50px);max-width:300px;}
+#saveAndLoad{z-index:1500;position:absolute;width:380px;height:360px;top:30%;background-image:url("Hud/gameMenu.png");margin-left:32%;transform:translate(-55px,-120px);display:none;border:5px groove red;color:azure;font-size:20px;text-align:center;border-radius:30px;font-family:Comic Sans MS;}
+#saveClose{transform:translate(-35px,10px);padding-bottom:3px;}
+#menuTable{margin-top:100px;margin-left:15%;min-width:200px;min-height:200px;}
+.savebtns{position:relative;margin-left:55px;border:1px solid #ff0080;border-radius:8px;width:170px;height:60px;background-color:#660033;text-decoration:none;color:#ffd1b3;transform:translate(-35px,-140px);font-size:16px;}
+#menuA{-ms-transform:translate(10px,-35px);-webkit-transform:translate(10px,-35px);transform:translate(15px,-35px);position:absolute;color:#ffd1b3;}
+#mapDiv{width:50%;height:90%;display:none;position:absolute;background-color:#ddffcc;border-radius:25px;left:28%;z-index:500;width:450px;top:1%;}
+#mapImg{margin-left:25px;margin-right:auto;position:absolute;display:block;width:400px;z-index:529;}
+.closebtns{border:4px solid #ff1493;background-color:#f8e187;font-size:26px;font-weight:900;width:25px;height:27px;border-radius:10px;display:block;transform:translate(-1px,-2px);text-decoration:none;text-align:center;color:red;float:right;}
+.closebtns2{border:5px solid #ff1a75;background-color:#F7DC6F;font-size:18px;font-weight:90;text-align:center;width:100px;height:25px;border-radius:10px;display:block;transform:translate(-5px,-3px);text-decoration:none;z-index:599;left:175px;}
+#story{text-align:center;padding:3px;}
+#lvlSelectParent{position:absolute;z-index:1000;background-image:url("Hud/levelSelectBack.png");margin:auto;left:50%;transform:translate(-266px,-3px);top:10%;border-radius:10px;text-align:center;min-height:500px;max-height:550px;min-width:310px;max-width:610px;display:none;}
+.selectZone1{float:left;padding-right:10px;}
+.selectZone2{float:right;}
+.clsSelectHead{text-align:right;color:#99004d;font-style:Comic Sans MS;font-size:16px;width:600px;border:2px solid black;}
+#closeLvlSelect{transform:translate(0px,-20px);}
+.clsTblTitle{color:#99004d;font-style:Comic Sans MS;font-size:16px;width:95%;height:32px;margin:auto;padding:10px;}
+.clsSelectText{transform:translate(21px,18px)}
+.clsCenterSelectImg{margin-left:50%;transform:translate(-110px, 0px);}
+.clsCenterSelectGrid{text-align:center;margin-left:50%;transform:translate(-155px, 0px);}
+#grid1{text-align:center;display:block;}
+#grid2{display:none;}
+#grid3{display:none;}
+#grid4{display:none;}
+#grid5{display:none;}
+#grid6{display:none;}
+#grid7{display:none;}
+#grid8{display:none;}
+#grid9{display:none;}
+#grid10{display:none;}
+#grid11{display:none;}
+#grid12{display:none;}
+#grid13{display:none;}
+#grid14{display:none;}
+#grid15{display:none;}
+#grid16{display:none;}
+#footDiv{transform:translate(14px,-0px);text-align:center;color:#99004d;font-style:Comic Sans MS;font-size:24px;}
+.allRow{width:95%;height:42px;border-radius:50px;margin-left:15%;}
+.selectSquare{margin-left:50%;margin-top:5px;}
+.starImg{margin-left:40%;width:60px;transform:translate3d(0px, 20px, 0);}
+.clsLvlNums{position:absolute;font-size:28px;margin-left:34%;margin-top:4%;color:#ffffff;font-style:Comic Sans MS;font-weight:100;z-index:5000;}
+.clsLvlNums2{position:absolute;font-size:28px;margin-left:29%;margin-top:4%;color:#ffffff;font-style:Comic Sans MS;font-weight:100;z-index:5000;}
+.clsSpecialPowers{display:none;position:absolute;left:29%;top:30%;z-index:2000;}
+#warp{min-width:100%;height:100%;background-color:black;display:none;position:absolute;top:0px;left:0px;z-index:3000;}
+#warpImage{margin-top:20%;margin-left:25%;transform:translate(-100px, -340px);width:50%;height:auto;}
+#foot1{min-width:100%;min-height:140px;transform:translate(10px, 0px);}
+#footerImg{margin-left:28%;transform:scale(.6, .6) translate(10px, -100px);}
+#aroundFB{position:absolute;left:50%;top:1px;z-index:3000;transform:translateX(-130px);}
+@media only screen and (device-width:1366px){#viewport{max-height:92vh;width:auto;top:10px;left:50px;margin-top:1%;margin-left:31%;}
+}
+@media (device-width:1280px){#viewport{height:740px;width:auto;top:10px;left:50px;margin-top:1%;margin-left:31%;}
+#lvlSelectParent{transform:translate(-150px,-20px);width:310px;}
+#selectPowerMove{left:15%;transform:translate(300px,-520px);}
+}
+@media (device-width:1366px){#viewport{height:960px;width:auto;top:10px;left:50px;margin-top:1%;margin-left:31%;}
+#lvlSelectParent{transform:translate(-150px,-20px);width:310px;}
+#selectPowerMove{left:15%;transform:translate(300px,-520px);}
+}
+@media (device-width:1024px){#viewport{min-width:850px;top:20px;left:50px;margin-top:5%;margin-left:20%;}
+#levelup1{left:62%}
+#starPop1{left:44%;transform:translate(30px,75px);}
+#nice, #awesome{left:2%;top:50%;}
+#intro{margin-left:0%;width:100%;}
+.introdiv{padding-left:1%;margin-left:0%;height:90%;transform:translate(-150px, 200px);}
+#fruitylogo{margin-left:5%;height:600px;top:0%;transform:translate(-155px, 55px);}
+#playGame{margin-left:5%;margin-right:20%;width:18%;top:30%;}
+#loadSaved{margin-left:5%;margin-right:20%;width:18%;top:35%;}
+#levelSelect{margin-left:5%;margin-right:20%;width:18%;top:40%;}
+#lvlSelectParent{transform:translate(-150px,-20px);width:310px;}
+#levelUpBack{transform:translate3d(-120px,-630px, 0);}
+#saveAndLoad{margin-left:40%;}
+#hotstreak{left:50%;transform:translate(-150px,-980px);}
+#warpImage{margin-left:0%;transform:translate(10px,100px);width:90%;height:auto;}
+#footerImg{transform:scale(.5, .5) translate3d(-80px,205px, 0);}
+#mapDiv{left:5px;width:99%;margin-left:1%;}
+#mapImg{margin-left:2%;width:95%;height:95%;}
+}
+@media (device-width:768px){#viewport{width:950px;top:50px;left:50px;margin-left:15%;}
+#levelup1{left:70%}
+#starPop1{left:44%;transform:translate(30px,80px);}
+#nice, #awesome{left:2%;top:50%;}
+#intro{margin-left:0%;width:100%;}
+.introdiv{padding-left:1%;margin-left:5%;transform:translate(-150px, 200px);}
+#fruitylogo{margin-left:5%;height:600px;top:1%;}
+#playGame{margin-left:6%;margin-right:20%;width:20%;top:35%;}
+#loadSaved{margin-left:6%;margin-right:20%;width:20%;top:45%;}
+#levelSelect{margin-left:6%;margin-right:20%;width:18%;top:36%;}
+#saveAndLoad{margin-left:40%;}
+#hotstreak{left:50%;transform:translate(-150px,-980px);}
+#lvlSelectParent{transform:translate(-120px,-10px);width:310px;}
+#levelUpBack{margin-left:20%;transform:translate(-260px,-720px);}
+#selectPowerMove{margin-left:5%;transform:translate(-130px,-575px);}
+#warpImage{margin-left:0%;transform:translate(10px,80px);width:90%;height:auto;}
+#footerImg{transform:scale(.5, .5) translate3d(-80px,-10px, 0);}
+#mapDiv{left:5px;width:99%;height:97%;margin-left:0%;}
+#mapImg{margin-left:2%;width:95%;height:80%;}
+}
+@media (device-width:412px){#viewport{width:650px;padding-left:1%;}
+#levelup1{margin-left:280px;}
+#logo{top:10%;}
+#nice, #awesome{left:2%;top:50%;}
+#intro{margin-left:0%;width:100%;}
+.introdiv{padding-left:1%;margin-left:1%;}
+#fruitylogo{margin-left:0%;top:1%;width:100%}
+#playGame{margin-left:0%;width:40%;top:26%;}
+#loadSaved{margin-left:0%;width:40%;top:35%;}
+#levelSelect{margin-left:0%;width:40%;top:36%;}
+#lvlSelectParent{transform:translate(-150px,-20px);width:310px;}
+#leftspot{width:120px;}
+.selectzone1{margin-left:30px;}
+#saveAndLoad{margin-left:11%;}
+#hotstreak{left:50%;transform:translate(-150px,-983px);}
+#hotstreakTotal{margin-left:70%;}
+#starPop1{transform:translate(-25px, 25px);}
+.clsSpecialPowers{left:10%;top:30%;max-width:300px;max-height:auto;}
+#selectPowerMove{left:15%;transform:translate(0px,-475px);}
+#levelUpBack{transform:translate3d(-160px,-580px, 0);}
+#warpImage{margin-left:0%;transform:translate(10px,100px);width:90%;height:auto;}
+#foot1{height:25px;}
+#footerImg{transform:scale(.3, .3) translate(-220px,-250px);}
+#mapDiv{left:10px;width:99%;margin-left:1%;height:98%;}
+#mapImg{margin-left:1%;width:95%;height:75%;}
+#lvlSelectParent{left:45%;width:60%;}
+.clsLvlNums{margin-left:34%;}
+.clsLvlNums2{margin-left:30%;}
+}
+@media (max-width:450px){#viewport{width:610px;}
+#logo{top:3%;}
+#levelup1{left:8%}
+#nice, #awesome{left:9%;top:52%;}
+.introdiv{padding-left:0px;margin-left:0%;}
+#saveAndLoad{margin-left:13%;}
+#hotstreak{left:50%;transform:translate(-150px,-683px);}
+#selectPowerMove{left:14%;transform:translate(0px,-495px);width:95%;}
+#mapDiv{left:0%;width:97%;}
+#mapImg{width:95%;height:75%;}
+}
+@media (device-width:414px){#viewport{padding:0px;padding-left:0px;padding-right:5px;width:635px;}
+#levelup1{margin-left:280px;top:5%;}
+#nice, #awesome{left:9%;top:52%;}
+#fruitylogo{margin-left:1%;top:1%;}
+.introdiv{padding-left:0px;margin-left:5%;}
+#playGame{margin-left:0%;margin-right:20%;width:40%;top:25%;}
+#loadSaved{margin-left:0%;margin-right:20%;width:40%;top:35%;}
+#levelSelect{transform:translate(-90px,100px);width:40%;}
+#leftspot{width:120px;}
+.selectzone1{margin-left:30px;}
+#hotstreak{left:50%;transform:translate(-175px,-615px);}
+#lvlSelectParent{transform:translate(-150px,-20px);width:310px;}
+#starPop1{transform:translate(-15px, -20px);}
+#selectPowerMove{left:12%;transform:translate(0px,-475px);}
+#levelUpBack{transform:translate3d(-160px,-580px, 0);}
+#warpImage{margin-left:0%;transform:translate(10px,100px);width:90%;height:auto;}
+#footerImg{transform:scale(.5, .5) translate3d(-210px,60px, 0);}
+#mapDiv{left:1%;height:98%;width:98%;}
+#mapImg{width:89%;height:80%;}
+.clsLvlNums{margin-left:30%;}
+.clsLvlNums2{margin-left:25%;}
+}
+@media (device-width:375px){#viewport{padding:0px;padding-left:0px;padding-right:5px;width:555px;}
+#logo{top:1%;}
+#levelup1{margin-left:262px;top:5%;}
+#nice, #awesome{left:9%;top:52%;}
+#fruitylogo{margin-left:1%;top:1%;}
+.introdiv{padding-left:0px;margin-left:5%;}
+#playGame{margin-left:0%;margin-right:20%;width:40%;top:27%;}
+#loadSaved{margin-left:0%;margin-right:20%;width:40%;top:36%;}
+#levelSelect{transform:translate(-90px,100px);width:40%;}
+#leftspot{width:100px;}
+.selectzone1{margin-left:20px;}
+#hotstreak{left:50%;transform:translate(-155px,-616px);}
+#lvlSelectParent{transform:translate(-200px,-20px);width:310px;}
+#starPop1{transform:translate(-25px, 20px);}
+.clsSpecialPowers{left:10%;top:30%;max-width:300px;max-height:auto;}
+#selectPowerMove{left:7%;transform:translate(0px,-475px);}
+#levelUpBack{transform:translate3d(-160px,-500px, 0);}
+#warpImage{margin-left:0%;transform:translate(10px,100px);width:90%;height:auto;}
+#footerImg{transform:scale(.5, .5) translate3d(-225px,105px, 0);}
+#mapDiv{left:1%;height:98%;width:98%;}
+#mapImg{width:89%;height:80%;}
+#lvlSelectParent{left:60%;}
+}
+@media (device-width:360px){#viewport{padding:0px;padding-left:3px;padding-right:1px;margin-left:1px;width:530px;}
+.clsSpecialPowers{left:10%;top:30%;max-width:266px;max-height:204px}
+#logo{top:1%;}
+#levelup1{left:80%}
+#nice, #awesome{left:9%;top:52%;}
+#fruitylogo{margin-left:2%;top:0%;transform:translate(-160px, 0px);}
+.introdiv{padding-left:0px;margin-left:5%;height:100%;width:100%;}
+#playGame{margin-left:2%;margin-right:20%;width:40%;top:30%;}
+#loadSaved{margin-left:2%;margin-right:20%;width:40%;top:41%;}
+#levelSelect{transform:translate(-85px,130px);width:40%;}
+#hotstreak{left:50%;transform:translate(-150px,-593px);}
+#hotstreakTotal{margin-left:70%;}
+#saveAndLoad{margin-left:9%;}
+#lvlSelectParent{transform:translate(-190px,-20px);width:310px;}
+#starPop1{transform:translate(-25px, 25px);}
+#selectPowerMove{left:7%;transform:translate(0px,-475px);}
+#levelUpBack{transform:translate3d(-160px,-490px, 0);}
+#warpImage{margin-left:0%;transform:translate(10px,100px);width:90%;height:auto;}
+#footerImg{transform:scale(.5, .5) translate3d(-235px,-100px, 0);}
+#mapDiv{left:1%;width:350px;height:99%;width:98%;}
+#mapImg{width:320px;height:75%;transform:translate(-10px, 0px);}
+#lvlSelectParent{left:60%;}
+}
+@media (device-width:320px){#viewport{padding-right:5px;padding-left:0px;width:500px;}
+#levelup1{margin-left:247px;}
+#nice, #awesome{left:9%;top:49%;}
+#fruitylogo{margin-left:1%;top:1%;transform:translate(-160px,15px);height:430px;width:300px;}
+.introdiv{padding-left:10px;margin-left:4%;top:1%;}
+#playGame{margin-left:5%;margin-right:20%;width:50%;padding-top:1px;top:31%;}
+#loadSaved{margin-left:5%;margin-right:20%;width:50%;top:42%;}
+#levelSelect{transform:translate(-75px,120px);}
+#lvlSelectParent{transform:translate(-187px,-20px);width:310px;}
+#saveAndLoad{margin-left:7%;}
+#hotstreak{left:50%;transform:translate(-150px,-583px);}
+#hotstreakTotal{margin-left:80%;}
+#starPop1{transform:translate(-25px, 55px);}
+.clsSpecialPowers{left:10%;top:30%;max-width:266px;max-height:204px}
+#selectPowerMove{left:3%;transform:translate(0px,-475px);}
+#levelUpBack{transform:translate3d(-157px,-485px, 0);}
+#warpImage{margin-left:0%;transform:translate(10px,100px);width:90%;height:auto;}
+#footerImg{transform:scale(.4, .4) translate3d(-300px,-20px, 0);}
+#mapDiv{left:1%;width:98%;height:98%;}
+#mapImg{width:98%;margin-left:3px;height:75%;}
+#lvlSelectParent{left:60%;}
+}
