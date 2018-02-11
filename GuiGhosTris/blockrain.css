@@ -1,298 +1,49 @@
-.blockrain-game-holder {
-  position: relative;
-  padding: 0;
-  margin: 0;
-  color: #ffffff;
-  font-size: 18px;
-  line-height: 140%;
+.blockrain-game-holder{position:relative;padding:0;margin:0;color:#ffffff;font-size:18px;line-height:140%;}
+.blockrain-touch{position:absolute;width:40px;height:40px;display:block;border-radius:100%;border:1px solid white;background:rgba(255,255,255,0.2);z-index:10;-webkit-touch-callout:none;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;line-height:50px;text-align:center;}
+.blockrain-touch:active{background:rgba(255,255,255,0.3);}
+.blockrain-touch-left{left:30%;margin-left:-25px;bottom:-45px;}
+.blockrain-touch-left::after{content:url(assets/images/arrowL.png);}
+.blockrain-touch-right{left:70%;margin-left:-25px;bottom:-45px;}
+.blockrain-touch-right::after{content:url(assets/images/arrowR.png);}
+.blockrain-touch-rotate-left{left:10%;margin-left:-25px;bottom:-45px;}
+.blockrain-touch-rotate-left::after{content:url(assets/images/rotateL.png);}
+.blockrain-touch-rotate-right{left:90%;margin-left:-25px;bottom:-45px;}
+.blockrain-touch-rotate-right::after{content:url(assets/images/rotateR.png);}
+.blockrain-touch-drop{left:50%;margin-left:-25px;bottom:-45px;}
+.blockrain-touch-drop::after{content:url(assets/images/drop.png);}
+.blockrain-btn{position:relative;display:inline-block;background:none;color:#ffffff;text-decoration:none;margin:5px;border:2px groove #ffffff;padding:4px 10px;font-size:18px;text-align:center;cursor:default;border-radius:10px;}
+.blockrain-btn::before{position:absolute;content:"";top:100%;left:0px;bottom:0px;right:0px;border:2px groove #ffffff;border-top:none;border-right:none;transition:all 0.2s ease;border-radius:10px;border-top-right-radius:10px;}
+.blockrain-btn::after{position:absolute;content:"";top:0px;left:100%;bottom:0px;right:0px;border:2px groove #ffffff;border-left:none;border-bottom:none;transition:all 0.2s ease;border-radius:10px;}
+.blockrain-btn:hover::before{left:5px;bottom:-8px;right:-8px;border-radius:10px;}
+.blockrain-btn:hover::after{top:5px;bottom:-8px;right:-8px;border-radius:10px;}
+.blockrain-start-btn{background-color:greenyellow;height:40px;width:60px;color:black;text-align:left;font-size:28px;}
+.optionBtns{background-position:bottom;background-repeat:no-repeat;height:65px;width:65px;color:green;font-weight:bolder;background-color:darkslateblue;}
+.candy-btn{background-color:darkslateblue;background-image:url("assets/images/candy.png");}
+.modern-btn{background-image:url("assets/images/modern.png");}
+.aerolab-btn{background-image:url("assets/images/blackout.png");}
+.custom-btn{background-image:url("assets/images/circuit.png");}
+.retro-btn{background-image:url("assets/images/retro.png");}
+.vim-btn{background-image:url("assets/images/binary.png");}
+.gameboy-btn{background-image:url("assets/images/classic.png");}
+.blockrain-option-msg{}
+.gummy-btn{background-image:url("assets/images/gummy.png");}
+.cracked-btn{background-image:url("assets/images/cracked.png");}
+.blockrain-option-holder{position:absolute;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.8);z-index:7000;}
+#blockrain-optionInner{position:relative;}
+.blockrain-score-holder{position:absolute;top:20px;right:20px;text-align:right;}
+.blockrain-score-msg{font-size:14px;line-height:100%;margin-bottom:0.2em;}
+.blockrain-score-num{font-size:20px;font-weight:bold;}
+.blockrain-start-holder, .blockrain-game-over-holder{position:absolute;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.8);background-image:url("assets/images/coverGGT.png");background-repeat:no-repeat;background-position:center;background-size:contain;text-align:center;}
+.blockrain-start, .blockrain-game-over{position:absolute;top:50%;width:100%;transform:translateY(-50%);}
+.blockrain-start-msg, .blockrain-game-over-msg{font-size:18px;margin-top:50%;max-width:270px;margin-left:50%;transform:translateX(-125px);}
+@media (device-width:414px){.blockrain-start-msg, .blockrain-game-over-msg{font-size:12px;margin-top:60%;width:310px;margin-left:50%;transform:translateX(-130px);}
 }
-
-/* Touch Controls */
-.blockrain-touch {
-  position: absolute;
-  width: 40px;
-  height: 40px;
-  display: block;
-  border-radius: 100%;
-  border: 1px solid white;
-  background: rgba(255,255,255,0.2);
-  z-index: 10;
-
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-
-  line-height: 50px;
-  text-align: center;
+@media (device-width:412px){.blockrain-start-msg, .blockrain-game-over-msg{font-size:12px;margin-top:60%;width:310px;margin-left:50%;transform:translateX(-130px);}
 }
-.blockrain-touch:active {
-  background: rgba(255,255,255,0.3);
+@media (device-width:375px){.blockrain-start-msg, .blockrain-game-over-msg{font-size:12px;margin-top:60%;width:310px;margin-left:50%;transform:translateX(-130px);}
 }
-
-.blockrain-touch-left {
-    /*left: -40px;
-  bottom: 5px;*/
-    left: 30%;
-    margin-left: -25px;
-    bottom: -45px;
+@media (device-width:360px){.blockrain-start-msg, .blockrain-game-over-msg{font-size:12px;margin-top:60%;width:310px;margin-left:50%;transform:translateX(-130px);}
 }
-    .blockrain-touch-left::after {
-        content: url(assets/images/arrowL.png);
-    }
-.blockrain-touch-right {
-    /*right: -40px;
-  bottom: 5px;*/
-    left: 70%;
-    margin-left: -25px;
-    bottom: -45px;
-}
-    .blockrain-touch-right::after {
-        content: url(assets/images/arrowR.png);
-       
-    }
-
-.blockrain-touch-rotate-left {
-    /*left: -40px;
-  bottom: 80px;*/
-    left: 10%;
-    margin-left: -25px;
-    bottom: -45px;
-}
-    .blockrain-touch-rotate-left::after {
-        content: url(assets/images/rotateL.png);
-    }
-
-.blockrain-touch-rotate-right {
-    /*right: -40px;
-  bottom: 80px;*/
-    left: 90%;
-    margin-left: -25px;
-    bottom: -45px;
-}
-    .blockrain-touch-rotate-right::after {
-        content: url(assets/images/rotateR.png);
-    }
-
-.blockrain-touch-drop {
-  left: 50%;
-  margin-left: -25px;
-  bottom: -45px;
-}
-    .blockrain-touch-drop::after {
-        content: url(assets/images/drop.png);
-    }
-
-/* Buttons */
-.blockrain-btn {
-  position: relative;
-  display: inline-block;
-  background: none;
-  color: #ffffff;
-  text-decoration: none;
-  margin:5px;
-  border: 2px groove #ffffff;
-  padding: 4px 10px;
-  font-size: 18px;
-  text-align: center;
-  cursor: default;
-  border-radius:10px;
-}
-    .blockrain-btn::before {
-        position: absolute;
-        content: "";
-        top: 100%;
-        left: 0px;
-        bottom: 0px;
-        right: 0px;
-        border: 2px groove #ffffff;
-        border-top: none;
-        border-right: none;
-        transition: all 0.2s ease;
-        border-radius: 10px;
-        border-top-right-radius:10px;
-    }
-    .blockrain-btn::after {
-        position: absolute;
-        content: "";
-        top: 0px;
-        left: 100%;
-        bottom: 0px;
-        right: 0px;
-        border: 2px groove #ffffff;
-        border-left: none;
-        border-bottom: none;
-        transition: all 0.2s ease;
-        border-radius: 10px;
-    }
-
-    .blockrain-btn:hover::before {
-        left: 5px;
-        bottom: -8px;
-        right: -8px;
-        border-radius: 10px;
-    }
-    .blockrain-btn:hover::after {
-        top: 5px;
-        bottom: -8px;
-        right: -8px;
-        border-radius: 10px;
-    }
-.blockrain-start-btn {
-background-color:greenyellow;
-height: 40px;
-width: 60px;
-color: black;
-text-align:left;
-font-size: 28px;
-}
-.optionBtns {
-    background-position: bottom;
-    background-repeat: no-repeat;
-    /*background-size: contain;*/
-    height: 65px;
-    width: 65px;
-    color: green;
-    font-weight: bolder;
-    background-color: darkslateblue;
-}
-.candy-btn {
-    background-color: darkslateblue;
-    background-image: url("assets/images/candy.png");
-}
-.modern-btn {
-    background-image: url("assets/images/modern.png");
-}
-.aerolab-btn {
-    background-image: url("assets/images/blackout.png");
-}
-.custom-btn {
-    background-image: url("assets/images/circuit.png");
-}
-.retro-btn {
-    background-image: url("assets/images/retro.png");
-}
-.vim-btn {
-    background-image: url("assets/images/binary.png");
-}
-.gameboy-btn {
-    background-image: url("assets/images/classic.png");
-}
-.blockrain-option-msg {
-
-}
-.gummy-btn {
-    background-image: url("assets/images/gummy.png");
-}
-.cracked-btn {
-    background-image: url("assets/images/cracked.png");
-}
-.blockrain-option-holder {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0,0,0,0.8);
-    z-index: 7000;
-}
-#blockrain-optionInner{
-    position: relative;
-
-}
-/* Score */
-.blockrain-score-holder {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    text-align: right;
-}
-.blockrain-score-msg {
-  font-size: 14px;  
-  line-height: 100%;
-  margin-bottom: 0.2em;
-}
-.blockrain-score-num {
-  font-size: 20px;
-  font-weight: bold;
-}
-
-/* Menu */
-.blockrain-start-holder, .blockrain-game-over-holder {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0,0,0,0.8);
-    background-image: url("assets/images/coverGGT.png");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
-    /*background: rgba(0,0,0,0.8);*/
-    text-align: center;
-}
-.blockrain-start, .blockrain-game-over {
-  position: absolute;
-  top: 50%;
-  width: 100%;
-  transform: translateY(-50%);
-}
-
-.blockrain-start-msg, .blockrain-game-over-msg {
-  font-size: 18px;
-  margin-top: 50%;
-  max-width: 270px;
-  margin-left: 50%;
-  transform: translateX(-125px);
-}
-
-@media (device-width: 414px) {
-    .blockrain-start-msg, .blockrain-game-over-msg {
-        font-size: 12px;
-        margin-top: 60%;
-        width: 310px;
-        margin-left: 50%;
-        transform: translateX(-130px);
-    }
-}
-@media (device-width: 412px) {
-    .blockrain-start-msg, .blockrain-game-over-msg {
-        font-size: 12px;
-        margin-top: 60%;
-        width: 310px;
-        margin-left: 50%;
-        transform: translateX(-130px);
-    }
-}
-@media (device-width: 375px) {
-    .blockrain-start-msg, .blockrain-game-over-msg {
-        font-size: 12px;
-        margin-top: 60%;
-        width: 310px;
-        margin-left: 50%;
-        transform: translateX(-130px);
-    }
-}
-@media (device-width: 360px) {
-    .blockrain-start-msg, .blockrain-game-over-msg {
-        font-size: 12px;
-        margin-top: 60%;
-        width: 310px;
-        margin-left: 50%;
-        transform: translateX(-130px);
-    }
-}
-@media (device-width: 320px) {
-    .blockrain-start-msg, .blockrain-game-over-msg {
-        font-size: 12px;
-        margin-top: 60%;
-        width: 310px;
-        margin-left: 50%;
-        transform: translateX(-130px);
-    }
-    .optionBtns {
-        height:55px;
-    }
+@media (device-width:320px){.blockrain-start-msg, .blockrain-game-over-msg{font-size:12px;margin-top:60%;width:310px;margin-left:50%;transform:translateX(-130px);}
+.optionBtns{height:55px;}
 }
