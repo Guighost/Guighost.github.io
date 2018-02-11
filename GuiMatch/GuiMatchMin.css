@@ -1,0 +1,50 @@
+body{background-image:url("Images/cloudsSolid.png");background-size:100% 100%;background-color:black;background-repeat:repeat-y;background-position:center;}
+#shuffle{border:2px solid groove;background-color:red;margin-top:10px;}
+#gameOverBack{background-image:url("Images/Hud/gameOver.png");margin-left:auto;margin-right:auto;position:absolute;top:69px;width:390px;height:650px;background-size:contain;background-repeat:no-repeat;display:none;}
+#newFromOver{background-image:url("Images/Hud/newGame.png");position:absolute;left:52%;top:500px;width:120px;height:65px;z-index:400;background-size:contain;background-repeat:no-repeat;display:none;}
+#buyIt{background-image:url("Images/Hud/buyNow.png");position:absolute;left:17%;top:500px;width:120px;height:70px;z-index:200;background-size:contain;background-repeat:no-repeat;}
+#starCashOnOver{position:absolute;left:43%;top:460px;width:100px;height:35px;z-index:200;font-size:20px;background-size:contain;background-repeat:no-repeat;display:none;}
+#canvasWrap{position:relative;margin-left:auto;margin-right:auto;display:block;border:2px groove black;}
+#wrap2{background-color:black;transform:translate(-0px, 0px);background-image:url("Images/cloudsSolid.png");background-position:center;background-repeat:no-repeat;width:390px;height:650px;margin-left:auto;margin-right:auto;}
+#viewport1{margin-left:5px;}
+#landingCover{position:absolute;width:100%;height:100%;top:0px;left:0px;text-align:center;padding-top:200px;background-color:lightseagreen;display:block;z-index:2000;align-content:center;background-image:url('Images/HUD/coverBack.png');background-position:top;background-repeat:no-repeat;}
+#playMatch{background-image:url('Images/HUD/newGame.png');background-position:center;background-repeat:no-repeat;width:110px;height:45px;text-align:center;margin-left:50%;transform:translate(-62px, 0px);top:40%;font-family:'Comic Sans MS';z-index:2000;}
+#logoGG{background-image:url('Images/footerImg.png');background-position:center;background-repeat:no-repeat;z-index:2020;width:360px;height:145px;margin-left:50%;transform:translate(-170px, 70px);top:70%;}
+.pBars{border:2px groove black;border-radius:25px;width:350px;min-height:20px;position:absolute;left:15px;}
+#progressBar{width:350px;background-color:azure;top:442px;z-index:950;}
+#myBar{width:5%;background-color:#66ff66;z-index:1050;min-height:18px;left:10px;transform:translate(-10px, 0px);}
+@media (device-width:1024px){#progressBar{width:350px;transform:translate(-5px, 0px);}
+#viewport1{width:98%;top:100px;}
+#wrap2{height:550px;max-width:100%;}
+#gameOverBack{width:330px;height:540px;left:0px;}
+#newFromOver, #buyIt{top:385px;width:95px;}
+#starCashOnOver{top:337px;}
+}
+@media (device-width:412px){#progressBar{width:340px;transform:translate(1px, 3px);}
+#viewport1{width:98% top 30px;}
+#wrap2{height:550px;max-width:100%;}
+#gameOverBack{width:330px;height:540px;left:0px;}
+#newFromOver, #buyIt{top:385px;width:95px;}
+#starCashOnOver{top:337px;}
+}
+@media (device-width:375px){#progressBar{width:310px;transform:translate(-5px, -29px);}
+#viewport1{width:98% top 30px;}
+#wrap2{height:550px;max-width:100%;}
+#gameOverBack{width:330px;height:540px;left:0px;}
+#newFromOver, #buyIt{top:385px;width:95px;}
+#starCashOnOver{top:337px;}
+}
+@media (device-width:360px){#progressBar{width:310px;transform:translate(-5px, -49px);}
+#viewport1{width:97%}
+#wrap2{height:550px;max-width:100%;}
+#gameOverBack{width:330px;height:540px;left:0px;}
+#newFromOver, #buyIt{top:385px;width:95px;}
+#starCashOnOver{top:337px;}
+}
+@media (device-width:320px){#progressBar{width:275px;transform:translate(-5px, -99px);}
+#viewport1{width:97%}
+#wrap2{height:550px;max-width:100%;}
+#gameOverBack{width:300px;height:550px;left:0px;}
+#newFromOver, #buyIt{top:385px;width:95px;}
+#starCashOnOver{top:337px;}
+}
