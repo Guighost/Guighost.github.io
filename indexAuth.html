@@ -1,0 +1,569 @@
+﻿<!--Guighost Games 2018 --------Home-----------Copywrite GuiGhost LLC-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name=viewport content="width=device-width, initial-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta property="og:url" content="http://guighostgames.com/index.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="GuiGhost Games - Family Friendly Mobile Ready Free Online Games" />
+    <meta property="og:description" content="Family Friendly Mobile Ready Free Online Games. Bubble Shooter, Match 3 games, Farm Simulation game, Classic Tetris game, Classic Soduku game, Physics game " />
+    <meta property="og:image" content="http://guighostgames.com/GuiSpellMatch/Images/gabbyLogo.png" />
+    <title>GuiGhost Games - Free Online Games</title>
+    <link rel="alternate" href="http://guighostgames.com/" hreflang="en-us" />
+    <link rel="stylesheet" href="ggHomestyle.css">
+    <!--<link rel="stylesheet" href="main.css">-->
+    <link rel="icon"
+          type="image/png"
+          href="favicon.ico">
+    <!--Adsense stuff-->
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-1294525458634610",
+            enable_page_level_ads: true
+        }); 
+    </script>
+    
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-97706544-2"></script>
+    <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-97706544-2');
+    </script>
+ <!--firebase-->
+    <script src="https://www.gstatic.com/firebasejs/4.9.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.9.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.9.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/ui/2.6.0/firebase-ui-auth__en.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
+    
+ 
+
+</head>
+<body>
+    <script>
+        window.fbAsyncInit = function () {
+            FB.init({
+                appId: '1794229017542670',
+                cookie: true,
+                xfbml: true,
+                version: 'v2.11'
+            });
+
+            FB.AppEvents.logPageView();
+            //FB.ui({
+            //    method: 'share_open_graph',
+            //    action_type: 'og.likes',
+            //    action_properties: JSON.stringify({
+            //        object: 'https://developers.facebook.com/docs/',
+            //    })
+            //}, function (response) {
+            //    // Debug response (optional)
+            //    console.log(response);
+            //});
+            FB.getLoginStatus(function (response) {
+                if (response.status === 'connected') {
+                    console.log('Logged in.');
+                }
+                else {
+                    console.log('NOT Logged in to facebook.');
+                    //FB.login();
+                }
+            });
+        };
+
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) { return; }
+            js = d.createElement(s); js.id = id;
+            js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.11&appId=1794229017542670';
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+
+
+    </script>
+  <!--firebase-->
+
+
+    <menu>
+        <div class="topnav" id="myTopnav">
+
+            <a href="#parentDiv" class="active">Home</a>
+
+            <a href="#farmSection"> GuiGhost Farms</a>
+
+            <a href="#spellMatchSection"> Gui SpellMatch</a>
+
+            <a href="#myTopnav"> Gui Bubble Story</a>
+
+            <a href="#guiStackSection"> GuiStack</a>
+
+            <a href="#guiMatchSection"> GuiMatch</a>
+
+            <a href="#tetrisSection"> GuiGhosTris</a>
+
+            <a href="#aboutSection"> About</a>
+            
+                <div id="fbShare" class="fb-share-button" data-href="http://guighostgames.com/index.html" data-layout="button" data-size="large" data-mobile-iframe="true">
+                    <a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fguighostgames.com%2Findex.html&amp;src=sdkpreparse">Share</a>
+
+                </div>
+        
+                <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="menuFunction()">&#9776;</a>
+           
+        </div>
+    </menu>
+
+    <div id="parentDiv">
+          
+         <header>
+        
+             <div id="loginDiv">
+                 <div id="quickstart-sign-in" onclick="toggleSignIn()"></div>
+
+                 <a id="quickstart-sign-in-status"></a>
+                 <br />
+                 <a id="sign-in-message">Sign In for best Experience</a>
+             </div>
+             <img id="topLogo" src="Images/Homepage/footerImg.png" onclick="" />
+            <h1 id="headH3"> <span id="_applicationCategory2" itemprop="applicationCategory">Family Friendly Free Online Games</span></h1>
+
+          
+        
+            <div id="headDesc"><span id="_operatingSystem3" itemprop="operatingSystem">Multi-Platform </span> Online Play optomized for <span id="_requirements4" itemprop="requirements">Mobile, PC, and Tablet</span>  fun. <br /> Mobile users can "Add to Home screen" for full screen play.  No app download required.
+                <br /> Earn unified bonus <b>StarCash</b> that can be used in all our games.
+            </div>
+                    
+            <br />
+            <!--<div id="fbLogin" class="fb-login-button" data-max-rows="1" data-size="medium" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="false"></div>-->
+           
+        </header>
+     
+        <section id="quicktilesParent">
+            <div id="quickTileWraper">
+                <a id="g1" class="gameTiles" href="GuiFarm/"></a>
+                <a id="g2" class="gameTiles" href="GuiFruitBubbles/"></a>
+                <a id="g3" class="gameTiles" href="GuiGemTrax/"></a>
+                <a id="g4" class="gameTiles" href="GuiSlidePuzzle/"></a>
+                <a id="g5" class="gameTiles" href="GuiSpellMatch/"></a>
+                <a id="g6" class="gameTiles" href="GuiStack/"></a>
+                <a id="g7" class="gameTiles" href="GuiMatch/"></a>
+                <a id="g8" class="gameTiles" href="GuiGraveyardJump/"></a>
+                <!--<a id="g9" class="gameTiles"></a>-->
+               
+               
+            </div>
+         </section>
+      
+   
+        <section id="farmSection">
+            <div>
+                <h2 id="guifarm">GuiGhost Farms</h2>
+
+                <a href="GuiFarm/">
+                    <img itemprop="screenshot" id="farmImg" src="Images/Homepage/GuiFarm3.png" />
+                </a>
+                
+                <div itemscope itemtype="http://schema.org/SoftwareApplication"  id="infoGuiFarm" class="infoDivs">
+                    <a class="playBtns" href="GuiFarm/"> -PLAY- </a> <a id="communityFarm" href="https://www.facebook.com/GuiGhostFarms/" target="_blank"> Community </a>
+                    
+                    <div id="belowBtnFarm"> <span itemprop="applicationCategory">Farming</span> simulation fun for all ages. Grow crops, level your barnyard, raise livestock, and more! 5 farms to play and grow. Ton's of achievements to earn as you make your way through your farming journey.  Play on <span  itemprop="operatingSystem">Mobile or PC</span> </div>
+                </div>
+            </div>
+
+        </section>
+        <section id="spellMatchSection">
+            <div>
+                <h2 id="guispellmatch"> Gui SpellMatch </h2>
+                <br /> <br />
+                <a href="GuiSpellMatch/">
+                    <img itemprop="screenshot" id="guiSpellMatchImg" src="Images/Homepage/SpellMatch.png" />
+                </a>
+            </div>
+            <div id="infoSpellMat" class="infoDivs"> <a class="playBtns" href="GuiSpellMatch/">-PLAY-</a>  
+            Match 3 fun like you have never experienced. Battle through 3 tournaments, matching spells to attack. But watch out, they fight back! Level your spells for increased damage! <br/> Can you win the SpellMatch? </div>
+        </section>
+        <section id="bubbleSection">
+            <div>
+                <div>
+                    <h2 id="guibubbles">Gui Bubble Story</h2>
+                    <a href="GuiFruitBubbles/">
+                        <img itemprop="screenshot" id="bubstorImg2" src="Images/Homepage/bubstorImg.png" />
+                    </a>
+                </div>
+                <div id="infoBubStor" class="infoDivs">
+                    <a class="playBtns" href="GuiFruitBubbles/">-PLAY-</a> 
+                    Follow the kids as they help the wizard free the world from the mayhem of the evil bubble wizard. 96 levels of Bubble popping fun with new zones every six boards.
+                    Warp your away across the universe with Bubble Popping fun like you have never seen.
+                </div>
+            </div>
+        </section>
+        <section id="guiStackSection">
+            <div>
+                <h2 id="guiStack">GuiStack - Tower of Balance</h2>
+                <a href="GuiStack/">
+                    <img itemprop="screenshot" id="guiStackImg" src="Images/Homepage/guiStack.png" />
+
+                </a>
+                <div id="infoGuiStack" class="infoDivs"> <a class="playBtns" href="GuiStack/"> -PLAY- </a> Stack the boxes and get the high score. Quick 60 second game sessions are Snack size fun that keeps you coming back for more!  </div>
+            </div>
+
+        </section>
+
+        <section id="guiSlideSection">
+            <div>
+                <h2 id="guiSlide">Gui Slide Puzzle</h2>
+                <a href="GuiSlidePuzzle/">
+                    <img itemprop="screenshot" id="guiSlideImg" src="Images/Homepage/guiSlidePuzzle.png" />
+
+                </a>
+                <div id="infoGuiSlide" class="infoDivs">
+                <a class="playBtns" href="GuiSlidePuzzle/"> -PLAY- </a>  Unique Match 3 play where the whole row or column can be rotated as far as you want. Watch the timer and earn the Score Goal to Level Up and gain more time. Earn StarCash for every level completed!   </div>
+            </div>
+
+        </section>
+
+        <section id="guiGemTraxSection">
+            <div>
+                <h2 id="guiGemTrax">Gui Gem Trax</h2>
+                <a href="GuiGemTrax/index.html">
+                    <img itemprop="screenshot" id="gemTraxImg" src="Images/Homepage/GuiGemTrax.png" />
+
+                </a>
+                <div id="infoGemTrax" class="infoDivs"> <a class="playBtns" href="GuiGemTrax/index.html"> -PLAY- </a> Create tracks of the same color to collect the gems. Level Up and earn time to keep playing! Flow meets Match3 in this addictive puzzle game!  </div>
+            </div>
+
+        </section>
+
+
+        <section id="guiMatchSection">           
+            <div>
+                <h2 id="guimatch">Gui Match</h2>
+                <a href="GuiMatch/" >
+                    <img itemprop="screenshot" id="guiMatchImg" src="Images/Homepage/GuiMatch.png" />
+                </a>
+            </div>
+            <div id="infoGuiMatch" class="infoDivs"> <a class="playBtns" href="GuiMatch/" > -PLAY- </a> Classic match 3 with lots of <span id="_applicationCategory17" itemprop="applicationCategory">kid friendly</span>  images to match with as you level up. This game is designed for younger players. </div>
+        </section>
+
+
+        
+        <section id="graveyardSection">
+            <div>
+                <h2 id="guiGraveyard">GuiGhost Graveyard Jump</h2>
+                <a href="GuiGraveyardJump/index.html">
+                    <img itemprop="screenshot" id="sodukuImg" src="Images/Homepage/graveyardJump.png" />
+
+                </a>
+                <div id="infoGraveyard" class="infoDivs"> <a class="playBtns" href="GuiGraveyardJump/index.html"> -PLAY- </a>  Flappy..... Ghost? A very simple endless sidescroller where you click or touch to jump and avoid the obstacles. Beat your high score and brag to your friends on Facebook!  </div>
+            </div>
+
+        </section>
+        <section id="tetrisSection">
+            <div>
+                <h2 id="guighostris">GuiGhosTris</h2>
+                <a href="GuiGhosTris/index.html">
+                    <img itemprop="screenshot" id="ghostrisImg" src="Images/Homepage/GuiGhosTris2.png" />
+
+                </a>
+                <div id="infoTetris" class="infoDivs">
+                    <a class="playBtns" href="GuiGhosTris/index.html"> -PLAY- </a>
+                    <br /> GuiGhost skinned Tetris. Classic Fun that's mobile friendly. Choose from multiple themes to match your style.  Touch or keyboard controls.
+                </div>
+            </div>
+
+        </section>
+        
+
+        <section id="sodukuSection">          
+            <div>
+                <h2 id="guisukuku">Gui Suduku</h2>
+                <a href="Gui-Soduku/" >
+                    <img itemprop="screenshot" id="sodukuImg" src="Images/Homepage/guiSoduku.png" />
+
+                </a>
+                <div id="infoSoduku" class="infoDivs"> <a class="playBtns" href="Gui-Soduku/" > -PLAY- </a> Classic Soduku made for my daughter. Can you master Soduku?  </div>
+            </div>
+            
+        </section>
+        
+        <section id="aboutSection">
+            <div>
+                <h2 id="aboutGG">About Us</h2>
+                
+                            
+                <div id="infoAbout" class="infoDivs"> <br />
+                <div id="famHead"><h3>Family Friendly</h3></div>
+                    No cursing, blood, gore, alcohol, drugs, or provocative subjects. EVER.
+                   We pride ourselves on making family friendly games.
+
+                    <div id="anyHead"><h3> Play on Any Device</h3></div>
+                Mobile 1st development with a focus on responsiveness is our goal. From your phone to your PC, and the Tablet in between, we aim for the same game to work across all platforms.
+                   
+
+                <div id="starCashSpot"><h3>Unified Bonus Currency</h3> </div>
+                    All GuiGhost Games use a unified "StarCash" system. This means what you earn in one game can be spent on bonuses and power ups  to help in another! Need boosts to beat that next opponent in SpellMatch? Head on over to Gui Bubble Story to play a few levels and earn some StarCash. Then head back to SpellMatch and show that wizard who's boss!
+                
+                    <h4>Always growing and improving</h4>
+                GuiGhost games is always working on improving existing games, as well as working on new and exciting projects to come. Seriously, I don't sleep! Check back often as we continue to expand our library of casual <span id="_applicationCategory3" itemprop="applicationCategory">Family Friendly Free Online Games</span>.
+
+                
+                </div>
+            </div>
+
+        </section>
+
+
+
+    </div>
+    <footer>
+        <div id="footDiv">
+            <span itemscope itemtype="http://schema.org/SoftwareApplication" >
+                <span itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+                    <span itemprop="name">GuiGhost Games  </span>
+                </span>
+            </span>
+            <span itemscope itemtype="http://schema.org/SoftwareApplication" >
+               <span  itemprop="operatingSystem">Mobile </span> or <span itemprop="operatingSystem"> PC</span> <span itemprop="applicationCategory">Free/Online games</span>
+            </span>
+            <img itemprop="screenshot" id="footerImg" src="Images/Homepage/footerImg.png" />
+            <a href="privacypolicy.htm">Privacy Policy</a>
+        </div>
+        
+    </footer>
+   
+    <script>
+          function menuFunction() {
+              var x = document.getElementById("myTopnav");
+              if (x.className === "topnav") {
+                  x.className += " responsive";
+              } else {
+                  x.className = "topnav";
+              }
+        }
+          function changeActive() {
+              var x = document.getElementById(this);
+              if (x.className === "active") {
+                  x.className += "";
+              } else {
+                  x.className = "active";
+              }
+          }
+    </script>
+    <script src="common/dbWorker.js"></script>
+    <!--<script type="text/javascript">
+         
+      
+              var config = {
+                  apiKey: "AIzaSyCh2cwFUUPEmBl5OfnOHBe79RRvFDgVn9Y",
+                  authDomain: "guighost-games.firebaseapp.com",
+                  databaseURL: "https://guighost-games.firebaseio.com",
+                  projectId: "guighost-games",
+                  storageBucket: "guighost-games.appspot.com",
+                  messagingSenderId: "113008996581"
+              };
+              firebase.initializeApp(config)
+              var database = firebase.database();
+          
+          //firebase.initializeApp(config);
+
+          /**
+           * Function called when clicking the Login/Logout button.
+           */
+          // [START buttoncallback]
+          function toggleSignIn() {
+              if (!firebase.auth().currentUser) {
+                  console.log("inToggleSignIn");
+                  // [START createprovider]
+                  var provider = new firebase.auth.GoogleAuthProvider();
+                  // [END createprovider]
+                  // [START addscopes]
+                  provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
+                  // [END addscopes]
+                  // [START signin]
+                  firebase.auth().signInWithPopup(provider).then(function (result) {
+                      // This gives you a Google Access Token. You can use it to access the Google API.
+                      var token = result.credential.accessToken;
+                      // The signed-in user info.
+                      var user = result.user;
+                      // [START_EXCLUDE]
+                      //document.getElementById('quickstart-oauthtoken').textContent = token;
+                      // [END_EXCLUDE]
+                  }).catch(function (error) {
+                      // Handle Errors here.
+                      var errorCode = error.code;
+                      var errorMessage = error.message;
+                      // The email of the user's account used.
+                      var email = error.email;
+                      // The firebase.auth.AuthCredential type that was used.
+                      var credential = error.credential;
+                      // [START_EXCLUDE]
+                      if (errorCode === 'auth/account-exists-with-different-credential') {
+                          alert('You have already signed up with a different auth provider for that email.');
+                          // If you are using multiple auth providers on your app you should handle linking
+                          // the user's accounts here.
+                      } else {
+                          console.error(error);
+                      }
+                      // [END_EXCLUDE]
+                  });
+                  // [END signin]
+              } else {
+                  // [START signout]
+                  token = '';
+                  user = '';
+                  firebase.auth().signOut();
+
+                  console.log("signed out");
+                  // [END signout]
+              }
+              // [START_EXCLUDE]
+              document.getElementById('quickstart-sign-in').disabled = true;
+              // [END_EXCLUDE]
+
+          }
+          // [END buttoncallback]
+
+          /**
+           * initApp handles setting up UI event listeners and registering Firebase auth listeners:
+           *  - firebase.auth().onAuthStateChanged: This listener is called when the user is signed in or
+           *    out, and that is where we update the UI.
+           */
+          function initApp() {
+              // Listening for auth state changes.
+              // [START authstatelistener]
+              firebase.auth().onAuthStateChanged(function (user) {
+                  if (user) {
+                      // User is signed in.
+                      //console.log("inOnAuthStateChanged");
+                      var displayName = user.displayName;
+                      var shortname = displayName.substr(0, displayName.indexOf(' '), 2);
+                      var email = user.email;
+                      var emailVerified = user.emailVerified;
+                      var photoURL = user.photoURL;
+                      var isAnonymous = user.isAnonymous;
+                      var uid = user.uid;
+                      var providerData = user.providerData;
+                      var savedStarCash = localStorage.getItem('starCash');
+                      var guiStackHigh = JSON.parse(localStorage.getItem('GuiStack_HighScore'));
+                      if (guiStackHigh == null || guiStackHigh == 'undefined') { guiStackHigh = 0; }
+                      var guiStackPrevHigh = 0;
+
+                      // [START_EXCLUDE]
+                      document.getElementById('quickstart-sign-in-status').textContent = 'Signed in with Google';
+                      //document.getElementById('quickstart-sign-in').textContent = 'Sign out';
+                      document.getElementById('quickstart-sign-in').style.backgroundImage = 'url(Images/Homepage/googleSignOut.png)';
+                      //document.getElementById('quickstart-account-details').textContent = JSON.stringify(user, null, '  ');
+                      function getExistingPlayer() {
+                          var userId = firebase.auth().currentUser.uid;
+                          firebase.database().ref('/users/' + userId).once('value').then(function (snapshot) {
+                              var prevStarCash = (snapshot.val() && snapshot.val().guiStarCash) || 'Anonymous';
+                              console.log("getExistingPlayer - check preStarCash from cloudDb " + prevStarCash + " vs local starCash " + savedStarCash)
+                              var sccheckCloud = parseInt(prevStarCash, 10);
+                              var sccheckLocal = parseInt(savedStarCash, 10);
+                              //console.log(sccheckCloud + " and " + sccheckLocal);
+                              if (sccheckCloud >= sccheckLocal) {
+                                  console.log('%c' + savedStarCash + ' is < or = ' + prevStarCash + ' on clouddb for starCash---- writing new LOCAL value', 'background: #bada55; color: #222');
+                                  savedStarCash = prevStarCash;
+                                  localStorage["starCash"] = savedStarCash;
+                              }
+                              else {
+                                  console.log('%c' + savedStarCash + ' is > than ' + prevStarCash + ' on clouddb for starCash---- writing new CLOUD value', 'background: #B0E0E6; color: #222');
+
+                              }
+                              writeUserData(uid, displayName, email, photoURL, savedStarCash);
+                          })
+
+                      }
+                      getExistingPlayer();
+                      function writeUserData(userId, name, email, imageUrl, savedStarCash) {
+                          firebase.database().ref('users/' + userId).set({
+                              username: name,
+                              email: email,
+                              profile_picture: imageUrl,
+                              guiStarCash: savedStarCash
+
+                          });
+                          //firebase.database().ref('GuiStack/HighScores/' + userId).set({
+                          //    name: shortname,
+                          //    guiStackHigh
+
+
+                          //});
+                      }
+
+
+
+
+                      var userId = firebase.auth().currentUser.uid;
+                      return firebase.database().ref('/users/' + userId).once('value').then(function (snapshot) {
+                          var username = (snapshot.val() && snapshot.val().username) || 'Anonymous';
+                          document.getElementById('sign-in-message').textContent = 'Welcome ' + username;
+
+                          function checkGSTackHigh() {
+                              //check GuiStack HighScore and write new value if higher on device
+                              //console.log('check guiStackHigh.score ');
+
+                              var userId = firebase.auth().currentUser.uid;
+                              firebase.database().ref('/GuiStack/HighScores/' + userId).once('value').then(function (snapshot) {
+                                  guiStackPrevHigh = (snapshot.val() && snapshot.val().guiStackHigh) || 'Anonymous';
+
+                                  console.log("check previous GuiStack High of " + guiStackPrevHigh.score + " vs machine stored score " + guiStackHigh.score);
+                                  if (parseInt(guiStackHigh.score, 10) > parseInt(guiStackPrevHigh.score, 10) || guiStackPrevHigh.score == null || guiStackPrevHigh.score == 'undefinded') {
+                                      console.log('%c' + guiStackHigh.score + ' is higher than ' + guiStackPrevHigh.score + ' on clouddb for GuiStack---- writing new high score', 'background: #bada55; color: #222');
+                                      firebase.database().ref('GuiStack/HighScores/' + userId).set({
+                                          name: shortname,
+                                          guiStackHigh
+
+                                      });
+                                  }
+                              });
+
+
+
+                          }
+
+                          checkGSTackHigh();
+
+                      });
+
+
+
+
+
+
+                      // [END_EXCLUDE]
+                  } else {
+                      // User is signed out.
+                      // [START_EXCLUDE]
+                      document.getElementById('quickstart-sign-in-status').textContent = 'Signed out';
+                      //document.getElementById('quickstart-sign-in').textContent = 'Sign in with Google';
+                      document.getElementById('quickstart-sign-in').style.backgroundImage = 'url(Images/Homepage/btn_google_signin_light_normal_web.png)';
+                      document.getElementById('sign-in-message').textContent = ''
+                      //document.getElementById('quickstart-account-details').textContent = 'null';
+                      //document.getElementById('quickstart-oauthtoken').textContent = 'null';
+                      // [END_EXCLUDE]
+                  }
+                  // [START_EXCLUDE]
+                  document.getElementById('quickstart-sign-in').disabled = false;
+                  // [END_EXCLUDE]
+              });
+              // [END authstatelistener]
+
+              document.getElementById('quickstart-sign-in').addEventListener('click', toggleSignIn(), false);
+          }
+
+          //window.onload = function () {
+          initApp();
+          
+        //};
+    </script>-->
+
+</body>
+</html>
