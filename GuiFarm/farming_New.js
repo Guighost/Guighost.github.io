@@ -1330,6 +1330,8 @@ console.log("initial checkTut =" + tutSeen);
 tutSeen = parseInt(localStorage["GuiGhostFarms_tutSeen"]);
 console.log("2nd checkTut =" + tutSeen);
 
+var compassVisible = false;
+
 farming.start = function () {
     var a = { width: 310, height: 540, tile_size: 30, num_tiles_x: 4, num_tiles_y: 4, landLayer_w: 320, landLayer_h: 388, controlsLayer_w: 320, controlsLayer_h: 70, costPlowing: 0, shop_margin_x: 50, shop_margin_y: 35 },
         b = { money: 500, currentCrop: 0 };
@@ -1571,21 +1573,21 @@ farming.start = function () {
   
 
 
-    goog.events.listen(compassH, ["mousedown", "touchstart"], function () {  checkAcresNav();});
+    goog.events.listen(compassH, ["mousedown", "touchstart"], function () { checkAcresNav(); });
     goog.events.listen(closeNavH, ["mousedown", "touchstart"], function () { closeAcresNav(); });
     goog.events.listen(homeNavH, ["mousedown", "touchstart"], function () { closeAcresNav(); });
     goog.events.listen(pastureNavH, ["mousedown", "touchstart"], function () {
-        if (acres[1].owned == 1) {
+        if (acres[1].owned == 1 && compassVisible) {
             a.sceneBefore = 1;
             closeAcresNav();
-
+           
             cowSound.play(); checkShortage();
             oldCrop = b.currentCrop; b.currentCrop = 6;
             c.replaceScene(pastureScene, lime.transitions.SlideInLeft);
         }
     });
     goog.events.listen(orchardNavH, ["mousedown", "touchstart"], function () {
-        if (acres[2].owned == 1) {
+        if (acres[2].owned == 1 && compassVisible) {
             a.sceneBefore = 1;
             waterfallSound.play();
             closeAcresNav();
@@ -1594,7 +1596,7 @@ farming.start = function () {
         }
     });
     goog.events.listen(vinyardNavH, ["mousedown", "touchstart"], function () {
-        if (acres[3].owned == 1) {
+        if (acres[3].owned == 1 && compassVisible) {
             closeAcresNav();
             a.sceneBefore = 1;
             c.replaceScene(vinyardScene, lime.transitions.SlideInLeft);
@@ -1605,7 +1607,7 @@ farming.start = function () {
         }
         });
     goog.events.listen(lsNavH, ["mousedown", "touchstart"], function () {
-        if (acres[4].owned == 1) {
+        if (acres[4].owned == 1 && compassVisible) {
             closeAcresNav();
             a.sceneBefore = 1;                                                                                                                              ///from pature to Market
             c.replaceScene(liveStockScene, lime.transitions.SlideInRight);
@@ -1621,7 +1623,8 @@ farming.start = function () {
     ///end compass Home
     //compas  visiblility function attached to listeners
     function checkAcresNav() {
-        if (acres[1].owned == 0) { pastureNavH.setFill("images/UI/lockBtn.png"); pastureNavO.setFill("images/UI/lockBtn.png"); pastureNavP.setFill("images/UI/lockBtn.png"); pastureNavV.setFill("images/UI/lockBtn.png"); pastureNavVLSsetFill("images/UI/lockBtn.png");}
+        compassVisible = true;
+        if (acres[1].owned == 0) { pastureNavH.setFill("images/UI/lockBtn.png"); pastureNavO.setFill("images/UI/lockBtn.png"); pastureNavP.setFill("images/UI/lockBtn.png"); pastureNavV.setFill("images/UI/lockBtn.png"); pastureNavLS.setFill("images/UI/lockBtn.png");}
         if (acres[2].owned == 0) { orchardNavH.setFill("images/UI/lockBtn.png"); orchardNavO.setFill("images/UI/lockBtn.png"); orchardNavP.setFill("images/UI/lockBtn.png"); orchardNavV.setFill("images/UI/lockBtn.png"); orchardNavLS.setFill("images/UI/lockBtn.png");  }
         if (acres[3].owned == 0) { vinyardNavH.setFill("images/UI/lockBtn.png"); vinyardNavO.setFill("images/UI/lockBtn.png"); vinyardNavP.setFill("images/UI/lockBtn.png"); vinyardNavV.setFill("images/UI/lockBtn.png"); vinyardNavLS.setFill("images/UI/lockBtn.png");}
         if (acres[4].owned == 0) { lsNavH.setFill("images/UI/lockBtn.png"); lsNavO.setFill("images/UI/lockBtn.png"); lsNavP.setFill("images/UI/lockBtn.png"); lsNavV.setFill("images/UI/lockBtn.png"); lsNavLS.setFill("images/UI/lockBtn.png");}
@@ -1631,6 +1634,7 @@ farming.start = function () {
     }
     function closeAcresNav() {
         compassOBack.setHidden(true); compassHBack.setHidden(true); compassPBack.setHidden(true); compassVBack.setHidden(true); compassLSBack.setHidden(true);
+        compassVisible = false;
         if (isblocked1 == 1) {
             vinyardTreeBlock1.setHidden(false);
             treeUnlockBtnV.setHidden(false);
@@ -2648,26 +2652,28 @@ farming.start = function () {
     goog.events.listen(compassP, ["mousedown", "touchstart"], function () { checkAcresNav(); });
     goog.events.listen(closeNavP, ["mousedown", "touchstart"], function () { closeAcresNav(); });
     goog.events.listen(homeNavP, ["mousedown", "touchstart"], function () {
-        closeAcresNav();
-        a.sceneBefore = 1;
-        b.currentCrop = oldCrop;
-        c.replaceScene(d, lime.transitions.SlideInRight);
+        if (compassVisible) {
+            closeAcresNav();
+            a.sceneBefore = 1;
+            b.currentCrop = oldCrop;
+            c.replaceScene(d, lime.transitions.SlideInRight);
+        }
     });
     goog.events.listen(pastureNavP, ["mousedown", "touchstart"], function () {
-        if (acres[1].owned == 1) {
+        if (acres[1].owned == 1 && compassVisible) {
             closeAcresNav();
         }
     });
     goog.events.listen(orchardNavP, ["mousedown", "touchstart"], function () {
-        if (acres[2].owned == 1) {
+        if (acres[2].owned == 1 && compassVisible) {
             oldCrop = b.currentCrop; b.currentCrop = 8;
             waterfallSound.play();
             closeAcresNav();
-            c.replaceScene(orchardScene, lime.transitions.SlideInLeft);
+            c.replaceScene(orchardScene, lime.transitions.SlideInRight);
         }
     });
     goog.events.listen(vinyardNavP, ["mousedown", "touchstart"], function () {
-        if (acres[3].owned == 1) {
+        if (acres[3].owned == 1 && compassVisible) {
             closeAcresNav();
             a.sceneBefore = 2;
             c.replaceScene(vinyardScene, lime.transitions.SlideInLeft);
@@ -2678,7 +2684,7 @@ farming.start = function () {
         }
     });
     goog.events.listen(lsNavP, ["mousedown", "touchstart"], function () {
-        if (acres[4].owned == 1) {
+        if (acres[4].owned == 1 && compassVisible) {
             closeAcresNav();
             a.sceneBefore = 2;                                                                                                                              ///from pature to Market
             c.replaceScene(liveStockScene, lime.transitions.SlideInRight);
@@ -3031,16 +3037,18 @@ farming.start = function () {
     
 
     goog.events.listen(compassO, ["mousedown", "touchstart"], function () { checkAcresNav(); });
-    goog.events.listen(closeNavO, ["mousedown", "touchstart"], function () { compassOBack.setHidden(true); });
+    goog.events.listen(closeNavO, ["mousedown", "touchstart"], function () { closeAcresNav(); });
     goog.events.listen(homeNavO, ["mousedown", "touchstart"], function () {
-        closeAcresNav();
-         a.sceneBefore = 3;
-        waterfallSound.stop();
-        b.currentCrop = oldCrop;
-        c.replaceScene(d, lime.transitions.SlideInLeft);
+        if (compassVisible) {
+            closeAcresNav();
+            a.sceneBefore = 3;
+            waterfallSound.stop();
+            b.currentCrop = oldCrop;
+            c.replaceScene(d, lime.transitions.SlideInLeft);
+        }
     });
     goog.events.listen(pastureNavO, ["mousedown", "touchstart"], function () {
-        if (acres[1].owned == 1) {
+        if (acres[1].owned == 1 && compassVisible) {
             a.sceneBefore = 3;
             waterfallSound.stop();
             closeAcresNav();
@@ -3055,7 +3063,7 @@ farming.start = function () {
         }
     });
     goog.events.listen(vinyardNavO, ["mousedown", "touchstart"], function () {
-        if (acres[3].owned == 1) {
+        if (acres[3].owned == 1 && compassVisible) {
             closeAcresNav();
             a.sceneBefore = 3;
             c.replaceScene(vinyardScene, lime.transitions.SlideInLeft);
@@ -3066,7 +3074,7 @@ farming.start = function () {
         }
     });
     goog.events.listen(lsNavO, ["mousedown", "touchstart"], function () {
-        if (acres[4].owned == 1) {
+        if (acres[4].owned == 1 && compassVisible) {
             closeAcresNav();
             a.sceneBefore = 1;                                                                                                                              ///from pature to Market
             c.replaceScene(liveStockScene, lime.transitions.SlideInRight);
@@ -4145,17 +4153,19 @@ farming.start = function () {
                 goog.events.listen(compassLS, ["mousedown", "touchstart"], function () { checkAcresNav(); });
                 goog.events.listen(closeNavLS, ["mousedown", "touchstart"], function () { closeAcresNav(); });
                 goog.events.listen(homeNavLS, ["mousedown", "touchstart"], function () {
-                    closeAcresNav();
-                    a.sceneBefore = 4;
-                    waterfallSound.stop();
-                    b.currentCrop = oldCrop;
-                    c.replaceScene(d, lime.transitions.SlideInLeft);
-                    chickenSound.stop();
-                    pig1Sound.stop();
-                    pig2Sound.stop();
+                    if (compassVisible) {
+                        closeAcresNav();
+                        a.sceneBefore = 4;
+                        waterfallSound.stop();
+                        b.currentCrop = oldCrop;
+                        c.replaceScene(d, lime.transitions.SlideInLeft);
+                        chickenSound.stop();
+                        pig1Sound.stop();
+                        pig2Sound.stop();
+                    }
                 });
                 goog.events.listen(pastureNavLS, ["mousedown", "touchstart"], function () {
-                    if (acres[1].owned == 1) {
+                    if (acres[1].owned == 1 && compassVisible) {
                         closeAcresNav();
                         a.sceneBefore = 4;
                         c.replaceScene(pastureScene, lime.transitions.SlideInLeft);
@@ -4165,7 +4175,7 @@ farming.start = function () {
                     }
                 });
                 goog.events.listen(orchardNavLS, ["mousedown", "touchstart"], function () {
-                    if (acres[2].owned == 1) {
+                    if (acres[2].owned == 1 && compassVisible) {
                         a.sceneBefore = 4;
                         closeAcresNav();
                         c.replaceScene(orchardScene, lime.transitions.SlideInLeft);
@@ -4176,7 +4186,7 @@ farming.start = function () {
                     }
                 });
                 goog.events.listen(vinyardNavLS, ["mousedown", "touchstart"], function () {
-                    if (acres[3].owned == 1) {
+                    if (acres[3].owned == 1 && compassVisible) {
                         closeAcresNav();
                         a.sceneBefore = 4;
                         c.replaceScene(vinyardScene, lime.transitions.SlideInLeft);
@@ -4624,14 +4634,15 @@ farming.start = function () {
                 });
                 goog.events.listen(closeNavV, ["mousedown", "touchstart"], function () { closeAcresNav(); });
                 goog.events.listen(homeNavV, ["mousedown", "touchstart"], function () {
-                    closeAcresNav();
-                    a.sceneBefore = 4;
-                    b.currentCrop = oldCrop;
-                    c.replaceScene(d, lime.transitions.SlideInRight);
-
+                    if (compassVisible) {
+                        closeAcresNav();
+                        a.sceneBefore = 4;
+                        b.currentCrop = oldCrop;
+                        c.replaceScene(d, lime.transitions.SlideInRight);
+                    }
                 });
                 goog.events.listen(pastureNavV, ["mousedown", "touchstart"], function () {
-                    if (acres[1].owned == 1) {
+                    if (acres[1].owned == 1 && compassVisible) {
                         a.sceneBefore = 3;
                         closeAcresNav();
                         cowSound.play(); checkShortage();
@@ -4640,7 +4651,7 @@ farming.start = function () {
                     }
                 });
                 goog.events.listen(orchardNavV, ["mousedown", "touchstart"], function () {
-                    if (acres[2].owned == 1) {
+                    if (acres[2].owned == 1 && compassVisible) {
                         a.sceneBefore = 3;
                         waterfallSound.play();
                         closeAcresNav();
@@ -4649,13 +4660,13 @@ farming.start = function () {
                     }
                 });
                 goog.events.listen(vinyardNavV, ["mousedown", "touchstart"], function () {
-                    if (acres[3].owned == 1) {
+                    if (acres[3].owned == 1 && compassVisible) {
                         closeAcresNav();
                         //a.sceneBefore = 5;
                     }
                 });
                 goog.events.listen(lsNavV, ["mousedown", "touchstart"], function () {
-                    if (acres[4].owned == 1) {
+                    if (acres[4].owned == 1 && compassVisible) {
                         closeAcresNav();
                         a.sceneBefore = 3;                                                                                                                              ///from pature to Market
                         c.replaceScene(liveStockScene, lime.transitions.SlideInRight);
