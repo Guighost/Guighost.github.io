@@ -3402,7 +3402,7 @@ farming.start = function () {
     marketLayer.appendChild(rowBack10);
     count9 = (new lime.Label).setText(player.cropsStored[index].stored).setFontSize(16).setFontColor("#1aff1a").setPosition(180, marketY + 15);
     marketLayer.appendChild(count9);
-    g10 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(195, marketY).setFill("images/" + a.crops[index].harvest).setSize(30, 30);      //carrots
+    g10 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(195, marketY).setFill("images/" + a.crops[index].harvest).setSize(30, 30);      //pears
     marketLayer.appendChild(g10);
     i10 = (new lime.Label).setText("$" + a.crops[index].revenue + " each").setFontColor("#E8FC08").setFontSize(12).setPosition(190, marketY + 35);
     marketLayer.appendChild(i10);
@@ -3503,9 +3503,9 @@ farming.start = function () {
        
         a.cropDown(cropSaleCrop);
     });
-    goog.events.listen(howManySellBtn, ["mousedown", "touchstart"], function () {
-        a.finalSale(cropSaleCrop);
-    });
+    //goog.events.listen(howManySellBtn, ["mousedown", "touchstart"], function () {
+    //    a.finalSale(cropSaleCrop);
+    //});
 
 
     //count0 = (new lime.Label).setText(player.cropsStored[0].stored).setFontSize(16).setFontColor("#1aff1a").setPosition(100, 135);
@@ -3538,27 +3538,32 @@ farming.start = function () {
          
         }
     });
+    var payVis = false;
+ 
     goog.events.listen(rowBack, ["mousedown", "touchstart"], function () { a.updateCropsandCash(0); });
     goog.events.listen(rowBack2, ["mousedown", "touchstart"], function () { a.updateCropsandCash(1); });
     goog.events.listen(rowBack3, ["mousedown", "touchstart"], function () { a.updateCropsandCash(2); });
-    goog.events.listen(rowBack4, ["mousedown", "touchstart"], function () { a.updateCropsandCash(3); });
-    goog.events.listen(rowBack5, ["mousedown", "touchstart"], function () { a.updateCropsandCash(4); });
+    goog.events.listen(rowBack4, ["mousedown", "touchstart"], function () {a.updateCropsandCash(3); });
+    goog.events.listen(rowBack5, ["mousedown", "touchstart"], function () {a.updateCropsandCash(4); });
     goog.events.listen(rowBack6, ["mousedown", "touchstart"], function () { a.updateCropsandCash(5); });
     goog.events.listen(rowBack7, ["mousedown", "touchstart"], function () { a.updateCropsandCash(6); });
     goog.events.listen(rowBack8, ["mousedown", "touchstart"], function () { a.updateCropsandCash(7); });
     goog.events.listen(rowBack9, ["mousedown", "touchstart"], function () { a.updateCropsandCash(8); });
-    goog.events.listen(rowBack10, ["mousedown", "touchstart"], function () { a.updateCropsandCash(9); });
-    goog.events.listen(rowBack11, ["mousedown", "touchstart"], function () { a.updateCropsandCash(10); });
-    goog.events.listen(rowBack12, ["mousedown", "touchstart"], function () { a.updateCropsandCash(11); });
-    goog.events.listen(rowBack13, ["mousedown", "touchstart"], function () { a.updateCropsandCash(12); });
-    goog.events.listen(rowBack14, ["mousedown", "touchstart"], function () { a.updateCropsandCash(13); });
+    goog.events.listen(rowBack10, ["mousedown", "touchstart"], function () {  a.updateCropsandCash(9);  });
+    goog.events.listen(rowBack11, ["mousedown", "touchstart"], function () {  a.updateCropsandCash(10); });
+    goog.events.listen(rowBack12, ["mousedown", "touchstart"], function () {  a.updateCropsandCash(11); });
+    goog.events.listen(rowBack13, ["mousedown", "touchstart"], function () {  a.updateCropsandCash(12); });
+    goog.events.listen(rowBack14, ["mousedown", "touchstart"], function () {  a.updateCropsandCash(13); });
 
 
     ////market Updates
     a.updateCropsandCash = function (crop) {
-        if (player.cropsStored[crop].stored > 0) {
-            cropSaleCrop = crop;
-         
+        var visibleCheck = howManyBack.getHidden();
+
+        if (player.cropsStored[crop].stored > 0 && visibleCheck) {
+            cropSaleCrop = parseInt(crop);
+            console.log("crop = " + crop)
+          
             cropSaleTotal = player.cropsStored[crop].stored;
             cropSaleCurrent = player.cropsStored[crop].stored;
             cropSaleCurrentPrice = (a.crops[crop].revenue * player.cropsStored[crop].stored);
@@ -3587,8 +3592,23 @@ farming.start = function () {
             //a.updateMoney();
 
             //a.updateStored();
+            goog.events.listen(howManySellBtn, ["mousedown", "touchstart"], function () {
+                var isITvisible = howManyBack.getHidden();
+                //var isITvisible2 = howManyBack.SetHidden.value;
+                console.log("isITvisible? = " + isITvisible)
+
+                console.log("howmanysellBtn added listener")
+                if (!isITvisible) {
+                    console.log("howmanysellBtn is not hidden- sell")
+                    a.finalSale(cropSaleCrop);
+                }
+            });
            
         }
+    }
+  
+    a.hideRowBacks = function () {
+        rowBack
     }
     a.cropDown = function (crop) {
        
@@ -3611,12 +3631,14 @@ farming.start = function () {
     }
     a.finalSale = function (crop) {
         var checkIT = player.money + cropSaleCurrentPrice;
+        
         if (!isNaN(checkIT)) { player.money = player.money + cropSaleCurrentPrice;}
-       
+        console.log(" cropSaleCurrent final sale" + cropSaleCurrent);
         moneyEver = moneyEver + cropSaleCurrentPrice;
         localStorage["GuiGhostFarms_moneyEver"] = moneyEver;
         purchaseSound.play();
         howManyBack.setHidden(true);
+        payVis = true;
         player.cropsStored[crop].stored = player.cropsStored[crop].stored - cropSaleCurrent;
         count0.setText(player.cropsStored[0].stored);
         count1.setText(player.cropsStored[1].stored);
@@ -3634,7 +3656,7 @@ farming.start = function () {
         count13.setText(player.cropsStored[13].stored);
         howManyBack.setHidden(true);
         a.updateMoney();
-    
+        howManySellBtn.removeEventListener('mousedown', function () { console.log("howmanysellBtn removed listener")}); 
         a.updateStored();
 
     }
