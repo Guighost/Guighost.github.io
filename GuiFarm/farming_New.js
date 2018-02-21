@@ -2135,10 +2135,10 @@ farming.start = function () {
             localStorage.setItem('GuiGhostFarms_pickedEver', pickedEver);
             localStorage.setItem('GuiGhostFarms_moneyEver', moneyEver);
             checkAchieves2();
-            if (player.barnLevel == 2) { barn.setFill('images/barn2.png'); };
-            if (player.barnLevel == 3) { barn.setFill('images/barn3.png'); };
-            if (player.barnLevel == 4) { barn.setFill('images/barn4.png'); };
-            if (player.barnLevel == 5) { barn.setFill('images/barn5.png'); };
+            if (player.barnLevel == 2) { barn.setFill(imgArray6[1]); };
+            if (player.barnLevel == 3) { barn.setFill(imgArray6[2]); };
+            if (player.barnLevel == 4) { barn.setFill(imgArray6[3]); };
+            if (player.barnLevel == 5) { barn.setFill(imgArray6[4]); };
             barnUnlock.setText("Lvl " + player.barnLevel + "/5");
             if (player.barnLevel < 5) {  barnUnlock3.setHidden(false); }
             a.updateTools();
