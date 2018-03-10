@@ -158,11 +158,11 @@
     var preloadAssets = function (game) { }
     preloadAssets.prototype = {
         preload: function () {
-            game.load.spritesheet("tiles", "assets/sprites/tilez.png", tileSize, tileSize);
-            game.load.audio("select", ["assets/sounds/select.mp3", "assets/sounds/select.ogg"]);
-            game.load.audio("right", ["assets/sounds/right.mp3", "assets/sounds/right.ogg"]);
-            game.load.audio("wrong", ["assets/sounds/wrong.mp3", "assets/sounds/wrong.ogg"]);
-            game.load.spritesheet("soundicons", "assets/sprites/soundicons.png", 80, 80);
+            game.load.spritesheet("tiles", "Assets/sprites/tilez.png", tileSize, tileSize);
+            game.load.audio("select", ["Assets/sounds/select.mp3", "Assets/sounds/select.ogg"]);
+            game.load.audio("right", ["Assets/sounds/right.mp3", "Assets/sounds/right.ogg"]);
+            game.load.audio("wrong", ["Assets/sounds/wrong.mp3", "Assets/sounds/wrong.ogg"]);
+            game.load.spritesheet("soundicons", "Assets/sprites/soundicons.png", 80, 80);
         },
         create: function () {
             game.state.start("TitleScreen");
