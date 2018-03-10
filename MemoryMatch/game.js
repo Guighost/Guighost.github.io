@@ -12,6 +12,7 @@
     var timeLeft;
     var tilesLeft;
     var game = new Phaser.Game(500, 500);
+    var checkingTile = false;
 
     var playGame = function (game) { }
     playGame.prototype = {
@@ -27,7 +28,7 @@
         create: function () {
             score = 0;
             timeLeft = 60;
-            this.placeTiles(); 
+            this.placeTiles();
             if (playSound) {
                 this.soundArray[0] = game.add.audio("select", 1);
                 this.soundArray[1] = game.add.audio("right", 1);
@@ -61,55 +62,61 @@
                 tilesArray[to] = temp;
             }
             for (i = 0; i < numCols; i++) {
-          
+
                 for (var j = 0; j < numRows; j++) {
                     var tile = game.add.button(leftSpace + i * (tileSize + tileSpacing), topSpace + j * (tileSize + tileSpacing), "tiles", this.showTile, this);
                     tile.frame = 10;
                     tile.value = tilesArray[j * numCols + i];
-                
+
                 }
             }
         },
         showTile: function (target) {
-            if (selectedArray.length < 2 && selectedArray.indexOf(target) == -1) {
-                if (playSound) {
-                    this.soundArray[0].play();
+            if (checkingTile == false) {
+                if (selectedArray.length < 2 && selectedArray.indexOf(target) == -1) {
+                    if (playSound) {
+                        this.soundArray[0].play();
+                    }
+                    target.frame = target.value;
+                    selectedArray.push(target);
                 }
-            target.frame = target.value;
-            selectedArray.push(target);
-            }
-            if (selectedArray.length == 2) {
-                game.time.events.add(Phaser.Timer.SECOND, this.checkTiles, this);
-          
+                if (selectedArray.length == 2) {
+                    game.time.events.add(Phaser.Timer.SECOND, this.checkTiles, this);
+                }
+
             }
         },
         checkTiles: function () {
-            if (selectedArray[0].value == selectedArray[1].value) {
-                if (playSound) { this.soundArray[1].play(); } 
-                score++;
-                timeLeft += 2;
-                this.timeText.text = "Time left: " + timeLeft;
-                this.scoreText.text = "Score: " + score;
-                selectedArray[0].destroy();
-                selectedArray[1].destroy();
-                tilesLeft -= 2;
-                if (tilesLeft == 0) {
-                    tilesArray.length = 0;
-                    selectedArray.length = 0;
-                    this.placeTiles();
+            if (checkingTile == false) {
+                checkingTile = true;
+                if (selectedArray[0].value == selectedArray[1].value) {
+                    if (playSound) { this.soundArray[1].play(); }
+                    score++;
+                    timeLeft += 2;
+                    this.timeText.text = "Time left: " + timeLeft;
+                    this.scoreText.text = "Score: " + score;
+                    selectedArray[0].destroy();
+                    selectedArray[1].destroy();
+                    tilesLeft -= 2;
+                    if (tilesLeft == 0) {
+                        tilesArray.length = 0;
+                        selectedArray.length = 0;
+                        this.placeTiles();
+                    }
                 }
+                else {
+                    if (playSound) { this.soundArray[2].play(); }
+                    selectedArray[0].frame = 10;
+                    selectedArray[1].frame = 10;
+                }
+                selectedArray.length = 0;
+                checkingTile = false;
             }
-            else {
-                if (playSound) { this.soundArray[2].play(); } 
-                selectedArray[0].frame = 10;
-                selectedArray[1].frame = 10;
-            }
-            selectedArray.length = 0;
+
 
         }
-
-
     }
+
     var titleScreen = function (game) { }
     titleScreen.prototype = {
         //preload: function () {

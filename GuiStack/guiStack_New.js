@@ -7,7 +7,7 @@ var LEVEL = 1;
 var gameOptions = {
     timeLimit: 60,
     gravity: 2000,
-    crateSpeed: 700,
+    crateSpeed: 500,
     crateHorizontalRange: 540,
     fallingHeight: 650,
     localStorageName: "GuiStack_HighScore",
@@ -17,7 +17,7 @@ var gameOptions = {
 
 var GROUNDHEIGHT;
 var CRATEHEIGHT;
-var CrateSrc = 'crate1';
+
 window.onload = function () {
     var windowWidth = window.innerWidth;
     var windowHeight = window.innerHeight;
@@ -33,7 +33,6 @@ window.onload = function () {
     game = new Phaser.Game(gameOptions.gameWidth, gameOptions.gameHeight, Phaser.CANVAS);
     game.state.add("PlayGame", playGame);
     game.state.start("PlayGame");
-    document.getElementById("loadingGG").style.display = 'none';
 }
 
 var playGame = function () { };
@@ -44,46 +43,10 @@ playGame.prototype = {
         game.scale.pageAlignHorizontally = true;
         game.scale.pageAlignVertically = true;
         game.stage.disableVisibilityChange = true;
-        game.load.image("ground1", "assets/sprites/ground1.png");
+        game.load.image("ground", "assets/sprites/ground.png");
         game.load.image("ground2", "assets/sprites/ground2.png");
-        game.load.image("ground3", "assets/sprites/ground3.png");
-        game.load.image("ground4", "assets/sprites/ground4.png");
-        game.load.image("ground5", "assets/sprites/ground5.png");
-        game.load.image("ground6", "assets/sprites/ground6.png");
-        game.load.image("ground7", "assets/sprites/ground7.png");
-        game.load.image("ground8", "assets/sprites/ground8.png");
-        game.load.image("ground9", "assets/sprites/ground9.png");
-        game.load.image("ground10", "assets/sprites/ground9.png");
-        game.load.image("plat1", "assets/sprites/plat1.png");
-        game.load.image("plat2", "assets/sprites/plat2.png");
-        game.load.image("plat3", "assets/sprites/plat3.png");
-        game.load.image("plat4", "assets/sprites/plat4.png");
-        game.load.image("plat5", "assets/sprites/plat5.png");
-        game.load.image("plat6", "assets/sprites/plat6.png");
-        game.load.image("plat7", "assets/sprites/plat7.png");
-        game.load.image("plat8", "assets/sprites/plat8.png");
-        game.load.image("plat9", "assets/sprites/plat9.png");
-        game.load.image("plat10", "assets/sprites/plat10.png");
-        game.load.image("sky1", "assets/sprites/sky1.png");
-        game.load.image("sky2", "assets/sprites/sky2.png");
-        game.load.image("sky3", "assets/sprites/sky3.png");
-        game.load.image("sky4", "assets/sprites/sky4.png");
-        game.load.image("sky5", "assets/sprites/sky5.png");
-        game.load.image("sky6", "assets/sprites/sky6.png");
-        game.load.image("sky7", "assets/sprites/sky7.png");
-        game.load.image("sky8", "assets/sprites/sky8.png");
-        game.load.image("sky9", "assets/sprites/sky9.png");
-        game.load.image("sky10", "assets/sprites/sky10.png");
-        game.load.image("crate1", "assets/sprites/crate1.png");
-        game.load.image("crate2", "assets/sprites/crate2.png");
-        game.load.image("crate3", "assets/sprites/crate3.png");
-        game.load.image("crate4", "assets/sprites/crate4.png");
-        game.load.image("crate5", "assets/sprites/crate5.png");
-        game.load.image("crate6", "assets/sprites/crate6.png");
-        game.load.image("crate7", "assets/sprites/crate7.png");
-        game.load.image("crate8", "assets/sprites/crate8.png");
-        game.load.image("crate9", "assets/sprites/crate9.png");
-        game.load.image("crate10", "assets/sprites/crate10.png");
+        game.load.image("sky", "assets/sprites/sky.png");
+        game.load.image("crate", "assets/sprites/crate.png");
         game.load.image("title", "assets/sprites/title.png");
         game.load.image("title2", "assets/sprites/title2.png");
         game.load.image("tap", "assets/sprites/tap.png");
@@ -115,20 +78,11 @@ playGame.prototype = {
         this.gameOverSound = game.add.audio("gameover");
         this.removeSound = game.add.audio("remove");
         this.score = 0;
-        if (LEVEL > 1) { this.score = levelScore; oldLevelScore = this.score; }
-        GROUNDHEIGHT = game.cache.getImage("ground1").height;
-        CRATEHEIGHT = game.cache.getImage("crate1").height;
+        if (LEVEL > 1) { oldLevelScore = this.score;   this.score = levelScore; }
+        GROUNDHEIGHT = game.cache.getImage("ground").height;
+        CRATEHEIGHT = game.cache.getImage("crate").height;
         this.firstCrate = true;
-        var ImgBase = LEVEL;
-        if (ImgBase > 10 && ImgBase < 21) { ImgBase = ImgBase - 10; }
-        if (ImgBase > 20 && ImgBase < 31) { ImgBase = ImgBase - 20; }
-        if (ImgBase > 30 && ImgBase < 41) { ImgBase = ImgBase - 30; }
-        if (ImgBase > 40 && ImgBase < 51) { ImgBase = ImgBase - 40; }
-        if (ImgBase > 50 && ImgBase < 61) { ImgBase = ImgBase - 50; }
-
-        var skySrc = 'sky' + ImgBase;
-
-        var sky = game.add.image(0, 0, skySrc);
+        var sky = game.add.image(0, 0, "sky");
         sky.width = game.width;
         sky.height = game.height;
         this.cameraGroup = game.add.group();
@@ -138,31 +92,21 @@ playGame.prototype = {
         game.physics.box2d.gravity.y = gameOptions.gravity;
         this.canDrop = true;
 
-     
-
-        var groundSrc = "ground" + ImgBase;
-        var platSrc = "plat" + ImgBase;
-        CrateSrc = "crate" + ImgBase;
+        
 
         var randomSpot1 = Math.floor((Math.random() * 9) +2);
         var randomSpot2 = Math.floor(Math.random() * 9);
-        var ground = game.add.sprite(game.width / 2, game.height, "ground1");
+        var ground = game.add.sprite(game.width / 2, game.height, "ground");
         ground.y = game.height - ground.height / 2;
-        ground.loadTexture(groundSrc);
-
-       
         game.add.bitmapText(game.width - (game.width / 4), 65, "font", "Score", 45);
         game.add.bitmapText(game.width - (game.width / 4) + 45  , 105, "font", "" + this.score, 40);
         game.add.bitmapText(10, 65, "font", "Level" , 45);
         game.add.bitmapText(55, 105, "font", "" + LEVEL, 40);
-        var platform1 = game.add.sprite(game.width / randomSpot1, game.height, platSrc);
-        platform1.y = game.height - (game.height / 2.6);
-        var platform2 = game.add.sprite((game.width - (game.width / randomSpot1)), game.height, platSrc);
-        platform2.y = game.height - (game.height / 2.8);
-        this.movingCrate = game.add.sprite((game.width - gameOptions.crateHorizontalRange) / 2, game.height - GROUNDHEIGHT - gameOptions.fallingHeight, "crate1");
-     
-                
-        this.movingCrate.loadTexture(CrateSrc);
+        var ground2 = game.add.sprite(game.width / randomSpot1, game.height, "ground2");
+        ground2.y = game.height - (game.height / 2.4);
+        var ground3 = game.add.sprite((game.width - (game.width / randomSpot1)), game.height, "ground2");
+        ground3.y = game.height - (game.height / 2.6);
+        this.movingCrate = game.add.sprite((game.width - gameOptions.crateHorizontalRange) / 2, game.height - GROUNDHEIGHT - gameOptions.fallingHeight, "crate");
         this.movingCrate.anchor.set(0.5);
         this.cameraGroup.add(this.movingCrate);
         var crateTween = game.add.tween(this.movingCrate).to({
@@ -175,17 +119,17 @@ playGame.prototype = {
         ground.body.setCollisionCategory(1);
         this.cameraGroup.add(ground);
 
-        game.physics.box2d.enable(platform1);
-        platform1.body.friction = 1;
-        platform1.body.static = true;
-        platform1.body.setCollisionCategory(1);
-        this.cameraGroup.add(platform1);
+        game.physics.box2d.enable(ground2);
+        ground2.body.friction = 1;
+        ground2.body.static = true;
+        ground2.body.setCollisionCategory(1);
+        this.cameraGroup.add(ground2);
 
-        game.physics.box2d.enable(platform2);
-        platform2.body.friction = 1;
-        platform2.body.static = true;
-        platform2.body.setCollisionCategory(1);
-        this.cameraGroup.add(platform2);
+        game.physics.box2d.enable(ground3);
+        ground3.body.friction = 1;
+        ground3.body.static = true;
+        ground3.body.setCollisionCategory(1);
+        this.cameraGroup.add(ground3);
 
         game.input.onDown.add(this.dropCrate, this);
 
@@ -227,11 +171,8 @@ playGame.prototype = {
         if (this.canDrop && this.timer <= gameOptions.timeLimit) {
             this.canDrop = false;
             this.movingCrate.alpha = 0;
-            var fallingCrate = game.add.sprite(this.movingCrate.x, this.movingCrate.y, "crate1");
+            var fallingCrate = game.add.sprite(this.movingCrate.x, this.movingCrate.y, "crate");
             fallingCrate.hit = false;
-            fallingCrate.loadTexture(CrateSrc);
-                
-          
             game.physics.box2d.enable(fallingCrate);
             fallingCrate.body.friction = 1;
             fallingCrate.body.bullet = true;
@@ -325,22 +266,18 @@ playGame.prototype = {
             localStorage.setItem(gameOptions.localStorageName, JSON.stringify({
                 score: Math.max(this.score, this.savedData.score)
             }));
-            var scoreCheck = this.score - oldLevelScore;
-            var levelCheck = LEVEL * 10;
-            if (LEVEL > 5) { levelCheck = 50 }
-            if (scoreCheck >= levelCheck) {
+            if (this.score > (LEVEL * 40)) {
                 var lvlUpDisplayText = game.add.bitmapText(game.width / 2, game.height / 4 + 260, "smallfont", "Level Up", 48);
                 lvlUpDisplayText.anchor.set(0.5);
                 LEVEL = LEVEL + 1;
                 levelScore = this.score;
-                oldlevelScore = this.score;
                 game.time.events.add(Phaser.Timer.SECOND * 5, function () {
                     game.state.start("PlayGame");
                 }, this);
             }
            
             else {
-                var lvlUpDisplayText = game.add.bitmapText(game.width / 2, game.height / 4 + 260, "smallfont", "Get " + (levelCheck) + " to Level Up", 48);
+                var lvlUpDisplayText = game.add.bitmapText(game.width / 2, game.height / 4 + 260, "smallfont", "Get " + (LEVEL * 40) + " to Level Up", 48);
                 lvlUpDisplayText.anchor.set(0.5);
                 game.time.events.add(Phaser.Timer.SECOND * 7, function () {
                     game.state.start("PlayGame");
