@@ -13,10 +13,10 @@
     right: 0;
     top: 0;
     background: none repeat scroll 0 0 #ffffff;
-    height: 416px;
+    /*height: 768px;*/
     overflow: hidden;
     position: relative;
-    width: 320px;
+    /*width: 1024px;*/
     cursor: none;
 }
 
