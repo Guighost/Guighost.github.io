@@ -63,6 +63,9 @@ section{display:block;padding-top:50px;border:1px inset grey;border-radius:25px;
 #infoAbout{font-size:16px;}
 #aboutSection{max-height:1000px;}
 .section{min-width:99%;transform:translateY(0px);}
+    h3 {
+        font-size: 18px;
+    }
 }
 @media screen and (max-width:800px){.topnav a{font-size:10px;}
 #infoAbout{font-size:15px;}
@@ -73,6 +76,9 @@ section{display:block;padding-top:50px;border:1px inset grey;border-radius:25px;
 .topnav a.icon{float:right;display:block;}
 #quickTileWraper{width:95%;margin-top:0px;margin-left:3%;min-height:100px;}
 .gameTiles{height:95px;width:145px;}
+    #headDesc {
+        font-size: 16px;
+    }
 }
 @media screen and (max-width:600px){.topnav.responsive{position:relative;}
 .topnav.responsive .icon{position:absolute;right:0;top:0;}
@@ -82,6 +88,12 @@ section{display:block;padding-top:50px;border:1px inset grey;border-radius:25px;
 }
 @media screen and (max-width:400px){#aboutSection{max-height:1400px;min-width:97%;margin-left:2%;}
 #infoAbout{font-size:14px;transform:translate(-10px, -120px);}
+    #headDesc {
+        font-size: 12px;
+    }
+    h3 {
+        font-size: 14px;
+    }
 }
 @media screen and (max-width:350px){#aboutSection{max-height:1500px;}
 #infoAbout{font-size:13px;width:98%;padding-top:20px;padding-bottom:10px;margin-top:10px;margin-left:1%;margin-bottom:10px;transform:translate(0px, -70px);}
