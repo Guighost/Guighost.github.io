@@ -1,5 +1,6 @@
 ﻿<!DOCTYPE html>
 <!--GuiGhost Games - GuiStack- Tower of Balance-->
+<!--GuiGhost Games - GuiStack v1.2 March 2018-->
 
 
 <html>
@@ -239,16 +240,28 @@
                 transform: translate(0px, -70px);
             }
         }
+        #loadingGG {
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            min-width: 200px;
+            height: 100%;
+            transform: translateX(-100px);
+            z-index: 15000;
+        }
     </style>
+    <script data-cfasync='false' type='text/javascript' src='//p274789.clksite.com/adServe/banners?tid=274789_531386_12&type=shadowbox&size=38'></script>
     <script src="phaser.min.js"></script>
     <script src="box2d-plugin-full.js"></script>
-    <script src="guiStackMin.js"></script>
+    <script src="guiStackMin2.js"></script>
+   
 </head>
 <body>
+    <div id="loadingGG"><IMG SRC="images/loading3.gif"></div>
     <menu>
         <div class="topnav" id="myTopnav">
 
-            <a href="../" class="active" id="gGlogoMenu">Home</a>
+            <a href="../" class="active" id="gGlogoMenu">-    -</a>
 
             <a href="../GuiFruitBubbles/"> Gui Bubble Story</a>
 
@@ -263,7 +276,9 @@
             <a href="../GuiGraveyardJump/index.html"> Graveyard Jump</a>
 
             <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="menuFunction()">&#9776;</a>
+          
         </div>
+       
     </menu>
     <div id="wrongorientation"></div>
     <!--<--<div id="leftAdBar">-->

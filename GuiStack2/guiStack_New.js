@@ -18,12 +18,13 @@ var gameOptions = {
 var GROUNDHEIGHT;
 var CRATEHEIGHT;
 var CrateSrc = 'crate1';
+var alreadyclicked = false;
 window.onload = function () {
     var windowWidth = window.innerWidth;
     var windowHeight = window.innerHeight;
     var ratio = windowHeight / windowWidth;
     if (ratio >= 1) {
-        if (ratio < 1.5) {
+        if (ratio < 1.3) {
             gameOptions.gameWidth = gameOptions.gameHeight / ratio;
         }
         else {
@@ -31,13 +32,82 @@ window.onload = function () {
         }
     }
     game = new Phaser.Game(gameOptions.gameWidth, gameOptions.gameHeight, Phaser.CANVAS);
+    game.state.add("introToGame", introScene);
     game.state.add("PlayGame", playGame);
-    game.state.start("PlayGame");
+    game.state.start("introToGame");
+    //game.state.add("PlayGame", playGame);
+    //game.state.start("PlayGame");
     document.getElementById("loadingGG").style.display = 'none';
 }
 
-var playGame = function () { };
 
+var introScene = function () { };
+var levelUpScene = function () { };
+var timerI = 0;
+introScene.prototype = {
+   
+    preload: function () {
+        game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
+        game.scale.pageAlignHorizontally = true;
+        game.scale.pageAlignVertically = true;
+        game.stage.disableVisibilityChange = true;
+        game.load.image("intro", "images/introBack.png");
+        game.load.image("playBtn1", "images/playButton.png");
+        game.load.image("tut1", "images/intro1.png");
+        game.load.image("tut2", "images/intro2.png");
+        game.load.image("tut3", "images/intro3.png");
+        game.load.audio("gameover", ["assets/sounds/gameover.mp3", "assets/sounds/gameover.ogg"]);
+        game.load.bitmapFont("font", "assets/fonts/font.png", "assets/fonts/font.xml");
+        game.load.bitmapFont("smallfont", "assets/fonts/smallfont.png", "assets/fonts/smallfont.xml");
+    },
+    create: function () {
+        var introBackS = game.add.image(0, 0, 'intro');
+        introBackS.width = game.width;
+        introBackS.height = game.height;
+        var playBtn = game.add.image(game.width / 2 - 100, game.height/2 + 100, 'playBtn1');
+        playBtn.width = 200;
+        playBtn.height = 100;
+        game.input.onDown.add(this.loadGame1, playBtn);
+        //this.cameraGroup = game.add.group();
+        //this.crateGroup = game.add.group();},
+
+    },
+    loadGame1: function () {
+        //introBackS.destroy();
+        if (alreadyclicked == false) {
+            alreadyclicked = true;
+        var tut1 = game.add.image(game.width / 2 - 150, game.height / 2 - 20, 'tut1');
+        var tut2 = game.add.image(game.width / 2 - 155, game.height / 2 - 20, 'tut2');
+        tut2.visible = false;
+        tut1.width = 300;
+        tut1.height = 300;
+        var timer1 = setTimeout(function () {
+            tut1.visible = false;
+            tut2.visible = true;
+          
+            tut2.width = 300;
+            tut2.height = 300;
+
+        }, 1500);
+        var timer2 = setTimeout(function () {
+            tut2.visible = false;
+            var tut3 = game.add.image(game.width / 2 - 155, game.height / 2 - 20, 'tut3');
+            tut3.width = 300;
+            tut3.height = 300;
+
+        }, 3000);
+        var timer3 = setTimeout(function () {
+           
+            game.state.start("PlayGame");
+        }, 5000);
+
+      }      
+    },
+
+
+}
+
+    var playGame = function () { };
 playGame.prototype = {
     preload: function () {
         game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
@@ -151,10 +221,10 @@ playGame.prototype = {
         ground.loadTexture(groundSrc);
 
        
-        game.add.bitmapText(game.width - (game.width / 4), 65, "font", "Score", 45);
-        game.add.bitmapText(game.width - (game.width / 4) + 45  , 105, "font", "" + this.score, 40);
-        game.add.bitmapText(10, 65, "font", "Level" , 45);
-        game.add.bitmapText(55, 105, "font", "" + LEVEL, 40);
+        game.add.bitmapText(game.width - (game.width / 4), 70, "font", "Score", 45);
+        game.add.bitmapText(game.width - (game.width / 4) + 50  , 105, "font", "" + this.score, 40);
+        game.add.bitmapText(10, 70, "font", "Level" , 45);
+        game.add.bitmapText(55, 110, "font", "" + LEVEL, 40);
         var platform1 = game.add.sprite(game.width / randomSpot1, game.height, platSrc);
         platform1.y = game.height - (game.height / 2.6);
         var platform2 = game.add.sprite((game.width - (game.width / randomSpot1)), game.height, platSrc);
@@ -315,21 +385,25 @@ playGame.prototype = {
             tempCrate.destroy();
         }
         else {
+            var scoreCheck = this.score - oldLevelScore;
             game.time.events.remove(this.removeEvent);
             this.gameOverSound.play();
-            var scoreText = game.add.bitmapText(game.width / 2, game.height / 4, "font", "YOUR SCORE", 72);
+            var scoreText = game.add.bitmapText(game.width / 2, game.height / 4, "font", "Your Total Score", 56);
             scoreText.anchor.set(0.5);
-            var scoreDisplayText = game.add.bitmapText(game.width / 2, game.height / 4 + 120, "font", this.score.toString(), 144);
+            var scoreDisplayText = game.add.bitmapText(game.width / 2, game.height / 4 + 90, "font", this.score.toString(), 78);
             scoreDisplayText.anchor.set(0.5);
-            
+            var scoreText2 = game.add.bitmapText(game.width / 2, ((game.height / 2) -80), "font", "Level Score", 36);
+            scoreText2.anchor.set(0.5);
+            var scoreDisplayText2 = game.add.bitmapText(game.width / 2, game.height / 2 - 20 , "font", this.score.toString(), 56);
+            scoreDisplayText2.anchor.set(0.5);
             localStorage.setItem(gameOptions.localStorageName, JSON.stringify({
                 score: Math.max(this.score, this.savedData.score)
             }));
-            var scoreCheck = this.score - oldLevelScore;
+           
             var levelCheck = LEVEL * 10;
             if (LEVEL > 5) { levelCheck = 50 }
             if (scoreCheck >= levelCheck) {
-                var lvlUpDisplayText = game.add.bitmapText(game.width / 2, game.height / 4 + 260, "smallfont", "Level Up", 48);
+                var lvlUpDisplayText = game.add.bitmapText(game.width / 2, game.height / 4 + 340, "smallfont", "Level Up", 48);
                 lvlUpDisplayText.anchor.set(0.5);
                 LEVEL = LEVEL + 1;
                 levelScore = this.score;
@@ -340,7 +414,7 @@ playGame.prototype = {
             }
            
             else {
-                var lvlUpDisplayText = game.add.bitmapText(game.width / 2, game.height / 4 + 260, "smallfont", "Get " + (levelCheck) + " to Level Up", 48);
+                var lvlUpDisplayText = game.add.bitmapText(game.width / 2, game.height / 4 + 330, "smallfont", "Get " + (levelCheck) + " to Level Up", 48);
                 lvlUpDisplayText.anchor.set(0.5);
                 game.time.events.add(Phaser.Timer.SECOND * 7, function () {
                     game.state.start("PlayGame");
@@ -357,11 +431,11 @@ playGame.prototype = {
                   x.className = "topnav";
               }
         }
-          function changeActive() {
+  function changeActive() {
               var x = document.getElementById(this);
               if (x.className === "active") {
                   x.className += "";
               } else {
                   x.className = "active";
               }
-          }
+   }  

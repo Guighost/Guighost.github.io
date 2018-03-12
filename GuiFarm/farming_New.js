@@ -1333,6 +1333,7 @@ console.log("2nd checkTut =" + tutSeen);
 var compassVisible = false;
 
 farming.start = function () {
+    
     var a = { width: 310, height: 540, tile_size: 30, num_tiles_x: 4, num_tiles_y: 4, landLayer_w: 320, landLayer_h: 388, controlsLayer_w: 320, controlsLayer_h: 70, costPlowing: 0, shop_margin_x: 50, shop_margin_y: 35 },
         b = { money: 500, currentCrop: 0 };
 
