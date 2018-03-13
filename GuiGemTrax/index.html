@@ -85,22 +85,20 @@
               #leftAdBar {
                   position: absolute;
                   left: 0px;
-                  top: 0%;
-                  width: 9%;
-                  height: 100%;
-                  background-color: black;
+                  top: 10%;
+                  width: 160px;
+                  height: 99%;
               }
 
               #rightAdBar {
                   position: absolute;
-                  left: 91%;
-                  top: 0%;
-                  width: 9%;
-                  height: 100%;
-                  background-color: black;
+                  right: 0px;
+                  top: 10%;
+                  width: 160px;
+                  height: 99%;
               }
 
-              @media (max-width: 62em) {
+              @media (max-width: 60em) {
                   #rightAdBar {
                       display: none;
                   }
@@ -128,30 +126,31 @@
         <!--<div id="socialDiv">
             <div class="fb-like" data-href="http://guighostgames.com/GuiGemTrax" data-width="260" data-layout="standard" data-action="like" data-size="large" data-show-faces="true" data-share="true"></div>
         </div>-->
-           <!--<--<div id="leftAdBar">-->
-        <!--<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>-->
-        <!-- Ad unit 1 -->
-        <!--<ins class="adsbygoogle"
-             style="display:block"
-             data-ad-client="ca-pub-1294525458634610"
-             data-ad-slot="1936199137"
-             data-ad-format="auto"></ins>-->
-        <!--<script>
-    (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>-->
-    <!--</div>-->
-    <!--<div id="rightAdBar">-->
-        <!--<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>-->
-        <!-- Ad unit 1 -->
-        <!--<ins class="adsbygoogle"
-             style="display:block"
-             data-ad-client="ca-pub-1294525458634610"
-             data-ad-slot="1936199137"
-             data-ad-format="auto"></ins>-->
-        <!--<script>
-    (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>-->
-    <!--</div>-->
+        <div id="leftAdBar">
+            <script type="text/javascript">
+                (function () {
+                    if (window.CHITIKA === undefined) { window.CHITIKA = { 'units': [] }; };
+                    var unit = { "calltype": "async[2]", "publisher": "GuiGhost", "width": 160, "height": 600, "sid": "Chitika Default" };
+                    var placement_id = window.CHITIKA.units.length;
+                    window.CHITIKA.units.push(unit);
+                    document.write('<div id="chitikaAdBlock-' + placement_id + '"></div>');
+                }());
+            </script>
+            <script type="text/javascript" src="//cdn.chitika.net/getads.js" async></script>
+
+        </div>
+        <div id="rightAdBar">
+            <script type="text/javascript">
+                (function () {
+                    if (window.CHITIKA === undefined) { window.CHITIKA = { 'units': [] }; };
+                    var unit = { "calltype": "async[2]", "publisher": "GuiGhost", "width": 160, "height": 600, "sid": "Chitika Default" };
+                    var placement_id = window.CHITIKA.units.length;
+                    window.CHITIKA.units.push(unit);
+                    document.write('<div id="chitikaAdBlock-' + placement_id + '"></div>');
+                }());
+            </script>
+            <script type="text/javascript" src="//cdn.chitika.net/getads.js" async></script>
+        </div>
     </body>
     
 </html>

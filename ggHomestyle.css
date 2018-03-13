@@ -31,7 +31,7 @@ section{display:block;padding-top:50px;border:1px inset grey;border-radius:25px;
 #guiSpellMatchImg{max-width:95%;transform:translate(0px, -110px) scale(0.9);}
 #ghostrisImg{transform:translateY(-70px);width:95%;max-width:1024px;min-width:300px;}
 #sodukuImg{max-width:95%;transform:translate(0px, -40px) scale(1.0);}
-#guiStackImg{max-width:95%;transform:translate(0px, -120px) scale(0.8);}
+#guiStackImg{max-width:95%;transform:translate(0px, -90px) scale(0.8);}
 #guiSlideImg{max-width:95%;transform:translate(0px, -120px) scale(0.7);}
 .infoDivs{font-family:'Comic Sans MS';font-size:24px;color:azure;border-radius:15px;width:70%;padding-top:40px;padding-bottom:5px;margin-top:30px;margin-left:15%;margin-bottom:10px;clear:both;text-align:center;text-decoration:none;}
 #infoBubStor{transform:translateY(-80px);color:darkmagenta;}
@@ -41,7 +41,7 @@ section{display:block;padding-top:50px;border:1px inset grey;border-radius:25px;
 #infoSoduku{transform:translateY(-130px);height:40px;}
 #infoTetris{transform:translateY(-100px);height:40px;}
 #infoGraveyard{transform:translateY(-180px);height:40px;}
-#infoGuiStack{transform:translateY(-190px);height:40px;}
+#infoGuiStack{transform:translateY(-170px);height:40px;}
 #infoGemTrax{transform:translateY(-250px);height:40px;}
 #infoGuiSlide{transform:translateY(-250px);height:140px;}
 #aroundShare{transform:translateY(10px);}
@@ -53,12 +53,17 @@ section{display:block;padding-top:50px;border:1px inset grey;border-radius:25px;
 #infoAbout{min-height:740px;transform:translateY(-150px);font-size:20px;}
 #famHead{background-image:url(Images/Homepage/icons8-family-50.png);background-position:left;background-repeat:no-repeat;background-size:contain;height:40px;background-position-x:20px;}
 #anyHead{background-image:url(Images/Homepage/icons8-responsive-50.png);background-position:left;background-repeat:no-repeat;background-size:contain;height:40px;}
-#footDiv{display:block;clear:both;font-family:'Comic Sans MS';font-size:20px;color:azure;text-decoration:none;background-color:#333;}
+#footDiv{display:block;clear:both;font-family:'Comic Sans MS';font-size:20px;color:azure;text-decoration:none;background-color:#333; padding-bottom: 10px;}
 .topnav{position:fixed;left:0;top:0;width:100%;overflow:hidden;background-color:#333;z-index:2000;}
 .topnav a{float:left;display:block;color:#f2f2f2;text-align:center;padding:12px 12px;text-decoration:none;font-size:17px;}
 .topnav a:hover{background-color:#a953e2;color:black;}
 .active{background-color:#a953e2;color:white;}
 .topnav .icon{display:none;}
+.bannerAds {
+ display: block;
+ clear: both;
+    left: 0px;
+}
 @media screen and (max-width:1000px){.topnav a{font-size:15px;}
 #infoAbout{font-size:16px;}
 #aboutSection{max-height:1000px;}
@@ -93,6 +98,11 @@ section{display:block;padding-top:50px;border:1px inset grey;border-radius:25px;
     }
     h3 {
         font-size: 14px;
+    }
+    .bannerAds {
+        transform: scale(0.5) translate(-200px, 50px);
+       
+        left: 0px;
     }
 }
 @media screen and (max-width:350px){#aboutSection{max-height:1500px;}

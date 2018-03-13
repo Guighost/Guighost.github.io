@@ -13,6 +13,9 @@ body{background-image:url("Images/cloudsSolid.png");background-size:100% 100%;ba
 .pBars{border:2px groove black;border-radius:25px;width:350px;min-height:20px;position:absolute;left:15px;}
 #progressBar{width:350px;background-color:azure;top:442px;z-index:950;}
 #myBar{width:5%;background-color:#66ff66;z-index:1050;min-height:18px;left:10px;transform:translate(-10px, 0px);}
+#leftAdBar {    position: absolute;    left: 0px;    top: 10%;    width: 160px;    height: 99%;}
+#rightAdBar {    position: absolute;    right: 0px;    top: 10%;    width: 160px;    height: 99%;}
+@media (max-width: 60em) {    #rightAdBar {        display: none;    }    #leftAdBar {        display: none;    }}
 @media (device-width:1024px){#progressBar{width:350px;transform:translate(-5px, 0px);}
 #viewport1{width:98%;top:100px;}
 #wrap2{height:550px;max-width:100%;}
