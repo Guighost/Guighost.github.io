@@ -16,23 +16,17 @@
     <meta property="og:image" content="http://guighostgames.com/Images/Homepage/guiStack.png" />
 
     <link rel="shortcut icon" sizes="256x256" href="icon2-256.png" />
-    <!--Adsense stuff-->
-    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <script>
-        (adsbygoogle = window.adsbygoogle || []).push({
-            google_ad_client: "ca-pub-1294525458634610",
-            enable_page_level_ads: true
-        });
-    </script>
+
+
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-97706544-2"></script>
     <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
 
-  gtag('config', 'UA-97706544-2');
+        gtag('config', 'UA-97706544-2');
     </script>
 
     <style type="text/css">
@@ -45,7 +39,7 @@
             background: #0259a0;
             background: url("images/bg.png") no-repeat center center fixed;
             background-size: contain;
-          background-repeat: no-repeat;
+            background-repeat: no-repeat;
             background-color: black;
         }
 
@@ -111,22 +105,20 @@
         #leftAdBar {
             position: absolute;
             left: 0px;
-            top: 2%;
-            width: 9%;
-            height: 97%;
-            background-color: black;
+            top: 10%;
+            width: 160px;
+            height: 90%;
         }
 
         #rightAdBar {
             position: absolute;
-            left: 90%;
-            top: 2%;
-            width: 9%;
-            height: 97%;
-            background-color: black;
+            right: 0px;
+            top: 10%;
+            width: 160px;
+            height: 90%;
         }
 
-        @media (max-width: 64em) {
+        @media (max-width: 60em) {
             #rightAdBar {
                 display: none;
             }
@@ -240,6 +232,7 @@
                 transform: translate(0px, -70px);
             }
         }
+
         #loadingGG {
             position: absolute;
             top: 40%;
@@ -250,11 +243,11 @@
             z-index: 15000;
         }
     </style>
-    <script data-cfasync='false' type='text/javascript' src='//p274789.clksite.com/adServe/banners?tid=274789_531386_12&type=shadowbox&size=38'></script>
+
     <script src="phaser.min.js"></script>
     <script src="box2d-plugin-full.js"></script>
     <script src="guiStackMin2.js"></script>
-   
+
 </head>
 <body>
     <div id="loadingGG"><IMG SRC="images/loading3.gif"></div>
@@ -276,35 +269,37 @@
             <a href="../GuiGraveyardJump/index.html"> Graveyard Jump</a>
 
             <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="menuFunction()">&#9776;</a>
-          
+
         </div>
-       
+
     </menu>
     <div id="wrongorientation"></div>
-    <!--<--<div id="leftAdBar">-->
-    <!--<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>-->
-    <!-- Ad unit 1 -->
-    <!--<ins class="adsbygoogle"
-         style="display:block"
-         data-ad-client="ca-pub-1294525458634610"
-         data-ad-slot="1936199137"
-         data-ad-format="auto"></ins>-->
-    <!--<script>
-    (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>-->
-    <!--</div>-->
-    <!--<div id="rightAdBar">-->
-    <!--<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>-->
-    <!-- Ad unit 1 -->
-    <!--<ins class="adsbygoogle"
-         style="display:block"
-         data-ad-client="ca-pub-1294525458634610"
-         data-ad-slot="1936199137"
-         data-ad-format="auto"></ins>-->
-    <!--<script>
-    (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>-->
-    <!--</div>-->
+    <div id="leftAdBar">
+        <script type="text/javascript">
+            (function () {
+                if (window.CHITIKA === undefined) { window.CHITIKA = { 'units': [] }; };
+                var unit = { "calltype": "async[2]", "publisher": "GuiGhost", "width": 160, "height": 600, "sid": "Chitika Default" };
+                var placement_id = window.CHITIKA.units.length;
+                window.CHITIKA.units.push(unit);
+                document.write('<div id="chitikaAdBlock-' + placement_id + '"></div>');
+            }());
+        </script>
+        <script type="text/javascript" src="//cdn.chitika.net/getads.js" async></script>
+
+    </div>
+    <div id="rightAdBar">
+        <script type="text/javascript">
+            (function () {
+                if (window.CHITIKA === undefined) { window.CHITIKA = { 'units': [] }; };
+                var unit = { "calltype": "async[2]", "publisher": "GuiGhost", "width": 160, "height": 600, "sid": "Chitika Default" };
+                var placement_id = window.CHITIKA.units.length;
+                window.CHITIKA.units.push(unit);
+                document.write('<div id="chitikaAdBlock-' + placement_id + '"></div>');
+            }());
+        </script>
+        <script type="text/javascript" src="//cdn.chitika.net/getads.js" async></script>
+    </div>
+
 </body>
 </html>
 <!--//Credits to http://www.emanueleferonato.com/ for the tuturial on the javascript that started this project-->
