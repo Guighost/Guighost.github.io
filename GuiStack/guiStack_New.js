@@ -99,6 +99,7 @@ introScene.prototype = {
         var timer3 = setTimeout(function () {
            
             game.state.start("PlayGame");
+            document.getElementById("loadingGG").style.display = 'block';
         }, 5000);
 
       }      
@@ -166,6 +167,7 @@ playGame.prototype = {
         game.load.bitmapFont("smallfont", "assets/fonts/smallfont.png", "assets/fonts/smallfont.xml");
     },
     create: function () {
+        document.getElementById("loadingGG").style.display = 'none';
         if (!Phaser.Device.desktop && gameOptions.gameHeight < 768 ) {
             game.scale.forceOrientation(false, true);
             game.scale.enterIncorrectOrientation.add(function () {
@@ -320,6 +322,7 @@ playGame.prototype = {
                 }
             }, this);
         }
+        
     },
     update: function () {
         this.crateGroup.forEach(function (i) {
