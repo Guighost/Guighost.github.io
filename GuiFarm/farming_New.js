@@ -774,6 +774,32 @@ imgArray6[6] = new Image(); imgArray6[6].src = "images/plowed.png"
 
 var moneyBefore = 0;
 
+// <!-- Gamedistribution.com api -->
+
+	window["GD_OPTIONS"] = {
+        "gameId": "dc7b95f591444835975ae2a50ed6dc3b",
+    "onEvent": function(event) {
+        switch (event.name) {
+            case "SDK_GAME_START":
+                lime.audio.setMute(false); 
+                //themeSong.play(true); 
+                break;
+            case "SDK_GAME_PAUSE":
+             lime.audio.setMute(true); 
+                break;
+        }
+    },
+};
+(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s);
+    js.id = id;
+    js.src = 'https://html5.api.gamedistribution.com/main.min.js';
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'gamedistribution-jssdk'));
+	
+
 
 //var ss = new lime.SpriteSheet('images/', lime.ASSETS.blacksmith.json, lime.parse)
 var farming = {
@@ -3213,21 +3239,25 @@ farming.start = function () {
     successDiv.setHidden(true);
 
     //event handling
-    goog.events.listen(menu, ["mousedown", "touchstart"], function () { c.replaceScene(menuScene, lime.transitions.SlideInUp); a.sceneBefore = 1; });  ////menu btn
-
+    goog.events.listen(menu, ["mousedown", "touchstart"], function () { c.replaceScene(menuScene, lime.transitions.SlideInUp); a.sceneBefore = 1;  });  ////menu btn
+	goog.events.listen(menu, ['mouseUp', "touchUp"], function () {    gdsdk.showBanner();  });
     goog.events.listen(roadRight, ["mousedown", "touchstart"], function () { c.replaceScene(orchardScene, lime.transitions.SlideInRight); sceneBefore = 3; waterfallSound.play(true); homeCrop = b.currentCrop; oldCrop = b.currentCrop; b.currentCrop = 8; });
     goog.events.listen(roadLeftO, ["mousedown", "touchstart"], function () { c.replaceScene(d, lime.transitions.SlideInLeft); sceneBefore = 1; waterfallSound.stop(); b.currentCrop = oldCrop; });
 
     //save & Quit
     goog.events.listen(saveQuit, ["mousedown", "touchstart"], function () {
-        localStorage.setItem('GuiGhostFarms_player', JSON.stringify(player)); window.open("../", "_self")
+        localStorage.setItem('GuiGhostFarms_player', JSON.stringify(player)); 
         localStorage.setItem('GuiGhostFarms_dayCount', dayCount);
         localStorage.setItem('GuiGhostFarms_yearCount', yearCount);
         localStorage.setItem('GuiGhostFarms_toolsEver', toolsEver);
         localStorage.setItem('GuiGhostFarms_pickedEver', pickedEver);
         localStorage.setItem('GuiGhostFarms_moneyEver', moneyEver);
+		// window.open("../", "_self");
+        c.replaceScene(introScene, lime.transitions.SlideInUp)
+        
         
     });
+    goog.events.listen(saveQuit, ['mouseUp', "touchUp"], function () { gdsdk.showBanner(); });
     //clear data
     goog.events.listen(clearData, ["mousedown", "touchstart"], function () {
         localStorage.removeItem('GuiGhostFarms_player'); 
@@ -3686,7 +3716,7 @@ farming.start = function () {
         c.replaceScene(d, lime.transitions.SlideInUp); sceneBefore = 1; themeSong.play(true); smithSound.play(); a.checkTutSeen();
        
     });
-    goog.events.listen(moreGameBtn, ["mousedown", "touchstart"], function () { window.open("../", "_self"); });
+    goog.events.listen(moreGameBtn, ["mousedown", "touchstart"], function () { window.open("http://guighostgames.com", "_blank"); });
     c.replaceScene(introScene);
     var hideloading = document.getElementById("loadingGG");
     hideloading.style.display = 'none';
