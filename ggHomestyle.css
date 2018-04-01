@@ -17,7 +17,7 @@ h2{transform:translateY(-45px);font-family:'Comic Sans MS';font-weight:bold;font
 #g7{background-image:url(Images/Homepage/Badges/guiMatchBadge.png);}
 #g8{background-image:url(Images/Homepage/Badges/graveyardJumpBadge.png);}
 #leftad1 { display:block; float:left;}
-#rigthad1 {    display: block;    float: right;}
+#rightad1 {    display: block;    float: right;}
 #gemTraxImg {
     transform: scale(0.8) translateY(-150px);
     max-width: 95%;
