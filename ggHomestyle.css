@@ -16,7 +16,12 @@ h2{transform:translateY(-45px);font-family:'Comic Sans MS';font-weight:bold;font
 #g6{background-image:url(Images/Homepage/Badges/stackBadge.png);}
 #g7{background-image:url(Images/Homepage/Badges/guiMatchBadge.png);}
 #g8{background-image:url(Images/Homepage/Badges/graveyardJumpBadge.png);}
-#gemTraxImg{transform:scale(0.8) translateY(-150px);max-width:95%;}
+#leftad1 { display:block; float:left;}
+#rigthad1 {    display: block;    float: right;}
+#gemTraxImg {
+    transform: scale(0.8) translateY(-150px);
+    max-width: 95%;
+}
 section{display:block;padding-top:50px;border:1px inset grey;border-radius:25px;transform:translateY(-10px);height:750px;min-width:99%;clear:both;margin-top:30px;}
 #farmSection{height:840px;background-image:url(Images/Homepage/battleback10.png);background-size:cover;}
 #guiStackSection{height:840px;}
