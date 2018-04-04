@@ -20,21 +20,25 @@ h2{transform:translateY(-45px);font-family:'Comic Sans MS';font-weight:bold;font
     margin: auto;
    
 }
+.sponsored {
+    color: azure;
+}
 #leftad1 {
     display: block;
     float: left;
-    height: 300px;
-    width: 250px;
+    height: 250px;
+    width: 300px;
     background-color: black;
-    transform: translateY(-300px);
+    transform: translateY(-280px);
+
 }
 #rightad1 {
     display: block;
     float: right;
-    height: 125px;
-    width: 125px;
+    height: 285px;
+    width: 300px;
     background-color: black;
-    transform: translateY(-135px);
+    transform: translateY(-280px);
 }
 #gemTraxImg {
     transform: scale(0.8) translateY(-150px);
