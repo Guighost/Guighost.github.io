@@ -16,6 +16,10 @@ h2{transform:translateY(-45px);font-family:'Comic Sans MS';font-weight:bold;font
 #g6{background-image:url(Images/Homepage/Badges/stackBadge.png);}
 #g7{background-image:url(Images/Homepage/Badges/guiMatchBadge.png);}
 #g8{background-image:url(Images/Homepage/Badges/graveyardJumpBadge.png);}
+#dailyMotionResponse {
+    margin: auto;
+   
+}
 #leftad1 {
     display: block;
     float: left;
