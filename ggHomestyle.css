@@ -1,7 +1,7 @@
 ﻿body{font-family:monospace;text-align:center;background-image:url(Images/background.png);background-size:cover;font-family:'Comic Sans MS';font-size:18px;}
 header{min-height:150px;width:100%;color:azure;margin-left:0px;margin-right:0px;padding:0px,0px,0px,0px;background:#3b679e;background:-moz-linear-gradient(top, #3b679e 0%, #2b88d9 50%, #207cca 51%, #7db9e8 100%);background:-webkit-linear-gradient(top, #3b679e 0%,#2b88d9 50%,#207cca 51%,#7db9e8 100%);background:linear-gradient(to bottom, #3b679e 0%,#2b88d9 50%,#207cca 51%,#7db9e8 100%);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#3b679e', endColorstr='#7db9e8',GradientType=0);}
 #headH3{margin-top:50px;}
-#headDesc{font-size:24px;}
+#headDesc{font-size:20px;}
 h2{transform:translateY(-45px);font-family:'Comic Sans MS';font-weight:bold;font-size:36px;color:magenta;}
 #topLogo{margin-left:2.5%;transform:translate(-10px, 30px);width:90%;max-height:180px;max-width:600px;}
 #bubstorImg2{transform:scale(1.0) translateY(-20px);max-width:95%;}
@@ -87,7 +87,8 @@ section{display:block;padding-top:50px;border:1px inset grey;border-radius:25px;
     max-height: 250px;
     max-width: 40%;
     margin-left: 30%;
-    align-content:center;
+    align-content: center;
+    transform: translateY(-30px);
 }
 #sponsorwrap {
 height:auto;
@@ -97,6 +98,11 @@ height:auto;
     #rightad1{display:none;}
     #leftad1 {
         display: none;
+    }
+    #dailyMotionResponse {
+        margin:auto;
+        width:410px;
+        height:240px;
     }
 }
 @media screen and (max-width:1000px) {
@@ -140,9 +146,44 @@ height:auto;
        
         left: 0px;
     }
+    #dailyMotionResponse {
+        margin: 5px;
+        width: 280px;
+        height: 180px;
+        transform: translateX(-80px);
+    }
+    #chitikaAdBlock-1 {
+        transform: scale(0.3, 0.3);
+    }
 }
 @media screen and (max-width:350px){#aboutSection{max-height:1500px;}
 #infoAbout{font-size:13px;width:98%;padding-top:20px;padding-bottom:10px;margin-top:10px;margin-left:1%;margin-bottom:10px;transform:translate(0px, -70px);}
 #quickTileWraper{width:100%;margin-top:0px;margin-left:0%;min-height:100px;}
 .gameTiles{height:95px;width:145px;}
+    #dailyMotionResponse {
+
+        margin:5px;
+        width: 280px;
+        height: 180px;
+        transform: translateX(-90px);
+       
+    }
+    #chitikaAdBlock-1 {
+        transform: scale(0.3, 0.3);
+    }
+}
+@media screen and (max-height:650px) {
+    #topLogo {
+        height: 50px;
+        width: 200px;
+    }
+    h3{ font-size:14px;}
+    .gameTiles {
+        transform: scale(0.8, 0.8);
+        margin: auto;
+        transform: translateY(-20px);
+    }
+    #quicktilesParent {
+        height: 100px;
+    }
 }
