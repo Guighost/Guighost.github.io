@@ -23,10 +23,10 @@ h2{transform:translateY(-45px);font-family:'Comic Sans MS';font-weight:bold;font
 #leftad1 {
     display: block;
     float: left;
-    height: 125px;
-    width: 125px;
+    height: 300px;
+    width: 250px;
     background-color: black;
-    transform: translateY(-40px);
+    transform: translateY(-300px);
 }
 #rightad1 {
     display: block;
