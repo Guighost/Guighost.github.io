@@ -18,19 +18,21 @@ h2{transform:translateY(-45px);font-family:'Comic Sans MS';font-weight:bold;font
 #g8{background-image:url(Images/Homepage/Badges/graveyardJumpBadge.png);}
 #dailyMotionResponse {
     margin: auto;
-   
+    transform: translate(-20px,-10px);
+    
 }
 .sponsored {
     color: azure;
 }
 #leftad1 {
-    position: absolute;
-    left: 5px;
+    margin: auto;
+    /*position: absolute;
+    left: 50%;
     display: block;
     height: 90px;
     width: 468px;
     background-color: black;
-    transform: translateY(-280px);
+    transform: translate(-214px,-80px);*/
 }
 #sponsor1 {
     display: block;
@@ -138,6 +140,9 @@ height:auto;
 .gameTiles{height:95px;width:145px;}
     #headDesc {
         font-size: 16px;
+    }
+    #leftad1 {
+      display: none;
     }
 }
 @media screen and (max-width:600px){.topnav.responsive{position:relative;}
