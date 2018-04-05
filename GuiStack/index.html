@@ -105,20 +105,30 @@
         #leftAdBar {
             position: absolute;
             left: 0px;
-            top: 10%;
+            top: 40px;
             width: 160px;
             height: 90%;
         }
+        #sponsor1 {
+            display: block;
+            float: left;
+            background-color: black;
+            
+            padding:2px;
+            /*transform: translateY(-280px);*/
+            text-align: center;
+            color: azure;
 
+        } 
         #rightAdBar {
             position: absolute;
             right: 0px;
-            top: 10%;
+            top: 45px;
             width: 160px;
             height: 90%;
         }
 
-        @media (max-width: 60em) {
+        @media (max-width: 55em) {
             #rightAdBar {
                 display: none;
             }
@@ -275,7 +285,7 @@
     </menu>
     <div id="wrongorientation"></div>
     <div id="leftAdBar">
-        <script type="text/javascript">
+        <!--<script type="text/javascript">
             (function () {
                 if (window.CHITIKA === undefined) { window.CHITIKA = { 'units': [] }; };
                 var unit = { "calltype": "async[2]", "publisher": "GuiGhost", "width": 160, "height": 600, "sid": "Chitika Default" };
@@ -284,8 +294,9 @@
                 document.write('<div id="chitikaAdBlock-' + placement_id + '"></div>');
             }());
         </script>
-        <script type="text/javascript" src="//cdn.chitika.net/getads.js" async></script>
-
+        <script type="text/javascript" src="//cdn.chitika.net/getads.js" async></script>-->
+        <div id="sponsor1">Sponsor Games<div><script type="text/javascript" src="https://www.gtburst.com/show/10549"></script></div></div>
+        
     </div>
     <div id="rightAdBar">
         <script type="text/javascript">

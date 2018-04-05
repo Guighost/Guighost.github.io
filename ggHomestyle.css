@@ -24,13 +24,20 @@ h2{transform:translateY(-45px);font-family:'Comic Sans MS';font-weight:bold;font
     color: azure;
 }
 #leftad1 {
+    position: absolute;
+    left: 5px;
     display: block;
-    float: left;
-    height: 250px;
-    width: 300px;
+    height: 90px;
+    width: 468px;
     background-color: black;
     transform: translateY(-280px);
-
+}
+#sponsor1 {
+    display: block;
+    left:10px;
+    color: azure;
+    text-align: center;
+    color:azure;
 }
 #rightad1 {
     display: block;
@@ -104,9 +111,7 @@ height:auto;
 }
 @media screen and (max-width:1200px) {
     #rightad1{display:none;}
-    #leftad1 {
-        display: none;
-    }
+   
     #dailyMotionResponse {
         margin:auto;
         width:410px;
@@ -140,6 +145,9 @@ height:auto;
 .topnav.responsive a{float:none;display:block;text-align:left;}
 #aboutSection{max-height:1100px;}
 #infoAbout{font-size:15px;}
+    #leftad1 {
+      display: none;
+    }
 }
 @media screen and (max-width:400px){#aboutSection{max-height:1400px;min-width:97%;margin-left:2%;}
 #infoAbout{font-size:14px;transform:translate(-10px, -120px);}
