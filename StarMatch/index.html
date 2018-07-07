@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+	<head>
+        <title>Star Match Slide</title>
+        <meta name = "viewport" content = "width = device-width, initial-scale = 1.0, maximum-scale = 1.0, minimum-scale = 1.0, user-scalable = 0, minimal-ui" />
+        <meta name="application-name" content="Star Match Slide">
+        <meta name="apple-mobile-web-app-title" content="Star Match Slide">
+        <meta name="theme-color" content="#FFFFFF">
+        <meta name="msapplication-navbutton-color" content="#FFFFFF">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+        <meta name="msapplication-starturl" content="http://guighostgames.com/StarMatch/">
+     
+        <link rel="apple-touch-icon" type="image/png" sizes="40X40" href="http://guighostgames.com/Images/gabbyLogo.png">
+        <meta property="og:url" content="http://guighostgames.com/StarMatch/" />
+        <meta property="og:type" content="game" />
+        <meta property="og:title" content="Star Match Slide - fun matching game of combination" />
+        <meta property="og:description" content="Mobile Friendly puzzle game - free online game" />
+        <meta property="og:image" content="http://guighostgames.com/Images/Homepage/GuiFarm.png" />
+        <link rel = "shortcut icon" sizes = "256x256" href = "icon-256.png" />
+        <style type = "text/css">
+            body{
+                background: #ecf0f1;
+                padding: 0px;
+                margin: 0px;
+            }
+            canvas {
+                display: block;
+                margin: 0;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                border: 20px solid black;
+                background-color:black;
+                z-index: 5000;
+            }
+            @keyframes move-twink-back {
+                from {
+                    background-position: 0 0;
+                }
+
+                to {
+                    background-position: -10000px 5000px;
+                }
+            }
+
+            @-webkit-keyframes move-twink-back {
+                from {
+                    background-position: 0 0;
+                }
+
+                to {
+                    background-position: -10000px 5000px;
+                }
+            }
+
+            @-moz-keyframes move-twink-back {
+                from {
+                    background-position: 0 0;
+                }
+
+                to {
+                    background-position: -10000px 5000px;
+                }
+            }
+
+            @-ms-keyframes move-twink-back {
+                from {
+                    background-position: 0 0;
+                }
+
+                to {
+                    background-position: -10000px 5000px;
+                }
+            }
+
+            @keyframes move-clouds-back {
+                from {
+                    background-position: 0 0;
+                }
+
+                to {
+                    background-position: 10000px 0;
+                }
+            }
+
+            @-webkit-keyframes move-clouds-back {
+                from {
+                    background-position: 0 0;
+                }
+
+                to {
+                    background-position: 10000px 0;
+                }
+            }
+
+            @-moz-keyframes move-clouds-back {
+                from {
+                    background-position: 0 0;
+                }
+
+                to {
+                    background-position: 10000px 0;
+                }
+            }
+
+            @-ms-keyframes move-clouds-back {
+                from {
+                    background-position: 0;
+                }
+
+                to {
+                    background-position: 10000px 0;
+                }
+            }
+
+            .stars, .twinkling, .clouds {
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                width: 100%;
+                height: 100%;
+                display: block;
+            }
+
+            .stars {
+                background: #000 url(images/stars.png) repeat top center;
+                z-index: 0;
+            }
+
+            .twinkling {
+                background: transparent url(images/twinkling.png) repeat top center;
+                z-index: 1;
+                -moz-animation: move-twink-back 200s linear infinite;
+                -o-animation: move-twink-back 200s linear infinite;
+                -webkit-animation: move-twink-back 200s linear infinite;
+                animation: move-twink-back 200s linear infinite;
+            }
+
+            .clouds {
+                background: transparent url(images/clouds.png) repeat top center;
+                z-index: 3;
+                -moz-animation: move-clouds-back 200s linear infinite;
+                -o-animation: move-clouds-back 200s linear infinite;
+                -webkit-animation: move-clouds-back 200s linear infinite;
+                animation: move-clouds-back 200s linear infinite;
+            }
+        </style>
+        <script src="phaser.min.js"></script>
+        <script src = "game.js"></script>
+    </head>
+	<body>
+        <div class="stars"></div>
+        <div class="twinkling"></div>
+        <div class="clouds"></div>
+	</body>
+</html>

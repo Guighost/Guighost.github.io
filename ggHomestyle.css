@@ -18,36 +18,59 @@ h2{transform:translateY(-45px);font-family:'Comic Sans MS';font-weight:bold;font
 #g8{background-image:url(Images/Homepage/Badges/graveyardJumpBadge.png);}
 #dailyMotionResponse {
     margin: auto;
-    transform: translate(-20px,-10px);
+    /*transform: translate(-20px,-10px);*/
     
+}
+#dailymotionwrap {
+    display: block;
+    float: left;
+    margin:15px;
+    max-height: 250px;
+    max-width: 40%;
+    /*margin-left: 30%;*/
+    /*align-content: center;
+    transform: translateY(-30px);*/
+}
+
+#sponsors {
+    width: 90%;
+    margin-left: 10%;
+    align-content: center;
+    transform: translate(0px,-10px);
 }
 .sponsored {
     color: azure;
 }
 #leftad1 {
-    margin: auto;
-    /*position: absolute;
-    left: 50%;
+  
     display: block;
-    height: 90px;
-    width: 468px;
+    float: left;
+    height: 285px;
+    width: 300px;
     background-color: black;
-    transform: translate(-214px,-80px);*/
+   
+    
 }
 #sponsor1 {
     display: block;
     left:10px;
     color: azure;
     text-align: center;
-    color:azure;
+    
+}
+#sponsor2 {
+    display: block;
+    color: azure;
+    text-align: center;
+    
 }
 #rightad1 {
     display: block;
-    float: right;
+    float: left;
     height: 285px;
     width: 300px;
     background-color: black;
-    transform: translateY(-280px);
+    /*transform: translateY(-380px);*/
 }
 #gemTraxImg {
     transform: scale(0.8) translateY(-150px);
@@ -100,19 +123,9 @@ section{display:block;padding-top:50px;border:1px inset grey;border-radius:25px;
  clear: both;
     left: 0px;
 }
-#dailymotionwrap {
-    max-height: 250px;
-    max-width: 40%;
-    margin-left: 30%;
-    align-content: center;
-    transform: translateY(-30px);
-}
-#sponsorwrap {
-height:auto;
 
-}
 @media screen and (max-width:1200px) {
-    #rightad1{display:none;}
+    /*#rightad1{display:none;}*/
    
     #dailyMotionResponse {
         margin:auto;
@@ -128,6 +141,7 @@ height:auto;
     h3 {
         font-size: 18px;
     }
+   
 }
 @media screen and (max-width:800px){.topnav a{font-size:10px;}
 #infoAbout{font-size:15px;}
