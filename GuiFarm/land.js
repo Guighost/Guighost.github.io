@@ -11,7 +11,7 @@ farming.Land = function(gameObj, playerObj) {
     this.setAnchorPoint(0, 0);
     this.setSize(gameObj.tile_size,gameObj.tile_size);
     this.setFill('images/bare_land.png');
-    console.log(this);
+    //console.log(this);
     this.state = this.EMPTY;
     
     //user input

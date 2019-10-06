@@ -1,0 +1,14 @@
+Transactions
+User,info@guighost.com,5ae36df1ad19bf02e4b0f281
+
+Timestamp,Transaction Type,Asset,Quantity Transacted,USD Spot Price at Transaction,USD Amount Transacted (Inclusive of Coinbase Fees),Address,Notes
+04/28/2018,Receive,BTC,0.00010382,9191.62,0.95,"",Received from an external account
+04/29/2018,Buy,BTC,0.00102801,9494.07,10.00,"",Bought 0.00102801 BTC for $10.00 USD.
+05/06/2018,Receive,BTC,0.00021053,9335.46,1.97,"",Received from an external account
+04/29/2018,Buy,BCH,0.00668247,1460.54,10.00,"",Bought 0.00668247 BCH for $10.00 USD.
+05/03/2018,Receive,BCH,0.00049568,1473.74,0.73,"",Received from an external account
+05/10/2018,Receive,BCH,0.00020563,1650.61,0.34,"",Received from an external account
+04/29/2018,Buy,ETH,0.01401894,696.20,10.00,"",Bought 0.01401894 ETH for $10.00 USD.
+05/07/2018,Buy,ETH,0.01311364,744.26,10.00,"",Bought 0.01311364 ETH for $10.00 USD.
+04/29/2018,Buy,LTC,0.06312592,154.61,10.00,"",Bought 0.06312592 LTC for $10.00 USD.
+05/07/2018,Buy,LTC,0.05897459,165.50,10.00,"",Bought 0.05897459 LTC for $10.00 USD.
