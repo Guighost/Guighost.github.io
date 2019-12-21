@@ -8,14 +8,14 @@
         <meta name="theme-color" content="#FFFFFF">
         <meta name="msapplication-navbutton-color" content="#FFFFFF">
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-        <meta name="msapplication-starturl" content="https://guighostgames.com/StarMatch/">
+      
      
         <link rel="apple-touch-icon" type="image/png" sizes="40X40" href="http://guighostgames.com/Images/gabbyLogo.png">
         <meta property="og:url" content="https://guighostgames.com/StarMatch/" />
         <meta property="og:type" content="game" />
         <meta property="og:title" content="Star Match Slide - fun matching game of combination" />
         <meta property="og:description" content="Mobile Friendly puzzle game - free online game" />
-        <meta property="og:image" content="https://guighostgames.com/Images/Homepage/GuiFarm.png" />
+       
         <link rel = "shortcut icon" sizes = "256x256" href = "icon-256.png" />
         <style type = "text/css">
             body{
@@ -146,6 +146,10 @@
                 -o-animation: move-clouds-back 200s linear infinite;
                 -webkit-animation: move-clouds-back 200s linear infinite;
                 animation: move-clouds-back 200s linear infinite;
+        
+            }
+            .gameSounds {
+                display: none;
             }
         </style>
         <script src="phaser.min.js"></script>
@@ -155,5 +159,9 @@
         <div class="stars"></div>
         <div class="twinkling"></div>
         <div class="clouds"></div>
+        <!--AUDIO Files-->
+        <audio controls volume="0.2" id="gameSoundLoop" class="gameSounds" loop autoplay>
+            <source src="assets/sounds/Diabolus.mp3" type="audio/mp3">
+        </audio>
 	</body>
 </html>

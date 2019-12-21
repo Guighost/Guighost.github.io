@@ -46,6 +46,7 @@ var preloadAssets = new Phaser.Class({
         this.load.bitmapFont("font", "assets/fonts/font.png", "assets/fonts/font.xml");
         this.load.audio("move", ["assets/sounds/move.ogg", "assets/sounds/move.mp3"]);
         this.load.audio("grow", ["assets/sounds/grow.ogg", "assets/sounds/grow.mp3"]);
+        this.load.audio("backMusic", ["assets/sounds/Diabolus.mp3"]);
     },
     create: function(){
         this.scene.start("IntroGame");
@@ -63,6 +64,7 @@ var introGame = new Phaser.Class({
         startButton.setInteractive();
         startButton.on("pointerdown", function () {
             this.scene.start("PlayGame");
+          
         }, this)
         this.startText = this.add.bitmapText(200, 225, "font", "Start",56);
     }
@@ -72,8 +74,10 @@ var playGame = new Phaser.Class({
     Extends: Phaser.Scene,
     initialize:
     function playGame(){
-        Phaser.Scene.call(this, {key: "PlayGame"});
+        Phaser.Scene.call(this, { key: "PlayGame" });
+        
     },
+    
     create: function(){
         this.fieldArray = [];
         this.fieldGroup = this.add.group();
@@ -95,7 +99,11 @@ var playGame = new Phaser.Class({
                 }
             }
         }
-        
+        backMusic = this.sound.add("backMusic", 0.5,true)
+        backMusic.play();
+       
+
+        //this.backMusic;
         var restartButton = this.add.sprite(this.tileDestination(3, COL), this.tileDestination(0, ROW) - 200, "restart");
         restartButton.setInteractive();
         restartButton.on("pointerdown", function(){
@@ -123,6 +131,8 @@ var playGame = new Phaser.Class({
         this.input.on("pointerup", this.endSwipe, this);
         this.moveSound = this.sound.add("move");
         this.growSound = this.sound.add("grow");
+        
+        
     },
     endSwipe: function(e){
         var swipeTime = e.upTime - e.downTime;
