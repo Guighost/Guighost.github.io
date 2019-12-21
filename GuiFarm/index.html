@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE HTML>
-<!--GuiGhost Games Guighost Farms-->
+<!--GuiGhost Games Medieval Farms-->
 <html>
 <head>
     <meta name="application-name" content="Gui Farm">
@@ -12,22 +12,15 @@
     <link rel="apple-touch-icon" type="image/png" sizes="40X40" href="https://guighostgames.com/Images/gabbyLogo.png">
     <meta property="og:url" content="https://guighostgames.com/GuiFarm/" />
     <meta property="og:type" content="game" />
-    <meta property="og:title" content="GuiGhost Farms - Farming Sim - Free online game" />
+    <meta property="og:title" content="Medieval Farms - Farming Sim - Free online game" />
     <meta property="og:description" content="Mobile Friendly farm simulation game - free online game" />
     <meta property="og:image" content="https://guighostgames.com/Images/Homepage/GuiFarm.png" />
     <meta property="fb:app_id" content="135527100472746" />
 
 
 
-    <title>GuiGhost Farms</title>
-    <!--Adsense stuff-->
-    <!--<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <script>
-        (adsbygoogle = window.adsbygoogle || []).push({
-            google_ad_client: "ca-pub-1294525458634610",
-            enable_page_level_ads: true
-        });
-    </script>-->
+    <title>Medieval Farms - GuiGhost Games</title>
+  
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-97706544-2"></script>
@@ -38,7 +31,7 @@
 
   gtag('config', 'UA-97706544-2');
     </script>
-    
+
     <style>
         .lime-scene {
             display: block !important;
@@ -46,107 +39,139 @@
 
         body {
             background-color: black;
-            background-image: url(images/UI/battleback10.png);
+            background-image: url(images/UI/battleback11.png);
             background-size: cover;
             background-repeat: no-repeat;
+           
         }
-
-        <!-- #leftAdBar { -->
-            <!-- position: absolute; -->
-            <!-- left: 5px; -->
-            <!-- top: 5px; -->
-            <!-- width: 130px; -->
-            <!-- height: 99%; -->
-            <!-- color: azure; -->
-            <!-- background-color: black; -->
-            <!-- height: 630px; -->
-            <!-- align-content: center; -->
-            <!-- text-align: center; -->
-        <!-- } -->
-        <!-- #gtAdleft{ -->
-            <!-- margin-left:5px; -->
-        <!-- }  -->
-        <!-- #rightAdBar { -->
-            <!-- position: absolute; -->
-            <!-- right: 20px; -->
-            <!-- top: 5px; -->
-            <!-- width: 160px; -->
-            <!-- height: 99%; -->
-        <!-- } -->
-        <!-- #bigfish1{ -->
-            <!-- text-align:center; -->
-            <!-- background-color:black; -->
-            <!-- color: azure; -->
-            <!-- width:170px; -->
-        <!-- }  -->
-        @media (max-width: 60em) {
-            #rightAdBar {
-                display: none;
-            }
-
-            #leftAdBar {
-                display: none;
-            }
-        }
+    
+ 
         #loadingGG {
             position: absolute;
             top: 40%;
             left: 50%;
-            min-width: 200px;
+            min-width: 50%;
             height: 100%;
             transform: translateX(-150px);
             z-index: 15000;
         }
-        #fbshare {
-            background: linear-gradient(black, #8a2be2);
-            /*background-color: #8a2be2;*/
-            height: 350px;
-            width: 300px;
-            border: 4px solid #9e5a2a;
-            border-radius: 20px;
+        
+                #fbshare {
+                background: linear-gradient(black, #8a2be2);
+                /*background-color: #8a2be2;*/
+                height: 350px;
+                width: 300px;
+                border: 4px solid #9e5a2a;
+                border-radius: 20px;
+                position: absolute;
+                left: 50%;
+                top: 170px;
+                transform: translate(-154px,0px);
+                display: none;
+                font-family: 'Comic Sans MS';
+                font-size: 14px;
+                z-index: 2000;
+            }
+
+            #closeFB {
+                background-image: url( "images/UI/XButton.png");
+                background-size: contain;
+                height: 70px;
+                width: 70px;
+                border: 2px groove grey;
+                border-radius: 10px;
+                position: absolute;
+                left: 50%;
+                top: 95%;
+                transform: translate(-35px,-2px);
+                font-family: 'Comic Sans MS';
+                font-size: large;
+                text-align: center;
+            }
+
+            #fbshareTitle {
+                background-color: azure;
+                height: 30px;
+                width: 99%;
+                border: 2px inset grey;
+                border-radius: 10px;
+                font-family: 'Comic Sans MS';
+                font-size: large;
+                text-align: center;
+            }
+
+            #logoImg3 {
+                transform: translate(5px,5px);
+                height: 90px;
+                width: 240px;
+            }
+        #outerStarCashImg {
+        width:150px;
+        margin-left: 50%;
+        transform:translate(-75px,0px);
+        }
+        #starCashOuterLabel {
             position: absolute;
-            left: 50%;
-            top: 42%;
-            transform: translate(-154px,-150px);
-            display: none;
+            font-size: 20px;
             font-family: 'Comic Sans MS';
-            font-size: 14px;
-            z-index: 2000;
-        }
-
-        #closeFB {
-            background-image: url( "images/UI/XButton.png");
-            background-size: contain;
-            height: 70px;
-            width: 70px;
-            border: 2px groove grey;
-            border-radius: 10px;
-            position: absolute;
-            left: 50%;
-            top: 95%;
-            transform: translate(-35px,-2px);
-            font-family: 'Comic Sans MS';
-            font-size: large;
+            color: purple;
             text-align: center;
+            left: 50%;
+            z-index: 100;
+            transform: translate(0px,-10px);
         }
-
-        #fbshareTitle {
-            background-color: azure;
-            height: 30px;
-            width: 99%;
-            border: 2px inset grey;
-            border-radius: 10px;
+        #currentStarCashBack, #currentStarCashBack2 {
+            width: 280px;
+            height: 50px;
             font-family: 'Comic Sans MS';
-            font-size: large;
-            text-align: center;
+            font-size: 24px;
+            color: yellow;
+            text-align: left;
+            margin-left: 10px;
+            margin-top:5px;
+            transform: translate(0px,35px);
+            border: 1px groove azure;
+            border-radius: 5px;
+            background-color: saddlebrown;
         }
-
-        #logoImg3 {
-            transform: translate(5px,5px);
-            height: 90px;
-            width: 240px;
+        #lowerStarCashImg , #lowerStarCashImg2{
+            width: 50px;
+            transform: translate(5px,0px);
         }
-
+        #lowerArrow , #lowerArrow2{
+            width: 35px;
+            height: 35px;
+            transform: translate(10px, -5px);
+        }
+        
+        #lowerStarCashCoin {
+            width: 50px;
+            height: 50px;
+            margin-left: 5%;
+            transform: translate(0px, 0px);
+        }
+        #buyWithStarCash, #buyWithStarCashTools {
+            width: 80px;
+            height: 35px;
+            margin-left: 50%;
+            transform: translate(40px, -47px);
+        }
+        #row2label {
+            transform: translate(75px, -50px);
+        }
+        /*#currentStarCashBack2 {
+            width: 280px;
+            height: 50px;
+            font-family: 'Comic Sans MS';
+            font-size: 20px;
+            color: yellow;
+            text-align: left;
+            margin-left: 10px;
+            transform: translate(0px,30px);
+            border: 1px groove azure;
+            border-radius: 5px;
+            background-color: saddlebrown;
+        }*/
         #descShare {
             font-family: 'Comic Sans MS';
             color: gold;
@@ -154,123 +179,82 @@
             text-align: center;
             width: 95%;
         }
-        /*#shareLink{
+            /*#shareLink{
                 width: 90%;
             }*/
-        #postInviteToWall {
-            position: absolute;
-            left: 2%;
-            top: 78%;
-        }
+            #postInviteToWall {
+                position: absolute;
+                left: 2%;
+                top: 78%;
+            }
 
-        #inviteFB {
-            background-image: url('images/UI/inviteFB2.png');
-            background-size: contain;
-            width: 130px;
-            height: 40px;
-        }
+            #inviteFB {
+                background-image: url('images/UI/inviteFB2.png');
+                background-size: contain;
+                width: 130px;
+                height: 40px;
+            }
 
-        #inviteText {
-            position: absolute;
-            left: 138px;
-            /*top: 100px;*/
-            width: 160px;
-            height: 60px;
-            transform: translate(0px,-40px);
-        }
+            #inviteText {
+                position: absolute;
+                left: 138px;
+                /*top: 100px;*/
+                width: 160px;
+                height: 60px;
+                transform: translate(0px,-40px);
+            }
 
-        #inviteImg2 {
-            position: absolute;
-            left: 135px;
-            transform: translate(0px,-70px);
-            background-image: url('images/UI/bonusStarCash.png');
-            background-size: contain;
-            width: 150px;
-            height: 31px;
-        }
+            #inviteImg2 {
+                position: absolute;
+                left: 135px;
+                transform: translate(0px,-70px);
+                background-image: url('images/UI/bonusStarCash.png');
+                background-size: contain;
+                width: 150px;
+                height: 31px;
+            }
 
-        #socialPlugins1 {
-            position: absolute;
-            left: 4%;
-            top: 55%;
-            transform: scale(1.1);
-            background-color: azure;
-            padding: 5px;
-            border: 2px inset grey;
-            border-radius: 10px;
-            width: 260px;
-            height: 110px;
-        }
+            #socialPlugins1 {
+                position: absolute;
+                left: 4%;
+                top: 55%;
+                transform: scale(1.1);
+                background-color: azure;
+                padding: 5px;
+                border: 2px inset grey;
+                border-radius: 10px;
+                width: 260px;
+                height: 110px;
+            }
 
-        #likeFB {
-            background-image: url('images/UI/likeFB.png');
-            background-size: cover;
-            width: 95px;
-            height: 40px;
-        }
+            #likeFB {
+                background-image: url('images/UI/likeFB.png');
+                background-size: cover;
+                width: 95px;
+                height: 40px;
+            }
 
- 
+        #sucessbuyTxt {
+        width: 180px;
+        color:springgreen;
+        font-family: 'Comic Sans MS';
+        margin-left: 50%;
+        font-size:28px;
+        font-weight:500;
+        transform: translate(-70px,-145px);
+        display:none;
+        }
+      
     </style>
-    <script type="text/javascript" src="farmingMin2.js"></script>
-<!--<script>
-    // <!-- Gamedistribution.com api -->
+    <script type="text/javascript" src="farming_NewMenu.js"></script>
+    <script type="text/javascript">
+           function closeFBShare() {
+               //e.preventDefault();
+               document.getElementById("fbshare").style.display = 'none'; 
+           }
+      
 
-    <!--window["GD_OPTIONS"] = {
-        "gameId": "dc7b95f591444835975ae2a50ed6dc3b",
-        "onEvent": function (event) {
-            switch (event.name) {
-                case "SDK_GAME_START":
-                    // advertisement done, resume game logic and unmute audio
-                    break;
-                case "SDK_GAME_PAUSE":
-                    // pause game logic / mute audio
-                    break;
-            }
-        },
-    };
-    (function (d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s);
-        js.id = id;
-        js.src = 'https://html5.api.gamedistribution.com/main.min.js';
-        fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'gamedistribution-jssdk'));
-
-</script>-->
-    <!--game distro emanuaelle-->
-    <!--<script>
-        var initialized = false;
-
-        function initGDApi() {
-            if (!initialized) {
-                var settings = {
-                    gameId: "dc7b95f591444835975ae2a50ed6dc3b",
-                    UserId: "57AE63F8-4F74-4CAC-A617-51B6C5F98A35-s1",
-                    resumeGame: resumeGame,
-                    pauseGame: pauseGame,
-                    onInit: function (data) {
-                        initialized = true;
-                    },
-                    onError: function (data) {
-                        console.log("Error:" + data);
-                    }
-                };
-                (function (i, s, o, g, r, a, m) {
-                    i['GameDistribution'] = r; i[r] = i[r] || function () { (i[r].q = i[r].q || []).push(arguments) }; i[r].l = 1 * new Date(); a = s.createElement(o); m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m);
-                })(window, document, 'script', '//html5.api.gamedistribution.com/libs/gd/api.js', 'gdApi');
-                gdApi(settings);
-                function resumeGame() {
-                    console.log("Resume game");
-                }
-                function pauseGame() {
-                    console.log("Pause game");
-                }
-            }
-        }
-        initGDApi();
-    </script>-->
-
+    </script>
 </head>
 
 
@@ -278,189 +262,52 @@
 
 
 <body onload="farming.start()">
-
     <!--<script>
         //window.setTimeout(function () { farming.start(); }, 15000);
     </script>-->
     <div id="loadingGG"><IMG SRC="images/UI/loading4.gif"></div>
-    <!--game distro emanuaelle-->
-    <!--<script>
-        var initialized = false;
 
-        function initGDApi() {
-            if (!initialized) {
-                var settings = {
-                    gameId: "dc7b95f591444835975ae2a50ed6dc3b",
-                    UserId: "57AE63F8-4F74-4CAC-A617-51B6C5F98A35-s1",
-                    resumeGame: resumeGame,
-                    pauseGame: pauseGame,
-                    onInit: function (data) {
-                        initialized = true;
-                    },
-                    onError: function (data) {
-                        console.log("Error:" + data);
-                    }
-                };
-                (function (i, s, o, g, r, a, m) {
-                    i['GameDistribution'] = r; i[r] = i[r] || function () { (i[r].q = i[r].q || []).push(arguments) }; i[r].l = 1 * new Date(); a = s.createElement(o); m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m);
-                })(window, document, 'script', '//html5.api.gamedistribution.com/libs/gd/api.js', 'gdApi');
-                gdApi(settings);
-                function resumeGame() {
-                    console.log("Resume game");
-                }
-                function pauseGame() {
-                    console.log("Pause game");
-                }
-            }
-        }
-        initGDApi();
-    </script>-->
-    <script>
-        var objectToLike = 'https://guighostgames.com/GuiFarm/';
 
-      window.fbAsyncInit = function () {
-          FB.init({
-              appId: '135527100472746',
-              status: true,
-              cookie: true,
-              xfbml: true,
-              version:  'v2.11'
-          });
-
-          FB.AppEvents.logPageView();
-
-      };
-
-      (function (d, s, id) {
-          var js, fjs = d.getElementsByTagName(s)[0];
-          if (d.getElementById(id)) { return; }
-          js = d.createElement(s); js.id = id;
-          js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.11&appId=135527100472746";
-          fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));
-
-        function postLike() {
-            FB.api(
-                //"/me/games.plays",
-                //"POST",
-                //{
-                //    "game": "http://guighostgames.com/GuiFarm/"
-                //},
-                'https://graph.facebook.com/me/og.likes',
-                'post',
-                {
-                    object: objectToLike,
-                    privacy: { 'value': 'SELF' }
-
-                },
-                function (response) {
-                    if (!response) {
-                        alert('Error occurred.');
-                    } else if (response.error) {
-                        document.getElementById('result').innerHTML =
-                            'You have already liked us: ';
-                    } else {
-                        var target = "https://www.facebook.com/me/activity/" + response.id;
-                        window.open(target);
-                        document.getElementById('result').innerHTML =
-                            '<a href=\"https://www.facebook.com/me/activity/' +
-                        response.id + '\" target="_blank">' +
-                            'See your Post.' ;
-                    }
-                }
-            );
-        }
-        function sendInvite(){
-            FB.ui({
-                method: 'apprequests',
-                message: 'Come Join the Fun and play GuiGhost Farms'
-            }, function (response) {
-                console.log( "response " + response);
-                });
-
-        };
-        function closeFBShare() {
-            //e.preventDefault();
-            document.getElementById("fbshare").style.display = 'none';
-        }
-
-    </script>
-    <!--
-      Below we include the Login Button social plugin. This button uses
-      the JavaScript SDK to present a graphical Login button that triggers
-      the FB.login() function when clicked.
-    -->
-    <!--<div class="fb-login-button" data-max-rows="1" data-size="medium" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="true" data-use-continue-as="false"></div>-->
     <div id="fbshare">
-        <div id="fbshareTitle"> Share the Fun on Facebook  </div>
-        <!--<div class="fb-login-button"
-             data-show-faces="false"
-             data-width="300"
-             data-max-rows="1"
-             data-scope="publish_actions">
-        </div>-->
         <div id="fbshareContent">
-
             <div id="descShare">
-                Tell your friends about the fun you are having playing
-                <img id="logoImg3" src="images/UI/MenuTop.png" alt="FarmImg" />
+
+                <img id="logoImg3" src="images/UI/MenuTop2.png" alt="FarmImg" />
+            </div>
+            <div id="outerStarCash">
+                <p id="starCashOuterLabel">50</p>
+                <img id="outerStarCashImg" src="images/UI/starCashBack.png" alt="StarCashImg" />
+            </div>
+            <div id="currentStarCashBack">
+                <img id="lowerStarCashImg" src="images/UI/plus5StarCash.png" alt="StarCashImg" /> <img id="lowerArrow" src="images/UI/rightBtn.png" alt="rightBtn" />
+                <img id="lowerStarCashCoin" src="images/UI/coin500.png" alt="StarCashCoin" /><img id="buyWithStarCash" src="images/UI/greenBuy.png" alt="StarCashImg" />
+            </div>
+
+            <div id="currentStarCashBack2">
+                <img id="lowerStarCashImg2" src="images/UI/plus10StarCash.png" alt="StarCashImg" /> <img id="lowerArrow2" src="images/UI/rightBtn.png" alt="rightBtn2" />
+                <img id="lowerStarCashCoin" src="images/tools500.png" alt="tools500" /><img id="buyWithStarCashTools" src="images/UI/greenBuy.png" alt="StarCashBuyImg" />
+
+
+
+
             </div>
 
 
-
-            <div id="socialPlugins1">
-                <!--<input id="likeFB"
-                       type="button"
-                       onclick="postLike();"
-
-                       >-->
-                <br/>
-                <div class="fb-like" data-href="https://guighostgames.com/GuiFarm/" data-width="260" data-layout="standard" data-action="like" data-size="large" data-show-faces="true" data-share="true"></div>
-                <!--<div class="fb-follow" data-href="https://www.facebook.com/GuiGhostFarms/" data-width="260" data-height="50" data-layout="standard" data-size="large" data-show-faces="false"></div>-->
-            </div>
-            <!--<div id="postInviteToWall" ontouchstart="sendInvite();">
-                <input id="inviteFB" type="button"
-                       onclick="sendInvite(); inviteBonus();">
-                <div id="inviteImg2"></div>
-                <div id="inviteText">Invite friends to play GuiGhost Farms</div>
-            </div>-->
-
-            <div id="result"></div>
-
-            <br />
+            <p id="sucessbuyTxt"> + $500</p>
         </div>
-        <div id="fbshareFooter"> <a id="closeFB" onclick="closeFBShare()" ontouchstart="closeFBShare()"></a></div>
-
+        <div id="fbshareFooter"> <a id="closeFB"></a></div>
     </div>
 
- <div id="leftAdBar">
+    <!--<!--<div id="leftAdBar">            </div>
+    <div id="rightAdBar">    </div>-->
+   
+  
 
-    
-    
-     
-        
-   </div>
-    <div id="rightAdBar">
-        <!--<script type="text/javascript">
-      (function () {
-          if (window.CHITIKA === undefined) { window.CHITIKA = { 'units': [] }; };
-          var unit = { "calltype": "async[2]", "publisher": "GuiGhost", "width": 160, "height": 600, "sid": "Chitika Default" };
-          var placement_id = window.CHITIKA.units.length;
-          window.CHITIKA.units.push(unit);
-          document.write('<div id="chitikaAdBlock-' + placement_id + '"></div>');
-      }());
-        </script>
-        <script type="text/javascript" src="//cdn.chitika.net/getads.js" async></script>-->
-        <!-- <div id="bigfish1"> -->
-       <!-- Sponsor Games -->
-            <!-- <a href="https://www.bigfishgames.com/online-games/6211/farm-frenzy-3/index.html?channel=affiliates&identifier=af02ee808680" target=”_blank” ><img src="https://bigfishgames-a.akamaihd.net/en_farm-frenzy-3/farm-frenzy-3_subfeature.jpg" width="175" height="150" /></a> -->
-            <!-- <a href="https://www.bigfishgames.com/online-games/7785/farm-mania/index.html?channel=affiliates&identifier=af02ee808680" target=”_blank” ><img src="https://bigfishgames-a.akamaihd.net/en_farm-mania/farm-mania_feature.jpg" width="175" height="150" /></a> -->
-        <!-- <a href="https://www.bigfishgames.com/online-games/19928/farm-of-dreams/index.html?channel=affiliates&identifier=af02ee808680" target=”_blank” ><img src="https://bigfishgames-a.akamaihd.net/en_farm-of-dreams/farm-of-dreams_subfeature.jpg" width="175" height="150" /></a> -->
-        <!-- <a href="https://www.bigfishgames.com/online-games/24075/farmerama-free-to-play/index.html?channel=affiliates&identifier=af02ee808680" target=”_blank” ><img src="https://bigfishgames-a.akamaihd.net/en_farmerama-free-to-play/farmerama-free-to-play_feature.jpg" width="175" height="150" /></a>       -->
-		<!-- </div> -->
 
-    </div>
+
+
 
 </body>
+
 
 </html>

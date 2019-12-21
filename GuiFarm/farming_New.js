@@ -1661,6 +1661,15 @@ farming.start = function () {
             setMute(2)
         } else { lime.audio.setMute(true); setMute(1); }
     });
+    function handleVisibilityChange() {
+        if (document.hidden) {
+            lime.audio.setMute(true);
+        } else {
+            lime.audio.setMute(false);
+            themeSong.play(true);
+        }
+    }
+    document.addEventListener("visibilitychange", handleVisibilityChange, false);
     goog.events.listen(achieveBtn, ["mousedown", "touchstart"], function () {
         sceneBefore = 1;
         achieve(sceneBefore);

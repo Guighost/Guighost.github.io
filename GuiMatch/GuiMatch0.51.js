@@ -245,7 +245,7 @@ gameOverSound.play();
             for (var j=0; j<level.rows; j++) {
                 // Define a tile type and a shift parameter for animation
                 level.tiles[i][j] = { type: 0, shift:0 }
-				
+                
             }
         }
         
@@ -644,7 +644,7 @@ gameOverSound.play();
     
     // Render tiles
     function renderTiles() {
-        for (var i=0; i<level.columns; i++) {
+        for (var i=0; i<level.columns; i++) { 
             for (var j=0; j<level.rows; j++) {
                 // Get the shift of the tile for animation
                 var shift = level.tiles[i][j].shift;
