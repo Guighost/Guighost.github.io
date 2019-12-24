@@ -34,9 +34,12 @@
 
     <style>
       body{
-          background-image: url(images/UI/battleback11.png);
-          background-size: cover;
+          background-image: url(images/UI/battleback10.png);
+
+          background-size: 100%;
           background-repeat: no-repeat;
+		  background-color: black;
+		
       }
         #topLogo {
             background-image: url(images/UI/MenuTop2.png);
@@ -74,11 +77,14 @@
             transform: translate(-315px, 200px);
             width: 50%;
         }
-        @media (max-width: 360px) {
-            body {
-                background-image: url(images/UI/battleback11.png);
-            }
-        }
+      @media (max-device-width: 1024px)  {
+       body {background-image: url(images/UI/battleback11.png);}
+	   #topBar {top: 20%;}
+	
+
+  
+}
+	
     </style>
 
     <script type="text/javascript">
