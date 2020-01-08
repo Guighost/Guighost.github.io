@@ -20,6 +20,14 @@ window.onload = function() {
     window.focus()
     resize();
     window.addEventListener("resize", resize, false);
+	function handleVisibilityChange() {
+	  if (document.hidden) {
+		myAudio.pause();
+	  } else  {
+		myAudio.play();
+	  }
+	}
+document.addEventListener("visibilitychange", handleVisibilityChange, false);
 }
 
 var preloadAssets = new Phaser.Class({
