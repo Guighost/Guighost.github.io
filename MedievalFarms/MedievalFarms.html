@@ -249,7 +249,25 @@
             transform: translate(-70px,-145px);
             display: none;
         }
- 
+        .alignleft {
+        position:absolute;
+        top:2px;
+        left:2px;
+        z-index: 500;
+        }
+        .alignright {
+            position: absolute;
+            top: 2px;
+            right: 2px;
+            z-index: 500;
+        }
+  
+        @media (max-width: 800px) {
+            .alignleft, .alignright {
+                display: none;
+            }
+        
+        }
     </style>
     <script type="text/javascript" src="farming_NewMenu.js"></script>
     <script type="text/javascript">
@@ -299,10 +317,41 @@
         </div>
         <div id="fbshareFooter"> <a id="closeFB"></a></div>
     </div>
+    <div class="alignleft">
+        <script type="text/javascript">
+            amzn_assoc_ad_type = "banner";
+            amzn_assoc_marketplace = "amazon";
+            amzn_assoc_region = "US";
+            amzn_assoc_placement = "assoc_banner_placement_default";
+            amzn_assoc_campaigns = "game_downloads";
+            amzn_assoc_banner_type = "category";
+            amzn_assoc_p = "29";
+            amzn_assoc_isresponsive = "false";
+            amzn_assoc_banner_id = "0SFVTV2829Q7FVY15A82";
+            amzn_assoc_width = "120";
+            amzn_assoc_height = "600";
+            amzn_assoc_tracking_id = "guighost-20";
+            amzn_assoc_linkid = "c6e225d93ab8a27041950fcdb4cb6588";
+        </script>
+        <script src="//z-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&Operation=GetScript&ID=OneJS&WS=1"></script>
+    </div>
 
+    <div class="alignright">
+        <script type="text/javascript">
+            amzn_assoc_ad_type = "banner";
+            amzn_assoc_marketplace = "amazon";
+            amzn_assoc_region = "US";
+            amzn_assoc_placement = "assoc_banner_placement_default";
+            amzn_assoc_banner_type = "ez";
+            amzn_assoc_p = "11";
+            amzn_assoc_width = "120";
+            amzn_assoc_height = "600";
+            amzn_assoc_tracking_id = "guighost-20";
+            amzn_assoc_linkid = "b8ebcb234ccb4e02bda2d84898a2361b";
+        </script>
+        <script src="//z-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&Operation=GetScript&ID=OneJS&WS=1"></script>
+    </div>
 
-
-    
 
 </body>
 
