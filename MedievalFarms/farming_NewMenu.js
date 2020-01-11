@@ -2294,16 +2294,15 @@ farming.start = function () {
             tutModal.setFill(imgArray5[tutStep]);
         }
 
-<<<<<<< HEAD
         //if (tutStep == 8) {
         //    //tutModal.setHidden(true);
         //    removeAdsBack.setHidden(false);            
         //}
         if (tutStep == 8) {
             tutSeen = 1;
-=======
+        }
         if (tutStep >= 8 ) {
->>>>>>> parent of 40647d8... Update Medieval Farms
+
             tutModal.setHidden(true);
             tutSeen = 1;
             homeBlock.setHidden(true);
