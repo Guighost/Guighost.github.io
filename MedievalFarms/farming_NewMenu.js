@@ -6926,7 +6926,7 @@ farming.start = function () {
       
 
                 var showingStarCash = 0; 
-    /////note this is the starcash buy menu but used to be facebook modal, hence the function name
+    /////note this is the starcash buy menu but used to be facebook modal, hence the function name is needed
                 function shareFacebook() {        
                     document.getElementById("starCashOuterLabel").innerHTML = starCash;
                     if (showingStarCash == 1) {
