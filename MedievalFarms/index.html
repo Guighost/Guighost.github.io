@@ -2,7 +2,7 @@
 <!--GuiGhost Games Medieval Farms-->
 <html>
 <head>
-    <meta name="application-name" content="Gui Farm">
+    <meta name="application-name" content="Medieval Farms">
     <meta name="apple-mobile-web-app-title" content="Medieval Farms">
     <meta name="theme-color" content="#FFFFFF">
     <meta name="msapplication-navbutton-color" content="#FFFFFF">
@@ -47,38 +47,53 @@
             position: absolute;
             top: 2%;
             width: 100%;
-              height: 40%;
+              height: 25%;
         }
         #topLogo {
             background-image: url(images/UI/MenuTop2.png);
-            position: relative;
+            position: absolute;
             background-size: contain;
             background-repeat: no-repeat;
             width: 65%;
             height: 90%;
-            left: 15%;
+            left: 27%;
         }
         #gPlayIcon {
-        margin-left: 50%;
-        position:absolute;
-        transform: translate(-360px, -20px);
-        width:20%;
+            position: absolute;
+            width: 20%;
+            margin-left: 60%;
+            top: 20%;
+            transform: translate(-375px, 0px);
         }
-		#logoBottom {
-		 position: absolute;
+        #gPlayImg {
+            width: 300px;
             margin-left: 50%;
-		bottom: 5px;
-		width:390px;
-            transform: translate(-165px, -10px);
-		}
+            transform: translate(0px,200px);
+        }
+        #homeImg {
+            position: absolute;
+            top: 25%;
+            height: 60%;
+            left: 30%;
+            transform: translate(0px,0px);
+
+
+        }#logoBottom {
+            position: absolute;
+            margin-left: 50%;
+            bottom: 5px;
+            width: 390px;
+            transform: translate(-165px, 0px);
+        }
         #playOnline {
             padding-top:12px;
             position: absolute;
-            margin-left: 50%;
+            margin-left: 60%;
             bottom: 120px;
-            transform: translate(-150px, 0px);
-            width: 50%;
+            transform: translate(-150px, -100px);
+            width: 25%;
         }
+   
         /*.alignleft {
             position: absolute;
             top: 2px;
@@ -92,21 +107,256 @@
             right: 2px;
             z-index: 500;
         }*/
-
         /*@media (max-width: 800px) {
             .alignleft, .alignrightH {
                 display: none;
             }
             made a change
         }*/
-      @media (max-device-width: 1024px)  {
-       body {background-image: url(images/UI/battleback11.png);}
-	   #topBar {top: 10%;}
+        @media (max-device-width: 1440px) {
+            #gPlayIcon {
+               
+                transform: translate(-205px, -50px);
+            }
+            #playOnline {
+                transform: translate(-50px, -50px);
+                width: 20%;
+            }
+        
+        }
+        @media (max-device-width: 1024px) {
+            body {
+                background-image: url(images/UI/battleback11.png);
+            }
+            #gPlayIcon {
+                transform: translate(-5px, -50px);
+            }
 
-     
-  
-}
-	
+            #playOnline {
+                transform: translate(150px, -350px);
+                width: 20%;
+            }
+        }
+        @media (max-device-width: 800px) {
+                body {
+                    background-image: url(images/UI/battleback11.png);
+                }
+
+                #topLogo {
+                    width: 80%;
+                    height: 90%;
+                    left: 10%;
+                }
+
+                #topBar {
+                    top: 5%;
+                }
+
+
+                #gPlayIcon {
+                    position: absolute;
+                    top: 55%;
+                    transform: translate(-355px, 200px);
+                }
+
+
+                #homeImg {
+                    /*display: none;*/
+                    position: absolute;
+                    top: 19%;
+                    height: 62%;
+                    left: 50%;
+                    transform: translate(-250px,0px);
+                }
+
+                #playOnline {
+                    transform: translate(-220px, 0px);
+                    width: 20%;
+                }
+
+                #logoBottom {
+                    position: absolute;
+                    margin-left: 50%;
+                    bottom: 5px;
+                    width: 390px;
+                    transform: translate(-145px, 0px);
+                }
+            }
+        @media (max-device-width: 768px) {
+            body {
+                background-image: url(images/UI/battleback11.png);
+            }
+            #homeImg {
+                /*display: none;*/
+                position: absolute;
+                top: 22%;
+                height: 60%;
+                left: 50%;
+                transform: translate(-250px,0px);
+            }
+            #gPlayIcon {
+                transform: translate(-5px, -50px);
+            }
+
+            #playOnline {
+                transform: translate(150px, -350px);
+                width: 20%;
+            }
+        }
+        @media (max-device-width: 600px) {
+            body {
+                background-image: url(images/UI/battleback11.png);
+            }
+
+            #homeImg {
+                /*display: none;*/
+                position: absolute;
+                top: 18%;
+                height: 60%;
+                left: 50%;
+                transform: translate(-250px,0px);
+            }
+
+            #gPlayIcon {
+                transform: translate(-350px, 150px);
+            }
+
+            #playOnline {
+                transform: translate(-210px, -50px);
+                width: 20%;
+            }
+        }
+
+            @media (max-device-width: 480px) {
+                body {
+                    background-image: url(images/UI/battleback11.png);
+                }
+
+                #topLogo {
+                    width: 80%;
+                    height: 90%;
+                    left: 10%;
+                }
+
+                #topBar {
+                    top: 5%;
+                }
+
+
+                #gPlayIcon {
+                    position: absolute;
+                    top: 58%;
+                    transform: translate(-355px, 200px);
+                }
+
+
+                #homeImg {
+                    /*display: none;*/
+                    position: absolute;
+                    top: 17%;
+                    height: 62%;
+                    left: 50%;
+                    transform: translate(-280px,0px);
+                }
+
+                #playOnline {
+                    transform: translate(-220px, 0px);
+                    width: 20%;
+                }
+
+                #logoBottom {
+                    position: absolute;
+                    margin-left: 50%;
+                    bottom: 5px;
+                    width: 390px;
+                    transform: translate(-145px, 0px);
+                }
+            }
+
+            @media (max-device-width: 375px) {
+                body {
+                    background-image: url(images/UI/battleback11.png);
+                }
+
+                #topLogo {
+                    width: 80%;
+                    height: 90%;
+                    left: 10%;
+                }
+
+                #topBar {
+                    top: 5%;
+                }
+
+
+                #gPlayIcon {
+                    position: absolute;
+                    top: 61%;
+                    transform: translate(-355px, 200px);
+                }
+
+
+                #homeImg {
+                    /*display: none;*/
+                    position: absolute;
+                    top: 17%;
+                    height: 63%;
+                    left: 50%;
+                    transform: translate(-300px,0px);
+                }
+
+                #playOnline {
+                    transform: translate(-220px, 0px);
+                    width: 20%;
+                }
+
+                #logoBottom {
+                    position: absolute;
+                    margin-left: 50%;
+                    bottom: 5px;
+                    width: 390px;
+                    transform: translate(-145px, 0px);
+                }
+            }
+
+
+            @media (max-device-width: 360px) {
+                body {
+                    background-image: url(images/UI/battleback11.png);
+                }
+
+                #topLogo {
+                    width: 80%;
+                    height: 90%;
+                    left: 10%;
+                }
+
+                #topBar {
+                    top: 5%;
+                }
+
+
+                #gPlayIcon {
+                    position: absolute;
+                    top: 68%;
+                    transform: translate(-355px, -10px);
+                }
+
+
+                #homeImg {
+                    display: block;
+                    position: absolute;
+                    top: 30%;
+                    height: 58%;
+                    left: 50%;
+                    transform: translate(-230px,-155px);
+                }
+
+                #playOnline {
+                    transform: translate(-220px, 20px);
+                    width: 20%;
+                }
+            }
     </style>
 
 
@@ -140,11 +390,13 @@
       
         <div id="topLogo"> </div>
 		 
-        <a id="gPlayIcon" href='https://play.google.com/store/apps/details?id=com.wGuiGhostFarms_9861566&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png' /></a>
         <br/>
      <br />
       
     </div>
+    <a id="gPlayIcon" href='https://play.google.com/store/apps/details?id=com.wGuiGhostFarms_9861566&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img id="gPlayImg" alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png' /></a>
+    <img id="homeImg" src="screenshots/androidPhoneHomeCropsReady.png" />
+ 
     <a id="playOnline" href='/MedievalFarms/MedievalFarms.html'><img alt='Play Online' src='images/UI/playOnline.png' /></a>
 <a id="logoBottom"   href='https://guighostgames.com'><img alt='More Games' src='../Images/Homepage/footerImgTight.png' /></a> 
 
@@ -186,11 +438,23 @@
         <script src="//z-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&Operation=GetScript&ID=OneJS&WS=1"></script>
     </div>-->
 
-    <!--<script type="text/javascript">
-        document.getElementById('gPlayIcon').addEventListener('click', function () {
-             fbq('track', 'Subscribe');
-            }, false);
-    </script>-->
+    <script type="text/javascript">
+        var picToChange = document.getElementById('homeImg');
+        var countImg = 1;
+        setInterval(function () {
+            if (countImg == 1) { picToChange.src = 'screenshots/androidPhoneHomeCropsReady.png';}
+            if (countImg == 2) { picToChange.src = 'screenshots/androidPhoneLiveStock.png'; }
+            if (countImg == 4) { picToChange.src = 'screenshots/androidPhoneOrchard.png'; }
+            if (countImg == 5) { picToChange.src = 'screenshots/androidPhonePasture.png'; }
+            if (countImg == 6) { picToChange.src = 'screenshots/androidPhoneVineyard.png'; }
+            if (countImg == 7) { picToChange.src = 'screenshots/androidPhoneHouse.png'; }
+            if (countImg == 8) { picToChange.src = 'screenshots/androidPhoneMarket.png'; }
+        
+            countImg++;
+            if (countImg > 8) { countImg = 1; };
+        }, 1500)
+
+    </script>
 </body>
 
 
