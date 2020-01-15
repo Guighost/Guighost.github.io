@@ -3608,9 +3608,9 @@ farming.start = function () {
 
     var pastureBlock = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(0, 0).setSize(a.width, a.height).setFill("#ffffff").setOpacity(0.75);
     pastureLayer.appendChild(pastureBlock);
-    goog.events.listen(pastureBlock, ["mousedown", "touchstart"], function () {
-        break;
-    });
+    //goog.events.listen(pastureBlock, ["mousedown", "touchstart"], function () {
+    //    break;
+    //});
     pastureBlock.setHidden(true);
 
 
@@ -5938,9 +5938,9 @@ farming.start = function () {
     ///livestockpens block
     var lsBlock = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(0, 0).setSize(a.width, a.height).setFill("#ffffff").setOpacity(0.75);
     liveStockLayer.appendChild(lsBlock);
-    goog.events.listen(lsBlock, ["mousedown", "touchstart"], function () {
-        break;
-    });
+    //goog.events.listen(lsBlock, ["mousedown", "touchstart"], function () {
+    //    break;
+    //});
     lsBlock.setHidden(true);
 
 
@@ -6705,9 +6705,9 @@ farming.start = function () {
     ///vinyard block
     var vinyardBlock = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(0, 0).setSize(a.width, a.height).setFill("#ffffff").setOpacity(0.75);
     vinyardLayer.appendChild(vinyardBlock);
-    goog.events.listen(vinyardBlock, ["mousedown", "touchstart"], function () {
-        break;
-    });
+    //goog.events.listen(vinyardBlock, ["mousedown", "touchstart"], function () {
+    //    break;
+    //});
     vinyardBlock.setHidden(true);
 
     ///Out of Cash modal- vinyard
