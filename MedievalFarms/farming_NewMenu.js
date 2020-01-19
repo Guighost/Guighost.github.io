@@ -2460,11 +2460,8 @@ farming.start = function () {
             tutModal.setFill(imgArray5[tutStep]);
         }
 
-        if (tutStep == 8) {
-            //tutModal.setHidden(true);
-            removeAdsBack.setHidden(false);            
-        }
-        if (tutStep > 8) {
+  
+        if (tutStep > 7) {
             tutSeen = 1;
             tutModal.setHidden(true);
             removeAdsBack.setHidden(true);

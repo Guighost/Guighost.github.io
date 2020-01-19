@@ -64,8 +64,17 @@
             z-index: 15000;
             display: none;
             color:azure;
-        } 
-        #fbshare {
+        }
+        #closePop {
+            position: absolute;
+               text-align:center;
+               border-radius: 9px;
+            min-width: 30px;
+            height: 25px;
+            background-color: black;
+            font-size:large;
+            transform: translate(-5px,-15px);
+        } #fbshare {
             background: linear-gradient(black, #8a2be2);
             /*background-color: #8a2be2;*/
             height: 350px;
@@ -390,12 +399,12 @@
                 pop.style.display = "none";
                 visible = 0;
             }
-            if (visible == 0 && timerThis > 3) {
+            if (visible == 0 && timerThis > 10) {
                 pop.style.display = "block";
                 visible = 1;
                 timerThis = 0
             }
-                }, 10000);
+                }, 30000);
 
     </script>
 

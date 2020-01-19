@@ -22,11 +22,11 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-97706544-2"></script>
     <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
 
-  gtag('config', 'UA-97706544-2');
+        gtag('config', 'UA-97706544-2');
     </script>
 
 
@@ -52,6 +52,30 @@
             height: 100%;
             transform: translateX(-150px);
             z-index: 15000;
+        }
+
+        #popup {
+            position: absolute;
+            bottom: 1%;
+            left: 50%;
+            min-width: 300px;
+            height: 250px;
+            background-color: black;
+            transform: translateX(-150px);
+            z-index: 15000;
+            display: none;
+            color: azure;
+        }
+
+        #closePop {
+            position: absolute;
+            text-align: center;
+            border-radius: 9px;
+            min-width: 30px;
+            height: 25px;
+            background-color: black;
+            font-size: large;
+            transform: translate(-5px,-15px);
         }
 
         #fbshare {
@@ -249,12 +273,14 @@
             transform: translate(-70px,-145px);
             display: none;
         }
+
         .alignleft {
-        position:absolute;
-        top:2px;
-        left:2px;
-        z-index: 500;
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            z-index: 500;
         }
+
         .alignright {
             position: absolute;
             top: 2px;
@@ -263,20 +289,19 @@
             width: 120px;
             height: 600px;
         }
-  
+
         @media (max-width: 800px) {
             .alignleft, .alignright {
                 display: none;
             }
-        
         }
     </style>
     <script type="text/javascript" src="farming_NewMenu.js"></script>
     <script type="text/javascript">
-           function closeFBShare() {
-               //e.preventDefault();
-               document.getElementById("fbshare").style.display = 'none';
-           }
+        function closeFBShare() {
+            //e.preventDefault();
+            document.getElementById("fbshare").style.display = 'none';
+        }
 
 
     </script>
@@ -312,15 +337,16 @@
 
 
 
-
             </div>
 
-
+            <script type="text/javascript" src="https://adhitzads.com/1079064"></script>
             <p id="sucessbuyTxt"> + $500</p>
         </div>
         <div id="fbshareFooter"> <a id="closeFB"></a></div>
+
     </div>
     <div class="alignleft">
+
         <!--<script type="text/javascript">
             amzn_assoc_ad_type = "banner";
             amzn_assoc_marketplace = "amazon";
@@ -337,7 +363,11 @@
             amzn_assoc_linkid = "c6e225d93ab8a27041950fcdb4cb6588";
         </script>
         <script src="//z-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&Operation=GetScript&ID=OneJS&WS=1"></script>-->
-        <script type="text/javascript" src="https://adhitzads.com/983661"></script> 
+
+
+
+
+        <script type="text/javascript" src="https://adhitzads.com/983661"></script>
     </div>
 
     <div class="alignright">
@@ -354,9 +384,35 @@
             amzn_assoc_linkid = "b8ebcb234ccb4e02bda2d84898a2361b";
         </script>
         <script src="//z-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&Operation=GetScript&ID=OneJS&WS=1"></script>-->
-        <script type="text/javascript" src="https://adhitzads.com/983661"></script> 
-    </div>
+        <script type="text/javascript" src="https://adhitzads.com/983661"></script>
 
+    </div>
+    <div id="popup">
+    <script type="text/javascript" src="https://adhitzads.com/1079064"></script> <div id="closePop" onclick="closePopF()">X</div></div>
+    <script type="text/javascript">
+        var visible = 0;
+        var pop = document.getElementById("popup");
+
+        function closePopF() {
+            pop.style.display = "none";
+            visible = 0;
+        }
+        var timerThis = 0;
+        setInterval(function () {
+            timerThis++;
+            console.log(timerThis)
+            if (visible == 1) {
+                pop.style.display = "none";
+                visible = 0;
+            }
+            if (visible == 0 && timerThis > 10) {
+                pop.style.display = "block";
+                visible = 1;
+                timerThis = 0
+            }
+        }, 30000);
+
+    </script>
 
 </body>
 
