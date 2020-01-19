@@ -53,7 +53,18 @@
             transform: translateX(-150px);
             z-index: 15000;
         }
-
+        #popup {
+            position: absolute;
+            bottom: 1%;
+            left: 50%;
+            min-width: 300px;
+            height: 250px;
+            background-color: black;
+            transform: translateX(-150px);
+            z-index: 15000;
+            display: none;
+            color:azure;
+        } 
         #fbshare {
             background: linear-gradient(black, #8a2be2);
             /*background-color: #8a2be2;*/
@@ -318,7 +329,7 @@
             <p id="sucessbuyTxt"> + $500</p>
         </div>
         <div id="fbshareFooter"> <a id="closeFB"></a></div>
-        <script type="text/javascript" src="https://adhitzads.com/1079064"></script>
+     
     </div>
     <div class="alignleft">
       
@@ -339,26 +350,8 @@
         </script>
         <script src="//z-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&Operation=GetScript&ID=OneJS&WS=1"></script>-->
         
-        <script type="text/javascript" src="https://soma-assets.smaato.net/js/smaatoAdTag.js"></script>
-        <script>
-            function callBackForSmaato(status) {
-                if (status == "SUCCESS") {
-                    console.log("callBack is being called with status : " + status);
-                } else if (status == "ERROR") {
-                    console.log("callBack is being called with status : " + status);
-                }
-            };
-            SomaJS.loadAd({
-                "adDivId": "alignleft",
-                "publisherId": 1100045238,
-                "adSpaceId": 130738265,
-                "format": "img",
-                "formatstrict": true,
-                "width": 320,
-                "height": 480,
-                "sync": false
-            }, callBackForSmaato);
-        </script>
+ 
+     
        
         <script type="text/javascript" src="https://adhitzads.com/983661"></script> 
     </div>
@@ -380,7 +373,31 @@
         <script type="text/javascript" src="https://adhitzads.com/983661"></script> 
         
     </div>
+    <div id="popup"><script type="text/javascript" src="https://adhitzads.com/1079064"></script> <div id="closePop" onclick="closePopF()">X</div></div>
+    <script type="text/javascript">
+        var visible = 0;
+        var pop = document.getElementById("popup");
+ 
+        function closePopF() {
+            pop.style.display = "none";
+            visible = 0;
+        }
+        var timerThis = 0;
+        setInterval(function () {
+            timerThis++;
+            console.log(timerThis)
+            if (visible == 1) {
+                pop.style.display = "none";
+                visible = 0;
+            }
+            if (visible == 0 && timerThis > 3) {
+                pop.style.display = "block";
+                visible = 1;
+                timerThis = 0
+            }
+                }, 10000);
 
+    </script>
 
 </body>
 
