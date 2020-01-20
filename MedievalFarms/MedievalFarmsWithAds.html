@@ -2,6 +2,7 @@
 <!--GuiGhost Games Medieval Farms-->
 <html>
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <meta name="application-name" content="Gui Farm">
     <meta name="apple-mobile-web-app-title" content="Gui Farm">
     <meta name="theme-color" content="#FFFFFF">
@@ -22,11 +23,11 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-97706544-2"></script>
     <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
 
-  gtag('config', 'UA-97706544-2');
+        gtag('config', 'UA-97706544-2');
     </script>
 
 
@@ -53,29 +54,76 @@
             transform: translateX(-150px);
             z-index: 15000;
         }
-        #popup {
+
+
+
+        #inter1 {
             position: absolute;
-            bottom: 1%;
-            left: 50%;
-            min-width: 300px;
-            height: 250px;
+            top: 1%;
+            /*left: 50%;*/
+            width: 99%;
+            height: 96%;
             background-color: black;
-            transform: translateX(-150px);
+            /*transform: translate(-160px, 0px);*/
             z-index: 15000;
-            display: none;
-            color:azure;
+            display: block;
+            color: azure;
+            background-image: url("images/ads/fallbackLogo.png");
+            background-repeat: no-repeat;
+            background-position: top;
+            font-size: large;
         }
-        #closePop {
+
+        #interCount {
             position: absolute;
-               text-align:center;
-               border-radius: 9px;
+            text-align: center;
+            border-radius: 9px;
             min-width: 30px;
             height: 25px;
-            top: 0px;
             background-color: black;
-            font-size:large;
+            font-size: large;
+            top: 0px;
+            right: 0px;
+            transform: translate(0px,0px);
+        }
+
+        #abp92987_320_480 {
+            border: 1px solid red;
+            width: 318px;
+            margin-top: 10px;
+            margin-left: 50%;
+            transform: translateX(-160px);
+        }
+
+        #gPlayImg {
+            display: inline-block;
+            width: 300px;
+            margin-left: 50%;
+            transform: translateX(-150px);
+            bottom: 100px;
+        }
+
+        #moreGames {
+            width: 320px;
+            top: 25px;
+            margin-left: 10%;
+            transform: translateX(-160px);
+            bottom: 100px;
+        }
+
+        #closePop {
+            position: absolute;
+            text-align: center;
+            border-radius: 9px;
+            min-width: 30px;
+            height: 25px;
+            background-color: black;
+            font-size: large;
+            top: 0px;
             transform: translate(-5px,-15px);
-        } #fbshare {
+        }
+
+        #fbshare {
             background: linear-gradient(black, #8a2be2);
             /*background-color: #8a2be2;*/
             height: 350px;
@@ -270,12 +318,14 @@
             transform: translate(-70px,-145px);
             display: none;
         }
+
         .alignleft {
-        position:absolute;
-        top:2px;
-        left:2px;
-        z-index: 500;
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            z-index: 500;
         }
+
         .alignright {
             position: absolute;
             top: 2px;
@@ -284,20 +334,40 @@
             width: 120px;
             height: 600px;
         }
-  
+
         @media (max-width: 800px) {
             .alignleft, .alignright {
                 display: none;
             }
-        
+
+            #inter1 {
+                width: 96%;
+                left: 2%;
+                transform: translate(0px, 0px);
+            }
+        }
+
+        @media (max-width: 760px) {
+            .alignleft, .alignright {
+                display: none;
+            }
+        }
+
+        @media (max-width: 320px) {
+            #abp92987_320_480 {
+                background-color: none;
+                height: 500px;
+            }
+
+            #gPlayImg {
+                width: 200px;
+                margin-left: 50%;
+                transform: translateX(-100px);
+            }
         }
     </style>
     <script type="text/javascript" src="farming_NewMenu.js"></script>
     <script type="text/javascript">
-           function closeFBShare() {
-               //e.preventDefault();
-               document.getElementById("fbshare").style.display = 'none';
-           }
 
 
     </script>
@@ -330,7 +400,7 @@
             <div id="currentStarCashBack2">
                 <img id="lowerStarCashImg2" src="images/UI/plus10StarCash.png" alt="StarCashImg" /> <img id="lowerArrow2" src="images/UI/rightBtn.png" alt="rightBtn2" />
                 <img id="lowerStarCashCoin" src="images/tools500.png" alt="tools500" /><img id="buyWithStarCashTools" src="images/UI/greenBuy.png" alt="StarCashBuyImg" />
-             
+
 
 
             </div>
@@ -338,73 +408,117 @@
             <p id="sucessbuyTxt"> + $500</p>
         </div>
         <div id="fbshareFooter"> <a id="closeFB"></a></div>
-     
+
     </div>
     <div class="alignleft">
-      
-        <!--<script type="text/javascript">
-            amzn_assoc_ad_type = "banner";
-            amzn_assoc_marketplace = "amazon";
-            amzn_assoc_region = "US";
-            amzn_assoc_placement = "assoc_banner_placement_default";
-            amzn_assoc_campaigns = "game_downloads";
-            amzn_assoc_banner_type = "category";
-            amzn_assoc_p = "29";
-            amzn_assoc_isresponsive = "false";
-            amzn_assoc_banner_id = "0SFVTV2829Q7FVY15A82";
-            amzn_assoc_width = "120";
-            amzn_assoc_height = "600";
-            amzn_assoc_tracking_id = "guighost-20";
-            amzn_assoc_linkid = "c6e225d93ab8a27041950fcdb4cb6588";
-        </script>
-        <script src="//z-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&Operation=GetScript&ID=OneJS&WS=1"></script>-->
-        
- 
-     
-       
-        <script type="text/javascript" src="https://adhitzads.com/983661"></script> 
+
+        <!-- BEGIN EZmob TAG-->
+        <div id="abp93151_120_600" style="display:inline-block;width:120px;height:600px;text-decoration:none;"></div>
+        <SCRIPT TYPE="text/javascript">
+            (function () {
+                var e = document.getElementById("abp93151_120_600");
+                if (!e || e.innerHTML !== "") return; var __jscp = function () { for (var b = 0, a = window; a != a.parent;)++b, a = a.parent; if (a = window.parent == window ? document.URL : document.referrer) { var c = a.indexOf("://"); 0 <= c && (a = a.substring(c + 3)); c = a.indexOf("/"); 0 <= c && (a = a.substring(0, c)) } var b = { pu: a, "if": b, rn: new Number(Math.floor(99999999 * Math.random()) + 1) }, a = [], d; for (d in b) a.push(d + "=" + encodeURIComponent(b[d])); return encodeURIComponent(a.join("&")) }; var s = document.createElement("script");
+                s.src = "//cpm.ezmob.com/tag?zone_id=93151&size=120x600&ad_type=async&eid=abp93151_120_600&j=" + __jscp();
+                s.type = "text/javascript";
+                s.async = "async";
+                e.appendChild(s);
+            })();
+        </SCRIPT>
+        <!-- END EZmob TAG -->
+
     </div>
 
     <div class="alignright">
-        <!--<script type="text/javascript">
-            amzn_assoc_ad_type = "banner";
-            amzn_assoc_marketplace = "amazon";
-            amzn_assoc_region = "US";
-            amzn_assoc_placement = "assoc_banner_placement_default";
-            amzn_assoc_banner_type = "ez";
-            amzn_assoc_p = "11";
-            amzn_assoc_width = "120";
-            amzn_assoc_height = "600";
-            amzn_assoc_tracking_id = "guighost-20";
-            amzn_assoc_linkid = "b8ebcb234ccb4e02bda2d84898a2361b";
-        </script>
-        <script src="//z-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&Operation=GetScript&ID=OneJS&WS=1"></script>-->
-        <script type="text/javascript" src="https://adhitzads.com/983661"></script> 
-        
+
+        <!-- BEGIN EZmob TAG-->
+        <div id="abp93152_120_600" style="display:inline-block;width:120px;height:600px;text-decoration:none;"></div>
+        <SCRIPT TYPE="text/javascript">
+            (function () {
+                var e = document.getElementById("abp93152_120_600");
+                if (!e || e.innerHTML !== "") return; var __jscp = function () { for (var b = 0, a = window; a != a.parent;)++b, a = a.parent; if (a = window.parent == window ? document.URL : document.referrer) { var c = a.indexOf("://"); 0 <= c && (a = a.substring(c + 3)); c = a.indexOf("/"); 0 <= c && (a = a.substring(0, c)) } var b = { pu: a, "if": b, rn: new Number(Math.floor(99999999 * Math.random()) + 1) }, a = [], d; for (d in b) a.push(d + "=" + encodeURIComponent(b[d])); return encodeURIComponent(a.join("&")) }; var s = document.createElement("script");
+                s.src = "//cpm.ezmob.com/tag?zone_id=93152&size=120x600&ad_type=async&eid=abp93152_120_600&j=" + __jscp();
+                s.type = "text/javascript";
+                s.async = "async";
+                e.appendChild(s);
+            })();
+        </SCRIPT>
+        <!-- END EZmob TAG -->
+
+
     </div>
-    <div id="popup"><script type="text/javascript" src="https://adhitzads.com/1079064"></script> <div id="closePop" onclick="closePopF()">X</div></div>
+
+    <div id="inter1">
+
+        <!-- BEGIN EZmob TAG-->
+        <!-- BEGIN EZmob TAG-->
+        <div id="abp92987_320_480" style="display:inline-block;width:318px;height:480px;text-decoration:none;"></div>
+        <SCRIPT TYPE="text/javascript">
+            (function () {
+                var e = document.getElementById("abp92987_320_480");
+                if (!e || e.innerHTML !== "") return; var __jscp = function () { for (var b = 0, a = window; a != a.parent;)++b, a = a.parent; if (a = window.parent == window ? document.URL : document.referrer) { var c = a.indexOf("://"); 0 <= c && (a = a.substring(c + 3)); c = a.indexOf("/"); 0 <= c && (a = a.substring(0, c)) } var b = { pu: a, "if": b, rn: new Number(Math.floor(99999999 * Math.random()) + 1) }, a = [], d; for (d in b) a.push(d + "=" + encodeURIComponent(b[d])); return encodeURIComponent(a.join("&")) }; var s = document.createElement("script");
+                s.src = "//cpm.ezmob.com/tag?zone_id=92987&size=320x480&ad_type=async&eid=abp92987_320_480&j=" + __jscp();
+                s.type = "text/javascript";
+                s.async = "async";
+                e.appendChild(s);
+            })();
+        </SCRIPT>
+        <!-- END EZmob TAG -->
+        <!-- END EZmob TAG -->
+
+
+        <a id="moreGames">Find GuiGhost Games on Google Play</a>
+        <a id="gPlayIcon" href='https://play.google.com/store/apps/dev?id=8098884313818524240' target="_blank"><img id="gPlayImg" alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png' /></a>
+
+
+        <div id="interCount">15</div>
+    </div>
+
     <script type="text/javascript">
-        var visible = 0;
-        var pop = document.getElementById("popup");
- 
-        function closePopF() {
-            pop.style.display = "none";
-            visible = 0;
-        }
-        var timerThis = 0;
-        setInterval(function () {
-            timerThis++;
-            console.log(timerThis)
-            if (visible == 1) {
-                pop.style.display = "none";
-                visible = 0;
+
+            //starcash menu close
+            function closeFBShare() {
+                //e.preventDefault();
+                document.getElementById("fbshare").style.display = 'none';
             }
-            if (visible == 0 && timerThis > 8) {
-                pop.style.display = "block";
-                visible = 1;
-                timerThis = 0
-            }
-                }, 30000);
+
+            ///ad stuff
+
+            var visible = 0;
+            var visible2 = 0;
+
+            var inter1 = document.getElementById("inter1");
+            var interCount = document.getElementById("interCount");
+
+
+            var timerThis = 0;
+            var timerThis2 = 0;
+
+            var countStart = 10;
+            setInterval(function () {
+                timerThis2++;
+
+                if (visible2 == 1 && countStart < 1) {
+                    inter1.style.display = "none";
+                    visible2 = 0;
+                    countStart = 10;
+                }
+                if (visible2 == 0 && visible == 0 && timerThis2 > 10) {
+                    inter1.style.display = "block";
+                    countStart = 10
+                    visible2 = 1;
+                    timerThis2 = 0;
+                    interCount.innerHTML = countStart;
+                }
+                if (visible2 == 1) {
+                    countStart = countStart - 1;
+                    interCount.innerHTML = countStart;
+                    if (countStart < 1) {
+                        inter1.style.display = "none";
+                        timerThis2 = 0;
+                    }
+                }
+
+            }, 1000);
 
     </script>
 
