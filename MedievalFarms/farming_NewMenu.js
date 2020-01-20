@@ -884,7 +884,7 @@ var farming = {
         this.setAnchorPoint(0, 0);
         this.setSize(a.tile_size, a.tile_size);
         this.setFill(imgArray6[5]);
-        //console.log("landIdent = " + landIdent);
+      
         if (block == 'tlt') { this.setFill("images/bare_land_tl.png"); }
         if (block == 'trt') { this.setFill("images/bare_land_tr.png"); }
         if (block == 'brt') { this.setFill("images/bare_land_lr.png"); }
@@ -904,17 +904,17 @@ var farming = {
               
         var c = this;
         var picked = this.crop;
-        //console.log(this);
+   
         var where2 = goog.math.Coordinate(this);
   
         var firstPick = 0
-        //console.log(where2);
+    
         var firstTouch = 0;
         goog.events.listen(this, ["mousedown", "touchstart"], function (d) {
-            //console.log('growIt touchstart');
+        
             if (globalModalBlock == 0 || c.state == farming.WITHER) {
                 if (startedMove == 0 || c.state == farming.WITHER) {
-                    //console.log("Inside 2nd if");
+           
                     growIt(d);
                     firstTouch = 1
                     setTimeout(function () { firstTouch = 0; }, 500)
@@ -925,7 +925,7 @@ var farming = {
         });
         
         goog.events.listen(this, ["touchmove"], function (d) {
-            //console.log('touchmove');
+ 
             if (globalModalBlock == 0 || c.state == farming.WITHER) {
                 if (firstTouch == 0) {
                     growIt(d);
@@ -954,7 +954,7 @@ var farming = {
      
         var arrayIndex = findWithAttr(landStateMaster, 'name', landIdent);
         //var existAlready = landStateMaster[arrayIndex].name;
-        //console.log("arrayIndex = " + arrayIndex );
+      
         if (arrayIndex == -1) {
             this.state = farming.EMPTY;
             var landStateThis = { name: landIdent, props: { state: this.state, deathTime: 0, ripeTime: 0, crop: b.currentCrop } }
@@ -998,7 +998,7 @@ var farming = {
             c.state == farming.WITHER ?    ///crops are withered and need to be cleared
 
                 (
-                    //console.log("wither touch"),
+             
                     scene == 3 && (c.setFill("images/Orchard/wither_treesApple.png")),
                     scene == 32 && (c.setFill("images/Orchard/wither_treesPear.png")),
                     scene == 5 && (c.setFill("images/vinyard/grapes_withered.png")),
@@ -1059,7 +1059,7 @@ var farming = {
                             player.cropsStored[c.crop].stored += 1,
                             pickedEver = pickedEver + 1,
 
-                            //console.log("location Picked " + posX + " " + posY),
+                           
                             a.updateMoney(),
 
                             a.updateHarvest(posX, posY, c.crop),
@@ -1509,8 +1509,7 @@ cropsStored: [
    
 };
 var tutSeen = 0;
-//console.log(player.cropsStored);
-//console.log(player.cropsStored[0]);
+
 
 if (typeof localStorage["GuiGhostFarms_player"] === "undefined") { localStorage.setItem('GuiGhostFarms_player', JSON.stringify(player));};
 player = JSON.parse(localStorage.getItem('GuiGhostFarms_player'));
@@ -1564,9 +1563,9 @@ boughtStarCash = parseInt(localStorage["GuiGhostFarms_boughtStarCash"]);
 
 
 if (typeof localStorage["GuiGhostFarms_tutSeen"] === "undefined") { localStorage.setItem('GuiGhostFarms_tutSeen', 0); };
-//console.log("initial checkTut =" + tutSeen);
+
 tutSeen = parseInt(localStorage["GuiGhostFarms_tutSeen"]);
-//console.log("2nd checkTut =" + tutSeen);
+
 
 var compassVisible = false;
 var playerMuted = 0;
@@ -2330,7 +2329,7 @@ farming.start = function () {
         //add upgrade anim
         var currentPos = barnUnlock3.getPosition();
         currentPos.x -= 2;
-        //console.log(currentPos)/*;*/
+ 
         if (currentPos.x < 134) { currentPos.x = 136 };
         barnUnlock3.setPosition(currentPos);
     }, this, 500)
@@ -2439,17 +2438,17 @@ farming.start = function () {
         c.replaceScene(houseScene, lime.transitions.SlideInUp)
         checkHouseUpgradesBought();
         sceneBefore = 1;
-        //console.log("tutstep = " + tutStep);
+       
     });
 
     goog.events.listen(nextBtn, ["mousedown", "touchstart"], function () {
         a.tutModalBehav();
-        //console.log("tutstep = " + tutStep);
+       
     });
 
     goog.events.listen(tutModal, ["mousedown", "touchstart"], function () {
         a.tutModalBehav();
-        //console.log("tutstep = " + tutStep);
+       ;
     });
 
     a.tutModalBehav = function (t) {
@@ -2473,11 +2472,11 @@ farming.start = function () {
                 //add upgrade anim
                 var currentPosSwipe = swipeRightHint.getPosition();
                 currentPosSwipe.x += 5;
-                //console.log(currentPos)/*;*/
+       
                 if (currentPosSwipe.x > 70) { currentPosSwipe.x = 20 };
                 swipeRightHint.setPosition(currentPosSwipe);
                 var swipeHiddenNow = swipeRightHint.getHidden();
-                //console.log(swipeHiddenNow + "swipeRighthidden val")
+            
                 if (!swipeHiddenNow) { countSwipe += 1; }
                 if (countSwipe > 20) { swipeRightHint.setHidden(true); }
             }, this, 200,20)
@@ -2493,7 +2492,7 @@ farming.start = function () {
                 //add upgrade anim
                 var currentPosSwipe2 = swipeRightHint2.getPosition();
                 currentPosSwipe2.x += 5;
-                //console.log(currentPos)/*;*/
+           
                 if (currentPosSwipe2.x >= 31 && currentPosSwipe2.x < 60) { swipeRightHint2.setHidden(true); };
                 if (currentPosSwipe2.x >= 60 && currentPosSwipe2.x < 105 && tutStep == 2) { swipeRightHint2.setHidden(false); };
                 if (currentPosSwipe2.x >= 105) { swipeRightHint2.setHidden(true); };
@@ -2513,7 +2512,7 @@ farming.start = function () {
                 var currentPosSwipe2 = swipeRightHint2.getPosition();
                 currentPosSwipe2.x += 5;
 
-                //console.log(currentPos)/*;*/
+         
                 if (currentPosSwipe2.x >= 60 && currentPosSwipe2.x < 105 && tutStep == 4) { swipeRightHint2.setHidden(false); };
                 if (currentPosSwipe2.x >= 105) { swipeRightHint2.setHidden(true); };
                 if (currentPosSwipe2.x >= 125 && tutStep == 4) { swipeRightHint2.setHidden(false); currentPosSwipe2.x = 60 };
@@ -2528,7 +2527,7 @@ farming.start = function () {
 
     a.checkTutSeen = function () {
 
-        //console.log("hit the check tutSeen = " + tutSeen);
+        
         if (tutSeen == 1) {
 
             tutModal.setHidden(true);
@@ -2644,11 +2643,11 @@ farming.start = function () {
             //add upgrade anim
             var currentPosSwipe = swipeRightHint.getPosition();
             currentPosSwipe.x += 5;
-            //console.log(currentPos)/*;*/
+      
             if (currentPosSwipe.x > 70) { currentPosSwipe.x = 20 };
             swipeRightHint.setPosition(currentPosSwipe);
             var swipeHiddenNow = swipeRightHint.getHidden();
-            //console.log(swipeHiddenNow + "swipeRighthidden val")
+       
             if (!swipeHiddenNow) { countSwipe += 1; }
             if (countSwipe > 20) { swipeRightHint.setHidden(true); }
         }, this, 200)
@@ -2724,8 +2723,7 @@ farming.start = function () {
     });
 
     goog.events.listen(confirmBtn, ["mousedown", "touchstart"], function () {            //forsale confirm
-        //console.log("clicked it and fsClicked = " + fsClicked);
-        confirmSale.setHidden(true);
+       confirmSale.setHidden(true);
         homeBlock.setHidden(true);
 
         if (fsClicked == 1) {
@@ -2769,7 +2767,6 @@ farming.start = function () {
 
                 player.tools = player.tools - 50;
                 a.updateTools();
-                //console.log("cleared field 3 ");
                 trees1Img.setHidden(true);
                 upgradeCloudTH1.setHidden(false);
                 axeMoverLabelTH1.setHidden(false);
@@ -2893,10 +2890,10 @@ farming.start = function () {
         if (player.barnLevel == 2 || player.barnLevel == 3) { barnUpgradeCost = 250; }
         else if (player.barnLevel == 4) { barnUpgradeCost = 500; }
         else { barnUpgradeCost = 100; }
-        //console.log("barn upgrade costs " + barnUpgradeCost);
+      
         if (player.tools >= barnUpgradeCost && parseInt(player.barnLevel) < 5 && globalModalBlock == 0) {
             barnUnlock3.setHidden(true);
-            //console.log("inside barn IF");
+           
             player.tools = player.tools - barnUpgradeCost;
             a.updateTools();
             //show upgrade anim and timer
@@ -3217,7 +3214,7 @@ farming.start = function () {
         //add upgrade anim
         var currentPos = barnUnlock3P.getPosition();
         currentPos.x -= 5;
-        //console.log(currentPos)/*;*/
+     
         if (currentPos.x < 132) { currentPos.x = 137 };
         barnUnlock3P.setPosition(currentPos);
     }, this, 500)
@@ -3693,8 +3690,7 @@ farming.start = function () {
     });
 
     goog.events.listen(confirmBtnV, ["mousedown", "touchstart"], function () {            //forsale confirm
-        //console.log("clicked it and fsClicked = " + fsClicked);
-
+   
         player.money = (player.money - 7500);
         a.updateMoney();
         acres[3].owned = 1;
@@ -3916,9 +3912,9 @@ farming.start = function () {
     });
     // pasture BarnUpgrades
     goog.events.listen(barnUnlock3P, ["mousedown", "touchstart"], function () {                 //barnUpgrades
-        //console.log("u hit it")
+       
         if (player.tools >= 250 && parseInt(player.pastureLevel) <= 3 && globalModalBlock == 0) {
-            //console.log("inside If")
+         
             barnUnlock3P.setHidden(true)
             player.tools = player.tools - 250;
             upgradeCloudP.setHidden(false);
@@ -3928,7 +3924,7 @@ farming.start = function () {
                 currentRotateP = currentRotateP + 10;
                 if (currentRotateP > 35) { currentRotateP = -10; };
                 toolMoverP.setRotation(currentRotateP);
-                //e.appendChild(toolMover);
+             
             }, this, 200, 300)
             //upgrade countdown timer
             var secondsToUpgradeP = 60;
@@ -4079,12 +4075,6 @@ farming.start = function () {
             }
             imgW = imgW + 1; imgW2 = imgW2 + 1;
 
-
-
-
-
-
-            //console.log("running imgW =" + imgW);
         }, 400);
     }
     a.waterAnim();
@@ -5221,9 +5211,9 @@ farming.start = function () {
                 //var isITvisible2 = howManyBack.SetHidden.value;
 
 
-                //console.log("howmanysellBtn added listener")
+                
                 if (!isITvisible) {
-                    //console.log("howmanysellBtn is not hidden- sell")
+                
                     a.finalSale(cropSaleCrop);
                 }
             });
@@ -5263,7 +5253,6 @@ farming.start = function () {
         if (cropSaleCurrent <= 1) { cropSaleCurrent = 1; }
         if (crop < 14) { cropSaleCurrentPrice = (a.crops[crop].revenue * cropSaleCurrent); }
         else if (crop == 14) { cropSaleCurrentPrice = (5 * cropSaleCurrent); }
-        //console.log(" cropSaleCurrent " + cropSaleCurrent);
         howManyLabel2.setText(cropSaleCurrent + "/" + cropSaleTotal);
         howManyLabel3.setText(cropSaleCurrentPrice);
     }
@@ -5283,7 +5272,7 @@ farming.start = function () {
         var checkIT = player.money + cropSaleCurrentPrice;
 
         if (!isNaN(checkIT)) { player.money = player.money + cropSaleCurrentPrice; }
-        //console.log(" cropSaleCurrent final sale" + cropSaleCurrent);
+    
         moneyEver = moneyEver + cropSaleCurrentPrice;
         localStorage["GuiGhostFarms_moneyEver"] = moneyEver;
         purchaseSound.play();
@@ -5406,7 +5395,7 @@ farming.start = function () {
         //add upgrade anim
         var currentPosV = chickenCoopUp.getPosition();
         currentPosV.y += 5;
-        //console.log(currentPos)/*;*/
+       
         if (currentPosV.y > 215) { currentPosV.y = 210 };
         chickenCoopUp.setPosition(currentPosV);
     }, this, 500)
@@ -7653,7 +7642,7 @@ farming.start = function () {
     houseOptionsArrowL.setHidden(true);
 
     goog.events.listen(houseOptionsArrowR, ["mousedown", "touchstart"], function () {
-        //console.log("rightArrow");
+     
         var optionPos = optionsHomeContainer.getPosition();
         var onceRight = 0
         var move = optionPos.x - 70;
@@ -7670,10 +7659,10 @@ farming.start = function () {
     });
 
     goog.events.listen(houseOptionsArrowL, ["mousedown", "touchstart"], function () {
-        //console.log(sceneBefore + " is scenebefore");
+      
         var optionPos = optionsHomeContainer.getPosition();
         var onceRight = 0
-        //console.log("optionpos = " + optionPos)
+        
         var move = optionPos.x + 70;
 
         lime.scheduleManager.scheduleWithDelay(function () {
@@ -7695,7 +7684,7 @@ farming.start = function () {
     backBtnHouse = (new lime.GlossyButton).setColor("#1ce636").setText("Back").setPosition(a.width / 2, 25).setSize(80, 40);
     houseLowerMenu.appendChild(backBtnHouse);
     goog.events.listen(backBtnHouse, ["mousedown", "touchstart"], function () {
-        //console.log(sceneBefore + " is scenebefore");
+        
         c.replaceScene(d, lime.transitions.SlideInUp); sceneBefore = 1;
 
 
@@ -7858,7 +7847,7 @@ farming.start = function () {
     }
     checkAchieves();
     goog.events.listen(backBtnAchieve, ["mousedown", "touchstart"], function () {
-        //console.log(sceneBefore + " is scenebefore");
+        
         if (sceneBefore == 1) { c.replaceScene(d, lime.transitions.SlideInUp); sceneBefore = 1; }
         if (sceneBefore == 2) { c.replaceScene(pastureScene, lime.transitions.SlideInUp); sceneBefore = 2; b.currentCrop = 6; }
         if (sceneBefore == 3) { c.replaceScene(orchardScene, lime.transitions.SlideInUp); sceneBefore = 3; b.currentCrop = 8; }
@@ -7871,7 +7860,7 @@ farming.start = function () {
     ////achievement checks
     function checkAchieves2() {
         var acresOwned = acres[1].owned + acres[2].owned + acres[3].owned + acres[4].owned;
-        //console.log(acresOwned + "owned value");
+   
         if (a.achievements[1] == false && pickedEver >= 500) { a.achievements[1] = true; achieve1Check.setHidden(false); starCash = starCash + 5; displayAchieve(1); };
         if (a.achievements[2] == false && pickedEver >= 5000) { a.achievements[2] = true; achieve2Check.setHidden(false); starCash = starCash + 10; displayAchieve(2); };
         if (a.achievements[3] == false && player.farms > 1) { a.achievements[3] = true; achieve3Check.setHidden(false); starCash = starCash + 5; displayAchieve(3); };
