@@ -468,7 +468,19 @@
 
         <!-- BEGIN EZmob TAG-->
         <ins id="abp92987_320_480" style="display:inline-block;width:320px;height:480px;text-decoration:none;"></ins>
+        <script type="text/javascript">
+                   (function () {
 
+                       var e = document.getElementById("abp92987_320_480");
+                       console.log("runningad code");
+                       if (!e || e.innerHTML !== "") return; var __jscp = function () { for (var b = 0, a = window; a != a.parent;)++b, a = a.parent; if (a = window.parent == window ? document.URL : document.referrer) { var c = a.indexOf("://"); 0 <= c && (a = a.substring(c + 3)); c = a.indexOf("/"); 0 <= c && (a = a.substring(0, c)) } var b = { pu: a, "if": b, rn: new Number(Math.floor(99999999 * Math.random()) + 1) }, a = [], d; for (d in b) a.push(d + "=" + encodeURIComponent(b[d])); return encodeURIComponent(a.join("&")) }; var s = document.createElement("script");
+                       s.src = "//cpm.ezmob.com/tag?zone_id=92987&size=320x480&ad_type=async&eid=abp92987_320_480&j=" + __jscp();
+                       s.type = "text/javascript";
+                       s.async = "async";
+                       e.appendChild(s);
+                   })();
+                   
+        </script>
 
         <!-- END EZmob TAG -->
 
@@ -509,28 +521,14 @@
                     visible2 = 0;
                     countStart = 10;
                 }
-                var adOnce = 0;
+        
                 if (visible2 == 0 && visible == 0 && timerThis2 > 150) {
 
                     countStart = 15
                     visible2 = 1;
                     timerThis2 = 0;
 
-                    if (adOnce = 0) {
-                        adOnce = 1
-                            //<!--BEGIN EZmob TAG-- >
-                            (function () {
-
-                                var e = document.getElementById("abp92987_320_480");
-                                console.log("runningad code");
-                                if (!e || e.innerHTML !== "") return; var __jscp = function () { for (var b = 0, a = window; a != a.parent;)++b, a = a.parent; if (a = window.parent == window ? document.URL : document.referrer) { var c = a.indexOf("://"); 0 <= c && (a = a.substring(c + 3)); c = a.indexOf("/"); 0 <= c && (a = a.substring(0, c)) } var b = { pu: a, "if": b, rn: new Number(Math.floor(99999999 * Math.random()) + 1) }, a = [], d; for (d in b) a.push(d + "=" + encodeURIComponent(b[d])); return encodeURIComponent(a.join("&")) }; var s = document.createElement("script");
-                                s.src = "//cpm.ezmob.com/tag?zone_id=92987&size=320x480&ad_type=async&eid=abp92987_320_480&j=" + __jscp();
-                                s.type = "text/javascript";
-                                s.async = "async";
-                                e.appendChild(s);
-                            })();
-                        //<!--END EZmob TAG -- >
-                    }
+                 
                     inter1.style.display = "block";
                     interCount.innerHTML = countStart;
                 }
@@ -540,7 +538,7 @@
                     if (countStart < 1) {
                         inter1.style.display = "none";
                         timerThis2 = 0;
-                        adOnce = 0;
+                     
                     }
                 }
 
