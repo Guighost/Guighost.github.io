@@ -68,6 +68,41 @@
             color: azure;
         }
 
+        #closePop  {
+            position: absolute;
+            text-align: center;
+            border-radius: 9px;
+            min-width: 30px;
+            height: 25px;
+            background-color: black;
+            font-size: large;
+            top: 0px;
+            transform: translate(-5px,-15px);
+        }
+        #inter1 {
+            position: absolute;
+            top: 10px;
+            left: 50%;
+         width: 320px;
+            height: 100%;
+            background-color: black;
+            transform: translate(-160px, 0px);
+            z-index: 15000;
+            display: none;
+            color: azure;
+        }
+        #interCount {
+            position: absolute;
+            text-align: center;
+            border-radius: 9px;
+            min-width: 30px;
+            height: 25px;
+            background-color: black;
+            font-size: large;
+            top: 0px;
+            right:0px;
+            transform: translate(0px,-15px);
+        } 
         #closePop {
             position: absolute;
             text-align: center;
@@ -79,7 +114,6 @@
             top: 0px;
             transform: translate(-5px,-15px);
         }
-
         #fbshare {
             background: linear-gradient(black, #8a2be2);
             /*background-color: #8a2be2;*/
@@ -296,6 +330,11 @@
             .alignleft, .alignright {
                 display: none;
             }
+            #inter1 {
+                width: 96%;
+                left: 2%;
+                transform: translate(0px, 0px);
+            }
         }
     </style>
     <script type="text/javascript" src="farming_NewMenu.js"></script>
@@ -390,15 +429,38 @@
     </div>
     <div id="popup">
     <script type="text/javascript" src="https://adhitzads.com/1079064"></script> <div id="closePop" onclick="closePopF()">X</div></div>
+    <div id="inter1">
+        <!-- BEGIN EZmob TAG-->
+        <INS id="abp92989_300_600" style="display:inline-block;width:300px;height:600px;text-decoration:none;"></INS>
+        <SCRIPT TYPE="text/javascript">
+(function () {
+                var e = document.getElementById("abp92989_300_600");
+                if (!e || e.innerHTML !== "") return; var __jscp = function () { for (var b = 0, a = window; a != a.parent;)++b, a = a.parent; if (a = window.parent == window ? document.URL : document.referrer) { var c = a.indexOf("://"); 0 <= c && (a = a.substring(c + 3)); c = a.indexOf("/"); 0 <= c && (a = a.substring(0, c)) } var b = { pu: a, "if": b, rn: new Number(Math.floor(99999999 * Math.random()) + 1) }, a = [], d; for (d in b) a.push(d + "=" + encodeURIComponent(b[d])); return encodeURIComponent(a.join("&")) }; var s = document.createElement("script");
+                s.src = "//cpm.ezmob.com/tag?zone_id=92989&size=300x600&ad_type=async&eid=abp92989_300_600&j=" + __jscp();
+                s.type = "text/javascript";
+                s.async = "async";
+                e.appendChild(s);
+            })();
+        </SCRIPT>
+        <!-- END EZmob TAG -->
+
+
+        <div id="interCount">15</div>
+    </div>
+
     <script type="text/javascript">
         var visible = 0;
+        var visible2 = 0;
         var pop = document.getElementById("popup");
-
+        var inter1 = document.getElementById("inter1");
+        var interCount = document.getElementById("interCount");
         function closePopF() {
             pop.style.display = "none";
             visible = 0;
         }
+      
         var timerThis = 0;
+        var timerThis2 = 0;
         setInterval(function () {
             timerThis++;
             console.log(timerThis)
@@ -406,12 +468,38 @@
                 pop.style.display = "none";
                 visible = 0;
             }
-            if (visible == 0 && timerThis > 16) {
+            if (visible == 0 && timerThis > 10) {
                 pop.style.display = "block";
                 visible = 1;
                 timerThis = 0
             }
         }, 15000);
+        var countStart = 10;
+        setInterval(function () {
+            timerThis2++;
+           
+            if (visible2 == 1 && countStart < 1) {
+                inter1.style.display = "none";
+                visible2 = 0;
+                countStart = 10;
+            }
+            if (visible2 == 0 && visible == 0 && timerThis2 > 300) {
+                inter1.style.display = "block";
+                countStart = 10
+                visible2 = 1;
+                timerThis2 = 0;
+                interCount.innerHTML = countStart;
+            }
+            if (visible2 == 1) {
+                countStart = countStart - 1;
+                interCount.innerHTML = countStart;
+                if (countStart < 1) {
+                    inter1.style.display = "none";
+                    timerThis2 = 0;
+                }
+            }
+          
+        }, 1000);
 
     </script>
 
