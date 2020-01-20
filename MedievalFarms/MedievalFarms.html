@@ -55,30 +55,7 @@
             z-index: 15000;
         }
 
-        #popup {
-            position: absolute;
-            bottom: 1%;
-            left: 50%;
-            min-width: 300px;
-            height: 250px;
-            background-color: black;
-            transform: translateX(-150px);
-            z-index: 15000;
-            display: none;
-            color: azure;
-        }
-
-        #closePop  {
-            position: absolute;
-            text-align: center;
-            border-radius: 9px;
-            min-width: 30px;
-            height: 25px;
-            background-color: black;
-            font-size: large;
-            top: 0px;
-            transform: translate(-5px,-15px);
-        }
+  
         #inter1 {
             position: absolute;
             top: 10px;
@@ -387,48 +364,15 @@
     </div>
     <div class="alignleft">
 
-        <!--<script type="text/javascript">
-            amzn_assoc_ad_type = "banner";
-            amzn_assoc_marketplace = "amazon";
-            amzn_assoc_region = "US";
-            amzn_assoc_placement = "assoc_banner_placement_default";
-            amzn_assoc_campaigns = "game_downloads";
-            amzn_assoc_banner_type = "category";
-            amzn_assoc_p = "29";
-            amzn_assoc_isresponsive = "false";
-            amzn_assoc_banner_id = "0SFVTV2829Q7FVY15A82";
-            amzn_assoc_width = "120";
-            amzn_assoc_height = "600";
-            amzn_assoc_tracking_id = "guighost-20";
-            amzn_assoc_linkid = "c6e225d93ab8a27041950fcdb4cb6588";
-        </script>
-        <script src="//z-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&Operation=GetScript&ID=OneJS&WS=1"></script>-->
-
-
-
-
         <script type="text/javascript" src="https://adhitzads.com/983661"></script>
     </div>
 
     <div class="alignright">
-        <!--<script type="text/javascript">
-            amzn_assoc_ad_type = "banner";
-            amzn_assoc_marketplace = "amazon";
-            amzn_assoc_region = "US";
-            amzn_assoc_placement = "assoc_banner_placement_default";
-            amzn_assoc_banner_type = "ez";
-            amzn_assoc_p = "11";
-            amzn_assoc_width = "120";
-            amzn_assoc_height = "600";
-            amzn_assoc_tracking_id = "guighost-20";
-            amzn_assoc_linkid = "b8ebcb234ccb4e02bda2d84898a2361b";
-        </script>
-        <script src="//z-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&Operation=GetScript&ID=OneJS&WS=1"></script>-->
+
         <script type="text/javascript" src="https://adhitzads.com/983661"></script>
 
     </div>
-    <div id="popup">
-    <script type="text/javascript" src="https://adhitzads.com/1079064"></script> <div id="closePop" onclick="closePopF()">X</div></div>
+  
     <div id="inter1">
         <!-- BEGIN EZmob TAG-->
         <INS id="abp92989_300_600" style="display:inline-block;width:300px;height:600px;text-decoration:none;"></INS>
@@ -451,29 +395,14 @@
     <script type="text/javascript">
         var visible = 0;
         var visible2 = 0;
-        var pop = document.getElementById("popup");
+   
         var inter1 = document.getElementById("inter1");
         var interCount = document.getElementById("interCount");
-        function closePopF() {
-            pop.style.display = "none";
-            visible = 0;
-        }
+
       
         var timerThis = 0;
         var timerThis2 = 0;
-        setInterval(function () {
-            timerThis++;
-            console.log(timerThis)
-            if (visible == 1) {
-                pop.style.display = "none";
-                visible = 0;
-            }
-            if (visible == 0 && timerThis > 10) {
-                pop.style.display = "block";
-                visible = 1;
-                timerThis = 0
-            }
-        }, 15000);
+
         var countStart = 10;
         setInterval(function () {
             timerThis2++;
