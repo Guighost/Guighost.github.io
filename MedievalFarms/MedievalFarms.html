@@ -42,6 +42,7 @@
             background-image: url(images/UI/battleback11.png);
             background-size: cover;
             background-repeat: no-repeat;
+          
         }
 
 
@@ -62,8 +63,10 @@
             /*left: 50%;*/
             width: 98%;
             left: 1%;
-            height: 96%;
+            height:95%;
+            max-height: 95%;
             background-color: black;
+            margin-bottom:2px;
             /*transform: translate(-160px, 0px);*/
             z-index: 15000;
             display: none;
@@ -87,20 +90,21 @@
             transform: translate(0px,-5px);
         }
 
-        #abp92987_320_480 {
+        #adWrap {
             border: 1px solid red;
-            width: 318px;
-            height: 475px;
+            width: 300px;
+            height: 250px;
             margin-top: 20px;
             margin-left: 50%;
-            transform: translateX(-160px);
+            transform: translateX(-150px);
+            align-content: center;
         }
 
         #gPlayImg {
             display: inline-block;
             width: 300px;
             margin-left: 50%;
-            transform: translate(-150px,-20px);
+            transform: translate(-150px,30px);
         }
 
 
@@ -347,28 +351,22 @@
         }
 
         @media (max-width: 320px) {
-            #abp92987_320_480 {
-                background-color: none;
-                height: 480px;
-            }
+
 
             #gPlayImg {
                 width: 200px;
                 margin-left: 50%;
-                transform: translate(-100px,-20px);
+                transform: translate(-100px,0px);
             }
         }
 
         @media (max-width: 320px) and (max-height:480px) {
-            #abp92987_320_480 {
-                background-color: none;
-                height: 450px;
-            }
+
 
             #gPlayImg {
                 width: 200px;
                 margin-left: 50%;
-                transform: translate(-100px,-100px);
+                transform: translate(-100px,50px);
             }
 
             #loadingGG {
@@ -381,7 +379,6 @@
                 z-index: 15000;
             }
         }
-
     </style>
     <script type="text/javascript" src="farming_NewMenu.js"></script>
     <script type="text/javascript">
@@ -465,29 +462,30 @@
     </div>
 
     <div id="inter1">
+        <div id="adWrap">
+        <script type="text/javascript" src="https://adhitzads.com/1079064"></script></div>
 
 
         <!-- BEGIN EZmob TAG-->
-        <ins id="abp92987_320_480" style="display:inline-block;width:320px;height:480px;text-decoration:none;"></ins>
+        <!--<ins id="abp92987_320_480" style="display:inline-block;width:320px;height:480px;text-decoration:none;"></ins>
         <script type="text/javascript">
-                   (function () {
+            (function () {
 
-                       var e = document.getElementById("abp92987_320_480");
-                       console.log("runningad code");
-                       if (!e || e.innerHTML !== "") return; var __jscp = function () { for (var b = 0, a = window; a != a.parent;)++b, a = a.parent; if (a = window.parent == window ? document.URL : document.referrer) { var c = a.indexOf("://"); 0 <= c && (a = a.substring(c + 3)); c = a.indexOf("/"); 0 <= c && (a = a.substring(0, c)) } var b = { pu: a, "if": b, rn: new Number(Math.floor(99999999 * Math.random()) + 1) }, a = [], d; for (d in b) a.push(d + "=" + encodeURIComponent(b[d])); return encodeURIComponent(a.join("&")) }; var s = document.createElement("script");
-                       s.src = "//cpm.ezmob.com/tag?zone_id=92987&size=320x480&ad_type=async&eid=abp92987_320_480&j=" + __jscp();
-                       s.type = "text/javascript";
-                       s.async = "async";
-                       e.appendChild(s);
-                   })();
-                   
-        </script>
+                var e = document.getElementById("abp92987_320_480");
+                console.log("runningad code");
+                if (!e || e.innerHTML !== "") return; var __jscp = function () { for (var b = 0, a = window; a != a.parent;)++b, a = a.parent; if (a = window.parent == window ? document.URL : document.referrer) { var c = a.indexOf("://"); 0 <= c && (a = a.substring(c + 3)); c = a.indexOf("/"); 0 <= c && (a = a.substring(0, c)) } var b = { pu: a, "if": b, rn: new Number(Math.floor(99999999 * Math.random()) + 1) }, a = [], d; for (d in b) a.push(d + "=" + encodeURIComponent(b[d])); return encodeURIComponent(a.join("&")) }; var s = document.createElement("script");
+                s.src = "//cpm.ezmob.com/tag?zone_id=92987&size=320x480&ad_type=async&eid=abp92987_320_480&j=" + __jscp();
+                s.type = "text/javascript";
+                s.async = "async";
+                e.appendChild(s);
+            })();
 
+        </script>-->
         <!-- END EZmob TAG -->
 
 
 
-        <a id="gPlayIcon" href='https://play.google.com/store/apps/dev?id=8098884313818524240' target="_blank"><img id="gPlayImg" alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png' /></a>
+        <a id="gPlayIcon" href='https://play.google.com/store/apps/dev?id=8098884313818524240' target="_blank"><img id="gPlayImg" alt='Get it on Google Play' src='images/ads/google-play-badge_altered.png' /></a>
 
 
         <div id="interCount">15</div>
@@ -495,55 +493,55 @@
 
     <script type="text/javascript">
 
-            //starcash menu close
-            function closeFBShare() {
-                //e.preventDefault();
-                document.getElementById("fbshare").style.display = 'none';
+        //starcash menu close
+        function closeFBShare() {
+            //e.preventDefault();
+            document.getElementById("fbshare").style.display = 'none';
+        }
+
+        ///ad stuff
+
+        var visible = 0;
+        var visible2 = 0;
+
+        var inter1 = document.getElementById("inter1");
+        var interCount = document.getElementById("interCount");
+
+
+
+        var timerThis2 = 0;
+
+        var countStart = 10;
+        setInterval(function () {
+            timerThis2++;
+
+            if (visible2 == 1 && countStart < 1) {
+                inter1.style.display = "none";
+                visible2 = 0;
+                countStart = 10;
             }
 
-            ///ad stuff
+            if (visible2 == 0 && visible == 0 && timerThis2 > 150) {
 
-            var visible = 0;
-            var visible2 = 0;
-
-            var inter1 = document.getElementById("inter1");
-            var interCount = document.getElementById("interCount");
+                countStart = 15
+                visible2 = 1;
+                timerThis2 = 0;
 
 
-
-            var timerThis2 = 0;
-
-            var countStart = 10;
-            setInterval(function () {
-                timerThis2++;
-
-                if (visible2 == 1 && countStart < 1) {
+                inter1.style.display = "block";
+                interCount.innerHTML = countStart;
+            }
+            if (visible2 == 1) {
+                countStart = countStart - 1;
+                interCount.innerHTML = countStart;
+                if (countStart < 1) {
                     inter1.style.display = "none";
-                    visible2 = 0;
-                    countStart = 10;
-                }
-        
-                if (visible2 == 0 && visible == 0 && timerThis2 > 150) {
-
-                    countStart = 15
-                    visible2 = 1;
                     timerThis2 = 0;
 
-                 
-                    inter1.style.display = "block";
-                    interCount.innerHTML = countStart;
                 }
-                if (visible2 == 1) {
-                    countStart = countStart - 1;
-                    interCount.innerHTML = countStart;
-                    if (countStart < 1) {
-                        inter1.style.display = "none";
-                        timerThis2 = 0;
-                     
-                    }
-                }
+            }
 
-            }, 1000);
+        }, 1000);
 
     </script>
 
