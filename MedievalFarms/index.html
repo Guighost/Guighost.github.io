@@ -63,13 +63,27 @@
             position: absolute;
             width: 20%;
             margin-left: 60%;
-            top: 20%;
+            top: 12%;
             transform: translate(-375px, 0px);
         }
         #gPlayImg {
-            width: 300px;
+            width: 200px;
             margin-left: 50%;
-            transform: translate(0px,200px);
+            transform: translate(0px,250px);
+        }
+   
+        #gPlayIcon2 {
+            position: absolute;
+            width: 20%;
+            margin-left: 60%;
+            top: 22%;
+            transform: translate(-375px, 0px);
+        }
+
+        #gPlayImg2 {
+            width: 200px;
+            margin-left: 50%;
+            transform: translate(0px,290px);
         }
         #homeImg {
             position: absolute;
@@ -78,7 +92,7 @@
             left: 30%;
             transform: translate(0px,0px);
 
-
+             
         }#logoBottom {
             position: absolute;
             margin-left: 50%;
@@ -87,14 +101,18 @@
             transform: translate(-165px, 0px);
         }
         #playOnline {
-            padding-top:12px;
+            padding-top: 12px;
             position: absolute;
-            margin-left: 60%;
+            margin-left: 50%;
+            top: 70%;
             bottom: 120px;
-            transform: translate(-150px, -100px);
-            width: 25%;
+            transform: translate(25px, 0px);
+            width: 160px;
         }
-   
+
+        #playOnlineImg {
+        width: 150px;
+        }
         /*.alignleft {
             position: absolute;
             top: 2px;
@@ -123,6 +141,14 @@
                 transform: translate(-50px, -50px);
                 width: 20%;
             }
+            #gPlayIcon2 {
+                transform: translate(-205px, -50px);
+            }
+
+            #playOnline {
+                transform: translate(110px, -50px);
+                width: 20%;
+            }
         
         }
         @media (max-device-width: 1024px) {
@@ -130,15 +156,19 @@
                 background-image: url(images/UI/battleback11.png);
             }
             #gPlayIcon {
-                transform: translate(-5px, -50px);
+                transform: translate(-75px, -50px);
+            }
+            #gPlayIcon2 {
+                transform: translate(-75px, -50px);
             }
 
             #playOnline {
-                transform: translate(150px, -350px);
+                transform: translate(110px, -50px);
                 width: 20%;
             }
         }
-        @media (max-device-width: 800px) {
+
+            @media (max-device-width: 800px) {
                 body {
                     background-image: url(images/UI/battleback11.png);
                 }
@@ -171,8 +201,8 @@
                 }
 
                 #playOnline {
-                    transform: translate(-220px, 0px);
-                    width: 20%;
+                    transform: translate(-120px, 100px);
+                    width: 200px;
                 }
 
                 #logoBottom {
@@ -183,50 +213,84 @@
                     transform: translate(-145px, 0px);
                 }
             }
-        @media (max-device-width: 768px) {
-            body {
-                background-image: url(images/UI/battleback11.png);
-            }
+        @media (max-device-width: 800px) and (max-device-height: 1280px) {
+
             #homeImg {
-                /*display: none;*/
                 position: absolute;
-                top: 22%;
+                top: 25%;
                 height: 60%;
-                left: 40%;
-                transform: translate(-250px,0px);
-            }
-            #gPlayIcon {
-                transform: translate(-70px, -250px);
-            }
-
-            #playOnline {
-                transform: translate(50px, -150px);
-                width: 20%;
-            }
-        }
-        @media (max-device-width: 600px) {
-            body {
-                background-image: url(images/UI/battleback11.png);
-            }
-
-            #homeImg {
-                /*display: none;*/
-                position: absolute;
-                top: 18%;
-                height: 58%;
-                left: 50%;
-                transform: translate(-165px,0px);
+                left: 20%;
+                transform: translate(-80px,0px);
             }
 
             #gPlayIcon {
-                transform: translate(-300px,20px);
+                transform: translate(-75px, -450px);
+            }
+
+            #gPlayIcon2 {
+                transform: translate(-75px, 150px);
             }
 
             #playOnline {
-                transform: translate(-190px, 10px);
+                transform: translate(130px, -50px);
                 width: 20%;
             }
         }
+            @media (max-device-width: 768px) {
+                body {
+                    background-image: url(images/UI/battleback11.png);
+                }
+
+                #homeImg {
+                    /*display: none;*/
+                    position: absolute;
+                    top: 22%;
+                    height: 60%;
+                    left: 40%;
+                    transform: translate(-250px,0px);
+                }
+
+                #gPlayIcon {
+                    transform: translate(-70px, -580px);
+                }
+
+                #gPlayIcon2 {
+                    transform: translate(-70px, 0px);
+                }
+
+                #playOnline {
+                    transform: translate(130px, -20px);
+                    width: 20%;
+                }
+            }
+
+            @media (max-device-width: 600px) {
+                body {
+                    background-image: url(images/UI/battleback11.png);
+                }
+
+                #homeImg {
+                    /*display: none;*/
+                    position: absolute;
+                    top: 18%;
+                    height: 58%;
+                    left: 30%;
+                    transform: translate(-165px,0px);
+                }
+
+                #gPlayIcon {
+                    transform: translate(-300px,20px);
+                }
+
+                #playOnline {
+                    transform: translate(-10px, -100px);
+                    width: 20%;
+                }
+                #playOnline2 {
+                    transform: translate(-10px, -310px);
+                    width: 20%;
+                }
+            }
 
             @media (max-device-width: 480px) {
                 body {
@@ -246,18 +310,23 @@
 
                 #gPlayIcon {
                     position: absolute;
-                    top: 56%;
+                    top: 26%;
                     width: 16%;
-                    transform: translate(-260px, -45px);
+                    transform: translate(-40px, -145px);
+                }
+                #gPlayIcon2 {
+                    position: absolute;
+                    top: 36%;
+                    width: 16%;
+                    transform: translate(-40px, -145px);
                 }
 
 
                 #homeImg {
-           
                     position: absolute;
                     top: 17%;
                     height: 56%;
-                    left: 50%;
+                    left: 30%;
                     transform: translate(-145px,0px);
                 }
 
@@ -274,51 +343,63 @@
                     transform: translate(-145px,0px);
                 }
             }
-        @media (max-device-width: 414px) {
 
-            #topLogo {
-                width: 80%;
-                height: 90%;
-                left: 10%;
+            @media (max-device-width: 414px) {
+
+                #topLogo {
+                    width: 80%;
+                    height: 90%;
+                    left: 10%;
+                }
+
+                #topBar {
+                    top: 5%;
+                }
+
+
+                #gPlayIcon {
+                    position: absolute;
+                    width: 10%;
+                    margin-left: 0px;
+                    left: 5px;
+                    top: 42%;
+                    transform: translate(-10px, -28px);
+                }
+
+                #gPlayIcon2 {
+                    position: absolute;
+                    width: 10%;
+                    margin-left: 0px;
+                    top: 34%;
+                    right: 200px;
+                    transform: translate(0px, 0px);
+                }
+
+
+                #homeImg {
+                    position: absolute;
+                    top: 17%;
+                    height: 52%;
+                    left: 50%;
+                    transform: translate(-120px,0px);
+                }
+
+                #playOnline {
+                    height: 50px;
+                    transform: translate(-90px, 90px);
+                    width: 10%;
+                }
+
+                #logoBottom {
+                    position: absolute;
+                    margin-left: 50%;
+                    bottom: 2px;
+                    width: 300px;
+                    transform: translate(-145px, 0px);
+                }
             }
 
-            #topBar {
-                top: 5%;
-            }
-
-
-            #gPlayIcon {
-                position: absolute;
-                top: 56%;
-                width: 15%;
-                transform: translate(-245px, -100px);
-            }
-
-
-            #homeImg {
-            
-                position: absolute;
-                top: 17%;
-                height: 52%;
-                left: 50%;
-                transform: translate(-120px,0px);
-            }
-
-            #playOnline {
-                height: 50px;
-                transform: translate(-170px, 0px);
-                width: 10%;
-            }
-
-            #logoBottom {
-                position: absolute;
-                margin-left: 50%;
-                bottom: 2px;
-                width: 300px;
-                transform: translate(-145px, 0px);
-            }
-        }
-    @media (max-device-width: 375px) {
+            @media (max-device-width: 375px) {
                 body {
                     background-image: url(images/UI/battleback11.png);
                 }
@@ -334,13 +415,23 @@
                 }
 
 
-        #gPlayIcon {
-            position: absolute;
-            width: 10%;
-            margin-left: 60%;
-            top: 47%;
-            transform: translate(-225px, 0px);
-        }
+                #gPlayIcon {
+                    position: absolute;
+                    width: 10%;
+                    margin-left: 0px;
+                    left: 5px;
+                    top: 47%;
+                    transform: translate(-10px, -28px);
+                }
+
+                #gPlayIcon2 {
+                    position: absolute;
+                    width: 10%;
+                    margin-left: 0px;
+                    top: 40%;
+                    right: 200px;
+                    transform: translate(0px, 0px);
+                }
 
 
                 #homeImg {
@@ -352,31 +443,60 @@
                     transform: translate(-125px,0px);
                 }
 
-        #playOnline {
-            padding-top: 12px;
-            position: absolute;
-            margin-left: 60%;
-            bottom: 70px;
-            transform: translate(-120px, 10px);
-            width: 25%;
-        }
-        #playOnlineImg {
-            width: 150px;
-        }
-        #logoBottom {
-            position: absolute;
-            margin-left: 50%;
-            bottom: 2px;
-            width: 300px;
-            transform: translate(-80px, 0px);
-        }
-        #logoImg {
-        width: 150px;
-        
-        }
-     
+                #playOnline {
+                    padding-top: 12px;
+                    position: absolute;
+                    margin-left: 60%;
+                    bottom: 30px;
+                    transform: translate(-120px, 125px);
+                    width: 25%;
+                }
+
+                #playOnlineImg {
+                    width: 150px;
+                }
+
+                #logoBottom {
+                    position: absolute;
+                    margin-left: 50%;
+                    bottom: 2px;
+                    width: 300px;
+                    transform: translate(-80px, 0px);
+                }
+
+                #logoImg {
+                    width: 150px;
+                }
             }
 
+            @media (max-device-width: 375px) and (max-device-height: 667px) {
+                #gPlayIcon {
+                    position: absolute;
+                    width: 10%;
+                    margin-left: 0px;
+                    left: 5px;
+                    top: 39%;
+                    transform: translate(-10px, -28px);
+                }
+
+                #gPlayIcon2 {
+                    position: absolute;
+                    width: 10%;
+                    margin-left: 0px;
+                    top: 30%;
+                    right: 200px;
+                    transform: translate(0px, 0px);
+                }
+
+                #playOnline {
+                    padding-top: 12px;
+                    position: absolute;
+                    margin-left: 60%;
+                    bottom: 30px;
+                    transform: translate(-120px, 95px);
+                    width: 25%;
+                }
+            }
 
             @media (max-device-width: 360px) {
                 body {
@@ -397,8 +517,27 @@
                 #gPlayIcon {
                     position: absolute;
                     top: 45%;
-                    transform: translate(-215px, -10px);
+                    margin-left: 0px;
+                    left: 10px;
+                    transform: translate(0px, -40px);
                 }
+
+                #gPlayIcon2 {
+                    position: absolute;
+                    top: 45%;
+                    margin-left: 0px;
+                    right: 175px;
+                    transform: translate(0px, -10px);
+                }
+
+                #gPlayImg {
+                    transform: translate(-15px, 225px);
+                }
+
+                #gPlayImg2 {
+                    transform: translate(-15px, 195px);
+                }
+
 
 
                 #homeImg {
@@ -415,90 +554,154 @@
                     width: 20%;
                 }
 
+                #playOnlineImg {
+                    width: 110px;
+                    transform: translate(10px, 100px);
+                }
             }
-        @media (max-device-width: 320px) and (max-device-height: 568px) {
 
-            #topBar {
-                top: 1%;
+            @media (max-device-width: 320px) and (max-device-height: 568px) {
+
+                #topBar {
+                    top: 1%;
+                }
+
+                #homeImg {
+                    display: block;
+                    position: absolute;
+                    top: 38%;
+                    height: 58%;
+                    left: 50%;
+                    transform: translate(-95px,-155px);
+                }
+
+                #gPlayIcon {
+                    position: absolute;
+                    top: 40%;
+                    transform: translate(-80px, -18px);
+                }
+
+                #gPlayIcon2 {
+                    position: absolute;
+                    top: 38%;
+                    transform: translate(10px, -25px);
+                }
+
+                #gPlayImg {
+                    width: 178px;
+                    margin-left: 50%;
+                    transform: translate(63px,218px);
+                }
+
+                #gPlayImg2 {
+                    width: 175px;
+                    margin-left: 50%;
+                    transform: translate(20px,240px);
+                }
+
+                #logoBottom {
+                    position: absolute;
+                    margin-left: 50%;
+                    bottom: 2px;
+                    width: 300px;
+                    transform: translate(-55px, 0px);
+                }
+
+                #playOnline {
+                    transform: translate(-100px, 100px);
+                    width: 100px;
+                }
+
+                #playOnlineImg {
+                    width: 120px;
+                }
+
+                #logoImg {
+                    width: 100px;
+                }
             }
-            #homeImg {
-                display: block;
-                position: absolute;
-                top: 42%;
-                height: 58%;
-                left: 50%;
-                transform: translate(-85px,-155px);
+
+            @media (max-device-width: 320px) and (max-device-height: 480px) {
+
+                #topBar {
+                    top: 1%;
+                }
+
+                #homeImg {
+                    display: block;
+                    position: absolute;
+                    top: 43%;
+                    height: 56%;
+                    left: 50%;
+                    transform: translate(-75px,-155px);
+                }
+
+                #gPlayIcon {
+                    position: absolute;
+                    top: 40%;
+                    transform: translate(-80px, -18px);
+                }
+
+                #gPlayIcon2 {
+                    position: absolute;
+                    top: 38%;
+                    transform: translate(10px, -25px);
+                }
+
+                #gPlayImg {
+                    width: 173px;
+                    margin-left: 50%;
+                    transform: translate(63px,178px);
+                }
+
+                #gPlayImg2 {
+                    width: 170px;
+                    margin-left: 50%;
+                    transform: translate(25px,200px);
+                }
+
+                #logoBottom {
+                    position: absolute;
+                    margin-left: 50%;
+                    bottom: 2px;
+                    width: 300px;
+                    transform: translate(-55px, 0px);
+                }
+
+                #playOnline {
+                    transform: translate(-95px, -19px);
+                    width: 20%;
+                }
+
+                #playOnlineImg {
+                    width: 100px;
+                }
+
+                #logoImg {
+                    width: 90px;
+                }
             }
-            #gPlayIcon {
-                position: absolute;
-                top: 45%;
-                transform: translate(-215px, -25px);
-            }
+
+        /*@media (max-device-width: 1280px) and (max-device-height: 800px) {
+
             #gPlayImg {
-                width: 200px;
+                width: 173px;
                 margin-left: 50%;
-                transform: translate(60px,230px);
-            }
-            #logoBottom {
-                position: absolute;
-                margin-left: 50%;
-                bottom: 2px;
-                width: 300px;
-                transform: translate(-55px, 0px);
+                transform: translate(25px,178px);
             }
 
+            #gPlayImg2 {
+                width: 170px;
+                margin-left: 50%;
+                transform: translate(25px,200px);
+            }
             #playOnline {
-                transform: translate(-115px, 29px);
+                transform: translate(75px, -9px);
                 width: 20%;
             }
-            #logoImg {
-                width: 100px;
-            }
-        }
-        @media (max-device-width: 320px) and (max-device-height: 480px) {
 
-            #topBar {
-                top: 1%;
-            }
+        }*/
 
-            #homeImg {
-                display: block;
-                position: absolute;
-                top: 42%;
-                height: 58%;
-                left: 50%;
-                transform: translate(-75px,-155px);
-            }
-
-            #gPlayIcon {
-                position: absolute;
-                top: 45%;
-                transform: translate(-215px, -85px);
-            }
-
-            #gPlayImg {
-                width: 200px;
-                margin-left: 50%;
-                transform: translate(60px,230px);
-            }
-
-            #logoBottom {
-                position: absolute;
-                margin-left: 50%;
-                bottom: 2px;
-                width: 300px;
-                transform: translate(-55px, 0px);
-            }
-
-            #playOnline {
-                transform: translate(-115px, 29px);
-                width: 20%;
-            }
-
-            #logoImg {
-                width: 100px;
-            }
-        }
     </style>
 
 
@@ -531,15 +734,18 @@
     <div id="topBar">
       
         <div id="topLogo"> </div>
-		 
-        <br/>
-     <br />
-      
+
     </div>
-    <a id="gPlayIcon" href='https://play.google.com/store/apps/details?id=com.wGuiGhostFarms_9861566&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1' target="_blank"><img id="gPlayImg" alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png' /></a>
-    <img id="homeImg" src="screenshots/androidPhoneHomeCropsReady.png" />
+    <div><img id="homeImg" src="screenshots/androidPhoneHomeCropsReady.png" /></div>
+
+    <div id="premiumPlay"><a id="gPlayIcon" href='https://play.google.com/store/apps/details?id=com.wGuiGhostFarms_9861566&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1' target="_blank"><img id="gPlayImg" alt='Free' src='images/ads/premium.png' /></a>
+</div>
+    <div id="freePlay">
+       <a id="gPlayIcon2" href='https://play.google.com/store/apps/details?id=com.wGuiGhostFarms_9861566&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1' target="_blank"><img id="gPlayImg2" alt='Premium' src='images/ads/playFree.png' /></a>
+    </div>
+      <div><a id="playOnline" href='/MedievalFarms/MedievalFarms.html'><img id="playOnlineImg" alt='Play Online' src='images/UI/playOnline.png' /></a></div>
  
-    <a id="playOnline" href='/MedievalFarms/MedievalFarms.html'><img id="playOnlineImg"alt='Play Online' src='images/UI/playOnline.png' /></a>
+
 <a id="logoBottom"   href='https://guighostgames.com'><img id="logoImg"alt='More Games' src='../Images/Homepage/footerImgTight.png' /></a> 
 
     <!--<div class="alignleft">
