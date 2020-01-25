@@ -105,27 +105,21 @@
         #leftAdBar {
             position: absolute;
             left: 0px;
-            top: 40px;
-            width: 160px;
-            height: 90%;
-        }
-        #sponsor1 {
-            display: block;
-            float: left;
+            top: 0px;
+            width: 120px;
+            height: 99%;
             background-color: black;
-            
-            padding:2px;
-            /*transform: translateY(-280px);*/
-            text-align: center;
-            color: azure;
-
-        } 
+            z-index: 3000;
+        }
+   
         #rightAdBar {
             position: absolute;
-            right: 0px;
-            top: 45px;
-            width: 160px;
-            height: 90%;
+            right: 1px;
+            top: 0px;
+            width: 120px;
+            height: 99%;
+            background-color: black;
+            z-index: 3000;
         }
 
         @media (max-width: 55em) {
@@ -155,6 +149,13 @@
                 min-width: 99%;
                 transform: translateY(0px);
             }
+            #rightAdBar {
+                display: none;
+            }
+
+            #leftAdBar {
+                display: none;
+            }
         }
 
         @media screen and (max-width: 800px) {
@@ -174,6 +175,13 @@
                 transform: translate(0px, -200px);
                 max-height: 1100px;
             }
+            #rightAdBar {
+                display: none;
+            }
+
+            #leftAdBar {
+                display: none;
+            }
         }
 
         @media screen and (max-width: 600px) {
@@ -184,6 +192,13 @@
             .topnav a.icon {
                 float: right;
                 display: block;
+            }
+            #rightAdBar {
+                display: none;
+            }
+
+            #leftAdBar {
+                display: none;
             }
         }
 
@@ -211,6 +226,13 @@
             #infoAbout {
                 font-size: 15px;
             }
+            #rightAdBar {
+                display: none;
+            }
+
+            #leftAdBar {
+                display: none;
+            }
         }
 
         @media screen and (max-width: 400px) {
@@ -223,6 +245,13 @@
             #infoAbout {
                 font-size: 14px;
                 transform: translate(-10px, -120px);
+            }
+            #rightAdBar {
+                display: none;
+            }
+
+            #leftAdBar {
+                display: none;
             }
         }
 
@@ -252,6 +281,13 @@
             transform: translateX(-150px);
             z-index: 15000;
         }
+        #rightAdBar {
+            display: none;
+        }
+
+        #leftAdBar {
+            display: none;
+        }
     </style>
 
     <script src="phaser.min.js"></script>
@@ -268,7 +304,7 @@
 
             <a href="../GuiFruitBubbles/"> Gui Bubble Story</a>
 
-            <a href="../GuiFarm/"> GuiGhost Farms</a>
+            <a href="../MedievalFarms/index.html">Medieval Farms</a>
 
             <a href="../GuiSpellMatch/"> Gui SpellMatch</a>
 
@@ -285,13 +321,10 @@
     </menu>
     <div id="wrongorientation"></div>
     <div id="leftAdBar">
-     
-        <div id="sponsor1">Sponsor Games<div><script type="text/javascript" src="https://www.gtburst.com/show/10549"></script></div></div>
-        
+        <script type="text/javascript" src="https://adhitzads.com/983661"></script>
     </div>
     <div id="rightAdBar">
-  
-   
+        <script type="text/javascript" src="https://adhitzads.com/983661"></script>
     </div>
 
 </body>
