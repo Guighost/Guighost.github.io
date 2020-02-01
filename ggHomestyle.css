@@ -137,7 +137,7 @@ StarMatchSection { height: 850px;}
     justify-content: space-between;
     width: 60%;
     margin-left: 20%;
-    border: 2px solid red;
+
     transform: translateY(-100px);
 }
 #gPlayIconStacker {
@@ -365,7 +365,7 @@ StarMatchSection { height: 850px;}
     #gPlayIconStacker {
         margin-left: 1%;
         width: 150px;
-        border: 2px solid red;
+  
     }
 
     #playStacker {
