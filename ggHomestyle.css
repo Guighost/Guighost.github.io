@@ -132,7 +132,30 @@ StarMatchSection { height: 850px;}
     margin-top: 5px;
     transform: translateY(-40px)
 }
-#starCashSpot{background-image:url(Images/Homepage/starCash.png);background-position:left;background-repeat:no-repeat;background-size:contain;height:40px;background-position-x:10px;}
+#stackerWrap {
+    display: flex;
+    justify-content: space-between;
+    width: 60%;
+    margin-left: 20%;
+    border: 2px solid red;
+    transform: translateY(-100px);
+}
+#gPlayIconStacker {
+  margin-left: 10%; 
+
+}
+#playStacker {
+    margin-right: 10%;
+
+}
+#starCashSpot {
+    background-image: url(Images/Homepage/starCash.png);
+    background-position: left;
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 40px;
+    background-position-x: 10px;
+}
 #infoAbout{min-height:740px;transform:translateY(-150px);font-size:20px;}
 #famHead{background-image:url(Images/Homepage/icons8-family-50.png);background-position:left;background-repeat:no-repeat;background-size:contain;height:40px;background-position-x:20px;}
 #anyHead{background-image:url(Images/Homepage/icons8-responsive-50.png);background-position:left;background-repeat:no-repeat;background-size:contain;height:40px;}
@@ -147,7 +170,29 @@ StarMatchSection { height: 850px;}
  clear: both;
     left: 0px;
 }
+@media screen and (max-width:1440px) {
+    #stackerWrap {
+        display: flex;
+        justify-content: space-between;
+        width: 50%;
+        margin-left: 25%;
+        border: none;
+        transform: translateY(-100px);
+    }
 
+    #gPlayIconStacker {
+        margin-left: 2%;
+    }
+
+    #playStacker {
+        margin-right: 15%;
+        transform: translateX( -75px);
+    }
+
+    #gbadge2 {
+        width: 175px;
+    }
+}
 @media screen and (max-width:1000px) {
         .topnav a{font-size:15px;}
 #infoAbout{font-size:16px;}
@@ -156,12 +201,35 @@ StarMatchSection { height: 850px;}
     h3 {
         font-size: 18px;
     }
+
    
 }
-@media screen and (max-width:800px){.topnav a{font-size:10px;}
+@media screen and (max-width:800px){
+    .topnav a{font-size:10px;}
 #infoAbout{font-size:15px;}
 #sodukuImg{transform:translate(0px, -100px) scale(0.7);}
 #infoSoduku{transform:translate(0px, -200px);max-height:1100px;}
+    #stackerWrap {
+        display: flex;
+        justify-content: space-between;
+        width: 90%;
+        margin-left: 5%;
+        border: none;
+        transform: translateY(-100px);
+    }
+
+    #gPlayIconStacker {
+        margin-left: 2%;
+    }
+
+    #playStacker {
+        margin-right: 15%;
+        transform: translateX( -75px);
+    }
+
+    #gbadge2 {
+        width: 175px;
+    }
 }
 @media screen and (max-width:600px){.topnav a:not(:first-child){display:none;}
 .topnav a.icon{float:right;display:block;}
@@ -172,6 +240,10 @@ StarMatchSection { height: 850px;}
     }
     #leftad1 {
       display: none;
+    }
+
+    #gbadge2 {
+        width: 175px;
     }
 }
 @media screen and (max-width:600px){.topnav.responsive{position:relative;}
@@ -187,6 +259,28 @@ StarMatchSection { height: 850px;}
     }
     #communityFarm {
         margin-left: 20%;
+    }
+
+    #stackerWrap {
+        display: flex;
+        justify-content: space-between;
+        width: 90%;
+        margin-left: 5%;
+        border: none;
+        transform: translateY(-100px);
+    }
+
+    #gPlayIconStacker {
+        margin-left: 2%;
+    }
+
+    #playStacker {
+        margin-right: 15%;
+        transform: translateX( -75px);
+    }
+
+    #gbadge2 {
+        width: 175px;
     }
 }
 @media screen and (max-width:400px){#aboutSection{max-height:1400px;min-width:97%;margin-left:2%;}
@@ -204,6 +298,27 @@ StarMatchSection { height: 850px;}
     }
     .playBtns {
     margin-left: 40%;}
+    #stackerWrap {
+        display: flex;
+        justify-content: space-between;
+        width: 90%;
+        margin-left: 5%;
+        border: none;
+        transform: translateY(-100px);
+    }
+    #gPlayIconStacker {
+        margin-left: 2%;
+    }
+
+    #playStacker {
+        margin-right: 5%;
+        transform: translateX( -45px);
+    }
+    #gbadge2 {
+    width:175px;
+    }
+
+ 
 }
 @media screen and (max-width:350px) {
     #aboutSection {
@@ -234,6 +349,30 @@ StarMatchSection { height: 850px;}
     }
     #starMatchImg {
         transform: translate(-15px, -100px) scale(.8);
+    }
+    #stackerWrap {
+        display: flex;
+        justify-content: space-between;
+        width: 96%;
+        margin-left: 2%;
+        border: none;
+        transform: translateY(-100px);
+    }
+
+    #gPlayIconStacker {
+        margin-left: 1%;
+        width: 150px;
+        border: 2px solid red;
+    }
+
+    #playStacker {
+        margin-right: 5%;
+        transform: translate( -55px, -5px);
+    }
+
+    #gbadge2 {
+        width: 150px;
+        margin-left: 0px;
     }
 }
 @media screen and (max-height:650px) {
