@@ -148,6 +148,9 @@ StarMatchSection { height: 850px;}
     margin-right: 10%;
 
 }
+#gbadge2 {
+    width: 175px;
+}
 #starCashSpot {
     background-image: url(Images/Homepage/starCash.png);
     background-position: left;
