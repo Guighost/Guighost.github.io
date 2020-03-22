@@ -767,11 +767,11 @@ imgArray5[7] = new Image(); imgArray5[7].src = 'images/UI/tut8.png'
 
 //barn upgrades
 var imgArray6 = new Array();
-imgArray6[0] = new Image(); imgArray6[0].src = 'images/UI/barn1.png'
-imgArray6[1] = new Image(); imgArray6[1].src = 'images/UI/barn2.png'
-imgArray6[2] = new Image(); imgArray6[2].src = 'images/UI/barn3.png'
-imgArray6[3] = new Image(); imgArray6[3].src = 'images/UI/barn4.png'
-imgArray6[4] = new Image(); imgArray6[4].src = 'images/UI/barn5.png'
+imgArray6[0] = new Image(); imgArray6[0].src = 'images/UI/barn1-1.png'
+imgArray6[1] = new Image(); imgArray6[1].src = 'images/UI/barn2-1.png'
+imgArray6[2] = new Image(); imgArray6[2].src = 'images/UI/barn3-1.png'
+imgArray6[3] = new Image(); imgArray6[3].src = 'images/UI/barn4-1.png'
+imgArray6[4] = new Image(); imgArray6[4].src = 'images/UI/barn5-1.png'
 imgArray6[5] = new Image(); imgArray6[5].src = "images/bare_land.png"
 imgArray6[6] = new Image(); imgArray6[6].src = "images/plowed.png"
 
@@ -1613,16 +1613,16 @@ farming.start = function () {
         { name: "trees2", image: "rightTrees.png" },
         { name: "horizRoad", image: "horizRoad.png" },
         { name: "toolTable", image: "toolTable.png" },
-        { name: "forge", image: "forge1.png" },
+        { name: "forge", image: "forge2.png" },
         { name: "gateFence", image: "gateFence.png" }
 
     ];
     a.barnlevelImg = [
-        { name: "Basic Shed", image: "barn1.png" },
-        { name: "Small Barn", image: "barn2.png" },
-        { name: "Large Barn", image: "barn3.png" },
-        { name: "XLarge Barn", image: "barn4.png" },
-        { name: "Double Silo Barn", image: "barn5.png" },
+        { name: "Basic Shed", image: "barn1-1.png" },
+        { name: "Small Barn", image: "barn2-1.png" },
+        { name: "Large Barn", image: "barn3-1.png" },
+        { name: "XLarge Barn", image: "barn4-1.png" },
+        { name: "Double Silo Barn", image: "barn5-1.png" },
         { name: "Pasture", image: "pasture.png" }
     ];
     a.PastureUpgrades = [
@@ -2229,7 +2229,7 @@ farming.start = function () {
     var houseEnterBtn = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(251, 115).setSize(30, 30).setFill("images/UI/houseButton.png"); e.appendChild(houseEnterBtn);
     var blacksmith = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(50, 75).setSize(26, 26).setFill("images/blacksmith2.png"); e.appendChild(blacksmith);
     var blacksmithI = 0;
-    if (houseUpgrades.upgrades[0].owned == 1) { houseImg.setFill("images/house3.png").setSize(75, 100).setPosition(229, 22);}
+    if (houseUpgrades.upgrades[0].owned == 1) { houseImg.setFill("images/house2.png").setSize(75, 100).setPosition(229, 22);}
 
     ////blacksmith anim
     lime.scheduleManager.scheduleWithDelay(function () {
