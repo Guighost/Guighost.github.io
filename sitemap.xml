@@ -6,44 +6,117 @@
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 <!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
 
+
 <url>
-  <loc>http://guighostgames.com/</loc>
-  <lastmod>2017-12-29T15:31:42+00:00</lastmod>
+  <loc>https://guighostgames.com/</loc>
+  <lastmod>2020-04-20T16:19:19+00:00</lastmod>
   <priority>1.00</priority>
 </url>
 <url>
-  <loc>http://guighostgames.com/GuiFruitBubbles/</loc>
-  <lastmod>2017-12-29T15:31:41+00:00</lastmod>
+  <loc>https://guighostgames.com/MedievalFarms/</loc>
+  <lastmod>2020-04-20T16:19:19+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://guighostgames.com/GuiSpellMatch/</loc>
-  <lastmod>2017-12-29T15:31:41+00:00</lastmod>
+  <loc>https://guighostgames.com/GuiFruitBubbles/</loc>
+  <lastmod>2020-04-20T16:19:19+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://guighostgames.com/GuiFarm/</loc>
-  <lastmod>2017-12-29T15:31:41+00:00</lastmod>
+  <loc>https://guighostgames.com/GuiGemTrax/</loc>
+  <lastmod>2020-04-20T16:19:19+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://guighostgames.com/GuiMatch/</loc>
-  <lastmod>2017-12-29T15:31:41+00:00</lastmod>
+  <loc>https://guighostgames.com/GuiSlidePuzzle/</loc>
+  <lastmod>2020-04-20T16:19:19+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://guighostgames.com/Gui-Soduku/</loc>
-  <lastmod>2017-12-29T15:31:41+00:00</lastmod>
+  <loc>https://guighostgames.com/GuiSpellMatch/</loc>
+  <lastmod>2020-04-20T16:19:19+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://guighostgames.com/index.html</loc>
-  <lastmod>2017-12-29T15:31:42+00:00</lastmod>
+  <loc>https://guighostgames.com/Stacker-BoxesOfBalance/</loc>
+  <lastmod>2020-04-20T16:19:19+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://guighostgames.com/GuiMatch/</loc>
+  <lastmod>2020-04-20T16:19:19+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://guighostgames.com/MedievalFarms/index.html</loc>
+  <lastmod>2020-04-20T16:19:19+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://guighostgames.com/MedievalFarms/MedievalFarms.html</loc>
+  <lastmod>2020-04-20T16:19:19+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://guighostgames.com/GuiStack/</loc>
+  <lastmod>2020-04-20T16:19:19+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://guighostgames.com/Stacker-BoxesOfBalance/index.html</loc>
+  <lastmod>2020-04-20T16:19:19+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://guighostgames.com/StarMatch/index.html</loc>
+  <lastmod>2020-04-20T16:19:19+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://guighostgames.com/StarMatch/</loc>
+  <lastmod>2020-04-20T16:19:19+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://guighostgames.com/GuiGemTrax/index.html</loc>
+  <lastmod>2020-04-20T16:19:19+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://guighostgames.com/GuiGraveyardJump/index.html</loc>
+  <lastmod>2020-04-20T16:19:19+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://guighostgames.com/GuiGhosTris/index.html</loc>
+  <lastmod>2020-04-20T16:19:19+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://guighostgames.com/Gui-Soduku/</loc>
+  <lastmod>2020-04-20T16:19:18+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://guighostgames.com/privacypolicy.htm</loc>
+  <lastmod>2020-04-20T16:19:19+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://guighostgames.com/index.html</loc>
+  <lastmod>2020-04-20T16:19:19+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://guighostgames.com/GuiSpellMatch/index.html</loc>
-  <lastmod>2017-12-29T15:31:41+00:00</lastmod>
+  <loc>https://guighostgames.com/GuiSpellMatch/index.html</loc>
+  <lastmod>2020-04-20T16:19:19+00:00</lastmod>
   <priority>0.64</priority>
 </url>
+<url>
+  <loc>https://guighostgames.com/GuiGhosTris/</loc>
+  <lastmod>2020-04-20T16:19:19+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+
+
 </urlset>
