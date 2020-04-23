@@ -69,4 +69,5 @@ Loopme.com, s-2411, RESELLER, 6c8d5f95897a5a3b
 Loopme.com, 10999, RESELLER, 6c8d5f95897a5a3b
 tapjoy.com, cb5c59203e9749bc867a0e522f4dfc19, DIRECT, 29e595b1aeb5904d
 rubiconproject.com, 12286, RESELLER, 0bfd66d529a55807
+vungle.com, [yourVunglePublisherAccountID], DIRECT, c107d686becd2d77
 
