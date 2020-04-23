@@ -91,13 +91,14 @@
         }
 
         #adWrap {
-            border: 1px solid red;
-            width: 300px;
+            /*border: 1px solid red;*/
+            width: 320px;
             height: 250px;
             margin-top: 20px;
             margin-left: 50%;
-            transform: translateX(-150px);
+            transform: translateX(-160px);
             align-content: center;
+            background-color: black;
         }
 
         #gPlayImg {
@@ -482,16 +483,41 @@
         <div id="adWrap">
         <!--<script type="text/javascript" src="https://adhitzads.com/1079064"></script></div>-->
             <!-- Begin BidVertiser code -->
+            <!-- Begin BidVertiser code -->
+            <!-- Begin BidVertiser code -->
             <SCRIPT data-cfasync="false" SRC="//bdv.bidvertiser.com/BidVertiser.dbm?pid=800394&bid=2027625" TYPE="text/javascript"></SCRIPT>
+            <!-- End BidVertiser code -->            <!-- End BidVertiser code -->
             <!-- End BidVertiser code -->
-
+            <!--<div id="ntv_2027625"></div>
+            <script type="text/javascript">
+                (function (d) {
+                    var params =
+                        {
+                            bvwidgetid: "ntv_2027625",
+                            bvlinksownid: 2027625,
+                            rows: 2,
+                            cols: 5,
+                            textpos: "below",
+                            imagewidth: 150,
+                            mobilecols: 1,
+                            cb: (new Date()).getTime()
+                        };
+                    params.bvwidgetid = "ntv_2027625" + params.cb;
+                    d.getElementById("ntv_2027625").id = params.bvwidgetid;
+                    var qs = Object.keys(params).reduce(function (a, k) { a.push(k + '=' + encodeURIComponent(params[k])); return a }, []).join(String.fromCharCode(38));
+                    var s = d.createElement('script'); s.type = 'text/javascript'; s.async = true;
+                    var p = 'https:' == document.location.protocol ? 'https' : 'http';
+                    s.src = p + "://bvadtgs.scdn1.secure.raxcdn.com/bidvertiser/tags/active/bdvws.js?" + qs;
+                    d.getElementById(params.bvwidgetid).appendChild(s);
+                })(document);
+            </script>-->
 
         <a id="gPlayIcon" href='https://play.google.com/store/apps/dev?id=8098884313818524240' target="_blank"><img id="gPlayImg" alt='Get it on Google Play' src='images/ads/google-play-badge_altered.png' /></a>
 
 
         <div id="interCount">15</div>
     </div>
-
+</div>
     <script type="text/javascript">
 
         //starcash menu close
@@ -499,6 +525,10 @@
             //e.preventDefault();
             document.getElementById("fbshare").style.display = 'none';
         }
+        const el = document.getElementById("gPlayImg");
+        el.addEventListener("click", function () { window.open("https://play.google.com/store/apps/dev?id=8098884313818524240"); }, false);
+        el.addEventListener("touchend", function () { window.open("https://play.google.com/store/apps/dev?id=8098884313818524240"); }, false);
+  
 
         ///ad stuff
 
@@ -522,7 +552,7 @@
                 countStart = 10;
             }
 
-            if (visible2 == 0 && visible == 0 && timerThis2 > 150) {
+            if (visible2 == 0 && visible == 0 && timerThis2 > 10) {
 
                 countStart = 15
                 visible2 = 1;
