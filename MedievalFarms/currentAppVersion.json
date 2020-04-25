@@ -1,5 +1,5 @@
 {
-    "latestVersion": "1.5",
-    "special1": "see it",
-    "special2": ""
+    latestVersion: "1.5",
+    special1: "see it",
+    special2: ""
 }
