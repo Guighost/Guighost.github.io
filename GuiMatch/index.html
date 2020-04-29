@@ -32,11 +32,18 @@
 
   gtag('config', 'UA-97706544-2');
     </script>
+    <script type='text/javascript' src="https://cdn.applixir.com/applixir.sdk3.0m.js"></script>
 </head>
 
 
 
 <body style="overflow-y: hidden">
+    <!--applixir-->
+    <div id="applixir_vanishing_div" hidden>
+        <iframe id="applixir_parent" allow="autoplay"></iframe>
+    </div>
+
+
   <!--AUDIO Files-->
     <audio id="gameSoundLoop" class="gameSounds" loop >
         <source src="Sounds\guiMatchLoop.mp3" type="audio/mp3">
@@ -69,7 +76,7 @@
 	</div>
     <div id="landingCover">
         
-        <div id="playMatch" onclick="hideIntro()"> </div>
+        <div id="playMatch" onclick="hideIntro(), fireAd()"> </div>
         <div id="logoGG"></div>
     </div>
     <div id="leftAdBar">
@@ -82,6 +89,28 @@
 <script src="../Frameworks/howler.min.js"></script>
 
     <script type ="text/javascript"src="GuiMatch0.51.js"></script>
-</body>
+    <script type='text/javascript'>
+        function adStatusCallback(status) {
+            if (status) { console.log('Applixir status: ' + status); }
 
-</html> 
+        }
+        var options = {
+            zoneId: 3023,
+            devId: 4089,
+            gameId: 5061,
+            //custom1: nnnn,  // optional values such as user ID
+            //custom2: nnnn,  // optional values such as reward information
+            //dMode: 1,       // dMode 1 for MD5 checksum 0 for no MD5 checksum
+            adStatusCb: adStatusCallback,
+        };
+        function fireAd() {
+            invokeApplixirVideoUnit(options);
+        }
+
+    </script>
+
+
+   
+        </body>
+
+        </html> 
