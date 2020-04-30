@@ -334,6 +334,141 @@
             height: 600px;
         }
 
+        /**
+ * blazingStar
+ * - Radiate shiny things
+ */
+        @keyframes blazingStar {
+            1% {
+                border-radius: unset;
+                box-shadow: 0px 0px 40px rgba(255, 255, 0,.6);
+                /*transform: scale(1);*/
+            }
+
+            10% {
+                box-shadow: 0px 0px 0px;
+                /*border-radius: 50%;*/
+                /*transform: scale(1);*/
+            }
+
+            20% {
+                box-shadow: 0px 0px 120px rgba(255, 255, 0,.6);
+                /*border-radius: 50%;*/
+                /*transform: scale(1);*/
+            }
+
+            30% {
+                box-shadow: 0px 0px 0px;
+                /*border-radius: 50%;*/
+                /*transform: scale(1);*/
+            }
+
+            40% {
+                box-shadow: 0px 0px 120px rgba(255, 255, 0,.6);
+                /*border-radius: 50%;*/
+                /*transform: scale(1);*/
+            }
+
+            50% {
+                box-shadow: 0px 0px 0px;
+                /*border-radius: 50%;*/
+                /*transform: scale(1);*/
+            }
+
+            60% {
+                box-shadow: 0px 0px 20vh rgba(255, 255, 0,1);
+                /*border-radius: 50%;*/
+                /*transform: scale(1);*/
+            }
+
+            70% {
+                box-shadow: 0px 0px 0px;
+                /*border-radius: 50%;*/
+                /*transform: scale(1);*/
+            }
+
+            80% {
+                box-shadow: 0px 0px 20vh rgba(255, 255, 0,1);
+                /*border-radius: 50%;*/
+                /*transform: scale(1);*/
+            }
+
+            90% {
+                box-shadow: 0px 0px 0px;
+                /*border-radius: 50%;*/
+                /*transform: scale(1);*/
+            }
+
+            99% {
+                box-shadow: 0px 0px 20vh rgba(255, 255, 0,1);
+                /*border-radius: 50%;*/
+                /*transform: scale(1.1);*/
+            }
+        }
+
+        .blazingStar {
+            animation-timing-function: ease-out;
+            transform-origin: bottom center;
+            animation-name: blazingStar;
+            animation-duration: 5s;
+        }
+
+
+
+        #foundIt {
+            background-image: url("images/UI/blankBack6.png");
+            /*background-color: #8a2be2;*/
+            height: 370px;
+            width: 315px;
+            position: absolute;
+            top: 135px;
+            margin-left: 50%;
+            transform: translateX(-155px);
+            display: none;
+            font-family: 'Comic Sans MS';
+            font-size: 14px;
+            z-index: 2000;
+            background-size: contain;
+            background-repeat: no-repeat;
+            /*z-index: 5000;*/
+            align-content: center;
+            text-align: center;
+            word-wrap: break-word;
+        }
+
+            #foundIt h1 {
+                padding-top: 12px;
+            }
+
+        #foundItImage {
+            padding-top: 20px;
+            padding-bottom: 5px;
+            width: 100px;
+            height: 100px;
+            margin: 0 auto;
+            background-image: url("images/items/ringEmerald.png");
+            background-size: contain;
+            background-repeat: no-repeat;
+            margin-bottom: 50px;
+        }
+
+        #foundItSubText {
+            width: 300px;
+            margin: 0 auto;
+            font-size: 18px;
+            transform: translateY(-30px);
+        }
+
+        #foundItClose {
+            width: 100px;
+            height: 25px;
+            margin: 0 auto;
+            background-color: #00ff00;
+            margin-top: 10px;
+            font-size: 18px;
+            font-weight: 500;
+        }
+
         @media (max-width: 800px) {
             .alignleft, .alignright {
                 display: none;
@@ -359,6 +494,10 @@
                 margin-left: 50%;
                 transform: translate(-100px,0px);
             }
+
+            #fbshare {
+                top: 18px;
+            }
         }
 
         @media (max-width: 320px) and (max-height:480px) {
@@ -380,8 +519,243 @@
                 z-index: 15000;
             }
         }
+
+        /*/////rate me*/
+        #rateMe {
+            position: absolute;
+            min-height: 100%;
+            min-width: 100%;
+            background-color: black;
+            background-image: url("images/selfPromoteBack2.png");
+            background-position: top;
+            background-repeat: no-repeat;
+            background-size: contain;
+            z-index: 1000;
+            /*min-width: 400px;
+            max-width: 500px;
+            max-height: 400px;*/
+            align-content: center;
+            text-align: center;
+            font-family: 'Comic Sans MS';
+            font-size: 16px;
+            color: azure;
+            text-shadow: 2px 2px #101511;
+            display: none;
+            top: 0px;
+        }
+
+        #rateMeInner {
+            position: absolute;
+            background-image: linear-gradient(grey,ActiveCaption);
+            top: 30%;
+            margin-left: 50%;
+            height: 230px;
+            width: 312px;
+            border: 5px grey groove;
+            transform: translate(-161px,25px);
+            z-index: 3100;
+            /*display: none;*/
+        }
+
+        #rateMeBtnWrap {
+            position: absolute;
+            bottom: 5px;
+            width: 100%;
+            left: 0px;
+        }
+
+        .rateBtn {
+            float: left;
+            width: 26%;
+            height: 32px;
+            background-image: linear-gradient(forestGreen,#17BF39 );
+            border: 5px groove green;
+            border-radius: 5px;
+            align-content: center;
+            text-align: center;
+            margin: 2%;
+            font-family: 'Comic Sans MS';
+            font-size: 15px;
+            text-shadow: 1px 1px black;
+            color: azure;
+            padding-top: 3px;
+            /*margin-left: 5%;*/
+        }
+
+        #rateImage {
+            background-image: linear-gradient(lightcoral,yellow );
+            margin-top: 4%;
+            display: inline-block;
+            width: 300px;
+            margin-left: 50%;
+            transform: translate(-150px,-35px);
+            z-index: 2000;
+            border-radius: 10px;
+        }
+
+        #rateMeBtnNo {
+            background-image: linear-gradient(red,lightcoral );
+            margin-top: 4%;
+        }
+
+        #rateMeBtnLater {
+            background-image: linear-gradient(blue, #149EB7);
+            margin-top: 4%;
+        }
+
+        #rateMeBtnYes {
+            padding-top: 9px;
+            height: 45px;
+            margin-top: 3%;
+            font-size: 16px;
+        }
+
+        #rateMeText {
+            transform: translate(0px,-18px);
+        }
+
+
+        .tilt-in-fwd-tr {
+            -webkit-animation: tilt-in-fwd-tr 0.6s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+            animation: tilt-in-fwd-tr 0.6s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+            opacity: 1;
+        }
+
+
+        /* ----------------------------------------------
+ * Generated by Animista on 2020-4-24 22:56:26
+ * Licensed under FreeBSD License.
+ * See http://animista.net/license for more info. 
+ * w: http://animista.net, t: @cssanimista
+ * ---------------------------------------------- */
+
+        /**
+ * ----------------------------------------
+ * animation tilt-in-fwd-tr
+ * ----------------------------------------
+ */
+        @-webkit-keyframes tilt-in-fwd-tr {
+            0% {
+                -webkit-transform: rotateY(20deg) rotateX(35deg) translate(300px, -300px) skew(-35deg, 10deg);
+                transform: rotateY(20deg) rotateX(35deg) translate(300px, -300px) skew(-35deg, 10deg);
+                opacity: 0;
+            }
+
+            100% {
+                -webkit-transform: rotateY(0) rotateX(0deg) translate(0, 0) skew(0deg, 0deg);
+                transform: rotateY(0) rotateX(0deg) translate(0, 0) skew(0deg, 0deg);
+                opacity: 1;
+            }
+        }
+
+        @keyframes tilt-in-fwd-tr {
+            0% {
+                -webkit-transform: rotateY(20deg) rotateX(35deg) translate(300px, -300px) skew(-35deg, 10deg);
+                transform: rotateY(20deg) rotateX(35deg) translate(300px, -300px) skew(-35deg, 10deg);
+                opacity: 0;
+            }
+
+            100% {
+                -webkit-transform: rotateY(0) rotateX(0deg) translate(-160px,0px) skew(0deg, 0deg);
+                transform: rotateY(0) rotateX(0deg) translate(-160px,0px) skew(0deg, 0deg);
+                opacity: 1;
+            }
+        }
+
+        .slit-out-vertical {
+            -webkit-animation: slit-out-vertical 0.5s ease-in both;
+            animation: slit-out-vertical 0.5s ease-in both;
+        }
+
+        /**
+ * ----------------------------------------
+ * animation slit-out-vertical
+ * ----------------------------------------
+ */
+        @-webkit-keyframes slit-out-vertical {
+            0% {
+                -webkit-transform: translateZ(0) rotateY(0);
+                transform: translateZ(0) rotateY(0);
+                opacity: 1;
+            }
+
+            54% {
+                -webkit-transform: translateZ(-160px) rotateY(87deg);
+                transform: translateZ(-160px) rotateY(87deg);
+                opacity: 1;
+            }
+
+            100% {
+                -webkit-transform: translateZ(-800px) rotateY(90deg);
+                transform: translateZ(-800px) rotateY(90deg);
+                opacity: 0;
+            }
+        }
+
+        @keyframes slit-out-vertical {
+            0% {
+                -webkit-transform: translateZ(0) rotateY(0);
+                transform: translateZ(0) rotateY(0);
+                opacity: 1;
+            }
+
+            54% {
+                -webkit-transform: translateZ(-160px) rotateY(87deg);
+                transform: translateZ(-160px) rotateY(87deg);
+                opacity: 1;
+            }
+
+            100% {
+                -webkit-transform: translateZ(-800px) rotateY(90deg);
+                transform: translateZ(-800px) rotateY(90deg);
+                transform: translate(-160px,0px);
+                opacity: 0;
+            }
+        }
+
+        .flip-out-hor-top {
+            -webkit-animation: flip-out-hor-top 0.45s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+            animation: flip-out-hor-top 0.45s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+        }
+
+
+        /**
+ * ----------------------------------------
+ * animation flip-out-hor-top
+ * ----------------------------------------
+ */
+        @-webkit-keyframes flip-out-hor-top {
+            0% {
+                -webkit-transform: rotateX(0) translate(-160px,0px);
+                transform: rotateX(0) translate(-160px,0px);
+                opacity: 1;
+            }
+
+            100% {
+                -webkit-transform: rotateX(70deg) translate(-160px,0px);
+                transform: rotateX(70deg) translate(-160px,0px);
+                opacity: 0;
+            }
+        }
+
+        @keyframes flip-out-hor-top {
+            0% {
+                -webkit-transform: rotateX(0) translate(-160px,0px);
+                transform: rotateX(0) translate(-160px,0px);
+                opacity: 1;
+            }
+
+            100% {
+                -webkit-transform: rotateX(70deg) translate(-160px,0px);
+                transform: rotateX(70deg) translate(-160px,0px);
+                opacity: 0;
+                display: none;
+            }
+        }
+
+
     </style>
-    <script type="text/javascript" src="farming_NewMenu.js"></script>
+    <script type="text/javascript" src="farming_1.5.js"></script>
 
 </head>
 
@@ -413,11 +787,19 @@
                 <img id="lowerStarCashImg2" src="images/UI/plus10StarCash.png" alt="StarCashImg" /> <img id="lowerArrow2" src="images/UI/rightBtn.png" alt="rightBtn2" />
                 <img id="lowerStarCashCoin" src="images/tools500.png" alt="tools500" /><img id="buyWithStarCashTools" src="images/UI/greenBuy.png" alt="StarCashBuyImg" />
 
-
-
+            </div>
+            <div id="currentStarCashBack3">
+                <div id="starCashRow3">
+                    Watch to Earn <img id="lowerStarCashImg3" src="images/UI/plus3StarCash.png" alt="StarCashImg" />
+                    <img id="viewAdImg" src="images/UI/viewAd.png" alt="View Ad" />
+                </div>
+                <p id="waitText"></p>
             </div>
 
             <p id="sucessbuyTxt"> + $500</p>
+            <div id="currentStarCashBack4">
+                Buy Stars in Town <img id="buyStarsFromModal" src="images/UI/shopIcon.png" alt="buyStars" />
+            </div>
         </div>
         <div id="fbshareFooter"> <a id="closeFB"></a></div>
 
@@ -442,6 +824,16 @@
        
 
         <div id="interCount">15</div>
+        </div>
+    </div>
+    <div id="foundIt" class="blazingStar">
+        <div id="foundItInner">
+            <h1 id="foundItTitle"> Item Found! </h1>
+            <h2 id="foundItSubTitle"> Emerald Ring </h2>
+            <div id="foundItImage"></div>
+            <div id="foundItSubText"> Someone in town may be interested in this item</div>
+            <div id="foundItClose">CLOSE</div>
+
         </div>
     </div>
     <script type="text/javascript">
