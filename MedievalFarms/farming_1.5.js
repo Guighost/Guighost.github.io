@@ -2607,22 +2607,22 @@ farming.start = function () {
     };
 
 
-    setInterval(function () {
-        a.updateDates();
+    //setInterval(function () {
+    //    a.updateDates();
 
-    }, 3000);
-    a.updateDates = function () {
-        dayCount = dayCount + 1;
+    //}, 3000);
+    //a.updateDates = function () {
+    //    dayCount = dayCount + 1;
 
-        if (dayCount > 365) {
-            yearCount = yearCount + 1; dayCount = 1;
-            yearLabel.setText("Year " + yearCount);
+    //    if (dayCount > 365) {
+    //        yearCount = yearCount + 1; dayCount = 1;
+    //        yearLabel.setText("Year " + yearCount);
            
-        }
+    //    }
 
-        dayLabel.setText("Day " + dayCount);
+    //    dayLabel.setText("Day " + dayCount);
            
-    }
+    //}
 
 
     //update tools
@@ -6853,7 +6853,22 @@ farming.start = function () {
         statsLayer.appendChild(dayLabel);
         var yearLabel = (new lime.Label).setFontSize(10).setPosition(a.width - 40, 45).setSize(60, 15).setFill("images/UI/purpleButtonLg.png").setText("Year " + yearCount).setFontFamily("Comic Sans MS").setFontColor("#ffffff").setFontSize(14);
         statsLayer.appendChild(yearLabel);
+        setInterval(function () {
+            a.updateDates();
 
+        }, 3000);
+        a.updateDates = function () {
+            dayCount = dayCount + 1;
+
+            if (dayCount > 365) {
+                yearCount = yearCount + 1; dayCount = 1;
+                yearLabel.setText("Year " + yearCount);
+
+            }
+
+            dayLabel.setText("Day " + dayCount);
+
+        }
     //crops layer definition
         var cropsBack = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(0, 81).setSize(a.width, a.height - 81).setFill("#8B4513");
         cropsLayer.appendChild(cropsBack);
