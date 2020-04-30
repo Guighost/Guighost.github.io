@@ -4140,7 +4140,7 @@ farming.start = function () {
 
     pastureLayer.appendChild(pasUpLabel2)
 
-    if (player.pastureLevel >= 3) { barnUnlock3P.setHidden(true); pasUpLabel2.setHidden(true); }
+
 
     ///upgrading Dairy barn animation elements
     var scaffoldP = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(0, 70).setSize(60, 45).setFill("images/scaffold.png"); pastureLayer.appendChild(scaffoldP);
@@ -4361,7 +4361,11 @@ farming.start = function () {
         if (currentPos.x < 132) { currentPos.x = 137 };
         barnUnlock3P.setPosition(currentPos);
     }, this, 500)
-    pastureLayer.appendChild(barnUnlock3P)
+    pastureLayer.appendChild(barnUnlock3P);
+
+
+    if (player.pastureLevel >= 3) { barnUnlock3P.setHidden(true); pasUpLabel2.setHidden(true); }
+
     ///speech bubble to collect milk
     var collectMilk = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(190, 45).setSize(50, 64).setFill("images/UI/speechBubble.png");
     pastureLayer.appendChild(collectMilk);
