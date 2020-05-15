@@ -82,7 +82,7 @@ StarMatchSection { height: 850px;}
 }
 #guiMatchImg{transform:translateY(-130px) scale(.7);max-width:90%;max-height:85%;}
 #starMatchImg {
-    transform: translate(10px, -100px) scale(.9);
+    transform: translate(10px, -60px) scale(.9);
 }
 #guiSpellMatch {
     transform: translate(10px, -100px) scale(.9);
@@ -321,6 +321,7 @@ StarMatchSection { height: 850px;}
     width:175px;
     }
 
+
  
 }
 @media screen and (max-width:350px) {
@@ -351,7 +352,7 @@ StarMatchSection { height: 850px;}
         width: 145px;
     }
     #starMatchImg {
-        transform: translate(-15px, -100px) scale(.8);
+        transform: translate(-15px, -100px) scale(.5);
     }
     #stackerWrap {
         display: flex;
