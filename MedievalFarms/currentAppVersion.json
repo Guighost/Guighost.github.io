@@ -1,11 +1,6 @@
-{ 
+{ [
     "latestVersion": "1.5",
     "special1": "see it",
-    "special2": "",
-	"codes": [
-	{0001},
-	{0001},
-	{0003},
-	]
-
+    "special2": ""
+]
 	}
