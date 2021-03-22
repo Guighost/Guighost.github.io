@@ -15,12 +15,16 @@ h2{transform:translateY(-45px);font-family:'Comic Sans MS';font-weight:bold;font
 #g5{background-image:url(Images/Homepage/Badges/spellMatchBadge.png);}
 #g6{background-image:url(Images/Homepage/Badges/stackBadge.png);}
 #g7{background-image:url(Images/Homepage/Badges/guiMatchBadge.png);}
-#g8{background-image:url(Images/Homepage/Badges/BubbleFarm.jpg);}
-#g9{background-image:url(Images/Homepage/Badges/sonic.jpg)}
-#g10{background-image:url(Images/Homepage/Badges/ballImpact.jpg);}
-#g10{background-image:url(Images/Homepage/Badges/sweetCandy.jpg);}
+#g8{background-image:url(Images/Homepage/Badges/BubbleFarm.png);}
+#g9{background-image:url(Images/Homepage/Badges/ballImpact.jpg)}
+#g10{background-image:url(Images/Homepage/Badges/sonic.png);}
+#g11{background-image:url(Images/Homepage/Badges/sweetCandy.png);}
 
-
+#headFeature{
+	width:100%;
+	height: 40px;
+	display: block;
+}
 #sponsors {
     width: 90%;
     margin-left: 10%;
@@ -74,7 +78,7 @@ section{display:block;padding-top:50px;border:1px inset grey;border-radius:25px;
 #bubbleSection{height:840px;background-image:url(Images/Homepage/cloudsSolid.png);background-size:cover;color:darkmagenta;}
 #guiSlideSection{background-image:url(Images/background.png);background-size:cover;height:800px;}
 #guiGemTraxSection{height:850px;}
-#graveyardSection{background-image:url(Images/Homepage/spookyBack.jpg);background-size:cover;color:darkmagenta;}
+/* #graveyardSection{background-image:url(Images/Homepage/spookyBack.jpg);background-size:cover;color:darkmagenta;} */
 #aboutSection{height:840px;}
 StarMatchSection { height: 850px;}
 #farmImg {
