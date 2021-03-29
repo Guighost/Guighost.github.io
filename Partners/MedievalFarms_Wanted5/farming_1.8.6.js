@@ -4091,8 +4091,8 @@ farming.start = function () {
                 localStorage.setItem('MedFarm_LoadAd', 1);
                 localStorage.setItem('MedFarm_StarCashBoost', 0);
                 lime.audio.setMute(true);
-                //CloudAPI.gameOver();
-                CloudAPI.showAd();
+                CloudAPI.gameOver();
+                //CloudAPI.showAd();
 				localStorage.setItem('adWatched', 1);
                 e.event.stopPropagation();
                 e.swallow(['mouseup', 'touchend', 'touchcancel'], function () { });
@@ -4401,8 +4401,9 @@ farming.start = function () {
         var adDairyViewBtn = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(75, 135).setSize(60, 25).setFill("images/UI/viewAd.png");
         confirmSale.appendChild(adDairyViewBtn);
         goog.events.listen(adDairyViewBtn, ["mousedown", "touchstart"], function () {            //for sale pasture ad discount
-            
-                CloudAPI.showAd();
+                  CloudAPI.gameOver();
+
+                //CloudAPI.showAd();
                 //currentAcre4Sale = 1;
                 
                 localStorage.setItem("acreDiscount1", 1);
@@ -8581,7 +8582,7 @@ farming.start = function () {
 				starCashCountBoost.setText(starCash);
                 starCashInvCount.setText(starCash);
                 localStorage.setItem('starCash', starCash);
-				updateSt
+				
                 document.getElementById("starCashOuterLabel").innerHTML = starCash;
                 //document.getElementById("sucessbuyTxt").innerHTML = '+ 3 Stars';
 
@@ -17774,12 +17775,7 @@ farming.start = function () {
         };
 
 
-CloudAPI.init({
-                'id': 1003,
-                'icons': true,
-                'splash': false
-             
-            });
+
             CloudAPI.mute = function () {
                 lime.audio.setMute(true); 
                 return true;
@@ -17814,24 +17810,23 @@ CloudAPI.init({
             var logoActive = CloudAPI.logos.active();
             console.log("Logo active = " + logoActive);
 
-            if (CloudAPI.logos.active()) {
-                var logoImages = CloudAPI.logos.list();
-                //console.log("logoactive is " + CloudAPI.logos.active() + " and images are " + logoImages.vertical.toString())
+            //if (CloudAPI.logos.active()) {
+            //    var logoImages = CloudAPI.logos.list();
+            //    //console.log("logoactive is " + CloudAPI.logos.active() + " and images are " + logoImages.vertical.toString())
 
-                //var elem = document.createElement("img");
-                //elem.setAttribute("src", logoImages.vertical.toString());
-                //elem.setAttribute("height", "768");
-                //elem.setAttribute("width", "1024");
-                //elem.setAttribute("alt", "Flower");
-                //document.getElementById("wantedLogo").appendChild(elem);
-                lime.scheduleManager.callAfter(function () { document.getElementById('logoBack').classList.add("fade-out"); }, this, 1000);
-                lime.scheduleManager.callAfter(function () {
-                    var myobj = document.getElementById("logoBack");
-                    myobj.remove(); }, this, 5000);
-            } else {
-                var myobj = document.getElementById("logoBack");
-                myobj.remove(); }
-            ;
+            //    //var elem = document.createElement("img");
+            //    //elem.setAttribute("src", logoImages.vertical.toString());
+            //    //elem.setAttribute("height", "768");
+            //    //elem.setAttribute("width", "1024");
+            //    //elem.setAttribute("alt", "Flower");
+            //    //document.getElementById("wantedLogo").appendChild(elem);
+            //    lime.scheduleManager.callAfter(function () { document.getElementById('logoBack').classList.add("fade-out"); }, this, 1000);
+            //    lime.scheduleManager.callAfter(function () {
+            //        var myobj = document.getElementById("logoBack");
+            //        myobj.remove(); }, this, 5000);
+            //} else {
+            //    var myobj = document.getElementById("logoBack");
+            //    myobj.remove(); };
 
 
 

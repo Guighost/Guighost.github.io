@@ -5,7 +5,7 @@
         <meta name="format-detection" content="telephone=no" />
         <meta name="msapplication-tap-highlight" content="no" />
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height" />
-        <meta http-equiv="Content-Security-Policy" content="default-src * data: gap: https://ssl.gstatic.com 'unsafe-inline' ; script-src 'self' 'unsafe-inline' ; style-src 'self' 'unsafe-inline' https://wanted5games.com; script-src-elem https://wanted5games.com 'self' 'unsafe-inline' https://www.pointsprizes.com/ ; media-src *; ">
+        <!--<meta http-equiv="Content-Security-Policy" content="default-src * data: gap: https://ssl.gstatic.com 'unsafe-inline' ; script-src 'self' 'unsafe-inline' ; style-src 'self' 'unsafe-inline' https://wanted5games.com; script-src-elem https://wanted5games.com 'self' 'unsafe-inline' https://www.pointsprizes.com/ ; media-src *; ">-->
         <link rel="icon" type="image/png" sizes="40X40" href="https://guighostgames.com/MedievalFarms/images/UI/homeButton.png">
         <link rel="apple-touch-icon" type="image/png" sizes="40X40" href="https://guighostgames.com/MedievalFarms/images/UI/homeButton.png">
         <meta name="application-name" content="Medieval Farms">
@@ -1019,7 +1019,8 @@
 
 
 
-        <script src="wanted5_game.js"></script>
+        <script type="text/javascript" src="wanted5_game.js"></script>
+        <!--<script type="text/javascript" src="https://wanted5games.com/js/game.js"></script>-->
    
 </head>
 
@@ -1053,14 +1054,14 @@
                 </div>
                 <div id="currentStarCashBack3">
                     <div id="starCashRow3">
-                        Watch to Earn <img id="lowerStarCashImg3" src="images/UI/plus3StarCash.png"  width="45" alt="StarCashImg" />
+                        Watch to Earn <img id="lowerStarCashImg3" src="images/UI/plus3StarCash.png"  loading="lazy" width="45" alt="StarCashImg" />
                         <img id="viewAdImg" src="images/UI/viewAd.png" loading="lazy" width="88" alt="View Ad" />
                     </div>
                 </div>
                 <div>
                     <div id="currentStarCashShare">
-                        <p>Share to Earn</p> <img id="lowerStarCashImg5" data-background-image-url="images/UI/plus5StarCash.png" loading="lazy" width="45" alt="StarCashImg" />
-                        <div id="shareUs"><img id="sharedBtnImg" data-background-image-url="images/UI/shareBtn.png" loading="lazy" width="88" alt="View Ad" /></div>
+                        <p>Share to Earn</p> <img id="lowerStarCashImg5" src="images/UI/plus5StarCash.png"  loading="lazy" width="45" alt="StarCashImg" />
+                        <div id="shareUs"><img id="sharedBtnImg" src="images/UI/shareBtn.png"  loading="lazy" width="88" alt="View Ad" /></div>
                     </div>
 
                 </div>
@@ -1129,22 +1130,26 @@
 
         </form>
     </div>
-    <div id="logoBack">
+    <!--<div id="logoBack">
        
         <div id="wantedLogo">
             <h3 style="color: yellow;">Distributed By</h3>
             <img style="-webkit-user-select: none;margin: auto;background-color: hsl(0, 0%, 90%);transition: background-color 300ms;" src="https://cdn.wanted5games.com/api/logo-vertical.png" />
         </div>
-    </div>
+    </div>-->
     <footer>
 
-        <script src="farming_1.8.6.js"></script>
+        <script type="text/javascript" src="farming_1.8.6.js"></script>
 
-        <script src="loader.js"></script>
+        <script type="text/javascript" src="loader.js"></script>
 
         <script type="text/javascript">
             
-			
+            CloudAPI.init({
+                'id': 1003,
+                'splash': false
+
+            });
 		
             var webshareAPI = function () {
                 if (navigator.share) {
