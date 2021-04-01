@@ -4395,7 +4395,8 @@ farming.start = function () {
         var cancelBtn = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(50, 212).setSize(35, 35).setFill(imgArray[21]);
         confirmSale.appendChild(cancelBtn);
         confirmSale.setHidden(true);
-    
+
+        var currentAcre4Sale = 0;
         var adDairyBuyText = (new lime.Label).setAnchorPoint(0, 0).setFontFamily("Comic Sans MS").setFontColor("#000000").setPosition(40, 118).setSize(135, 60).setFontSize(14).setText("Get 10% Off");
         confirmSale.appendChild(adDairyBuyText);
         var adDairyViewBtn = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(75, 135).setSize(60, 25).setFill("images/UI/viewAd.png");
@@ -4404,27 +4405,33 @@ farming.start = function () {
                   CloudAPI.gameOver();
 
                 //CloudAPI.showAd();
-                //currentAcre4Sale = 1;
+                  var salevis1 = forSaleP.getHidden();
+                  var salevis2 = forSaleO.getHidden();
+                  if (salevis1 || salevis2) {
+                      localStorage.setItem("acreDiscount1", 1);
+                      if (currentAcre4Sale == 1) {
+                          if (player.money >= 2250) {
+                              confirmTextSub.setHidden(true);
+                              confirmBtn.setHidden(false);
+                          }
+
+                          adDairyViewBtn.setHidden(true);
+                          adDairyBuyText.setText("Discount Applied!")
+                          confirmText.setText("Dairy Farm 2250");
+                      }
+                      if (currentAcre4Sale == 2) {
+                          if (player.money >= 4500) {
+                              confirmTextSub.setHidden(true);
+                              confirmBtn.setHidden(false);
+                          }
+
+                          adDairyViewBtn.setHidden(true);
+                          adDairyBuyText.setText("Discount Applied!");
+                          confirmText.setText("Fruit Orchard 4500");
+                      }
+                  }
                 
-                localStorage.setItem("acreDiscount1", 1);
-                if (currentAcre4Sale == 1) {
-                    if (player.money >= 2250) {
-                        confirmTextSub.setHidden(true);
-                        confirmBtn.setHidden(false);}
-                   
-                    adDairyViewBtn.setHidden(true);
-                    adDairyBuyText.setText("Discount Applied!")
-                    confirmText.setText("Dairy Farm 2250");
-                }
-                if (currentAcre4Sale == 2) {
-                    if (player.money >= 4500) {
-                        confirmTextSub.setHidden(true);
-                        confirmBtn.setHidden(false); }
-                  
-                    adDairyViewBtn.setHidden(true);
-                    adDairyBuyText.setText("Discount Applied!");
-                    confirmText.setText("Fruit Orchard 4500");
-                }
+               
             
             
         });
