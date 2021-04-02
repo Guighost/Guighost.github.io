@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JSON Test</title>
+	<style>
+			body {
+			  padding: 50px;
+			  background: #333;
+			}
+
+			.posts {
+			  
+			  display: flex;
+			  flex-flow: row wrap;
+			  
+			  .post {
+				
+				background: white;
+				margin: 10px;
+				height: 100px;
+				width: calc( (100% / 3) - 20px );
+				padding: 10px;
+				
+			  }
+			  
+			  .feature {
+				
+				width: calc( ( ( 100% / 3 ) * 2) - 20px );
+				
+			  }
+			  
+			}
+
+			@media (max-width: 480px) {
+			  
+			  .posts {
+				
+				.post {
+				  width: 100%;
+				}
+				
+			  }
+			  
+			}
+
+
+	</style>
+	
+</head>
+<body>
+    <div id="myData"></div>
+	<div class="container">
+	<div class="posts">
+		    <div class="post">x</div>
+			<div class="post feature">x</div>
+			<script>
+				fetch('https://portal.wanted5games.com/api/games?category=match-3&audience=&limit=25')
+					.then(function (response) {
+						return response.json();
+					})
+					.then(function (data) {
+						appendData(data);
+					})
+					.catch(function (err) {
+						console.log('error: ' + err);
+					});
+				function appendData(data) {
+					var mainContainer = document.getElementById("myData");
+					for (var i = 0; i < data.length; i++) {
+						var div = document.createElement("div");
+						div.innerHTML = 
+							'<div class="post"><a href= https://wanted5games.com/games/html5/' + data[i].identifier +
+							'/index.html?pub=598 target="blank"><img src=' + 
+							data[i].thumbnail  + ' />  </a>' +'<h3> ' + data[i].title + '</h3>  - '  + '</div>'
+						mainContainer.appendChild(div);
+					}
+				}
+			</script>
+		</div>
+	 </div>
+</body>
+</html>

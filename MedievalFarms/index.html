@@ -1,829 +1,352 @@
-﻿<!DOCTYPE HTML>
-<!--GuiGhost Games Medieval Farms-->
-<html>
+<!DOCTYPE html>
+<html lang="en"   >
 <head>
-    <meta name="application-name" content="Medieval Farms">
-    <meta name="apple-mobile-web-app-title" content="Medieval Farms">
-    <meta name="theme-color" content="#FFFFFF">
-    <meta name="msapplication-navbutton-color" content="#FFFFFF">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="msapplication-starturl" content="https://guighostgames.com/MedievalFarms/">
-    <link rel="icon" type="image/png" sizes="40X40" href="https://guighostgames.com/Images/gabbyLogo.png">
-    <link rel="apple-touch-icon" type="image/png" sizes="40X40" href="https://guighostgames.com/Images/gabbyLogo.png">
-    <meta property="og:url" content="https://guighostgames.com/MedievalFarms/" />
-    <meta property="og:type" content="game" />
-    <meta property="og:title" content="Medieval Farms - Farming Simulator" />
-    <meta property="og:description" content="Get it on Google Play" />
-    <meta property="og:image" content="https://guighostgames.com/Images/Homepage/MedievalFarms.png" />
-    <meta property="fb:app_id" content="135527100472746" />
-
-    <meta name="viewport" content="width=device-width, initial-scale=0.86, maximum-scale=3.0, minimum-scale=0.86">
-
-
-    <title>Medieval Farms - Farming Sim</title>
+  <!-- Site made with Mobirise Website Builder v5.3.0, https://mobirise.com -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Mobirise v5.3.0, mobirise.com">
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:image:src" content="assets/images/index-meta.png">
+  <meta property="og:image" content="assets/images/index-meta.png">
+  <meta name="twitter:title" content="Medieval Farms">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+  <link rel="shortcut icon" href="assets/images/homebutton128-128x128.png" type="image/x-icon">
+  <meta name="description" content="Medieval Farms - Play on Android or online">
   
-
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-97706544-2"></script>
-    <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-97706544-2');
-    </script>
-<!-- Global site tag (gtag.js) - Google Ads: 680442617 -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-680442617"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'AW-680442617');
-</script>
-
-    <style>
-      body{
-          background-image: url(images/UI/battleback10.png);
-
-          background-size: 105%;
-          background-repeat: no-repeat;
-		  background-color: black;
-		
-      }
-      
-        #topBar {
-        
-            position: absolute;
-            top: 2%;
-            width: 100%;
-              height: 25%;
-        }
-        #topLogo {
-            background-image: url(images/UI/MenuTop2.png);
-            position: absolute;
-            background-size: contain;
-            background-repeat: no-repeat;
-            width: 65%;
-            height: 90%;
-            left: 27%;
-        }
-        #gPlayIcon {
-            position: absolute;
-            width: 20%;
-            margin-left: 60%;
-            top: 12%;
-            transform: translate(-375px, 0px);
-        }
-        #gPlayImg {
-            width: 200px;
-            margin-left: 50%;
-            transform: translate(0px,250px);
-        }
-   
-        #gPlayIcon2 {
-            position: absolute;
-            width: 20%;
-            margin-left: 60%;
-            top: 22%;
-            transform: translate(-375px, 0px);
-        }
-
-        #gPlayImg2 {
-            width: 200px;
-            margin-left: 50%;
-            transform: translate(0px,290px);
-        }
-        #homeImg {
-            position: absolute;
-            top: 25%;
-            height: 60%;
-            left: 30%;
-            transform: translate(0px,0px);
-
-             
-        }#logoBottom {
-            position: absolute;
-            margin-left: 50%;
-            bottom: 5px;
-            width: 300px;
-            transform: translate(-165px, 0px);
-        }
-        #playOnline {
-            padding-top: 12px;
-            position: absolute;
-            margin-left: 50%;
-            top: 70%;
-            bottom: 120px;
-            transform: translate(25px, 0px);
-            width: 160px;
-        }
-
-        #playOnlineImg {
-        width: 150px;
-        }
-        /*.alignleft {
-            position: absolute;
-            top: 2px;
-            left: 2px;
-            z-index: 500;
-        }
-
-        .alignrightH {
-            position: absolute;
-            top: 2px;
-            right: 2px;
-            z-index: 500;
-        }*/
-        /*@media (max-width: 800px) {
-            .alignleft, .alignrightH {
-                display: none;
-            }
-            made a change
-        }*/
-        @media (max-device-width: 1440px) {
-            #gPlayIcon {
-               
-                transform: translate(-205px, -50px);
-            }
-            #playOnline {
-                transform: translate(-50px, -50px);
-                width: 20%;
-            }
-            #gPlayIcon2 {
-                transform: translate(-200px, -70px);
-            }
-
-            #playOnline {
-                transform: translate(80px, -40px);
-                width: 20%;
-            }
-        
-        }
-        @media (max-device-width: 1024px) {
-            body {
-                background-image: url(images/UI/battleback11.png);
-            }
-            #gPlayIcon {
-                transform: translate(-75px, -50px);
-            }
-            #gPlayIcon2 {
-                transform: translate(-175px, -50px);
-            }
-
-            #playOnline {
-                transform: translate(110px, -50px);
-                width: 20%;
-            }
-        }
-
-            @media (max-device-width: 800px) {
-                body {
-                    background-image: url(images/UI/battleback11.png);
-                }
-
-                #topLogo {
-                    width: 80%;
-                    height: 90%;
-                    left: 10%;
-                }
-
-                #topBar {
-                    top: 5%;
-                }
-
-
-                #gPlayIcon {
-                    position: absolute;
-                    top: 55%;
-                    transform: translate(-355px, 175px);
-                }
-
-
-                #homeImg {
-                    /*display: none;*/
-                    position: absolute;
-                    top: 19%;
-                    height: 62%;
-                    left: 50%;
-                    transform: translate(-250px,0px);
-                }
-
-                #playOnline {
-                    transform: translate(-120px, 100px);
-                    width: 200px;
-                }
-
-                #logoBottom {
-                    position: absolute;
-                    margin-left: 50%;
-                    bottom: 5px;
-                    width: 390px;
-                    transform: translate(-145px, 0px);
-                }
-            }
-        @media (max-device-width: 800px) and (max-device-height: 1280px) {
-
-            #homeImg {
-                position: absolute;
-                top: 25%;
-                height: 60%;
-                left: 20%;
-                transform: translate(-80px,0px);
-            }
-
-            #gPlayIcon {
-                transform: translate(-75px, -450px);
-            }
-
-            #gPlayIcon2 {
-                transform: translate(-85px, 120px);
-            }
-
-            #playOnline {
-                transform: translate(130px, -50px);
-                width: 20%;
-            }
-        }
-            @media (max-device-width: 768px) {
-                body {
-                    background-image: url(images/UI/battleback11.png);
-                }
-
-                #homeImg {
-                    /*display: none;*/
-                    position: absolute;
-                    top: 22%;
-                    height: 60%;
-                    left: 40%;
-                    transform: translate(-250px,0px);
-                }
-
-                #gPlayIcon {
-                    transform: translate(-70px, -580px);
-                }
-
-                #gPlayIcon2 {
-                    transform: translate(-80px, 0px);
-                }
-
-                #playOnline {
-                    transform: translate(130px, -20px);
-                    width: 20%;
-                }
-            }
-
-            @media (max-device-width: 600px) {
-                body {
-                    background-image: url(images/UI/battleback11.png);
-                }
-
-                #homeImg {
-                    /*display: none;*/
-                    position: absolute;
-                    top: 18%;
-                    height: 58%;
-                    left: 30%;
-                    transform: translate(-165px,0px);
-                }
-
-                #gPlayIcon {
-                    transform: translate(-300px,20px);
-                }
-
-                #playOnline {
-                    transform: translate(-10px, -100px);
-                    width: 20%;
-                }
-                #playOnline2 {
-                    transform: translate(-10px, -310px);
-                    width: 20%;
-                }
-            }
-
-            @media (max-device-width: 480px) {
-                body {
-                    background-image: url(images/UI/battleback11.png);
-                }
-
-                #topLogo {
-                    width: 80%;
-                    height: 90%;
-                    left: 10%;
-                }
-
-                #topBar {
-                    top: 5%;
-                }
-
-
-                #gPlayIcon {
-                    position: absolute;
-                    top: 26%;
-                    width: 16%;
-                    transform: translate(-40px, -145px);
-                }
-                #gPlayIcon2 {
-                    position: absolute;
-                    top: 36%;
-                    width: 16%;
-                    transform: translate(-140px, -145px);
-                }
-
-
-                #homeImg {
-                    position: absolute;
-                    top: 17%;
-                    height: 56%;
-                    left: 30%;
-                    transform: translate(-145px,0px);
-                }
-
-                #playOnline {
-                    transform: translate(-180px, 10px);
-                    width: 10%;
-                }
-
-                #logoBottom {
-                    position: absolute;
-                    margin-left: 50%;
-                    bottom: 2px;
-                    width: 300px;
-                    transform: translate(-145px,0px);
-                }
-            }
-
-            @media (max-device-width: 414px) {
-
-                #topLogo {
-                    width: 80%;
-                    height: 90%;
-                    left: 10%;
-                }
-
-                #topBar {
-                    top: 5%;
-                }
-
-
-                #gPlayIcon {
-                    position: absolute;
-                    width: 10%;
-                    margin-left: 0px;
-                    left: 5px;
-                    top: 42%;
-                    transform: translate(-10px, -28px);
-                }
-
-                #gPlayIcon2 {
-                    position: absolute;
-                    width: 10%;
-                    margin-left: 0px;
-                    top: 34%;
-                    right: 200px;
-                    transform: translate(-120px, 0px);
-                }
-
-
-                #homeImg {
-                    position: absolute;
-                    top: 17%;
-                    height: 52%;
-                    left: 50%;
-                    transform: translate(-120px,0px);
-                }
-
-                #playOnline {
-                    height: 50px;
-                    transform: translate(-90px, 90px);
-                    width: 10%;
-                }
-
-                #logoBottom {
-                    position: absolute;
-                    margin-left: 50%;
-                    bottom: 2px;
-                    width: 300px;
-                    transform: translate(-145px, 0px);
-                }
-            }
-
-            @media (max-device-width: 375px) {
-                body {
-                    background-image: url(images/UI/battleback11.png);
-                }
-
-                #topLogo {
-                    width: 80%;
-                    height: 90%;
-                    left: 10%;
-                }
-
-                #topBar {
-                    top: 2%;
-                }
-
-
-                #gPlayIcon {
-                    position: absolute;
-                    width: 10%;
-                    margin-left: 0px;
-                    left: 5px;
-                    top: 47%;
-                    transform: translate(-10px, -28px);
-                }
-
-                #gPlayIcon2 {
-                    position: absolute;
-                    width: 10%;
-                    margin-left: 0px;
-                    top: 40%;
-                    right: 200px;
-                    transform: translate(-50px, 0px);
-                }
-
-
-                #homeImg {
-                    /*display: none;*/
-                    position: absolute;
-                    top: 14%;
-                    height: 56%;
-                    left: 50%;
-                    transform: translate(-125px,0px);
-                }
-
-                #playOnline {
-                    padding-top: 12px;
-                    position: absolute;
-                    margin-left: 60%;
-                    bottom: 30px;
-                    transform: translate(-120px, 125px);
-                    width: 25%;
-                }
-
-                #playOnlineImg {
-                    width: 150px;
-                }
-
-                #logoBottom {
-                    position: absolute;
-                    margin-left: 50%;
-                    bottom: 2px;
-                    width: 300px;
-                    transform: translate(-80px, 0px);
-                }
-
-                #logoImg {
-                    width: 150px;
-                }
-            }
-
-            @media (max-device-width: 375px) and (max-device-height: 667px) {
-                #gPlayIcon {
-                    position: absolute;
-                    width: 10%;
-                    margin-left: 0px;
-                    left: 5px;
-                    top: 39%;
-                    transform: translate(-10px, -28px);
-                }
-
-                #gPlayIcon2 {
-                    position: absolute;
-                    width: 10%;
-                    margin-left: 0px;
-                    top: 30%;
-                    right: 200px;
-                    transform: translate(-50px, 0px);
-                }
-
-                #playOnline {
-                    padding-top: 12px;
-                    position: absolute;
-                    margin-left: 60%;
-                    bottom: 30px;
-                    transform: translate(-120px, 95px);
-                    width: 25%;
-                }
-            }
-
-            @media (max-device-width: 360px) {
-                body {
-                    background-image: url(images/UI/battleback11.png);
-                }
-
-                #topLogo {
-                    width: 80%;
-                    height: 90%;
-                    left: 10%;
-                }
-
-                #topBar {
-                    top: 1%;
-                }
-
-
-                #gPlayIcon {
-                    position: absolute;
-                    top: 45%;
-                    margin-left: 0px;
-                    left: 10px;
-                    transform: translate(0px, -40px);
-                }
-
-                #gPlayIcon2 {
-                    position: absolute;
-                    top: 45%;
-                    margin-left: 0px;
-                    right: 175px;
-                    transform: translate(-100px, -10px);
-                }
-
-                #gPlayImg {
-                    transform: translate(-15px, 225px);
-                }
-
-                #gPlayImg2 {
-                    transform: translate(-15px, 195px);
-                }
-
-
-
-                #homeImg {
-                    display: block;
-                    position: absolute;
-                    top: 34%;
-                    height: 59%;
-                    left: 50%;
-                    transform: translate(-110px,-155px);
-                }
-
-                #playOnline {
-                    transform: translate(-120px, 10px);
-                    width: 20%;
-                }
-
-                #playOnlineImg {
-                    width: 110px;
-                    transform: translate(10px, 100px);
-                }
-            }
-
-            @media (max-device-width: 320px) and (max-device-height: 568px) {
-
-                #topBar {
-                    top: 1%;
-                }
-
-                #homeImg {
-                    display: block;
-                    position: absolute;
-                    top: 38%;
-                    height: 58%;
-                    left: 50%;
-                    transform: translate(-95px,-155px);
-                }
-
-                #gPlayIcon {
-                    position: absolute;
-                    top: 40%;
-                    transform: translate(-80px, -18px);
-                }
-
-                #gPlayIcon2 {
-                    position: absolute;
-                    top: 38%;
-                    transform: translate(-50px, -25px);
-                }
-
-                #gPlayImg {
-                    width: 178px;
-                    margin-left: 50%;
-                    transform: translate(63px,218px);
-                }
-
-                #gPlayImg2 {
-                    width: 175px;
-                    margin-left: 50%;
-                    transform: translate(20px,240px);
-                }
-
-                #logoBottom {
-                    position: absolute;
-                    margin-left: 50%;
-                    bottom: 2px;
-                    width: 300px;
-                    transform: translate(-55px, 0px);
-                }
-
-                #playOnline {
-                    transform: translate(-100px, 100px);
-                    width: 100px;
-                }
-
-                #playOnlineImg {
-                    width: 120px;
-                }
-
-                #logoImg {
-                    width: 100px;
-                }
-            }
-        @media (max-device-width: 320px) and (max-device-height: 533px) {
-            #gPlayIcon2 {
-                position: absolute;
-                top: 38%;
-                transform: translate(-105px, -55px);
-            }
-            #playOnline {
-                transform: translate(-115px, -10px);
-                width: 100px;
-            }
-      
-        }
-            @media (max-device-width: 320px) and (max-device-height: 480px) {
-
-                #topBar {
-                    top: 1%;
-                }
-
-                #homeImg {
-                    display: block;
-                    position: absolute;
-                    top: 43%;
-                    height: 56%;
-                    left: 50%;
-                    transform: translate(-75px,-155px);
-                }
-
-                #gPlayIcon {
-                    position: absolute;
-                    top: 40%;
-                    transform: translate(-80px, -18px);
-                }
-
-                #gPlayIcon2 {
-                    position: absolute;
-                    top: 38%;
-                    transform: translate(-95px, -25px);
-                }
-
-                #gPlayImg {
-                    width: 173px;
-                    margin-left: 50%;
-                    transform: translate(63px,178px);
-                }
-
-                #gPlayImg2 {
-                    width: 170px;
-                    margin-left: 50%;
-                    transform: translate(25px,200px);
-                }
-
-                #logoBottom {
-                    position: absolute;
-                    margin-left: 50%;
-                    bottom: 2px;
-                    width: 300px;
-                    transform: translate(-55px, 0px);
-                }
-
-                #playOnline {
-                    transform: translate(-95px, -19px);
-                    width: 20%;
-                }
-
-                #playOnlineImg {
-                    width: 100px;
-                }
-
-                #logoImg {
-                    width: 90px;
-                }
-            }
-
-            /*@media (max-device-width: 1280px) and (max-device-height: 800px) {
-
-            #gPlayImg {
-                width: 173px;
-                margin-left: 50%;
-                transform: translate(25px,178px);
-            }
-
-            #gPlayImg2 {
-                width: 170px;
-                margin-left: 50%;
-                transform: translate(25px,200px);
-            }
-            #playOnline {
-                transform: translate(75px, -9px);
-                width: 20%;
-            }
-
-        }*/
-
-    </style>
-
-
-    <!-- Facebook Pixel Code -->
-    <script>
-        !function (f, b, e, v, n, t, s) {
-            if (f.fbq) return; n = f.fbq = function () {
-                n.callMethod ?
-                n.callMethod.apply(n, arguments) : n.queue.push(arguments)
-            };
-            if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
-            n.queue = []; t = b.createElement(e); t.async = !0;
-            t.src = v; s = b.getElementsByTagName(e)[0];
-            s.parentNode.insertBefore(t, s)
-        }(window, document, 'script',
-            'https://connect.facebook.net/en_US/fbevents.js');
-        fbq('init', '601498084037403');
-        fbq('track', 'PageView');
-    </script>
-    <noscript>
-        <img height="1" width="1" style="display:none"
-             src="https://www.facebook.com/tr?id=601498084037403&ev=PageView&noscript=1" />
-    </noscript>
-    <!-- End Facebook Pixel Code -->
+  
+  <title>Medieval Farms</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic&subset=latin">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i">
+  <link rel="stylesheet" href="assets/web/assets/mobirise-icons2/mobirise2.css">
+  <link rel="stylesheet" href="assets/tether/tether.min.css">
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/web/assets/gdpr-plugin/gdpr-styles.css">
+  <link rel="stylesheet" href="assets/animatecss/animate.min.css">
+  <link rel="stylesheet" href="assets/socicon/css/styles.css">
+  <link rel="stylesheet" href="assets/theme/css/style.css">
+  <link rel="stylesheet" href="assets/theme/css/style-rtl.css">
+  <link rel="preload" as="style" href="assets/mobirise/css/mbr-additional.css"><link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">
+  
+  
+  
+  
 </head>
+<body class="rtl">
+  
+  <section class="mbr-section mbr-parallax-background" id="msg-box7-w" data-rv-view="0" style="background-image: url(assets/images/battleback10-2-1024x576.png); padding-top: 40px; padding-bottom: 40px;">
 
-
-<body >
-
-    <div id="topBar">
-      
-        <div id="topLogo"> </div>
-
+    <div class="mbr-overlay" style="opacity: 0.5; background-color: rgb(0, 0, 0);">
     </div>
-    <div><img id="homeImg" src="screenshots/androidPhoneHomeCropsReady.png" /></div>
+    <div class="container">
+        <div class="row">
+            <div class="mbr-table-md-up">
 
-    <!--<div id="premiumPlay"><a id="gPlayIcon" href='https://play.google.com/store/apps/details?id=com.wMedievalFarms_GuiGhostGames' target="_blank"><img id="gPlayImg" alt='Free' src='images/ads/premium.png' /></a>-->
-<!--</div>-->
-    <div id="freePlay">
-       <a id="gPlayIcon2" href='https://play.google.com/store/apps/details?id=com.wMedievalFarms_GuiGhostGames' target="_blank"><img id="gPlayImg2" alt='Premium' src='images/ads/playFree.png' /></a>
-    </div>
-      <div><a id="playOnline" href='/MedievalFarms/MedievalFarms.html'><img id="playOnlineImg" alt='Play Online' src='images/UI/playOnline.png' /></a></div>
- 
+              <div class="mbr-table-cell mbr-right-padding-md-up mbr-valign-top col-md-7 image-size" style="width: 70%;">
+                  <div class="mbr-figure"><img src="assets/images/menutop2-350x95.png"></div>
+              </div>
 
-<a id="logoBottom"   href='https://guighostgames.com'><img id="logoImg"alt='More Games' src='../Images/Homepage/footerImgTight.png' /></a> 
+              
 
-    <!--<div class="alignleft">
-        <script type="text/javascript">
-            amzn_assoc_ad_type = "banner";
-            amzn_assoc_marketplace = "amazon";
-            amzn_assoc_region = "US";
-            amzn_assoc_placement = "assoc_banner_placement_default";
-            amzn_assoc_campaigns = "game_downloads";
-            amzn_assoc_banner_type = "category";
-            amzn_assoc_p = "29";
-            amzn_assoc_isresponsive = "false";
-            amzn_assoc_banner_id = "0SFVTV2829Q7FVY15A82";
-            amzn_assoc_width = "120";
-            amzn_assoc_height = "600";
-            amzn_assoc_tracking_id = "guighost-20";
-            amzn_assoc_linkid = "c6e225d93ab8a27041950fcdb4cb6588";
-        </script>
-        <script src="//z-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&Operation=GetScript&ID=OneJS&WS=1"></script>
+
+              <div class="mbr-table-cell col-md-5 text-xs-center text-md-left content-size">
+                  
+                  
+
+                  <div><a class="btn btn-warning" href="https://play.google.com/store/apps/details?id=com.wMedievalFarms_GuiGhostGames" target="_blank"><span class="mobi-mbri mobi-mbri-devices mbr-iconfont mbr-iconfont-btn"></span>Download for Android</a> <a class="btn btn-primary" href="https://guighostgames.com/MedievalFarms/MedievalFarms.html" target="_blank"><span class="mobi-mbri mobi-mbri-desktop mbr-iconfont mbr-iconfont-btn"></span>Play Online anywhere</a></div>
+              </div>
+
+
+              
+
+            </div>
+        </div>
     </div>
 
-    <div class="alignrightH">
-        <script type="text/javascript">
-            amzn_assoc_ad_type = "banner";
-            amzn_assoc_marketplace = "amazon";
-            amzn_assoc_region = "US";
-            amzn_assoc_placement = "assoc_banner_placement_default";
-            amzn_assoc_campaigns = "videogames";
-            amzn_assoc_banner_type = "category";
-            amzn_assoc_p = "29";
-            amzn_assoc_isresponsive = "false";
-            amzn_assoc_banner_id = "10HRM880D7DY0APR7082";
-            amzn_assoc_width = "120";
-            amzn_assoc_height = "600";
-            amzn_assoc_tracking_id = "guighost-20";
-            amzn_assoc_linkid = "e9a3b05bf96dd995400ebaf7d8901ab7";
-        </script>
-        <script src="//z-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&Operation=GetScript&ID=OneJS&WS=1"></script>
-    </div>-->
+</section>
 
-    <script type="text/javascript">
-        var picToChange = document.getElementById('homeImg');
-        var countImg = 1;
-        setInterval(function () {
-            if (countImg == 1) { picToChange.src = 'screenshots/androidPhoneHomeCropsReady.png';}
-            if (countImg == 2) { picToChange.src = 'screenshots/androidPhoneLiveStock.png'; }
-            if (countImg == 4) { picToChange.src = 'screenshots/androidPhoneTown.png'; }
-            if (countImg == 5) { picToChange.src = 'screenshots/androidPhonePasture.png'; }
-            if (countImg == 6) { picToChange.src = 'screenshots/androidPhoneVineyard.png'; }
-            if (countImg == 7) { picToChange.src = 'screenshots/androidPhoneHouse.png'; }
-            if (countImg == 8) { picToChange.src = 'screenshots/androidPhoneMarket.png'; }
-            if (countImg == 9) { picToChange.src = 'screenshots/androidPhoneOrchard.png'; }
-            countImg++;
-            if (countImg > 9) { countImg = 1; };
-        }, 1200)
+<section class="mbr-section mbr-parallax-background" id="msg-box5-4" data-rv-view="3" style="background-image: url(assets/images/battleback10-1024x576.png); padding-top: 0px; padding-bottom: 0px;">
 
-    </script>
-</body>
+    <div class="mbr-overlay" style="opacity: 0.1; background-color: rgb(255, 255, 255);">
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="mbr-table-md-up">
+
+              <div class="mbr-table-cell mbr-right-padding-md-up mbr-valign-top col-md-7 image-size" style="width: 40%;">
+                  <div class="mbr-figure"><img src="assets/images/play1-home-600x1042.png" alt="Home Farm"></div>
+              </div>
+
+              
 
 
+              <div class="mbr-table-cell col-md-5 text-xs-center text-md-left content-size">
+                  <h3 class="mbr-section-title display-2">Retro themed farming</h3>
+                  <div class="lead">
+
+                    <p><strong>&nbsp; &nbsp;Grow Crops and upgrade your farmland in this unique mobile game</strong></p>
+
+                  </div>
+
+                  
+              </div>
+
+
+              
+
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<section class="mbr-section mbr-parallax-background" id="msg-box5-7" data-rv-view="6" style="background-image: url(assets/images/battleback10-1024x576.png); padding-top: 0px; padding-bottom: 0px;">
+
+    
+    <div class="container">
+        <div class="row">
+            <div class="mbr-table-md-up">
+
+              <div class="mbr-table-cell mbr-right-padding-md-up mbr-valign-top col-md-7 image-size" style="width: 40%;">
+                  <div class="mbr-figure"><img src="assets/images/play4-orch-359x622.png" alt="Fruit Orchard"></div>
+              </div>
+
+              
+
+
+              <div class="mbr-table-cell col-md-5 text-xs-center text-md-left content-size">
+                  <h3 class="mbr-section-title display-2">Expand to the orchard&nbsp;</h3>
+                  <div class="lead">
+
+                    <p><strong>Tend Apple and Pear trees.</strong></p>
+
+                  </div>
+
+                  
+              </div>
+
+
+              
+
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<section class="mbr-section mbr-parallax-background" id="msg-box5-8" data-rv-view="9" style="background-image: url(assets/images/battleback10-1024x576.png); padding-top: 0px; padding-bottom: 0px;">
+
+    
+    <div class="container">
+        <div class="row">
+            <div class="mbr-table-md-up">
+
+              <div class="mbr-table-cell mbr-right-padding-md-up mbr-valign-top col-md-7 image-size" style="width: 40%;">
+                  <div class="mbr-figure"><img src="assets/images/play5-past-359x626.png" alt="Dairy Pasture"></div>
+              </div>
+
+              
+
+
+              <div class="mbr-table-cell col-md-5 text-xs-center text-md-left content-size">
+                  <h3 class="mbr-section-title display-2">Own Cows in the Dairy</h3>
+                  <div class="lead">
+
+                    <p><strong>Grow Hay to keep the cows producing Milk.</strong></p>
+
+                  </div>
+
+                  
+              </div>
+
+
+              
+
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<section class="mbr-section mbr-parallax-background" id="msg-box5-i" data-rv-view="12" style="background-image: url(assets/images/battleback10-2-1024x576.png); padding-top: 0px; padding-bottom: 0px;">
+
+    
+    <div class="container">
+        <div class="row">
+            <div class="mbr-table-md-up">
+
+              <div class="mbr-table-cell mbr-right-padding-md-up mbr-valign-top col-md-7 image-size" style="width: 40%;">
+                  <div class="mbr-figure"><img src="assets/images/play3-ls-600x1043.png" alt="Stock Pens" title="Stock Pens"></div>
+              </div>
+
+              
+
+
+              <div class="mbr-table-cell col-md-5 text-xs-center text-md-left content-size">
+                  <h3 class="mbr-section-title display-2">Raise Chicken and Pigs</h3>
+                  <div class="lead">
+
+                    <p><strong>Collect Eggs and Hams to sell at the Market</strong></p>
+
+                  </div>
+
+                  
+              </div>
+
+
+              
+
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<section class="mbr-cards mbr-section mbr-section-nopadding mbr-parallax-background" id="features3-10" data-rv-view="17" style="background-image: url(assets/images/battleback10-2-1024x576.png);">
+
+    
+
+    <div class="mbr-cards-row row">
+        <div class="mbr-cards-col col-xs-12 col-lg-3" style="padding-top: 80px; padding-bottom: 80px;">
+            <div class="container">
+              <div class="card cart-block">
+                  <div class="card-img"><img src="assets/images/play9-wm-600x1034.png" class="card-img-top" alt="Windmill"></div>
+                  
+                </div>
+            </div>
+        </div>
+        <div class="mbr-cards-col col-xs-12 col-lg-3" style="padding-top: 80px; padding-bottom: 80px;">
+            <div class="container">
+                <div class="card cart-block">
+                    <div class="card-img"><img src="assets/images/play8-quest-600x1056.png" class="card-img-top" alt="Stockyards"></div>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="mbr-cards-col col-xs-12 col-lg-3" style="padding-top: 80px; padding-bottom: 80px;">
+            <div class="container">
+                <div class="card cart-block">
+                    <div class="card-img"><img src="assets/images/play6-vin-600x1045.png" class="card-img-top" alt="Vinyard"></div>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="mbr-cards-col col-xs-12 col-lg-3" style="padding-top: 80px; padding-bottom: 80px;">
+            <div class="container">
+                <div class="card cart-block">
+                    <div class="card-img"><img src="assets/images/play2-town-600x1050.png" class="card-img-top" alt="Market Town"></div>
+                    
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</section>
+
+<section class="mbr-section mbr-section-md-padding mbr-parallax-background" id="social-buttons3-17" data-rv-view="20" style="background-image: url(assets/images/battleback10-2-1024x576.png); padding-top: 30px; padding-bottom: 30px;">
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 text-xs-center">
+                <h3 class="mbr-section-title display-2">Share the Fun</h3>
+                <div>
+
+                  <div class="mbr-social-likes" data-counters="false">
+                    <span class="btn btn-social facebook" title="Share link on Facebook">
+                        <i class="socicon socicon-facebook"></i>
+                    </span>
+                    <span class="btn btn-social twitter" title="Share link on Twitter">
+                        <i class="socicon socicon-twitter"></i>
+                    </span>
+                    
+                    
+                    
+                  </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="mbr-section mbr-parallax-background" id="msg-box7-18" data-rv-view="22" style="background-image: url(assets/images/battleback10-2-1024x576.png); padding-top: 40px; padding-bottom: 40px;">
+
+    <div class="mbr-overlay" style="opacity: 0.5; background-color: rgb(0, 0, 0);">
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="mbr-table-md-up">
+
+              <div class="mbr-table-cell mbr-right-padding-md-up mbr-valign-top col-md-7 image-size" style="width: 70%;">
+                  <div class="mbr-figure"><img src="assets/images/menutop2-350x95.png"></div>
+              </div>
+
+              
+
+
+              <div class="mbr-table-cell col-md-5 text-xs-center text-md-left content-size">
+                  
+                  
+
+                  <div><a class="btn btn-warning" href="https://play.google.com/store/apps/details?id=com.wMedievalFarms_GuiGhostGames" target="_blank"><span class="mobi-mbri mobi-mbri-devices mbr-iconfont mbr-iconfont-btn"></span>Download for Android</a> <a class="btn btn-primary" href="https://guighostgames.com/MedievalFarms/MedievalFarms.html" target="_blank"><span class="mobi-mbri mobi-mbri-desktop mbr-iconfont mbr-iconfont-btn"></span>Play Online anywhere</a></div>
+              </div>
+
+
+              
+
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<section class="mbr-section mbr-section-hero mbr-section-full mbr-section-with-arrow" id="header4-1b" data-bg-video="https://www.youtube.com/embed/h1aisWPMuRY?rel=0&amp;amp;showinfo=0&amp;autoplay=0&amp;loop=0" data-rv-view="25">
+
+    
+
+    <div class="mbr-table-cell">
+
+        <div class="container">
+            <div class="row">
+                <div class="mbr-section col-md-10 col-md-offset-1 text-xs-center">
+
+                    
+                    
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="mbr-arrow mbr-arrow-floating" aria-hidden="true"><a href="#next"><i class="mbr-arrow-icon"></i></a></div>
+
+</section>
+
+<footer class="mbr-small-footer mbr-section mbr-section-nopadding" id="footer1-d" data-rv-view="15" style="background-color: rgb(50, 50, 50); padding-top: 1.75rem; padding-bottom: 1.75rem;">
+    
+    <div class="container text-xs-center">
+        <p>&nbsp; &nbsp; &nbsp; <strong><em>More Games&nbsp; &nbsp;</em></strong> &nbsp; &nbsp; 2021 GuiGhost LLC</p>
+    </div>
+</footer>
+
+
+<script src="assets/web/assets/jquery/jquery.min.js"></script>
+  <script src="assets/tether/tether.min.js"></script>
+  <script src="assets/web/assets/bootstrap4-migrate/bootstrap.min.js"></script>
+  <script src="assets/web/assets/cookies-alert-plugin/cookies-alert-core.js"></script>
+  <script src="assets/web/assets/cookies-alert-plugin/cookies-alert-script.js"></script>
+  <script src="assets/smooth-scroll/smooth-scroll.js"></script>
+  <script src="assets/viewport-checker/jquery.viewportchecker.js"></script>
+  <script src="assets/jarallax/jarallax.js"></script>
+  <script src="assets/social-likes/social-likes.js"></script>
+  <script src="assets/jquery-mb-ytplayer/jquery.mb.ytplayer.min.js"></script>
+  <script src="assets/theme/js/script.js"></script>
+  
+  
+  
+<input name="cookieData" type="hidden" data-cookie-customDialogSelector='null' data-cookie-colorText='#424a4d' data-cookie-colorBg='rgba(234, 239, 241, 0.47000000000000003)' data-cookie-textButton='Agree' data-cookie-colorButton='' data-cookie-colorLink='#424a4d' data-cookie-underlineLink='true' data-cookie-text="We use cookies to give you the best experience. Read our <a href='https://guighostgames.com/privacypolicy.htm'>privacy policy</a>.">
+   <div id="scrollToTop" class="scrollToTop mbr-arrow-up"><a style="text-align: center;"><i class="mbr-arrow-up-icon mbr-arrow-up-icon-cm cm-icon cm-icon-smallarrow-up"></i></a></div>
+    <input name="animation" type="hidden">
+  </body>
 </html>
