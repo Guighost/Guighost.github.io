@@ -4,25 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>JSON Test</title>
+    <title>GuiGhost - Partner Games</title>
 	<style>
 			body {
 			  padding: 50px;
 			  background: #333;
+			  color: azure;
 			}
 
 			.posts {
 			  
 			  display: flex;
 			  flex-flow: row wrap;
-			  
+			  }
 			  .post {
 				
 				background: white;
-				margin: 10px;
+				margin: 10px 10px;
 				height: 100px;
 				width: calc( (100% / 3) - 20px );
 				padding: 10px;
+				float: left;
 				
 			  }
 			  
@@ -54,8 +56,8 @@
     <div id="myData"></div>
 	<div class="container">
 	<div class="posts">
-		    <div class="post">x</div>
-			<div class="post feature">x</div>
+		 
+			
 			<script>
 				fetch('https://portal.wanted5games.com/api/games?category=match-3&audience=&limit=25')
 					.then(function (response) {
@@ -71,10 +73,11 @@
 					var mainContainer = document.getElementById("myData");
 					for (var i = 0; i < data.length; i++) {
 						var div = document.createElement("div");
+						div.className += "posts";
 						div.innerHTML = 
-							'<div class="post"><a href= https://wanted5games.com/games/html5/' + data[i].identifier +
+							'<a href= https://wanted5games.com/games/html5/' + data[i].identifier +
 							'/index.html?pub=598 target="blank"><img src=' + 
-							data[i].thumbnail  + ' />  </a>' +'<h3> ' + data[i].title + '</h3>  - '  + '</div>'
+							data[i].thumbnail  + ' />  </a> ' +'<h2> ' + data[i].title + '</h2>'  
 						mainContainer.appendChild(div);
 					}
 				}
