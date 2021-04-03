@@ -8,7 +8,7 @@
       "styling": {
         "primaryColor": "#c0a375",
         "secondaryColor": "#bfcecb",
-        "successColor": "#90a878",
+        "successColor": "#00a885",
         "infoColor": "#7e9b9f",
         "warningColor": "#f3c649",
         "dangerColor": "#f28281",
@@ -27,7 +27,7 @@
       ]
     },
     "versionFirst": "3.12.1",
-    "uniqCompNum": 48,
+    "uniqCompNum": 49,
     "versionPublish": "5.3.0",
     "path": "@PROJECT_PATH@",
     "screenshot": "screenshot.png",
@@ -57,7 +57,8 @@
       "underlineLink": false,
       "text": "By continuing you agree to our <a href='https://guighostgames.com/privacypolicy.htm'>Terms of Service</a> and <a href='https://guighostgames.com/privacypolicy.htm'>Privacy Policy</a>."
     },
-    "witsec-language": "en"
+    "witsec-language": "en",
+    "witsec-white-label": true
   },
   "pages": {
     "index.html": {
@@ -84,7 +85,7 @@
             "showButtons": true,
             "inverse": true,
             "imageSize": "70",
-            "paddingTop": "1",
+            "paddingTop": "0",
             "paddingBottom": "1",
             "bgImageRadio": true,
             "bgImage": "@PROJECT_PATH@/assets/images/battleback10-2-1024x576.png",
@@ -122,7 +123,7 @@
           },
           "title": "FULL WIDTH INTRO",
           "text": "Full width intro with adjustable height, background image, parallax effect and a video section. Note that paddings are extended here.",
-          "buttons": "<a data-app-btn=\"true\" class=\"btn btn-warning\" href=\"https://play.google.com/store/apps/details?id=com.wMedievalFarms_GuiGhostGames\" data-toolbar=\"-mbrBtnMove\" target=\"_blank\"><span class=\"mobi-mbri mobi-mbri-devices mbr-iconfont mbr-iconfont-btn\"></span>Download for Android</a> <a data-app-btn=\"true\" class=\"btn btn-primary\" href=\"https://guighostgames.com/MedievalFarms/MedievalFarms.html\" data-toolbar=\"-mbrBtnMove\" target=\"_blank\"><span class=\"mobi-mbri mobi-mbri-desktop mbr-iconfont mbr-iconfont-btn\"></span>Play Online anywhere</a>",
+          "buttons": "<a data-app-btn=\"true\" class=\"btn btn-black\" href=\"https://play.google.com/store/apps/details?id=com.wMedievalFarms_GuiGhostGames\" data-toolbar=\"-mbrBtnMove\" target=\"_blank\"><span class=\"mobi-mbri mobi-mbri-devices mbr-iconfont mbr-iconfont-btn\"></span>Get it on Google Play</a> <a data-app-btn=\"true\" class=\"btn btn-primary\" href=\"https://guighostgames.com/MedievalFarms/MedievalFarms.html\" data-toolbar=\"-mbrBtnMove\" target=\"_blank\"><span class=\"mobi-mbri mobi-mbri-desktop mbr-iconfont mbr-iconfont-btn\"></span>Play Online anywhere</a>",
           "_tags": [
             "Theme"
           ],
@@ -247,7 +248,7 @@
         },
         {
           "_params": {
-            "showTitle": true,
+            "showTitle": false,
             "showText": true,
             "showButtons": false,
             "inverse": true,
@@ -306,7 +307,7 @@
         },
         {
           "_params": {
-            "showTitle": true,
+            "showTitle": false,
             "showText": true,
             "showButtons": false,
             "inverse": true,
@@ -477,39 +478,6 @@
           "_anchor": "features3-10"
         },
         {
-          "_inherit": "header1",
-          "_params": {
-            "showTitle": false,
-            "showText": false,
-            "showButtons": false,
-            "showArrow": true,
-            "contentAlign": "left",
-            "bgImageRadio": false,
-            "bgImage": "@THEME_PATH@/components/_images/jumbotron.jpg",
-            "parallax": true,
-            "bgColorRadio": false,
-            "bgColor": "#a07e49",
-            "bgVideoRadio": true,
-            "bgVideo": {
-              "url": "https://www.youtube.com/embed/h1aisWPMuRY?rel=0&amp;showinfo=0&autoplay=0&loop=0",
-              "rawUrl": "https://youtu.be/h1aisWPMuRY",
-              "width": 1280,
-              "height": 720
-            },
-            "overlay": false,
-            "overlayColor": "#000",
-            "overlayOpacity": "0"
-          },
-          "title": "VIDEO BACKGROUND",
-          "text": "Intro with background video and color overlay. Text and buttons are aligned to right. Mobirise helps you cut down development time by providing you with a flexible website editor with a drag and drop interface.",
-          "buttons": "<a data-app-btn=\"true\" class=\"btn btn-lg btn-success\" href=\"https://mobirise.com\">DOWNLOAD FOR WINDOWS</a> <a data-app-btn=\"true\" class=\"btn btn-lg btn-warning\" href=\"https://mobirise.com\">DOWNLOAD FOR MAC</a>",
-          "_tags": [
-            "Theme"
-          ],
-          "_name": "header4",
-          "_anchor": "header4-1b"
-        },
-        {
           "_inherit": "msg-box5",
           "_styles": {
             "h3, p": {
@@ -561,7 +529,7 @@
           },
           "title": "FULL WIDTH INTRO",
           "text": "Full width intro with adjustable height, background image, parallax effect and a video section. Note that paddings are extended here.",
-          "buttons": "<a data-app-btn=\"true\" class=\"btn btn-warning\" href=\"https://play.google.com/store/apps/details?id=com.wMedievalFarms_GuiGhostGames\" data-toolbar=\"-mbrBtnMove\" target=\"_blank\"><span class=\"mobi-mbri mobi-mbri-devices mbr-iconfont mbr-iconfont-btn\"></span>Download for Android</a> <a data-app-btn=\"true\" class=\"btn btn-primary\" href=\"https://guighostgames.com/MedievalFarms/MedievalFarms.html\" data-toolbar=\"-mbrBtnMove\" target=\"_blank\"><span class=\"mobi-mbri mobi-mbri-desktop mbr-iconfont mbr-iconfont-btn\"></span>Play Online anywhere</a>",
+          "buttons": "<a data-app-btn=\"true\" class=\"btn btn-black\" href=\"https://play.google.com/store/apps/details?id=com.wMedievalFarms_GuiGhostGames\" data-toolbar=\"-mbrBtnMove\" target=\"_blank\"><span class=\"mobi-mbri mobi-mbri-devices mbr-iconfont mbr-iconfont-btn\"></span>Download for Android</a> <a data-app-btn=\"true\" class=\"btn btn-primary\" href=\"https://guighostgames.com/MedievalFarms/MedievalFarms.html\" data-toolbar=\"-mbrBtnMove\" target=\"_blank\"><span class=\"mobi-mbri mobi-mbri-desktop mbr-iconfont mbr-iconfont-btn\"></span>Play Online anywhere</a>",
           "_tags": [
             "Theme"
           ],
