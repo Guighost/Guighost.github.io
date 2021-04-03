@@ -10,41 +10,48 @@
 			  padding: 50px;
 			  background: #333;
 			  color: azure;
+			  text-align: center;
 			}
 
 			.posts {
 			  
 			  display: flex;
-			  flex-flow: row wrap;
+			  margin: 10px 10px 10px 10px;
+			text-align: center;
 			  }
 			  .post {
 				
-				background: white;
+				
 				margin: 10px 10px;
-				height: 100px;
-				width: calc( (100% / 3) - 20px );
+				height: 200px;
+				width: calc( (100% / 2) - 20px );
 				padding: 10px;
-				float: left;
+			
+				position:center;
 				
 			  }
 			  
 			  .feature {
 				
-				width: calc( ( ( 100% / 3 ) * 2) - 20px );
+				width: calc( ( ( 100% / 2 ) * 2) - 20px );
 				
+			  }
+			  .post img{
+			    width: 300px; /*set the width or max-width*/
+				height: auto;
+				margin: 20px 20px 20px 20px;
+			  
 			  }
 			  
 			}
+			
 
 			@media (max-width: 480px) {
 			  
-			  .posts {
-				
-				.post {
+			 
+			  .post {
 				  width: 100%;
 				}
-				
-			  }
 			  
 			}
 
@@ -53,8 +60,8 @@
 	
 </head>
 <body>
-    <div id="myData"></div>
-	<div class="container">
+   
+	<div class="container" id="myData">
 	<div class="posts">
 		 
 			
@@ -73,11 +80,11 @@
 					var mainContainer = document.getElementById("myData");
 					for (var i = 0; i < data.length; i++) {
 						var div = document.createElement("div");
-						div.className += "posts";
+						div.className += "post";
 						div.innerHTML = 
 							'<a href= https://wanted5games.com/games/html5/' + data[i].identifier +
 							'/index.html?pub=598 target="blank"><img src=' + 
-							data[i].thumbnail  + ' />  </a> ' +'<h2> ' + data[i].title + '</h2>'  
+							data[i].thumbnail  + ' /> </a> ' + ' <h2> ' + data[i].title +   '</h2>'  
 						mainContainer.appendChild(div);
 					}
 				}
