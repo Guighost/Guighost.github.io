@@ -4,93 +4,205 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="icon" type="image/png" sizes="40X40" href="..\..\favicon.ico">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	 <link rel="stylesheet" href="..\..\animate.css">
     <title>GuiGhost - Partner Games</title>
 	<style>
-			body {
-			  padding: 50px;
-			  background: #333;
-			  color: azure;
-			  
-			}
+.grid {
+  display: grid;
+  grid-template-columns:
+    repeat(
+      auto-fit,
+      minmax(
+        280px, /* min value */
+        1fr /* max value */
+      )
+    );
+  gap: 15px;
+}
 
-			.posts {
-			  
-			  display: flex;
-			 flex-flow: row wrap;
-  align-content: space-between;
-				
-			  }
-			  .post {
-				
-				
-				margin: 10px 10px;
-				height: 200px;
-				width: calc( (100% / 2) - 20px );
-				padding: 10px;
-			
-				position:center;
-				
-			  }
-			  
-			  .feature {
-				
-				width: calc( ( ( 100% / 2 ) * 2) - 20px );
-				
-			  }
-			  .post img{
-			    width: 300px; /*set the width or max-width*/
-				height: auto;
-				margin: 20px 20px 20px 20px;
-			  
-			  }
-			  
-			}
-			
+.item {
+  padding: 1.5rem;
+  background: #525354;
+  border-radius: 4px;
+  width: 265px;
+  margin-top: 10px;
+  animation: bounce; /* referring directly to the animation's @keyframe declaration */
+  animation-duration: 2s; /* don't forget to set a duration! */
+ 
+}
 
-			@media (max-width: 480px) {
-			  
-			 
-			  .post {
-				  width: 100%;
-				}
-			  
-			}
+h3 {
+ 
+  margin-bottom: 0.5rem;
+  margin-right: 0.5rem;
+  align-content: center;
+  text-align: center;
+}
 
 
+body {
+  padding: 20px;
+  background-color: black;
+  color: azure;
+}
+header{
+	width:100%;
+	text-align: center;
+
+}		
+ .btnBubble {
+	 float: left;
+	 border: 2px black groove;
+	 height: 1.35rem;
+	 background-color: red;
+	 text-align: center;
+ 
+ 
+ }
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+  display:block;
+}
+
+li {
+  float: left;
+  border: 1px solid grey;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #111;
+}
+h3 img {
+height: 1.7rem;
+}
+.active {
+background-color: grey;
+}
+
+@media only screen and (max-width: 600px) {
+  ul  {
+    display:none;
+  }
+  li { width: 90%; margin:10px;}
+}
+i { float: right;}
 	</style>
 	
 </head>
 <body>
-   
-	<div class="container" >
-	<div class="posts" id="myData">
+ <a class="icon" onclick="viewLinks()">
+    <i class="fa fa-bars"></i>
+  </a>
+	<h3><img src='../../images/1024Logo.png' /> Partner Games </h3>
+		 
+	<ul id='myLinks'>
+		
+		<li><a  id="match3" class="active">Match 3 Puzzles</a></li>
+		<li><a  id="bubbles">Bubble Shooters</a></li>
+		<li><a  id="racing">Racing Games</a></li>
+		<li><a id="strategy">Strategy Games</a></li>
+		<li><a  id="dressUp">Dress Up</a></li>
+	</ul>
+	
+  
+   <header> 
+
+ 
+	</header>
+  
+	<section class="row" >
+		<div class="grid" id="myData">
 		 
 			
 			<script>
-				fetch('https://portal.wanted5games.com/api/games?category=match-3&audience=&limit=25')
-					.then(function (response) {
-						return response.json();
-					})
-					.then(function (data) {
-						appendData(data);
-					})
-					.catch(function (err) {
-						console.log('error: ' + err);
-					});
-				function appendData(data) {
-					var mainContainer = document.getElementById("myData");
-					for (var i = 0; i < data.length; i++) {
-						var div = document.createElement("div");
-						div.className += "post";
-						div.innerHTML = 
-							'<a href= https://wanted5games.com/games/html5/' + data[i].identifier +
-							'/index.html?pub=598 target="blank"><img src=' + 
-							data[i].thumbnail  + ' /> </a> ' + ' <h2> ' + data[i].title +   '</h2>'  
-						mainContainer.appendChild(div);
+			var fetcher = 'https://portal.wanted5games.com/api/games?category=match-3&audience=&limit=100'
+			var fetchFunc = function (){
+					fetch(fetcher)
+						.then(function (response) {
+							return response.json();
+						})
+						.then(function (data) {
+							appendData(data);
+						})
+						.catch(function (err) {
+							console.log('error: ' + err);
+						});
+					function appendData(data) {
+						var mainContainer = document.getElementById("myData");
+						for (var i = 0; i < data.length; i++) {
+							var div = document.createElement("div");
+							div.className += "item";
+							div.innerHTML = 
+								'<a href= https://wanted5games.com/games/html5/' + data[i].identifier +
+								'/index.html?pub=598 target="blank"><img src=' + data[i].thumbnail  + ' /> </a> ' 
+							mainContainer.appendChild(div);
+							setTimeout(function(){ div.className += "item animate__animated animate__bounce animate__delay-2s" }, (i * 1000));
+							;
+							 
+						}
 					}
+				
 				}
+				fetchFunc();
+				/////nav
+				  var match3 = document.getElementById("match3");
+				    var bubbles = document.getElementById("bubbles");
+					  var racing = document.getElementById("racing");
+					    var strategy = document.getElementById("strategy");
+						  var dressUp = document.getElementById("dressUp");
+				
+				match3.onclick = function() {navChange('match3')};
+				bubbles.onclick = function() {navChange('bubbles')};
+				racing.onclick = function() {navChange('racing');};
+				strategy.onclick = function() {navChange('strategy')};
+				dressUp.onclick = function() {navChange('dressUp')};
+				
+				function navChange(btn) {
+					function cleanUp1st(){
+						var node = document.getElementById("myData");
+							while (node.firstChild) {
+							node.removeChild(node.firstChild);
+								}
+						
+					}
+					cleanUp1st();
+					
+					console.log('nav chnage');
+					var current = document.getElementsByClassName("active");
+					current[0].className = current[0].className.replace(" active", "");
+					if(btn === "match3"){fetcher = 'https://portal.wanted5games.com/api/games?category=match-3&audience=&limit=100'; fetchFunc();  match3.classList.add("active");}
+						else if(btn === "bubbles") {fetcher = 'https://portal.wanted5games.com/api/games?category=bubble-shooter&audience=&limit=100'; fetchFunc(); bubbles.classList.add("active");}
+						else if(btn === "racing") { fetcher = 'https://portal.wanted5games.com/api/games?category=racing&audience=&limit=100'; fetchFunc(); racing.classList.add("active");}
+						else if(btn === "strategy") { fetcher = 'https://portal.wanted5games.com/api/games?category=strategy&audience=&limit=100'; fetchFunc(); strategy.classList.add("active");}
+						else if(btn === "dressUp") { fetcher = 'https://portal.wanted5games.com/api/games?category=dress-up&audience=&limit=100'; fetchFunc(); dressUp.classList.add("active");}
+				}
+				function viewLinks() {
+					var x = document.getElementById("myLinks");
+					  if (x.style.display === "block") {
+						x.style.display = "none";
+					  } else if (x.style.display === ""){
+						x.style.display = "none";
+					  } else {
+						x.style.display = "block";
+					  }
+				}	
+				
 			</script>
 		</div>
-	 </div>
+	 </section>
 </body>
 </html>
