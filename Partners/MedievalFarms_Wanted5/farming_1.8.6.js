@@ -4134,6 +4134,9 @@ farming.start = function () {
                 boostCrops.setHidden(true);
 
                 CloudAPI.play();
+                CloudAPI.unmute();
+                themeSong.play();
+                
 
                 e.event.stopPropagation();
                 e.swallow(['mouseup', 'touchend', 'touchcancel'], function () {
@@ -4402,33 +4405,40 @@ farming.start = function () {
         var adDairyViewBtn = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(75, 135).setSize(60, 25).setFill("images/UI/viewAd.png");
         confirmSale.appendChild(adDairyViewBtn);
         goog.events.listen(adDairyViewBtn, ["mousedown", "touchstart"], function () {            //for sale pasture ad discount
-                  CloudAPI.gameOver();
+               
 
                 //CloudAPI.showAd();
-                  var salevis1 = forSaleP.getHidden();
-                  var salevis2 = forSaleO.getHidden();
-                  if (salevis1 || salevis2) {
-                      localStorage.setItem("acreDiscount1", 1);
-                      if (currentAcre4Sale == 1) {
-                          if (player.money >= 2250) {
-                              confirmTextSub.setHidden(true);
-                              confirmBtn.setHidden(false);
-                          }
+                  var salevis2 = confirmSale.getHidden();
+				  if (!salevis2) {
+						console.log("visible detected try show ad")
+						   CloudAPI.gameOver();
+							localStorage.setItem("acreDiscount1", 1);
+					         localStorage.setItem('MedFarm_LoadAd', 1);
+							localStorage.setItem('MedFarm_StarCashBoost', 0);
+							lime.audio.setMute(true);
+							 
+                    lime.scheduleManager.callAfter(function () { 
+									  if (currentAcre4Sale == 1) {
+										  if (player.money >= 2250) {
+											  confirmTextSub.setHidden(true);
+											  confirmBtn.setHidden(false);
+										  }
 
-                          adDairyViewBtn.setHidden(true);
-                          adDairyBuyText.setText("Discount Applied!")
-                          confirmText.setText("Dairy Farm 2250");
-                      }
-                      if (currentAcre4Sale == 2) {
-                          if (player.money >= 4500) {
-                              confirmTextSub.setHidden(true);
-                              confirmBtn.setHidden(false);
-                          }
+										  adDairyViewBtn.setHidden(true);
+										  adDairyBuyText.setText("Discount Applied!")
+										  confirmText.setText("Dairy Farm 2250");
+									  }
+									  if (currentAcre4Sale == 2) {
+										  if (player.money >= 4500) {
+											  confirmTextSub.setHidden(true);
+											  confirmBtn.setHidden(false);
+										  }
 
-                          adDairyViewBtn.setHidden(true);
-                          adDairyBuyText.setText("Discount Applied!");
-                          confirmText.setText("Fruit Orchard 4500");
-                      }
+										  adDairyViewBtn.setHidden(true);
+										  adDairyBuyText.setText("Discount Applied!");
+										  confirmText.setText("Fruit Orchard 4500");
+									  }
+					}, this, 2500);
                   }
                 
                
@@ -4623,6 +4633,10 @@ farming.start = function () {
             var ishidSale0 = confirmSale.getHidden();
             if (ishidSale0 == false) {
                 confirmSale.setHidden(true);
+                CloudAPI.play();
+                CloudAPI.unmute();
+                themeSong.play();
+                smithSound.play();
                 homeBlock.setHidden(true);
                 var confirmIsHid = confirmBtn.getHidden();
                 if (confirmIsHid == false) {
@@ -4696,6 +4710,10 @@ farming.start = function () {
             var ishidSale1 = confirmSale.getHidden();
             if (ishidSale1 == false) {
                 sceneBefore = 1; confirmSale.setHidden(true);
+                CloudAPI.play();
+                CloudAPI.unmute();
+                themeSong.play();
+                smithSound.play();
                 homeBlock.setHidden(true);
                 fsclicked = 0;
                 lime.scheduleManager.callAfter(function () {
@@ -8599,6 +8617,9 @@ farming.start = function () {
             lime.scheduleManager.callAfter(function () {
                 sucessText.style.display = 'none';
                 CloudAPI.play();
+                CloudAPI.unmute();
+                themeSong.play();
+                smithSound.play();
             }, this, 33000);
             var adImg = document.getElementById("viewAdImg");
             sucessText.innerHTML = 'Wait time is required before you can boost again';
@@ -8614,8 +8635,12 @@ farming.start = function () {
 
         document.getElementById("closeFB").addEventListener("touchstart", function (event) {
             var isVisFB = document.getElementById("fbshare").style.display;
-            CloudAPI.play();
+           
             if (isVisFB == 'block') { 
+                CloudAPI.play();
+                CloudAPI.unmute();
+                themeSong.play();
+                smithSound.play();
                 document.getElementById("fbshare").style.display = 'none';
                 console.log(document.getElementById("fbshare").style.display)
                 homeBlock.setHidden(true); pastureBlock.setHidden(true); orchardBlock.setHidden(true); lsBlock.setHidden(true); vinyardBlock.setHidden(true);
@@ -8632,8 +8657,12 @@ farming.start = function () {
         }, false);
         document.getElementById("closeFB").addEventListener("click", function (event) {
             var isVisFB2 = document.getElementById("fbshare").style.display;
-            CloudAPI.play();
+          
             if (isVisFB2 == 'block') {
+                CloudAPI.play();
+                CloudAPI.unmute();
+                themeSong.play();
+                smithSound.play();
                 document.getElementById("fbshare").style.display = 'none';
                 homeBlock.setHidden(true); pastureBlock.setHidden(true); orchardBlock.setHidden(true); lsBlock.setHidden(true); vinyardBlock.setHidden(true);
                 globalModalBlock = 0;
@@ -11984,7 +12013,7 @@ farming.start = function () {
         introLayer.appendChild(introFill1);
 
 		var introFill2 = (new lime.Sprite).setPosition(157, 260).setSize(300, 490).setFill(imgArray[14]);
-        introScene.appendChild(introFill2);
+        introLayer.appendChild(introFill2);
         //var playGameBtn = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(a.width / 2 - 50, 510).setSize(50, 50).setFill("#663300");
         var playGameBtn = (new lime.GlossyButton).setColor("#663300").setText("").setPosition(150, 290).setSize(a.width / 2 + 10, 70);
         introLayer.appendChild(playGameBtn);
@@ -12014,7 +12043,9 @@ farming.start = function () {
         goog.events.listen(playGameBtn, ["mousedown", "touchstart"], function () {
 
             CloudAPI.play();
-
+            CloudAPI.unmute();
+            themeSong.play();
+            smithSound.play();
             lime.audio.setMute(false);
             b.currentCrop = parseInt(localStorage.getItem("MedFarms_selectedHomeCrop"));
             homeCrop = parseInt(localStorage.getItem("MedFarms_selectedHomeCrop"));
@@ -17447,6 +17478,8 @@ farming.start = function () {
                 else { lime.audio.setMute(false); themeSong.play(true); smithSound.play(); setMute(2); }
 
                 CloudAPI.play();
+                CloudAPI.unmute();
+                themeSong.play();
                 boostCropsWM.setHidden(true);
                 e.event.stopPropagation();
                 e.swallow(['mouseup', 'touchend', 'touchcancel'], function () {
