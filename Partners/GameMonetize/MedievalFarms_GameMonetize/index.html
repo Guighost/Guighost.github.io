@@ -1,0 +1,1053 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <!--<meta http-equiv="Content-Security-Policy" content="default-src * data: gap: https://ssl.gstatic.com 'unsafe-inline' ; script-src 'self' 'unsafe-inline' ; style-src 'self' 'unsafe-eval' 'unsafe-inline'; media-src *; script-src-elem https://gamemonetize.com 'self' 'unsafe-inline' 'unsafe-eval' *;  ">-->
+
+   
+  <title>Medieval Farms - Farming Sim by GuiGhost Games</title>
+    <style>
+        .lime-scene {
+            display: block !important;
+        }
+
+        body {
+            background-color: black;
+            background-image: url("images/UI/battleback11.png");
+            background-size: cover;
+            background-repeat: no-repeat;
+            text-size-adjust: none;
+            -webkit-text-size-adjust: none;
+            -ms-touch-action: none;
+            touch-action: none;
+        }
+
+
+        #loadingGG {
+            position: absolute;
+            top: 30%;
+            left: 50%;
+            min-width: 50%;
+            height: 70%;
+            transform: translateX(-150px);
+            z-index: 15000;
+        }
+
+
+
+        #interCount {
+            position: absolute;
+            text-align: center;
+            border-radius: 9px;
+            min-width: 30px;
+            height: 25px;
+            background-color: darkblue;
+            font-size: large;
+            top: 5px;
+            right: 0px;
+            transform: translate(0px,-5px);
+        }
+
+        #adWrap {
+            border: 1px solid red;
+            width: 300px;
+            height: 250px;
+            margin-top: 20px;
+            margin-left: 50%;
+            transform: translateX(-150px);
+            align-content: center;
+        }
+
+        #gPlayImg {
+            display: inline-block;
+            width: 300px;
+            margin-left: 50%;
+            transform: translate(-150px,30px);
+        }
+
+
+
+        #closePop {
+            position: absolute;
+            text-align: center;
+            border-radius: 9px;
+            min-width: 30px;
+            height: 25px;
+            background-color: black;
+            font-size: large;
+            top: 0px;
+            transform: translate(-5px,-15px);
+        }
+		#testerr {
+		position:absolute;
+		top: 420px;
+		left: 10px;
+		width: 50px;
+		height: 40px;
+		background-color: red;
+		color: azure;
+		}
+
+        #fbshare {
+            background-image: url( "images/UI/blankBack5.png");
+            /*background-color: #8a2be2;*/
+            height: 520px;
+            width: 320px;
+            position: absolute;
+            left: 50%;
+            top: 90px;
+            transform: translate(-160px,0px);
+            display: none;
+            font-family: 'Comic Sans MS';
+            font-size: 14px;
+            z-index: 2000;
+            background-size: contain;
+            background-repeat: no-repeat;
+
+
+        }
+
+        #closeFB {
+            background-image: url( "images/UI/XButton.png");
+            background-size: contain;
+            height: 50px;
+            width: 50px;
+            /*border: 2px groove grey;*/
+            border-radius: 10px;
+            position: absolute;
+            left: 50%;
+            top: 75%;
+            transform: translate(-25px,-2px);
+            font-family: 'Comic Sans MS';
+            font-size: large;
+            text-align: center;
+        }
+
+        #fbshareTitle {
+            background-color: azure;
+            height: 30px;
+            width: 99%;
+            border: 2px inset grey;
+            border-radius: 10px;
+            font-family: 'Comic Sans MS';
+            font-size: large;
+            text-align: center;
+        }
+
+        #logoImg3 {
+            transform: translate(5px,5px);
+            height: 90px;
+            width: 240px;
+        }
+
+        #outerStarCashImg {
+            width: 150px;
+            height:45px;
+            margin-left: 50%;
+            transform: translate(-75px,0px);
+        }
+
+        #starCashOuterLabel {
+            position: absolute;
+            font-size: 22px;
+            font-family: 'Comic Sans MS';
+            color: purple;
+            text-align: center;
+            left: 50%;
+            z-index: 100;
+            transform: translate(-12px,-16px);
+        }
+
+        #currentStarCashBack, #currentStarCashBack2, #currentStarCashBack3, #currentStarCashBack4, #currentStarCashShare {
+            width: 267px;
+            height: 50px;
+            font-family: 'Comic Sans MS';
+            font-size: 15px;
+            color: yellow;
+            margin-left: 18px;
+            margin-top: 15px;
+            /*transform: translate(0px,-10px);*/
+            border: 2px groove brown;
+            border-radius: 5px;
+            background-color: darkgreen;
+        }
+        #currentStarCashBack {
+            margin-top: 3px;
+        }
+        #currentStarCashBack2 {
+            margin-top: 8px;
+        }
+        #currentStarCashBack3 {
+            width: 267px;
+            height: 50px;
+            text-align: left;
+            padding-left: 2px;
+            padding-top: -20px;
+            margin-top: 8px;
+            /*display: none;*/
+        }
+        #currentStarCashBack4 {
+            width: 267px;
+            margin-top: 5px;
+            margin-left: 18px;
+            padding-top: 2px;
+            padding-left: 2px;
+            text-align: left;
+            font-size: 15px;
+        }
+        #currentStarCashShare {
+            width: 267px;
+            height: 50px;
+            text-align: start;
+            padding-left: 2px;
+            padding-top: 0px;
+            transform: translate3d(0px,-5px, 0px);
+            margin-top: 15px;
+            /*display: none;*/
+        } 
+        #starCashRow3 {
+            width: 100%;
+            height: 100%;
+            transform: translate3d(1px,-15px, 0px);
+            touch-action: none;
+            /*display:none;*/
+        }
+
+        #lowerStarCashImg, #lowerStarCashImg2, #lowerStarCashImg5 {
+            width: 50px;
+            transform: translate(-40px,0px);
+        }
+        #lowerStarCashImg3 {
+            width: 45px;
+            transform: translate(11px,16px);
+        }
+        #lowerStarCashImg5 {
+            width: 45px;
+            transform: translate3d(119px,-51px,0px);
+        } 
+        #lowerArrow, #lowerArrow2, #lowerArrow3 {
+            width: 35px;
+            height: 35px;
+            transform: translate(-40px, -5px);
+        }
+
+        #lowerStarCashCoin {
+            width: 50px;
+            height: 50px;
+            margin-left: 5%;
+            transform: translate(-45px, 0px);
+        }
+
+        #buyWithStarCash, #buyWithStarCashTools, #viewAdImg, #buyStarsFromModal, #sharedBtnImg {
+            width: 88px;
+            height: 35px;
+            margin-left: 50%;
+            transform: translate(20px, -47px);
+            touch-action: none;
+        }
+        #sharedBtnImg {
+            width: 88px;
+            height: 40px;
+            transform: translate3d(36px, -93px, 0px);
+        }
+        #viewAdImg {
+            width: 88px;
+            height: 40px;
+            margin-left: 50%;
+            transform: translate(37px, -30px);
+            touch-action: none;
+        }
+
+        #row2label {
+            transform: translate(75px, -50px);
+        }
+        #buyStarsFromModal {
+            width: 80px;
+            height: 50px;
+            transform: translate(35px, -22px);
+        }
+        /*#currentStarCashBack2 {
+            width: 280px;
+            height: 50px;
+            font-family: 'Comic Sans MS';
+            font-size: 20px;
+            color: yellow;
+            text-align: left;
+            margin-left: 10px;
+            transform: translate(0px,30px);
+            border: 1px groove azure;
+            border-radius: 5px;
+            background-color: saddlebrown;
+        }*/
+        #descShare {
+            font-family: 'Comic Sans MS';
+            color: gold;
+            font-size: large;
+            text-align: center;
+            width: 95%;
+        }
+        /*#shareLink{
+                width: 90%;
+            }*/
+        #postInviteToWall {
+            position: absolute;
+            left: 2%;
+            top: 78%;
+        }
+
+
+
+
+        #sucessbuyTxt {
+            background-color: lawngreen;
+            border-radius:20px;
+            width: 180px;
+            color: darkgreen;
+            font-family: 'Comic Sans MS';
+            margin-left: 50%;
+            margin-top: 20px;
+            text-align:center;
+            font-size: 24px;
+            font-weight: 500;
+            transform: translate(-90px,-25px);
+            display: none;
+        }
+        #waitText {
+            margin-left: 20%;
+            color: darkgreen;
+        } .alignleft {
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            z-index: 500;
+        }
+
+        .alignright {
+            position: absolute;
+            top: 2px;
+            right: 2px;
+            z-index: 500;
+            width: 120px;
+            height: 600px;
+        }
+
+
+        /**
+ * blazingStar
+ * - Radiate shiny things
+ */
+        @keyframes blazingStar {
+            1% {
+                border-radius:unset;
+                box-shadow: 0px 0px 40px rgba(255, 255, 0,.6);
+                /*transform: scale(1);*/
+            }
+
+            10% {
+                box-shadow: 0px 0px 0px;
+                /*border-radius: 50%;*/
+                /*transform: scale(1);*/
+            }
+
+            20% {
+                box-shadow: 0px 0px 120px rgba(255, 255, 0,.6);
+                /*border-radius: 50%;*/
+                /*transform: scale(1);*/
+            }
+
+            30% {
+                box-shadow: 0px 0px 0px;
+                /*border-radius: 50%;*/
+                /*transform: scale(1);*/
+            }
+
+            40% {
+                box-shadow: 0px 0px 120px rgba(255, 255, 0,.6);
+                /*border-radius: 50%;*/
+                /*transform: scale(1);*/
+            }
+
+            50% {
+                box-shadow: 0px 0px 0px;
+                /*border-radius: 50%;*/
+                /*transform: scale(1);*/
+            }
+
+            60% {
+                box-shadow: 0px 0px 20vh rgba(255, 255, 0,1);
+                /*border-radius: 50%;*/
+                /*transform: scale(1);*/
+            }
+
+            70% {
+                box-shadow: 0px 0px 0px;
+                /*border-radius: 50%;*/
+                /*transform: scale(1);*/
+            }
+
+            80% {
+                box-shadow: 0px 0px 20vh rgba(255, 255, 0,1);
+                /*border-radius: 50%;*/
+                /*transform: scale(1);*/
+            }
+
+            90% {
+                box-shadow: 0px 0px 0px;
+                /*border-radius: 50%;*/
+                /*transform: scale(1);*/
+            }
+
+            99% {
+                box-shadow: 0px 0px 20vh rgba(255, 255, 0,1);
+                /*border-radius: 50%;*/
+                /*transform: scale(1.1);*/
+            }
+        }
+
+        .blazingStar {
+            animation-timing-function: ease-out;
+            transform-origin: bottom center;
+            animation-name: blazingStar;
+            animation-duration: 5s;
+        }
+        #dailyBonus {
+            position: absolute;
+            top:2%;
+            background-image: url("images/UI/blankBack6.png");
+            width: 97%;
+            max-width: 600px;
+            height: 75%;
+            min-height: 440px;
+            margin-left: 2px;
+            font-family: 'Comic Sans MS';
+            font-size: 15px;
+            z-index: 2000;
+            background-size:cover;
+            background-repeat: no-repeat;
+            /*z-index: 5000;*/
+            align-content: center;
+            text-align: center;
+            word-wrap: break-word;
+            display: none;
+        }
+        #dailyTable {
+            width: 95%;
+            margin-left: 3%;
+            transform: translate3d(0px,15px,0px);
+        }
+        #headOf {
+            font-size: 25px;
+           
+            margin-top: 8px;
+        }
+        #dailyTable td {
+            /*background-color:forestgreen;*/
+            min-height: 20px;
+            max-width: 40px;
+            margin-left: 0px;
+            margin-right: 0px;
+        }
+        #checkRow {
+        min-height:25px;
+        }
+        .clsChecks {
+        margin:auto;
+        }
+        .clsDayNums{
+            display:block;
+        clear: both;
+        margin: auto;
+
+        }
+        #stMtchRow {
+        padding-top:5px;
+        margin-top:10px;
+        }
+        #rewardRow {
+            border: 1px solid black;
+            border-radius: 5px;
+        }
+        .clsResult {
+            border: 1px solid black;
+            border-radius: 5px;
+            color: azure;
+            background-color:saddlebrown;
+            font-size:large;
+        }
+        #dailyrewardTotal0 {
+            font-size: medium;
+        }
+        #collectDaily {
+            width: 160px;
+            margin: auto;
+            margin-top: 25px;
+            font-family: 'Comic Sans MS';
+            font-size: large;
+            border: 2px solid saddlebrown;
+            border-radius: 10px;
+            background-color: forestgreen;
+            color: azure;
+        }
+        #closeDaily {
+            width: 50px;
+            height: 50px;
+            bottom: 10px;
+            margin-left: 50%;
+            transform: translate3d(-25px, 20px,0);
+            background-image: url("images/UI/XButton.png");
+            background-size: contain;
+        } #bonusSubText {
+            transform: translate3d(0px,-20px,0px);
+        }
+
+        #foundIt, #rewardMe {
+            background-image: url("images/UI/blankBack6.png");
+            /*background-color: #8a2be2;*/
+            height: 370px;
+            width: 315px;
+            max-width: 600px;
+            position: absolute;
+            top: 3em;
+            margin-left:50%;
+         
+            transform: translate3d(-155px, 0px, 0px);
+            display: none;
+            font-family: 'Comic Sans MS';
+            font-size: 14px;
+            z-index: 2000;
+            background-size: cover;
+            background-repeat: no-repeat;
+            /*z-index: 5000;*/
+            align-content: center;
+            text-align: center;
+            word-wrap: break-word;
+        }
+        #foundIt {
+            top: 90px;
+        }
+        #foundIt h1 {
+            padding-top: 12px;
+        }
+        #foundItImage {
+            padding-top: 20px;
+            padding-bottom: 5px;
+            width: 100px;
+            height: 100px;
+            margin: 0 auto;
+            background-image: url("images/items/ringEmerald.png");
+            background-size: contain;
+            background-repeat: no-repeat;
+            margin-bottom: 50px;
+        }
+        #foundItSubText {
+            width: 90%;
+            margin: 0 auto;
+            font-size: 18px;
+            transform: translateY(-30px);
+        }
+        #foundItClose {
+            width: 100px;
+            height: 25px;
+            margin: 0 auto;
+            background-color:#00ff00;
+            margin-top:10px;
+            font-size:18px;
+            font-weight:500;
+
+        }
+        @media (max-width: 800px) {
+            .alignleft, .alignright {
+                display: none;
+            }
+
+            /*#inter1 {
+                width: 98%;
+                left: 1%;
+            }*/
+        }
+
+        @media (max-width: 760px) {
+            .alignleft, .alignright {
+                display: none;
+            }
+        }
+
+        @media (max-width: 320px) {
+
+
+            #gPlayImg {
+                width: 200px;
+                margin-left: 50%;
+                transform: translate(-100px,0px);
+            }
+            #fbshare {
+                top: 10px;
+            }
+        }
+
+        @media (max-width: 320px) and (max-height:480px) {
+
+
+            #gPlayImg {
+                width: 200px;
+                margin-left: 50%;
+                transform: translate(-100px,50px);
+            }
+
+            #loadingGG {
+                position: absolute;
+                top: 10%;
+                left: 50%;
+                min-width: 50%;
+                height: 100%;
+                transform: translateX(-150px);
+                z-index: 15000;
+            }
+        }
+
+        /*/////rate me*/
+        #rateMe {
+            position: absolute;
+            min-height: 100%;
+            min-width: 100%;
+            background-color: black;
+            background-image: url("images/selfPromoteBack2.png");
+            background-position: top;
+            background-repeat: no-repeat;
+            background-size: contain;
+            z-index: 1000;
+            /*min-width: 400px;
+            max-width: 500px;
+            max-height: 400px;*/
+            align-content: center;
+            text-align: center;
+            font-family: 'Comic Sans MS';
+            font-size: 16px;
+            color: azure;
+            text-shadow: 2px 2px #101511;
+            display: none;
+            top: 0px;
+        }
+      #rewardTitle {
+            margin-top: 30px;
+        }
+        #submitRewardCode {
+            display: block;
+    margin: auto;  
+    width: 120px;
+            background-color: #00ff00;
+            color: #000000;
+            font-family: 'Comic Sans MS';
+            font-size: 16px;
+            border: 2px solid brown;
+            border-radius: 3px;
+        }
+        #rewardClose  {
+            width: 50px;
+            height: 50px;
+            bottom: 75px;
+            margin-left: 50%;
+            transform: translate3d(-25px, 0px,0);
+            background-image: url(images/UI/XButton.png);
+            background-size: contain;
+            margin-top: 15px;
+        }
+        #rewardInputCode {
+        margin: 10px;
+        margin-top: 2px;
+        height: 30px;
+        font-size:medium;
+
+        }
+        #rewardSubText {
+            margin-left: 5%;
+            margin-top: 3%;
+        width: 90%;
+        font-size:medium;
+        }
+        #shareUs2 {
+            width:70%;
+            margin:auto;
+            margin-top: 20px;
+            height: 32px;
+            background-color: #00ff00;
+            color: #000000;
+            font-family: 'Comic Sans MS';
+            font-size: 18px;
+            border: 2px solid brown;
+            border-radius: 3px;
+        }
+        #rateMeInner {
+            position: absolute;
+            background-image: linear-gradient(grey,ActiveCaption);
+            top: 30%;
+            margin-left: 50%;
+            height: 230px;
+            width: 312px;
+            border: 5px grey groove;
+            transform: translate(-161px,25px);
+            z-index: 3100;
+            /*display: none;*/
+        }
+
+        #rateMeBtnWrap {
+            position: absolute;
+            bottom: 5px;
+            width: 100%;
+            left: 0px;
+        }
+
+        .rateBtn {
+            float: left;
+            width: 26%;
+            height: 32px;
+            background-image: linear-gradient(forestGreen,#17BF39 );
+            border: 5px groove green;
+            border-radius: 5px;
+            align-content: center;
+            text-align: center;
+            margin: 2%;
+            font-family: 'Comic Sans MS';
+            font-size: 15px;
+            text-shadow: 1px 1px black;
+            color: azure;
+            padding-top: 3px;
+            /*margin-left: 5%;*/
+        }
+
+        #rateImage {
+            background-image: linear-gradient(lightcoral,yellow );
+            margin-top: 4%;
+            display: inline-block;
+            width: 300px;
+            margin-left: 50%;
+            transform: translate(-150px,-35px);
+            z-index: 2000;
+            border-radius: 10px;
+        }
+
+        #rateMeBtnNo {
+            background-image: linear-gradient(red,lightcoral );
+            margin-top: 4%;
+        }
+
+        #rateMeBtnLater {
+            background-image: linear-gradient(blue, #149EB7);
+            margin-top: 4%;
+        }
+
+        #rateMeBtnYes {
+            padding-top: 9px;
+            height: 45px;
+            margin-top: 3%;
+            font-size: 16px;
+        }
+        #rateMeText {
+            transform: translate(0px,-18px);
+        }
+
+
+        .tilt-in-fwd-tr {
+            -webkit-animation: tilt-in-fwd-tr 0.6s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+            animation: tilt-in-fwd-tr 0.6s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+            opacity: 1;
+        }
+
+
+        /* ----------------------------------------------
+ * Generated by Animista on 2020-4-24 22:56:26
+ * Licensed under FreeBSD License.
+ * See http://animista.net/license for more info. 
+ * w: http://animista.net, t: @cssanimista
+ * ---------------------------------------------- */
+
+        /**
+ * ----------------------------------------
+ * animation tilt-in-fwd-tr
+ * ----------------------------------------
+ */
+        @-webkit-keyframes tilt-in-fwd-tr {
+            0% {
+                -webkit-transform: rotateY(20deg) rotateX(35deg) translate(300px, -300px) skew(-35deg, 10deg);
+                transform: rotateY(20deg) rotateX(35deg) translate(300px, -300px) skew(-35deg, 10deg);
+                opacity: 0;
+            }
+
+            100% {
+                -webkit-transform: rotateY(0) rotateX(0deg) translate(0, 0) skew(0deg, 0deg);
+                transform: rotateY(0) rotateX(0deg) translate(0, 0) skew(0deg, 0deg);
+                opacity: 1;
+            }
+        }
+
+        @keyframes tilt-in-fwd-tr {
+            0% {
+                -webkit-transform: rotateY(20deg) rotateX(35deg) translate(300px, -300px) skew(-35deg, 10deg);
+                transform: rotateY(20deg) rotateX(35deg) translate(300px, -300px) skew(-35deg, 10deg);
+                opacity: 0;
+            }
+
+            100% {
+                -webkit-transform: rotateY(0) rotateX(0deg) translate(-160px,0px) skew(0deg, 0deg);
+                transform: rotateY(0) rotateX(0deg) translate(-160px,0px) skew(0deg, 0deg);
+                opacity: 1;
+            }
+        }
+        .slit-out-vertical {
+            -webkit-animation: slit-out-vertical 0.5s ease-in both;
+            animation: slit-out-vertical 0.5s ease-in both;
+        }
+
+        /**
+ * ----------------------------------------
+ * animation slit-out-vertical
+ * ----------------------------------------
+ */
+        @-webkit-keyframes slit-out-vertical {
+            0% {
+                -webkit-transform: translateZ(0) rotateY(0);
+                transform: translateZ(0) rotateY(0);
+                opacity: 1;
+            }
+
+            54% {
+                -webkit-transform: translateZ(-160px) rotateY(87deg);
+                transform: translateZ(-160px) rotateY(87deg);
+                opacity: 1;
+            }
+
+            100% {
+                -webkit-transform: translateZ(-800px) rotateY(90deg);
+                transform: translateZ(-800px) rotateY(90deg);
+                opacity: 0;
+            }
+        }
+
+        @keyframes slit-out-vertical {
+            0% {
+                -webkit-transform: translateZ(0) rotateY(0);
+                transform: translateZ(0) rotateY(0);
+                opacity: 1;
+            }
+
+            54% {
+                -webkit-transform: translateZ(-160px) rotateY(87deg);
+                transform: translateZ(-160px) rotateY(87deg);
+                opacity: 1;
+            }
+
+            100% {
+                -webkit-transform: translateZ(-800px) rotateY(90deg);
+                transform: translateZ(-800px) rotateY(90deg);
+                 transform: translate(-160px,0px);
+                opacity: 0;
+            }
+        }
+        .flip-out-hor-top {
+            -webkit-animation: flip-out-hor-top 0.45s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+            animation: flip-out-hor-top 0.45s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+        }
+
+
+        /**
+ * ----------------------------------------
+ * animation flip-out-hor-top
+ * ----------------------------------------
+ */
+        @-webkit-keyframes flip-out-hor-top {
+            0% {
+                -webkit-transform: rotateX(0) translate(-160px,0px);
+                transform: rotateX(0) translate(-160px,0px);
+                opacity: 1;
+            }
+
+            100% {
+                -webkit-transform: rotateX(70deg) translate(-160px,0px);
+                transform: rotateX(70deg) translate(-160px,0px);
+                opacity: 0;
+            }
+        }
+
+        @keyframes flip-out-hor-top {
+            0% {
+                -webkit-transform: rotateX(0) translate(-160px,0px);
+                transform: rotateX(0) translate(-160px,0px);
+                opacity: 1;
+            }
+
+            100% {
+                -webkit-transform: rotateX(70deg) translate(-160px,0px);
+                transform: rotateX(70deg) translate(-160px,0px);
+                opacity: 0;
+                display: none;
+            }
+        }
+
+
+    </style>
+
+
+
+        <!--<script type="text/javascript" src="farmingMin_1.5.1.7.js"></script>-->
+ 
+        <!--<link rel="preload" href="farming_1.8.js" as="script">-->
+   
+</head>
+
+
+<body>
+	
+ 
+    <div id="loadingGG"><IMG SRC="images/UI/loading5.gif"></div>
+
+
+    <div id="fbshare">
+        <div id="fbshareContent">
+            <div id="descShare">
+
+                <!--<img id="logoImg3" src="images/UI/MenuTop2.png" alt="FarmImg" />-->
+              
+                <div id="outerStarCash">
+                    <p id="starCashOuterLabel">50</p>
+                    <img id="outerStarCashImg" src="images/UI/starCashBack.png" loading="lazy" width="150" alt="StarCashImg" />
+                </div>
+
+                <div id="currentStarCashBack">
+                    <img id="lowerStarCashImg" src="images/UI/plus5StarCash.png" loading="lazy" width="50" alt="StarCashImg" /> <img id="lowerArrow" src="images/UI/rightBtn.png" alt="rightBtn" />
+                    <img id="lowerStarCashCoin" src="images/UI/coin500.png" loading="lazy" width="50" alt="StarCashCoin" /><img id="buyWithStarCash" src="images/UI/greenBuy.png" alt="StarCashImg" />
+                </div>
+
+                <div id="currentStarCashBack2">
+                    <img id="lowerStarCashImg2" src="images/UI/plus10StarCash.png" loading="lazy" width="50" alt="StarCashImg" />
+                    <img id="lowerArrow2" src="images/UI/rightBtn.png" loading="lazy" width="35" alt="rightBtn2" />
+                    <img id="lowerStarCashCoin" src="images/tools500.png" loading="lazy" width="50" alt="tools500" /><img id="buyWithStarCashTools" src="images/UI/greenBuy.png" alt="StarCashBuyImg" />
+                </div>
+                <div id="currentStarCashBack3">
+                    <div id="starCashRow3">
+                        Watch to Earn <img id="lowerStarCashImg3" src="images/UI/plus3StarCash.png"  width="45" alt="StarCashImg" />
+                        <img id="viewAdImg" src="images/UI/viewAd.png" loading="lazy" width="88" alt="View Ad" />
+                    </div>
+                </div>
+                <div>
+                    <div id="currentStarCashShare">
+                        <p>Share to Earn</p> <img id="lowerStarCashImg5" src="images/UI/plus5StarCash.png" loading="lazy" width="45" alt="StarCashImg" />
+                        <div id="shareUs"><img id="sharedBtnImg" src="images/UI/shareBtn.png" loading="lazy" width="88" alt="View Ad" /></div>
+                    </div>
+
+                </div>
+                <div>
+                    <div id="currentStarCashBack4">
+                        Buy Stars in Town <img id="buyStarsFromModal" src="images/UI/shopIcon.png" loading="lazy" width="80" alt="buyStars" />
+                    </div>
+                </div>
+
+
+            </div>
+            <p id="waitText"></p>
+</div>
+        <div id="fbshareFooter"> <a id="closeFB"></a></div>
+        <p id="sucessbuyTxt"> + </p>
+       
+    </div>
+
+    <div id="rateMe">
+        <div id="rateMeInner">
+            <div id="rateMeTopWrap">
+
+                <div id="rateMeText">
+
+                    <p><h2>Please Rate Our App</h2> It takes only a moment and helps alot</p>
+                </div>
+
+            </div>
+            <div id="rateMeImage"> <img id="rateImage" alt='Rate on Google Play' src='images/ratingstars.png' loading="lazy" width="300"/>   </div>
+
+            <div id="rateMeBtnWrap">
+
+                <div id="rateMeBtnNo" class="rateBtn">No Thanks</div>
+
+                <div id="rateMeBtnYes" class="rateBtn"> <b>Rate Now</b>  </div>
+                <div id="rateMeBtnLater" class="rateBtn">Later</div>
+            </div>
+
+
+        </div>
+
+    </div>
+    <div id="foundIt" class="blazingStar">
+        <div id="foundItInner">
+            <h1 id="foundItTitle"> Item Found! </h1>
+            <h2 id="foundItSubTitle"> Emerald Ring </h2>
+            <div id="foundItImage"></div>
+            <div id="foundItSubText"> Someone in town may be interested in this item</div>
+            <div id="foundItClose">CLOSE</div>
+
+        </div>
+    </div>
+    <div id="rewardMe">
+        <form id="rewardInner">
+            <h1 id="rewardTitle"> Enter Reward Code </h1>
+            <input id="rewardInputCode" type="text"/>
+            <button id="submitRewardCode">Check Code</button>
+            <div id="rewardSubText">Reward codes are one use per player. You can also share your code for Medieval Farms with friends </div>
+            <div id="rewardSubText3">
+     
+                <div id="shareUs2">Share to Friends</div>
+            </div> 
+            <div id="rewardClose"></div>
+
+        </form>
+    </div>
+ 
+    <footer>
+
+        <script src="farming_1.8.6.js"></script>
+
+        <script src="loader.js"></script>
+
+        <script type="text/javascript">
+            var webshareAPI = function () {
+                if (navigator.share) {
+                    navigator.share({
+                        title: 'Share GuiGhostGames',
+                        text: 'Check out Medieval Farms',
+                        url: 'https://guighostgames.com/MedievalFarms/images/ads/promo580x400.png',
+                    })
+                        .then(() => console.log('Successful share'))
+                        .catch((error) => console.log('Error sharing', error));
+                }
+                starCash = parseInt(localStorage.getItem('starCash'));
+                starCash = parseInt(starCash) + 5;
+                localStorage.setItem('starCash', starCash);
+                document.getElementById("starCashOuterLabel").innerHTML = starCash;
+                shareUs.style.display = 'none';
+
+            }
+
+
+            window.addEventListener('load', (event) => {
+             
+                shareUs.addEventListener("click", function (event) { webshareAPI(); });
+                shareUs.addEventListener("touchend", function (event) { webshareAPI(); });
+                shareUs2.addEventListener("click", function (event) { webshareAPI(); });
+                shareUs2.addEventListener("touchstart", function (event) { webshareAPI(); });
+
+
+            });
+        </script>
+
+
+        <!-- ... game javascripts ... -->
+    </footer>
+</body>
+
+
+
+
+  
+
+
+</html>
