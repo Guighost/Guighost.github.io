@@ -1,123 +1,149 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<link rel="icon" type="image/png" sizes="40X40" href="..\..\favicon.ico">
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-97706544-2"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() { dataLayer.push(arguments); }
+		gtag('js', new Date());
+
+		gtag('config', 'UA-97706544-2');
+	</script>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="icon" type="image/png" sizes="40X40" href="https://guighostgames.com/favicon.ico">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	 <link rel="stylesheet" href="..\..\animate.css">
-    <title>GuiGhost - Partner Games</title>
+	<link rel="stylesheet" href="..\..\animate.css">
+	<title>GuiGhost - Partner Games</title>
 	<style>
-.grid {
-  display: grid;
-  grid-template-columns:
-    repeat(
-      auto-fit,
-      minmax(
-        280px, /* min value */
-        1fr /* max value */
-      )
-    );
-  gap: 15px;
-}
+		.grid {
+			display: grid;
+			grid-template-columns: repeat( auto-fit, minmax( 280px, /* min value */
+			1fr /* max value */
+			) );
+			gap: 15px;
+		}
 
-.item {
-  padding: 1.5rem;
-  background: #525354;
-  border-radius: 4px;
-  width: 265px;
-  margin-top: 10px;
-  animation: bounce; /* referring directly to the animation's @keyframe declaration */
-  animation-duration: 2s; /* don't forget to set a duration! */
- 
-}
+		.item {
+			padding: 1.5rem;
+			background: #525354;
+			border-radius: 4px;
+			width: 265px;
+			margin-top: 10px;
+			animation: bounce; /* referring directly to the animation's @keyframe declaration */
+			animation-duration: 2s; /* don't forget to set a duration! */
+		}
 
-h3 {
- 
-  margin-bottom: 0.5rem;
-  margin-right: 0.5rem;
-  align-content: center;
-  text-align: center;
-}
+		h3 {
+			margin-bottom: 0.5rem;
+			margin-right: 0.5rem;
+			align-content: center;
+			text-align: center;
+		}
 
 
-body {
-  padding: 20px;
-  background-color: black;
-  color: azure;
-}
-header{
-	width:100%;
-	text-align: center;
+		body {
+			padding: 20px;
+			background-color: black;
+			color: azure;
+		}
 
-}		
- .btnBubble {
-	 float: left;
-	 border: 2px black groove;
-	 height: 1.35rem;
-	 background-color: red;
-	 text-align: center;
- 
- 
- }
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: #333;
-  display:block;
-}
+		header {
+			width: 100%;
+			text-align: center;
+		}
 
-li {
-  float: left;
-  border: 1px solid grey;
-}
+		.btnBubble {
+			float: left;
+			border: 2px black groove;
+			height: 1.35rem;
+			background-color: red;
+			text-align: center;
+		}
 
-li a {
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
+		ul {
+			list-style-type: none;
+			margin: 0;
+			padding: 0;
+			overflow: hidden;
+			display: block;
+		}
 
-li a:hover {
-  background-color: #111;
-}
-h3 img {
-height: 1.7rem;
-}
-.active {
-background-color: grey;
-}
+		li {
+			float: left;
+			border: 1px solid grey;
+			margin: 10px;
+		}
 
-@media only screen and (max-width: 600px) {
-  ul  {
-    display:none;
-	opacity: 0.5;
-  }
-  li { width: 90%; margin:10px; opacity: 1.0; }
-  li a {opacity: 1.0;}
-}
-i { float: right;}
+			li a {
+				display: block;
+				color: white;
+				text-align: center;
+				padding: 14px 16px;
+				text-decoration: none;
+			}
+
+				li a:hover {
+					background-color: #111;
+				}
+
+		h3 img {
+			height: 1.7rem;
+		}
+
+
+		@media only screen and (max-width: 600px) {
+			ul {
+				display: none;
+				opacity: 0.5;
+			}
+
+			li {
+				width: 90%;
+				margin: 10px;
+				opacity: 1.0;
+			}
+
+				li a {
+					opacity: 1.0;
+				}
+
+			body {
+				padding: 1px;
+			}
+
+			.item {
+				padding: 1.1rem;
+				background: #525354;
+				border-radius: 4px;
+				width: 265px;
+				margin-top: 10px;
+				animation: bounce;
+				animation-duration: 2s;
+			}
+		}
+
+		i {
+			float: right;
+		}
 	</style>
-	
+
 </head>
 <body>
  <a class="icon" onclick="viewLinks()">
     <i class="fa fa-bars"></i>
   </a>
-	<h3><img src='../../images/1024Logo.png' /> Partner Games </h3>
+	<h3 id="titlePart"><img src='https://guighostgames.com/assets/images/gabbylogo-80x80.png' /> PUZZLE GAMES</h3>
 		 
 	<ul id='myLinks'>
-		
-		<li><a  id="match3" class="active">Match 3 Puzzles</a></li>
+		<li><a  id="goHome" href="https://guighostgames.com/" > Home</a></li>
+		<li><a  id="puzzle" class="active">PUZZLE</a></li>
 		<li><a  id="bubbles">Bubble Shooters</a></li>
 		<li><a  id="racing">Racing Games</a></li>
-		<li><a id="strategy">Strategy Games</a></li>
-		<li><a  id="dressUp">Dress Up</a></li>
+		<li><a  id="strategy">Strategy Games</a></li>
+		<li><a  id="sports">Sports</a></li>
 	</ul>
 	
   
@@ -130,8 +156,10 @@ i { float: right;}
 		<div class="grid" id="myData">
 		 
 			
-			<script>
-			var fetcher = 'https://portal.wanted5games.com/api/games?category=match-3&audience=&limit=100'
+			<script async>
+
+			var titlePart = document.getElementById('titlePart');
+			var fetcher = 'https://portal.wanted5games.com/api/games?category=match-3&audience=&limit=200'
 			var fetchFunc = function (){
 					fetch(fetcher)
 						.then(function (response) {
@@ -151,29 +179,42 @@ i { float: right;}
 							div.innerHTML = 
 								'<a href= https://wanted5games.com/games/html5/' + data[i].identifier +
 								'/index.html?pub=598 target="blank"><img src=' + data[i].thumbnail  + ' /> </a> ' 
-							mainContainer.appendChild(div);
-							setTimeout(function(){ div.className += "item animate__animated animate__bounce animate__delay-2s" }, (i * 1000));
-							;
+							
+							div.id = "gdiv-" + i;
+                            mainContainer.appendChild(div);
+							delay(div.id);				
+							
 							 
 						}
 					}
 				
 				}
 				fetchFunc();
+		function delay(gdiv) {
+					setTimeout(() => {
+						console.log("applying cvlass to " + gdiv)
+						document.getElementById(gdiv).className = "";
+						document.getElementById(gdiv).className += "item animate__animated animate__bounce"
+
+					}, 1000);
+		}
 				/////nav
-				  var match3 = document.getElementById("match3");
-				    var bubbles = document.getElementById("bubbles");
-					  var racing = document.getElementById("racing");
-					    var strategy = document.getElementById("strategy");
-						  var dressUp = document.getElementById("dressUp");
+                var homer = document.getElementById("goHome");
+				var puzzle = document.getElementById("puzzle");
+				var bubbles = document.getElementById("bubbles");
+				var racing = document.getElementById("racing");
+				var strategy = document.getElementById("strategy");
+                var sports = document.getElementById("sports");
 				
-				match3.onclick = function() {navChange('match3')};
+                homer.onclick = function () { window.location('https://guighostgames.com/'); };
+				puzzle.onclick = function () { navChange('puzzle') };
 				bubbles.onclick = function() {navChange('bubbles')};
 				racing.onclick = function() {navChange('racing');};
 				strategy.onclick = function() {navChange('strategy')};
-				dressUp.onclick = function() {navChange('dressUp')};
+                sports.onclick = function () { navChange('sports')};
 				
 				function navChange(btn) {
+					if (window.innerWidth < 400 && window.innerWidth > 100) { viewLinks();};
 					function cleanUp1st(){
 						var node = document.getElementById("myData");
 							while (node.firstChild) {
@@ -183,14 +224,17 @@ i { float: right;}
 					}
 					cleanUp1st();
 					
-					console.log('nav chnage');
+					console.log('nav change');
 					var current = document.getElementsByClassName("active");
+					console.log(current)
 					current[0].className = current[0].className.replace(" active", "");
-					if(btn === "match3"){fetcher = 'https://portal.wanted5games.com/api/games?category=match-3&audience=&limit=100'; fetchFunc();  match3.classList.add("active");}
-						else if(btn === "bubbles") {fetcher = 'https://portal.wanted5games.com/api/games?category=bubble-shooter&audience=&limit=100'; fetchFunc(); bubbles.classList.add("active");}
-						else if(btn === "racing") { fetcher = 'https://portal.wanted5games.com/api/games?category=racing&audience=&limit=100'; fetchFunc(); racing.classList.add("active");}
-						else if(btn === "strategy") { fetcher = 'https://portal.wanted5games.com/api/games?category=strategy&audience=&limit=100'; fetchFunc(); strategy.classList.add("active");}
-						else if(btn === "dressUp") { fetcher = 'https://portal.wanted5games.com/api/games?category=dress-up&audience=&limit=100'; fetchFunc(); dressUp.classList.add("active");}
+                    if (btn === "puzzle") { fetcher = 'https://portal.wanted5games.com/api/games?category=match-3&audience=&limit=200'; puzzle.classList.add("active");  }
+                    else if (btn === "bubbles") { fetcher = 'https://portal.wanted5games.com/api/games?category=bubble-shooter&audience=&limit=100'; bubbles.classList.add("active"); }
+                    else if (btn === "racing") { fetcher = 'https://portal.wanted5games.com/api/games?category=racing&audience=&limit=100'; racing.classList.add("active"); }
+					else if (btn === "strategy") { fetcher = 'https://portal.wanted5games.com/api/games?category=strategy&audience=&limit=100'; strategy.classList.add("active"); }
+					else if (btn === "sports") { fetcher = 'https://portal.wanted5games.com/api/games?category=sports&audience=&limit=100'; sports.classList.add("active"); }
+                    titlePart.innerHTML = '<img src="https://guighostgames.com/assets/images/gabbylogo-80x80.png" /> ' + btn.toUpperCase() + " GAMES";
+					fetchFunc();
 				}
 				function viewLinks() {
 					var x = document.getElementById("myLinks");
@@ -200,8 +244,8 @@ i { float: right;}
 						x.style.display = "none";
 					  } else {
 						x.style.display = "block";
-					  }
-				}	
+					}
+				} 
 				
 			</script>
 		</div>
