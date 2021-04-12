@@ -17814,41 +17814,46 @@ farming.start = function () {
             else { codeField.value = "Invalid Code"; codeField.style.color = 'RED'; lime.scheduleManager.callAfter(function () { codeField.value = " "; codeField.style.color = 'Black'; }, this, 1000) };
         };
 
+           
+    CloudAPI.init({
+        'id': 1003,
+        'splash': false
+
+    });
+
+    CloudAPI.mute = function () {
+        lime.audio.setMute(true);
+        return true;
+    };
+
+    CloudAPI.unmute = function () {
+        var isMuted2 = parseInt(localStorage.getItem('GuiGhostFarms_muted'));
+        if (!isMuted2) {
+            lime.audio.setMute(false); themeSong.play(); localStorage.setItem('GuiGhostFarms_muted', 0);
+            setMute(2);
+        } else { lime.audio.setMute(true); setMute(1); localStorage.setItem('GuiGhostFarms_muted', 1) }
 
 
-            CloudAPI.mute = function () {
-                lime.audio.setMute(true); 
-                return true;
-            };
+        return true;
+    };
+    var logoActive = CloudAPI.logos.active();
+    if (logoActive) {
+        CloudAPI.logos.list();
+    }
+    //wanted 5 links
+    openLink = function () {
+        if (CloudAPI.links.active()) {
+            window.open(CloudAPI.links.list()['games']);
+        };
+        if (CloudAPI.links.active()) {
+            window.open(CloudAPI.links.list()['logo']);
+        }
 
-            CloudAPI.unmute = function () {
-                  var isMuted2 = parseInt(localStorage.getItem('GuiGhostFarms_muted'));
-                        if (!isMuted2) {
-                            lime.audio.setMute(false); themeSong.play();  localStorage.setItem('GuiGhostFarms_muted', 0);
-                            setMute(2);
-                        } else { lime.audio.setMute(true); setMute(1); localStorage.setItem('GuiGhostFarms_muted', 1) }
-                
-                
-                return true;
-            };
-            var logoActive = CloudAPI.logos.active();
-            if (logoActive) {
-                CloudAPI.logos.list();
-            }
-            //wanted 5 links
-            openLink = function () {
-                if (CloudAPI.links.active()) {
-                    window.open(CloudAPI.links.list()['games']);
-                };
-                if (CloudAPI.links.active()) {
-                    window.open(CloudAPI.links.list()['logo']);
-                }
-            
-            }
+    }
 
-            /////load logos
-            var logoActive = CloudAPI.logos.active();
-            console.log("Logo active = " + logoActive);
+    /////load logos
+    var logoActive = CloudAPI.logos.active();
+    console.log("Logo active = " + logoActive);
 
             //if (CloudAPI.logos.active()) {
             //    var logoImages = CloudAPI.logos.list();
@@ -17867,8 +17872,6 @@ farming.start = function () {
             //} else {
             //    var myobj = document.getElementById("logoBack");
             //    myobj.remove(); };
-
-
 
 
 
@@ -17900,4 +17903,6 @@ function getLocalStorage() {
 
 function writeLocalStorage(data) {
     Object.keys(data).forEach(function (key) { localStorage.setItem(key, data[key]) })
-}
+
+
+} 
