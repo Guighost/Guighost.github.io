@@ -1,7 +1,11 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Partners",
+    "\\Partners\\GameMonetize",
+    "\\Partners\\GameMonetize\\MedievalFarms_GameMonetize",
+    "\\Partners\\GameMonetize\\Stacker"
   ],
-  "SelectedNode": "\\index.html",
+  "SelectedNode": "\\Partners\\GameMonetize\\Stacker\\guiStack_New.js",
   "PreviewInSolutionExplorer": false
 }
