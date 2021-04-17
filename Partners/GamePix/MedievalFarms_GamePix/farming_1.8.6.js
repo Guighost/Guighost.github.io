@@ -16221,9 +16221,7 @@ farming.start = function () {
 
 
 
-    //gamePixLoading
-    myLoadingPercentage = 85;
-    GamePix.loading(myLoadingPercentage);
+    
 
 
 
@@ -17799,11 +17797,11 @@ farming.start = function () {
             else { codeField.value = "Invalid Code"; codeField.style.color = 'RED'; lime.scheduleManager.callAfter(function () { codeField.value = " "; codeField.style.color = 'Black'; }, this, 1000) };
         };
 
-           //gamePixLoading
-    myLoadingPercentage = 90;
-    GamePix.loading(myLoadingPercentage);
-};
 
+};
+           //gamePixLoading
+           myLoadingPercentage = 90;
+           GamePix.loading(myLoadingPercentage);
 //code functions
 
 
@@ -17831,9 +17829,7 @@ function writeLocalStorage(data) {
     Object.keys(data).forEach(function (key) { localStorage.setItem(key, data[key]) })
 }
 
-//gamePixLoading
-    myLoadingPercentage = 100;
-    GamePix.loading(myLoadingPercentage);
+
 
 //gamepix.pause
     GamePix.pause = function () { 
@@ -17879,7 +17875,7 @@ function showAd() {
                 lime.scheduleManager.callAfter(function () { localStorage.setItem('adWatched', 0); adWatched2 = 0; }, this, 400);
             }
             else if (acreDiscount3 === 1){
-                
+
             }
             else {
                 starCash = localStorage.getItem('starCash');
