@@ -1400,14 +1400,14 @@ var collectItems = {
 
 }
 
-if (typeof localStorage["GuiGhostFarms_playerItems"] === "undefined") { localStorage.setItem('GuiGhostFarms_playerItems', JSON.stringify(collectItems)); };
-collectItems = JSON.parse(localStorage.getItem('GuiGhostFarms_playerItems'));
+if (typeof localStorage["GuiGhostFarms_playerItems"] === "undefined") { GamePix.localStorage.setItem('GuiGhostFarms_playerItems', JSON.stringify(collectItems)); };
+collectItems = JSON.parse(GamePix.localStorage.getItem('GuiGhostFarms_playerItems'));
 
 
 var usedCodesArray = new Array();
 
-if (typeof localStorage["usedCodes"] === "undefined") { localStorage.setItem('usedCodes', JSON.stringify(usedCodesArray)); };
-usedCodesArray = JSON.parse(localStorage.getItem("usedCodes"))
+if (typeof localStorage["usedCodes"] === "undefined") { GamePix.localStorage.setItem('usedCodes', JSON.stringify(usedCodesArray)); };
+usedCodesArray = JSON.parse(GamePix.localStorage.getItem("usedCodes"))
 
 var upgradesInProgress = {
     buildings: [
@@ -1423,13 +1423,13 @@ var upgradesInProgress = {
 };
 
 
-if (typeof localStorage["MedFarm_upgradesInProgress"] === "undefined") { localStorage.setItem('MedFarm_upgradesInProgress', JSON.stringify(upgradesInProgress)); };
-upgradesInProgress = JSON.parse(localStorage.getItem('MedFarm_upgradesInProgress'));
+if (typeof localStorage["MedFarm_upgradesInProgress"] === "undefined") { GamePix.localStorage.setItem('MedFarm_upgradesInProgress', JSON.stringify(upgradesInProgress)); };
+upgradesInProgress = JSON.parse(GamePix.localStorage.getItem('MedFarm_upgradesInProgress'));
 
 if (!upgradesInProgress.buildings[5]) { console.log("in here"); upgradesInProgress.buildings.push({ index: 5, name: "HS", timeLeft: 0, currentBarnLevel: 1 }); };        
 if (!upgradesInProgress.buildings[6]) { upgradesInProgress.buildings.push({ index: 6, name: "WM", timeLeft: 0, currentBarnLevel: 1 }); };  
 if (!upgradesInProgress.buildings[7]) { upgradesInProgress.buildings.push({ index: 7, name: "ST", timeLeft: 0, currentBarnLevel: 1 }); };  
-localStorage.setItem('MedFarm_upgradesInProgress', JSON.stringify(upgradesInProgress));
+GamePix.localStorage.setItem('MedFarm_upgradesInProgress', JSON.stringify(upgradesInProgress));
 
 ///house upgrades
 var houseUpgrades = {
@@ -1468,8 +1468,8 @@ var houseUpgrades = {
 
 
 
-if (typeof localStorage["GuiGhostFarms_houseUpgrades"] === "undefined") { localStorage.setItem('GuiGhostFarms_houseUpgrades', JSON.stringify(houseUpgrades)); };
-houseUpgrades = JSON.parse(localStorage.getItem('GuiGhostFarms_houseUpgrades'));
+if (typeof localStorage["GuiGhostFarms_houseUpgrades"] === "undefined") { GamePix.localStorage.setItem('GuiGhostFarms_houseUpgrades', JSON.stringify(houseUpgrades)); };
+houseUpgrades = JSON.parse(GamePix.localStorage.getItem('GuiGhostFarms_houseUpgrades'));
 
 
 function checkHouseUpgradeState() { 
@@ -1543,12 +1543,12 @@ var questParamsHerald = {
 }
 
 var heraldOrderTop = 0
-if (typeof localStorage["MedFarms_heraldOrdersFilled"] === "undefined") { localStorage.setItem('MedFarms_heraldOrdersFilled', 0); };
-heraldOrderTop = parseInt(localStorage.getItem('MedFarms_heraldOrdersFilled'));
+if (typeof localStorage["MedFarms_heraldOrdersFilled"] === "undefined") { GamePix.localStorage.setItem('MedFarms_heraldOrdersFilled', 0); };
+heraldOrderTop = parseInt(GamePix.localStorage.getItem('MedFarms_heraldOrdersFilled'));
 
 var heraldIntroSeen = 0;
-if (typeof localStorage["MedFarms_heraldIntro"] === "undefined") { localStorage.setItem('MedFarms_heraldIntro', 0); };
-heraldIntroSeen = parseInt(localStorage.getItem('MedFarms_heraldIntro'));
+if (typeof localStorage["MedFarms_heraldIntro"] === "undefined") { GamePix.localStorage.setItem('MedFarms_heraldIntro', 0); };
+heraldIntroSeen = parseInt(GamePix.localStorage.getItem('MedFarms_heraldIntro'));
 
 
 var heraldOrder1 = 0;
@@ -1671,40 +1671,40 @@ var questParamsEva = {
     ],
 }
 var tutStep = 1;
-if (typeof localStorage["GuiGhostFarms_tutStep"] === "undefined") { localStorage.setItem('GuiGhostFarms_tutStep', 1); };
-tutStep = localStorage.getItem('GuiGhostFarms_tutStep')
+if (typeof localStorage["GuiGhostFarms_tutStep"] === "undefined") { GamePix.localStorage.setItem('GuiGhostFarms_tutStep', 1); };
+tutStep = GamePix.localStorage.getItem('GuiGhostFarms_tutStep')
 
 var tutSeen = 0;
-if (typeof localStorage["GuiGhostFarms_tutSeen"] === "undefined") { localStorage.setItem('GuiGhostFarms_tutSeen', 0); };
+if (typeof localStorage["GuiGhostFarms_tutSeen"] === "undefined") { GamePix.localStorage.setItem('GuiGhostFarms_tutSeen', 0); };
 tutSeen = parseInt(localStorage["GuiGhostFarms_tutSeen"]);
 
 var homeCrop = 0;
 var townRep = 0;
-if (typeof localStorage["MedFarms_townRep"] === "undefined") { localStorage.setItem('MedFarms_townRep', 0); };
-townRep = JSON.parse(localStorage.getItem('MedFarms_townRep'));
+if (typeof localStorage["MedFarms_townRep"] === "undefined") { GamePix.localStorage.setItem('MedFarms_townRep', 0); };
+townRep = JSON.parse(GamePix.localStorage.getItem('MedFarms_townRep'));
 
 var seenPremiumPromo = 0;
-if (typeof localStorage["MedFarms_seenPremiumPromo"] === "undefined") { localStorage.setItem('MedFarms_seenPremiumPromo', 0); };
-seenPremiumPromo = JSON.parse(localStorage.getItem('MedFarms_seenPremiumPromo'));
+if (typeof localStorage["MedFarms_seenPremiumPromo"] === "undefined") { GamePix.localStorage.setItem('MedFarms_seenPremiumPromo', 0); };
+seenPremiumPromo = JSON.parse(GamePix.localStorage.getItem('MedFarms_seenPremiumPromo'));
 
 
 
-if (typeof localStorage["adWatched"] === "undefined") { localStorage.setItem('adWatched', 0) };
+if (typeof localStorage["adWatched"] === "undefined") { GamePix.localStorage.setItem('adWatched', 0) };
 var adWatched = 0;
 
-if (typeof localStorage["showHighLight"] === "undefined") { localStorage.setItem('showHighLight', 0) };
-var showHighLight = localStorage.getItem('showHighLight');
+if (typeof localStorage["showHighLight"] === "undefined") { GamePix.localStorage.setItem('showHighLight', 0) };
+var showHighLight = GamePix.localStorage.getItem('showHighLight');
 
-if (typeof localStorage["GuiGhostFarms_muted"] === "undefined") { localStorage.setItem('GuiGhostFarms_muted', 0) };
+if (typeof localStorage["GuiGhostFarms_muted"] === "undefined") { GamePix.localStorage.setItem('GuiGhostFarms_muted', 0) };
 
 var selectedHomeCrop = 0;
-if (typeof localStorage["MedFarms_selectedHomeCrop"] === "undefined") { localStorage.setItem("MedFarms_selectedHomeCrop", 0); };
-selectedHomeCrop = localStorage.getItem("MedFarms_selectedHomeCrop");
-homeCrop = parseInt(localStorage.getItem("MedFarms_selectedHomeCrop"));
+if (typeof localStorage["MedFarms_selectedHomeCrop"] === "undefined") { GamePix.localStorage.setItem("MedFarms_selectedHomeCrop", 0); };
+selectedHomeCrop = GamePix.localStorage.getItem("MedFarms_selectedHomeCrop");
+homeCrop = parseInt(GamePix.localStorage.getItem("MedFarms_selectedHomeCrop"));
 if (homeCrop > 5 || isNaN(homeCrop) || homeCrop < 0) { homeCrop = 0; };
 
-localStorage.setItem('MedFarm_StarCashBoost', 0);
-localStorage.setItem("moreGamesClicked", 0);
+GamePix.localStorage.setItem('MedFarm_StarCashBoost', 0);
+GamePix.localStorage.setItem("moreGamesClicked", 0);
 
 var starCash = 5;
 var moneyBefore = 0;
@@ -1719,42 +1719,42 @@ var orchardText = "Apple Trees"
 var landStateMaster = new Array();
 var homeTreesLeft = 0;
 var homeTreesRight = 0
-localStorage.setItem('MedFarms_homeTreesLeft', 0);
-localStorage.setItem('MedFarms_homeTreesRight', 0);
-if (typeof localStorage["MedFarms_homeTreesLeft"] === "undefined") { localStorage.setItem('MedFarms_homeTreesLeft', 0) };
-homeTreesLeft = localStorage.getItem('MedFarms_homeTreesLeft');
+GamePix.localStorage.setItem('MedFarms_homeTreesLeft', 0);
+GamePix.localStorage.setItem('MedFarms_homeTreesRight', 0);
+if (typeof localStorage["MedFarms_homeTreesLeft"] === "undefined") { GamePix.localStorage.setItem('MedFarms_homeTreesLeft', 0) };
+homeTreesLeft = GamePix.localStorage.getItem('MedFarms_homeTreesLeft');
 
-if (typeof localStorage["MedFarms_homeTreesRight"] === "undefined") { localStorage.setItem('MedFarms_homeTreesRight', 0); };
-homeTreesRight = localStorage.getItem('MedFarms_homeTreesRight');
+if (typeof localStorage["MedFarms_homeTreesRight"] === "undefined") { GamePix.localStorage.setItem('MedFarms_homeTreesRight', 0); };
+homeTreesRight = GamePix.localStorage.getItem('MedFarms_homeTreesRight');
 
-if (typeof localStorage["landStates"] === "undefined") { localStorage.setItem('landStates', JSON.stringify(landStateMaster)); };
-landStateMaster = JSON.parse(localStorage.getItem('landStates'));
+if (typeof localStorage["landStates"] === "undefined") { GamePix.localStorage.setItem('landStates', JSON.stringify(landStateMaster)); };
+landStateMaster = JSON.parse(GamePix.localStorage.getItem('landStates'));
 
 var seen1stHouseNotif = 0;
-if (typeof localStorage["MedFarms_seen1stHouseNotif"] === "undefined") { localStorage.setItem('MedFarms_seen1stHouseNotif', 0) };
-seen1stHouseNotif = localStorage.getItem('MedFarms_seen1stHouseNotif');
+if (typeof localStorage["MedFarms_seen1stHouseNotif"] === "undefined") { GamePix.localStorage.setItem('MedFarms_seen1stHouseNotif', 0) };
+seen1stHouseNotif = GamePix.localStorage.getItem('MedFarms_seen1stHouseNotif');
 
 
 
-if (typeof localStorage["MedFarms_buyingSmallStars"] === "undefined") { localStorage.setItem('MedFarms_buyingSmallStars', 0) };
+if (typeof localStorage["MedFarms_buyingSmallStars"] === "undefined") { GamePix.localStorage.setItem('MedFarms_buyingSmallStars', 0) };
 
-if (typeof localStorage["MedFarms_buyingLargeStars"] === "undefined") { localStorage.setItem('MedFarms_buyingLargeStars', 0) };
+if (typeof localStorage["MedFarms_buyingLargeStars"] === "undefined") { GamePix.localStorage.setItem('MedFarms_buyingLargeStars', 0) };
 
-if (typeof localStorage["MedFarms_buyingStarterPack"] === "undefined") { localStorage.setItem('MedFarms_buyingStarterPack', 0) };
+if (typeof localStorage["MedFarms_buyingStarterPack"] === "undefined") { GamePix.localStorage.setItem('MedFarms_buyingStarterPack', 0) };
 
-if (typeof localStorage["MedFarms_buyingMasterPack"] === "undefined") { localStorage.setItem('MedFarms_buyingMasterPack', 0) };
+if (typeof localStorage["MedFarms_buyingMasterPack"] === "undefined") { GamePix.localStorage.setItem('MedFarms_buyingMasterPack', 0) };
 
 
 var itemCarryOver = -1;
-var showHighlight2 = localStorage.getItem('showHighLight');
+var showHighlight2 = GamePix.localStorage.getItem('showHighLight');
 var storeHouseUpgraded = 0;
-if (localStorage.getItem("storeHouseUpgraded") === "undefined") { localStorage.setItem("storeHouseUpgraded", 0); }
-storeHouseUpgraded = localStorage.getItem("storeHouseUpgraded");
+if (GamePix.localStorage.getItem("storeHouseUpgraded") === "undefined") { GamePix.localStorage.setItem("storeHouseUpgraded", 0); }
+storeHouseUpgraded = GamePix.localStorage.getItem("storeHouseUpgraded");
 var flourticker = 0;
 var flourWaiting = 0;
 var countPlanted = 0;
-if (typeof localStorage["countPlanted"] === "undefined") { localStorage.setItem("countPlanted", 0); }
-countPlanted = localStorage.getItem("countPlanted");
+if (typeof localStorage["countPlanted"] === "undefined") { GamePix.localStorage.setItem("countPlanted", 0); }
+countPlanted = GamePix.localStorage.getItem("countPlanted");
 
 //gamePixLoading
 myLoadingPercentage = 80;
@@ -1844,7 +1844,7 @@ var farming = {
             if (scene == 10) { b.currentCrop = 22 };
             var landStateThis = { name: landIdent, props: { state: parseInt(this.state), deathTime: 0, ripeTime: 0, crop: parseInt(b.currentCrop) } }
             landStateMaster.push(landStateThis);
-            localStorage.setItem("landStates", JSON.stringify(landStateMaster));
+            GamePix.localStorage.setItem("landStates", JSON.stringify(landStateMaster));
         }
         else {
             this.state = parseInt(landStateMaster[arrayIndex].props.state);
@@ -1888,7 +1888,7 @@ var farming = {
         var currentLandState = {};
         function growIt(d) {
             //if (tutSeen == 0) { break; }
-            homeCrop = parseInt(localStorage.getItem("MedFarms_selectedHomeCrop"));
+            homeCrop = parseInt(GamePix.localStorage.getItem("MedFarms_selectedHomeCrop"));
             homeCrop = Math.abs(homeCrop);
             //console.log(homeCrop + " homecrop")
             if (scene == 1 ) { b.currentCrop = homeCrop; };
@@ -1959,13 +1959,13 @@ var farming = {
                         
                             player.money = player.money - (a.crops[b.currentCrop].cost),
                             countPlanted = parseInt(countPlanted) + 1,
-                            localStorage.setItem("countPlanted", countPlanted),
+                            GamePix.localStorage.setItem("countPlanted", countPlanted),
                             a.updateMoney(),
                             a.displayCost(posX, posY, a.crops[b.currentCrop].cost),
                             arrayIndex2 = findWithAttr(landStateMaster, 'name', landIdent),
                              currentLandState = { state: c.state, deathTime: c.deathTime, ripeTime: c.ripeTime, crop: c.crop },
                              landStateMaster[arrayIndex2].props = currentLandState,
-                            localStorage.setItem("landStates", JSON.stringify(landStateMaster))
+                            GamePix.localStorage.setItem("landStates", JSON.stringify(landStateMaster))
                         )
                         : c.state == farming.PLOWED && player.money < a.crops[b.currentCrop].cost ?    ///player doesnt have enough to plant that crop
 
@@ -2034,7 +2034,7 @@ var farming = {
                         itemReceived = collectItems.digUpSells[randomItemNumber].name;
                         itemCarryOver = randomItemNumber;
                         collectItems.digUpSells[randomItemNumber].owned = 1;
-                        localStorage.setItem('GuiGhostFarms_playerItems', JSON.stringify(collectItems));
+                        GamePix.localStorage.setItem('GuiGhostFarms_playerItems', JSON.stringify(collectItems));
 
                         //console.log("random number was " + randomItemNumber + " and randomItemNumber was " + randomItemNumber + " and  item  name = " + itemReceived);
                         a.displayCollectible(posX, posY, itemReceived, false)
@@ -2073,11 +2073,11 @@ var farming = {
         var fromSCBoost = 0;
 			
 		lime.scheduleManager.scheduleWithDelay(function () {
-            adWatched2 = localStorage.getItem('adWatched')
-            fromSCBoost = localStorage.getItem('MedFarm_StarCashBoost');
-            if (adWatched2 == 1 && c.state == farming.GROWING && fromSCBoost == 0) { c.ripeTime = 0; lime.scheduleManager.callAfter(function () { localStorage.setItem('adWatched', 0); adWatched2 = 0; }, this, 400); }
+            adWatched2 = GamePix.localStorage.getItem('adWatched')
+            fromSCBoost = GamePix.localStorage.getItem('MedFarm_StarCashBoost');
+            if (adWatched2 == 1 && c.state == farming.GROWING && fromSCBoost == 0) { c.ripeTime = 0; lime.scheduleManager.callAfter(function () { GamePix.localStorage.setItem('adWatched', 0); adWatched2 = 0; }, this, 400); }
             //else {
-            //    setTimeout(function () { localStorage.setItem('MedFarm_StarCashBoost', 0); fromSCBoost = 0; }, 5000);
+            //    setTimeout(function () { GamePix.localStorage.setItem('MedFarm_StarCashBoost', 0); fromSCBoost = 0; }, 5000);
             //}
         }, this, 1000)
    
@@ -2138,7 +2138,7 @@ var farming = {
             var arrayIndexFinal = findWithAttr(landStateMaster, 'name', landIdent)
           
             landStateMaster[arrayIndexFinal].props = currentLandState2;
-            localStorage.setItem("landStates", JSON.stringify(landStateMaster));
+            GamePix.localStorage.setItem("landStates", JSON.stringify(landStateMaster));
 
 
        
@@ -2245,7 +2245,7 @@ lime.Director.prototype.invalidateSize_=function(){var a=goog.style.getSize(this
 };
 
 lime.Director.prototype.makeMobileWebAppCapable = function () {
-    var a = document.createElement("meta"); a.name = "apple-mobile-web-app-capable"; a.content = "yes"; document.getElementsByTagName("head").item(0).appendChild(a); a = document.createElement("meta"); a.name = "apple-mobile-web-app-status-bar-style"; a.content = "black"; document.getElementsByTagName("head").item(0).appendChild(a); a = !1; goog.isDef(localStorage) && localStorage.setItem("_lime_visited", !0);
+    var a = document.createElement("meta"); a.name = "apple-mobile-web-app-capable"; a.content = "yes"; document.getElementsByTagName("head").item(0).appendChild(a); a = document.createElement("meta"); a.name = "apple-mobile-web-app-status-bar-style"; a.content = "black"; document.getElementsByTagName("head").item(0).appendChild(a); a = !1; goog.isDef(localStorage) && GamePix.localStorage.setItem("_lime_visited", !0);
 };
 lime.Director.prototype.updateDomOffset_ = function () { this.domOffset = goog.style.getPageOffset(this.domElement.parentNode) };
 lime.Director.prototype.keyUpHandler_ = function (a) { a.altKey && "d" == String.fromCharCode(a.keyCode).toLowerCase() && (this.debugModeOn_ ? (goog.style.uninstallStyles(this.debugModeOn_), this.debugModeOn_ = null) : this.debugModeOn_ = goog.style.installStyles(".lime-scene div,.lime-scene img,.lime-scene canvas{border: 1px solid #c00;}"), a.stopPropagation(), a.preventDefault()) }; lime.Director.prototype.hitTest = function (a) { a && a.screenPosition && (a.position = this.screenToLocal(a.screenPosition)); return !0 };
@@ -2538,14 +2538,14 @@ cropsStored: [
 };
 
 
-if (typeof localStorage["GuiGhostFarms_player"] === "undefined") { localStorage.setItem('GuiGhostFarms_player', JSON.stringify(player));};
-player = JSON.parse(localStorage.getItem('GuiGhostFarms_player'));
+if (typeof localStorage["GuiGhostFarms_player"] === "undefined") { GamePix.localStorage.setItem('GuiGhostFarms_player', JSON.stringify(player));};
+player = JSON.parse(GamePix.localStorage.getItem('GuiGhostFarms_player'));
 
-localStorage.setItem("acreDiscount1", 0);
+GamePix.localStorage.setItem("acreDiscount1", 0);
 
 
-if (typeof localStorage["GuiGhostFarms_playerItems"] === "undefined") { localStorage.setItem('GuiGhostFarms_playerItems', JSON.stringify(collectItems)); };
-collectItems = JSON.parse(localStorage.getItem('GuiGhostFarms_playerItems'));
+if (typeof localStorage["GuiGhostFarms_playerItems"] === "undefined") { GamePix.localStorage.setItem('GuiGhostFarms_playerItems', JSON.stringify(collectItems)); };
+collectItems = JSON.parse(GamePix.localStorage.getItem('GuiGhostFarms_playerItems'));
 
 //var checkWoodType = Number.isInteger(player.cropsStored[14].stored);
 ////console.log("wood is integer " + checkWoodType);
@@ -2578,7 +2578,7 @@ if (parseInt(player.cropsStored[16].name) != "Jars") { player.cropsStored[16].na
 if (parseInt(player.cropsStored[17].name) != "Barrels") { player.cropsStored[17].name = "Barrels" };
 if (parseInt(player.cropsStored[22].name) != "Wheat") { player.cropsStored[17].name = "Wheat" };
 //added after 1.6 for misty thief issue
-localStorage.setItem('GuiGhostFarms_player', JSON.stringify(player));
+GamePix.localStorage.setItem('GuiGhostFarms_player', JSON.stringify(player));
 
 function validCropsStored(){
         for (i = 0; i < 25; i++){
@@ -2596,18 +2596,18 @@ function validCropsStored(){
             }
             catch (err) { console.log("error with crop number " + i); }
         }
-    localStorage.setItem('GuiGhostFarms_player', JSON.stringify(player));
+    GamePix.localStorage.setItem('GuiGhostFarms_player', JSON.stringify(player));
     }
 
 validCropsStored(); 
 
 
-localStorage.setItem('GuiGhostFarms_player', JSON.stringify(player));
+GamePix.localStorage.setItem('GuiGhostFarms_player', JSON.stringify(player));
 
 
 
 
-localStorage.setItem('MedFarm_LoadAd', 0);
+GamePix.localStorage.setItem('MedFarm_LoadAd', 0);
 
 var globalModalBlock = 0;
 
@@ -2628,20 +2628,20 @@ var barnUpInProgressLS = 0;
 var barnUpInProgressV = 0;
 
 if (typeof localStorage["MedFarm_orchardBarnLevel"] === "undefined") { localStorage["MedFarm_orchardBarnLevel"] = 0; orchardBarnLevel = 0;};
-orchardBarnLevel = localStorage.getItem("MedFarm_orchardBarnLevel");
+orchardBarnLevel = GamePix.localStorage.getItem("MedFarm_orchardBarnLevel");
 if (orchardBarnLevel < 0) { orchardBarnLevel = 0; };
 
 if (typeof localStorage["MedFarm_ciderPlaceOwned"] === "undefined") { localStorage["MedFarm_ciderPlaceOwned"] = 0; };
-var ciderEnabled = localStorage.getItem("MedFarm_ciderPlaceOwned")
+var ciderEnabled = GamePix.localStorage.getItem("MedFarm_ciderPlaceOwned")
 
 
 if (typeof localStorage["GuiGhostFarms_vinyardBlocks"] === "undefined") { localStorage["GuiGhostFarms_vinyardBlocks"] = 1;  };
-vinyardBlocks = localStorage.getItem["GuiGhostFarms_vinyardBlocks"];
+vinyardBlocks = GamePix.localStorage.getItem["GuiGhostFarms_vinyardBlocks"];
 if (typeof localStorage["GuiGhostFarms_vinyardBlocks2"] === "undefined") { localStorage["GuiGhostFarms_vinyardBlocks2"] = 1; };
-vinyardBlocks2 = localStorage.getItem["GuiGhostFarms_vinyardBlocks2"];
+vinyardBlocks2 = GamePix.localStorage.getItem["GuiGhostFarms_vinyardBlocks2"];
 
 if (typeof localStorage["GuiGhostFarms_vinyardHouseLevel"] === "undefined") { localStorage["GuiGhostFarms_vinyardHouseLevel"] = 1; };
-vinyardHouseLevel = parseInt(localStorage.getItem("GuiGhostFarms_vinyardHouseLevel"));
+vinyardHouseLevel = parseInt(GamePix.localStorage.getItem("GuiGhostFarms_vinyardHouseLevel"));
 if (typeof localStorage["GuiGhostFarms_orchardTreeBlock"] === "undefined") { localStorage["GuiGhostFarms_orchardTreeBlock"] = 1; };
 orchardTreeBlock = parseInt(localStorage["GuiGhostFarms_orchardTreeBlock"]);
 
@@ -2664,7 +2664,7 @@ toolsEver = parseInt(localStorage["GuiGhostFarms_toolsEver"]);
 var pickedEver = 0;
 if (typeof localStorage["GuiGhostFarms_pickedEver"] === "undefined") { localStorage["GuiGhostFarms_pickedEver"] = 0; };
 pickedEver = parseInt(localStorage["GuiGhostFarms_pickedEver"]);
-if (isNaN(pickedEver) ) { console.log("fix pickedEver"); pickedEver = 0; localStorage.setItem("GuiGhostFarms_pickedEver", 0); }
+if (isNaN(pickedEver) ) { console.log("fix pickedEver"); pickedEver = 0; GamePix.localStorage.setItem("GuiGhostFarms_pickedEver", 0); }
 pickedEver = parseInt(pickedEver);
 
 var moneyEver = 0;
@@ -2677,18 +2677,18 @@ boughtStarCash = parseInt(localStorage["GuiGhostFarms_boughtStarCash"]);
 
 var wmFieldCleared = 0;
 if (typeof localStorage["wmFieldCleared"] === "undefined") { localStorage["wmFieldCleared"] = 0; };
-wmFieldCleared = parseInt(localStorage.getItem("wmFieldCleared"));
+wmFieldCleared = parseInt(GamePix.localStorage.getItem("wmFieldCleared"));
 
 
 var onlyOnceUpdateNotif = 0;
-if (typeof localStorage["MedFarms_onlyOnceUpdateNotif"] === "undefined") { localStorage.setItem('MedFarms_onlyOnceUpdateNotif', 0); };
-onlyOnceUpdateNotif = localStorage.getItem("MedFarms_onlyOnceUpdateNotif");
+if (typeof localStorage["MedFarms_onlyOnceUpdateNotif"] === "undefined") { GamePix.localStorage.setItem('MedFarms_onlyOnceUpdateNotif', 0); };
+onlyOnceUpdateNotif = GamePix.localStorage.getItem("MedFarms_onlyOnceUpdateNotif");
 
 
-if (typeof localStorage["GuiGhostFarms_vinyardBlocks"] === "undefined") { localStorage.setItem('GuiGhostFarms_vinyardBlocks', 0); };
-if (typeof localStorage["GuiGhostFarms_vinyardBlocks2"] === "undefined") { localStorage.setItem('GuiGhostFarms_vinyardBlocks2', 0); };
-var isblocked1 = localStorage.getItem("GuiGhostFarms_vinyardBlocks");
-var isblocked2 = localStorage.getItem("GuiGhostFarms_vinyardBlocks2");
+if (typeof localStorage["GuiGhostFarms_vinyardBlocks"] === "undefined") { GamePix.localStorage.setItem('GuiGhostFarms_vinyardBlocks', 0); };
+if (typeof localStorage["GuiGhostFarms_vinyardBlocks2"] === "undefined") { GamePix.localStorage.setItem('GuiGhostFarms_vinyardBlocks2', 0); };
+var isblocked1 = GamePix.localStorage.getItem("GuiGhostFarms_vinyardBlocks");
+var isblocked2 = GamePix.localStorage.getItem("GuiGhostFarms_vinyardBlocks2");
 
 
 
@@ -2703,7 +2703,7 @@ farming.start = function () {
     
         var a = { width: 310, height: 540, tile_size: 30, num_tiles_x: 4, num_tiles_y: 4, landLayer_w: 320, landLayer_h: 388, controlsLayer_w: 320, controlsLayer_h: 70, costPlowing: 0, shop_margin_x: 50, shop_margin_y: 38 },
             b = { money: 500, currentCrop: 0 };
-        b.currentCrop = parseInt(localStorage.getItem("MedFarms_selectedHomeCrop"));
+        b.currentCrop = parseInt(GamePix.localStorage.getItem("MedFarms_selectedHomeCrop"));
         //console.log("bCrop is " + b.currentCrop);
         //if (b.currentCrop > 5 || b.currentCrop == 'null') { b.currentCrop = 0; }
         a.crops = [
@@ -2807,8 +2807,8 @@ farming.start = function () {
             0: false, 1: false, 2: false, 3: false, 4: false, 5: false, 6: false, 7: false, 8: false,
             9: false, 10: false, 11: false, 12: false, 13: false, 14: false, 15: false, 16: false
         }
-        if (typeof localStorage["GuiGhostFarms_achievements"] === "undefined") { localStorage.setItem('GuiGhostFarms_achievements', JSON.stringify(a.achievements)); };
-        a.achievements = JSON.parse(localStorage.getItem('GuiGhostFarms_achievements'));
+        if (typeof localStorage["GuiGhostFarms_achievements"] === "undefined") { GamePix.localStorage.setItem('GuiGhostFarms_achievements', JSON.stringify(a.achievements)); };
+        a.achievements = JSON.parse(GamePix.localStorage.getItem('GuiGhostFarms_achievements'));
 
         a.achieveText = [
             { index: 0, title: "Harvester I", sub: "Harvested 500 crops", reward: 5 },
@@ -2843,10 +2843,10 @@ farming.start = function () {
             { name: "StockPens", owned: 0, cost: 10000, text: "Livestock Pens" },
             { name: "Grain Fields", owned: 0, cost: 15000, text: "Grain Fields" }
         ];
-        if (typeof localStorage["GuiGhostFarms_acres"] === "undefined") { localStorage.setItem('GuiGhostFarms_acres', JSON.stringify(acres)); };
-        acres = JSON.parse(localStorage.getItem('GuiGhostFarms_acres'));
-        if (!acres[5]) { console.log("add acre"); acres.push({ name: "Grain Fields", owned: 0, cost: 15000, text: "Grain Fields" }); localStorage.setItem('GuiGhostFarms_acres', JSON.stringify(acres)); }
-        acres = JSON.parse(localStorage.getItem('GuiGhostFarms_acres'));
+        if (typeof localStorage["GuiGhostFarms_acres"] === "undefined") { GamePix.localStorage.setItem('GuiGhostFarms_acres', JSON.stringify(acres)); };
+        acres = JSON.parse(GamePix.localStorage.getItem('GuiGhostFarms_acres'));
+        if (!acres[5]) { console.log("add acre"); acres.push({ name: "Grain Fields", owned: 0, cost: 15000, text: "Grain Fields" }); GamePix.localStorage.setItem('GuiGhostFarms_acres', JSON.stringify(acres)); }
+        acres = JSON.parse(GamePix.localStorage.getItem('GuiGhostFarms_acres'));
         a.sceneBefore = 1;
 
 
@@ -2999,7 +2999,7 @@ farming.start = function () {
                 helpBtnH.setOpacity(1.0);
                 var isHidTut = tutModal.getHidden();
                 if (isHidTut) {
-                    tutStep = 7; localStorage.setItem('GuiGhostFarms_tutStep', 7);
+                    tutStep = 7; GamePix.localStorage.setItem('GuiGhostFarms_tutStep', 7);
                     homeBlock.setHidden(false);
                     tutModal.setHidden(false);
                     //tutModal.setFill(imgArray5[tutStep]);
@@ -3052,8 +3052,8 @@ farming.start = function () {
             if (compassVisible && acres[5].owned == 1) {
                 a.sceneBefore = 10;
                 homeCrop = parseInt(b.currentCrop);
-                if (homeCrop > 5 || isNaN(homeCrop) || homeCrop < 0) { homecrop = localStorage.getItem("MedFarms_selectedHomeCrop") };
-                localStorage.setItem("MedFarms_selectedHomeCrop", parseInt(homeCrop));
+                if (homeCrop > 5 || isNaN(homeCrop) || homeCrop < 0) { homecrop = GamePix.localStorage.getItem("MedFarms_selectedHomeCrop") };
+                GamePix.localStorage.setItem("MedFarms_selectedHomeCrop", parseInt(homeCrop));
                 hideAndDelayNavIcons();
                 c.replaceScene(windmillScene, lime.transitions.SlideInLeft);
                 sceneActive = 'Windmill';
@@ -3069,10 +3069,10 @@ farming.start = function () {
                 a.sceneBefore = 2;
                 closeAcresNav();
                 homeCrop = parseInt(b.currentCrop);
-                if (homeCrop > 5 || isNaN(homeCrop) || homeCrop < 0) { homecrop = localStorage.getItem("MedFarms_selectedHomeCrop") };
-                localStorage.setItem("MedFarms_selectedHomeCrop", parseInt(homeCrop));
+                if (homeCrop > 5 || isNaN(homeCrop) || homeCrop < 0) { homecrop = GamePix.localStorage.getItem("MedFarms_selectedHomeCrop") };
+                GamePix.localStorage.setItem("MedFarms_selectedHomeCrop", parseInt(homeCrop));
                 cowSound.play();
-                oldCrop = localStorage.getItem("MedFarms_selectedHomeCrop");
+                oldCrop = GamePix.localStorage.getItem("MedFarms_selectedHomeCrop");
                 b.currentCrop = 6;
                 globalModalBlock = 0;
                 homeBlock.setHidden(true);
@@ -3092,9 +3092,9 @@ farming.start = function () {
                 waterfallSound.play();
                 closeAcresNav();
                 homeCrop = parseInt(b.currentCrop);
-                if (homeCrop > 5 || isNaN(homeCrop) || homeCrop < 0) { homecrop = localStorage.getItem("MedFarms_selectedHomeCrop") };
-                localStorage.setItem("MedFarms_selectedHomeCrop", parseInt(homeCrop));
-                oldCrop = localStorage.getItem("MedFarms_selectedHomeCrop");
+                if (homeCrop > 5 || isNaN(homeCrop) || homeCrop < 0) { homecrop = GamePix.localStorage.getItem("MedFarms_selectedHomeCrop") };
+                GamePix.localStorage.setItem("MedFarms_selectedHomeCrop", parseInt(homeCrop));
+                oldCrop = GamePix.localStorage.getItem("MedFarms_selectedHomeCrop");
                 b.currentCrop = 8;
                 hideAndDelayNavIcons();
                 c.replaceScene(orchardScene, lime.transitions.SlideInRight);
@@ -3111,15 +3111,15 @@ farming.start = function () {
                 closeAcresNav();
                 a.sceneBefore = 4;
                 homeCrop = parseInt(b.currentCrop);
-                if (homeCrop > 5 || isNaN(homeCrop) || homeCrop < 0) { homecrop = localStorage.getItem("MedFarms_selectedHomeCrop") };
-                localStorage.setItem("MedFarms_selectedHomeCrop", homeCrop);
+                if (homeCrop > 5 || isNaN(homeCrop) || homeCrop < 0) { homecrop = GamePix.localStorage.getItem("MedFarms_selectedHomeCrop") };
+                GamePix.localStorage.setItem("MedFarms_selectedHomeCrop", homeCrop);
                 hideAndDelayNavIcons();
                 c.replaceScene(vinyardScene, lime.transitions.SlideInLeft);
                 b.currentCrop = 12;
                 sceneActive = 'Vineyard';
 
 
-                oldCrop = localStorage.getItem("MedFarms_selectedHomeCrop");
+                oldCrop = GamePix.localStorage.getItem("MedFarms_selectedHomeCrop");
                 b.currentCrop = 12;
                 lime.scheduleManager.callAfter(function () { checkShortage(); }, this, 2000);
                 globalModalBlock = 0;
@@ -3131,9 +3131,9 @@ farming.start = function () {
         goog.events.listen(lsNavH, ["mousedown", "touchstart"], function (e) {
             if (acres[4].owned == 1 && compassVisible) {
                 homeCrop = parseInt(b.currentCrop);
-                if (homeCrop > 5 || isNaN(homeCrop) || homeCrop < 0) { homecrop = localStorage.getItem("MedFarms_selectedHomeCrop") };
-                localStorage.setItem("MedFarms_selectedHomeCrop", homeCrop);
-                oldCrop = localStorage.getItem("MedFarms_selectedHomeCrop");
+                if (homeCrop > 5 || isNaN(homeCrop) || homeCrop < 0) { homecrop = GamePix.localStorage.getItem("MedFarms_selectedHomeCrop") };
+                GamePix.localStorage.setItem("MedFarms_selectedHomeCrop", homeCrop);
+                oldCrop = GamePix.localStorage.getItem("MedFarms_selectedHomeCrop");
                 closeAcresNav();
                 a.sceneBefore = 5;
                 ///from pature to Market
@@ -3185,8 +3185,8 @@ farming.start = function () {
             compassOBack.setHidden(true); compassHBack.setHidden(true); compassPBack.setHidden(true); compassVBack.setHidden(true); compassLSBack.setHidden(true);
             compassWMBack.setHidden(true);
             compassVisible = false;
-            isblocked1 = localStorage.getItem("GuiGhostFarms_vinyardBlocks");
-            isblocked2 = localStorage.getItem("GuiGhostFarms_vinyardBlocks2");
+            isblocked1 = GamePix.localStorage.getItem("GuiGhostFarms_vinyardBlocks");
+            isblocked2 = GamePix.localStorage.getItem("GuiGhostFarms_vinyardBlocks2");
             if (isblocked1 <= 1) {
                 vinyardTreeBlock1.setHidden(false);
                 treeUnlockBtnV.setHidden(false);
@@ -3206,9 +3206,9 @@ farming.start = function () {
             if (globalModalBlock == 0) {
                 var isMuted = lime.audio.getMute();
                 if (isMuted) {
-                    lime.audio.setMute(false); themeSong.play(true); localStorage.setItem('GuiGhostFarms_muted', 0)
+                    lime.audio.setMute(false); themeSong.play(true); GamePix.localStorage.setItem('GuiGhostFarms_muted', 0)
                     setMute(2);
-                } else { lime.audio.setMute(true); setMute(1); localStorage.setItem('GuiGhostFarms_muted', 1) }
+                } else { lime.audio.setMute(true); setMute(1); GamePix.localStorage.setItem('GuiGhostFarms_muted', 1) }
             }
         });
         function handleVisibilityChange() {
@@ -3217,12 +3217,12 @@ farming.start = function () {
 
             if (document.hidden) {
                 lime.audio.setMute(true);
-                localStorage.setItem('GuiGhostFarms_player', JSON.stringify(player));
-                localStorage.setItem('GuiGhostFarms_dayCount', dayCount);
-                localStorage.setItem('GuiGhostFarms_yearCount', yearCount);
-                localStorage.setItem('GuiGhostFarms_toolsEver', toolsEver);
-                localStorage.setItem('GuiGhostFarms_pickedEver', pickedEver);
-                localStorage.setItem('GuiGhostFarms_moneyEver', parseInt(moneyEver));
+                GamePix.localStorage.setItem('GuiGhostFarms_player', JSON.stringify(player));
+                GamePix.localStorage.setItem('GuiGhostFarms_dayCount', dayCount);
+                GamePix.localStorage.setItem('GuiGhostFarms_yearCount', yearCount);
+                GamePix.localStorage.setItem('GuiGhostFarms_toolsEver', toolsEver);
+                GamePix.localStorage.setItem('GuiGhostFarms_pickedEver', pickedEver);
+                GamePix.localStorage.setItem('GuiGhostFarms_moneyEver', parseInt(moneyEver));
 
 
 
@@ -3257,12 +3257,12 @@ farming.start = function () {
             liveStockCash.setText(player.money); orchardCash.setText(player.money); vinyardCash.setText(player.money);
             houseMoney.setText(player.money); marketSellCash.setText(player.money); wmCash.setText(player.money);
             inventoryCash.setText(player.money);
-            localStorage.setItem('GuiGhostFarms_player', JSON.stringify(player));
-            localStorage.setItem('GuiGhostFarms_dayCount', dayCount);
-            localStorage.setItem('GuiGhostFarms_yearCount', yearCount);
-            localStorage.setItem('GuiGhostFarms_toolsEver', toolsEver);
-            localStorage.setItem('GuiGhostFarms_pickedEver', parseInt(pickedEver));
-            localStorage.setItem('GuiGhostFarms_moneyEver', parseInt(moneyEver));
+            GamePix.localStorage.setItem('GuiGhostFarms_player', JSON.stringify(player));
+            GamePix.localStorage.setItem('GuiGhostFarms_dayCount', dayCount);
+            GamePix.localStorage.setItem('GuiGhostFarms_yearCount', yearCount);
+            GamePix.localStorage.setItem('GuiGhostFarms_toolsEver', toolsEver);
+            GamePix.localStorage.setItem('GuiGhostFarms_pickedEver', parseInt(pickedEver));
+            GamePix.localStorage.setItem('GuiGhostFarms_moneyEver', parseInt(moneyEver));
             if (player.money < (a.crops[b.currentCrop].cost) && warningSeen == 0) {
                 homeBlock.setHidden(false); pastureBlock.setHidden(false); orchardBlock.setHidden(false); lsBlock.setHidden(false); vinyardBlock.setHidden(false);
                 outOfCash.setHidden(false); marketBtn1.setHidden(false); buyStarCash.setHidden(false);
@@ -3513,7 +3513,7 @@ farming.start = function () {
 
             if (showHighLight == 1 || showHighlight2 == 1) {
                 showHighLight = 0; showHighLight2 = 0;
-                localStorage.setItem('showHighLight', 0);
+                GamePix.localStorage.setItem('showHighLight', 0);
                 tutModal.setHidden(true);
                 tutStep = parseInt(tutStep) + 1;
 
@@ -3526,7 +3526,7 @@ farming.start = function () {
         //    if (globalModalBlock == 0) {
         //        a.sceneBefore = 1;
         //        c.replaceScene(marketScene, lime.transitions.SlideInUp);
-        //        localStorage.setItem('showHighLight', 0);
+        //        GamePix.localStorage.setItem('showHighLight', 0);
         //        //clearInterval(refreshIntervalId);
         //        market.setFill("images/marketCoin.png");
         // 
@@ -3597,7 +3597,7 @@ farming.start = function () {
             starCashCountBoost.setText(starCash);
             changeSeeds.setHidden(true);
             glassCover.setHidden(true);
-            if (tutStep == 5) { tutStep = 6; localStorage.setItem('GuiGhostFarms_tutStep', 6); }
+            if (tutStep == 5) { tutStep = 6; GamePix.localStorage.setItem('GuiGhostFarms_tutStep', 6); }
 
         });
         ///change seeds
@@ -3883,7 +3883,7 @@ farming.start = function () {
                                 axeMoverLabelTH1.setHidden(true); upgradeCloudTH1.setHidden(true); secondsToUpgradeTH1 = 60;
                                 player.fields = player.fields + 1;
                                 homeTreesLeft = 1;
-                                localStorage.setItem('MedFarms_homeTreesLeft', 1);
+                                GamePix.localStorage.setItem('MedFarms_homeTreesLeft', 1);
 
                                 lime.scheduleManager.callAfter(function () {
                                     a.updateTools();
@@ -3892,7 +3892,7 @@ farming.start = function () {
                                 trees1.setHidden(true); treeUnlock1.setHidden(true); treeUnlockBtn.setHidden(true); axeHLeft.setHidden(true);
                                 player.cropsStored[14].stored = parseInt(player.cropsStored[14].stored) + 250;
                                 if (player.cropsStored[14].stored < 0) { player.cropsStored[14].stored = 250; }
-                                localStorage.setItem('GuiGhostFarms_player', JSON.stringify(player));
+                                GamePix.localStorage.setItem('GuiGhostFarms_player', JSON.stringify(player));
 
 
 
@@ -3973,7 +3973,7 @@ farming.start = function () {
                                 axeMoverLabelTH2.setHidden(true); upgradeCloudTH2.setHidden(true); secondsToUpgradeTH2 = 60;
                                 player.fields = player.fields + 1;
                                 homeTreesRight = 1;
-                                localStorage.setItem('MedFarms_homeTreesRight', 1);
+                                GamePix.localStorage.setItem('MedFarms_homeTreesRight', 1);
                                 //t.setHidden(false);
                                 lime.scheduleManager.callAfter(function () {
                                     a.updateTools();
@@ -3982,10 +3982,10 @@ farming.start = function () {
                                 player.cropsStored[14].stored = parseInt(player.cropsStored[14].stored) + 250;
 
                                 if (player.cropsStored[14].stored < 0) { player.cropsStored[14].stored = 250; }
-                                localStorage.setItem('GuiGhostFarms_player', JSON.stringify(player));
-                                localStorage.setItem('GuiGhostFarms_toolsEver', toolsEver);
-                                localStorage.setItem('GuiGhostFarms_pickedEver', parseInt(pickedEver));
-                                localStorage.setItem('GuiGhostFarms_moneyEver', moneyEver);
+                                GamePix.localStorage.setItem('GuiGhostFarms_player', JSON.stringify(player));
+                                GamePix.localStorage.setItem('GuiGhostFarms_toolsEver', toolsEver);
+                                GamePix.localStorage.setItem('GuiGhostFarms_pickedEver', parseInt(pickedEver));
+                                GamePix.localStorage.setItem('GuiGhostFarms_moneyEver', moneyEver);
                             }
 
                         }, this, 1000, 60)
@@ -4040,7 +4040,7 @@ farming.start = function () {
 
 
 
-        tutSeen = localStorage.getItem('GuiGhostFarms_tutSeen');
+        tutSeen = GamePix.localStorage.getItem('GuiGhostFarms_tutSeen');
 
         /// tutorial Modal
         var homeBlock = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(0, 0).setSize(a.width, a.height).setFill("#000F00").setOpacity(0.75).setHidden(true);
@@ -4109,8 +4109,8 @@ farming.start = function () {
 
             //console.log("visibleLink = " + visibleLink);
             if (visibleLink == false) {
-                localStorage.setItem('MedFarm_LoadAd', 1);
-                localStorage.setItem('MedFarm_StarCashBoost', 0);
+                GamePix.localStorage.setItem('MedFarm_LoadAd', 1);
+                GamePix.localStorage.setItem('MedFarm_StarCashBoost', 0);
                 lime.audio.setMute(true);
 
                 showAd();
@@ -4135,8 +4135,8 @@ farming.start = function () {
                 //console.log("clicked confirm SC");
                 if (starCash >= 3) {
                     adWatched2 = 1;
-                    localStorage.setItem('adWatched', 1)
-                    localStorage.setItem('MedFarm_StarCashBoost', 0);
+                    GamePix.localStorage.setItem('adWatched', 1)
+                    GamePix.localStorage.setItem('MedFarm_StarCashBoost', 0);
                     starCash = starCash - 3;
                     boostCrops.setHidden(true);
                     homeBlock.setHidden(true);
@@ -4154,7 +4154,7 @@ farming.start = function () {
             //console.log("visibleLink = " + visibleLink);
             if (visibleLink == false) {
                 //console.log("clicked cancel");
-                var isMuted22 = parseInt(localStorage.getItem('GuiGhostFarms_muted'));
+                var isMuted22 = parseInt(GamePix.localStorage.getItem('GuiGhostFarms_muted'));
                 if (isMuted22 == 1) { lime.audio.setMute(true); setMute(1); }
                 else { lime.audio.setMute(false); themeSong.play(true); smithSound.play(); setMute(2); }
                 homeBlock.setHidden(true);
@@ -4176,8 +4176,8 @@ farming.start = function () {
             sceneBefore = 1;
            
             //try {
-            //    seen1stHouseNotif = localStorage.getItem("MedFarms_seen1stHouseNotif");
-            //    if (seen1stHouseNotif != 0 || seen1stHouseNotif != 1) { seen1stHouseNotif = 0; localStorage.setItem("MedFarms_seen1stHouseNotif", 0); }
+            //    seen1stHouseNotif = GamePix.localStorage.getItem("MedFarms_seen1stHouseNotif");
+            //    if (seen1stHouseNotif != 0 || seen1stHouseNotif != 1) { seen1stHouseNotif = 0; GamePix.localStorage.setItem("MedFarms_seen1stHouseNotif", 0); }
             //    if (seen1stHouseNotif == 1) { questPanelHouse.setHidden(true); };
             //}
             //catch (err) { alert("check houseNotif Failed with ") + err }
@@ -4230,16 +4230,16 @@ farming.start = function () {
             swipeRightHint.setHidden(true);
             homeBlock.setHidden(true);
 
-            tutSeen = localStorage.getItem('GuiGhostFarms_tutSeen');
-            tutStep = parseInt(localStorage.getItem('GuiGhostFarms_tutStep'));
+            tutSeen = GamePix.localStorage.getItem('GuiGhostFarms_tutSeen');
+            tutStep = parseInt(GamePix.localStorage.getItem('GuiGhostFarms_tutStep'));
             console.log("tutstep IN = " + tutStep);
             if (tutStep != 1) { swipeRightHint2.setHidden(true); }
 
 
             if (tutStep >= 15) {
                 tutSeen = 1;
-                localStorage.setItem('GuiGhostFarms_tutSeen', 1);
-                localStorage.setItem('GuiGhostFarms_tutStep', 14);
+                GamePix.localStorage.setItem('GuiGhostFarms_tutSeen', 1);
+                GamePix.localStorage.setItem('GuiGhostFarms_tutStep', 14);
                 tutModal.setHidden(true);
                 homeBlock.setHidden(true);
                 swipeRightHint.setHidden(true);
@@ -4316,7 +4316,7 @@ farming.start = function () {
 
 
 
-                localStorage.setItem('GuiGhostFarms_tutStep', tutStep);
+                GamePix.localStorage.setItem('GuiGhostFarms_tutStep', tutStep);
             }
 
 
@@ -4429,9 +4429,9 @@ farming.start = function () {
 		 var salevis2 = confirmSale.getHidden();
 		if (!salevis2) {
 			console.log("visible detected try show ad")
-            localStorage.setItem("acreDiscount1", 1);
-            localStorage.setItem('MedFarm_LoadAd', 1);
-            localStorage.setItem('MedFarm_StarCashBoost', 0);
+            GamePix.localStorage.setItem("acreDiscount1", 1);
+            GamePix.localStorage.setItem('MedFarm_LoadAd', 1);
+            GamePix.localStorage.setItem('MedFarm_StarCashBoost', 0);
             
             showAd();
 			
@@ -4543,9 +4543,9 @@ farming.start = function () {
         });
 
         tutSeen = parseInt(localStorage["GuiGhostFarms_tutSeen"]);
-        onlyOnceUpdateNotif = localStorage.getItem("MedFarms_onlyOnceUpdateNotif");
+        onlyOnceUpdateNotif = GamePix.localStorage.getItem("MedFarms_onlyOnceUpdateNotif");
         //hide upgrade notification for 1.6
-        //if (tutSeen == 1 && onlyOnceUpdateNotif == 0) { upgradeNotif.setHidden(false); onlyOnceUpdateNotif = 1; localStorage.setItem("MedFarms_onlyOnceUpdateNotif", 1) }
+        //if (tutSeen == 1 && onlyOnceUpdateNotif == 0) { upgradeNotif.setHidden(false); onlyOnceUpdateNotif = 1; GamePix.localStorage.setItem("MedFarms_onlyOnceUpdateNotif", 1) }
 
         ///Crop Unlock Modal
         var unlockedCropBack = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(30, 150).setSize(250, 250).setFill(imgArray[78]);
@@ -4617,9 +4617,9 @@ farming.start = function () {
                 currentAcre4Sale = 1;
                 confirmText.setText("Dairy Farm 2500");
                 adDairyBuyText.setText("Get 10% off");
-                if (parseInt(player.money) >= 2500 || (parseInt(player.money) >= 2250 && localStorage.getItem("acreDiscount1") == 1)) {
+                if (parseInt(player.money) >= 2500 || (parseInt(player.money) >= 2250 && GamePix.localStorage.getItem("acreDiscount1") == 1)) {
                     confirmTextSub.setHidden(true); confirmBtn.setHidden(false);
-                    if (localStorage.getItem("acreDiscount1") == 1) { adDairyBuyText.setText("Discount Applied"); } else { adDairyBuyText.setText("Get 10% off"); }
+                    if (GamePix.localStorage.getItem("acreDiscount1") == 1) { adDairyBuyText.setText("Discount Applied"); } else { adDairyBuyText.setText("Get 10% off"); }
                 } else { confirmBtn.setHidden(true); }
             }
         });
@@ -4636,9 +4636,9 @@ farming.start = function () {
                 confirmText.setText("Fruit Orchard 5000");
                 adDairyBuyText.setText("Get 10% off");
                 homeBlock.setHidden(false); confirmSale.setHidden(false);
-                if (parseInt(player.money) >= 5000 || (parseInt(player.money) >= 4500 && localStorage.getItem("acreDiscount1") == 1)) {
+                if (parseInt(player.money) >= 5000 || (parseInt(player.money) >= 4500 && GamePix.localStorage.getItem("acreDiscount1") == 1)) {
                     confirmTextSub.setHidden(true); confirmBtn.setHidden(false); confirmText.setText("Fruit Orchard 4500");
-                    if (localStorage.getItem("acreDiscount1") == 1) { adDairyBuyText.setText("Discount Applied"); } else { adDairyBuyText.setText("Get 10% off"); confirmText.setText("Fruit Orchard 5000");}
+                    if (GamePix.localStorage.getItem("acreDiscount1") == 1) { adDairyBuyText.setText("Discount Applied"); } else { adDairyBuyText.setText("Get 10% off"); confirmText.setText("Fruit Orchard 5000");}
                    
                 } else { confirmBtn.setHidden(true); };
                 
@@ -4656,16 +4656,16 @@ farming.start = function () {
                     if (fsClicked == 1) {
                         acres[1].owned = 1;
                         var baseprice = 2500;
-                        var discountP = localStorage.getItem("acreDiscount1");
+                        var discountP = GamePix.localStorage.getItem("acreDiscount1");
                         if (discountP) { baseprice = 2250 };
                         player.money = player.money - baseprice;
                         a.sceneBefore = 2;
-                        localStorage.setItem("acreDiscount1", 0);
+                        GamePix.localStorage.setItem("acreDiscount1", 0);
                         homeCrop = parseInt(b.currentCrop);
-                        if (homeCrop > 5 || isNaN(homeCrop) || homeCrop < 0) { homecrop = localStorage.getItem("MedFarms_selectedHomeCrop") };
-                        localStorage.setItem("MedFarms_selectedHomeCrop", parseInt(homeCrop));
+                        if (homeCrop > 5 || isNaN(homeCrop) || homeCrop < 0) { homecrop = GamePix.localStorage.getItem("MedFarms_selectedHomeCrop") };
+                        GamePix.localStorage.setItem("MedFarms_selectedHomeCrop", parseInt(homeCrop));
                         cowSound.play();
-                        oldCrop = localStorage.getItem("MedFarms_selectedHomeCrop");
+                        oldCrop = GamePix.localStorage.getItem("MedFarms_selectedHomeCrop");
                         b.currentCrop = 6;
                         globalModalBlock = 0;
                         homeBlock.setHidden(true);
@@ -4687,19 +4687,19 @@ farming.start = function () {
                     if (fsClicked == 2) {
                         acres[2].owned = 1;
                         var baseprice = 5000;
-                        var discountP = localStorage.getItem("acreDiscount1");
+                        var discountP = GamePix.localStorage.getItem("acreDiscount1");
                         if (discountP) { baseprice = 4500 };
                         player.money = player.money - baseprice;
                         a.updateMoney();
                         roadRight.setHidden(false); forSaleO.setHidden(true); confirmSale.setHidden(true);
-                        localStorage.setItem("acreDiscount1", 0);
+                        GamePix.localStorage.setItem("acreDiscount1", 0);
                         a.sceneBefore = 3;
                         waterfallSound.play();
                         closeAcresNav();
                         homeCrop = parseInt(b.currentCrop);
-                        if (homeCrop > 5 || isNaN(homeCrop) || homeCrop < 0) { homecrop = localStorage.getItem("MedFarms_selectedHomeCrop") };
-                        localStorage.setItem("MedFarms_selectedHomeCrop", parseInt(homeCrop));
-                        oldCrop = localStorage.getItem("MedFarms_selectedHomeCrop");
+                        if (homeCrop > 5 || isNaN(homeCrop) || homeCrop < 0) { homecrop = GamePix.localStorage.getItem("MedFarms_selectedHomeCrop") };
+                        GamePix.localStorage.setItem("MedFarms_selectedHomeCrop", parseInt(homeCrop));
+                        oldCrop = GamePix.localStorage.getItem("MedFarms_selectedHomeCrop");
                         b.currentCrop = 8;
                         hideAndDelayNavIcons();
                         c.replaceScene(orchardScene, lime.transitions.SlideInRight);
@@ -4713,7 +4713,7 @@ farming.start = function () {
 
 
                     }
-                    localStorage.setItem('GuiGhostFarms_acres', JSON.stringify(acres));
+                    GamePix.localStorage.setItem('GuiGhostFarms_acres', JSON.stringify(acres));
                     fsclicked = 0;
                 }
             }
@@ -4825,7 +4825,7 @@ farming.start = function () {
 
                     player.cropsStored[14].stored = parseInt(player.cropsStored[14].stored) - parseInt(barnUpgradeCostWood);
                     if (player.cropsStored[14].stored < 0) { player.cropsStored[14].stored = 0; }
-                    localStorage.setItem('GuiGhostFarms_player', JSON.stringify(player));
+                    GamePix.localStorage.setItem('GuiGhostFarms_player', JSON.stringify(player));
 
                     lime.scheduleManager.callAfter(function () {
                         a.updateTools(); a.updateStored();
@@ -4858,7 +4858,7 @@ farming.start = function () {
                         secondsToUpgrade = secondsToUpgrade - 1;
                         upgradesInProgress.buildings[0].timeLeft = secondsToUpgrade;
                         upgradesInProgress.buildings[0].currentBarnLevel = player.barnLevel;
-                        localStorage.setItem('MedFarm_upgradesInProgress', JSON.stringify(upgradesInProgress));
+                        GamePix.localStorage.setItem('MedFarm_upgradesInProgress', JSON.stringify(upgradesInProgress));
 
                         toolMoverLabel.setText(secondsToUpgrade);
 
@@ -4875,9 +4875,9 @@ farming.start = function () {
                             //save upgrade in progress complete
                             upgradesInProgress.buildings[0].timeLeft = 0;
                             upgradesInProgress.buildings[0].currentBarnLevel = player.barnLevel;
-                            localStorage.setItem('MedFarm_upgradesInProgress', JSON.stringify(upgradesInProgress));
+                            GamePix.localStorage.setItem('MedFarm_upgradesInProgress', JSON.stringify(upgradesInProgress));
                             //console.log("Barn timer expired")
-                            localStorage.setItem('GuiGhostFarms_player', JSON.stringify(player));
+                            GamePix.localStorage.setItem('GuiGhostFarms_player', JSON.stringify(player));
 
                             toolMoverLabel.setHidden(true); scaffoldH.setHidden(true); upgradeCloud.setHidden(true); upgradeHomeBarnBtn.setHidden(true);
                             if (player.barnLevel == 2) {
@@ -5193,7 +5193,7 @@ farming.start = function () {
             var oneDay = 1000 * 60 * 60 * 24;
             var today = Math.floor(diff / oneDay);
             //console.log('Day of year: ' + today);
-            localStorage.setItem("lastLoginDay", today);
+            GamePix.localStorage.setItem("lastLoginDay", today);
             if (lastLoginDay > 0) {
                 console.log("lastloginday " + lastLoginDay)
                 console.log("today " + today)
@@ -5209,7 +5209,7 @@ farming.start = function () {
                     //been too long - start over on day 1 reward
                     dailyRewardLayer.setHidden(false);
                     daysInRow = 0;
-                    localStorage.setItem("daysInRow", 0);
+                    GamePix.localStorage.setItem("daysInRow", 0);
                     rewardCheck1.setHidden(false); day1.setFill("#00ff00"); rewardLabel1Txt2.setText("+100 Coins").setFontColor("#E8FC08");
                     rewardCheck2.setHidden(true); rewardCheck3.setHidden(true); rewardCheck4.setHidden(true);
                     rewardCheck5.setHidden(true); rewardCheck6.setHidden(true); rewardCheck7.setHidden(true);
@@ -5219,7 +5219,7 @@ farming.start = function () {
                     ///daily reward condition is met - show the rewards   
                     dailyRewardLayer.setHidden(false);
                     collectDaily.setHidden(false);
-                    if (daysInRow > 6) { daysInRow = 0; localStorage.setItem("daysInRow", 0); };
+                    if (daysInRow > 6) { daysInRow = 0; GamePix.localStorage.setItem("daysInRow", 0); };
 
                     switch (daysInRow) {
                         case 0: rewardLabel1Txt2.setText("+100 Coins").setFontColor("#E8FC08"); rewardCheck1.setHidden(false); day1.setFill("#00ff00");
@@ -5258,7 +5258,7 @@ farming.start = function () {
 
 
                 }
-                localStorage.setItem("lastLoginDay", today);
+                GamePix.localStorage.setItem("lastLoginDay", today);
             }
 
 
@@ -5280,7 +5280,7 @@ farming.start = function () {
 
             }
             daysInRow = parseInt(daysInRow) + 1;
-            localStorage.setItem("daysInRow", daysInRow);
+            GamePix.localStorage.setItem("daysInRow", daysInRow);
 
             starCash = parseInt(starCash) + dailyStars;
             document.getElementById("starCashOuterLabel").innerHTML = starCash;
@@ -5338,7 +5338,7 @@ farming.start = function () {
                                 function () {
                                     //console.log("crop = " + e)
                                     b.currentCrop = e; c.replaceScene(d);
-                                    localStorage.setItem("MedFarms_selectedHomeCrop", e);
+                                    GamePix.localStorage.setItem("MedFarms_selectedHomeCrop", e);
 
                                     sceneActive = 'Home';
                                     //var z = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(130, a.height - a.controlsLayer_h / 2 - 12).setFill("images/" + a.crops[e].harvest).setSize(a.tile_size * 1.2, a.tile_size * 1.2);
@@ -5362,7 +5362,7 @@ farming.start = function () {
                                 function () {
                                     //console.log("croplabel = " + e)
                                     b.currentCrop = e; c.replaceScene(d);
-                                    localStorage.setItem("MedFarms_selectedHomeCrop", e);
+                                    GamePix.localStorage.setItem("MedFarms_selectedHomeCrop", e);
                                     sceneActive = 'Home';
                                     //var z = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(130, a.height - a.controlsLayer_h / 2 - 12).setFill("images/" + a.crops[e].harvest).setSize(a.tile_size * 1.2, a.tile_size * 1.2);
                                     z.setFill("images/" + a.crops[e].harvest);
@@ -5395,15 +5395,15 @@ farming.start = function () {
         });
 
         lime.scheduleManager.scheduleWithDelay(function () {
-            if (countPlanted == 16 && tutStep == 3) { tutStep = 4; glassCover.setHidden(false).setFill(imgArray5[16]); localStorage.setItem('GuiGhostFarms_tutStep', tutStep); }
-            else if (countPlanted == 32 && tutStep == 4) { tutStep = 5; glassCover.setHidden(false).setFill(imgArray5[17]); localStorage.setItem('GuiGhostFarms_tutStep', tutStep); }
+            if (countPlanted == 16 && tutStep == 3) { tutStep = 4; glassCover.setHidden(false).setFill(imgArray5[16]); GamePix.localStorage.setItem('GuiGhostFarms_tutStep', tutStep); }
+            else if (countPlanted == 32 && tutStep == 4) { tutStep = 5; glassCover.setHidden(false).setFill(imgArray5[17]); GamePix.localStorage.setItem('GuiGhostFarms_tutStep', tutStep); }
             pickedEver = parseInt(localStorage["GuiGhostFarms_pickedEver"]);
             if (pickedEver == 32 && tutStep == 6 && moneyEver == 0 && tut6Seen == 0) {
 
                 tutStep = 6;
                 showHighLight = 1;
                 showHighLight2 = 1;
-                localStorage.setItem('showHighLight', 1)
+                GamePix.localStorage.setItem('showHighLight', 1)
                 tutModal.setFill(imgArray5[5]).setHidden(false);
 
 
@@ -5512,9 +5512,9 @@ farming.start = function () {
             if (globalModalBlock == 0) {
                 var isMuted = lime.audio.getMute();
                 if (isMuted) {
-                    lime.audio.setMute(false); themeSong.play(true); localStorage.setItem('GuiGhostFarms_muted', 0)
+                    lime.audio.setMute(false); themeSong.play(true); GamePix.localStorage.setItem('GuiGhostFarms_muted', 0)
                     setMute(2);
-                } else { lime.audio.setMute(true); setMute(1); localStorage.setItem('GuiGhostFarms_muted', 1) }
+                } else { lime.audio.setMute(true); setMute(1); GamePix.localStorage.setItem('GuiGhostFarms_muted', 1) }
             }
         });
 
@@ -5922,7 +5922,7 @@ farming.start = function () {
             player.cropsStored[7].stored = player.cropsStored[7].stored + milkWaiting;
             count7.setText(player.cropsStored[7].stored);
             gLabel7.setText(player.cropsStored[7].stored);
-            localStorage.setItem('GuiGhostFarms_player', JSON.stringify(player));
+            GamePix.localStorage.setItem('GuiGhostFarms_player', JSON.stringify(player));
             milkWaiting = 0;
 
 
@@ -5993,10 +5993,10 @@ farming.start = function () {
                 gLabel12.setText(player.cropsStored[12].stored);
                 gLabel16.setText(player.cropsStored[16].stored);
                 collectJellyLabel.setText("+ " + jellyWaiting);
-                localStorage.setItem('GuiGhostFarms_player', JSON.stringify(player));
-                localStorage.setItem('GuiGhostFarms_toolsEver', toolsEver);
-                localStorage.setItem('GuiGhostFarms_pickedEver', parseInt(pickedEver));
-                localStorage.setItem('GuiGhostFarms_moneyEver', moneyEver);
+                GamePix.localStorage.setItem('GuiGhostFarms_player', JSON.stringify(player));
+                GamePix.localStorage.setItem('GuiGhostFarms_toolsEver', toolsEver);
+                GamePix.localStorage.setItem('GuiGhostFarms_pickedEver', parseInt(pickedEver));
+                GamePix.localStorage.setItem('GuiGhostFarms_moneyEver', moneyEver);
                 checkAchieves2();
                 lime.scheduleManager.callAfter(function () { jellyUpCount.setHidden(false); jellyUpCount.setPosition(145, 320); jellyUpCount.setOpacity(1.0); }, this, 500);
                 lime.scheduleManager.callAfter(function () { jellyUpCount.setHidden(false); jellyUpCount.setPosition(145, 310); jellyUpCount.setOpacity(0.8); }, this, 1000);
@@ -6245,7 +6245,7 @@ farming.start = function () {
             player.money = (player.money - 12500);
             a.updateMoney();
             acres[3].owned = 1;
-            localStorage.setItem('GuiGhostFarms_acres', JSON.stringify(acres));
+            GamePix.localStorage.setItem('GuiGhostFarms_acres', JSON.stringify(acres));
             confirmSaleV.setHidden(true);
             roadLeft2.setHidden(false); forSaleV.setHidden(true); confirmSaleV.setHidden(true);
             pastureBlock.setHidden(true); vinyardBlock.setHidden(true);
@@ -6403,7 +6403,7 @@ farming.start = function () {
                 closeAcresNav();
                 a.sceneBefore = 1;
 
-                oldCrop = localStorage.getItem("MedFarms_selectedHomeCrop");
+                oldCrop = GamePix.localStorage.getItem("MedFarms_selectedHomeCrop");
                 homeCrop = parseInt(oldCrop);
                 z.setFill("images/" + a.crops[homeCrop].harvest);
                 w.setText("Plant " + a.crops[homeCrop].name);
@@ -6485,9 +6485,9 @@ farming.start = function () {
                 sceneActive = 'Pasture';
                 cowSound.play();
                 homeCrop = parseInt(b.currentCrop);
-                if (homeCrop > 5 || isNaN(homeCrop) || homeCrop < 0) { homeCrop = localStorage.getItem("MedFarms_selectedHomeCrop"); };
-                //localStorage.setItem("MedFarms_selectedHomeCrop", parseInt(homeCrop));
-                oldCrop = localStorage.getItem("MedFarms_selectedHomeCrop");
+                if (homeCrop > 5 || isNaN(homeCrop) || homeCrop < 0) { homeCrop = GamePix.localStorage.getItem("MedFarms_selectedHomeCrop"); };
+                //GamePix.localStorage.setItem("MedFarms_selectedHomeCrop", parseInt(homeCrop));
+                oldCrop = GamePix.localStorage.getItem("MedFarms_selectedHomeCrop");
                 b.currentCrop = 6;
                 sceneBefore = 2; cowSound.play();
 
@@ -6498,7 +6498,7 @@ farming.start = function () {
         ////from pasture to home
         goog.events.listen(roadRight2, ["mousedown", "touchstart"], function () {
             if (globalModalBlock == 0) {
-                oldCrop = localStorage.getItem("MedFarms_selectedHomeCrop");
+                oldCrop = GamePix.localStorage.getItem("MedFarms_selectedHomeCrop");
                 homeCrop = parseInt(oldCrop);
                 hideAndDelayNavIcons();
 
@@ -6507,9 +6507,9 @@ farming.start = function () {
                 c.replaceScene(d, lime.transitions.SlideInRight);
                 //setTimeout(function () { validCropsStored();}, 0);
                 sceneActive = 'Home';
-                //b.currentCrop = parseInt(localStorage.getItem("MedFarms_selectedHomeCrop"));
+                //b.currentCrop = parseInt(GamePix.localStorage.getItem("MedFarms_selectedHomeCrop"));
                 if (b.currentCrop > 5 || isNaN(b.currentCrop) || b.currentCrop < 0) {
-                    b.CurrentCrop = parseInt(localStorage.getItem("MedFarms_selectedHomeCrop"));
+                    b.CurrentCrop = parseInt(GamePix.localStorage.getItem("MedFarms_selectedHomeCrop"));
                     w.setText("Plant " + a.crops[b.currentCrop].name); z.setFill("images/" + a.crops[b.currentCrop].harvest); changeSeedsCrop.setFill("images/" + a.crops[b.currentCrop].harvest);
                 }
                 sceneBefore = 1;
@@ -6561,13 +6561,13 @@ farming.start = function () {
                         lime.scheduleManager.callAfter(function () { a.updateTools(); }, this, 100);
                         player.cropsStored[14].stored = parseInt(player.cropsStored[14].stored) + 500;
                         if (player.cropsStored[14].stored < 0) { player.cropsStored[14].stored = 500; }
-                        localStorage.setItem('GuiGhostFarms_player', JSON.stringify(player));
+                        GamePix.localStorage.setItem('GuiGhostFarms_player', JSON.stringify(player));
                         treeBlockP.setHidden(true);
                         axePRight.setHidden(true);
-                        localStorage.setItem('GuiGhostFarms_player', JSON.stringify(player));
-                        localStorage.setItem('GuiGhostFarms_toolsEver', toolsEver);
-                        localStorage.setItem('GuiGhostFarms_pickedEver', parseInt(pickedEver));
-                        localStorage.setItem('GuiGhostFarms_moneyEver', moneyEver);
+                        GamePix.localStorage.setItem('GuiGhostFarms_player', JSON.stringify(player));
+                        GamePix.localStorage.setItem('GuiGhostFarms_toolsEver', toolsEver);
+                        GamePix.localStorage.setItem('GuiGhostFarms_pickedEver', parseInt(pickedEver));
+                        GamePix.localStorage.setItem('GuiGhostFarms_moneyEver', moneyEver);
                     }
 
                 }, this, 1000, 60)
@@ -6649,7 +6649,7 @@ farming.start = function () {
                     player.tools = player.tools - toolCostP;
                     player.cropsStored[14].stored = parseInt(player.cropsStored[14].stored) - parseInt(woodCostP);
                     if (player.cropsStored[14].stored < 0) { player.cropsStored[14].stored = 0; }
-                    localStorage.setItem('GuiGhostFarms_player', JSON.stringify(player));
+                    GamePix.localStorage.setItem('GuiGhostFarms_player', JSON.stringify(player));
 
                     upgradeCloudP.setHidden(false);
                     scaffoldP.setHidden(false);
@@ -6675,7 +6675,7 @@ farming.start = function () {
                         toolMoverLabelP.setText(secondsToUpgradeP);
                         upgradesInProgress.buildings[1].timeLeft = secondsToUpgradeP;
                         upgradesInProgress.buildings[1].currentBarnLevel = player.pastureLevel;
-                        localStorage.setItem('MedFarm_upgradesInProgress', JSON.stringify(upgradesInProgress));
+                        GamePix.localStorage.setItem('MedFarm_upgradesInProgress', JSON.stringify(upgradesInProgress));
 
                         if (secondsToUpgradeP <= 0) { toolMoverLabelP.setHidden(true); scaffoldP.setHidden(true); upgradeCloudP.setHidden(true); secondsToUpgradeP = 120; }
 
@@ -6724,7 +6724,7 @@ farming.start = function () {
 
                             if (player.pastureLevel > 3) { player.pastureLevel = 3 };
 
-                            localStorage.setItem('GuiGhostFarms_player', JSON.stringify(player));
+                            GamePix.localStorage.setItem('GuiGhostFarms_player', JSON.stringify(player));
 
                             if (player.pastureLevel == 2) { pasUpLabel2.setText("Lvl 2/3 "); stallLeft.setHidden(false); barnUnlock3P.setHidden(false); };
                             if (player.pastureLevel >= 3) {
@@ -6742,7 +6742,7 @@ farming.start = function () {
 
                             upgradesInProgress.buildings[1].timeLeft = 0;
                             upgradesInProgress.buildings[1].currentBarnLevel = player.pastureLevel;
-                            localStorage.setItem('MedFarm_upgradesInProgress', JSON.stringify(upgradesInProgress));
+                            GamePix.localStorage.setItem('MedFarm_upgradesInProgress', JSON.stringify(upgradesInProgress));
                             barnUpInProgressPasture = 0;
                         }
                         catch (err) { console.log(err) }
@@ -6929,7 +6929,7 @@ farming.start = function () {
         //    player.tools = player.tools - 250;
         //    player.cropsStored[14].stored = parseInt(player.cropsStored[14].stored) - 200;
         //    if (player.cropsStored[14].stored < 0) { player.cropsStored[14].stored = 0 };
-        //    localStorage.setItem('GuiGhostFarms_player', JSON.stringify(player));
+        //    GamePix.localStorage.setItem('GuiGhostFarms_player', JSON.stringify(player));
         //    a.updateTools();
         //    currentRotateO = currentRotateO - 10;
         //    if (currentRotateO < -50) { currentRotateO = -10; }
@@ -6967,11 +6967,11 @@ farming.start = function () {
         //            scaffoldO.setHidden(true);
         //            upgradeCloudO.setHidden(true);
         //            orchardBarnLevel = 2;
-        //            localStorage.setItem("MedFarm_orchardBarnLevel", 2);
+        //            GamePix.localStorage.setItem("MedFarm_orchardBarnLevel", 2);
         //            barnLevelO.setText("Lvl 2/2");
         //            player.cropsStored[14].stored = parseInt(player.cropsStored[14].stored) - 200;
         //            if (player.cropsStored[14].stored < 0) { player.cropsStored[14].stored = 0; }
-        //            localStorage.setItem('GuiGhostFarms_player', JSON.stringify(player));
+        //            GamePix.localStorage.setItem('GuiGhostFarms_player', JSON.stringify(player));
 
         //            if (orchardBarnLevel == 2 && collectItems.storeItems[6].owned == 0) {
         //                questText1O.setText("If we had a FRUIT PRESS and some BARRELS, we could make CIDER");
@@ -7051,7 +7051,7 @@ farming.start = function () {
                         barnUnlockOBtn.setHidden(false);
                         barnUnlockOImg.setHidden(false);
                         orchardBarnLevel = 1;
-                        localStorage.setItem("MedFarm_orchardBarnLevel", 1);
+                        GamePix.localStorage.setItem("MedFarm_orchardBarnLevel", 1);
                         questText1O.setText("If you upgrade the barn, we can increase our harvests");
                         questPanelRocksO.setHidden(true);
                         questPanelAvatarO.setFill(imgArray4[1]);
@@ -7087,7 +7087,7 @@ farming.start = function () {
         var ciderPlaceBubbleImg = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(8, 17).setSize(30, 30).setFill(imgArray4[21]);
         ciderPlaceBubble.appendChild(ciderPlaceBubbleImg);
         if (ciderWaiting <= 0) { ciderPlaceBubble.setHidden(true); };
-        ciderEnabled = localStorage.getItem("MedFarm_ciderPlaceOwned");
+        ciderEnabled = GamePix.localStorage.getItem("MedFarm_ciderPlaceOwned");
         if (ciderEnabled == 1) { ciderPlace.setHidden(false); ciderPlaceBtn.setHidden(true); ciderPlace.setFill(imgArrayCiderPlace[0]); ciderPlace.owned = 1; }
 
 
@@ -7141,7 +7141,7 @@ farming.start = function () {
 
         goog.events.listen(ciderPlaceBtn, ["mousedown", "touchstart"], function () {
             var isciderplaceOwned = 0;
-            isciderplaceOwned = localStorage.getItem("MedFarm_ciderPlaceOwned")
+            isciderplaceOwned = GamePix.localStorage.getItem("MedFarm_ciderPlaceOwned")
             if (collectItems.storeItems[4].owned == 1 && isciderplaceOwned == 0) {
                 questPanelO.setHidden(false);
                 questText1O.setText("Put that FRUIT PRESS here. Place it now?");
@@ -7157,7 +7157,7 @@ farming.start = function () {
                     confirmCider.setHidden(true);
                     ciderPlace.owned = 1;
                     ciderEnabled = 1;
-                    localStorage.setItem("MedFarm_ciderPlaceOwned", 1)
+                    GamePix.localStorage.setItem("MedFarm_ciderPlaceOwned", 1)
                     ciderPlaceBtn.setHidden(true);
                 });
             }
@@ -7233,7 +7233,7 @@ farming.start = function () {
         orchardLayer.appendChild(waterMoving);
         var waterMoving2 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(120, 350).setSize(22, 44).setFill(a.waterfallImg[4].image);
         orchardLayer.appendChild(waterMoving2);
-        var orchardTreesHid = localStorage.getItem("GuiGhostFarms_orchardTreeBlock");
+        var orchardTreesHid = GamePix.localStorage.getItem("GuiGhostFarms_orchardTreeBlock");
         var tickWater = 0;
         a.waterAnim = function () {
             var imgW = 0;
@@ -7288,8 +7288,8 @@ farming.start = function () {
                         barnLevelO.setText("Lvl 2/2");
                     }
                     ///hide CiderPlace if trees not cleared
-                    orchardTreesHid = localStorage.getItem("GuiGhostFarms_orchardTreeBlock");
-                    orchardBarnLevel = localStorage.getItem("MedFarm_orchardBarnLevel");
+                    orchardTreesHid = GamePix.localStorage.getItem("GuiGhostFarms_orchardTreeBlock");
+                    orchardBarnLevel = GamePix.localStorage.getItem("MedFarm_orchardBarnLevel");
                     if (orchardTreesHid < 2) { ciderPlace.setHidden(true); ciderPlace.setHidden(true); ciderPlaceBtn.setHidden(true); }
                     else if (orchardTreesHid == 2 && orchardBarnLevel == 2) { ciderPlace.setHidden(false); ciderPlaceBtn.setHidden(false); ciderPlace.setFill(imgArray4[19]); }
 
@@ -7300,7 +7300,7 @@ farming.start = function () {
                     if (collectItems.storeItems[4].owned == 1 && ciderEnabled == 1 && player.cropsStored[17].stored < 1) { ciderPlaceNeedBarrels.setHidden(false); }
                     else if (collectItems.storeItems[4].owned == 1 && ciderEnabled == 1 && player.cropsStored[17].stored > 1) { ciderPlaceNeedBarrels.setHidden(true); }
                 }
-                ciderEnabled = localStorage.getItem("MedFarm_ciderPlaceOwned");
+                ciderEnabled = GamePix.localStorage.getItem("MedFarm_ciderPlaceOwned");
                 if (ciderEnabled == 1) { ciderPlace.setFill(imgArrayCiderPlace[0]); ciderPlaceBtn.setHidden(true); }
                 else { ciderPlace.setFill(imgArray4[19]); ciderPlaceBtn.setHidden(false); }
                 if (ciderEnabled && player.cropsStored[17].stored > 0) {
@@ -7366,7 +7366,7 @@ farming.start = function () {
 
 
 
-        orchardTreeBlock = localStorage.getItem("GuiGhostFarms_orchardTreeBlock");
+        orchardTreeBlock = GamePix.localStorage.getItem("GuiGhostFarms_orchardTreeBlock");
         try { goog.events.removeAll(treesImgO); } catch (err) { return; }
 
         goog.events.listen(treesImgO, ["mousedown", "touchstart"], function () {
@@ -7416,7 +7416,7 @@ farming.start = function () {
                                 orchardTreeBlockO.setHidden(true);
                                 player.cropsStored[14].stored = parseInt(player.cropsStored[14].stored) + 500;
                                 if (player.cropsStored[14].stored < 0) { player.cropsStored[14].stored = 500; }
-                                localStorage.setItem('GuiGhostFarms_player', JSON.stringify(player));
+                                GamePix.localStorage.setItem('GuiGhostFarms_player', JSON.stringify(player));
                                 //treeUnlockBtnO.setHidden(true);
 
                                 unlockedCropBackO.setHidden(false);
@@ -7667,9 +7667,9 @@ farming.start = function () {
 
         goog.events.listen(homeNavO, ["mousedown", "touchstart"], function () {
             if (compassVisible) {
-                b.currentCrop = parseInt(localStorage.getItem("MedFarms_selectedHomeCrop"));
+                b.currentCrop = parseInt(GamePix.localStorage.getItem("MedFarms_selectedHomeCrop"));
                 if (b.currentCrop > 5 || isNaN(b.currentCrop) || b.currentCrop < 0) {
-                    b.currentCrop = parseInt(localStorage.getItem("MedFarms_selectedHomeCrop"));
+                    b.currentCrop = parseInt(GamePix.localStorage.getItem("MedFarms_selectedHomeCrop"));
                     w.setText("Plant " + a.crops[b.currentCrop].name); z.setFill("images/" + a.crops[b.currentCrop].harvest); changeSeedsCrop.setFill("images/" + a.crops[b.currentCrop].harvest);
                 };
                 lime.scheduleManager.callAfter(function () { closeAcresNav(); }, this, 100);
@@ -7751,9 +7751,9 @@ farming.start = function () {
                     waterfallSound.play(true);
                     muteBtnO.setFill(imgArray[15]);
                     setMute(2);
-                    localStorage.setItem('GuiGhostFarms_muted', 0);
+                    GamePix.localStorage.setItem('GuiGhostFarms_muted', 0);
 
-                } else { lime.audio.setMute(true); setMute(1); localStorage.setItem('GuiGhostFarms_muted', 1) }
+                } else { lime.audio.setMute(true); setMute(1); GamePix.localStorage.setItem('GuiGhostFarms_muted', 1) }
             }
         });
         goog.events.listen(achieveBtnO, ["mousedown", "touchstart"], function () {
@@ -7907,7 +7907,7 @@ farming.start = function () {
             if (barnUpInProgressO == 0) {
                 barnUpInProgressO = 1;
                 if (player.cropsStored[14].stored < 0) { player.cropsStored[14].stored = 0 };
-                localStorage.setItem('GuiGhostFarms_player', JSON.stringify(player));
+                GamePix.localStorage.setItem('GuiGhostFarms_player', JSON.stringify(player));
                 lime.scheduleManager.callAfter(function () { a.updateTools(); }, this, 100);
                 currentRotateO = currentRotateO - 10;
                 if (currentRotateO < -50) { currentRotateO = -10; }
@@ -7934,7 +7934,7 @@ farming.start = function () {
                         secondsToUpgradeBarnO = secondsToUpgradeBarnO - 1;
                         upgradesInProgress.buildings[2].timeLeft = secondsToUpgradeBarnO;
                         upgradesInProgress.buildings[2].currentBarnLevel = orchardBarnLevel;
-                        localStorage.setItem('MedFarm_upgradesInProgress', JSON.stringify(upgradesInProgress));
+                        GamePix.localStorage.setItem('MedFarm_upgradesInProgress', JSON.stringify(upgradesInProgress));
                         toolMoverLabelO.setText(secondsToUpgradeBarnO);
                         quarterSecCountO = 0;
                     }
@@ -7951,17 +7951,17 @@ farming.start = function () {
                     if (secondsIntervalOrchard <= 0) {
                         upgradesInProgress.buildings[2].timeLeft = 0;
                         upgradesInProgress.buildings[2].currentBarnLevel = orchardBarnLevel;
-                        localStorage.setItem('MedFarm_upgradesInProgress', JSON.stringify(upgradesInProgress));
+                        GamePix.localStorage.setItem('MedFarm_upgradesInProgress', JSON.stringify(upgradesInProgress));
                         barnUpInProgressO = 0;
                         toolMoverLabelO.setHidden(true);
                         scaffoldO.setHidden(true);
                         upgradeCloudO.setHidden(true);
                         orchardBarnLevel = 2;
-                        localStorage.setItem("MedFarm_orchardBarnLevel", 2);
+                        GamePix.localStorage.setItem("MedFarm_orchardBarnLevel", 2);
                         barnLevelO.setText("Lvl 2/2");
                         player.cropsStored[14].stored = parseInt(player.cropsStored[14].stored) - 200;
                         if (player.cropsStored[14].stored < 0) { player.cropsStored[14].stored = 0; }
-                        localStorage.setItem('GuiGhostFarms_player', JSON.stringify(player));
+                        GamePix.localStorage.setItem('GuiGhostFarms_player', JSON.stringify(player));
 
                         if (orchardBarnLevel == 2 && collectItems.storeItems[6].owned == 0) {
                             questText1O.setText("If we had a FRUIT PRESS and some BARRELS, we could make CIDER");
@@ -8024,7 +8024,7 @@ farming.start = function () {
             player.money = player.money - 10000;
             a.updateMoney();
             acres[4].owned = 1;
-            localStorage.setItem('GuiGhostFarms_acres', JSON.stringify(acres));
+            GamePix.localStorage.setItem('GuiGhostFarms_acres', JSON.stringify(acres));
             confirmSaleLS.setHidden(true);
             roadRightO.setHidden(false); forSaleLS.setHidden(true); confirmSaleLS.setHidden(true); orchardBlock.setHidden(true);
             fsClicked = 0;
@@ -8356,10 +8356,10 @@ farming.start = function () {
                 homeCrop = b.currentCrop;
                 homeCrop = parseInt(homeCrop);
                 if (homeCrop > 5 || isNaN(homeCrop) || homeCrop < 0) {
-                    homeCrop = parseInt(localStorage.getItem("MedFarms_selectedHomeCrop"));
+                    homeCrop = parseInt(GamePix.localStorage.getItem("MedFarms_selectedHomeCrop"));
 
                 };
-                localStorage.setItem("MedFarms_selectedHomeCrop", parseInt(homeCrop));
+                GamePix.localStorage.setItem("MedFarms_selectedHomeCrop", parseInt(homeCrop));
                 oldCrop = b.currentCrop;
                 b.currentCrop = 8;
                 lime.scheduleManager.callAfter(function () { validCropsStored(); }, this, 100);
@@ -8372,12 +8372,12 @@ farming.start = function () {
                 hideAndDelayNavIcons();
                 c.replaceScene(d, lime.transitions.SlideInLeft); sceneBefore = 1; waterfallSound.stop();
                 sceneActive = 'Home';
-                b.currentCrop = parseInt(localStorage.getItem("MedFarms_selectedHomeCrop"));
+                b.currentCrop = parseInt(GamePix.localStorage.getItem("MedFarms_selectedHomeCrop"));
                 b.currentCrop = Math.abs(b.currentCrop);
                 if (b.currentCrop > 5 || isNaN(b.currentCrop) || b.currentCrop < 0) {
                     b.currentCrop = 0; w.setText("Plant " + a.crops[b.currentCrop].name); z.setFill("images/" + a.crops[b.currentCrop].harvest);
                 };
-                homeCrop = parseInt(localStorage.getItem("MedFarms_selectedHomeCrop"));
+                homeCrop = parseInt(GamePix.localStorage.getItem("MedFarms_selectedHomeCrop"));
                 lime.scheduleManager.callAfter(function () { validCropsStored(); }, this, 100);
             }
         });
@@ -8385,12 +8385,12 @@ farming.start = function () {
         //save & Quit
         goog.events.listen(saveQuit, ["mousedown", "touchstart"], function () {
 
-            localStorage.setItem('GuiGhostFarms_player', JSON.stringify(player));
-            localStorage.setItem('GuiGhostFarms_dayCount', dayCount);
-            localStorage.setItem('GuiGhostFarms_yearCount', yearCount);
-            localStorage.setItem('GuiGhostFarms_toolsEver', toolsEver);
-            localStorage.setItem('GuiGhostFarms_pickedEver', parseInt(pickedEver));
-            localStorage.setItem('GuiGhostFarms_moneyEver', moneyEver);
+            GamePix.localStorage.setItem('GuiGhostFarms_player', JSON.stringify(player));
+            GamePix.localStorage.setItem('GuiGhostFarms_dayCount', dayCount);
+            GamePix.localStorage.setItem('GuiGhostFarms_yearCount', yearCount);
+            GamePix.localStorage.setItem('GuiGhostFarms_toolsEver', toolsEver);
+            GamePix.localStorage.setItem('GuiGhostFarms_pickedEver', parseInt(pickedEver));
+            GamePix.localStorage.setItem('GuiGhostFarms_moneyEver', moneyEver);
             // window.open("../", "_self");
             
             c.replaceScene(introScene, lime.transitions.SlideInUp)
@@ -8412,28 +8412,28 @@ farming.start = function () {
                 player.cropsStored[12].stored = 0; player.cropsStored[13].stored = 0; player.cropsStored[14].stored = 0; player.cropsStored[15].stored = 200;
                 player.cropsStored[16].stored = 0; player.cropsStored[17].stored = 0; player.cropsStored[18].stored = 0; player.cropsStored[19].stored = 0;
                 player.cropsStored[20].stored = 0; player.cropsStored[21].stored = 0; player.cropsStored[22].stored = 0; player.cropsStored[23].stored = 0;
-                player.cropsStored[24].stored = 0; showHighLight = 0; showHighlight2 = 0; localStorage.setItem('GuiGhostFarms_player', JSON.stringify(player));
+                player.cropsStored[24].stored = 0; showHighLight = 0; showHighlight2 = 0; GamePix.localStorage.setItem('GuiGhostFarms_player', JSON.stringify(player));
                 dayCount = 1; yearCount = 1; toolsEver = 0; moneyEver = 0; pickedEver = parseInt(0); townRep = 0; ciderEnabled = 0; mayorReady = 0; friarReady = 0; feliciaReady = 0;
                 saraReady = 0; player.money = 500; player.tools = 50;
                 a.achievements[1] == false; a.achievements[2] == false; a.achievements[3] == false; a.achievements[4] == false; a.achievements[5] == false;
                 a.achievements[6] == false; a.achievements[7] == false; a.achievements[8] == false; a.achievements[9] == false; a.achievements[10] == false;
                 a.achievements[11] == false; a.achievements[12] == false; a.achievements[13] == false; a.achievements[14] == false; a.achievements[15] == false; a.achievements[16] == false;
-                //localStorage.setItem("MedFarm_orchardBarnLevel", 0);            //localStorage.setItem('GuiGhostFarms_achievements', JSON.stringify(a.achievements));            //localStorage.setItem('GuiGhostFarms_moneyEver', 0);
-                //localStorage.setItem('GuiGhostFarms_pickedEver', 0);            //localStorage.setItem('GuiGhostFarms_dayCount', 0);            //localStorage.setItem('GuiGhostFarms_yearCount', 1);
-                //localStorage.setItem('GuiGhostFarms_toolsEver', 0);            //localStorage.setItem('GuiGhostFarms_boughtStarCash', false);            //localStorage.removeItem('GuiGhostFarms_player');
-                //localStorage.removeItem('GuiGhostFarms_vinyardBlocks');            //localStorage.removeItem('GuiGhostFarms_vinyardBlocks2');            //localStorage.removeItem('GuiGhostFarms_vinyardHouseLevel');
-                //localStorage.removeItem('GuiGhostFarms_orchardTreeBlock');            //localStorage.removeItem('GuiGhostFarms_dayCount');            //localStorage.removeItem('GuiGhostFarms_yearCount');
-                //localStorage.removeItem('GuiGhostFarms_toolsEver');            //localStorage.removeItem('GuiGhostFarms_pickedEver');            //localStorage.removeItem('GuiGhostFarms_moneyEver');
-                //localStorage.removeItem('GuiGhostFarms_achievements');            //localStorage.removeItem('GuiGhostFarms_acres');            //localStorage.removeItem('GuiGhostFarms_boughtStarCash');
-                //localStorage.removeItem('GuiGhostFarms_coopLevel');            //localStorage.removeItem('GuiGhostFarms_tutSeen');            //localStorage.removeItem('GuiGhostFarms_houseUpgrades');
-                //localStorage.removeItem('showHighLight');            //localStorage.removeItem('landStates');            //localStorage.removeItem('GuiGhostFarms_muted');
-                //localStorage.removeItem('GuiGhostFarms_playerItems');            //localStorage.removeItem('MedFarm_StarCashBoost');            //localStorage.removeItem('MedFarm_LoadAd');
-                //localStorage.removeItem('adWatched');            //localStorage.removeItem('MedFarm_orchardBarnLevel');            //localStorage.removeItem('GuiGhostFarms_playerItems');
-                //localStorage.removeItem('MedFarm_StarCashBoost');            //localStorage.removeItem('MedFarm_ciderPlaceOwned');            //localStorage.removeItem('MedFarms_townRep');
-                //localStorage.removeItem('MedFarms_seenPremiumPromo');            //localStorage.removeItem('MedFarms_seen1stHouseNotif');            //localStorage.removeItem('MedFarm_Rewarded');
-                //localStorage.removeItem('MedFarms_homeTreesLeft');            //localStorage.removeItem('MedFarms_homeTreesRight');            //localStorage.removeItem("MedFarms_selectedHomeCrop");            //localStorage.removeItem('MedFarms_heraldOrdersFilled')
+                //GamePix.localStorage.setItem("MedFarm_orchardBarnLevel", 0);            //GamePix.localStorage.setItem('GuiGhostFarms_achievements', JSON.stringify(a.achievements));            //GamePix.localStorage.setItem('GuiGhostFarms_moneyEver', 0);
+                //GamePix.localStorage.setItem('GuiGhostFarms_pickedEver', 0);            //GamePix.localStorage.setItem('GuiGhostFarms_dayCount', 0);            //GamePix.localStorage.setItem('GuiGhostFarms_yearCount', 1);
+                //GamePix.localStorage.setItem('GuiGhostFarms_toolsEver', 0);            //GamePix.localStorage.setItem('GuiGhostFarms_boughtStarCash', false);            //GamePix.localStorage.removeItem('GuiGhostFarms_player');
+                //GamePix.localStorage.removeItem('GuiGhostFarms_vinyardBlocks');            //GamePix.localStorage.removeItem('GuiGhostFarms_vinyardBlocks2');            //GamePix.localStorage.removeItem('GuiGhostFarms_vinyardHouseLevel');
+                //GamePix.localStorage.removeItem('GuiGhostFarms_orchardTreeBlock');            //GamePix.localStorage.removeItem('GuiGhostFarms_dayCount');            //GamePix.localStorage.removeItem('GuiGhostFarms_yearCount');
+                //GamePix.localStorage.removeItem('GuiGhostFarms_toolsEver');            //GamePix.localStorage.removeItem('GuiGhostFarms_pickedEver');            //GamePix.localStorage.removeItem('GuiGhostFarms_moneyEver');
+                //GamePix.localStorage.removeItem('GuiGhostFarms_achievements');            //GamePix.localStorage.removeItem('GuiGhostFarms_acres');            //GamePix.localStorage.removeItem('GuiGhostFarms_boughtStarCash');
+                //GamePix.localStorage.removeItem('GuiGhostFarms_coopLevel');            //GamePix.localStorage.removeItem('GuiGhostFarms_tutSeen');            //GamePix.localStorage.removeItem('GuiGhostFarms_houseUpgrades');
+                //GamePix.localStorage.removeItem('showHighLight');            //GamePix.localStorage.removeItem('landStates');            //GamePix.localStorage.removeItem('GuiGhostFarms_muted');
+                //GamePix.localStorage.removeItem('GuiGhostFarms_playerItems');            //GamePix.localStorage.removeItem('MedFarm_StarCashBoost');            //GamePix.localStorage.removeItem('MedFarm_LoadAd');
+                //GamePix.localStorage.removeItem('adWatched');            //GamePix.localStorage.removeItem('MedFarm_orchardBarnLevel');            //GamePix.localStorage.removeItem('GuiGhostFarms_playerItems');
+                //GamePix.localStorage.removeItem('MedFarm_StarCashBoost');            //GamePix.localStorage.removeItem('MedFarm_ciderPlaceOwned');            //GamePix.localStorage.removeItem('MedFarms_townRep');
+                //GamePix.localStorage.removeItem('MedFarms_seenPremiumPromo');            //GamePix.localStorage.removeItem('MedFarms_seen1stHouseNotif');            //GamePix.localStorage.removeItem('MedFarm_Rewarded');
+                //GamePix.localStorage.removeItem('MedFarms_homeTreesLeft');            //GamePix.localStorage.removeItem('MedFarms_homeTreesRight');            //GamePix.localStorage.removeItem("MedFarms_selectedHomeCrop");            //GamePix.localStorage.removeItem('MedFarms_heraldOrdersFilled')
                 ////clear all local storage
-                localStorage.clear();
+                GamePix.localStorage.clear();
                 lime.scheduleManager.callAfter(function () { location.reload(); }, this, 750);
             } else {
                 alert("Whew! That was close!\n Your Farm is safe");
@@ -8445,9 +8445,9 @@ farming.start = function () {
 
         //    if (starCash > 5) {
         //        boughtStarCash = true;
-        //        player.money += 500; setTimeout(function () { a.updateMoney }, 0); localStorage.setItem('GuiGhostFarms_player', JSON.stringify(player));
+        //        player.money += 500; setTimeout(function () { a.updateMoney }, 0); GamePix.localStorage.setItem('GuiGhostFarms_player', JSON.stringify(player));
         //        starCash = starCash - 5;
-        //        localStorage.setItem('starCash', starCash);
+        //        GamePix.localStorage.setItem('starCash', starCash);
         //        successDiv.setHidden(false);
         //        successDiv.setText("+500 = $" + player.money);
         //    }
@@ -8460,7 +8460,7 @@ farming.start = function () {
             if (parseInt(a.sceneBefore) == 1) {
 
                 c.replaceScene(d, lime.transitions.SlideInDown);
-                b.currentCrop = parseInt(localStorage.getItem("MedFarms_selectedHomeCrop"));
+                b.currentCrop = parseInt(GamePix.localStorage.getItem("MedFarms_selectedHomeCrop"));
                 sceneActive = 'Home';
 
             }
@@ -8501,9 +8501,9 @@ farming.start = function () {
             if (isVisFBe == 'block') {
                 if (starCash >= 5) {
                     boughtStarCash = true;
-                    player.money += 500; a.updateMoney(); localStorage.setItem('GuiGhostFarms_player', JSON.stringify(player));
+                    player.money += 500; a.updateMoney(); GamePix.localStorage.setItem('GuiGhostFarms_player', JSON.stringify(player));
                     starCash = starCash - 5;
-                    localStorage.setItem('starCash', starCash);
+                    GamePix.localStorage.setItem('starCash', starCash);
                     document.getElementById("starCashOuterLabel").innerHTML = starCash;
                     sucessText.innerHTML = '+ 500 Coins';
                     sucessText.style.display = 'block';
@@ -8521,9 +8521,9 @@ farming.start = function () {
             if (isVisFBd == 'block') {
                 if (starCash >= 5) {
                     boughtStarCash = true;
-                    player.money += 500; a.updateMoney(); localStorage.setItem('GuiGhostFarms_player', JSON.stringify(player));
+                    player.money += 500; a.updateMoney(); GamePix.localStorage.setItem('GuiGhostFarms_player', JSON.stringify(player));
                     starCash = starCash - 5;
-                    localStorage.setItem('starCash', starCash);
+                    GamePix.localStorage.setItem('starCash', starCash);
                     document.getElementById("starCashOuterLabel").innerHTML = starCash;
                     sucessText.innerHTML = '+ 500 Coins';
                     sucessText.style.display = 'block';
@@ -8540,11 +8540,11 @@ farming.start = function () {
             if (isVisFBc == 'block') {
                 if (starCash >= 10) {
 
-                    player.tools += 500; localStorage.setItem('GuiGhostFarms_player', JSON.stringify(player));
+                    player.tools += 500; GamePix.localStorage.setItem('GuiGhostFarms_player', JSON.stringify(player));
                     starCash = starCash - 10;
                     lime.scheduleManager.callAfter(function () { a.updateTools(); }, this, 100);
 
-                    localStorage.setItem('starCash', starCash);
+                    GamePix.localStorage.setItem('starCash', starCash);
                     document.getElementById("starCashOuterLabel").innerHTML = starCash;
                     sucessText.innerHTML = '+ 500 Tools';
                     sucessText.style.display = 'block';
@@ -8563,10 +8563,10 @@ farming.start = function () {
             if (isVisFBb == 'block') {
                 if (starCash >= 10) {
 
-                    player.tools += 500; localStorage.setItem('GuiGhostFarms_player', JSON.stringify(player));
+                    player.tools += 500; GamePix.localStorage.setItem('GuiGhostFarms_player', JSON.stringify(player));
                     starCash = starCash - 10;
                     lime.scheduleManager.callAfter(function () { a.updateTools(); }, this, 100);
-                    localStorage.setItem('starCash', starCash);
+                    GamePix.localStorage.setItem('starCash', starCash);
                     document.getElementById("starCashOuterLabel").innerHTML = starCash;
                     sucessText.innerHTML = '+ 500 Tools';
                     sucessText.style.display = 'block';
@@ -8603,9 +8603,9 @@ farming.start = function () {
         }, false);
 
         function starCashViewAd() {
-            localStorage.setItem('GuiGhostFarms_player', JSON.stringify(player));
-            localStorage.setItem('MedFarm_StarCashBoost', 1);
-            //localStorage.setItem('MedFarm_LoadAd', 1);
+            GamePix.localStorage.setItem('GuiGhostFarms_player', JSON.stringify(player));
+            GamePix.localStorage.setItem('MedFarm_StarCashBoost', 1);
+            //GamePix.localStorage.setItem('MedFarm_LoadAd', 1);
 
             showAd();
             document.getElementById("fbshare").style.display = 'none';
@@ -8614,7 +8614,7 @@ farming.start = function () {
 
             lime.scheduleManager.callAfter(function () {
                 //document.getElementById("sucessbuyTxt").style.display = 'block';
-                starCash = localStorage.getItem('starCash');
+                starCash = GamePix.localStorage.getItem('starCash');
                 document.getElementById("starCashOuterLabel").innerHTML = starCash;
                 //document.getElementById("sucessbuyTxt").innerHTML = '+ 3 Stars';
                               
@@ -8641,7 +8641,7 @@ farming.start = function () {
                 homeBlock.setHidden(true); pastureBlock.setHidden(true); orchardBlock.setHidden(true); lsBlock.setHidden(true); vinyardBlock.setHidden(true);
                 globalModalBlock = 0;
                 showingStarCash = 0;
-                var mutedAtStart3 = localStorage.getItem('GuiGhostFarms_muted');
+                var mutedAtStart3 = GamePix.localStorage.getItem('GuiGhostFarms_muted');
                 //console.log("3 = " + mutedAtStart3)
                 if (mutedAtStart3 == 0) { lime.audio.setMute(false); themeSong.play(true); smithSound.play(); }
                 else { lime.audio.setMute(true); setMute(1) }
@@ -8656,7 +8656,7 @@ farming.start = function () {
                 globalModalBlock = 0;
 
                 showingStarCash = 0;
-                var mutedAtStart4 = localStorage.getItem('GuiGhostFarms_muted');
+                var mutedAtStart4 = GamePix.localStorage.getItem('GuiGhostFarms_muted');
                 //console.log(mutedAtStart4)
                 if (mutedAtStart4 == 0) { lime.audio.setMute(false); themeSong.play(true); smithSound.play(); }
                 else { lime.audio.setMute(true); setMute(1) }
@@ -8788,8 +8788,8 @@ farming.start = function () {
             itemInfoDetails2.setPosition(110, 90).setText('to see the details')
 
             if (parseInt(a.sceneBefore) == 1) {
-                b.currentCrop = parseInt(localStorage.getItem("MedFarms_selectedHomeCrop"));
-                homeCrop = parseInt(localStorage.getItem("MedFarms_selectedHomeCrop"));
+                b.currentCrop = parseInt(GamePix.localStorage.getItem("MedFarms_selectedHomeCrop"));
+                homeCrop = parseInt(GamePix.localStorage.getItem("MedFarms_selectedHomeCrop"));
 
                 c.replaceScene(d, lime.transitions.SlideInDown);
                 sceneActive = 'Home';
@@ -9405,7 +9405,7 @@ farming.start = function () {
 
                 lime.scheduleManager.callAfter(function () { a.updateMoney; a.updateStored(); checkTownRep(); }, this, 100);
                 buyGeneralItem2.setHidden(true);
-                localStorage.setItem('GuiGhostFarms_playerItems', JSON.stringify(collectItems));
+                GamePix.localStorage.setItem('GuiGhostFarms_playerItems', JSON.stringify(collectItems));
                 repositionStoreItems();
                 animateBuyItemNormal(2);
                 try {
@@ -9434,7 +9434,7 @@ farming.start = function () {
 
                 lime.scheduleManager.callAfter(function () { a.updateStored(); checkTownRep(); }, this, 100);
                 buyGeneralItem2.setHidden(true);
-                localStorage.setItem('GuiGhostFarms_playerItems', JSON.stringify(collectItems));
+                GamePix.localStorage.setItem('GuiGhostFarms_playerItems', JSON.stringify(collectItems));
                 repositionStoreItems();
                 animateBuyItemNormal(2);
                 try {
@@ -9494,7 +9494,7 @@ farming.start = function () {
 
                 lime.scheduleManager.callAfter(function () { a.updateMoney; a.updateStored(); checkTownRep(); }, this, 100);
                 buyGeneralItem3.setHidden(true);
-                localStorage.setItem('GuiGhostFarms_playerItems', JSON.stringify(collectItems));
+                GamePix.localStorage.setItem('GuiGhostFarms_playerItems', JSON.stringify(collectItems));
                 repositionStoreItems();
                 animateBuyItemNormal(3);
                 try {
@@ -9523,7 +9523,7 @@ farming.start = function () {
 
                 lime.scheduleManager.callAfter(function () { a.updateStored(); checkTownRep(); }, this, 100);
                 buyGeneralItem2.setHidden(true);
-                localStorage.setItem('GuiGhostFarms_playerItems', JSON.stringify(collectItems));
+                GamePix.localStorage.setItem('GuiGhostFarms_playerItems', JSON.stringify(collectItems));
                 repositionStoreItems();
                 animateBuyItemNormal(3);
                 try {
@@ -9584,7 +9584,7 @@ farming.start = function () {
                 lime.scheduleManager.callAfter(function () { a.updateMoney; a.updateStored(); checkTownRep(); }, this, 100);
                 buyGeneralItem4.setHidden(true);
                 buyGeneralItem6.setHidden(false);
-                localStorage.setItem('GuiGhostFarms_playerItems', JSON.stringify(collectItems));
+                GamePix.localStorage.setItem('GuiGhostFarms_playerItems', JSON.stringify(collectItems));
                 repositionStoreItems();
                 animateBuyItemNormal(4);
                 try {
@@ -9613,7 +9613,7 @@ farming.start = function () {
 
                 lime.scheduleManager.callAfter(function () { a.updateStored(); checkTownRep(); }, this, 100);
                 buyGeneralItem4.setHidden(true);;
-                localStorage.setItem('GuiGhostFarms_playerItems', JSON.stringify(collectItems));
+                GamePix.localStorage.setItem('GuiGhostFarms_playerItems', JSON.stringify(collectItems));
                 repositionStoreItems();
                 animateBuyItemNormal(4);
                 try {
@@ -9675,7 +9675,7 @@ farming.start = function () {
         //        checkTownRep();
 
         //      setTimeout(function () {a.updateStored()},0);
-        //        localStorage.setItem('GuiGhostFarms_playerItems', JSON.stringify(collectItems));
+        //        GamePix.localStorage.setItem('GuiGhostFarms_playerItems', JSON.stringify(collectItems));
         //        animateBuyItemNormal(5);
         // storeStars.setText(starCash);
         //    }
@@ -9692,7 +9692,7 @@ farming.start = function () {
         //        storeStars.setText(starCash);
         //        checkTownRep();
         //      setTimeout(function () {a.updateStored()},0);
-        //        localStorage.setItem('GuiGhostFarms_playerItems', JSON.stringify(collectItems));
+        //        GamePix.localStorage.setItem('GuiGhostFarms_playerItems', JSON.stringify(collectItems));
         //        animateBuyItemNormal(5);
         //    }
         //});
@@ -9734,7 +9734,7 @@ farming.start = function () {
                 checkItemsOwned()
 
                 lime.scheduleManager.callAfter(function () { a.updateMoney; a.updateStored(); checkTownRep(); }, this, 100);
-                localStorage.setItem('GuiGhostFarms_playerItems', JSON.stringify(collectItems));
+                GamePix.localStorage.setItem('GuiGhostFarms_playerItems', JSON.stringify(collectItems));
                 animateBuyItemNormal(6);
                 storeStars.setText(starCash);
                 e.event.stopPropagation();
@@ -9760,7 +9760,7 @@ farming.start = function () {
                 checkItemsOwned();
 
                 lime.scheduleManager.callAfter(function () { a.updateMoney; a.updateStored(); checkTownRep(); }, this, 100);
-                localStorage.setItem('GuiGhostFarms_playerItems', JSON.stringify(collectItems));
+                GamePix.localStorage.setItem('GuiGhostFarms_playerItems', JSON.stringify(collectItems));
                 animateBuyItemNormal(6);
                 storeStars.setText(starCash);
                 e.event.stopPropagation();
@@ -9769,7 +9769,7 @@ farming.start = function () {
                 });
             }
         });
-        collectItems = JSON.parse(localStorage.getItem('GuiGhostFarms_playerItems'));
+        collectItems = JSON.parse(GamePix.localStorage.getItem('GuiGhostFarms_playerItems'));
         if (collectItems.storeItems[4].owned == 0) { buyGeneralItem5.setHidden(true); buyGeneralItem6.setHidden(true); }
         else { buyGeneralItem6.setHidden(false); }
         repositionStoreItems();
@@ -9843,7 +9843,7 @@ farming.start = function () {
         buySmallStars.appendChild(buyPremiumItem2Img1);
         var buyPremiumItem2Img2 = (new lime.Sprite).setSize(30, 30).setPosition(70, -11).setFill(imgArray[41]);
         buySmallStars.appendChild(buyPremiumItem2Img2);
-        buySmallStars.owned = localStorage.getItem("MedFarms_boughtSmallStars");
+        buySmallStars.owned = GamePix.localStorage.getItem("MedFarms_boughtSmallStars");
         if (buySmallStars.owned == null) { buySmallStars.owned = 0; }
 
 
@@ -9863,7 +9863,7 @@ farming.start = function () {
                 var isHidStarS = buySmallStarsBtn.getHidden();
                 if (isHidStarS == false && isHidPreLayer1 == false) {
                     purchaseSound.play();
-                    localStorage.setItem('MedFarms_buyingSmallStars', 1);
+                    GamePix.localStorage.setItem('MedFarms_buyingSmallStars', 1);
                     buySmallStars.setOpacity(0.2);
                     buySmallStarsBtn.setHidden(true);
 
@@ -9882,7 +9882,7 @@ farming.start = function () {
         buyLargeStars.appendChild(buyPremiumItem3Img1);
         var buyPremiumItem3Img2 = (new lime.Sprite).setSize(30, 30).setPosition(70, -11).setFill(imgArray[44]);
         buyLargeStars.appendChild(buyPremiumItem3Img2);
-        buyLargeStars.owned = localStorage.getItem("MedFarms_boughtLargeStars");
+        buyLargeStars.owned = GamePix.localStorage.getItem("MedFarms_boughtLargeStars");
         if (buyLargeStars.owned == null) { buyLargeStars.owned = 0; }
 
         var buyPremiumLabel3 = (new lime.Label).setPosition(0, -10).setFontFamily("Comic Sans MS").setFontSize(16).setText("Star Pack II").setFontColor("#E8FC08");
@@ -9900,7 +9900,7 @@ farming.start = function () {
             var isHidStarL = buyLargeStarsBtn.getHidden();
             if (isHidStarL == false && isHidPreLayer2 == false) {
                 purchaseSound.play();
-                localStorage.setItem('MedFarms_buyingLargeStars', 1);
+                GamePix.localStorage.setItem('MedFarms_buyingLargeStars', 1);
                 buyLargeStars.setOpacity(0.2);
                 buyLargeStarsBtn.setHidden(true);
 
@@ -9912,7 +9912,7 @@ farming.start = function () {
         // starter pack
         var buyStarterPack = (new lime.Sprite).setSize(220, 96).setPosition(0, 12).setFill(imgArray[18].src);
         buyPremiumContainer.appendChild(buyStarterPack);
-        buyStarterPack.owned = localStorage.getItem("MedFarms_boughtStarterPack");
+        buyStarterPack.owned = GamePix.localStorage.getItem("MedFarms_boughtStarterPack");
         if (buyStarterPack.owned == null) { buyStarterPack.owned = 0; }
 
         var buyPremiumItem0Img1 = (new lime.Sprite).setSize(30, 30).setPosition(-60, -8).setFill(imgArrayStore[0].src);
@@ -9937,7 +9937,7 @@ farming.start = function () {
                 var isHidStarterBtn = buyStarterPackBtn.getHidden();
                 if (isHidStarterBtn == false && isHidPreLayer3 == false) {
                     purchaseSound.play();
-                    localStorage.setItem('MedFarms_buyingStarterPack', 1);
+                    GamePix.localStorage.setItem('MedFarms_buyingStarterPack', 1);
                     buyStarterPack.setOpacity(0.2);
                     buyStarterPackBtn.setHidden(true);
 
@@ -9949,7 +9949,7 @@ farming.start = function () {
 
         var buyMasterPack = (new lime.Sprite).setSize(220, 100).setPosition(0, 115).setFill(imgArray[18].src);
         buyPremiumContainer.appendChild(buyMasterPack);
-        buyMasterPack.owned = localStorage.getItem("MedFarms_boughtMasterPack")
+        buyMasterPack.owned = GamePix.localStorage.getItem("MedFarms_boughtMasterPack")
         if (buyMasterPack.owned == null) { buyMasterPack.owned = 0; }
 
         var buyPremiumItem1Img1 = (new lime.Sprite).setSize(30, 30).setPosition(-80, -10).setFill(imgArrayStore[0].src);
@@ -9977,7 +9977,7 @@ farming.start = function () {
                 var isHidMasterBtn = buyMasterPackBtn1.getHidden();
                 if (isHidPreLayer4 == false && isHidMasterBtn == false) {
                     purchaseSound.play();
-                    localStorage.setItem('MedFarms_buyingMasterPack', 1);
+                    GamePix.localStorage.setItem('MedFarms_buyingMasterPack', 1);
                     buyMasterPack.setOpacity(0.2);
                     buyMasterPackBtn1.setHidden(true);
                     storeStars.setText(starCash);
@@ -10134,7 +10134,7 @@ farming.start = function () {
         var storeOpenImg = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(-16.5, -16).setSize(33, 33).setFill(imgArrayTown[17].src);
         storeOpenBtn.appendChild(storeOpenImg);
         goog.events.listen(storeOpenBtn, ["mousedown", "touchstart"], function () {
-            collectItems = JSON.parse(localStorage.getItem('GuiGhostFarms_playerItems'));
+            collectItems = JSON.parse(GamePix.localStorage.getItem('GuiGhostFarms_playerItems'));
             //if (parseInt(collectItems.storeItems[4].owned) == 1) { buyGeneralItem4.setHidden(true); buyGeneralItem6.setHidden(false); buyGeneralItem6.setPosition(0,65); }
             //else { buyGeneralItem6.setHidden(true); }
             //if (collectItems.storeItems[4].owned == 1) { buyGeneralItem4.setHidden(true); buyGeneralItem6.setHidden(false); }
@@ -10510,7 +10510,7 @@ farming.start = function () {
             isHeHidG = gideon.getHidden();
 
             if (isHeHidG == false) {
-                heraldIntroSeen = parseInt(localStorage.getItem('MedFarms_heraldIntro'));
+                heraldIntroSeen = parseInt(GamePix.localStorage.getItem('MedFarms_heraldIntro'));
                 panelGideon.setHidden(false);
                 gideonPanelAvatar.setFill(imgArrayGideon[0]).setSize(100, 100);
 
@@ -10558,7 +10558,7 @@ farming.start = function () {
 
                                 heraldOrderTop = 11;
                                 tokenInvCount.setText(heraldOrderTop);
-                                localStorage.setItem("MedFarms_heraldOrdersFilled", heraldOrderTop);
+                                GamePix.localStorage.setItem("MedFarms_heraldOrdersFilled", heraldOrderTop);
                                 e.event.stopPropagation();
                                 e.swallow(['mouseup', 'touchend', 'touchcancel'], function (e) { });
                             }
@@ -10585,7 +10585,7 @@ farming.start = function () {
                     gideonNext.setHidden(false);
 
                     goog.events.listen(gideonNext, ["mousedown", "touchstart"], function (e) {
-                        localStorage.setItem('MedFarms_heraldIntro', 1);
+                        GamePix.localStorage.setItem('MedFarms_heraldIntro', 1);
                         heraldIntroSeen = 1;
                         gideonNext.setHidden(true);
                         gideonText1.setText("The King needs food to feed the people in Castle Town. Loyal subjects who tribute gain TOKENS of ROYAL FAVOR");
@@ -10656,7 +10656,7 @@ farming.start = function () {
                 heraldOrderTop = parseInt(heraldOrderTop) + 1;
                 heraldOrderTop = Math.abs(heraldOrderTop);
                 tokenInvCount.setText(heraldOrderTop);
-                localStorage.setItem("MedFarms_heraldOrdersFilled", heraldOrderTop);
+                GamePix.localStorage.setItem("MedFarms_heraldOrdersFilled", heraldOrderTop);
 
                 //check if should reward farm next time
                 if (heraldOrderTop == questParamsHerald.crops.length) {
@@ -11214,7 +11214,7 @@ farming.start = function () {
                 var whoIsIt = collectItems.digUpSells[whichItem].who;
                 if (whoIsIt == "Mayor") { mayorReady = 0; mayorQuest.setHidden(true); mayorQuestBtn.setHidden(true); }
                 if (whoIsIt == "Friar") { friarReady = 0; monkQuest.setHidden(true); monkQuestBtn.setHidden(true); }
-                localStorage.setItem('GuiGhostFarms_playerItems', JSON.stringify(collectItems));
+                GamePix.localStorage.setItem('GuiGhostFarms_playerItems', JSON.stringify(collectItems));
 
                 sellItem1.empty = true;
                 sellItem1.value = 0;
@@ -11246,7 +11246,7 @@ farming.start = function () {
 
                 var whichItem2 = sellItem2.collectNumber;
                 collectItems.digUpSells[whichItem2].owned = 0;
-                localStorage.setItem('GuiGhostFarms_playerItems', JSON.stringify(collectItems));
+                GamePix.localStorage.setItem('GuiGhostFarms_playerItems', JSON.stringify(collectItems));
                 var whoIsIt2 = collectItems.digUpSells[whichItem2].who;
                 if (whoIsIt2 == "Mayor") { mayorReady = 0; mayorQuest.setHidden(true); mayorQuestBtn.setHidden(true); }
                 if (whoIsIt2 == "Friar") { friarReady = 0; monkQuest.setHidden(true); monkQuestBtn.setHidden(true); }
@@ -11281,7 +11281,7 @@ farming.start = function () {
 
                 var whichItem3 = sellItem3.collectNumber;
                 collectItems.digUpSells[whichItem3].owned = 0;
-                localStorage.setItem('GuiGhostFarms_playerItems', JSON.stringify(collectItems));
+                GamePix.localStorage.setItem('GuiGhostFarms_playerItems', JSON.stringify(collectItems));
                 var whoIsIt3 = collectItems.digUpSells[whichItem3].who;
                 if (whoIsIt3 == "Mayor") { mayorReady = 0; mayorQuest.setHidden(true); mayorQuestBtn.setHidden(true); }
                 if (whoIsIt3 == "Friar") { friarReady = 0; monkQuest.setHidden(true); monkQuestBtn.setHidden(true); }
@@ -11312,7 +11312,7 @@ farming.start = function () {
 
                 var whichItem4 = sellItem4.collectNumber;
                 collectItems.digUpSells[whichItem4].owned = 0;
-                localStorage.setItem('GuiGhostFarms_playerItems', JSON.stringify(collectItems));
+                GamePix.localStorage.setItem('GuiGhostFarms_playerItems', JSON.stringify(collectItems));
                 var whoIsIt4 = collectItems.digUpSells[whichItem4].who;
                 if (whoIsIt4 == "Mayor") { mayorReady = 0; mayorQuest.setHidden(true); mayorQuestBtn.setHidden(true); }
                 if (whoIsIt4 == "Friar") { friarReady = 0; monkQuest.setHidden(true); monkQuestBtn.setHidden(true); }
@@ -11344,7 +11344,7 @@ farming.start = function () {
 
                 var whichItem5 = sellItem5.collectNumber;
                 collectItems.digUpSells[whichItem5].owned = 0;
-                localStorage.setItem('GuiGhostFarms_playerItems', JSON.stringify(collectItems));
+                GamePix.localStorage.setItem('GuiGhostFarms_playerItems', JSON.stringify(collectItems));
                 var whoIsIt5 = collectItems.digUpSells[whichItem5].who;
                 if (whoIsIt5 == "Mayor") { mayorReady = 0; mayorQuest.setHidden(true); mayorQuestBtn.setHidden(true); }
                 if (whoIsIt5 == "Friar") { friarReady = 0; monkQuest.setHidden(true); monkQuestBtn.setHidden(true); }
@@ -11375,7 +11375,7 @@ farming.start = function () {
 
                 var whichItem6 = sellItem6.collectNumber;
                 collectItems.digUpSells[whichItem6].owned = 0;
-                localStorage.setItem('GuiGhostFarms_playerItems', JSON.stringify(collectItems));
+                GamePix.localStorage.setItem('GuiGhostFarms_playerItems', JSON.stringify(collectItems));
                 var whoIsIt6 = collectItems.digUpSells[whichItem6].who;
                 if (whoIsIt6 == "Mayor") { mayorReady = 0; mayorQuest.setHidden(true); mayorQuestBtn.setHidden(true); }
                 if (whoIsIt6 == "Friar") { friarReady = 0; monkQuest.setHidden(true); monkQuestBtn.setHidden(true); }
@@ -11411,7 +11411,7 @@ farming.start = function () {
 
         function checkTownRep() {
             townRepScore.setText(townRep);
-            localStorage.setItem('MedFarms_townRep', townRep);
+            GamePix.localStorage.setItem('MedFarms_townRep', townRep);
             if (townRep >= 5) { townRepTitle.setText("Local Farmer") };
             if (townRep >= 15) { townRepTitle.setText("Trusted Resident") };
             if (townRep >= 30) { townRepTitle.setText("Local Leader") };
@@ -11424,7 +11424,7 @@ farming.start = function () {
         var closePremiumBtn = (new lime.GlossyButton).setColor("#663300").setText("Close").setPosition(60, 315).setSize(80, 25);
         goPremiumBack.appendChild(closePremiumBtn);
 
-        seenPremiumPromo = JSON.parse(localStorage.getItem('MedFarms_seenPremiumPromo'));
+        seenPremiumPromo = JSON.parse(GamePix.localStorage.getItem('MedFarms_seenPremiumPromo'));
         if (seenPremiumPromo == 1) { goPremiumBack.setHidden(true); }
         else {
             /////only add listeners to the promo if they have not seen it before
@@ -11440,7 +11440,7 @@ farming.start = function () {
                 buyGeneralContainer.setHidden(true);
                 storeBuyPremiumLayer.setHidden(false);
                 seenPremiumPromo = 1;
-                localStorage.setItem('MedFarms_seenPremiumPromo', 1);
+                GamePix.localStorage.setItem('MedFarms_seenPremiumPromo', 1);
 
 
                 event.stopPropagation();
@@ -11450,7 +11450,7 @@ farming.start = function () {
             goog.events.listen(closePremiumBtn, ["mousedown", "touchstart"], function (event) {
                 goPremiumBack.setHidden(true);
                 seenPremiumPromo = 1;
-                localStorage.setItem('MedFarms_seenPremiumPromo', 1);
+                GamePix.localStorage.setItem('MedFarms_seenPremiumPromo', 1);
                 event.stopPropagation();
             });
         }
@@ -11800,8 +11800,8 @@ farming.start = function () {
             a.updateMoney();
             hideAndDelayNavIcons();
             if (parseInt(a.sceneBefore) == 1) {
-                b.currentCrop = parseInt(localStorage.getItem("MedFarms_selectedHomeCrop"));
-                homeCrop = parseInt(localStorage.getItem("MedFarms_selectedHomeCrop"));
+                b.currentCrop = parseInt(GamePix.localStorage.getItem("MedFarms_selectedHomeCrop"));
+                homeCrop = parseInt(GamePix.localStorage.getItem("MedFarms_selectedHomeCrop"));
                 c.replaceScene(d, lime.transitions.SlideInDown);
                 sceneActive = 'Home';
 
@@ -11828,8 +11828,8 @@ farming.start = function () {
             }
             else {
 
-                b.currentCrop = parseInt(localStorage.getItem("MedFarms_selectedHomeCrop"));
-                homeCrop = parseInt(localStorage.getItem("MedFarms_selectedHomeCrop"));
+                b.currentCrop = parseInt(GamePix.localStorage.getItem("MedFarms_selectedHomeCrop"));
+                homeCrop = parseInt(GamePix.localStorage.getItem("MedFarms_selectedHomeCrop"));
                 c.replaceScene(d, lime.transitions.SlideInDown); sceneActive = 'Home';
             }
             townLayer.setHidden(false);
@@ -11968,7 +11968,7 @@ farming.start = function () {
             if (!isNaN(checkIT)) { player.money = player.money + cropSaleCurrentPrice; }
 
             moneyEver = moneyEver + cropSaleCurrentPrice;
-            //localStorage.setItem('showHighLight', 0);
+            //GamePix.localStorage.setItem('showHighLight', 0);
             localStorage["GuiGhostFarms_moneyEver"] = moneyEver;
             purchaseSound.play();
             howManyBack.setHidden(true);
@@ -12028,10 +12028,10 @@ farming.start = function () {
         lime.audio.setMute(true);
         goog.events.listen(playGameBtn, ["mousedown", "touchstart"], function () {
             lime.audio.setMute(false);
-            b.currentCrop = parseInt(localStorage.getItem("MedFarms_selectedHomeCrop"));
-            homeCrop = parseInt(localStorage.getItem("MedFarms_selectedHomeCrop"));
+            b.currentCrop = parseInt(GamePix.localStorage.getItem("MedFarms_selectedHomeCrop"));
+            homeCrop = parseInt(GamePix.localStorage.getItem("MedFarms_selectedHomeCrop"));
 
-            var mutedAtStart = localStorage.getItem('GuiGhostFarms_muted')
+            var mutedAtStart = GamePix.localStorage.getItem('GuiGhostFarms_muted')
             if (mutedAtStart == 0) { lime.audio.setMute(false); themeSong.play(true); smithSound.play(); }
             else { lime.audio.setMute(true); setMute(1) }
             hideAndDelayNavIcons();
@@ -12059,7 +12059,7 @@ farming.start = function () {
         });
 
         //goog.events.listen(moreGameBtn, ["mousedown", "touchstart"], function () {
-        //    localStorage.setItem("moreGamesClicked", 1);
+        //    GamePix.localStorage.setItem("moreGamesClicked", 1);
 
         //});
 
@@ -12182,7 +12182,7 @@ farming.start = function () {
                         toolMoverLabelLS.setText(secondsToUpgradeLS);
                         upgradesInProgress.buildings[4].timeLeft = secondsToUpgradeLS;
                         upgradesInProgress.buildings[4].currentBarnLevel = 1;
-                        localStorage.setItem('MedFarm_upgradesInProgress', JSON.stringify(upgradesInProgress));
+                        GamePix.localStorage.setItem('MedFarm_upgradesInProgress', JSON.stringify(upgradesInProgress));
                         if (secondsToUpgradeLS <= 0) {
                             toolMoverLabelLS.setHidden(true); scaffoldLS.setHidden(true); upgradeCloudLS.setHidden(true); secondsToUpgradeLS = 60;
                             liveStockBack.setFill("images/livestockPens/livestockPensBackUpCoop-1.png");
@@ -12194,7 +12194,7 @@ farming.start = function () {
 
                             upgradesInProgress.buildings[4].timeLeft = 0;
                             upgradesInProgress.buildings[4].currentBarnLevel = 2;
-                            localStorage.setItem('MedFarm_upgradesInProgress', JSON.stringify(upgradesInProgress));
+                            GamePix.localStorage.setItem('MedFarm_upgradesInProgress', JSON.stringify(upgradesInProgress));
                             try {
                                 goog.events.removeAll(chickenCoopUp);
                             } catch (err) { return; }
@@ -12338,7 +12338,7 @@ farming.start = function () {
                 eggPick = 1;
                 count11.setText(player.cropsStored[11].stored);
                 gLabel11.setText(player.cropsStored[11].stored);
-                localStorage.setItem('GuiGhostFarms_player', JSON.stringify(player));
+                GamePix.localStorage.setItem('GuiGhostFarms_player', JSON.stringify(player));
 
                 lime.scheduleManager.callAfter(function () { egg1.setPosition(90, 272); }, this, 100);
                 lime.scheduleManager.callAfter(function () { egg1.setPosition(90, 262); }, this, 200);
@@ -12366,7 +12366,7 @@ farming.start = function () {
                 eggOnce[egg3] = true;
                 count11.setText(player.cropsStored[11].stored);
                 gLabel11.setText(player.cropsStored[11].stored);
-                localStorage.setItem('GuiGhostFarms_player', JSON.stringify(player));
+                GamePix.localStorage.setItem('GuiGhostFarms_player', JSON.stringify(player));
                 lime.scheduleManager.callAfter(function () { egg3.setPosition(155, 272); }, this, 100);
                 lime.scheduleManager.callAfter(function () { egg3.setPosition(155, 262); }, this, 200);
                 lime.scheduleManager.callAfter(function () { egg3.setPosition(155, 242); }, this, 300);
@@ -12392,7 +12392,7 @@ farming.start = function () {
                 eggOnce[egg2] = true;
                 count11.setText(player.cropsStored[11].stored);
                 gLabel11.setText(player.cropsStored[11].stored);
-                localStorage.setItem('GuiGhostFarms_player', JSON.stringify(player));
+                GamePix.localStorage.setItem('GuiGhostFarms_player', JSON.stringify(player));
 
                 lime.scheduleManager.callAfter(function () { egg2.setPosition(123, 282); }, this, 100);
                 lime.scheduleManager.callAfter(function () { egg2.setPosition(123, 272); }, this, 150);
@@ -12706,7 +12706,7 @@ farming.start = function () {
                     gLabel8.setText(player.cropsStored[8].stored);
                     //gLabel8LS.setText(player.cropsStored[8].stored);
                     //gLabel8Pork.setText(player.cropsStored[8].stored);
-                    localStorage.setItem('GuiGhostFarms_player', JSON.stringify(player));
+                    GamePix.localStorage.setItem('GuiGhostFarms_player', JSON.stringify(player));
 
                 }
 
@@ -12725,7 +12725,7 @@ farming.start = function () {
                 porkWaiting = 0;
                 count10.setText(player.cropsStored[10].stored);
                 gLabel10.setText(player.cropsStored[10].stored);
-                localStorage.setItem('GuiGhostFarms_player', JSON.stringify(player));
+                GamePix.localStorage.setItem('GuiGhostFarms_player', JSON.stringify(player));
                 collectPork.setHidden(true);
                 purchaseSound.play();
             }
@@ -12784,9 +12784,9 @@ farming.start = function () {
             if (globalModalBlock == 0) {
                 var isMuted = lime.audio.getMute();
                 if (isMuted) {
-                    lime.audio.setMute(false); themeSong.play(true); localStorage.setItem('GuiGhostFarms_muted', 0)
+                    lime.audio.setMute(false); themeSong.play(true); GamePix.localStorage.setItem('GuiGhostFarms_muted', 0)
                     setMute(2);
-                } else { lime.audio.setMute(true); setMute(1); localStorage.setItem('GuiGhostFarms_muted', 1) }
+                } else { lime.audio.setMute(true); setMute(1); GamePix.localStorage.setItem('GuiGhostFarms_muted', 1) }
             }
         });
         goog.events.listen(fbBtnLS, ["mousedown", "touchstart"], function () {
@@ -12927,7 +12927,7 @@ farming.start = function () {
         goog.events.listen(homeNavLS, ["mousedown", "touchstart"], function () {
 
             if (compassVisible) {
-                b.currentCrop = parseInt(localStorage.getItem("MedFarms_selectedHomeCrop"));
+                b.currentCrop = parseInt(GamePix.localStorage.getItem("MedFarms_selectedHomeCrop"));
                 b.currentCrop = Math.abs(b.currentCrop);
                 if (b.currentCrop > 5 || isNaN(b.currentCrop) || b.currentCrop < 0) {
                     b.currentCrop = 0; w.setText("Plant " + a.crops[b.currentCrop].name); z.setFill("images/" + a.crops[b.currentCrop].harvest);
@@ -13146,8 +13146,8 @@ farming.start = function () {
         var toolCountV = (new lime.Label).setText(player.tools).setFontColor("#E8FC08").setPosition(65, 24).setFontFamily("Comic Sans MS").setFontSize(18);
         vinyardLayer.appendChild(toolCountImgV);
         vinyardLayer.appendChild(toolCountV);
-        isblocked1 = localStorage.getItem("GuiGhostFarms_vinyardBlocks");
-        isblocked2 = localStorage.getItem("GuiGhostFarms_vinyardBlocks2");
+        isblocked1 = GamePix.localStorage.getItem("GuiGhostFarms_vinyardBlocks");
+        isblocked2 = GamePix.localStorage.getItem("GuiGhostFarms_vinyardBlocks2");
 
 
         var posXO = a.tile_size + 5;
@@ -13212,8 +13212,8 @@ farming.start = function () {
         //treesImgV.setHidden(true);
 
 
-        isblocked1 = localStorage.getItem("GuiGhostFarms_vinyardBlocks");
-        isblocked2 = localStorage.getItem("GuiGhostFarms_vinyardBlocks2");
+        isblocked1 = GamePix.localStorage.getItem("GuiGhostFarms_vinyardBlocks");
+        isblocked2 = GamePix.localStorage.getItem("GuiGhostFarms_vinyardBlocks2");
 
 
 
@@ -13260,7 +13260,7 @@ farming.start = function () {
                         treesImgV.setHidden(true);
                         player.cropsStored[14].stored = parseInt(player.cropsStored[14].stored) + 500;
                         if (player.cropsStored[14].stored < 0) { player.cropsStored[14].stored = 500; }
-                        localStorage.setItem('GuiGhostFarms_player', JSON.stringify(player));
+                        GamePix.localStorage.setItem('GuiGhostFarms_player', JSON.stringify(player));
                         a.vinyardBlocksControl(1);
                         vinyardBlocks = 2;
                         isblocked1 = 2;
@@ -13277,8 +13277,8 @@ farming.start = function () {
 
             }
         });
-        isblocked1 = localStorage.getItem("GuiGhostFarms_vinyardBlocks");
-        isblocked2 = localStorage.getItem("GuiGhostFarms_vinyardBlocks2");
+        isblocked1 = GamePix.localStorage.getItem("GuiGhostFarms_vinyardBlocks");
+        isblocked2 = GamePix.localStorage.getItem("GuiGhostFarms_vinyardBlocks2");
         if (isblocked1 == 1) {
             vinyardTreeBlock1.setHidden(false);
             treeUnlockBtnV.setHidden(false);
@@ -13312,7 +13312,7 @@ farming.start = function () {
             treeUnlockBtnV2.setHidden(false);
             treesImgV2.setHidden(false);
         }
-        isblocked2 = localStorage.getItem("GuiGhostFarms_vinyardBlocks2");
+        isblocked2 = GamePix.localStorage.getItem("GuiGhostFarms_vinyardBlocks2");
         goog.events.listen(treesImgV2, ["mousedown", "touchstart"], function () {
 
             if (player.tools >= 500 && globalModalBlock == 0) {
@@ -13363,7 +13363,7 @@ farming.start = function () {
                         treesImgV2.setHidden(true);
                         player.cropsStored[14].stored = parseInt(player.cropsStored[14].stored) + 500;
                         if (player.cropsStored[14].stored < 0) { player.cropsStored[14].stored = 500; }
-                        localStorage.setItem('GuiGhostFarms_player', JSON.stringify(player));
+                        GamePix.localStorage.setItem('GuiGhostFarms_player', JSON.stringify(player));
                         try {
                             goog.events.removeAll(treesImgV2);
                         } catch (err) { return; }
@@ -13372,7 +13372,7 @@ farming.start = function () {
             }
         });
 
-        isblocked2 = localStorage.getItem("GuiGhostFarms_vinyardBlocks2");
+        isblocked2 = GamePix.localStorage.getItem("GuiGhostFarms_vinyardBlocks2");
 
         if (isblocked2 == 2) {
             vinyardTreeBlock2.setHidden(true);
@@ -13611,7 +13611,7 @@ farming.start = function () {
                         player.tools = player.tools - costTools;
                         player.cropsStored[14].stored = parseInt(player.cropsStored[14].stored) - parseInt(costWood);
                         if (player.cropsStored[14].stored < 0) { player.cropsStored[14].stored = 0; }
-                        localStorage.setItem('GuiGhostFarms_player', JSON.stringify(player));
+                        GamePix.localStorage.setItem('GuiGhostFarms_player', JSON.stringify(player));
 
                         upgradeCloudV.setHidden(false);
                         scaffoldV.setHidden(false);
@@ -13622,7 +13622,7 @@ farming.start = function () {
                             secondsToUpgradeV = secondsToUpgradeV - 1;
                             upgradesInProgress.buildings[3].timeLeft = secondsToUpgradeV;
                             upgradesInProgress.buildings[3].currentBarnLevel = 1;
-                            localStorage.setItem('MedFarm_upgradesInProgress', JSON.stringify(upgradesInProgress));
+                            GamePix.localStorage.setItem('MedFarm_upgradesInProgress', JSON.stringify(upgradesInProgress));
 
                             toolMoverLabelV.setText(secondsToUpgradeV);
 
@@ -13670,11 +13670,11 @@ farming.start = function () {
                             lime.scheduleManager.callAfter(function () { a.makeJelly(); }, this, 200);
                             upgradesInProgress.buildings[3].timeLeft = 0;
                             upgradesInProgress.buildings[3].currentBarnLevel = 2;
-                            localStorage.setItem('MedFarm_upgradesInProgress', JSON.stringify(upgradesInProgress));
-                            //localStorage.setItem('GuiGhostFarms_player', JSON.stringify(player));
-                            //localStorage.setItem('GuiGhostFarms_toolsEver', toolsEver);
-                            //localStorage.setItem('GuiGhostFarms_moneyEver', moneyEver);
-                            localStorage.setItem("GuiGhostFarms_vinyardHouseLevel", 2);
+                            GamePix.localStorage.setItem('MedFarm_upgradesInProgress', JSON.stringify(upgradesInProgress));
+                            //GamePix.localStorage.setItem('GuiGhostFarms_player', JSON.stringify(player));
+                            //GamePix.localStorage.setItem('GuiGhostFarms_toolsEver', toolsEver);
+                            //GamePix.localStorage.setItem('GuiGhostFarms_moneyEver', moneyEver);
+                            GamePix.localStorage.setItem("GuiGhostFarms_vinyardHouseLevel", 2);
                             jellyBonus.setHidden(false);
                             lime.scheduleManager.callAfter(function () { jellyBonus.setHidden(true); }, this, 2500);
                             //goog.events.removeAll(upgradeVinyardBarnBtn);
@@ -13808,9 +13808,9 @@ farming.start = function () {
             if (globalModalBlock == 0) {
                 var isMuted = lime.audio.getMute();
                 if (isMuted) {
-                    lime.audio.setMute(false); themeSong.play(true); localStorage.setItem('GuiGhostFarms_muted', 0)
+                    lime.audio.setMute(false); themeSong.play(true); GamePix.localStorage.setItem('GuiGhostFarms_muted', 0)
                     setMute(2);
-                } else { lime.audio.setMute(true); setMute(1); localStorage.setItem('GuiGhostFarms_muted', 1) }
+                } else { lime.audio.setMute(true); setMute(1); GamePix.localStorage.setItem('GuiGhostFarms_muted', 1) }
             }
         });
         goog.events.listen(achieveBtnV, ["mousedown", "touchstart"], function () {
@@ -14031,13 +14031,13 @@ farming.start = function () {
             if (compassVisible) {
                 closeAcresNav();
                 a.sceneBefore = 1;
-                b.currentCrop = parseInt(localStorage.getItem("MedFarms_selectedHomeCrop"));
+                b.currentCrop = parseInt(GamePix.localStorage.getItem("MedFarms_selectedHomeCrop"));
                 b.currentCrop = Math.abs(b.currentCrop);
                 if (b.currentCrop > 5 || isNaN(b.currentCrop) || b.currentCrop < 0) {
                     b.currentCrop = 0; w.setText("Plant " + a.crops[b.currentCrop].name); z.setFill("images/" + a.crops[b.currentCrop].harvest);
 
                 };
-                homeCrop = parseInt(localStorage.getItem("MedFarms_selectedHomeCrop"));
+                homeCrop = parseInt(GamePix.localStorage.getItem("MedFarms_selectedHomeCrop"));
                 hideAndDelayNavIcons();
                 c.replaceScene(d, lime.transitions.SlideInRight);
                 sceneActive = 'Home';
@@ -14351,7 +14351,7 @@ farming.start = function () {
                     if (secondsToClearRockWM <= 0) {
 
                         acres[5].owned = 1;
-                        localStorage.setItem('GuiGhostFarms_acres', JSON.stringify(acres));
+                        GamePix.localStorage.setItem('GuiGhostFarms_acres', JSON.stringify(acres));
                         rockBlockV.setHidden(true);
 
                         roadToWMfromVin.setHidden(false);
@@ -15407,8 +15407,8 @@ farming.start = function () {
             hideAndDelayNavIcons();
             c.replaceScene(d, lime.transitions.SlideInDown); sceneBefore = 1;
             //setTimeout(function () { validCropsStored(); }, 0); 
-            b.currentCrop = parseInt(localStorage.getItem("MedFarms_selectedHomeCrop"));
-            homeCrop = parseInt(localStorage.getItem("MedFarms_selectedHomeCrop"));
+            b.currentCrop = parseInt(GamePix.localStorage.getItem("MedFarms_selectedHomeCrop"));
+            homeCrop = parseInt(GamePix.localStorage.getItem("MedFarms_selectedHomeCrop"));
             sceneActive = 'Home';
 
 
@@ -15449,9 +15449,9 @@ farming.start = function () {
             if (globalModalBlock == 0) {
                 var isMuted = lime.audio.getMute();
                 if (isMuted) {
-                    lime.audio.setMute(false); themeSong.play(true); localStorage.setItem('GuiGhostFarms_muted', 0)
+                    lime.audio.setMute(false); themeSong.play(true); GamePix.localStorage.setItem('GuiGhostFarms_muted', 0)
                     setMute(2);
-                } else { lime.audio.setMute(true); setMute(1); localStorage.setItem('GuiGhostFarms_muted', 1) }
+                } else { lime.audio.setMute(true); setMute(1); GamePix.localStorage.setItem('GuiGhostFarms_muted', 1) }
             }
         });
 
@@ -15493,7 +15493,7 @@ farming.start = function () {
                 if (houseOptionNumber < 10 || (houseOptionNumber >= 10 && houseUpgrades.upgrades[0].owned == 1)) {
                     player.money -= houseUpgrades.upgrades[houseOptionNumber].cost;
                     houseUpgrades.upgrades[houseOptionNumber].owned = 1;
-                    localStorage.setItem('GuiGhostFarms_houseUpgrades', JSON.stringify(houseUpgrades));
+                    GamePix.localStorage.setItem('GuiGhostFarms_houseUpgrades', JSON.stringify(houseUpgrades));
                     switch (houseOptionNumber) {
                         case 1: houseOptionReward1Base.setHidden(false); houseOptionNumber = 0; houseOptions1.setOpacity(0.2); break;
                         case 2: houseOptionReward2Base.setHidden(false); houseOptionNumber = 0; houseOptions2.setOpacity(0.2); break;
@@ -15531,11 +15531,11 @@ farming.start = function () {
             }
             else { confirmSaleHouseNameLabel.setText("Need More Coin"); }
 
-            localStorage.setItem('GuiGhostFarms_houseUpgrades', JSON.stringify(houseUpgrades))
+            GamePix.localStorage.setItem('GuiGhostFarms_houseUpgrades', JSON.stringify(houseUpgrades))
             houseMoney.setText(player.money);
             a.updateMoney();
             setDeniseText();
-            localStorage.setItem('GuiGhostFarms_player', JSON.stringify(player))
+            GamePix.localStorage.setItem('GuiGhostFarms_player', JSON.stringify(player))
 
 
         })
@@ -15572,7 +15572,7 @@ farming.start = function () {
 
             questPanelHouse2.setHidden(true);
             seen1stHouseNotif = 1;
-            localStorage.setItem("MedFarms_seen1stHouseNotif", 1);
+            GamePix.localStorage.setItem("MedFarms_seen1stHouseNotif", 1);
 
         }, { passive: false });
 
@@ -15580,7 +15580,7 @@ farming.start = function () {
 
             questPanelHouse.setHidden(true);
             seen1stHouseNotif = 1;
-            localStorage.setItem("MedFarms_seen1stHouseNotif", 1);
+            GamePix.localStorage.setItem("MedFarms_seen1stHouseNotif", 1);
 
         }, { passive: false });
 
@@ -15666,7 +15666,7 @@ farming.start = function () {
                 player.tools -= 1000;
                 player.cropsStored[14].stored = parseInt(player.cropsStored[14].stored) - 200;
                 if (player.cropsStored[14].stored < 0) { player.cropsStored[14].stored = 0; }
-                localStorage.setItem('GuiGhostFarms_player', JSON.stringify(player));
+                GamePix.localStorage.setItem('GuiGhostFarms_player', JSON.stringify(player));
 
 
                 lime.scheduleManager.callAfter(function () { a.updateTools(); a.updateStored(); a.updateMoney(); }, this, 100);
@@ -15695,13 +15695,13 @@ farming.start = function () {
                     secondsToUpgradeHo = secondsToUpgradeHo - 1;
                     upgradesInProgress.buildings[5].timeLeft = secondsToUpgradeHo;
                     upgradesInProgress.buildings[5].currentBarnLevel = 1
-                    localStorage.setItem('MedFarm_upgradesInProgress', JSON.stringify(upgradesInProgress));
+                    GamePix.localStorage.setItem('MedFarm_upgradesInProgress', JSON.stringify(upgradesInProgress));
 
                     if (secondsToUpgradeHo <= 0) {
                         toolMoverLabelHo.setHidden(true); scaffoldHo.setHidden(true); upgradeCloudHo.setHidden(true); secondsToUpgradeHo = 90;
                         houseExpandCover.setHidden(true);
                         houseUpgrades.upgrades[0].owned = 1;
-                        localStorage.setItem('GuiGhostFarms_houseUpgrades', JSON.stringify(houseUpgrades))
+                        GamePix.localStorage.setItem('GuiGhostFarms_houseUpgrades', JSON.stringify(houseUpgrades))
                         houseImg.setFill(imgArray[98]).setSize(71, 91).setPosition(232, 23)
                         upgradesInProgress.buildings[5].timeLeft = 0;
                         upgradesInProgress.buildings[5].currentBarnLevel = 2;
@@ -15762,14 +15762,14 @@ farming.start = function () {
             hideAndDelayNavIcons();
             if (sceneBefore == 1) {
                 sceneActive = 'Home';
-                b.currentCrop = parseInt(localStorage.getItem("MedFarms_selectedHomeCrop"));
+                b.currentCrop = parseInt(GamePix.localStorage.getItem("MedFarms_selectedHomeCrop"));
                 b.currentCrop = Math.abs(b.currentCrop);
 
                 if (b.currentCrop > 5 || isNaN(b.currentCrop)) {
                     b.currentCrop = 0; w.setText("Plant " + a.crops[b.currentCrop].name); z.setFill("images/" + a.crops[b.currentCrop].harvest);
 
                 };
-                homeCrop = parseInt(localStorage.getItem("MedFarms_selectedHomeCrop"));
+                homeCrop = parseInt(GamePix.localStorage.getItem("MedFarms_selectedHomeCrop"));
             
                 c.replaceScene(d, lime.transitions.SlideInUp); sceneBefore = 1;
             }
@@ -15811,8 +15811,8 @@ farming.start = function () {
             if (a.achievements[15] == false && boughtStarCash == true) { a.achievements[15] = true; achieve15Check.setHidden(false); starCash = parseInt(starCash) + 3; displayAchieve(15); };
             if (a.achievements[16] == false && yearCount >= 10) { a.achievements[16] = true; achieve16Check.setHidden(false); starCash = parseInt(starCash) + 25; displayAchieve(16); };
             starCashLabelA.setText(parseInt(starCash));
-            localStorage.setItem('starCash', parseInt(starCash));
-            localStorage.setItem('GuiGhostFarms_achievements', JSON.stringify(a.achievements));
+            GamePix.localStorage.setItem('starCash', parseInt(starCash));
+            GamePix.localStorage.setItem('GuiGhostFarms_achievements', JSON.stringify(a.achievements));
         }
 
         function displayAchieve(aNumber) {
@@ -15958,7 +15958,7 @@ farming.start = function () {
 
 
             ///rate modal 1 time only
-            var rateNever = localStorage.getItem("rateMeNever");
+            var rateNever = GamePix.localStorage.getItem("rateMeNever");
             if (yearCount == 2 && rateNever == 0 && dayCount > 230 && dayCount < 232) {
                 document.getElementById("rateMe").style.display = 'block';
             }
@@ -16236,8 +16236,8 @@ farming.start = function () {
         windMillBldg.appendChild(windmillBldgUpgradeBtn);
         var windmillRotation = 1.0;
         var windmillUpgraded = 0;
-        if (localStorage.getItem("wmUpgraded") === "undefined") { localStorage.setItem("wmUpgraded", 0); }
-        windmillUpgraded = localStorage.getItem("wmUpgraded");
+        if (GamePix.localStorage.getItem("wmUpgraded") === "undefined") { GamePix.localStorage.setItem("wmUpgraded", 0); }
+        windmillUpgraded = GamePix.localStorage.getItem("wmUpgraded");
 
 
         var needWheatBubble = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(80, 10).setSize(40, 40).setFill(imgArray[31]);
@@ -16268,7 +16268,7 @@ farming.start = function () {
             flourWaiting = 0;
             purchaseSound.play();
             collectFlour.setHidden(true);
-            lime.scheduleManager.callAfter(function () { localStorage.setItem('GuiGhostFarms_player', JSON.stringify(player)); }, this, 500);
+            lime.scheduleManager.callAfter(function () { GamePix.localStorage.setItem('GuiGhostFarms_player', JSON.stringify(player)); }, this, 500);
 
 
         });
@@ -16384,7 +16384,7 @@ farming.start = function () {
             breadWaiting = 0;
             purchaseSound.play();
             collectBreadBubble.setHidden(true);
-            lime.scheduleManager.callAfter(function () { localStorage.setItem('GuiGhostFarms_player', JSON.stringify(player)); }, this, 500);
+            lime.scheduleManager.callAfter(function () { GamePix.localStorage.setItem('GuiGhostFarms_player', JSON.stringify(player)); }, this, 500);
 
 
         });
@@ -16685,9 +16685,9 @@ farming.start = function () {
             if (globalModalBlock == 0) {
                 var isMuted = lime.audio.getMute();
                 if (isMuted) {
-                    lime.audio.setMute(false); themeSong.play(true); localStorage.setItem('GuiGhostFarms_muted', 0)
+                    lime.audio.setMute(false); themeSong.play(true); GamePix.localStorage.setItem('GuiGhostFarms_muted', 0)
                     setMute(2);
-                } else { lime.audio.setMute(true); setMute(1); localStorage.setItem('GuiGhostFarms_muted', 1) }
+                } else { lime.audio.setMute(true); setMute(1); GamePix.localStorage.setItem('GuiGhostFarms_muted', 1) }
             }
             e.event.stopPropagation();
             e.swallow(['mouseup', 'touchend', 'touchcancel'], function () { });
@@ -16717,7 +16717,7 @@ farming.start = function () {
                 closeAcresNav();
                 a.sceneBefore = 1;
 
-                oldCrop = localStorage.getItem("MedFarms_selectedHomeCrop");
+                oldCrop = GamePix.localStorage.getItem("MedFarms_selectedHomeCrop");
                 homeCrop = parseInt(oldCrop);
                 z.setFill("images/" + a.crops[homeCrop].harvest);
                 w.setText("Plant " + a.crops[homeCrop].name);
@@ -16784,7 +16784,7 @@ farming.start = function () {
                 sceneActive = 'Vineyard';
 
 
-                oldCrop = localStorage.getItem("MedFarms_selectedHomeCrop");
+                oldCrop = GamePix.localStorage.getItem("MedFarms_selectedHomeCrop");
                 b.currentCrop = 12;
                 lime.scheduleManager.callAfter(function () { checkShortage(); }, this, 100);
                 //setTimeout(function () {  checkShortage(); }, 0);
@@ -16861,7 +16861,7 @@ farming.start = function () {
                     toolMoverLabelWM.setText(tickerSecondsWM);
                     upgradesInProgress.buildings[6].timeLeft = tickerSecondsWM;
                     upgradesInProgress.buildings[6].currentBarnLevel = 1;
-                    localStorage.setItem('MedFarm_upgradesInProgress', JSON.stringify(upgradesInProgress));
+                    GamePix.localStorage.setItem('MedFarm_upgradesInProgress', JSON.stringify(upgradesInProgress));
 
                 }
                 upgradeCloudWM.setPosition(upCloudXm, upCloudYm).setSize(upCloudWm, 200);
@@ -16880,13 +16880,13 @@ farming.start = function () {
                     windmillUpgraded = 1;
 
 
-                    localStorage.setItem("wmUpgraded", 1);
+                    GamePix.localStorage.setItem("wmUpgraded", 1);
                     windMillBldg.setFill(imgArrayWindmill[2]); windMillSail.setHidden(false);
                     windmillBldgUpgradeBtn.setHidden(true);
                     checkWindmillUpgrade();
                     upgradesInProgress.buildings[6].timeLeft = 0;
                     upgradesInProgress.buildings[6].currentBarnLevel = 2;
-                    localStorage.setItem('MedFarm_upgradesInProgress', JSON.stringify(upgradesInProgress));
+                    GamePix.localStorage.setItem('MedFarm_upgradesInProgress', JSON.stringify(upgradesInProgress));
 
                 }
 
@@ -16930,7 +16930,7 @@ farming.start = function () {
                     toolMoverLabelWM2.setText(tickerSecondsWM3);
                     upgradesInProgress.buildings[7].timeLeft = tickerSecondsWM3;
                     upgradesInProgress.buildings[7].currentBarnLevel = 1;
-                    localStorage.setItem('MedFarm_upgradesInProgress', JSON.stringify(upgradesInProgress));
+                    GamePix.localStorage.setItem('MedFarm_upgradesInProgress', JSON.stringify(upgradesInProgress));
 
                 }
                 upgradeCloudWM2.setPosition(upCloudXm3, upCloudYm3).setSize(upCloudWm3, 200);
@@ -16947,7 +16947,7 @@ farming.start = function () {
                     //times up hide upgrade stuff
                     scaffoldWM2.setHidden(true);
                     storehouseUpgraded = 1;
-                    localStorage.setItem("storeHouseUpgraded", 1);
+                    GamePix.localStorage.setItem("storeHouseUpgraded", 1);
                     storeHouseWM.setFill(imgArrayWindmill[6]);
                     storeHouseWMUpBtn.setHidden(true);
                     try { goog.events.removeAll(windmillQuestPanelConfirmBtn3); } catch (err) { console.log("failed remove") };
@@ -16955,7 +16955,7 @@ farming.start = function () {
 
                     upgradesInProgress.buildings[6].timeLeft = 0;
                     upgradesInProgress.buildings[6].currentBarnLevel = 2;
-                    localStorage.setItem('MedFarm_upgradesInProgress', JSON.stringify(upgradesInProgress));
+                    GamePix.localStorage.setItem('MedFarm_upgradesInProgress', JSON.stringify(upgradesInProgress));
 
                 }
 
@@ -17237,8 +17237,8 @@ farming.start = function () {
                 upgradeCloudWMField.setHidden(true);
                 toolMoverLabelWM3.setHidden(true);
                 toolMoverWM3.setHidden(true);
-                localStorage.setItem("wmFieldCleared", 1);
-                player.cropsStored[14].stored = player.cropsStored[14].stored + 500; localStorage.setItem('GuiGhostFarms_player', JSON.stringify(player));
+                GamePix.localStorage.setItem("wmFieldCleared", 1);
+                player.cropsStored[14].stored = player.cropsStored[14].stored + 500; GamePix.localStorage.setItem('GuiGhostFarms_player', JSON.stringify(player));
                 lime.scheduleManager.callAfter(function () {
                     updateInventoryCounts();
                 }, this, 1000)
@@ -17420,8 +17420,8 @@ farming.start = function () {
 
             //console.log("visibleLinkWM = " + visibleLinkWM);
             if (visibleLinkWM == false) {
-                localStorage.setItem('MedFarm_LoadAd', 1);
-                localStorage.setItem('MedFarm_StarCashBoost', 0);
+                GamePix.localStorage.setItem('MedFarm_LoadAd', 1);
+                GamePix.localStorage.setItem('MedFarm_StarCashBoost', 0);
                 lime.audio.setMute(true);
                 showAd();
                 document.getElementById("fbshare").style.display = 'none';
@@ -17439,8 +17439,8 @@ farming.start = function () {
                 //console.log("clicked confirm SC");
                 if (starCash >= 3) {
                     adWatched2 = 1;
-                    localStorage.setItem('adWatched', 1)
-                    localStorage.setItem('MedFarm_StarCashBoost', 0);
+                    GamePix.localStorage.setItem('adWatched', 1)
+                    GamePix.localStorage.setItem('MedFarm_StarCashBoost', 0);
                     starCash = starCash - 3;
                     boostCropsWM.setHidden(true);
 
@@ -17458,7 +17458,7 @@ farming.start = function () {
             //console.log("visibleLink = " + visibleLink);
             if (visibleLink == false) {
                 //console.log("clicked cancel");
-                var isMuted22 = parseInt(localStorage.getItem('GuiGhostFarms_muted'));
+                var isMuted22 = parseInt(GamePix.localStorage.getItem('GuiGhostFarms_muted'));
                 if (isMuted22 == 1) { lime.audio.setMute(true); setMute(1); }
                 else { lime.audio.setMute(false); themeSong.play(true); smithSound.play(); setMute(2); }
 
@@ -17538,7 +17538,7 @@ farming.start = function () {
        ////////////End of stable scene///////
 
         //upgrade barn from load after quit in progress
-        upgradesInProgress = JSON.parse(localStorage.getItem('MedFarm_upgradesInProgress'));
+        upgradesInProgress = JSON.parse(GamePix.localStorage.getItem('MedFarm_upgradesInProgress'));
 
         function upsInProgressAtLoad() {
             if (parseInt(upgradesInProgress.buildings[0].timeLeft) > 0) {
@@ -17561,7 +17561,7 @@ farming.start = function () {
             };
 
             if (parseInt(upgradesInProgress.buildings[3].timeLeft) > 0) {
-                vinyardHouseLevel = parseInt(localStorage.getItem("GuiGhostFarms_vinyardHouseLevel"));
+                vinyardHouseLevel = parseInt(GamePix.localStorage.getItem("GuiGhostFarms_vinyardHouseLevel"));
                 if (vinyardHouseLevel < 2) {
                     barnUpgradeCostToolsV = 0; barnUpgradeCostWoodV = 0;
                     secondsToUpgradeV = parseInt(upgradesInProgress.buildings[3].timeLeft)
@@ -17587,7 +17587,7 @@ farming.start = function () {
                     lime.scheduleManager.callAfter(function () { a.makeJelly(); }, this, 500);
                     upgradesInProgress.buildings[3].timeLeft = 0;
                     upgradesInProgress.buildings[3].currentBarnLevel = 2;
-                    localStorage.setItem('MedFarm_upgradesInProgress', JSON.stringify(upgradesInProgress));
+                    GamePix.localStorage.setItem('MedFarm_upgradesInProgress', JSON.stringify(upgradesInProgress));
 
                 }
             }
@@ -17602,8 +17602,8 @@ farming.start = function () {
           
                 houseImg.setFill(imgArray[98]).setSize(75, 100).setPosition(229, 22);
                 houseExpandCover.setHidden(true); patricia.setHidden(false); 
-                localStorage.setItem('GuiGhostFarms_houseUpgrades', JSON.stringify(houseUpgrades))
-                localStorage.setItem('MedFarm_upgradesInProgress', JSON.stringify(upgradesInProgress));
+                GamePix.localStorage.setItem('GuiGhostFarms_houseUpgrades', JSON.stringify(houseUpgrades))
+                GamePix.localStorage.setItem('MedFarm_upgradesInProgress', JSON.stringify(upgradesInProgress));
             }
             if (parseInt(upgradesInProgress.buildings[6].timeLeft) > 0) {    ///windmill upgrade
                 var wmTimeLeft = parseInt(upgradesInProgress.buildings[6].timeLeft)
@@ -17720,12 +17720,12 @@ farming.start = function () {
                     starCashCountBoost.setText(starCash);
                     starCashInvCount.setText(starCash);
                     document.getElementById("starCashOuterLabel").innerHTML = starCash;
-                    localStorage.setItem('starCash', starCash);
+                    GamePix.localStorage.setItem('starCash', starCash);
                     codeField.style.color = 'Green';
                     codeField.style.fontSize = '16px';
                     codeField.value = starValTxt;
                     usedCodesArray.push(code)
-                    localStorage.setItem("usedCodes", JSON.stringify(usedCodesArray))
+                    GamePix.localStorage.setItem("usedCodes", JSON.stringify(usedCodesArray))
 
                     lime.scheduleManager.callAfter(function () { codeField.value = ""; codeField.style.color = 'Black'; }, this, 1000);
                 }
@@ -17765,17 +17765,17 @@ farming.start = function () {
                     ]
 
                 };
-                localStorage.setItem('GuiGhostFarms_houseUpgrades', JSON.stringify(houseUpgrades))
+                GamePix.localStorage.setItem('GuiGhostFarms_houseUpgrades', JSON.stringify(houseUpgrades))
                 seen1stHouseNotif = 0;
-                localStorage.setItem('MedFarms_seen1stHouseNotif', 0);
+                GamePix.localStorage.setItem('MedFarms_seen1stHouseNotif', 0);
                 upgradesInProgress.buildings[5].timeLeft = 0; upgradesInProgress.buildings[5].currentBarnLevel = 1;
                         
-                localStorage.setItem('MedFarm_upgradesInProgress', JSON.stringify(upgradesInProgress));
+                GamePix.localStorage.setItem('MedFarm_upgradesInProgress', JSON.stringify(upgradesInProgress));
             }
             else if (code.toString() == 'Herald10') {
                 heraldOrderTop = 10;
                 tokenInvCount.setText(heraldOrderTop);
-                localStorage.setItem("MedFarms_heraldOrdersFilled", heraldOrderTop);
+                GamePix.localStorage.setItem("MedFarms_heraldOrdersFilled", heraldOrderTop);
 
             }
             else if (code.toString() == 'OpenHouse') {
@@ -17785,10 +17785,10 @@ farming.start = function () {
             else if (code.toString() == 'TestDaily') {
 
 
-                var adjustMe = localStorage.getItem("lastLoginDay")
+                var adjustMe = GamePix.localStorage.getItem("lastLoginDay")
                 adjustMe = adjustMe - 1;
-                localStorage.setItem("lastLoginDay", adjustMe);
-                localStorage.setItem("daysInRow", (daysInRow + 1));
+                GamePix.localStorage.setItem("lastLoginDay", adjustMe);
+                GamePix.localStorage.setItem("daysInRow", (daysInRow + 1));
 
                 starValTxt = "Testing Daily";
                 codeField.value = starValTxt;
@@ -17826,7 +17826,7 @@ function getLocalStorage() {
 }
 
 function writeLocalStorage(data) {
-    Object.keys(data).forEach(function (key) { localStorage.setItem(key, data[key]) })
+    Object.keys(data).forEach(function (key) { GamePix.localStorage.setItem(key, data[key]) })
 }
 
 
@@ -17837,25 +17837,25 @@ function writeLocalStorage(data) {
     
     }
     GamePix.resume = function () { /* insert here the code to resume your game */
-        var isMuted2 = parseInt(localStorage.getItem('GuiGhostFarms_muted'));
+        var isMuted2 = parseInt(GamePix.localStorage.getItem('GuiGhostFarms_muted'));
         if (!isMuted2) {
-            lime.audio.setMute(false); themeSong.play(); localStorage.setItem('GuiGhostFarms_muted', 0);
+            lime.audio.setMute(false); themeSong.play(); GamePix.localStorage.setItem('GuiGhostFarms_muted', 0);
             setMute(2);
-        } else { lime.audio.setMute(true); setMute(1); localStorage.setItem('GuiGhostFarms_muted', 1) }
+        } else { lime.audio.setMute(true); setMute(1); GamePix.localStorage.setItem('GuiGhostFarms_muted', 1) }
         adWatched = 0;
         var adWatched2 = 1;
-        localStorage.setItem('adWatched', 1);
+        GamePix.localStorage.setItem('adWatched', 1);
         var fromSCBoost = 0;
-        fromSCBoost = localStorage.getItem('MedFarm_StarCashBoost');
+        fromSCBoost = GamePix.localStorage.getItem('MedFarm_StarCashBoost');
         if (c.state == farming.GROWING && fromSCBoost == 0) {
             c.ripeTime = 0;
-            lime.scheduleManager.callAfter(function () { localStorage.setItem('adWatched', 0); adWatched2 = 0; }, this, 400);
+            lime.scheduleManager.callAfter(function () { GamePix.localStorage.setItem('adWatched', 0); adWatched2 = 0; }, this, 400);
         }
         else {
-            starCash = localStorage.getItem('starCash');
+            starCash = GamePix.localStorage.getItem('starCash');
             starCash = parseInt(starCash) + 3;
-            localStorage.setItem('starCash', starCash);
-            localStorage.setItem('MedFarm_StarCashBoost', 0);
+            GamePix.localStorage.setItem('starCash', starCash);
+            GamePix.localStorage.setItem('MedFarm_StarCashBoost', 0);
             document.getElementById("starCashOuterLabel").innerHTML = starCash;
         }
     }
@@ -17865,23 +17865,23 @@ function showAd() {
         if (res.success) {
             adWatched = 1;
             var adWatched2 = 1;
-            localStorage.setItem('adWatched', adWatched);
+            GamePix.localStorage.setItem('adWatched', adWatched);
             var fromSCBoost = 0;
-            fromSCBoost = localStorage.getItem('MedFarm_StarCashBoost');
+            fromSCBoost = GamePix.localStorage.getItem('MedFarm_StarCashBoost');
             var acreDiscount3 = 0;
-            acreDiscount3 = localStorage.getItem("acreDiscount1");
+            acreDiscount3 = GamePix.localStorage.getItem("acreDiscount1");
             if (c.state == farming.GROWING && fromSCBoost == 0 && acreDiscount3 == 0) {
                 c.ripeTime = 0;
-                lime.scheduleManager.callAfter(function () { localStorage.setItem('adWatched', 0); adWatched2 = 0; }, this, 400);
+                lime.scheduleManager.callAfter(function () { GamePix.localStorage.setItem('adWatched', 0); adWatched2 = 0; }, this, 400);
             }
             else if (acreDiscount3 === 1){
 
             }
             else {
-                starCash = localStorage.getItem('starCash');
+                starCash = GamePix.localStorage.getItem('starCash');
                 starCash = parseInt(starCash) + 3;
-                localStorage.setItem('starCash', starCash);
-                localStorage.setItem('MedFarm_StarCashBoost', 0);
+                GamePix.localStorage.setItem('starCash', starCash);
+                GamePix.localStorage.setItem('MedFarm_StarCashBoost', 0);
                 document.getElementById("starCashOuterLabel").innerHTML = starCash;
             }
         } else {

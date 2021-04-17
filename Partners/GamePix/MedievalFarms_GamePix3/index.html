@@ -1020,9 +1020,9 @@
                         .then(() => console.log('Successful share'))
                         .catch((error) => console.log('Error sharing', error));
                 }
-                starCash = parseInt(localStorage.getItem('starCash'));
+                starCash = parseInt(GamePix.localStorage.getItem('starCash'));
                 starCash = parseInt(starCash) + 5;
-                localStorage.setItem('starCash', starCash);
+                GamePix.localStorage.setItem('starCash', starCash);
                 document.getElementById("starCashOuterLabel").innerHTML = starCash;
                 shareUs.style.display = 'none';
 
