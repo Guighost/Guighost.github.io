@@ -4614,7 +4614,7 @@ farming.start = function () {
                 }, this, 500);
 
                 homeBlock.setHidden(false); confirmSale.setHidden(false);
-
+                currentAcre4Sale = 1;
                 confirmText.setText("Dairy Farm 2500");
                 adDairyBuyText.setText("Get 10% off");
                 if (parseInt(player.money) >= 2500 || (parseInt(player.money) >= 2250 && localStorage.getItem("acreDiscount1") == 1)) {
