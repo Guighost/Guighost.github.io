@@ -4433,7 +4433,7 @@ farming.start = function () {
 		 var salevis2 = confirmSale.getHidden();
 		if (!salevis2) {
 			console.log("visible detected try show ad")
-            localStorage.setItem("acreDiscount1", 1);
+            
             localStorage.setItem('MedFarm_LoadAd', 1);
             localStorage.setItem('MedFarm_StarCashBoost', 0);
             
@@ -4447,7 +4447,7 @@ farming.start = function () {
 											  confirmTextSub.setHidden(true);
 											  confirmBtn.setHidden(false);
 										  }
-
+                                          localStorage.setItem("acreDiscount1", 1);
 										  adDairyViewBtn.setHidden(true);
 										  adDairyBuyText.setText("Discount Applied!")
 										  confirmText.setText("Dairy Farm 2250");
@@ -4457,7 +4457,7 @@ farming.start = function () {
 											  confirmTextSub.setHidden(true);
 											  confirmBtn.setHidden(false);
 										  }
-
+                                          localStorage.setItem("acreDiscount2", 1);
 										  adDairyViewBtn.setHidden(true);
 										  adDairyBuyText.setText("Discount Applied!");
 										  confirmText.setText("Fruit Orchard 4500");
@@ -4640,12 +4640,13 @@ farming.start = function () {
                 confirmText.setText("Fruit Orchard 5000");
                 adDairyBuyText.setText("Get 10% off");
                 homeBlock.setHidden(false); confirmSale.setHidden(false);
-                if (parseInt(player.money) >= 5000 || (parseInt(player.money) >= 4500 && localStorage.getItem("acreDiscount1") == 1)) {
+                if (parseInt(player.money) >= 5000 || (parseInt(player.money) >= 4500 && localStorage.getItem("acreDiscount2") == 1)) {
                     confirmTextSub.setHidden(true); confirmBtn.setHidden(false); confirmText.setText("Fruit Orchard 4500");
-                    if (localStorage.getItem("acreDiscount1") == 1) { adDairyBuyText.setText("Discount Applied"); } else { adDairyBuyText.setText("Get 10% off"); confirmText.setText("Fruit Orchard 5000");}
                    
                 } else { confirmBtn.setHidden(true); };
-                
+                if (localStorage.getItem("acreDiscount2") == 1) { adDairyBuyText.setText("Discount Applied"); confirmText.setText("Fruit Orchard 4500");}
+                 else { adDairyBuyText.setText("Get 10% off"); confirmText.setText("Fruit Orchard 5000");}
+
                 
             }
         });
@@ -4691,12 +4692,12 @@ farming.start = function () {
                     if (fsClicked == 2) {
                         acres[2].owned = 1;
                         var baseprice = 5000;
-                        var discountP = localStorage.getItem("acreDiscount1");
-                        if (discountP) { baseprice = 4500 };
+                        var discountP2 = localStorage.getItem("acreDiscount2");
+                        if (discountP2) { baseprice = 4500 };
                         player.money = player.money - baseprice;
                         a.updateMoney();
                         roadRight.setHidden(false); forSaleO.setHidden(true); confirmSale.setHidden(true);
-                        localStorage.setItem("acreDiscount1", 0);
+                        localStorage.setItem("acreDiscount2", 0);
                         a.sceneBefore = 3;
                         waterfallSound.play();
                         closeAcresNav();
@@ -17881,6 +17882,7 @@ function showAd() {
                 lime.scheduleManager.callAfter(function () {
                     localStorage.setItem('adWatched', 0); adWatched2 = 0; }, this, 400); 
                 }
+            
         } else {
           console.log('no ad available')
         }
