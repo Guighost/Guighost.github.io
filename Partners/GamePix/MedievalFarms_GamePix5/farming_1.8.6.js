@@ -1689,7 +1689,7 @@ seenPremiumPromo = JSON.parse(localStorage.getItem('MedFarms_seenPremiumPromo'))
 
 
 
- GamePix.localStorage.setItem('adWatched', 0);
+ localStorage.setItem('adWatched', 0);
 var adWatched = 0;
 
 if (typeof localStorage["showHighLight"] === "undefined") { localStorage.setItem('showHighLight', 0) };
@@ -1744,7 +1744,7 @@ if (typeof localStorage["MedFarms_buyingStarterPack"] === "undefined") { localSt
 
 if (typeof localStorage["MedFarms_buyingMasterPack"] === "undefined") { localStorage.setItem('MedFarms_buyingMasterPack', 0) };
 
-GamePix.localStorage.setItem('adWatched',0);   
+localStorage.setItem('adWatched',0);   
 var itemCarryOver = -1;
 var showHighlight2 = localStorage.getItem('showHighLight');
 var storeHouseUpgraded = 0;
@@ -2073,12 +2073,12 @@ var farming = {
         var fromSCBoost = 0;
 	    
 		lime.scheduleManager.scheduleWithDelay(function () {
-            adWatched2 = GamePix.localStorage.getItem('adWatched')
+            adWatched2 = localStorage.getItem('adWatched')
             fromSCBoost = localStorage.getItem('MedFarm_StarCashBoost');
             if (adWatched2 == 1 && c.state == farming.GROWING && fromSCBoost == 0) 
             { c.ripeTime = 0; 
                 lime.scheduleManager.callAfter(function () {
-                    GamePix.localStorage.setItem('adWatched', 0); adWatched2 = 0; }, this, 400); 
+                    localStorage.setItem('adWatched', 0); adWatched2 = 0; }, this, 400); 
                 }
             //else {
             //    setTimeout(function () { localStorage.setItem('MedFarm_StarCashBoost', 0); fromSCBoost = 0; }, 5000);
@@ -8437,7 +8437,7 @@ farming.start = function () {
                 localStorage.removeItem('MedFarms_seenPremiumPromo');            localStorage.removeItem('MedFarms_seen1stHouseNotif');            localStorage.removeItem('MedFarm_Rewarded');
                 localStorage.removeItem('MedFarms_homeTreesLeft');            localStorage.removeItem('MedFarms_homeTreesRight');            localStorage.removeItem("MedFarms_selectedHomeCrop");            
                 localStorage.removeItem('MedFarms_heraldOrdersFilled')
-                GamePix.localStorage.removeItem('adWatched')
+                localStorage.removeItem('adWatched')
                 ////clear all local storage
                /*  localStorage.clear(); */
                localStorage.clear();
@@ -17851,7 +17851,7 @@ function writeLocalStorage(data) {
         } else { lime.audio.setMute(true); setMute(1); localStorage.setItem('GuiGhostFarms_muted', 1) }
         adWatched = 0;
         var adWatched2 = 1;
-        GamePix.localStorage.setItem('adWatched', 1);
+        localStorage.setItem('adWatched', 1);
         var fromSCBoost = 0;
         fromSCBoost = localStorage.getItem('MedFarm_StarCashBoost');
      
@@ -17862,7 +17862,7 @@ function showAd() {
         if (res.success) {
             adWatched = 1;
             var adWatched2 = 1;
-            GamePix.localStorage.setItem('adWatched', adWatched);
+            localStorage.setItem('adWatched', 1);
             var fromSCBoost = 0;
             fromSCBoost = localStorage.getItem('MedFarm_StarCashBoost');
             var acreDiscount3 = 0;
@@ -17874,8 +17874,13 @@ function showAd() {
                 localStorage.setItem('starCash', starCash);
                 localStorage.setItem('MedFarm_StarCashBoost', 0);
                 document.getElementById("starCashOuterLabel").innerHTML = starCash;
-                lime.scheduleManager.callAfter(function () { GamePix.localStorage.setItem('adWatched', 0); adWatched2 = 0; adWatched = 0; }, this, 400);
+                lime.scheduleManager.callAfter(function () { localStorage.setItem('adWatched', 0); adWatched2 = 0; adWatched = 0; }, this, 400);
             }
+            if (adWatched2 == 1 && c.state == farming.GROWING && fromSCBoost == 0) 
+            { c.ripeTime = 0; 
+                lime.scheduleManager.callAfter(function () {
+                    localStorage.setItem('adWatched', 0); adWatched2 = 0; }, this, 400); 
+                }
         } else {
           console.log('no ad available')
         }
@@ -17886,3 +17891,4 @@ function showAd() {
    //gamePixLoading
    myLoadingPercentage = 100;
    GamePix.loading(myLoadingPercentage);
+   GamePix.localStorage.setItem('GameLoad', '1');
