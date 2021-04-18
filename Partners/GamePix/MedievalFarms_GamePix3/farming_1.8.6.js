@@ -17847,17 +17847,7 @@ function writeLocalStorage(data) {
         GamePix.localStorage.setItem('adWatched', 1);
         var fromSCBoost = 0;
         fromSCBoost = GamePix.localStorage.getItem('MedFarm_StarCashBoost');
-        if (c.state == farming.GROWING && fromSCBoost == 0) {
-            c.ripeTime = 0;
-            lime.scheduleManager.callAfter(function () { GamePix.localStorage.setItem('adWatched', 0); adWatched2 = 0; }, this, 400);
-        }
-        else {
-            starCash = GamePix.localStorage.getItem('starCash');
-            starCash = parseInt(starCash) + 3;
-            GamePix.localStorage.setItem('starCash', starCash);
-            GamePix.localStorage.setItem('MedFarm_StarCashBoost', 0);
-            document.getElementById("starCashOuterLabel").innerHTML = starCash;
-        }
+     
     }
 
 function showAd() {
