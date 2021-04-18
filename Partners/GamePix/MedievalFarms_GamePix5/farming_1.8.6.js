@@ -672,7 +672,7 @@ lime.audio.Audio.prototype.getVolume = function () {
         return this.baseElement.volume;
     }
 };
-
+GamePix.localStorage.setItem('MedFarms_adWatched',0);
 var myLoadingPercentage = 0;
 
 var ImgArrayTools = new Array();
