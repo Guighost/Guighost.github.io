@@ -84,8 +84,9 @@ body{font-family: Inter;}blockquote{border-color: #005af0;}div[submit-success] >
       </div>
     </amp-sidebar>
 
-<!-- Analytics -->
- <amp-script layout="container" src="https://www.googletagmanager.com/gtag/js?id=UA-97706544-2"> </amp-script>
+<!-- Analytics --> 
+<!-- <amp-analytics type="googleanalytics">
+ <script layout="container" src="https://www.googletagmanager.com/gtag/js?id=UA-97706544-2"> </script>
     <script id="gScripts" type="text/plain" target="amp-script">
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -93,7 +94,20 @@ body{font-family: Inter;}blockquote{border-color: #005af0;}div[submit-success] >
 
   gtag('config', 'UA-97706544-2');
     </script>
-  
+</amp-analytics> -->
+<script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
+<amp-analytics type="gtag" data-credentials="include">
+<script type="application/json">
+{
+  "vars" : {
+    "gtag_id": "UA-97706544-2",
+    "config" : {
+      "UA-97706544-2": { "groups": "default" }
+    }
+  }
+}
+</script>
+</amp-analytics>
 <!-- /Analytics -->
 
 
@@ -179,7 +193,7 @@ body{font-family: Inter;}blockquote{border-color: #005af0;}div[submit-success] >
         <div class="mbr-row mbr-jc-c">
             <div class="card mbr-col-sm-12 mbr-col-md-6">
                 <div class="card-wrapper">
-                    <div class="card-img  animate__animated animate__bounce animate__delay-1s">
+                    <div class="card-img  ">
                         <amp-img src="assets/images/1024thumbnail-1-1024x1024.png" layout="responsive" width="538" height="538" alt="" class="mobirise-loader">
                             <div placeholder="" class="placeholder">
                                 <div class="mobirise-spinner">
@@ -202,7 +216,7 @@ body{font-family: Inter;}blockquote{border-color: #005af0;}div[submit-success] >
             
             <div class="card mbr-col-sm-12 mbr-col-md-6 last-child">
                 <div class="card-wrapper">
-                    <div class="card-img  animate__animated animate__bounce animate__delay-2.5s">
+                    <div class="card-img  ">
                         <amp-img src="assets/images/stacker1024x768-1-1024x768.png" layout="responsive" height="538" width="538" alt="" class="mobirise-loader">
                             <div placeholder="" class="placeholder">
                                 <div class="mobirise-spinner">
@@ -554,6 +568,8 @@ or <a href="https://guighostgames.com/Stacker-BoxesOfBalance/index.html" class="
             <amp-social-share type="pinterest" data-param-media="https://ampbyexample.com/img/amp.jpg" width="80" height="80"></amp-social-share>
             
             <amp-social-share type="twitter" width="80" height="80"></amp-social-share>
+            
+            
         </div>
     </div>
 </section>
@@ -572,9 +588,14 @@ or <a href="https://guighostgames.com/Stacker-BoxesOfBalance/index.html" class="
                     <div role="tabpanel" class="tab-content mbr-p-4 text-black">
                         <span class="line"></span>
                         <h2 class="mbr-section-title mbr-fonts-style align-center mbr-semibold display-5">Family Friendly&nbsp;</h2>
-                        <p class="mbr-text mbr-fonts-style align-center display-4 mbr-pt-2"><br>No cursing, blood, gore, alcohol, drugs, or provocative subjects. EVER. We pride ourselves on making family friendly games.&nbsp;<br>GuiGhost is a solo Indie Game Developer always working on improving existing games, as well as working on new and exciting projects to come. Seriously, I don't sleep!<br><br> Check back often as we continue to expand our library of casual Online Games.</p>
-                    </div>
-
+                        <p class="mbr-text mbr-fonts-style align-center display-4 mbr-pt-2">
+                            <br>No cursing, blood, gore, alcohol, drugs, or provocative subjects. EVER. We pride ourselves on making family friendly games.&nbsp;
+                            <br>GuiGhost is a solo Indie Game Developer always working on improving existing games, as well as working on new and exciting projects to come. Seriously, I don't sleep!<br>
+                            <br> Check back often as we continue to expand our library of casual Online Games.
+                        </p>
+                        <span class="line"></span>
+                   
+                </div>
                     <div role="tab" class="tab-button align-center text-black" option="b">
                         <h3 class="tab-head mbr-fonts-style mbr-black mbr-bold mbr-py-1 mbr-px-3 display-7">Platforms</h3>
                     </div>
@@ -610,12 +631,18 @@ or <a href="https://guighostgames.com/Stacker-BoxesOfBalance/index.html" class="
     
 
     <div class="container">
+        <a HREF="https://www.thefreesite.com" TARGET="_blank" id="freesiteLink" style="float:left; transform:translateY(9px) ">
+            <IMG SRC="https://www.thefreesite.com/free88.gif" WIDTH="88" HEIGHT="31" ALT="The Free Site!" BORDER="0" ALIGN="TOP">
+            </a>
         <div class="align-center mbr-p-1">
             <p class="mbr-text mbr-white mbr-fonts-style display-7">
                 © Copyright 2021 GuiGhost LLC&nbsp; &nbsp; &nbsp; &nbsp; <a href="https://guighostgames.com/privacypolicy.htm" class="text-primary">Privacy Policy&nbsp;</a></p>
-        </div>
+            <!--Begin TheFreeSite.com Coding -->
+           
+            </div>
+        
     </div>
-</section><section id="top-1" hidden=""><a href="https://mobirise.site"></a></section>
+</section>
   
   
 <amp-user-notification class="display-7" id="amp-cookies-notification" style="color:#424a4d; background:rgba(225, 235, 100, 0.5700000000000001); padding: 2px 3%; display:inline-block;text-align: center;" layout="nodisplay"><span class="display-7">We use cookies to give you the best experience. Read our <a style="color: #005af0; text-decoration: underline;" href="https://guighostgames.com/privacypolicy.htm">privacy policy </a> </span> <span class="mbr-section-btn"> <button class="btn btn-sm btn-primary display-7" on="tap:amp-cookies-notification.dismiss,amp-cookies-notification.hide" style="display: inline-block; cursor: pointer; margin-left: 10px;">Agree</button></span></amp-user-notification>
