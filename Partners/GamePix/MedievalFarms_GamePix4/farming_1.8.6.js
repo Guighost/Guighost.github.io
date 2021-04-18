@@ -2076,7 +2076,8 @@ var farming = {
             adWatched2 = GamePix.localStorage.getItem('adWatched')
             fromSCBoost = GamePix.localStorage.getItem('MedFarm_StarCashBoost');
             if (adWatched2 == 1 && c.state == farming.GROWING && fromSCBoost == 0) 
-            { c.ripeTime = 0; lime.scheduleManager.callAfter(function () {
+            { c.ripeTime = 0; 
+                lime.scheduleManager.callAfter(function () {
                  GamePix.localStorage.setItem('adWatched', 0); adWatched2 = 0; }, this, 400); 
                 }
             //else {
@@ -17879,3 +17880,6 @@ function showAd() {
 
 
 }
+   //gamePixLoading
+   myLoadingPercentage = 100;
+   GamePix.loading(myLoadingPercentage);
