@@ -17442,7 +17442,7 @@ farming.start = function () {
                 //console.log("clicked confirm SC");
                 if (starCash >= 3) {
                     adWatched2 = 1;
-                    GamePix.localStorage.setItem('adWatched', 1)
+              
                     GamePix.localStorage.setItem('MedFarm_StarCashBoost', 0);
                     starCash = starCash - 3;
                     boostCropsWM.setHidden(true);
@@ -17868,7 +17868,7 @@ function showAd() {
                 lime.scheduleManager.callAfter(function () { GamePix.localStorage.setItem('adWatched', 0); adWatched2 = 0; adWatched = 0; }, this, 400);
             }
             else if (acreDiscount3 === 1){
-
+                lime.scheduleManager.callAfter(function () { GamePix.localStorage.setItem('adWatched', 0); adWatched2 = 0; adWatched = 0; }, this, 400);
             }
             else {
                 starCash = GamePix.localStorage.getItem('starCash');
@@ -17876,6 +17876,7 @@ function showAd() {
                 GamePix.localStorage.setItem('starCash', starCash);
                 GamePix.localStorage.setItem('MedFarm_StarCashBoost', 0);
                 document.getElementById("starCashOuterLabel").innerHTML = starCash;
+                lime.scheduleManager.callAfter(function () { GamePix.localStorage.setItem('adWatched', 0); adWatched2 = 0; adWatched = 0; }, this, 400);
             }
         } else {
           console.log('no ad available')
