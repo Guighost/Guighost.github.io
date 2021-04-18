@@ -17863,14 +17863,8 @@ function showAd() {
             fromSCBoost = GamePix.localStorage.getItem('MedFarm_StarCashBoost');
             var acreDiscount3 = 0;
             acreDiscount3 = GamePix.localStorage.getItem("acreDiscount1");
-            if (c.state == farming.GROWING && fromSCBoost == 0 && acreDiscount3 == 0) {
-                c.ripeTime = 0;
-                lime.scheduleManager.callAfter(function () { GamePix.localStorage.setItem('adWatched', 0); adWatched2 = 0; adWatched = 0; }, this, 400);
-            }
-            else if (acreDiscount3 === 1){
-                lime.scheduleManager.callAfter(function () { GamePix.localStorage.setItem('adWatched', 0); adWatched2 = 0; adWatched = 0; }, this, 400);
-            }
-            else {
+            if ( fromSCBoost == 1 && acreDiscount3 == 0) {
+           
                 starCash = GamePix.localStorage.getItem('starCash');
                 starCash = parseInt(starCash) + 3;
                 GamePix.localStorage.setItem('starCash', starCash);
