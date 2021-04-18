@@ -1689,7 +1689,7 @@ seenPremiumPromo = JSON.parse(localStorage.getItem('MedFarms_seenPremiumPromo'))
 
 
 
-if (typeof GamePix.localStorage["adWatched"] === "undefined") { GamePix.localStorage.setItem('adWatched', 0) };
+ GamePix.localStorage.setItem('adWatched', 0);
 var adWatched = 0;
 
 if (typeof localStorage["showHighLight"] === "undefined") { localStorage.setItem('showHighLight', 0) };
