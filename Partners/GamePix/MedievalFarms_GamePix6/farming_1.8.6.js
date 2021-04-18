@@ -17804,7 +17804,7 @@ farming.start = function () {
             else { codeField.value = "Invalid Code"; codeField.style.color = 'RED'; lime.scheduleManager.callAfter(function () { codeField.value = " "; codeField.style.color = 'Black'; }, this, 1000) };
         };
 
-
+        GamePix.localStorage.setItem('GameLoad', '1');
 };
            //gamePixLoading
            myLoadingPercentage = 90;
@@ -17891,4 +17891,4 @@ function showAd() {
    //gamePixLoading
    myLoadingPercentage = 100;
    GamePix.loading(myLoadingPercentage);
-   GamePix.localStorage.setItem('GameLoad', '1');
+  
