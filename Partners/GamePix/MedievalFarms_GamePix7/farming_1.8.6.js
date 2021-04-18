@@ -3897,7 +3897,7 @@ farming.start = function () {
                                 player.cropsStored[14].stored = parseInt(player.cropsStored[14].stored) + 250;
                                 if (player.cropsStored[14].stored < 0) { player.cropsStored[14].stored = 250; }
                                 localStorage.setItem('GuiGhostFarms_player', JSON.stringify(player));
-
+                                GamePix.happyMoment();
 
 
 
@@ -3990,6 +3990,7 @@ farming.start = function () {
                                 localStorage.setItem('GuiGhostFarms_toolsEver', toolsEver);
                                 localStorage.setItem('GuiGhostFarms_pickedEver', parseInt(pickedEver));
                                 localStorage.setItem('GuiGhostFarms_moneyEver', moneyEver);
+                                GamePix.happyMoment();
                             }
 
                         }, this, 1000, 60)
@@ -4870,6 +4871,7 @@ farming.start = function () {
                         if (secondsToUpgrade <= 0) {
                             barnUnlock3.setHidden(true);            //barnUnlockBtn.setHidden(true);
                             player.barnLevel = player.barnLevel + 1;
+                            GamePix.updateLevel(player.barnLevel)
 
 
                             lime.scheduleManager.callAfter(function () {
@@ -6573,6 +6575,7 @@ farming.start = function () {
                         localStorage.setItem('GuiGhostFarms_toolsEver', toolsEver);
                         localStorage.setItem('GuiGhostFarms_pickedEver', parseInt(pickedEver));
                         localStorage.setItem('GuiGhostFarms_moneyEver', moneyEver);
+                        GamePix.happyMoment();
                     }
 
                 }, this, 1000, 60)
@@ -11994,6 +11997,7 @@ farming.start = function () {
 
              a.updateMoney();
             howManySellBtn.removeEventListener('mousedown', function () { console.log("howmanysellBtn removed listener") });
+            GamePix.updateScore(moneyEver);
         }
 
         //////////////////////////////////Intro Scene///////////////////////////////////////////  //////////////////////////////////Intro Scene///////////////////////////////////////////
@@ -13274,7 +13278,7 @@ farming.start = function () {
                         isblocked1 = 2;
                         treeUnlockBtnV.setHidden(true);
                         localStorage["GuiGhostFarms_vinyardBlocks"] = isblocked1;
-
+                        GamePix.happyMoment();
                         try {
                             goog.events.removeAll(treesImgV);
                         } catch (err) { return; }
