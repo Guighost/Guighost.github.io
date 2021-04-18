@@ -8422,22 +8422,25 @@ farming.start = function () {
                 a.achievements[1] == false; a.achievements[2] == false; a.achievements[3] == false; a.achievements[4] == false; a.achievements[5] == false;
                 a.achievements[6] == false; a.achievements[7] == false; a.achievements[8] == false; a.achievements[9] == false; a.achievements[10] == false;
                 a.achievements[11] == false; a.achievements[12] == false; a.achievements[13] == false; a.achievements[14] == false; a.achievements[15] == false; a.achievements[16] == false;
-                //GamePix.localStorage.setItem("MedFarm_orchardBarnLevel", 0);            //GamePix.localStorage.setItem('GuiGhostFarms_achievements', JSON.stringify(a.achievements));            //GamePix.localStorage.setItem('GuiGhostFarms_moneyEver', 0);
-                //GamePix.localStorage.setItem('GuiGhostFarms_pickedEver', 0);            //GamePix.localStorage.setItem('GuiGhostFarms_dayCount', 0);            //GamePix.localStorage.setItem('GuiGhostFarms_yearCount', 1);
-                //GamePix.localStorage.setItem('GuiGhostFarms_toolsEver', 0);            //GamePix.localStorage.setItem('GuiGhostFarms_boughtStarCash', false);            //GamePix.localStorage.removeItem('GuiGhostFarms_player');
-                //GamePix.localStorage.removeItem('GuiGhostFarms_vinyardBlocks');            //GamePix.localStorage.removeItem('GuiGhostFarms_vinyardBlocks2');            //GamePix.localStorage.removeItem('GuiGhostFarms_vinyardHouseLevel');
-                //GamePix.localStorage.removeItem('GuiGhostFarms_orchardTreeBlock');            //GamePix.localStorage.removeItem('GuiGhostFarms_dayCount');            //GamePix.localStorage.removeItem('GuiGhostFarms_yearCount');
-                //GamePix.localStorage.removeItem('GuiGhostFarms_toolsEver');            //GamePix.localStorage.removeItem('GuiGhostFarms_pickedEver');            //GamePix.localStorage.removeItem('GuiGhostFarms_moneyEver');
-                //GamePix.localStorage.removeItem('GuiGhostFarms_achievements');            //GamePix.localStorage.removeItem('GuiGhostFarms_acres');            //GamePix.localStorage.removeItem('GuiGhostFarms_boughtStarCash');
-                //GamePix.localStorage.removeItem('GuiGhostFarms_coopLevel');            //GamePix.localStorage.removeItem('GuiGhostFarms_tutSeen');            //GamePix.localStorage.removeItem('GuiGhostFarms_houseUpgrades');
-                //GamePix.localStorage.removeItem('showHighLight');            //GamePix.localStorage.removeItem('landStates');            //GamePix.localStorage.removeItem('GuiGhostFarms_muted');
-                //GamePix.localStorage.removeItem('GuiGhostFarms_playerItems');            //GamePix.localStorage.removeItem('MedFarm_StarCashBoost');            //GamePix.localStorage.removeItem('MedFarm_LoadAd');
-                        //GamePix.localStorage.removeItem('MedFarm_orchardBarnLevel');            //GamePix.localStorage.removeItem('GuiGhostFarms_playerItems');
-                //GamePix.localStorage.removeItem('MedFarm_StarCashBoost');            //GamePix.localStorage.removeItem('MedFarm_ciderPlaceOwned');            //GamePix.localStorage.removeItem('MedFarms_townRep');
-                //GamePix.localStorage.removeItem('MedFarms_seenPremiumPromo');            //GamePix.localStorage.removeItem('MedFarms_seen1stHouseNotif');            //GamePix.localStorage.removeItem('MedFarm_Rewarded');
-                //GamePix.localStorage.removeItem('MedFarms_homeTreesLeft');            //GamePix.localStorage.removeItem('MedFarms_homeTreesRight');            //GamePix.localStorage.removeItem("MedFarms_selectedHomeCrop");            //GamePix.localStorage.removeItem('MedFarms_heraldOrdersFilled')
+                GamePix.localStorage.setItem("MedFarm_orchardBarnLevel", 0);            GamePix.localStorage.setItem('GuiGhostFarms_achievements', JSON.stringify(a.achievements));            GamePix.localStorage.setItem('GuiGhostFarms_moneyEver', 0);
+                GamePix.localStorage.setItem('GuiGhostFarms_pickedEver', 0);            GamePix.localStorage.setItem('GuiGhostFarms_dayCount', 0);            GamePix.localStorage.setItem('GuiGhostFarms_yearCount', 1);
+                GamePix.localStorage.setItem('GuiGhostFarms_toolsEver', 0);            GamePix.localStorage.setItem('GuiGhostFarms_boughtStarCash', false);            GamePix.localStorage.removeItem('GuiGhostFarms_player');
+                GamePix.localStorage.removeItem('GuiGhostFarms_vinyardBlocks');            GamePix.localStorage.removeItem('GuiGhostFarms_vinyardBlocks2');            GamePix.localStorage.removeItem('GuiGhostFarms_vinyardHouseLevel');
+                GamePix.localStorage.removeItem('GuiGhostFarms_orchardTreeBlock');            GamePix.localStorage.removeItem('GuiGhostFarms_dayCount');            GamePix.localStorage.removeItem('GuiGhostFarms_yearCount');
+                GamePix.localStorage.removeItem('GuiGhostFarms_toolsEver');            GamePix.localStorage.removeItem('GuiGhostFarms_pickedEver');            GamePix.localStorage.removeItem('GuiGhostFarms_moneyEver');
+                GamePix.localStorage.removeItem('GuiGhostFarms_achievements');            GamePix.localStorage.removeItem('GuiGhostFarms_acres');            GamePix.localStorage.removeItem('GuiGhostFarms_boughtStarCash');
+                GamePix.localStorage.removeItem('GuiGhostFarms_coopLevel');            GamePix.localStorage.removeItem('GuiGhostFarms_tutSeen');            GamePix.localStorage.removeItem('GuiGhostFarms_houseUpgrades');
+                GamePix.localStorage.removeItem('showHighLight');            GamePix.localStorage.removeItem('landStates');            GamePix.localStorage.removeItem('GuiGhostFarms_muted');
+                GamePix.localStorage.removeItem('GuiGhostFarms_playerItems');            GamePix.localStorage.removeItem('MedFarm_StarCashBoost');            GamePix.localStorage.removeItem('MedFarm_LoadAd');
+                GamePix.localStorage.removeItem('MedFarm_orchardBarnLevel');            GamePix.localStorage.removeItem('GuiGhostFarms_playerItems');
+                GamePix.localStorage.removeItem('MedFarm_StarCashBoost');            GamePix.localStorage.removeItem('MedFarm_ciderPlaceOwned');            GamePix.localStorage.removeItem('MedFarms_townRep');
+                GamePix.localStorage.removeItem('MedFarms_seenPremiumPromo');            GamePix.localStorage.removeItem('MedFarms_seen1stHouseNotif');            GamePix.localStorage.removeItem('MedFarm_Rewarded');
+                GamePix.localStorage.removeItem('MedFarms_homeTreesLeft');            GamePix.localStorage.removeItem('MedFarms_homeTreesRight');            GamePix.localStorage.removeItem("MedFarms_selectedHomeCrop");            
+                GamePix.localStorage.removeItem('MedFarms_heraldOrdersFilled')
+                GamePix.localStorage.removeItem('MedFarms_adWatched')
                 ////clear all local storage
-                GamePix.localStorage.clear();
+               /*  GamePix.localStorage.clear(); */
+               localStorage.clear();
                 lime.scheduleManager.callAfter(function () { location.reload(); }, this, 750);
             } else {
                 alert("Whew! That was close!\n Your Farm is safe");
