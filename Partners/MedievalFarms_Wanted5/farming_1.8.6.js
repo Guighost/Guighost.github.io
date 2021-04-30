@@ -17864,7 +17864,7 @@ farming.start = function () {
            elem.setAttribute("height", "768");
            elem.setAttribute("width", "1024");
            elem.setAttribute("alt", "Flower");
-           document.getElementById("wantedLogo").appendChild(elem);
+           document.getElementById("logoBack").appendChild(elem);
            lime.scheduleManager.callAfter(function () { document.getElementById('logoBack').classList.add("fade-out"); }, this, 1000);
            
            lime.scheduleManager.callAfter(function () {

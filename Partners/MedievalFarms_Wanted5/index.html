@@ -990,10 +990,14 @@
 
 
         #logoBack {
-            width: 100%;
-            height: 100%;
+            position: absolute;
+            width: 80%;
+            height: 90%;
             background-color: black;
-            transform: translate3d(0px,-20px, 0px);
+            left: 50%;
+            top :5%;
+            margin:0;
+            transform: translateX(-50%);
             z-index: 6500;
         }
 
@@ -1020,8 +1024,8 @@
 
 
 
-        <!-- <script type="text/javascript" src="wanted5_game.js"></script> -->
-        <script type="text/javascript" src="https://wanted5games.com/js/game.js"></script>
+        <script type="text/javascript" src="wanted5_game.js"></script> 
+       <!--  <script type="text/javascript" src="http://wanted5games.com/js/game.js"></script>-->
    
 </head>
 
@@ -1131,18 +1135,14 @@
 
         </form>
     </div>
-    <div id="logoBack">
-       
-        <div id="wantedLogo">
-            <h3 style="color: yellow;">Distributed By</h3>
-            <img style="user-select: none;-webkit-user-select: none;margin: auto;background-color: hsl(0, 0%, 90%);transition: background-color 300ms;" src="https://cdn.wanted5games.com/api/logo-vertical.png" />
-        </div>
-    </div>
+    <div id='logoBack'></div>
+
     <footer>
 
         <script type="text/javascript" src="farming_1.8.6.js"></script>
 
         <script type="text/javascript" src="loader.js"></script>
+    
 
         <script type="text/javascript">
             
@@ -1175,6 +1175,11 @@
                 shareUs2.addEventListener("click", function (event) { webshareAPI(); });
                 shareUs2.addEventListener("touchstart", function (event) { webshareAPI(); });
 
+                CloudAPI.init({
+                             'id': 1003,
+                                'splash': false
+   
+                        });
 
             });
         </script>
