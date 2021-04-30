@@ -17815,11 +17815,11 @@ farming.start = function () {
         };
 
            
-    CloudAPI.init({
-        'id': 1003,
-        'splash': false
+    // CloudAPI.init({
+    //     'id': 1003,
+    //     'splash': false
 
-    });
+    // });
 
     CloudAPI.mute = function () {
         lime.audio.setMute(true);
@@ -17855,23 +17855,24 @@ farming.start = function () {
     var logoActive = CloudAPI.logos.active();
     console.log("Logo active = " + logoActive);
 
-            //if (CloudAPI.logos.active()) {
-            //    var logoImages = CloudAPI.logos.list();
+            if (CloudAPI.logos.active()) {
+                var logoImages = CloudAPI.logos.list();
             //    //console.log("logoactive is " + CloudAPI.logos.active() + " and images are " + logoImages.vertical.toString())
 
-            //    //var elem = document.createElement("img");
-            //    //elem.setAttribute("src", logoImages.vertical.toString());
-            //    //elem.setAttribute("height", "768");
-            //    //elem.setAttribute("width", "1024");
-            //    //elem.setAttribute("alt", "Flower");
-            //    //document.getElementById("wantedLogo").appendChild(elem);
-            //    lime.scheduleManager.callAfter(function () { document.getElementById('logoBack').classList.add("fade-out"); }, this, 1000);
-            //    lime.scheduleManager.callAfter(function () {
-            //        var myobj = document.getElementById("logoBack");
-            //        myobj.remove(); }, this, 5000);
-            //} else {
-            //    var myobj = document.getElementById("logoBack");
-            //    myobj.remove(); };
+        var elem = document.createElement("img");
+           elem.setAttribute("src", logoImages.vertical.toString());
+           elem.setAttribute("height", "768");
+           elem.setAttribute("width", "1024");
+           elem.setAttribute("alt", "Flower");
+           document.getElementById("wantedLogo").appendChild(elem);
+           lime.scheduleManager.callAfter(function () { document.getElementById('logoBack').classList.add("fade-out"); }, this, 1000);
+           
+           lime.scheduleManager.callAfter(function () {
+                var myobj = document.getElementById("logoBack");
+                  myobj.remove(); }, this, 5000);
+           } else {
+              var myobj = document.getElementById("logoBack");
+               myobj.remove(); };
 
 
 
