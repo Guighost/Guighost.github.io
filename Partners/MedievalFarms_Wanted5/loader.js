@@ -1,3 +1,10 @@
   document.addEventListener("DOMContentLoaded", function () {
-            farming.start();
+    CloudAPI.init({
+      'id': 1003,
+      'splash': false
+
+  });
+      
+    farming.start();
+ 
         });

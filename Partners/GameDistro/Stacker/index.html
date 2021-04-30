@@ -332,9 +332,12 @@
     <script>
         window["GD_OPTIONS"] = {
             "gameId": "876d677de2de4aa3b0fd89cdfc24d8dc",
-			advertisementSettings: {
-          autoplay: true
-			},
+			"advertisementSettings": {
+                "debug": true, // Enable IMA SDK debugging.
+                "autoplay": false, // Don't use this because of browser video autoplay restrictions.
+                "locale": "en", // Locale used in IMA SDK, this will localize the "Skip ad after x seconds" phrases.
+                },
+			
             "onEvent": function (event) {
                 switch (event.name) {
                     case "SDK_GAME_START":
