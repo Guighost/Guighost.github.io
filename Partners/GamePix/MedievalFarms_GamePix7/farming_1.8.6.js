@@ -12025,14 +12025,17 @@ farming.start = function () {
         //moreGameBtn.setHidden(true); moreGameBtnLabel.setHidden(true); 
       
 
-        //var timerDaily = setTimeout(function () {
-        //    //if (deviceType == 'Android') {
-        //    //    try { console.log("trying check"); checkForApps(); }
-        //    //    catch (err) { console.log("check apps failed " + err) };
-        //    //}
-
-        //    checkDailyLogin(); 
-        //}, 2000);
+        playGameBtn.setHidden(true); 
+        var textload = 'Loading.'
+        lime.scheduleManager.scheduleWithDelay(function () {
+            textload = '.' + textload + '.';
+            playButtonLabel.setText(textload).setFontSize(24);;
+            //e.appendChild(toolMover);
+        }, this,300, 13)
+        lime.scheduleManager.callAfter(function () {
+            playButtonLabel.setText("PLAY").setFontSize(36);
+            playGameBtn.setHidden(false); 
+        }, this, 4000);
 
 
 

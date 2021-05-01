@@ -11981,7 +11981,7 @@ farming.start = function () {
         //var playGameBtn = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(a.width / 2 - 50, 510).setSize(50, 50).setFill("#663300");
         var playGameBtn = (new lime.GlossyButton).setColor("#663300").setText("").setPosition(150, 290).setSize(a.width / 2 + 10, 70);
         introLayer.appendChild(playGameBtn);
-        var playButtonLabel = (new lime.Label).setText("PLAY").setFontFamily("Proxima Nova").setFontColor("#E8FC08").setPosition(150, 295).setFontSize(36);
+        var playButtonLabel = (new lime.Label).setText("Loading").setFontFamily("Proxima Nova").setFontColor("#E8FC08").setPosition(150, 295).setFontSize(36);
         introLayer.appendChild(playButtonLabel);
         //var moreGameBtn = (new lime.GlossyButton).setColor("#663300").setText("").setPosition(150, 340).setSize(a.width / 2 - 5, 50);
         //introLayer.appendChild(moreGameBtn);
@@ -11989,18 +11989,17 @@ farming.start = function () {
         //introLayer.appendChild(moreGameBtnLabel);
 
         //moreGameBtn.setHidden(true); moreGameBtnLabel.setHidden(true); 
-      
-
-        //var timerDaily = setTimeout(function () {
-        //    //if (deviceType == 'Android') {
-        //    //    try { console.log("trying check"); checkForApps(); }
-        //    //    catch (err) { console.log("check apps failed " + err) };
-        //    //}
-
-        //    checkDailyLogin(); 
-        //}, 2000);
-
-
+        playGameBtn.setHidden(true); 
+        var textload = 'Loading.'
+        lime.scheduleManager.scheduleWithDelay(function () {
+            textload = '.' + textload + '.';
+            playButtonLabel.setText(textload).setFontSize(24);;
+            //e.appendChild(toolMover);
+        }, this,300, 13)
+        lime.scheduleManager.callAfter(function () {
+            playButtonLabel.setText("PLAY").setFontSize(36);
+            playGameBtn.setHidden(false); 
+        }, this, 4000);
 
         //Intro event handler
         lime.audio.setMute(true);

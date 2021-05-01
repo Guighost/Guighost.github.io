@@ -12020,19 +12020,19 @@ farming.start = function () {
         var playButtonLabel = (new lime.Label).setText("PLAY").setFontFamily("Proxima Nova").setFontColor("#E8FC08").setPosition(150, 295).setFontSize(36);
         introLayer.appendChild(playButtonLabel);
 
-        //var moreGameBtn = (new lime.GlossyButton).setColor("#663300").setText("").setPosition(150, 340).setSize(a.width / 2 - 5, 50);
-        //introLayer.appendChild(moreGameBtn);
-        //var moreGameBtnLabel = (new lime.Label).setText("MORE GAMES").setFontFamily("Proxima Nova").setFontColor("#E8FC08").setPosition(150, 346).setFontSize(20);
-        //introLayer.appendChild(moreGameBtnLabel);
-        var loadingText = (new lime.Label).setText("Loading...").setFontFamily("Proxima Nova").setFontColor("#E8FC08").setPosition(150, 290).setSize(a.width / 2 + 10, 70);
-        introLayer.appendChild(loadingText);
+    
+        playGameBtn.setHidden(true); 
+        var textload = 'Loading.'
+        lime.scheduleManager.scheduleWithDelay(function () {
+            textload = '.' + textload + '.';
+            playButtonLabel.setText(textload).setFontSize(24);;
+            //e.appendChild(toolMover);
+        }, this,300, 13)
+        lime.scheduleManager.callAfter(function () {
+            playButtonLabel.setText("PLAY").setFontSize(36);
+            playGameBtn.setHidden(false); 
+        }, this, 4000);
 
-        playGameBtn.setHidden(true); playButtonLabel.setHidden(true);
-            lime.scheduleManager.callAfter(function () {
-                loadingText.setHidden(true);
-                playGameBtn.setHidden(false); 
-                playButtonLabel.setHidden(false);
-            }, this, 6000);
        
 
         //var timerDaily = setTimeout(function () {
