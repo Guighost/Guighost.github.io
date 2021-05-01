@@ -248,9 +248,6 @@ introScene.prototype = {
         GamePix.localStorage.setItem("showSelfAd", 0);
         GamePix.localStorage.setItem("showInterstatial", 0)
         this.loadGame1();
-		//generic call from adCode.js
-            showAd(1);
-   
 },
     loadGame1: function () {
    
@@ -282,54 +279,30 @@ introScene.prototype = {
 
                 }, 2500);
                 var timer3 = setTimeout(function () {
+                    //generic AD CALL
+                    document.getElementById("loadingGG").style.display = 'none';
+                    showAd(1);
                     game.state.start("PlayGame");
-                    document.getElementById("loadingGG").style.display = 'block';
+                   
                   
                 }, 4000);
 
             }
             else {
-                LEVEL = GamePix.localStorage.getItem("stackerLevel");
+                LEVEL = localStorage.getItem("stackerLevel");
                 alreadyclicked = true;
+                document.getElementById("loadingGG").style.display = 'none';
+                showAd(2);
                 game.state.start("PlayGame");
-                document.getElementById("loadingGG").style.display = 'block';
-
-                ///rate me
-                //var showRateOrNo = GamePix.localStorage.getItem("rateMeNever")
-                //var timesPlayed2 = GamePix.localStorage.getItem("timesPlayed");
-                //if (showRateOrNo == 0 && timesPlayed2 >= 3) {
-                //    GamePix.localStorage.setItem("timesPlayed", 0)
-                //    setTimeout(function () {
-
-                //        var element = document.getElementById("rateMeBtnYes");
-                //        element.classList.remove("zoomInRight");
-                //        element.classList.remove("heartBeat");
-                //        element.classList.add("zoomInUp");
-                //        document.getElementById("rateMe").style.display = 'block';
-
-                //        //var element2 = document.getElementById("rateMeInner");
-                //        //element2.classList.remove("zoomInRight");
-                //        //element2.classList.remove("heartBeat");
-                //        //element2.classList.add("heartBeat");
-                //        document.getElementById("rateMeInner").style.display = 'block';
-
-
-                //        document.getElementById("loadingGG").style.display = 'none';
-                //        game.paused = true;
-
-                //        var playTime2 = setInterval(unPause, 1000);
-                //    }, 500);
                 
-                //}
-                //else { document.getElementById("rateMe").style.display = 'none'; game.paused = false;  }
-                ////end rate me
+
+      
             }
         }
         function unPause() {
-            //var rateVisible = document.getElementById("rateMe").style.display;
-            //if (rateVisible == 'none') { game.paused = false; clearInterval(playTime2) }
+            
         }
-                            //document.querySelector('canvas').style.marginTop = "-20px";
+                          
     },
 
   
@@ -1003,7 +976,7 @@ function showAd(adnum){
             GamePix.resume
         });
     }
-    if( adnum == 2) {
+    if(adnum == 2) {
         GamePix.rewardAd().then(function (res) {
             if (res.success) {
                 console.log("success rewarded ad viewed")
