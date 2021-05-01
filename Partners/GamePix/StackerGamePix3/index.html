@@ -1,0 +1,555 @@
+﻿<!DOCTYPE html>
+<!--GuiGhost Games - GuiStack- Tower of Balance-->
+<!--GuiGhost Games - GuiStack v1.2 March 2018-->
+
+
+<html>
+<head>
+    <script src="https://integration.gamepix.com/sdk/v3/gamepix.sdk.js"></script>
+    <title>Stacker - Boxes of Balance</title>
+    <meta name="viewport" content="width = device-width, initial-scale = 1.0, maximum-scale = 1.0, minimum-scale = 1.0, user-scalable = no, minimal-ui" />
+    <meta charset="UTF-8">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta property="og:type" content="game" />
+    <meta property="og:title" content="Stacker: Boxes of Balance" />
+    <meta property="og:description" content="Fun Physics games of box dropping to get the high score, but don't let them fall -  Family Friendly Free Online Game" />
+    
+
+    <link rel="shortcut icon" sizes="256x256" href="assets/sprites/crate16.png" />
+    
+
+
+    <style type="text/css">
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            background: #0259a0;
+            background: url("images/bg.png") center fixed;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-color: black;
+            overflow: hidden;
+            width: 100%;
+            height: 100%;
+            margin: 0;
+        }
+
+        canvas {
+            touch-action: none;
+            -ms-touch-action: none;
+            position: absolute;
+            top: 0;
+        }
+
+        #wrongorientation {
+            background: url("images/wrongorientation.png") no-repeat center center fixed;
+            background-size: contain;
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0px;
+            left: 0px;
+            z-index: 1000;
+            display: none;
+        }
+
+        #gameDiv {
+            width: 100%;
+            position: absolute;
+            top: 0;
+        }
+
+
+
+        #gameLink {
+            position: absolute;
+            left: 50%;
+            bottom: 15%;
+            width: 232px;
+            height: 79px;
+            transform: translateX(-115px);
+            z-index: 2000;
+        }
+
+
+
+
+
+
+
+        #gGlogoMenu {
+            background: url("images/gabbyLogo.png");
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: center;
+        }
+
+        #loadingGG {
+            position: absolute;
+            top: 15%;
+            left: 50%;
+            min-width: 200px;
+            height: 60%;
+            transform: translateX(-150px);
+            z-index: 15000;
+        }
+
+
+        #rateMeBtnWrap {
+            position: absolute;
+            bottom: 5px;
+            width: 100%;
+            left: 0px;
+        }
+
+
+
+
+
+        @-webkit-keyframes heartBeat {
+            0% {
+                -webkit-transform: scale(1);
+                transform: scale(1);
+            }
+
+            14% {
+                -webkit-transform: scale(1.3);
+                transform: scale(1.3);
+            }
+
+            28% {
+                -webkit-transform: scale(1);
+                transform: scale(1);
+            }
+
+            42% {
+                -webkit-transform: scale(1.3);
+                transform: scale(1.3);
+            }
+
+            70% {
+                -webkit-transform: scale(1);
+                transform: scale(1);
+            }
+        }
+
+        @keyframes heartBeat {
+            0% {
+                -webkit-transform: scale(1);
+                transform: scale(1);
+            }
+
+            14% {
+                -webkit-transform: scale(1.3);
+                transform: scale(1.3);
+            }
+
+            28% {
+                -webkit-transform: scale(1);
+                transform: scale(1);
+            }
+
+            42% {
+                -webkit-transform: scale(1.3);
+                transform: scale(1.3);
+            }
+
+            70% {
+                -webkit-transform: scale(1);
+                transform: scale(1);
+            }
+        }
+
+        .heartBeat {
+            -webkit-animation-name: heartBeat;
+            animation-name: heartBeat;
+            -webkit-animation-duration: 1.3s;
+            animation-duration: 1.3s;
+            -webkit-animation-timing-function: ease-in-out;
+            animation-timing-function: ease-in-out;
+        }
+
+        @-webkit-keyframes zoomInRight {
+            from {
+                opacity: 0;
+                -webkit-transform: scale3d(0.1, 0.1, 0.1) translate3d(1000px, 0, 0);
+                transform: scale3d(0.1, 0.1, 0.1) translate3d(1000px, 0, 0);
+                -webkit-animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+                animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+            }
+
+            60% {
+                opacity: 1;
+                -webkit-transform: scale3d(0.475, 0.475, 0.475) translate3d(-10px, 0, 0);
+                transform: scale3d(0.475, 0.475, 0.475) translate3d(-10px, 0, 0);
+                -webkit-animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1);
+                animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1);
+            }
+        }
+
+        @keyframes zoomInRight {
+            from {
+                opacity: 0;
+                -webkit-transform: scale3d(0.1, 0.1, 0.1) translate3d(1000px, 0, 0);
+                transform: scale3d(0.1, 0.1, 0.1) translate3d(1000px, 0, 0);
+                -webkit-animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+                animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+            }
+
+            60% {
+                opacity: 1;
+                -webkit-transform: scale3d(0.475, 0.475, 0.475) translate3d(-10px, 0, 0);
+                transform: scale3d(0.475, 0.475, 0.475) translate3d(-10px, 0, 0);
+                -webkit-animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1);
+                animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1);
+            }
+        }
+
+        .zoomInRight {
+            -webkit-animation-name: zoomInRight;
+            animation-name: zoomInRight;
+        }
+
+        #levelComplete {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 5000;
+            top: 0px;
+            background-color: black;
+            overflow: hidden;
+            display: none;
+        }
+
+        #levelCompleteInner {
+            margin: auto;
+            width: 95%;
+            height: 95%;
+            z-index: 5000;
+            text-align: center;
+            font-family: 'Comic Sans MS';
+            color: azure;
+        }
+
+        #bannerImg {
+            width: 100%;
+        }
+
+        #LevelComleteTextDiv {
+            margin: auto;
+            width: 95%;
+            height: 100%;
+            font-family: 'Comic Sans MS';
+            font-size: xx-large;
+        }
+
+        #goalText {
+            margin-top: 2%;
+        }
+
+        .rowBackFail {
+            width: 60%;
+            height: 10%;
+            margin-left: 20%;
+            float: left;
+            margin-top: 5px;
+            margin-bottom: 25px;
+            font-size: x-large;
+        }
+
+        h4 {
+            background-image: radial-gradient( grey, black);
+        }
+
+        #goalHtml {
+            background-image: radial-gradient( green, black);
+        }
+
+        .rowBackFail2 {
+            width: 40%;
+            height: 8%;
+            margin-left: 30%;
+            float: left;
+            margin-top: 1px;
+            margin-bottom: 12px;
+            font-size: x-large;
+            border: 3px grey groove;
+            background-image: radial-gradient( purple, black);
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .buttonSize {
+            max-width: 110px;
+            float: left;
+            margin: auto;
+            margin-left: 10px;
+        }
+
+        #lvlStatusTxt {
+            background-image: url(images/topBanner.png);
+            background-repeat: no-repeat;
+            background-position: top;
+            color: red;
+            font-size: xx-large;
+            height: 60px;
+            padding-top: 5px;
+            margin-top: 10%;
+        }
+
+        #tryAgainText {
+            margin-top: 25px;
+            background-image: radial-gradient( brown, black);
+        }
+
+        #startOver {
+            background-image: radial-gradient( blue, black);
+        }
+
+        @media screen and (max-height: 600px) {
+            #levelComplete {
+                max-height: 100%;
+            }
+
+            #LevelComleteTextDiv {
+                font-size: large;
+            }
+
+            .rowBackFail2 .rowBackFail {
+                font-size: medium;
+                height: 5%;
+                width: 70%;
+                margin-left: 15%;
+            }
+
+            #lvlStatusTxt {
+                margin-top: 1%;
+            }
+        }
+    </style>
+    <link rel="stylesheet" type="text/css" href="animate.min.css">
+    <script src="phaser.min.js"></script>
+    <script src="box2d-plugin-full.js"></script>
+    <script src="guiStack_New.js"></script>
+    
+
+
+
+
+
+</head>
+<body>
+    
+ 
+   <div id="gameDiv"></div>
+    <div id="loadingGG"><IMG SRC="images/loading4.gif"></div>
+
+    <div id="wrongorientation"></div>
+
+    <audio id="NiceSound" class="gameSounds">
+        <source src="assets\sounds\\loops/OveMelaa-ItaloUnlimited.mp3" type="audio/mp3">
+    </audio>
+    <!--SELF Advertising-->`
+    <!--<div id="selfInterstatial">-->
+        
+        <!--<div id="closeSelfAd">X</div>-->
+        <!--<div id="adTimerX"> 30 </div>
+        <div id="selfAdMain">
+            
+
+            <video id="promoVid1" width="265" height="470" >
+                <source src="assets/starMatchPromo.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>-->
+            <!--<div id="labelSelfInter"> Star Match 2048 </div>-->
+            <!--<div id="selfAdInner">
+                <img id="selfAdGraphic" src="images/starMatchPromo1.png" />
+            
+            </div>
+          
+            <a id="gameLink" class="external-link" href='https://play.google.com/store/apps/details?id=com.GuiGhostGames.StarMatch2048' target='_blank'><img id="gPlayImg" alt='Get it on Google Play' src='images/google-play-badge_altered.png' /></a>
+      
+        </div>
+    </div>-->
+
+    <!--<div id="rateMe" >
+        <div id="rateMeInner" class="fadeIn " >
+            <div id="rateMeTopWrap">
+
+                <div id="rateMeText"> 
+                    <h2>Please Rate Our App</h2>
+                <p> It takes only a moment and helps alot</p>
+                </div>
+                
+            </div>
+            <div id="rateMeImage" class="heartBeat"> <img id="rateImage" alt='Rate on Google Play' src='images/ratingstars.png' />   </div>
+
+            <div id="rateMeBtnWrap" >
+
+                <div id="rateMeBtnNo" class="rateBtn">No Thanks</div>
+                
+                <div id="rateMeBtnYes" class="rateBtn"> <b>Rate Now</b>  </div>
+                <div id="rateMeBtnLater" class="rateBtn">Later</div>
+            </div>
+         
+
+        </div>
+
+    </div>-->
+    <div id="levelComplete" class="zoomInDown">
+        <div id="levelCompleteInner">
+            <div id="headFailed">
+                <!--<img id="bannerImg" src="images/topBanner.png"/>-->
+                <div id="lvlStatusTxt"><p>FAILED</p> </div>
+            </div>
+            <div id="LevelComleteTextDiv">
+                <div id="goalText" class="rowBackFail">Level Goal <h4 id="goalHtml" >25</h4> </div>
+                <div id="yourScoreText" class="rowBackFail">Your Score <h4 id="scoreHtml">0</h4> </div>
+                <!--<div id="tryAgainText"  class="rowBackFail2"><img class="buttonSize" id="continueBtnHtml" src="images/continueButton.png" />Try Again </div>
+                <div id="SkipLevelText"  class="rowBackFail2" ><img class="buttonSize   heartBeat" id="viewAdBtnHtml"  src="images/viewAd.png" />Skip Level </div>
+                <div id="startOver" class="rowBackFail2"><img class="buttonSize" id="startoverBtnHtml" src="images/playButtonNew.png" /> Start Over </div>-->
+               <br/>
+                <div id="tryAgainText" class="rowBackFail2">Try Again </div>
+                <div id="SkipLevelText" class="rowBackFail2">Skip Level </div>
+                <div id="startOver" class="rowBackFail2">Start Over </div>
+        
+            </div>
+         
+           
+            <div id="LevelComleteSkipBtn"></div>
+            <div id="LevelComleteQuitBtn"></div>
+
+        </div>
+
+    </div>
+
+ 
+    <!--<div id="leftAdBar">
+        <iframe style="width:120px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ac&ref=tf_til&ad_type=product_link&tracking_id=guighost-20&marketplace=amazon&region=US&placement=B07SR1BRN5&asins=B07SR1BRN5&linkId=a12838dc2659e081dd5bd9f1c1ac3cd5&show_border=false&link_opens_in_new_window=false&price_color=333333&title_color=0066C0&bg_color=FFFFFF"></iframe>
+        <iframe style="width:120px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ac&ref=tf_til&ad_type=product_link&tracking_id=guighost-20&marketplace=amazon&region=US&placement=B07RX6FBFR&asins=B07RX6FBFR&linkId=97ed958c2c381f17391a99c71a600952&show_border=false&link_opens_in_new_window=false&price_color=333333&title_color=0066c0&bg_color=ffffff"></iframe>
+    </div>
+    <div id="rightAdBar">
+        <iframe src="//rcm-na.amazon-adsystem.com/e/cm?o=1&p=11&l=ez&f=ifr&linkID=692ac2ae1b87ac1549a2749e07927cf6&t=guighost-20&tracking_id=guighost-20" width="120" height="600" scrolling="no" border="0" marginwidth="0" style="border:none;" frameborder="0"></iframe>
+    </div>-->
+  
+    
+ <script type=text/javascript>
+
+        
+    window.addEventListener('load', (event) => {
+  //console.log('page is fully loaded');
+        ///start level end loss modal
+    document.getElementById("tryAgainText").addEventListener("click", handleLevelPopup);
+    document.getElementById("tryAgainText").addEventListener("touchstart", handleLevelPopup);
+
+    document.getElementById("SkipLevelText").addEventListener("click", handleLevelPopup2);
+    document.getElementById("SkipLevelText").addEventListener("touchstart", handleLevelPopup2);
+
+    document.getElementById("startOver").addEventListener("click", handleLevelPopup3);
+    document.getElementById("startOver").addEventListener("touchstart", handleLevelPopup3);
+
+     });
+
+
+    if (GamePix.localStorage.getItem("timesPlayed") == null) {
+            GamePix.localStorage.setItem("timesPlayed", 0);
+    }
+     var timesPlayed = GamePix.localStorage.getItem("timesPlayed")
+     timesPlayed++
+     GamePix.localStorage.setItem("timesPlayed", timesPlayed);
+
+
+        var showItOrNo = GamePix.localStorage.getItem("showInterstatial");
+       
+
+        var onceOnlyAd = 0;
+
+       var levelEndModal = document.getElementById("levelComplete");
+
+     //try again
+    function handleLevelPopup(evt) {
+       // console.log("still here")
+        evt.preventDefault()
+        showItOrNo = GamePix.localStorage.getItem("showInterstatial");
+        
+
+        if (showItOrNo == 1) {
+            levelEndModal.style.display = 'none';
+            GamePix.localStorage.setItem("showInterstatial", 0);
+
+        //ad call
+            showAd(1);
+
+        
+		}
+	    else {
+			levelEndModal.style.display = 'none'
+			game.state.start("PlayGame");
+	    }
+    }
+     //view rewarded ad and skip level
+     var firstClick2 = 0;
+    function handleLevelPopup2(evt) {
+     if (firstClick2 == 0 ) {
+        firstClick2 = 1;
+        evt.preventDefault()
+      //  console.log("showAd")
+     /*fireEnhance2()*/
+         //if (gdsdk !== 'undefined' && gdsdk.showAd !== 'undefined') {
+             
+            
+         //    gdsdk.showAd('rewarded');
+         //}
+         levelEndModal.style.display = 'none';
+         LEVEL = GamePix.localStorage.getItem("stackerLevel");
+         LEVEL = parseInt(LEVEL) + 1;
+         GamePix.localStorage.setItem("stackerLevel", LEVEL);
+         firstClick2 = 0;
+         
+      //ad call
+         showAd(2);
+
+
+          //setTimeout(function(){
+          //      levelEndModal.style.display = 'none';
+          //      LEVEL =  GamePix.localStorage.getItem("stackerLevel");
+          //      LEVEL = parseInt(LEVEL) + 1;
+          //      GamePix.localStorage.setItem("stackerLevel", LEVEL);
+          //      game.state.start("PlayGame");
+          //      firstClick2 = 0;
+          //  }, 4000);
+     }
+    }
+     //start over
+    function handleLevelPopup3(evt) {
+        evt.preventDefault()
+       // console.log("still here3")
+        levelEndModal.style.display = 'none'
+        LEVEL = 1;
+
+     //ad call
+        showAd(1);
+
+    
+    }
+
+
+
+  
+
+
+
+
+
+
+ </script>
+
+<script  src="loader.js"></script>
+
+
+</body>
+</html>
+<!--//Credits to http://www.emanueleferonato.com/ for the tuturial on the javascript that started this project-->
