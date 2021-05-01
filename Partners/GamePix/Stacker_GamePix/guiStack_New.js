@@ -212,10 +212,7 @@ introScene.prototype = {
         //generic call from adCode.js
             showAd(1);
 
-        ///Game Distribution
-            //if (typeof gdsdk !== 'undefined' && gdsdk.showAd !== 'undefined') {
-            //    gdsdk.showAd();
-            //}
+      
         }
         if (LEVEL > 1) {
                 
@@ -985,7 +982,7 @@ var startup = true;
 //levelEndModal.style.display = 'none'
 GamePix.loaded().then(function () {
     // Place here the code to reach your main screen
-    startMyAwesomeGame();
+    console.log("gamePixLoaded");
 })
 GamePix.pause = function () { game.paused = true; document.querySelector("canvas").style.display = "none";}
 GamePix.resume = function () { game.paused = false; document.querySelector("canvas").style.display = "block";}
