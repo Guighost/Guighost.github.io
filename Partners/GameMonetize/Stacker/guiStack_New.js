@@ -974,8 +974,12 @@ window.SDK_OPTIONS = {
 })(document, "script", "gamemonetize-sdk");
 
 function showAd() {
+    console.log("try show ad before if")
     if (typeof sdk !== 'undefined' && sdk.showBanner !== 'undefined') {
         sdk.showBanner();
+        console.log("after showBanner called")
+    }else{
+        console.log("sdk detect failed tryign to show ad")
     }
 
 
