@@ -888,7 +888,9 @@ function switchAndPlayTheme(levelPassed) {
     if (levelPassed > 24) { levelPassed = levelPassed - 24 };
     switch (levelPassed) {
         case 1:
-            myAudio.play();
+            try {myAudio.play();}
+            catch(err){console.log("audio disabled until loaded GGGGGGG")}
+            
             break;
         case 2:
             myAudioCSI.play();
