@@ -206,10 +206,7 @@ introScene.prototype = {
 
         
 
-        ///Game Distribution
-            //if (typeof gdsdk !== 'undefined' && gdsdk.showAd !== 'undefined') {
-            //    gdsdk.showAd();
-            //}
+  
         }
         if (LEVEL > 1) {
                 
@@ -289,6 +286,7 @@ introScene.prototype = {
             else {
                 LEVEL = localStorage.getItem("stackerLevel");
                 alreadyclicked = true;
+                showAd();
                 game.state.start("PlayGame");
                 document.getElementById("loadingGG").style.display = 'block';
 
