@@ -980,24 +980,24 @@ GamePix.loading(100);
    
 var startup = true;
 //levelEndModal.style.display = 'none'
-GamePix.loaded().then(function () {
-    // Place here the code to reach your main screen
-    console.log("gamePixLoaded");
-})
+
 GamePix.pause = function () { game.paused = true; document.querySelector("canvas").style.display = "none";}
 GamePix.resume = function () { game.paused = false; document.querySelector("canvas").style.display = "block";}
 
 function showAd(adnum){
+    GamePix.pause();
     if (adnum == 1) {
         GamePix.interstitialAd().then(function (res) {
             if (res.success) {
             console.log("success inter ad viewed")
             info();
+            
             } else {
             // Log the error if you want
             var errI = errorInfo();
             console.log("failed inter ad viewed with error " + errI.ToString());
             }
+            GamePix.resume
         });
     }
     if( adnum == 2) {
@@ -1007,6 +1007,7 @@ function showAd(adnum){
             } else {
                 console.log("failed rewarded ad viewed")
             }
+            GamePix.resume
           });
     }
 
