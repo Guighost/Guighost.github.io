@@ -12042,6 +12042,7 @@ farming.start = function () {
         //Intro event handler
         lime.audio.setMute(true);
         goog.events.listen(playGameBtn, ["mousedown", "touchstart"], function () {
+            showAd();
             lime.audio.setMute(false);
             b.currentCrop = parseInt(localStorage.getItem("MedFarms_selectedHomeCrop"));
             homeCrop = parseInt(localStorage.getItem("MedFarms_selectedHomeCrop"));
