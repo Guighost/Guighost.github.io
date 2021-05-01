@@ -333,7 +333,7 @@ introScene.prototype = {
 
   
 }
-GamePix.loading(30);
+GamePix.loading(50);
     var playGame = function () { };
 playGame.prototype = {
     preload: function () {
@@ -366,7 +366,7 @@ playGame.prototype = {
         game.load.image("ground23", "assets/sprites/ground23.png");
         game.load.image("ground24", "assets/sprites/ground24.png");
         game.load.image("ground25", "assets/sprites/ground25.png");
-        GamePix.loading(40);
+        
         game.load.image("plat1", "assets/sprites/plat1.png");
         game.load.image("plat2", "assets/sprites/plat2.png");
         game.load.image("plat3", "assets/sprites/plat3.png");
@@ -392,7 +392,7 @@ playGame.prototype = {
         game.load.image("plat23", "assets/sprites/plat23.png");
         game.load.image("plat24", "assets/sprites/plat24.png");
         game.load.image("plat25", "assets/sprites/plat25.png");
-        GamePix.loading(50);
+    
         game.load.image("sky1", "assets/sprites/sky1.png");
         game.load.image("sky2", "assets/sprites/sky2.png");
         game.load.image("sky3", "assets/sprites/sky3.png");
@@ -427,7 +427,7 @@ playGame.prototype = {
         game.load.image("crate7", "assets/sprites/crate7.png");
         game.load.image("crate8", "assets/sprites/crate8.png");
         game.load.image("crate9", "assets/sprites/crate9.png");
-        GamePix.loading(60);
+       
         game.load.image("crate10", "assets/sprites/crate10.png");
         game.load.image("crate11", "assets/sprites/crate11.png");
         game.load.image("crate12", "assets/sprites/crate12.png");
@@ -457,7 +457,7 @@ playGame.prototype = {
         game.load.bitmapFont("font2", "assets/fonts/font2.png", "assets/fonts/font.xml");
         game.load.bitmapFont("smallfont", "assets/fonts/smallfont.png", "assets/fonts/smallfont.xml");
 
-        GamePix.loading(70);
+      
     
         
     },
@@ -1013,3 +1013,7 @@ function showAd(adnum){
 
 
 }
+GamePix.loaded().then(function () {
+     
+    console.log("gamepix loaded");
+       })    
