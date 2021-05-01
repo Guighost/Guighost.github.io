@@ -44,19 +44,19 @@ window.onload = function () {
     game.state.add("PlayGame", playGame);
    
 
-    if (localStorage.getItem("showSelfAd") == null) {
-        localStorage.setItem("showSelfAd", 0);
+    if (GamePix.localStorage.getItem("showSelfAd") == null) {
+        GamePix.localStorage.setItem("showSelfAd", 0);
     }
-    else { localStorage.setItem("showSelfAd", 0); }
+    else { GamePix.localStorage.setItem("showSelfAd", 0); }
 
-    if (localStorage.getItem("stackerLevel") == null) {
+    if (GamePix.localStorage.getItem("stackerLevel") == null) {
         LEVEL = 1;
-        localStorage.setItem("stackerLevel", LEVEL);
+        GamePix.localStorage.setItem("stackerLevel", LEVEL);
     }
-    else LEVEL = localStorage.getItem("stackerLevel");
+    else LEVEL = GamePix.localStorage.getItem("stackerLevel");
     //console.log("Player is level " + LEVEL);
     game.state.start("introToGame");
-    localStorage.setItem("showInterstatial", 0);
+    GamePix.localStorage.setItem("showInterstatial", 0);
 
     //game.state.add("PlayGame", playGame);
     //game.state.start("PlayGame");
@@ -240,14 +240,14 @@ introScene.prototype = {
         //console.log(text)
         LEVEL = 1;
  
-        localStorage.setItem("stackerScore", 0);
-        localStorage.setItem(gameOptions.localStorageName, JSON.stringify({
+        GamePix.localStorage.setItem("stackerScore", 0);
+        GamePix.localStorage.setItem(gameOptions.localStorageName, JSON.stringify({
             score: 0
         }));
-        localStorage.setItem("timesPlayed", 0)
-        localStorage.setItem("stackerLevel", 1);
-        localStorage.setItem("showSelfAd", 0);
-        localStorage.setItem("showInterstatial", 0)
+        GamePix.localStorage.setItem("timesPlayed", 0)
+        GamePix.localStorage.setItem("stackerLevel", 1);
+        GamePix.localStorage.setItem("showSelfAd", 0);
+        GamePix.localStorage.setItem("showInterstatial", 0)
         this.loadGame1()
    
 },
@@ -288,16 +288,16 @@ introScene.prototype = {
 
             }
             else {
-                LEVEL = localStorage.getItem("stackerLevel");
+                LEVEL = GamePix.localStorage.getItem("stackerLevel");
                 alreadyclicked = true;
                 game.state.start("PlayGame");
                 document.getElementById("loadingGG").style.display = 'block';
 
                 ///rate me
-                //var showRateOrNo = localStorage.getItem("rateMeNever")
-                //var timesPlayed2 = localStorage.getItem("timesPlayed");
+                //var showRateOrNo = GamePix.localStorage.getItem("rateMeNever")
+                //var timesPlayed2 = GamePix.localStorage.getItem("timesPlayed");
                 //if (showRateOrNo == 0 && timesPlayed2 >= 3) {
-                //    localStorage.setItem("timesPlayed", 0)
+                //    GamePix.localStorage.setItem("timesPlayed", 0)
                 //    setTimeout(function () {
 
                 //        var element = document.getElementById("rateMeBtnYes");
@@ -477,7 +477,7 @@ playGame.prototype = {
             })
         }
         this.lastSoundPlayed = Date.now();
-        this.savedData = localStorage.getItem(gameOptions.localStorageName) == null ? { score: 0 } : JSON.parse(localStorage.getItem(gameOptions.localStorageName));
+        this.savedData = GamePix.localStorage.getItem(gameOptions.localStorageName) == null ? { score: 0 } : JSON.parse(GamePix.localStorage.getItem(gameOptions.localStorageName));
         this.hitSound = [game.add.audio("hit01"), game.add.audio("hit02"), game.add.audio("hit03")];
         this.gameOverSound = game.add.audio("gameover");
         this.victorySound = game.add.audio("victory");
@@ -485,12 +485,12 @@ playGame.prototype = {
         this.score = 0;
         if (LEVEL > 1) { this.score = levelScore; oldLevelScore = this.score; }
 
-        if (localStorage.getItem("stackerScore") == null) {
-            localStorage.setItem("stackerScore", this.score);
+        if (GamePix.localStorage.getItem("stackerScore") == null) {
+            GamePix.localStorage.setItem("stackerScore", this.score);
         }
         else {
-            this.score = JSON.parse(localStorage.getItem("stackerScore"));
-            oldLevelScore = JSON.parse(localStorage.getItem("stackerScore"));
+            this.score = JSON.parse(GamePix.localStorage.getItem("stackerScore"));
+            oldLevelScore = JSON.parse(GamePix.localStorage.getItem("stackerScore"));
             //console.log("score is " + this.score);
         }
         
@@ -756,7 +756,7 @@ playGame.prototype = {
             scoreText2.anchor.set(0.5);
             var scoreDisplayText2 = game.add.bitmapText(game.width / 2, game.height / 4 + 220 , "font2", scoreCheck.toString(), 64);
             scoreDisplayText2.anchor.set(0.5);
-            localStorage.setItem(gameOptions.localStorageName, JSON.stringify({
+            GamePix.localStorage.setItem(gameOptions.localStorageName, JSON.stringify({
                 score: Math.max(this.score, this.savedData.score)
             }));
 
@@ -776,9 +776,9 @@ playGame.prototype = {
                 var lvlUpDisplayText = game.add.bitmapText(game.width / 2, game.height / 4 + 320, "font2", "Level Up", 78);
                 lvlUpDisplayText.anchor.set(0.5);
 				
-                localStorage.setItem("stackerScore", this.score);
+                GamePix.localStorage.setItem("stackerScore", this.score);
                 LEVEL++;
-                localStorage.setItem("stackerLevel", LEVEL);
+                GamePix.localStorage.setItem("stackerLevel", LEVEL);
                 levelScore = this.score;
                 GamePix.updateScore(levelScore);
                 GamePix.updateLevel(LEVEL);
@@ -793,7 +793,7 @@ playGame.prototype = {
 
                         playAdTime = 0;
                         //console.log("show an ad")
-                        localStorage.setItem("showInterstatial", 1);
+                        GamePix.localStorage.setItem("showInterstatial", 1);
                         gameOptions.crateSpeed = gameOptions.crateSpeed - 25;
                         gameOptions.gravity = gameOptions.gravity + 50;
                         if (gameOptions.crateSpeed <= 749) { gameOptions.crateSpeed = 750; }
@@ -805,7 +805,7 @@ playGame.prototype = {
 				
                 //game.time.events.add(Phaser.Timer.SECOND * 6, function () {
                    
-                //    localStorage.setItem("showInterstatial", 0);
+                //    GamePix.localStorage.setItem("showInterstatial", 0);
 
                 //    //gameOptions.fallingHeight = gameOptions.fallingHeight + 25;
                 //    gameOptions.crateSpeed = gameOptions.crateSpeed - 25;
@@ -838,17 +838,17 @@ playGame.prototype = {
                     playAdTime = 0;
 
                     game.time.events.add(Phaser.Timer.SECOND * 2, function () {
-                        var selfAdVal = localStorage.getItem("showSelfAd");
-                        if (selfAdVal == 0) { pauseAllAudio(); localStorage.setItem("showInterstatial", 1); }
+                        var selfAdVal = GamePix.localStorage.getItem("showSelfAd");
+                        if (selfAdVal == 0) { pauseAllAudio(); GamePix.localStorage.setItem("showInterstatial", 1); }
                         else if (selfAd1time == 1 && selfAdVal == 1) {
                             pauseAllAudio();
                             selfAd1time = 0;
-                            localStorage.setItem("showSelfAd", 1);  localStorage.setItem("showInterstatial", 1);
+                            GamePix.localStorage.setItem("showSelfAd", 1);  GamePix.localStorage.setItem("showInterstatial", 1);
                         }
-                        else { localStorage.setItem("showSelfAd", 0);  localStorage.setItem("showInterstatial", 1);}     
+                        else { GamePix.localStorage.setItem("showSelfAd", 0);  GamePix.localStorage.setItem("showInterstatial", 1);}     
                            
                        
-                        //setTimeout(function () { localStorage.setItem("showInterstatial", 0); pauseAllAudio(); }, 8000); 
+                        //setTimeout(function () { GamePix.localStorage.setItem("showInterstatial", 0); pauseAllAudio(); }, 8000); 
                       
                     }, this);
 

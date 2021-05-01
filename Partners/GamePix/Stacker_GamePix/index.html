@@ -454,15 +454,15 @@
      });
 
 
-    if (localStorage.getItem("timesPlayed") == null) {
-            localStorage.setItem("timesPlayed", 0);
+    if (GamePix.localStorage.getItem("timesPlayed") == null) {
+            GamePix.localStorage.setItem("timesPlayed", 0);
     }
-     var timesPlayed = localStorage.getItem("timesPlayed")
+     var timesPlayed = GamePix.localStorage.getItem("timesPlayed")
      timesPlayed++
-     localStorage.setItem("timesPlayed", timesPlayed);
+     GamePix.localStorage.setItem("timesPlayed", timesPlayed);
 
 
-        var showItOrNo = localStorage.getItem("showInterstatial");
+        var showItOrNo = GamePix.localStorage.getItem("showInterstatial");
        
 
         var onceOnlyAd = 0;
@@ -473,12 +473,12 @@
     function handleLevelPopup(evt) {
        // console.log("still here")
         evt.preventDefault()
-        showItOrNo = localStorage.getItem("showInterstatial");
+        showItOrNo = GamePix.localStorage.getItem("showInterstatial");
         
 
         if (showItOrNo == 1) {
             levelEndModal.style.display = 'none';
-            localStorage.setItem("showInterstatial", 0);
+            GamePix.localStorage.setItem("showInterstatial", 0);
 
         //ad call
             showAd(1);
@@ -504,9 +504,9 @@
          //    gdsdk.showAd('rewarded');
          //}
          levelEndModal.style.display = 'none';
-         LEVEL = localStorage.getItem("stackerLevel");
+         LEVEL = GamePix.localStorage.getItem("stackerLevel");
          LEVEL = parseInt(LEVEL) + 1;
-         localStorage.setItem("stackerLevel", LEVEL);
+         GamePix.localStorage.setItem("stackerLevel", LEVEL);
          firstClick2 = 0;
          
       //ad call
@@ -515,9 +515,9 @@
 
           //setTimeout(function(){
           //      levelEndModal.style.display = 'none';
-          //      LEVEL =  localStorage.getItem("stackerLevel");
+          //      LEVEL =  GamePix.localStorage.getItem("stackerLevel");
           //      LEVEL = parseInt(LEVEL) + 1;
-          //      localStorage.setItem("stackerLevel", LEVEL);
+          //      GamePix.localStorage.setItem("stackerLevel", LEVEL);
           //      game.state.start("PlayGame");
           //      firstClick2 = 0;
           //  }, 4000);
