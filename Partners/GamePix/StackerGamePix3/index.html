@@ -474,22 +474,12 @@
        // console.log("still here")
         evt.preventDefault()
         showItOrNo = GamePix.localStorage.getItem("showInterstatial");
-        
-
-        if (showItOrNo == 1) {
-            levelEndModal.style.display = 'none';
-            GamePix.localStorage.setItem("showInterstatial", 0);
-
+           
         //ad call
-        
-            showAd(1);
-
-        
-		}
-	    else {
-			levelEndModal.style.display = 'none'
-			game.state.start("PlayGame");
-	    }
+        showAd(1);
+		levelEndModal.style.display = 'none'
+		game.state.start("PlayGame");
+	    
     }
      //view rewarded ad and skip level
      var firstClick2 = 0;
@@ -505,7 +495,12 @@
          //    gdsdk.showAd('rewarded');
          //}
          levelEndModal.style.display = 'none';
-         LEVEL = GamePix.localStorage.getItem("stackerLevel");
+         if (GamePix.localStorage.getItem("stackerLevel") == null || GamePix.localStorage.getItem("stackerLevel") == 'undefined') {
+            LEVEL = 1;
+             GamePix.localStorage.setItem("stackerLevel", LEVEL);
+            }
+        else LEVEL = GamePix.localStorage.getItem("stackerLevel");
+
          LEVEL = parseInt(LEVEL) + 1;
          GamePix.localStorage.setItem("stackerLevel", LEVEL);
          firstClick2 = 0;
