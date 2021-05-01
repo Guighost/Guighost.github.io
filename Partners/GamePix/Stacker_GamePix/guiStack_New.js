@@ -981,8 +981,8 @@ GamePix.loading(100);
 var startup = true;
 //levelEndModal.style.display = 'none'
 
-GamePix.pause = function () { game.paused = true; document.querySelector("canvas").style.display = "none";}
-GamePix.resume = function () { game.paused = false; document.querySelector("canvas").style.display = "block";}
+GamePix.pause = function () { game.paused = true;}
+GamePix.resume = function () { game.paused = false; }
 
 function showAd(adnum){
     GamePix.pause();
