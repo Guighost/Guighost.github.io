@@ -282,10 +282,18 @@ introScene.prototype = {
                     //generic AD CALL
                     document.getElementById("loadingGG").style.display = 'none';
                     showAd(1);
-                    game.state.start("PlayGame");
+                    
                    
                   
                 }, 4000);
+                var timer4 = setTimeout(function () {
+                    //generic AD CALL
+                    document.getElementById("loadingGG").style.display = 'none';
+                    
+                    game.state.start("PlayGame");
+                   
+                  
+                }, 6000);
 
             }
             else {
@@ -957,12 +965,14 @@ GamePix.loading(100);
 var startup = true;
 //levelEndModal.style.display = 'none'
 
-GamePix.pause = function () { game.paused = true;}
-GamePix.resume = function () { game.paused = false; }
+GamePix.pause = function () { game.paused = true; console.log('game paused');}
+GamePix.resume = function () { game.paused = false; console.log('game resume');}
 
 function showAd(adnum){
     GamePix.pause();
+    try{
     if (adnum == 1) {
+        
         GamePix.interstitialAd().then(function (res) {
             if (res.success) {
             console.log("success inter ad viewed")
@@ -973,7 +983,7 @@ function showAd(adnum){
           
             console.log("failed inter ad viewed with error " );
             }
-            GamePix.resume
+            GamePix.resume();
         });
     }
     if(adnum == 2) {
@@ -983,9 +993,10 @@ function showAd(adnum){
             } else {
                 console.log("failed rewarded ad viewed")
             }
-            GamePix.resume
+            GamePix.resume();
           });
     }
+}catch(err){console.log("ad failed - resuming"); GamePix.resume();}
 
 
 }
