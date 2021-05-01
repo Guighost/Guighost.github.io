@@ -209,8 +209,7 @@ introScene.prototype = {
             playBtn.input.PriorityID = 1;
             game.input.onDown.add(this.loadGame1, playBtn);
 
-        //generic call from adCode.js
-            // showAd(1);
+        
 
       
         }
@@ -248,7 +247,9 @@ introScene.prototype = {
         GamePix.localStorage.setItem("stackerLevel", 1);
         GamePix.localStorage.setItem("showSelfAd", 0);
         GamePix.localStorage.setItem("showInterstatial", 0)
-        this.loadGame1()
+        this.loadGame1();
+		//generic call from adCode.js
+            showAd(1);
    
 },
     loadGame1: function () {
@@ -1015,7 +1016,7 @@ function showAd(adnum){
 
 
 }
-GamePix.loaded().then(function () {
+setTimeout(function(){ GamePix.loaded().then(function () {
      
     console.log("gamepix loaded");
-       })    
+       })     }, 1000);
