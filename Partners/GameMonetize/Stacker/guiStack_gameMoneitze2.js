@@ -276,9 +276,10 @@ introScene.prototype = {
                 }, 2500);
                 var timer3 = setTimeout(function () {
                     //generic AD CALL
+                    document.getElementById("loadingGG").style.display = 'none';
                     showAd();
                     game.state.start("PlayGame");
-                    document.getElementById("loadingGG").style.display = 'block';
+                   
                   
                 }, 4000);
 
@@ -289,7 +290,7 @@ introScene.prototype = {
                 document.getElementById("loadingGG").style.display = 'none';
                 showAd();
                 game.state.start("PlayGame");
-                document.getElementById("loadingGG").style.display = 'block';
+                
 
       
             }
