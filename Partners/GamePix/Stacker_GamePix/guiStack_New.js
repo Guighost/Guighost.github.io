@@ -994,7 +994,7 @@ function showAd(adnum){
             
             } else {
             // Log the error if you want
-            var errI = errorInfo();
+            var errI = res;
             console.log("failed inter ad viewed with error " + errI.ToString());
             }
             GamePix.resume
