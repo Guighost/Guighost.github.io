@@ -210,7 +210,7 @@ introScene.prototype = {
             game.input.onDown.add(this.loadGame1, playBtn);
 
         //generic call from adCode.js
-            showAd(1);
+            // showAd(1);
 
       
         }
