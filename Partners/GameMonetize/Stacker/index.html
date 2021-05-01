@@ -230,7 +230,7 @@
             height: 95%;
             z-index: 5000;
             text-align: center;
-            font-family: 'Comic Sans MS';
+            font-family:  'Proxima Nova';
             color: azure;
         }
 
@@ -242,7 +242,7 @@
             margin: auto;
             width: 95%;
             height: 100%;
-            font-family: 'Comic Sans MS';
+            font-family:  'Proxima Nova';
             font-size: xx-large;
         }
 
@@ -352,53 +352,7 @@
     <audio id="NiceSound" class="gameSounds">
         <source src="assets\sounds\\loops/OveMelaa-ItaloUnlimited.mp3" type="audio/mp3">
     </audio>
-    <!--SELF Advertising-->`
-    <!--<div id="selfInterstatial">-->
-        
-        <!--<div id="closeSelfAd">X</div>-->
-        <!--<div id="adTimerX"> 30 </div>
-        <div id="selfAdMain">
-            
 
-            <video id="promoVid1" width="265" height="470" >
-                <source src="assets/starMatchPromo.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>-->
-            <!--<div id="labelSelfInter"> Star Match 2048 </div>-->
-            <!--<div id="selfAdInner">
-                <img id="selfAdGraphic" src="images/starMatchPromo1.png" />
-            
-            </div>
-          
-            <a id="gameLink" class="external-link" href='https://play.google.com/store/apps/details?id=com.GuiGhostGames.StarMatch2048' target='_blank'><img id="gPlayImg" alt='Get it on Google Play' src='images/google-play-badge_altered.png' /></a>
-      
-        </div>
-    </div>-->
-
-    <!--<div id="rateMe" >
-        <div id="rateMeInner" class="fadeIn " >
-            <div id="rateMeTopWrap">
-
-                <div id="rateMeText"> 
-                    <h2>Please Rate Our App</h2>
-                <p> It takes only a moment and helps alot</p>
-                </div>
-                
-            </div>
-            <div id="rateMeImage" class="heartBeat"> <img id="rateImage" alt='Rate on Google Play' src='images/ratingstars.png' />   </div>
-
-            <div id="rateMeBtnWrap" >
-
-                <div id="rateMeBtnNo" class="rateBtn">No Thanks</div>
-                
-                <div id="rateMeBtnYes" class="rateBtn"> <b>Rate Now</b>  </div>
-                <div id="rateMeBtnLater" class="rateBtn">Later</div>
-            </div>
-         
-
-        </div>
-
-    </div>-->
     <div id="levelComplete" class="zoomInDown">
         <div id="levelCompleteInner">
             <div id="headFailed">
@@ -427,13 +381,6 @@
     </div>
 
  
-    <!--<div id="leftAdBar">
-        <iframe style="width:120px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ac&ref=tf_til&ad_type=product_link&tracking_id=guighost-20&marketplace=amazon&region=US&placement=B07SR1BRN5&asins=B07SR1BRN5&linkId=a12838dc2659e081dd5bd9f1c1ac3cd5&show_border=false&link_opens_in_new_window=false&price_color=333333&title_color=0066C0&bg_color=FFFFFF"></iframe>
-        <iframe style="width:120px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ac&ref=tf_til&ad_type=product_link&tracking_id=guighost-20&marketplace=amazon&region=US&placement=B07RX6FBFR&asins=B07RX6FBFR&linkId=97ed958c2c381f17391a99c71a600952&show_border=false&link_opens_in_new_window=false&price_color=333333&title_color=0066c0&bg_color=ffffff"></iframe>
-    </div>
-    <div id="rightAdBar">
-        <iframe src="//rcm-na.amazon-adsystem.com/e/cm?o=1&p=11&l=ez&f=ifr&linkID=692ac2ae1b87ac1549a2749e07927cf6&t=guighost-20&tracking_id=guighost-20" width="120" height="600" scrolling="no" border="0" marginwidth="0" style="border:none;" frameborder="0"></iframe>
-    </div>-->
   
 
  <script type=text/javascript>
@@ -458,8 +405,6 @@
      });
 
 
-
-
       if (localStorage.getItem("timesPlayed") == null) {
             localStorage.setItem("timesPlayed", 0);
     }
@@ -467,10 +412,8 @@
      timesPlayed++
      localStorage.setItem("timesPlayed", timesPlayed);
 
-
         var showItOrNo = localStorage.getItem("showInterstatial");
        
-
         var onceOnlyAd = 0;
 
        var levelEndModal = document.getElementById("levelComplete");
@@ -486,16 +429,9 @@
             levelEndModal.style.display = 'none';
             localStorage.setItem("showInterstatial", 0);
 
-        //generic call from adCode.js
+        //generic AD CALL
             showAd();
-
-        //Gamedistribution
-            //if (typeof gdsdk !== 'undefined' && gdsdk.showAd !== 'undefined') {
-               
-            //    levelEndModal.style.display = 'none';
-            //    localStorage.setItem("showInterstatial", 0);
-            //    gdsdk.showAd();
-            //}
+   
 		}
 	    else {
 			levelEndModal.style.display = 'none'
@@ -508,31 +444,18 @@
      if (firstClick2 == 0 ) {
         firstClick2 = 1;
         evt.preventDefault()
-      //  console.log("showAd")
-     /*fireEnhance2()*/
-         //if (gdsdk !== 'undefined' && gdsdk.showAd !== 'undefined') {
-             
-            
-         //    gdsdk.showAd('rewarded');
-         //}
+ 
          levelEndModal.style.display = 'none';
          LEVEL = localStorage.getItem("stackerLevel");
          LEVEL = parseInt(LEVEL) + 1;
          localStorage.setItem("stackerLevel", LEVEL);
          firstClick2 = 0;
          
-      //generic call from adCode.js
+      //generic AD CALL
          showAd();
 
 
-          //setTimeout(function(){
-          //      levelEndModal.style.display = 'none';
-          //      LEVEL =  localStorage.getItem("stackerLevel");
-          //      LEVEL = parseInt(LEVEL) + 1;
-          //      localStorage.setItem("stackerLevel", LEVEL);
-          //      game.state.start("PlayGame");
-          //      firstClick2 = 0;
-          //  }, 4000);
+
      }
     }
      //start over
@@ -542,33 +465,14 @@
         levelEndModal.style.display = 'none'
         LEVEL = 1;
 
-     //generic call from adCode.js
+     //generic AD CALL
         showAd();
 
-     //GameDistribution
-        //if (gdsdk !== 'undefined' && gdsdk.showAd !== 'undefined') {
-        
-        //     gdsdk.showAd();
-        //}
 
     }
 
 
-     //gameDistribution
-         //if (gdsdk !== 'undefined' && gdsdk.preloadAd !== 'undefined') {
-         //    gdsdk
-         //        .preloadAd('rewarded')
-         //        .then(response => {
-         //            // A rewarded ad can be shown to user when he/she clicked it.
-         //            console.log('ad preloaded')
-         //        })
-         //        .catch(error => {
-         //            // Any Rewarded ad is not available to user.
-         //            console.log(error)
-         //        });
-         //}
-
-  
+ 
 
 
 
