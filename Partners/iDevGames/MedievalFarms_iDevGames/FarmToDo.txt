@@ -1,0 +1,49 @@
+-Overall
+	
+	Display StarCash
+	
+		Implement login days in a row counter (maybe)
+		
+	
+		
+-Implement Achievements 
+	achievements
+	1	Harvester I - collect 500 crops
+	2	Harvester II - collect 5000 crops
+	3	Expansion - purchase another acre
+	4	Carpenter - Upgraded Barn to Max
+	5	Blacksmith I - make 500 Tools
+	6	Blacksmith II - make 5000 Tools
+	7	Patience - play for 1 year(game time)
+	8	Acreage  - purchase all 5 acres
+	9	Jelly Making - unlock Jelly Making
+	10	Lumberjack - clear trees in all acres
+	11	Breakfast Time - Hold at least 100 Ham and 100 Eggs
+	12	Balanced Diet - Hold 1 of every crop
+	13	Milk Master - Upgrade Dairy to max
+	14	Merchant - Earn $5000 at the Market
+	15	Cross-Over - Buy Farm $ with StarCash
+	16	Back for More - play for 10 Farm years
+					
+			
+					
+					
+-Orchard 
+
+
+
+-Harvest anim
+
+
+-Stockpens	
+	sounds
+	
+	
+-for sale
+
+
+
+
+
+	
+	
