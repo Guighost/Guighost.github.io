@@ -476,6 +476,7 @@
         showItOrNo = GamePix.localStorage.getItem("showInterstatial");
            
         //ad call
+        GamePix.pause();
         showAd(1);
 		levelEndModal.style.display = 'none'
 		game.state.start("PlayGame");
@@ -487,37 +488,21 @@
      if (firstClick2 == 0 ) {
         firstClick2 = 1;
         evt.preventDefault()
-      //  console.log("showAd")
-     /*fireEnhance2()*/
-         //if (gdsdk !== 'undefined' && gdsdk.showAd !== 'undefined') {
-             
-            
-         //    gdsdk.showAd('rewarded');
-         //}
-         levelEndModal.style.display = 'none';
+           levelEndModal.style.display = 'none';
          if (GamePix.localStorage.getItem("stackerLevel") == null || GamePix.localStorage.getItem("stackerLevel") == 'undefined') {
             LEVEL = 1;
              GamePix.localStorage.setItem("stackerLevel", LEVEL);
             }
-        else LEVEL = GamePix.localStorage.getItem("stackerLevel");
+        else {LEVEL = GamePix.localStorage.getItem("stackerLevel");
 
          LEVEL = parseInt(LEVEL) + 1;
          GamePix.localStorage.setItem("stackerLevel", LEVEL);
          firstClick2 = 0;
-         
+        }
       //ad call
-      
+      GamePix.pause();
          showAd(2);
 
-
-          //setTimeout(function(){
-          //      levelEndModal.style.display = 'none';
-          //      LEVEL =  GamePix.localStorage.getItem("stackerLevel");
-          //      LEVEL = parseInt(LEVEL) + 1;
-          //      GamePix.localStorage.setItem("stackerLevel", LEVEL);
-          //      game.state.start("PlayGame");
-          //      firstClick2 = 0;
-          //  }, 4000);
      }
     }
      //start over
@@ -528,7 +513,7 @@
         LEVEL = 1;
 
      //ad call
-    
+        GamePix.pause();
         showAd(1);
 
     

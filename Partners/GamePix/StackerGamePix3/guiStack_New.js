@@ -965,8 +965,8 @@ GamePix.loading(100);
 var startup = true;
 //levelEndModal.style.display = 'none'
 
-GamePix.pause = function () { game.paused = true; console.log('game paused');}
-GamePix.resume = function () { game.paused = false; console.log('game resume');}
+GamePix.pause = function () { game.paused = true; pauseAllAudio(); console.log('game paused');}
+GamePix.resume = function () { game.paused = false; pauseAllAudio(); console.log('game resume');}
 
 function showAd(adnum){
     GamePix.pause();
@@ -976,11 +976,7 @@ function showAd(adnum){
         GamePix.interstitialAd().then(function (res) {
             if (res.success) {
             console.log("success inter ad viewed")
-            info();
-            
-            } else {
-            // Log the error if you want
-          
+            } else {                    
             console.log("failed inter ad viewed with error " );
             }
             GamePix.resume();
