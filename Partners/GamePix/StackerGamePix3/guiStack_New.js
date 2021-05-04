@@ -59,7 +59,7 @@ window.onload = function () {
     else LEVEL = GamePix.localStorage.getItem("stackerLevel");
     //console.log("Player is level " + LEVEL);
     game.state.start("introToGame");
-    GamePix.localStorage.setItem("showInterstatial", 0);
+    
 
     //game.state.add("PlayGame", playGame);
     //game.state.start("PlayGame");
@@ -246,10 +246,10 @@ introScene.prototype = {
         GamePix.localStorage.setItem(gameOptions.localStorageName, JSON.stringify({
             score: 0
         }));
-        GamePix.localStorage.setItem("timesPlayed", 0)
-        GamePix.localStorage.setItem("stackerLevel", 1);
-        GamePix.localStorage.setItem("showSelfAd", 0);
-        GamePix.localStorage.setItem("showInterstatial", 0)
+        GamePix.localStorage.setItem("timesPlayed", '0')
+        GamePix.localStorage.setItem("stackerLevel", '1');
+        GamePix.localStorage.setItem("showSelfAd", '0');
+       
         this.loadGame1();
 },
     loadGame1: function () {
@@ -300,7 +300,7 @@ introScene.prototype = {
 
             }
             else {
-                LEVEL = localStorage.getItem("stackerLevel");
+                LEVEL = parseInt(GamePix.localStorage.getItem("stackerLevel"));
                 alreadyclicked = true;
                 document.getElementById("loadingGG").style.display = 'none';
                 showAd(2);
@@ -637,7 +637,7 @@ playGame.prototype = {
                     Phaser.ArrayUtils.getRandomItem(this.hitSound).play();
                 }
                 if (!b.sprite.hit) {
-                    console.log("maybe missed?")
+                   
                     b.sprite.hit = true;
                     b.bullet = false;
                     this.getMaxHeight();
@@ -761,9 +761,9 @@ playGame.prototype = {
                 var lvlUpDisplayText = game.add.bitmapText(game.width / 2, game.height / 4 + 320, "font2", "Level Up", 78);
                 lvlUpDisplayText.anchor.set(0.5);
 				
-                GamePix.localStorage.setItem("stackerScore", this.score);
+                GamePix.localStorage.setItem(gameOptions.localStorageName, JSON.stringify({     score: this.score       }));
                 LEVEL++;
-                GamePix.localStorage.setItem("stackerLevel", LEVEL);
+                GamePix.localStorage.setItem("stackerLevel", JSON.stringify(LEVEL));
                 levelScore = this.score;
                 GamePix.updateScore(levelScore);
                 GamePix.updateLevel(LEVEL);
@@ -778,7 +778,7 @@ playGame.prototype = {
 
                         playAdTime = 0;
                         //console.log("show an ad")
-                        GamePix.localStorage.setItem("showInterstatial", 1);
+                        
                         gameOptions.crateSpeed = gameOptions.crateSpeed - 25;
                         gameOptions.gravity = gameOptions.gravity + 50;
                         if (gameOptions.crateSpeed <= 749) { gameOptions.crateSpeed = 750; }
@@ -790,7 +790,7 @@ playGame.prototype = {
 				
                 //game.time.events.add(Phaser.Timer.SECOND * 6, function () {
                    
-                //    GamePix.localStorage.setItem("showInterstatial", 0);
+                
 
                 //    //gameOptions.fallingHeight = gameOptions.fallingHeight + 25;
                 //    gameOptions.crateSpeed = gameOptions.crateSpeed - 25;
@@ -819,26 +819,7 @@ playGame.prototype = {
                 levelEndModal2Score.innerHTML = scoreCheck;
                 //console.log("playAdTime = " + playAdTime);
                 document.getElementById("levelComplete").style.display = 'block'
-                if (playAdTime > timeBetweenAds - 45) {
-                    playAdTime = 0;
-
-                    game.time.events.add(Phaser.Timer.SECOND * 2, function () {
-                        var selfAdVal = GamePix.localStorage.getItem("showSelfAd");
-                        if (selfAdVal == 0) { pauseAllAudio(); GamePix.localStorage.setItem("showInterstatial", 1); }
-                        else if (selfAd1time == 1 && selfAdVal == 1) {
-                            pauseAllAudio();
-                            selfAd1time = 0;
-                            GamePix.localStorage.setItem("showSelfAd", 1);  GamePix.localStorage.setItem("showInterstatial", 1);
-                        }
-                        else { GamePix.localStorage.setItem("showSelfAd", 0);  GamePix.localStorage.setItem("showInterstatial", 1);}     
-                           
-                       
-                        //setTimeout(function () { GamePix.localStorage.setItem("showInterstatial", 0); pauseAllAudio(); }, 8000); 
-                      
-                    }, this);
-
-                }
-				
+             			
 				
                 game.time.events.add(Phaser.Timer.SECOND * 5, function () {
                     game.state.start("PlayGame");
