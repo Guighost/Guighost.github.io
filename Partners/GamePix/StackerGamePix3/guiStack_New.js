@@ -45,13 +45,16 @@ window.onload = function () {
    
 
     if (GamePix.localStorage.getItem("showSelfAd") == null) {
-        GamePix.localStorage.setItem("showSelfAd", 0);
+        GamePix.localStorage.setItem("showSelfAd", '0');
+        localStorage.setItem("showSelfAd", '0');
     }
     else { GamePix.localStorage.setItem("showSelfAd", 0); }
 
     if (GamePix.localStorage.getItem("stackerLevel") == null) {
         LEVEL = 1;
-        GamePix.localStorage.setItem("stackerLevel", LEVEL);
+        GamePix.localStorage.setItem("stackerLevel", JSON.stringify(LEVEL));
+        localStorage.setItem("stackerLevel", JSON.stringify(LEVEL));
+        
     }
     else LEVEL = GamePix.localStorage.getItem("stackerLevel");
     //console.log("Player is level " + LEVEL);

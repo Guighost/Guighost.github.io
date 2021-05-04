@@ -455,17 +455,13 @@
 
 
     if (GamePix.localStorage.getItem("timesPlayed") == null) {
-            GamePix.localStorage.setItem("timesPlayed", 0);
+            GamePix.localStorage.setItem("timesPlayed", '0');
     }
      var timesPlayed = GamePix.localStorage.getItem("timesPlayed")
      timesPlayed++
-     GamePix.localStorage.setItem("timesPlayed", timesPlayed);
-
-
-        var showItOrNo = GamePix.localStorage.getItem("showInterstatial");
+     GamePix.localStorage.setItem("timesPlayed", JSON.stringify(timesPlayed));
        
-
-        var onceOnlyAd = 0;
+       var onceOnlyAd = 0;
 
        var levelEndModal = document.getElementById("levelComplete");
 
@@ -473,8 +469,7 @@
     function handleLevelPopup(evt) {
        // console.log("still here")
         evt.preventDefault()
-        showItOrNo = GamePix.localStorage.getItem("showInterstatial");
-           
+               
         //ad call
         GamePix.pause();
         showAd(1);
@@ -491,18 +486,31 @@
            levelEndModal.style.display = 'none';
          if (GamePix.localStorage.getItem("stackerLevel") == null || GamePix.localStorage.getItem("stackerLevel") == 'undefined') {
             LEVEL = 1;
-             GamePix.localStorage.setItem("stackerLevel", LEVEL);
+             GamePix.localStorage.setItem("stackerLevel", JSON.stringify(LEVEL));
+             localStorage.setItem("stackerLevel", JSON.stringify(LEVEL));
             }
-        else {LEVEL = GamePix.localStorage.getItem("stackerLevel");
+        else {
+            let levelRaw = JSON.parse(GamePix.localStorage.getItem("stackerLevel"));
 
-         LEVEL = parseInt(LEVEL) + 1;
-         GamePix.localStorage.setItem("stackerLevel", LEVEL);
+         LEVEL = parseInt(levelRaw) + 1;
+         console.log("after level raw parse int = " + LEVEL);
+         GamePix.localStorage.setItem("stackerLevel", JSON.stringify(LEVEL));
+         localStorage.setItem("stackerLevel", JSON.stringify(LEVEL));
          firstClick2 = 0;
         }
       //ad call
       GamePix.pause();
          showAd(2);
 
+
+          //setTimeout(function(){
+          //      levelEndModal.style.display = 'none';
+          //      LEVEL =  GamePix.localStorage.getItem("stackerLevel");
+          //      LEVEL = parseInt(LEVEL) + 1;
+          //      GamePix.localStorage.setItem("stackerLevel", LEVEL);
+          //      game.state.start("PlayGame");
+          //      firstClick2 = 0;
+          //  }, 4000);
      }
     }
      //start over
@@ -513,7 +521,7 @@
         LEVEL = 1;
 
      //ad call
-        GamePix.pause();
+     GamePix.pause();
         showAd(1);
 
     
