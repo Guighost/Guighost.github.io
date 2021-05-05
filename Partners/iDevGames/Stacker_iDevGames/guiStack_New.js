@@ -283,46 +283,16 @@ introScene.prototype = {
                 game.state.start("PlayGame");
                 document.getElementById("loadingGG").style.display = 'block';
 
-                ///rate me
-                var showRateOrNo = localStorage.getItem("rateMeNever")
-                var timesPlayed2 = localStorage.getItem("timesPlayed");
-                if (showRateOrNo == 0 && timesPlayed2 >= 3) {
-                    localStorage.setItem("timesPlayed", 0)
-                    setTimeout(function () {
-
-                        var element = document.getElementById("rateMeBtnYes");
-                        element.classList.remove("zoomInRight");
-                        element.classList.remove("heartBeat");
-                        element.classList.add("zoomInUp");
-                        document.getElementById("rateMe").style.display = 'block';
-
-                        //var element2 = document.getElementById("rateMeInner");
-                        //element2.classList.remove("zoomInRight");
-                        //element2.classList.remove("heartBeat");
-                        //element2.classList.add("heartBeat");
-                        document.getElementById("rateMeInner").style.display = 'block';
-
-
-                        document.getElementById("loadingGG").style.display = 'none';
-                        game.paused = true;
-
-                        var playTime2 = setInterval(unPause, 1000);
-                    }, 500);
-                
-                }
-                else { document.getElementById("rateMe").style.display = 'none'; game.paused = false;  }
-                //end rate me
+              
+              
             }
         }
-        function unPause() {
-            var rateVisible = document.getElementById("rateMe").style.display;
-            if (rateVisible == 'none') { game.paused = false; clearInterval(playTime2) }
-        }
+       
                             //document.querySelector('canvas').style.marginTop = "-20px";
-    },
+    }
 
   
-}
+};
 
     var playGame = function () { };
 playGame.prototype = {
