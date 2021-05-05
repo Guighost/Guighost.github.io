@@ -13,13 +13,13 @@ var gameOptions = {
     localStorageName: "Stacker_HighScore",
     gameWidth: 640,
     gameHeight: 960
-}
+};
 var playAdTime = 0;
 var GROUNDHEIGHT;
 var CRATEHEIGHT;
 var CrateSrc = 'crate1';
 var alreadyclicked = false;
-var gameDiv = document.getElementById('gameDiv')
+var gameDiv = document.getElementById('gameDiv');
 var timeBetweenAds = 120;
 var selfAd1time = 1;
 //document.getElementById('gameDiv').style["top"] = 0;
@@ -146,7 +146,7 @@ window.onload = function () {
             //myAudio.pause();
         } else {
             //myAudio.play();
-            switchAndPlayTheme(LEVEL)
+            switchAndPlayTheme(LEVEL);
         }
     }
     document.addEventListener("visibilitychange", handleVisibilityChange, false);
@@ -158,7 +158,7 @@ window.onload = function () {
    
 
                               ///end of window.load
-}
+};
      
 
 var introScene = function () { };
@@ -207,14 +207,14 @@ introScene.prototype = {
         if (LEVEL > 1) {
                 
             var continueBtn = game.add.sprite(game.width / 2 - 90, game.height / 2 + 5, 'continueBtn');
-            continueBtn.name = 'continueBtn'
+            continueBtn.name = 'continueBtn';
             continueBtn.width = 200;
             continueBtn.height = 100;
             continueBtn.inputEnabled = true;
             continueBtn.events.onInputDown.add(this.loadGame1, this);
 
             var playNew = game.add.sprite(game.width / 2 - 90, game.height / 2 + 130, 'playBtnNew');
-            playNew.name = 'playBtnNew'
+            playNew.name = 'playBtnNew';
             playNew.width = 200;
             playNew.height = 100;
             playNew.inputEnabled = true;
@@ -226,7 +226,7 @@ introScene.prototype = {
        
     },
     loadGameNew: function(sprite) {
-        text = sprite.name
+        text = sprite.name;
         //console.log(text)
         LEVEL = 1;
  
@@ -234,11 +234,11 @@ introScene.prototype = {
         localStorage.setItem(gameOptions.localStorageName, JSON.stringify({
             score: 0
         }));
-        localStorage.setItem("timesPlayed", 0)
+        localStorage.setItem("timesPlayed", 0);
         localStorage.setItem("stackerLevel", 1);
         localStorage.setItem("showSelfAd", 1);
-        localStorage.setItem("showInterstatial", 0)
-        this.loadGame1()
+        localStorage.setItem("showInterstatial", 0);
+        this.loadGame1();
    
 },
     loadGame1: function () {
@@ -426,12 +426,12 @@ playGame.prototype = {
                 game.paused = true;
                 document.querySelector("canvas").style.display = "none";
                 document.getElementById("wrongorientation").style.display = "block";
-            })
+            });
             game.scale.leaveIncorrectOrientation.add(function () {
                 game.paused = false;
                 document.querySelector("canvas").style.display = "block";
                 document.getElementById("wrongorientation").style.display = "none";
-            })
+            });
         }
         this.lastSoundPlayed = Date.now();
         this.savedData = localStorage.getItem(gameOptions.localStorageName) == null ? { score: 0 } : JSON.parse(localStorage.getItem(gameOptions.localStorageName));
@@ -586,7 +586,7 @@ playGame.prototype = {
             this.timer = 0;
             this.timerEvent = game.time.events.loop(Phaser.Timer.SECOND, this.tick, this);
             this.timeText = game.add.bitmapText(game.width - (game.width / 2) - 70, 60, "font", gameOptions.timeLimit.toString(), 84);
-            switchAndPlayTheme(LEVEL)
+            switchAndPlayTheme(LEVEL);
             
         }
         if (this.canDrop && this.timer <= gameOptions.timeLimit) {
@@ -639,10 +639,10 @@ playGame.prototype = {
         scaleTween.onComplete.add(function () {
             this.canDrop = true;
             this.movingCrate.alpha = 1;
-        }, this)
+        }, this);
     },
     getMaxHeight: function () {
-        var maxHeight = 0
+        var maxHeight = 0;
         this.crateGroup.forEach(function (i) {
             if (i.hit) {
                 var height = Math.round((game.height - GROUNDHEIGHT - i.y - CRATEHEIGHT / 2) / CRATEHEIGHT) + 1;
@@ -657,13 +657,13 @@ playGame.prototype = {
     },
     tick: function () {
         this.timer++;
-        timeLeft = gameOptions.timeLimit - this.timer
+        timeLeft = gameOptions.timeLimit - this.timer;
         playAdTime++;
-        this.timeText.text = (gameOptions.timeLimit - this.timer).toString()
+        this.timeText.text = (gameOptions.timeLimit - this.timer).toString();
    
         if (timeLeft == 9) {                      
             this.timeText.x = (game.width / 2) - 45;
-            this.timeText.size + 10;
+            this.timeText.size = this.timeText.size + 10;
            
         }
         if (timeLeft < 8) {
@@ -682,7 +682,7 @@ playGame.prototype = {
                 pauseAllAudio();
                 this.crateGroup.forEach(function (i) {
                     i.body.static = true;
-                }, true)
+                }, true);
                 this.removeEvent = game.time.events.loop(Phaser.Timer.SECOND / 10, this.removeCrate, this);
             }, this);
         }
@@ -779,26 +779,8 @@ playGame.prototype = {
                 var levelEndModal2Score = document.getElementById("scoreHtml");
                 levelEndModal2Score.innerHTML = scoreCheck;
                 //console.log("playAdTime = " + playAdTime);
-                document.getElementById("levelComplete").style.display = 'block'
-                if (playAdTime > timeBetweenAds - 45) {
-                    playAdTime = 0;
-
-                    game.time.events.add(Phaser.Timer.SECOND * 2, function () {
-                        var selfAdVal = localStorage.getItem("showSelfAd");
-                        if (selfAdVal == 0) { pauseAllAudio(); localStorage.setItem("showInterstatial", 1); }
-                        else if (selfAd1time == 1 && selfAdVal == 1) {
-                            pauseAllAudio();
-                            selfAd1time = 0;
-                            localStorage.setItem("showSelfAd", 1);  localStorage.setItem("showInterstatial", 1);
-                        }
-                        else { localStorage.setItem("showSelfAd", 0);  localStorage.setItem("showInterstatial", 1);}     
-                           
-                       
-                        setTimeout(function () { localStorage.setItem("showInterstatial", 0); pauseAllAudio(); }, 8000); 
-                      
-                    }, this);
-
-                }
+                document.getElementById("levelComplete").style.display = 'block';
+          
 				
 				
                 game.time.events.add(Phaser.Timer.SECOND * 5, function () {
@@ -809,7 +791,7 @@ playGame.prototype = {
            
         }
     }
-}
+};
   function menuFunction() {
               var x = document.getElementById("myTopnav");
               if (x.className === "topnav") {
@@ -829,8 +811,8 @@ playGame.prototype = {
 
 function switchAndPlayTheme(levelPassed) {
    
-    levelPassed = parseInt(levelPassed, 10)
-    if (levelPassed > 24) { levelPassed = levelPassed - 24 };
+    levelPassed = parseInt(levelPassed, 10);
+    if (levelPassed > 24) { levelPassed = levelPassed - 24; }
     switch (levelPassed) {
         case 1:
             myAudio.play();
@@ -911,13 +893,13 @@ function switchAndPlayTheme(levelPassed) {
     }
   }
 function pauseAllAudio() {
-    myAudio.pause()
+    myAudio.pause();
     myAudioMystery.pause();
     myAudioCSI.pause();
     myAudioTension.pause();
     myAudioUplifting.pause();
     myAudioElements.pause();
-};
+}
 
 
 //var tryAgain = document.getElementById("continueBtnHtml")
