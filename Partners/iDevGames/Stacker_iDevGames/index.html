@@ -9,12 +9,10 @@
     <meta name="viewport" content="width = device-width, initial-scale = 1.0, maximum-scale = 1.0, minimum-scale = 1.0, user-scalable = no, minimal-ui" />
     <meta charset="UTF-8">
     <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta property="og:url" content="https://guighostgames.com/Stacker-BoxesOfBalance/index.html" />
     <meta property="og:type" content="game" />
     <meta property="og:title" content="Stacker: Boxes of Balance" />
     <meta property="og:description" content="Fun Physics games of box dropping to get the high score, but don't let them fall -  Family Friendly Free Online Game" />
-    <meta property="og:image" content="https://guighostgames.com/Images/Homepage/guiStack1.2.png" />
-
+   
     <link rel="shortcut icon" sizes="256x256" href="assets/sprites/crate16.png" />
     
     
@@ -28,9 +26,13 @@
         body {
             background: #0259a0;
             background: url("images/bg.png") center fixed;
-            background-size: contain;
+            background-size: cover;
             background-repeat: no-repeat;
             background-color: black;
+            overflow: hidden;
+            width: 100%;
+            height: 100%;
+            margin: 0;
         }
 
         canvas {
@@ -251,37 +253,7 @@
             margin-top: 3%;
             font-size: 16px;
         }
-        #leftAdBar {
-            position: absolute;
-            left: 0px;
-            top: 0px;
-            width: 130px;
-            height: 99%;
-            background-color: lightcyan;
-            z-index: 3000;
-        }
-
-        #rightAdBar {
-            position: absolute;
-            right: 1px;
-            top: 0px;
-            width: 130px;
-            height: 99%;
-            background-color: lightcyan;
-            z-index: 3000;
-        }
-
-        @media (max-width: 64em) {
-            #rightAdBar {
-                display: none;
-            }
-
-            #leftAdBar {
-                display: none;
-            }
-        }
-
-        @-webkit-keyframes heartBeat {
+       @-webkit-keyframes heartBeat {
             0% {
                 -webkit-transform: scale(1);
                 transform: scale(1);
@@ -569,14 +541,7 @@
 
     </div>
 
- 
-    <div id="leftAdBar">
-        <iframe style="width:120px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ac&ref=tf_til&ad_type=product_link&tracking_id=guighost-20&marketplace=amazon&region=US&placement=B07SR1BRN5&asins=B07SR1BRN5&linkId=a12838dc2659e081dd5bd9f1c1ac3cd5&show_border=false&link_opens_in_new_window=false&price_color=333333&title_color=0066C0&bg_color=FFFFFF"></iframe>
-        <iframe style="width:120px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ac&ref=tf_til&ad_type=product_link&tracking_id=guighost-20&marketplace=amazon&region=US&placement=B07RX6FBFR&asins=B07RX6FBFR&linkId=97ed958c2c381f17391a99c71a600952&show_border=false&link_opens_in_new_window=false&price_color=333333&title_color=0066c0&bg_color=ffffff"></iframe>
-    </div>
-    <div id="rightAdBar">
-        <iframe src="//rcm-na.amazon-adsystem.com/e/cm?o=1&p=11&l=ez&f=ifr&linkID=692ac2ae1b87ac1549a2749e07927cf6&t=guighost-20&tracking_id=guighost-20" width="120" height="600" scrolling="no" border="0" marginwidth="0" style="border:none;" frameborder="0"></iframe>
-    </div>
+
   
 
  <script type=text/javascript>
