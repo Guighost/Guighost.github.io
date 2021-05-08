@@ -470,7 +470,7 @@
 
  <script  type=text/javascript>
 
-        
+    var rewardedAdReady = false;
     window.addEventListener('load', (event) => {
   //console.log('page is fully loaded');
 
@@ -531,31 +531,27 @@
      //view rewarded ad and skip level
      var firstClick2 = 0;
     function handleLevelPopup2(evt) {
-     if (firstClick2 == 0 ) {
-        firstClick2 = 1;
-        evt.preventDefault()
-      //  console.log("showAd")
-     /*fireEnhance2()*/
-         if (gdsdk !== 'undefined' && gdsdk.showAd !== 'undefined') {
-             
-             levelEndModal.style.display = 'none';
-             LEVEL = localStorage.getItem("stackerLevel");
-             LEVEL = parseInt(LEVEL) + 1;
-             localStorage.setItem("stackerLevel", LEVEL);
-             //game.state.start("PlayGame");
-             firstClick2 = 0;
-             gdsdk.showAd('rewarded');
-         }
-
-      //setTimeout(function(){
-      //      levelEndModal.style.display = 'none';
-      //      LEVEL =  localStorage.getItem("stackerLevel");
-      //      LEVEL = parseInt(LEVEL) + 1;
-      //      localStorage.setItem("stackerLevel", LEVEL);
-      //      game.state.start("PlayGame");
-      //      firstClick2 = 0;
-      //  }, 4000);
-     }
+        if (firstClick2 == 0 ) {
+            firstClick2 = 1;
+            evt.preventDefault()
+            if (rewardedAdReady){
+                if (gdsdk !== 'undefined' && gdsdk.preloadAd !== 'undefined') {
+                        
+                    gdsdk.showAd('rewarded')
+                    .then(response => {
+                           levelEndModal.style.display = 'none';
+                           LEVEL = localStorage.getItem("stackerLevel");
+                           LEVEL = parseInt(LEVEL) + 1;
+                           localStorage.setItem("stackerLevel", LEVEL);
+                           firstClick2 = 0;
+                           preloadReward();
+                           })
+                    .catch(error => {
+                               console.log('rewarded error')
+                           });
+                }
+            }
+        }
     }
      //start over
     function handleLevelPopup3(evt) {
@@ -569,21 +565,30 @@
         }
 
     }
+    
      setTimeout(function () {
-         console.log("preload start")
-         if (gdsdk !== 'undefined' && gdsdk.preloadAd !== 'undefined') {
+         console.log("preload ad start")
+         preloadReward()
+     }, 4000);
+
+function preloadReward(){
+    if (gdsdk !== 'undefined' && gdsdk.preloadAd !== 'undefined') {
              gdsdk
                  .preloadAd('rewarded')
                  .then(response => {
-                     // A rewarded ad can be shown to user when he/she clicked it.
+                     rewardedAdReady = true;
                  })
                  .catch(error => {
-                     // Any Rewarded ad is not available to user.
+                    rewardedAdReady = false;
+                    console.log("rewarded Add not ready")
+                    var rewardedAdReady = false;
+                    setTimeout(function () {
+                    console.log("preload ad retry")
+                        preloadReward()
+                    }, 4000);
                  });
          }
-     }, 5000);
-
-
+}
    
 
   
