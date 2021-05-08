@@ -2925,7 +2925,7 @@ farming.start = function () {
         f.appendChild(gg);
         //var topLogo = (new lime.Sprite).setPosition(155, 11).setSize(150, 22).setFill("images/UI/topMenuPlain.png");
         //f.appendChild(topLogo);
-        var h = (new lime.Label).setText(player.money).setFontColor("#E8FC08").setFontFamily("Comic Sans MS").setFontSize(18).setPosition(235, 24);
+        var h = (new lime.Label).setText(player.money).setFontColor("#E8FC08").setFontFamily("Proxima Nova").setFontSize(18).setPosition(235, 24);
         f.appendChild(h);
 
         var topCoin = (new lime.Sprite).setPosition(285, 20).setSize(35, 35).setFill(imgArray11[0]);
@@ -2950,7 +2950,7 @@ farming.start = function () {
 
 
         var toolCountImg = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(10, 3).setSize(35, 35).setFill(imgArray[30]);
-        var toolCount = (new lime.Label).setText(player.tools).setFontFamily("Comic Sans MS").setFontColor("#E8FC08").setPosition(65, 24).setFontSize(18);
+        var toolCount = (new lime.Label).setText(player.tools).setFontFamily("Proxima Nova").setFontColor("#E8FC08").setPosition(65, 24).setFontSize(18);
         f.appendChild(toolCountImg);
         f.appendChild(toolCount);
 
@@ -3491,7 +3491,7 @@ farming.start = function () {
         var hh = b.currentCrop;
 
         //console.log("crop " + b.currentCrop);
-        var w = (new lime.Label).setText("Plant " + a.crops[hh].name).setFontColor("#E8FC08").setFontSize(11).setFontFamily("Comic Sans MS").setPosition(a.controlsLayer_w / 2, a.height - a.controlsLayer_h / 2 - 8);
+        var w = (new lime.Label).setText("Plant " + a.crops[hh].name).setFontColor("#E8FC08").setFontSize(11).setFontFamily("Proxima Nova").setPosition(a.controlsLayer_w / 2, a.height - a.controlsLayer_h / 2 - 8);
         f.appendChild(w);
         var z = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(133, a.height - a.controlsLayer_h / 2 - 6).setFill("images/" + a.crops[hh].harvest).setSize(a.tile_size * 1.2, a.tile_size * 1.2);
         f.appendChild(z);
@@ -3612,7 +3612,7 @@ farming.start = function () {
         var changeSeedsLabelBack = (new lime.Sprite).setPosition(19, 43).setSize(30, 12).setFill("#000000").setOpacity(0.7);
         changeSeeds.appendChild(changeSeedsLabelBack);
         changeSeedsCrop.setFill("images/" + a.crops[b.currentCrop].harvest);
-        var seedLabel = (new lime.Label).setText("Seeds").setFontColor("#E8FC08").setFontFamily("Comic Sans MS").setFontSize(11).setPosition(19, 46);
+        var seedLabel = (new lime.Label).setText("Seeds").setFontColor("#E8FC08").setFontFamily("Proxima Nova").setFontSize(11).setPosition(19, 46);
         changeSeeds.appendChild(seedLabel);
 
 
@@ -3808,7 +3808,7 @@ farming.start = function () {
 
         var upgradeCloud = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(90, 0).setSize(120, 200).setFill(imgArray[24].src); e.appendChild(upgradeCloud);
 
-        var toolMoverLabel = (new lime.Label).setText("60").setPosition(155, 127).setSize(40, 25).setFontFamily("Comic Sans MS").setFontColor("#E8FC08").setFontWeight(600).setFontSize(28).setFontFamily("ComicSans MS").setFill(imgArray[27]);
+        var toolMoverLabel = (new lime.Label).setText("60").setPosition(155, 127).setSize(40, 25).setFontFamily("Proxima Nova").setFontColor("#E8FC08").setFontWeight(600).setFontSize(28).setFontFamily("ComicSans MS").setFill(imgArray[27]);
         var toolMover = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(-22, -50).setSize(50, 50).setFill(imgArray[29]);
         var barnUnlock = (new lime.Label).setAnchorPoint(0, 0).setFontColor("#E8FC08").setPosition(117, 48).setSize(70, 16).setFontSize(16).setFontWeight(600).setText("Lvl " + player.barnLevel + "/5").setFill(imgArray[28]);
         e.appendChild(barnUnlock);
@@ -3826,7 +3826,7 @@ farming.start = function () {
             e.appendChild(treeUnlockBtn);
             //console.log("hometreesleft = " + homeTreesLeft + " and player.fields = " + player.fields);
             var trees1 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(5, 287).setSize(133, 133).setFill(imgArray[62]); e.appendChild(trees1)
-            var treeUnlock1 = (new lime.Label).setAnchorPoint(0, 0).setFontFamily("Comic Sans MS").setFontColor("#E8FC08").setPosition(12, 335).setSize(110, 120).setText(""); e.appendChild(treeUnlock1)
+            var treeUnlock1 = (new lime.Label).setAnchorPoint(0, 0).setFontFamily("Proxima Nova").setFontColor("#E8FC08").setPosition(12, 335).setSize(110, 120).setText(""); e.appendChild(treeUnlock1)
 
             var axeHLeft = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(35, 20).setSize(40, 40).setFill(imgArray[61]); trees1.appendChild(axeHLeft);
             var trees1Img = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(48, 355).setSize(40, 35).setFill(ImgArrayTools[0]); e.appendChild(trees1Img);
@@ -3918,7 +3918,7 @@ farming.start = function () {
         if (homeTreesRight == 0 && player.fields < 4) {
             e.appendChild(treeUnlockBtn2);
             var trees2 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(171, 287).setSize(132, 133).setFill(imgArray[63]); e.appendChild(trees2)
-            var treeUnlock2 = (new lime.Label).setAnchorPoint(0, 0).setFontFamily("Comic Sans MS").setFontColor("#E8FC08").setPosition(182, 335).setSize(120, 120).setText(""); e.appendChild(treeUnlock2)
+            var treeUnlock2 = (new lime.Label).setAnchorPoint(0, 0).setFontFamily("Proxima Nova").setFontColor("#E8FC08").setPosition(182, 335).setSize(120, 120).setText(""); e.appendChild(treeUnlock2)
             var axeHRight = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(35, 20).setSize(40, 40).setFill(imgArray[61]); trees2.appendChild(axeHRight);
             var trees2Img = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(220, 355).setSize(38, 35).setFill(ImgArrayTools[2]); e.appendChild(trees2Img);
             goog.events.listen(trees2, ["mousedown", "touchstart"], function (e) {
@@ -4006,7 +4006,7 @@ farming.start = function () {
         }
 
         var upgradeCloudTH1 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(0, 230).setSize(130, 250).setFill(imgArray[24].src); e.appendChild(upgradeCloudTH1);
-        var axeMoverLabelTH1 = (new lime.Label).setText("60").setPosition(65, 380).setSize(40, 25).setFontFamily("Comic Sans MS").setFontColor("#E8FC08").setFontWeight(600).setFontSize(28).setFill(imgArray[27]);
+        var axeMoverLabelTH1 = (new lime.Label).setText("60").setPosition(65, 380).setSize(40, 25).setFontFamily("Proxima Nova").setFontColor("#E8FC08").setFontWeight(600).setFontSize(28).setFill(imgArray[27]);
         e.appendChild(axeMoverLabelTH1);
         //var axeMoverTH1 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(-22, -60).setSize(50, 50).setFill(imgArray[61]);
         //axeMoverLabelTH1.appendChild(axeMoverTH1);
@@ -4063,9 +4063,9 @@ farming.start = function () {
         var blacksmithQuestPanel = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(15, 100).setSize(a.width - 30, a.height / 2).setFill(imgArray[78]);
         e.appendChild(blacksmithQuestPanel);
         blacksmithQuestPanel.setHidden(true);
-        var questHeaderBlacksmith = (new lime.Label).setAnchorPoint(0, 0).setPosition(35, 25).setText("Blacksmith Blacwin").setFontFamily("Comic Sans MS").setFontSize(24);
+        var questHeaderBlacksmith = (new lime.Label).setAnchorPoint(0, 0).setPosition(35, 25).setText("Blacksmith Blacwin").setFontFamily("Proxima Nova").setFontSize(24);
         blacksmithQuestPanel.appendChild(questHeaderBlacksmith);
-        var questText1Blacksmith = (new lime.Label).setAnchorPoint(0, 0).setPosition(20, 150).setText("I need more IRON BARS to make tools. You can buy some at the SHOP in town").setFontFamily("Comic Sans MS").setFontSize(16).setSize(a.width - 80, a.height / 2 - 50);
+        var questText1Blacksmith = (new lime.Label).setAnchorPoint(0, 0).setPosition(20, 150).setText("I need more IRON BARS to make tools. You can buy some at the SHOP in town").setFontFamily("Proxima Nova").setFontSize(16).setSize(a.width - 80, a.height / 2 - 50);
         blacksmithQuestPanel.appendChild(questText1Blacksmith);
         var blacksmithQuestPanelAvatar = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(70, 58).setSize(80, 80).setFill(imgArray[4]);
         blacksmithQuestPanel.appendChild(blacksmithQuestPanelAvatar);
@@ -4085,7 +4085,7 @@ farming.start = function () {
         var boostCrops = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(40, 120).setSize(230, 280).setFill("images/UI/cropBoostBack2.png");
         e.appendChild(boostCrops);
         boostCrops.setHidden(true);
-        var starCashCountBoost = (new lime.Label).setText(starCash).setPosition(121, 31).setSize(40, 25).setFontFamily("Comic Sans MS").setFontColor("#000F00").setFontWeight(600).setFontSize(20).setFontFamily("ComicSans MS");
+        var starCashCountBoost = (new lime.Label).setText(starCash).setPosition(121, 31).setSize(40, 25).setFontFamily("Proxima Nova").setFontColor("#000F00").setFontWeight(600).setFontSize(20).setFontFamily("ComicSans MS");
         boostCrops.appendChild(starCashCountBoost);
 
 
@@ -4095,7 +4095,7 @@ farming.start = function () {
         var starCashBoost = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(-10, -17).setSize(35, 35).setFill(imgArray[37]);
         speedAdConfirmSC.appendChild(starCashBoost);
 
-        var speedAdOr = (new lime.Label).setAnchorPoint(0, 0).setPosition(-10, 20).setText("or").setFontFamily("Comic Sans MS").setFontSize(18);
+        var speedAdOr = (new lime.Label).setAnchorPoint(0, 0).setPosition(-10, 20).setText("or").setFontFamily("Proxima Nova").setFontSize(18);
         speedAdConfirmSC.appendChild(speedAdOr);
 
         var speedAdConfirm = (new lime.GlossyButton).setColor("#00FF00").setText("View Ad").setPosition(115, 233).setSize(85, 32);
@@ -4413,11 +4413,11 @@ farming.start = function () {
         ///For Sale confirm modal
         var confirmSale = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(45, 140).setSize(210, 220).setFill("images/UI/saleBack.png");
         e.appendChild(confirmSale);
-        var confirmText = (new lime.Label).setAnchorPoint(0, 0).setFontFamily("Comic Sans MS").setFontColor("#000000").setPosition(45, 60).setSize(135, 60).setFontSize(20).setText("Dairy Farm 2500");
+        var confirmText = (new lime.Label).setAnchorPoint(0, 0).setFontFamily("Proxima Nova").setFontColor("#000000").setPosition(45, 60).setSize(135, 60).setFontSize(20).setText("Dairy Farm 2500");
         confirmSale.appendChild(confirmText);
         var confirmCoin = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(55, 75).setSize(30, 30).setFill(imgArray11[0]);
         confirmSale.appendChild(confirmCoin);
-        var confirmTextSub = (new lime.Label).setAnchorPoint(0, 0).setFontFamily("Comic Sans MS").setFontColor("#FF0000").setPosition(38, 178).setSize(130, 60).setFontSize(12).setText("Earn more Coin to buy");
+        var confirmTextSub = (new lime.Label).setAnchorPoint(0, 0).setFontFamily("Proxima Nova").setFontColor("#FF0000").setPosition(38, 178).setSize(130, 60).setFontSize(12).setText("Earn more Coin to buy");
         confirmSale.appendChild(confirmTextSub);
         var confirmBtn = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(100, 212).setSize(75, 35).setFill("images/UI/greenBuy.png");
         confirmSale.appendChild(confirmBtn);
@@ -4425,7 +4425,7 @@ farming.start = function () {
         confirmSale.appendChild(cancelBtn);
         confirmSale.setHidden(true);
     
-        var adDairyBuyText = (new lime.Label).setAnchorPoint(0, 0).setFontFamily("Comic Sans MS").setFontColor("#000000").setPosition(40, 118).setSize(135, 60).setFontSize(14).setText("Get 10% Off");
+        var adDairyBuyText = (new lime.Label).setAnchorPoint(0, 0).setFontFamily("Proxima Nova").setFontColor("#000000").setPosition(40, 118).setSize(135, 60).setFontSize(14).setText("Get 10% Off");
         confirmSale.appendChild(adDairyBuyText);
         var adDairyViewBtn = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(75, 135).setSize(60, 25).setFill("images/UI/viewAd.png");
         confirmSale.appendChild(adDairyViewBtn);
@@ -4472,11 +4472,11 @@ farming.start = function () {
         ////achievement Modal
         var achieveNotif = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(45, 130).setSize(210, 220).setFill(imgArray[91]);
 
-        var achieveText = (new lime.Label).setAnchorPoint(0, 0).setFontFamily("Comic Sans MS").setFontColor("#000033").setPosition(13, 45).setSize(190, 60).setFontSize(16).setText("Blacksmith I");
+        var achieveText = (new lime.Label).setAnchorPoint(0, 0).setFontFamily("Proxima Nova").setFontColor("#000033").setPosition(13, 45).setSize(190, 60).setFontSize(16).setText("Blacksmith I");
         achieveNotif.appendChild(achieveText);
-        var achieveTextSub = (new lime.Label).setAnchorPoint(0, 0).setFontFamily("Comic Sans MS").setFontColor("#000033").setPosition(30, 123).setSize(150, 60).setFontSize(14).setText("Achieve Text");
+        var achieveTextSub = (new lime.Label).setAnchorPoint(0, 0).setFontFamily("Proxima Nova").setFontColor("#000033").setPosition(30, 123).setSize(150, 60).setFontSize(14).setText("Achieve Text");
         achieveNotif.appendChild(achieveTextSub);
-        var achieveSC = (new lime.Label).setAnchorPoint(0, 0).setFontFamily("Comic Sans MS").setFontColor("#000033").setPosition(21, 182).setSize(190, 60).setFontSize(18).setText(" + ");
+        var achieveSC = (new lime.Label).setAnchorPoint(0, 0).setFontFamily("Proxima Nova").setFontColor("#000033").setPosition(21, 182).setSize(190, 60).setFontSize(18).setText(" + ");
         achieveNotif.appendChild(achieveSC);
         var confirmBtnA = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(90, 211).setSize(40, 40).setFill(imgArray[21]);
         achieveNotif.appendChild(confirmBtnA);
@@ -4507,9 +4507,9 @@ farming.start = function () {
         /////remove ads modal
         //var removeAdsBack = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(15, 105).setSize(275, 250).setFill(imgArray[78]);
         //e.appendChild(removeAdsBack);
-        //var removeAdsText = (new lime.Label).setAnchorPoint(0, 0).setFontFamily("Comic Sans MS").setFontColor("#E8FC08").setPosition(20, 15).setSize(230, 60).setFontSize(18).setText("Swipe in from the left opens the Game Menu");
+        //var removeAdsText = (new lime.Label).setAnchorPoint(0, 0).setFontFamily("Proxima Nova").setFontColor("#E8FC08").setPosition(20, 15).setSize(230, 60).setFontSize(18).setText("Swipe in from the left opens the Game Menu");
         //removeAdsBack.appendChild(removeAdsText);
-        //var removeAdsText2 = (new lime.Label).setAnchorPoint(0, 0).setFontFamily("Comic Sans MS").setFontColor("#E8FC08").setPosition(135, 95).setSize(130, 320).setFontSize(18).setText("Here you can SHARE, THEME, RATE, or even REMOVE ADS ");
+        //var removeAdsText2 = (new lime.Label).setAnchorPoint(0, 0).setFontFamily("Proxima Nova").setFontColor("#E8FC08").setPosition(135, 95).setSize(130, 320).setFontSize(18).setText("Here you can SHARE, THEME, RATE, or even REMOVE ADS ");
         //removeAdsBack.appendChild(removeAdsText2);
         //var removeAdsImage = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(15, 55).setSize(120, 185).setFill("images/removeAds.png" );
         //removeAdsBack.appendChild(removeAdsImage);
@@ -4518,26 +4518,26 @@ farming.start = function () {
         ///upgrade notification
         var upgradeNotif = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(20, 50).setSize(270, 390).setFill(imgArray[78]);
         e.appendChild(upgradeNotif);
-        var upgradeNotifText = (new lime.Label).setAnchorPoint(0, 0).setFontFamily("Comic Sans MS").setFontColor("#000033").setPosition(23, 35).setSize(220, 60).setFontSize(18).setText("Medieval Farms v1.5   MARKET TOWN");
+        var upgradeNotifText = (new lime.Label).setAnchorPoint(0, 0).setFontFamily("Proxima Nova").setFontColor("#000033").setPosition(23, 35).setSize(220, 60).setFontSize(18).setText("Medieval Farms v1.5   MARKET TOWN");
         upgradeNotif.appendChild(upgradeNotifText);
 
-        var upgradeNotifText3 = (new lime.Label).setAnchorPoint(0, 0).setFontFamily("Comic Sans MS").setFontColor("#000033").setPosition(20, 80).setSize(220, 20).setFontSize(14).setText("Visit Market Town, but be nice... Rep matters!");
+        var upgradeNotifText3 = (new lime.Label).setAnchorPoint(0, 0).setFontFamily("Proxima Nova").setFontColor("#000033").setPosition(20, 80).setSize(220, 20).setFontSize(14).setText("Visit Market Town, but be nice... Rep matters!");
         upgradeNotif.appendChild(upgradeNotifText3);
-        var upgradeNotifText4 = (new lime.Label).setAnchorPoint(0, 0).setFontFamily("Comic Sans MS").setFontColor("#000033").setPosition(20, 120).setSize(220, 20).setFontSize(14).setText("Meet Villagers for quests/rumors");
+        var upgradeNotifText4 = (new lime.Label).setAnchorPoint(0, 0).setFontFamily("Proxima Nova").setFontColor("#000033").setPosition(20, 120).setSize(220, 20).setFontSize(14).setText("Meet Villagers for quests/rumors");
         upgradeNotif.appendChild(upgradeNotifText4);
-        var upgradeNotifText5 = (new lime.Label).setAnchorPoint(0, 0).setFontFamily("Comic Sans MS").setFontColor("#000033").setPosition(15, 147).setSize(230, 20).setFontSize(14).setText("Added random LOOT when digging");
+        var upgradeNotifText5 = (new lime.Label).setAnchorPoint(0, 0).setFontFamily("Proxima Nova").setFontColor("#000033").setPosition(15, 147).setSize(230, 20).setFontSize(14).setText("Added random LOOT when digging");
         upgradeNotif.appendChild(upgradeNotifText5);
-        var upgradeNotifText6 = (new lime.Label).setAnchorPoint(0, 0).setFontFamily("Comic Sans MS").setFontColor("#000033").setPosition(15, 175).setSize(220, 20).setFontSize(14).setText("New goods IRON, WOOD, BARRELS, and CIDER");
+        var upgradeNotifText6 = (new lime.Label).setAnchorPoint(0, 0).setFontFamily("Proxima Nova").setFontColor("#000033").setPosition(15, 175).setSize(220, 20).setFontSize(14).setText("New goods IRON, WOOD, BARRELS, and CIDER");
         upgradeNotif.appendChild(upgradeNotifText6);
-        var upgradeNotifText7 = (new lime.Label).setAnchorPoint(0, 0).setFontFamily("Comic Sans MS").setFontColor("#000033").setPosition(20, 215).setSize(220, 20).setFontSize(14).setText("Added Game SHOP for General and Premium Items");
+        var upgradeNotifText7 = (new lime.Label).setAnchorPoint(0, 0).setFontFamily("Proxima Nova").setFontColor("#000033").setPosition(20, 215).setSize(220, 20).setFontSize(14).setText("Added Game SHOP for General and Premium Items");
         upgradeNotif.appendChild(upgradeNotifText7);
-        var upgradeNotifText8 = (new lime.Label).setAnchorPoint(0, 0).setFontFamily("Comic Sans MS").setFontColor("#000033").setPosition(20, 253).setSize(230, 20).setFontSize(14).setText("Added Inventory scene with stats");
+        var upgradeNotifText8 = (new lime.Label).setAnchorPoint(0, 0).setFontFamily("Proxima Nova").setFontColor("#000033").setPosition(20, 253).setSize(230, 20).setFontSize(14).setText("Added Inventory scene with stats");
         upgradeNotif.appendChild(upgradeNotifText8);
-        var upgradeNotifText9 = (new lime.Label).setAnchorPoint(0, 0).setFontFamily("Comic Sans MS").setFontColor("#000033").setPosition(20, 280).setSize(220, 20).setFontSize(14).setText("Blacksmith now requires Iron");
+        var upgradeNotifText9 = (new lime.Label).setAnchorPoint(0, 0).setFontFamily("Proxima Nova").setFontColor("#000033").setPosition(20, 280).setSize(220, 20).setFontSize(14).setText("Blacksmith now requires Iron");
         upgradeNotif.appendChild(upgradeNotifText9);
-        var upgradeNotifText10 = (new lime.Label).setAnchorPoint(0, 0).setFontFamily("Comic Sans MS").setFontColor("#000033").setPosition(20, 308).setSize(220, 20).setFontSize(14).setText("Added Special Tools in SHOP");
+        var upgradeNotifText10 = (new lime.Label).setAnchorPoint(0, 0).setFontFamily("Proxima Nova").setFontColor("#000033").setPosition(20, 308).setSize(220, 20).setFontSize(14).setText("Added Special Tools in SHOP");
         upgradeNotif.appendChild(upgradeNotifText10);
-        var upgradeNotifText11 = (new lime.Label).setAnchorPoint(0, 0).setFontFamily("Comic Sans MS").setFontColor("#000033").setPosition(15, 332).setSize(230, 20).setFontSize(14).setText("Farmers Market is now in town");
+        var upgradeNotifText11 = (new lime.Label).setAnchorPoint(0, 0).setFontFamily("Proxima Nova").setFontColor("#000033").setPosition(15, 332).setSize(230, 20).setFontSize(14).setText("Farmers Market is now in town");
         upgradeNotif.appendChild(upgradeNotifText11);
         //upgradeNotif.setHidden(true);
         var closeUpgradeNotif = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(112, 350).setSize(40, 40).setFill(imgArray[21]);;
@@ -4555,11 +4555,11 @@ farming.start = function () {
         ///Crop Unlock Modal
         var unlockedCropBack = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(30, 150).setSize(250, 250).setFill(imgArray[78]);
         e.appendChild(unlockedCropBack);
-        var unlockedCropText = (new lime.Label).setAnchorPoint(0, 0).setFontFamily("Comic Sans MS").setPosition(10, 35).setSize(230, 60).setFontSize(18).setText("NEW SEEDS TO PLANT!");
+        var unlockedCropText = (new lime.Label).setAnchorPoint(0, 0).setFontFamily("Proxima Nova").setPosition(10, 35).setSize(230, 60).setFontSize(18).setText("NEW SEEDS TO PLANT!");
         unlockedCropBack.appendChild(unlockedCropText);
         var unlockedCropImage = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(115, 120).setSize(55, 55).setFill("images/" + a.crops[2].harvest);
         unlockedCropBack.appendChild(unlockedCropImage);
-        var unlockedCropText2 = (new lime.Label).setAnchorPoint(0, 0).setFontFamily("Comic Sans MS").setPosition(0, 190).setSize(200, 50).setFontSize(18).setText("Broccoli ");
+        var unlockedCropText2 = (new lime.Label).setAnchorPoint(0, 0).setFontFamily("Proxima Nova").setPosition(0, 190).setSize(200, 50).setFontSize(18).setText("Broccoli ");
         unlockedCropBack.appendChild(unlockedCropText2);
 
         unlockedCropBack.setHidden(true);
@@ -4578,13 +4578,13 @@ farming.start = function () {
 
         var homeBarnCostToolsImg = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(40, 118).setSize(40, 40).setFill(ImgArrayTools[5]).setHidden(true);
         unlockedCropBack.appendChild(homeBarnCostToolsImg);
-        var homeToolCostLabel = (new lime.Label).setPosition(60, 175).setSize(25, 25).setText(barnUpgradeCostTools).setFontSize(16).setFontFamily("Comic Sans MS").setFontColor("#000000").setHidden(true);
+        var homeToolCostLabel = (new lime.Label).setPosition(60, 175).setSize(25, 25).setText(barnUpgradeCostTools).setFontSize(16).setFontFamily("Proxima Nova").setFontColor("#000000").setHidden(true);
         unlockedCropBack.appendChild(homeToolCostLabel);
         var homeBarnCostWoodImg = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(170, 115).setSize(40, 40).setFill("images/" + a.crops[14].harvest).setHidden(true);
         unlockedCropBack.appendChild(homeBarnCostWoodImg);
-        var homeWoodCostLabel = (new lime.Label).setPosition(190, 175).setSize(25, 25).setText(barnUpgradeCostWood).setFontSize(16).setFontFamily("Comic Sans MS").setFontColor("#000000").setHidden(true);
+        var homeWoodCostLabel = (new lime.Label).setPosition(190, 175).setSize(25, 25).setText(barnUpgradeCostWood).setFontSize(16).setFontFamily("Proxima Nova").setFontColor("#000000").setHidden(true);
         unlockedCropBack.appendChild(homeWoodCostLabel);
-        var homeBarnShortLabel = (new lime.Label).setPosition(125, 200).setSize(175, 25).setText("You need more Resources").setFontSize(16).setFontFamily("Comic Sans MS").setFontColor("#000000").setHidden(true);
+        var homeBarnShortLabel = (new lime.Label).setPosition(125, 200).setSize(175, 25).setText("You need more Resources").setFontSize(16).setFontFamily("Proxima Nova").setFontColor("#000000").setHidden(true);
         unlockedCropBack.appendChild(homeBarnShortLabel);
 
         goog.events.listen(confirmBtnA, ["mousedown", "touchstart"], function () {            //for sale pasture
@@ -4763,13 +4763,13 @@ farming.start = function () {
             homeBarnCostWoodImg.setHidden(false); homeWoodCostLabel.setHidden(false); homeToolCostLabel.setHidden(false);
             homeBarnCostToolsImg.setAnchorPoint(0, 0).setPosition(40, 118).setSize(40, 40).setFill(ImgArrayTools[5]).setHidden(false);
             //unlockedCropBack.appendChild(homeBarnCostToolsImg);
-            homeToolCostLabel.setPosition(60, 175).setSize(25, 25).setText(player.tools + "/" + barnUpgradeCostTools).setFontSize(16).setFontFamily("Comic Sans MS").setFontColor("#000000");
+            homeToolCostLabel.setPosition(60, 175).setSize(25, 25).setText(player.tools + "/" + barnUpgradeCostTools).setFontSize(16).setFontFamily("Proxima Nova").setFontColor("#000000");
             //unlockedCropBack.appendChild(homeToolCostLabel);
             homeBarnCostWoodImg.setAnchorPoint(0, 0).setPosition(170, 115).setSize(40, 40).setFill("images/" + a.crops[14].harvest);
             //unlockedCropBack.appendChild(homeBarnCostWoodImg);
-            homeWoodCostLabel.setPosition(190, 175).setSize(25, 25).setText(player.cropsStored[14].stored + "/" + barnUpgradeCostWood).setFontSize(16).setFontFamily("Comic Sans MS").setFontColor("#000000");
+            homeWoodCostLabel.setPosition(190, 175).setSize(25, 25).setText(player.cropsStored[14].stored + "/" + barnUpgradeCostWood).setFontSize(16).setFontFamily("Proxima Nova").setFontColor("#000000");
             //unlockedCropBack.appendChild(homeWoodCostLabel);
-            homeBarnShortLabel.setPosition(125, 200).setSize(175, 25).setText("You need more Resources").setFontSize(16).setFontFamily("Comic Sans MS").setFontColor("#000000");
+            homeBarnShortLabel.setPosition(125, 200).setSize(175, 25).setText("You need more Resources").setFontSize(16).setFontFamily("Proxima Nova").setFontColor("#000000");
             unlockedCropBack.appendChild(homeBarnShortLabel);
             if (barnUpgradeCostTools > player.tools || barnUpgradeCostWood > parseInt(player.cropsStored[14].stored)) {
                 upgradeHomeBarnBtn.setHidden(true);
@@ -4954,7 +4954,7 @@ farming.start = function () {
         };
         //c.replaceScene(d);
         //u.setHidden(false);
-        var costDisplay = (new lime.Label).setPosition(156, 180).setSize(50, 25).setText("-50").setFontSize(14).setFontFamily("Comic Sans MS").setFontColor("#e1f00e").setFontWeight(600);
+        var costDisplay = (new lime.Label).setPosition(156, 180).setSize(50, 25).setText("-50").setFontSize(14).setFontFamily("Proxima Nova").setFontColor("#e1f00e").setFontWeight(600);
         e.appendChild(costDisplay);
         var costCoin = (new lime.Sprite).setPosition(30, -8).setSize(30, 30).setFill(imgArray11[0]); costDisplay.appendChild(costCoin);
         costDisplay.setHidden(true);
@@ -5329,13 +5329,13 @@ farming.start = function () {
                         g = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(a.shop_margin_x - 21, (a.shop_margin_y + (a.shop_margin_y + a.tile_size) * f) + (f * 9) - (f * 1) + 24).setFill("images/" + a.crops[f].harvest).setSize(35, 35),
                         e.appendChild(g),
 
-                        i = (new lime.Label).setText(a.crops[f].name + " (" + a.crops[f].time_to_ripe + " days) ").setFontFamily("Comic Sans MS").setFontColor("#E8FC08").setFontSize(20).setPosition(a.shop_margin_x + 130, (1.4 * a.shop_margin_y + (a.shop_margin_y + a.tile_size) * f) + (f * 7) - (f * 1) + 20 + (f * 1)),
+                        i = (new lime.Label).setText(a.crops[f].name + " (" + a.crops[f].time_to_ripe + " days) ").setFontFamily("Proxima Nova").setFontColor("#E8FC08").setFontSize(20).setPosition(a.shop_margin_x + 130, (1.4 * a.shop_margin_y + (a.shop_margin_y + a.tile_size) * f) + (f * 7) - (f * 1) + 20 + (f * 1)),
                         e.appendChild(i),
-                        i2 = (new lime.Label).setText("   -" + a.crops[f].cost + " ").setFontFamily("Comic Sans MS").setFontColor("#FFFFFF").setFontSize(18).setPosition(a.shop_margin_x + 79, (2.1 * a.shop_margin_y + (a.shop_margin_y + a.tile_size) * f) + ((f * 9) - f) + 24),
+                        i2 = (new lime.Label).setText("   -" + a.crops[f].cost + " ").setFontFamily("Proxima Nova").setFontColor("#FFFFFF").setFontSize(18).setPosition(a.shop_margin_x + 79, (2.1 * a.shop_margin_y + (a.shop_margin_y + a.tile_size) * f) + ((f * 9) - f) + 24),
                         e.appendChild(i2),
                         i3 = (new lime.Sprite).setSize(30, 30).setFill(imgArray11[0]).setPosition(a.shop_margin_x + 58, (2.1 * a.shop_margin_y + (a.shop_margin_y + a.tile_size) * f) + ((f * 9) - f) + 15),
                         e.appendChild(i3),
-                        i4 = (new lime.Label).setText("   +" + a.crops[f].revenue + " ").setFontFamily("Comic Sans MS").setFontColor("#FFFFFF").setFontSize(18).setPosition(a.shop_margin_x + 190, (2.1 * a.shop_margin_y + (a.shop_margin_y + a.tile_size) * f) + ((f * 9) - f) + 24),
+                        i4 = (new lime.Label).setText("   +" + a.crops[f].revenue + " ").setFontFamily("Proxima Nova").setFontColor("#FFFFFF").setFontSize(18).setPosition(a.shop_margin_x + 190, (2.1 * a.shop_margin_y + (a.shop_margin_y + a.tile_size) * f) + ((f * 9) - f) + 24),
                         e.appendChild(i4),
                         i5 = (new lime.Sprite).setSize(30, 30).setFill(imgArray11[0]).setPosition(a.shop_margin_x + 170, (2.1 * a.shop_margin_y + (a.shop_margin_y + a.tile_size) * f) + ((f * 9) - f) + 15),
                         e.appendChild(i5),
@@ -5532,19 +5532,19 @@ farming.start = function () {
             }
         });
 
-        var pastureCash = (new lime.Label).setText(player.money).setFontFamily("Comic Sans MS").setFontColor("#E8FC08").setPosition(235, 24).setFontSize(18);
+        var pastureCash = (new lime.Label).setText(player.money).setFontFamily("Proxima Nova").setFontColor("#E8FC08").setPosition(235, 24).setFontSize(18);
         pastureLayer.appendChild(pastureCash);
         var topCoinP = (new lime.Sprite).setPosition(285, 20).setSize(35, 35).setFill(imgArray11[0]);
         pastureLayer.appendChild(topCoinP);
 
 
         var toolCountImgP = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(7, 5).setSize(35, 35).setFill(imgArray[30]);
-        var toolCountP = (new lime.Label).setText(player.tools).setFontFamily("Comic Sans MS").setFontColor("#E8FC08").setPosition(60, 24).setFontSize(18);
+        var toolCountP = (new lime.Label).setText(player.tools).setFontFamily("Proxima Nova").setFontColor("#E8FC08").setPosition(60, 24).setFontSize(18);
         pastureLayer.appendChild(toolCountImgP);
         pastureLayer.appendChild(toolCountP);
 
         var hhP = b.currentCrop;
-        var wP = (new lime.Label).setText("Plant " + a.crops[6].name).setFontFamily("Comic Sans MS").setFontColor("#E8FC08").setFontSize(12).setPosition(a.controlsLayer_w / 2 - 5, a.height - a.controlsLayer_h / 2 - 12);
+        var wP = (new lime.Label).setText("Plant " + a.crops[6].name).setFontFamily("Proxima Nova").setFontColor("#E8FC08").setFontSize(12).setPosition(a.controlsLayer_w / 2 - 5, a.height - a.controlsLayer_h / 2 - 12);
         pastureLayer.appendChild(wP);
         var zP = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(a.controlsLayer_w / 2 - (32), a.height - a.controlsLayer_h / 2 - 5).setFill("images/" + a.crops[6].harvest).setSize(48, 35);
         pastureLayer.appendChild(zP);
@@ -5569,7 +5569,7 @@ farming.start = function () {
         var pond1P = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(90, 215).setSize(130, 80).setFill(imgArrayPasture[0]); pastureLayer.appendChild(pond1P)
 
 
-        var pasUpLabel2 = (new lime.Label).setText("Lvl " + player.pastureLevel + "/3 ").setFontFamily("Comic Sans MS").setFontColor("#E8FC08").setFontWeight(600).setPosition(155, 58).setSize(90, 15).setFontSize(16).setFill(imgArray[75]);
+        var pasUpLabel2 = (new lime.Label).setText("Lvl " + player.pastureLevel + "/3 ").setFontFamily("Proxima Nova").setFontColor("#E8FC08").setFontWeight(600).setPosition(155, 58).setSize(90, 15).setFontSize(16).setFill(imgArray[75]);
 
         pastureLayer.appendChild(pasUpLabel2)
 
@@ -5578,7 +5578,7 @@ farming.start = function () {
         ///upgrading Dairy barn animation elements
         var scaffoldP = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(0, 70).setSize(60, 45).setFill(imgArray[26]); pastureLayer.appendChild(scaffoldP);
         var upgradeCloudP = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(0, 10).setSize(70, 140).setFill(imgArray[24].src); pastureLayer.appendChild(upgradeCloudP);
-        var toolMoverLabelP = (new lime.Label).setText("60").setPosition(35, 80).setSize(40, 25).setFontColor("#E8FC08").setFontWeight(600).setFontSize(28).setFontFamily("Comic Sans MS").setFill(imgArray[27]);
+        var toolMoverLabelP = (new lime.Label).setText("60").setPosition(35, 80).setSize(40, 25).setFontColor("#E8FC08").setFontWeight(600).setFontSize(28).setFontFamily("Proxima Nova").setFill(imgArray[27]);
         var toolMoverP = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(-22, -50).setSize(50, 50).setFill(imgArray[29]);
 
         pastureLayer.appendChild(toolMoverLabelP);
@@ -5629,7 +5629,7 @@ farming.start = function () {
         var treesImgP = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(235, 240).setSize(35, 35).setFill(ImgArrayTools[3]); pastureLayer.appendChild(treesImgP)
 
         var upgradeCloudTP = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(175, 90).setSize(130, 285).setFill(imgArray[24].src); pastureLayer.appendChild(upgradeCloudTP);
-        var axeMoverLabelTP = (new lime.Label).setText("60").setPosition(240, 255).setSize(40, 25).setFontColor("#E8FC08").setFontWeight(600).setFontSize(28).setFontFamily("Comic Sans MS").setFill(imgArray[27]);
+        var axeMoverLabelTP = (new lime.Label).setText("60").setPosition(240, 255).setSize(40, 25).setFontColor("#E8FC08").setFontWeight(600).setFontSize(28).setFontFamily("Proxima Nova").setFill(imgArray[27]);
         pastureLayer.appendChild(axeMoverLabelTP);
 
         var axerotateP = 0;
@@ -5917,7 +5917,7 @@ farming.start = function () {
         pastureLayer.appendChild(collectMilk);
         var collectMilkIcon = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(12, 2).setSize(27, 30).setFill("images/" + a.crops[7].harvest);
         collectMilk.appendChild(collectMilkIcon);
-        var collectMilkLabel = (new lime.Label).setText("+ 0 ").setFontWeight(500).setFontColor("#E8FC08").setPosition(23, 42).setSize(30, 18).setFontFamily("Comic Sans MS");
+        var collectMilkLabel = (new lime.Label).setText("+ 0 ").setFontWeight(500).setFontColor("#E8FC08").setPosition(23, 42).setSize(30, 18).setFontFamily("Proxima Nova");
         collectMilk.appendChild(collectMilkLabel);
         collectMilk.setHidden(true);
         var milkWaiting = 0;
@@ -6075,7 +6075,7 @@ farming.start = function () {
         var oldCrop = b.currentCrop;
 
         //cost display
-        var costDisplayP = (new lime.Label).setPosition(156, 180).setSize(50, 25).setText("-50").setFontSize(14).setFontFamily("Comic Sans MS").setFontColor("#e1f00e").setFontWeight(600);
+        var costDisplayP = (new lime.Label).setPosition(156, 180).setSize(50, 25).setText("-50").setFontSize(14).setFontFamily("Proxima Nova").setFontColor("#e1f00e").setFontWeight(600);
         pastureLayer.appendChild(costDisplayP);
         var costCoinP = (new lime.Sprite).setPosition(30, -8).setSize(30, 30).setFill(imgArray11[0]); costDisplayP.appendChild(costCoinP);
         costDisplayP.setHidden(true);
@@ -6223,11 +6223,11 @@ farming.start = function () {
         ///For Sale confirm modal to buy vinyard
         var confirmSaleV = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(45, 100).setSize(210, 220).setFill("images/UI/saleBack.png");
         pastureLayer.appendChild(confirmSaleV);
-        var confirmTextV = (new lime.Label).setAnchorPoint(0, 0).setFontFamily("Comic Sans MS").setFontColor("#000000").setPosition(45, 135).setSize(125, 60).setFontSize(22).setText("Vineyard 12,500");
+        var confirmTextV = (new lime.Label).setAnchorPoint(0, 0).setFontFamily("Proxima Nova").setFontColor("#000000").setPosition(45, 135).setSize(125, 60).setFontSize(22).setText("Vineyard 12,500");
         confirmSaleV.appendChild(confirmTextV);
         var confirmCoinV = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(35, 165).setSize(30, 30).setFill(imgArray11[0]);
         confirmSaleV.appendChild(confirmCoinV);
-        var confirmTextSubV = (new lime.Label).setAnchorPoint(0, 0).setFontFamily("Comic Sans MS").setFontColor("#FF0000").setPosition(55, 190).setSize(110, 60).setFontSize(10).setText("Earn more Coin to buy");
+        var confirmTextSubV = (new lime.Label).setAnchorPoint(0, 0).setFontFamily("Proxima Nova").setFontColor("#FF0000").setPosition(55, 190).setSize(110, 60).setFontSize(10).setText("Earn more Coin to buy");
         confirmSaleV.appendChild(confirmTextSubV);
         var confirmBtnV = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(100, 212).setSize(75, 35).setFill("images/UI/greenBuy.png");
         confirmSaleV.appendChild(confirmBtnV);
@@ -6302,11 +6302,11 @@ farming.start = function () {
         ////achievement Modal
         var achieveNotifP = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(45, 130).setSize(210, 220).setFill(imgArray[91]);
 
-        var achieveTextP = (new lime.Label).setAnchorPoint(0, 0).setFontFamily("Comic Sans MS").setFontColor("#000033").setPosition(13, 45).setSize(190, 60).setFontSize(16).setText("Blacksmith I");
+        var achieveTextP = (new lime.Label).setAnchorPoint(0, 0).setFontFamily("Proxima Nova").setFontColor("#000033").setPosition(13, 45).setSize(190, 60).setFontSize(16).setText("Blacksmith I");
         achieveNotifP.appendChild(achieveTextP);
-        var achieveTextSubP = (new lime.Label).setAnchorPoint(0, 0).setFontFamily("Comic Sans MS").setFontColor("#000033").setPosition(30, 123).setSize(150, 60).setFontSize(14).setText("Achieve Text");
+        var achieveTextSubP = (new lime.Label).setAnchorPoint(0, 0).setFontFamily("Proxima Nova").setFontColor("#000033").setPosition(30, 123).setSize(150, 60).setFontSize(14).setText("Achieve Text");
         achieveNotifP.appendChild(achieveTextSubP);
-        var achieveSCP = (new lime.Label).setAnchorPoint(0, 0).setFontFamily("Comic Sans MS").setFontColor("#000033").setPosition(21, 182).setSize(190, 60).setFontSize(18).setText(" + ");
+        var achieveSCP = (new lime.Label).setAnchorPoint(0, 0).setFontFamily("Proxima Nova").setFontColor("#000033").setPosition(21, 182).setSize(190, 60).setFontSize(18).setText(" + ");
         achieveNotifP.appendChild(achieveSCP);
         var confirmBtnAP = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(90, 211).setSize(40, 40).setFill(imgArray[21]);
         achieveNotifP.appendChild(confirmBtnAP);
@@ -6335,7 +6335,7 @@ farming.start = function () {
         pastureLayer.appendChild(milkBlocked);
         var confirmMilkBlocked = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(70, 195).setSize(40, 40).setFill(imgArray[21]);
         milkBlocked.appendChild(confirmMilkBlocked);
-        var blockedTextM = (new lime.Label).setAnchorPoint(0, 0).setFontFamily("Comic Sans MS").setFontColor("#E8FC08").setPosition(5, 120).setSize(170, 40).setFontSize(14).setText("Livestock Hungry!");
+        var blockedTextM = (new lime.Label).setAnchorPoint(0, 0).setFontFamily("Proxima Nova").setFontColor("#E8FC08").setPosition(5, 120).setSize(170, 40).setFontSize(14).setText("Livestock Hungry!");
         milkBlocked.appendChild(blockedTextM);
         //var blockedSubM = (new lime.Label).setAnchorPoint(0, 0).setFontColor("#FFFFFF").setPosition(2, 140).setSize(175, 40).setFontSize(12).setText("Cows eat HAY to produce MILK. Grow some in the fields below");
         //milkBlocked.appendChild(blockedSubM);
@@ -6344,15 +6344,15 @@ farming.start = function () {
 
         var cowBlocked = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(5, 140).setSize(55, 30).setFill("images/Pasture/cow_eatR1.png");
         milkBlocked.appendChild(cowBlocked);
-        var blockedSubM = (new lime.Label).setAnchorPoint(0, 0).setFontFamily("Comic Sans MS").setFontColor("#FFFFFF").setPosition(55, 145).setFontColor("#E8FC08").setSize(24, 140).setFontSize(22).setText("+");
+        var blockedSubM = (new lime.Label).setAnchorPoint(0, 0).setFontFamily("Proxima Nova").setFontColor("#FFFFFF").setPosition(55, 145).setFontColor("#E8FC08").setSize(24, 140).setFontSize(22).setText("+");
         milkBlocked.appendChild(blockedSubM);
         var hayIconTop = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(77, 140).setFill("images/" + a.crops[6].harvest).setSize(30, 30);
         milkBlocked.appendChild(hayIconTop);
-        var blockedSubM2 = (new lime.Label).setAnchorPoint(0, 0).setFontFamily("Comic Sans MS").setFontColor("#FFFFFF").setPosition(110, 145).setSize(24, 140).setFontColor("#E8FC08").setFontSize(22).setText("=");
+        var blockedSubM2 = (new lime.Label).setAnchorPoint(0, 0).setFontFamily("Proxima Nova").setFontColor("#FFFFFF").setPosition(110, 145).setSize(24, 140).setFontColor("#E8FC08").setFontSize(22).setText("=");
         milkBlocked.appendChild(blockedSubM2);
         var milkIconBlock = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(132, 140).setFill("images/" + a.crops[7].harvest).setSize(35, 35);
         milkBlocked.appendChild(milkIconBlock);
-        var gLabel6Milk = (new lime.Label).setPosition(90, 186).setSize(20, 16).setText(player.cropsStored[6].stored).setFontFamily("Comic Sans MS").setFontColor("#E8FC08");
+        var gLabel6Milk = (new lime.Label).setPosition(90, 186).setSize(20, 16).setText(player.cropsStored[6].stored).setFontFamily("Proxima Nova").setFontColor("#E8FC08");
         milkBlocked.appendChild(gLabel6Milk);
 
 
@@ -6596,19 +6596,19 @@ farming.start = function () {
             barnUpgradeCostToolsP = 250; barnUpgradeCostWoodP = 100;
             var upgradeBarnConfirmP = (new lime.Sprite).setPosition(155, 240).setSize(250, 250).setFill(imgArray[79]).setHidden(false)
             pastureLayer.appendChild(upgradeBarnConfirmP);
-            var upgradeBarntextP1 = (new lime.Label).setPosition(0, -85).setSize(250, 30).setText("Upgrade Dairy Barn").setFontFamily("Comic Sans MS").setFontColor("#000000").setFontSize(22);
+            var upgradeBarntextP1 = (new lime.Label).setPosition(0, -85).setSize(250, 30).setText("Upgrade Dairy Barn").setFontFamily("Proxima Nova").setFontColor("#000000").setFontSize(22);
             upgradeBarnConfirmP.appendChild(upgradeBarntextP1);
-            var upgradeBarntextP2 = (new lime.Label).setPosition(0, -50).setSize(250, 30).setText("Increase Milk Produiction").setFontFamily("Comic Sans MS").setFontColor("#000000").setFontSize(14);
+            var upgradeBarntextP2 = (new lime.Label).setPosition(0, -50).setSize(250, 30).setText("Increase Milk Produiction").setFontFamily("Proxima Nova").setFontColor("#000000").setFontSize(14);
             upgradeBarnConfirmP.appendChild(upgradeBarntextP2);
             var upgradeBarnPTools = (new lime.Sprite).setPosition(-40, -20).setSize(40, 40).setFill(imgArray[30])
             upgradeBarnConfirmP.appendChild(upgradeBarnPTools);
-            var upgradeBarnPToolsTxt = (new lime.Label).setPosition(-40, 30).setSize(250, 25).setText(barnUpgradeCostToolsP).setFontFamily("Comic Sans MS").setFontColor("#000000").setFontSize(22);
+            var upgradeBarnPToolsTxt = (new lime.Label).setPosition(-40, 30).setSize(250, 25).setText(barnUpgradeCostToolsP).setFontFamily("Proxima Nova").setFontColor("#000000").setFontSize(22);
             upgradeBarnConfirmP.appendChild(upgradeBarnPToolsTxt);
             var upgradeBarnPWood = (new lime.Sprite).setPosition(40, -20).setSize(40, 40).setFill("images/" + a.crops[14].harvest)
             upgradeBarnConfirmP.appendChild(upgradeBarnPWood);
-            var upgradeBarnWoodTxt = (new lime.Label).setPosition(40, 30).setSize(250, 25).setText(barnUpgradeCostWoodP).setFontFamily("Comic Sans MS").setFontColor("#000000").setFontSize(22);
+            var upgradeBarnWoodTxt = (new lime.Label).setPosition(40, 30).setSize(250, 25).setText(barnUpgradeCostWoodP).setFontFamily("Proxima Nova").setFontColor("#000000").setFontSize(22);
             upgradeBarnConfirmP.appendChild(upgradeBarnWoodTxt);
-            var upgradeBarnShortText = (new lime.Label).setPosition(0, 50).setSize(250, 25).setText("You need more resources").setFontFamily("Comic Sans MS").setFontColor("#000000").setFontSize(14);
+            var upgradeBarnShortText = (new lime.Label).setPosition(0, 50).setSize(250, 25).setText("You need more resources").setFontFamily("Proxima Nova").setFontColor("#000000").setFontSize(14);
             upgradeBarnConfirmP.appendChild(upgradeBarnShortText);
             upgradeBarnShortText.setHidden(true);
             var upgradePastureBarnBtn = (new lime.GlossyButton).setColor("#1ce636").setText("Upgrade").setPosition(0, 70).setSize(80, 35);
@@ -6765,13 +6765,13 @@ farming.start = function () {
 
 
         var pastureHelpPanel = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(15, 100).setSize(a.width - 30, a.height / 2 + 40).setFill(imgArray[78]).setHidden(true);
-        var helpHeaderpasture = (new lime.Label).setAnchorPoint(0, 0).setPosition(68, 30).setText("Dairy Pasture").setFontFamily("Comic Sans MS").setFontSize(24);
+        var helpHeaderpasture = (new lime.Label).setAnchorPoint(0, 0).setPosition(68, 30).setText("Dairy Pasture").setFontFamily("Proxima Nova").setFontSize(24);
         pastureHelpPanel.appendChild(helpHeaderpasture);
-        var helpText1pasture = (new lime.Label).setAnchorPoint(0, 0).setPosition(20, 70).setText("These fields are only good for growing HAY which your Cows will eat to produce MILK").setFontFamily("Comic Sans MS").setFontSize(16).setSize(a.width - 80, a.height / 2 - 50);
+        var helpText1pasture = (new lime.Label).setAnchorPoint(0, 0).setPosition(20, 70).setText("These fields are only good for growing HAY which your Cows will eat to produce MILK").setFontFamily("Proxima Nova").setFontSize(16).setSize(a.width - 80, a.height / 2 - 50);
         pastureHelpPanel.appendChild(helpText1pasture);
-        var helpText2pasture = (new lime.Label).setAnchorPoint(0, 0).setPosition(20, 140).setText("Upgrading the Dairy increases the amount of MILK you get each cycle").setFontFamily("Comic Sans MS").setFontSize(16).setSize(a.width - 80, a.height / 2 - 50);
+        var helpText2pasture = (new lime.Label).setAnchorPoint(0, 0).setPosition(20, 140).setText("Upgrading the Dairy increases the amount of MILK you get each cycle").setFontFamily("Proxima Nova").setFontSize(16).setSize(a.width - 80, a.height / 2 - 50);
         pastureHelpPanel.appendChild(helpText2pasture);
-        var helpText3pasture = (new lime.Label).setAnchorPoint(0, 0).setPosition(20, 205).setText("Clearing the forest unlocks more pasture to increase production").setFontFamily("Comic Sans MS").setFontSize(16).setSize(a.width - 80, a.height / 2 - 50);
+        var helpText3pasture = (new lime.Label).setAnchorPoint(0, 0).setPosition(20, 205).setText("Clearing the forest unlocks more pasture to increase production").setFontFamily("Proxima Nova").setFontSize(16).setSize(a.width - 80, a.height / 2 - 50);
         pastureHelpPanel.appendChild(helpText3pasture);
 
         var pastureHelpPanelCloseBtn = (new lime.GlossyButton).setColor("#663300").setText("Close").setPosition(140, 292).setSize(100, 20);
@@ -6871,7 +6871,7 @@ farming.start = function () {
 
         var upgradeCloudO = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(0, 90).setSize(120, 150).setFill(imgArray[24].src); orchardLayer.appendChild(upgradeCloudO);
 
-        var toolMoverLabelO = (new lime.Label).setText("60").setPosition(50, 145).setSize(40, 25).setFontFamily("Comic Sans MS").setFontColor("#E8FC08").setFontWeight(600).setFontSize(28).setFontFamily("ComicSans MS").setFill(imgArray[27]);
+        var toolMoverLabelO = (new lime.Label).setText("60").setPosition(50, 145).setSize(40, 25).setFontFamily("Proxima Nova").setFontColor("#E8FC08").setFontWeight(600).setFontSize(28).setFontFamily("ComicSans MS").setFill(imgArray[27]);
         var toolMoverO = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(-22, -50).setSize(50, 50).setFill(imgArray[29]);
         var barnLevelO = (new lime.Label).setAnchorPoint(0, 0).setFontColor("#E8FC08").setPosition(20, 74).setSize(70, 16).setFontSize(16).setFontWeight(600).setText("Lvl 1/2").setFill(imgArray[28]);
         orchardLayer.appendChild(barnLevelO);
@@ -6887,17 +6887,17 @@ farming.start = function () {
 
         //var barnUpgradeNotifO = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(35, 130).setSize(250, 220).setFill(imgArray[79]);
         //orchardLayer.appendChild(barnUpgradeNotifO);
-        //var barnUpgradeHeaderO = (new lime.Label).setAnchorPoint(0, 0).setPosition(23, 25).setText("Upgrade Orchard Barn?").setFontFamily("Comic Sans MS").setFontSize(18);
+        //var barnUpgradeHeaderO = (new lime.Label).setAnchorPoint(0, 0).setPosition(23, 25).setText("Upgrade Orchard Barn?").setFontFamily("Proxima Nova").setFontSize(18);
         //barnUpgradeNotifO.appendChild(barnUpgradeHeaderO);
-        //var barnUpgradeText1O = (new lime.Label).setAnchorPoint(0, 0).setPosition(25, 122).setText("Increases Apple and Pear harvests by 100%").setFontFamily("Comic Sans MS").setFontSize(16).setSize(195, a.height / 2 - 50);
+        //var barnUpgradeText1O = (new lime.Label).setAnchorPoint(0, 0).setPosition(25, 122).setText("Increases Apple and Pear harvests by 100%").setFontFamily("Proxima Nova").setFontSize(16).setSize(195, a.height / 2 - 50);
         //barnUpgradeNotifO.appendChild(barnUpgradeText1O);
         //var barnPanelTools = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(52, 50).setSize(40, 40).setFill(ImgArrayTools[5]);
         //barnUpgradeNotifO.appendChild(barnPanelTools);
-        //var barnUpgradeTextToolsO = (new lime.Label).setAnchorPoint(0, 0).setPosition(50, 95).setText("250").setFontFamily("Comic Sans MS").setFontSize(16).setSize(40, 40);
+        //var barnUpgradeTextToolsO = (new lime.Label).setAnchorPoint(0, 0).setPosition(50, 95).setText("250").setFontFamily("Proxima Nova").setFontSize(16).setSize(40, 40);
         //barnUpgradeNotifO.appendChild(barnUpgradeTextToolsO);
         //var barnPanelWood = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(142, 50).setSize(40, 40).setFill("images/" + a.crops[14].image);
         //barnUpgradeNotifO.appendChild(barnPanelWood);
-        //var barnUpgradeTextWoodO = (new lime.Label).setAnchorPoint(0, 0).setPosition(145, 95).setText("200").setFontFamily("Comic Sans MS").setFontSize(16).setSize(40, 40);
+        //var barnUpgradeTextWoodO = (new lime.Label).setAnchorPoint(0, 0).setPosition(145, 95).setText("200").setFontFamily("Proxima Nova").setFontSize(16).setSize(40, 40);
         //barnUpgradeNotifO.appendChild(barnUpgradeTextWoodO);
         //var barnPanelCloseBtnO = (new lime.GlossyButton).setColor("#663300").setText("Close").setPosition(125, 208).setSize(100, 20);
         //barnUpgradeNotifO.appendChild(barnPanelCloseBtnO);
@@ -7012,7 +7012,7 @@ farming.start = function () {
         orchardLayer.appendChild(orchardUpgradePickMover);
         var orchardUpgradeRockCloud = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(98, 135).setSize(38, 43).setFill(imgArray[24].src);
         orchardLayer.appendChild(orchardUpgradeRockCloud);
-        var toolMoverLabelOR = (new lime.Label).setText("60").setPosition(120, 185).setSize(40, 25).setFontFamily("Comic Sans MS").setFontColor("#E8FC08").setFontWeight(600).setFontSize(28).setFontFamily("ComicSans MS").setFill(imgArray[27]);
+        var toolMoverLabelOR = (new lime.Label).setText("60").setPosition(120, 185).setSize(40, 25).setFontFamily("Proxima Nova").setFontColor("#E8FC08").setFontWeight(600).setFontSize(28).setFontFamily("ComicSans MS").setFill(imgArray[27]);
         orchardLayer.appendChild(toolMoverLabelOR);
         orchardUpgradePickMover.setHidden(true);
         orchardUpgradeRockCloud.setHidden(true);
@@ -7228,7 +7228,7 @@ farming.start = function () {
         //var tree7 = (new farming.Land(a, b, posXO, posYO)).setPosition(2, 340); orchardLayer.appendChild(tree7)
         //var tree8 = (new farming.Land(a, b, posXO, posYO)).setPosition(70, 340); orchardLayer.appendChild(tree8)
 
-        var costDisplayO = (new lime.Label).setPosition(156, 180).setSize(50, 25).setText("-50").setFontSize(14).setFontFamily("Comic Sans MS").setFontColor("#e1f00e").setFontWeight(600);
+        var costDisplayO = (new lime.Label).setPosition(156, 180).setSize(50, 25).setText("-50").setFontSize(14).setFontFamily("Proxima Nova").setFontColor("#e1f00e").setFontWeight(600);
         orchardLayer.appendChild(costDisplayO);
         var costCoinO = (new lime.Sprite).setPosition(30, -8).setSize(30, 30).setFill(imgArray11[0]); costDisplayO.appendChild(costCoinO);
         costDisplayO.setHidden(true);
@@ -7365,7 +7365,7 @@ farming.start = function () {
         orchardLayer.appendChild(treesImgO);
 
 
-        var axeMoverLabelTO = (new lime.Label).setText("60").setPosition(75, 200).setSize(40, 25).setFontColor("#E8FC08").setFontWeight(600).setFontSize(28).setFontFamily("Comic Sans MS").setFill(imgArray[27]);
+        var axeMoverLabelTO = (new lime.Label).setText("60").setPosition(75, 200).setSize(40, 25).setFontColor("#E8FC08").setFontWeight(600).setFontSize(28).setFontFamily("Proxima Nova").setFill(imgArray[27]);
         orchardTreeBlockO.appendChild(axeMoverLabelTO);
 
         var axerotateO = 0;
@@ -7463,7 +7463,7 @@ farming.start = function () {
 
         var topCoinO = (new lime.Sprite).setPosition(285, 18).setSize(35, 35).setFill(imgArray11[0]);
         orchardLayer.appendChild(topCoinO);
-        var orchardCash = (new lime.Label).setText(player.money).setFontColor("#E8FC08").setFontFamily("Comic Sans MS").setPosition(235, 24).setFontSize(18);
+        var orchardCash = (new lime.Label).setText(player.money).setFontColor("#E8FC08").setFontFamily("Proxima Nova").setPosition(235, 24).setFontSize(18);
         orchardLayer.appendChild(orchardCash);
         ;
         //storage Menu Orchard
@@ -7494,7 +7494,7 @@ farming.start = function () {
         var roadLeftO = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(5, 448).setSize(15, 15)
         orchardLayer.appendChild(roadLeftO)
         var toolCountImgO = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(5, 7).setSize(35, 35).setFill(imgArray[30]);
-        var toolCountO = (new lime.Label).setText(player.tools).setFontColor("#E8FC08").setFontFamily("Comic Sans MS").setPosition(65, 24).setFontSize(18);
+        var toolCountO = (new lime.Label).setText(player.tools).setFontColor("#E8FC08").setFontFamily("Proxima Nova").setPosition(65, 24).setFontSize(18);
         orchardLayer.appendChild(toolCountImgO);
         orchardLayer.appendChild(toolCountO);
         /// orchard girl anim
@@ -7774,7 +7774,7 @@ farming.start = function () {
         var hhO = b.currentCrop;
 
         if (orchardTreeBlock == 2) { orchardText = "Pears & Apples" };
-        var wO = (new lime.Label).setText(orchardText).setFontColor("#E8FC08").setFontFamily("Comic Sans MS").setFontSize(12).setPosition(a.controlsLayer_w / 2 - 5, a.height - a.controlsLayer_h / 2 - 12);
+        var wO = (new lime.Label).setText(orchardText).setFontColor("#E8FC08").setFontFamily("Proxima Nova").setFontSize(12).setPosition(a.controlsLayer_w / 2 - 5, a.height - a.controlsLayer_h / 2 - 12);
         orchardLayer.appendChild(wO);
         if (orchardTreeBlock == 2) { orchardText = "Pears & Apples"; wO.setText(orchardText).setPosition(a.controlsLayer_w / 2 - 5, a.height - a.controlsLayer_h / 2 - 12); };
         var zO = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(a.controlsLayer_w / 2 - (25), a.height - a.controlsLayer_h / 2 - 5).setFill("images/" + a.crops[8].harvest).setSize(a.tile_size * 1.2, a.tile_size * 1.2);
@@ -7843,11 +7843,11 @@ farming.start = function () {
 
         var unlockedCropBackO = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(30, 150).setSize(250, 250).setFill(imgArray[80]);
         orchardLayer.appendChild(unlockedCropBackO);
-        var unlockedCropTextO = (new lime.Label).setAnchorPoint(0, 0).setFontColor("#000033").setFontFamily("Comic Sans MS").setPosition(10, 45).setSize(230, 60).setFontSize(18).setText("You found some Pear Trees!");
+        var unlockedCropTextO = (new lime.Label).setAnchorPoint(0, 0).setFontColor("#000033").setFontFamily("Proxima Nova").setPosition(10, 45).setSize(230, 60).setFontSize(18).setText("You found some Pear Trees!");
         unlockedCropBackO.appendChild(unlockedCropTextO);
         var unlockedCropImageO = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(90, 110).setSize(70, 70).setFill("images/" + a.crops[9].harvest);
         unlockedCropBackO.appendChild(unlockedCropImageO);
-        var unlockedCropText2O = (new lime.Label).setAnchorPoint(0, 0).setFontColor("#000033").setFontFamily("Comic Sans MS").setPosition(50, 185).setSize(150, 50).setFontSize(18).setText("Pears");
+        var unlockedCropText2O = (new lime.Label).setAnchorPoint(0, 0).setFontColor("#000033").setFontFamily("Proxima Nova").setPosition(50, 185).setSize(150, 50).setFontSize(18).setText("Pears");
         unlockedCropBackO.appendChild(unlockedCropText2O);
         unlockedCropBackO.setHidden(true);
 
@@ -7855,17 +7855,17 @@ farming.start = function () {
 
         var barnUpgradeNotifO = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(35, 130).setSize(250, 220).setFill(imgArray[79]);
         orchardLayer.appendChild(barnUpgradeNotifO);
-        var barnUpgradeHeaderO = (new lime.Label).setAnchorPoint(0, 0).setPosition(23, 25).setText("Upgrade Orchard Barn?").setFontFamily("Comic Sans MS").setFontSize(18);
+        var barnUpgradeHeaderO = (new lime.Label).setAnchorPoint(0, 0).setPosition(23, 25).setText("Upgrade Orchard Barn?").setFontFamily("Proxima Nova").setFontSize(18);
         barnUpgradeNotifO.appendChild(barnUpgradeHeaderO);
-        var barnUpgradeText1O = (new lime.Label).setAnchorPoint(0, 0).setPosition(25, 122).setText("Increases Apple and Pear harvests by 100%").setFontFamily("Comic Sans MS").setFontSize(16).setSize(195, a.height / 2 - 50);
+        var barnUpgradeText1O = (new lime.Label).setAnchorPoint(0, 0).setPosition(25, 122).setText("Increases Apple and Pear harvests by 100%").setFontFamily("Proxima Nova").setFontSize(16).setSize(195, a.height / 2 - 50);
         barnUpgradeNotifO.appendChild(barnUpgradeText1O);
         var barnPanelTools = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(52, 50).setSize(40, 40).setFill(ImgArrayTools[5]);
         barnUpgradeNotifO.appendChild(barnPanelTools);
-        var barnUpgradeTextToolsO = (new lime.Label).setAnchorPoint(0, 0).setPosition(50, 95).setText("250").setFontFamily("Comic Sans MS").setFontSize(16).setSize(40, 40);
+        var barnUpgradeTextToolsO = (new lime.Label).setAnchorPoint(0, 0).setPosition(50, 95).setText("250").setFontFamily("Proxima Nova").setFontSize(16).setSize(40, 40);
         barnUpgradeNotifO.appendChild(barnUpgradeTextToolsO);
         var barnPanelWood = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(142, 50).setSize(40, 40).setFill("images/" + a.crops[14].image);
         barnUpgradeNotifO.appendChild(barnPanelWood);
-        var barnUpgradeTextWoodO = (new lime.Label).setAnchorPoint(0, 0).setPosition(145, 95).setText("200").setFontFamily("Comic Sans MS").setFontSize(16).setSize(40, 40);
+        var barnUpgradeTextWoodO = (new lime.Label).setAnchorPoint(0, 0).setPosition(145, 95).setText("200").setFontFamily("Proxima Nova").setFontSize(16).setSize(40, 40);
         barnUpgradeNotifO.appendChild(barnUpgradeTextWoodO);
         var barnPanelCloseBtnO = (new lime.GlossyButton).setColor("#663300").setText("Close").setPosition(125, 208).setSize(100, 20);
         barnUpgradeNotifO.appendChild(barnPanelCloseBtnO);
@@ -8004,11 +8004,11 @@ farming.start = function () {
 
         var confirmSaleLS = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(50, 150).setSize(210, 220).setFill("images/UI/saleBack.png");
         orchardLayer.appendChild(confirmSaleLS);
-        var confirmTextLS = (new lime.Label).setAnchorPoint(0, 0).setFontColor("#000000").setFontFamily("Comic Sans MS").setPosition(50, 125).setSize(115, 60).setFontSize(22).setText("StockPens  10,000");
+        var confirmTextLS = (new lime.Label).setAnchorPoint(0, 0).setFontColor("#000000").setFontFamily("Proxima Nova").setPosition(50, 125).setSize(115, 60).setFontSize(22).setText("StockPens  10,000");
         confirmSaleLS.appendChild(confirmTextLS);
         var confirmCoinLS = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(45, 144).setSize(30, 30).setFill(imgArray11[0]);
         confirmSaleLS.appendChild(confirmCoinLS);
-        var confirmTextSubLS = (new lime.Label).setAnchorPoint(0, 0).setFontColor("#FF0000").setFontFamily("Comic Sans MS").setPosition(8, 185).setSize(190, 60).setFontSize(12).setText("Earn more Coin to buy");
+        var confirmTextSubLS = (new lime.Label).setAnchorPoint(0, 0).setFontColor("#FF0000").setFontFamily("Proxima Nova").setPosition(8, 185).setSize(190, 60).setFontSize(12).setText("Earn more Coin to buy");
         confirmSaleLS.appendChild(confirmTextSubLS);
         var confirmBtnLS = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(100, 212).setSize(75, 35).setFill("images/UI/greenBuy.png");
         confirmSaleLS.appendChild(confirmBtnLS);
@@ -8080,11 +8080,11 @@ farming.start = function () {
         ////achievement Modal from Orchard
         var achieveNotifO = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(45, 130).setSize(210, 220).setFill(imgArray[91]);
 
-        var achieveTextO = (new lime.Label).setAnchorPoint(0, 0).setFontColor("#000033").setFontFamily("Comic Sans MS").setPosition(13, 45).setSize(190, 60).setFontSize(16).setText("Blacksmith I");
+        var achieveTextO = (new lime.Label).setAnchorPoint(0, 0).setFontColor("#000033").setFontFamily("Proxima Nova").setPosition(13, 45).setSize(190, 60).setFontSize(16).setText("Blacksmith I");
         achieveNotifO.appendChild(achieveTextO);
-        var achieveTextSubO = (new lime.Label).setAnchorPoint(0, 0).setFontColor("#000033").setFontFamily("Comic Sans MS").setPosition(30, 123).setSize(150, 60).setFontSize(12).setText("Achieve Text");
+        var achieveTextSubO = (new lime.Label).setAnchorPoint(0, 0).setFontColor("#000033").setFontFamily("Proxima Nova").setPosition(30, 123).setSize(150, 60).setFontSize(12).setText("Achieve Text");
         achieveNotifO.appendChild(achieveTextSubO);
-        var achieveSCO = (new lime.Label).setAnchorPoint(0, 0).setFontColor("#000033").setFontFamily("Comic Sans MS").setPosition(21, 182).setSize(190, 60).setFontSize(18).setText(" + ");
+        var achieveSCO = (new lime.Label).setAnchorPoint(0, 0).setFontColor("#000033").setFontFamily("Proxima Nova").setPosition(21, 182).setSize(190, 60).setFontSize(18).setText(" + ");
         achieveNotifO.appendChild(achieveSCO);
         var confirmBtnAO = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(90, 211).setSize(40, 40).setFill(imgArray[21]);
         achieveNotifO.appendChild(confirmBtnAO);
@@ -8218,9 +8218,9 @@ farming.start = function () {
 
         var questPanelO = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(35, 130).setSize(250, 220).setFill(imgArray[79]);
         orchardLayer.appendChild(questPanelO);
-        var questHeaderO = (new lime.Label).setAnchorPoint(0, 0).setPosition(23, 25).setText("Cultivator Isabel").setFontFamily("Comic Sans MS").setFontSize(24);
+        var questHeaderO = (new lime.Label).setAnchorPoint(0, 0).setPosition(23, 25).setText("Cultivator Isabel").setFontFamily("Proxima Nova").setFontSize(24);
         questPanelO.appendChild(questHeaderO);
-        var questText1O = (new lime.Label).setAnchorPoint(0, 0).setPosition(20, 130).setText("If you had a STEEL PICK to clear rocks, we could upgrade this barn").setFontFamily("Comic Sans MS").setFontSize(16).setSize(200, a.height / 2 - 50);
+        var questText1O = (new lime.Label).setAnchorPoint(0, 0).setPosition(20, 130).setText("If you had a STEEL PICK to clear rocks, we could upgrade this barn").setFontFamily("Proxima Nova").setFontSize(16).setSize(200, a.height / 2 - 50);
         questPanelO.appendChild(questText1O);
         var questPanelAvatarO = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(62, 50).setSize(64, 70).setFill(imgArray4[1]);
         questPanelO.appendChild(questPanelAvatarO);
@@ -8279,13 +8279,13 @@ farming.start = function () {
         }
 
         var orchardHelpPanel = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(15, 100).setSize(a.width - 30, a.height / 2).setFill(imgArray[78]).setHidden(true);
-        var helpHeaderorchard = (new lime.Label).setAnchorPoint(0, 0).setPosition(68, 30).setText("The Orchard").setFontFamily("Comic Sans MS").setFontSize(24);
+        var helpHeaderorchard = (new lime.Label).setAnchorPoint(0, 0).setPosition(68, 30).setText("The Orchard").setFontFamily("Proxima Nova").setFontSize(24);
         orchardHelpPanel.appendChild(helpHeaderorchard);
-        var helpText1orchard = (new lime.Label).setAnchorPoint(0, 0).setPosition(20, 80).setText("Tap the trees to prune old growth, again to fertilize.").setFontFamily("Comic Sans MS").setFontSize(16).setSize(a.width - 80, a.height / 2 - 50);
+        var helpText1orchard = (new lime.Label).setAnchorPoint(0, 0).setPosition(20, 80).setText("Tap the trees to prune old growth, again to fertilize.").setFontFamily("Proxima Nova").setFontSize(16).setSize(a.width - 80, a.height / 2 - 50);
         orchardHelpPanel.appendChild(helpText1orchard);
-        var helpText2orchard = (new lime.Label).setAnchorPoint(0, 0).setPosition(20, 130).setText("Upgrading the barn increases your harvest. ").setFontFamily("Comic Sans MS").setFontSize(16).setSize(a.width - 80, a.height / 2 - 50);
+        var helpText2orchard = (new lime.Label).setAnchorPoint(0, 0).setPosition(20, 130).setText("Upgrading the barn increases your harvest. ").setFontFamily("Proxima Nova").setFontSize(16).setSize(a.width - 80, a.height / 2 - 50);
         orchardHelpPanel.appendChild(helpText2orchard);
-        var helpText3orchard = (new lime.Label).setAnchorPoint(0, 0).setPosition(20, 175).setText("Clearing the forest unlocks PEARS and more").setFontFamily("Comic Sans MS").setFontSize(16).setSize(a.width - 80, a.height / 2 - 50);
+        var helpText3orchard = (new lime.Label).setAnchorPoint(0, 0).setPosition(20, 175).setText("Clearing the forest unlocks PEARS and more").setFontFamily("Proxima Nova").setFontSize(16).setSize(a.width - 80, a.height / 2 - 50);
         orchardHelpPanel.appendChild(helpText3orchard);
 
         var orchardHelpPanelCloseBtn = (new lime.GlossyButton).setColor("#663300").setText("Close").setPosition(140, 235).setSize(100, 20);
@@ -8757,16 +8757,16 @@ farming.start = function () {
         var statsBack2 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(0, 0).setSize(a.width, 55).setFill(imgArray[75]);
         statsLayer.appendChild(statsBack2);
         var toolCountImgInv = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(10, 3).setSize(35, 35).setFill(imgArray[30]);
-        var toolCountInv = (new lime.Label).setText(player.tools).setFontFamily("Comic Sans MS").setFontColor("#E8FC08").setPosition(65, 24).setFontSize(18);
+        var toolCountInv = (new lime.Label).setText(player.tools).setFontFamily("Proxima Nova").setFontColor("#E8FC08").setPosition(65, 24).setFontSize(18);
         statsLayer.appendChild(toolCountImgInv);
         statsLayer.appendChild(toolCountInv);
-        var farmerName = (new lime.Label).setText("Fordwin").setFontFamily("Comic Sans MS").setFontColor("#E8FC08").setPosition(150, 18).setFontSize(18);
+        var farmerName = (new lime.Label).setText("Fordwin").setFontFamily("Proxima Nova").setFontColor("#E8FC08").setPosition(150, 18).setFontSize(18);
         statsLayer.appendChild(farmerName);
-        var farmerTitle = (new lime.Label).setText("Peasant Farmer").setFontFamily("Comic Sans MS").setFontColor("#E8FC08").setPosition(150, 40).setFontSize(14);
+        var farmerTitle = (new lime.Label).setText("Peasant Farmer").setFontFamily("Proxima Nova").setFontColor("#E8FC08").setPosition(150, 40).setFontSize(14);
         statsLayer.appendChild(farmerTitle);
         var topCoinInventory = (new lime.Sprite).setPosition(285, 20).setSize(35, 35).setFill(imgArray11[0]);
         statsLayer.appendChild(topCoinInventory);
-        var inventoryCash = (new lime.Label).setText(player.money).setFontColor("#E8FC08").setPosition(235, 24).setFontSize(18).setFontFamily("Comic Sans MS");
+        var inventoryCash = (new lime.Label).setText(player.money).setFontColor("#E8FC08").setPosition(235, 24).setFontSize(18).setFontFamily("Proxima Nova");
         statsLayer.appendChild(inventoryCash);
 
 
@@ -8856,9 +8856,9 @@ farming.start = function () {
         var collectBtn = (new lime.GlossyButton).setColor("#7B68EE").setText("Heirlooms").setPosition(a.width - (a.width / 3) + 55, 70).setSize((a.width / 3) - 10, 23);
         statsLayer.appendChild(collectBtn);
         ///// day/year count Label on expanded
-        var dayLabel = (new lime.Label).setFontSize(10).setPosition(40, 45).setSize(60, 15).setFill("images/UI/purpleButtonLg.png").setText("Day " + dayCount).setFontFamily("Comic Sans MS").setFontColor("#ffffff").setFontSize(14);
+        var dayLabel = (new lime.Label).setFontSize(10).setPosition(40, 45).setSize(60, 15).setFill("images/UI/purpleButtonLg.png").setText("Day " + dayCount).setFontFamily("Proxima Nova").setFontColor("#ffffff").setFontSize(14);
         statsLayer.appendChild(dayLabel);
-        var yearLabel = (new lime.Label).setFontSize(10).setPosition(a.width - 40, 45).setSize(60, 15).setFill("images/UI/purpleButtonLg.png").setText("Year " + yearCount).setFontFamily("Comic Sans MS").setFontColor("#ffffff").setFontSize(14);
+        var yearLabel = (new lime.Label).setFontSize(10).setPosition(a.width - 40, 45).setSize(60, 15).setFill("images/UI/purpleButtonLg.png").setText("Year " + yearCount).setFontFamily("Proxima Nova").setFontColor("#ffffff").setFontSize(14);
         statsLayer.appendChild(yearLabel);
 
         //crops layer definition
@@ -8869,7 +8869,7 @@ farming.start = function () {
 
         var supplyBox = (new lime.RoundedRect()).setPosition(52, 380).setSize(99, 272).setFill("#00ff00");
         cropsLayer.appendChild(supplyBox);
-        var stockLabel = (new lime.Label).setPosition(51, 271).setSize(71, 50).setText("Consumables").setFontFamily("Comic Sans MS").setFontColor("#000000").setFontSize(16);
+        var stockLabel = (new lime.Label).setPosition(51, 271).setSize(71, 50).setText("Consumables").setFontFamily("Proxima Nova").setFontColor("#000000").setFontSize(16);
         cropsLayer.appendChild(stockLabel);
 
 
@@ -8896,42 +8896,42 @@ farming.start = function () {
         storedIcon = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(220, 393).setFill("images/" + a.crops[22].harvest).setSize(31, 31), cropsLayer.appendChild(storedIcon);
         storedIcon = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(114, 435).setFill("images/" + a.crops[23].harvest).setSize(33, 33), cropsLayer.appendChild(storedIcon);
         storedIcon = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(220, 435).setFill("images/" + a.crops[24].harvest).setSize(33, 33), cropsLayer.appendChild(storedIcon);
-        var gLabel0 = (new lime.Label).setPosition(170, 118).setSize(26, 20).setText(player.cropsStored[0].stored).setFontSize(18).setFontFamily("Comic Sans MS").setFontColor("#E8FC08"); cropsLayer.appendChild(gLabel0);
-        var gLabel1 = (new lime.Label).setPosition(170, 159).setSize(26, 20).setText(player.cropsStored[1].stored).setFontSize(18).setFontFamily("Comic Sans MS").setFontColor("#E8FC08"); cropsLayer.appendChild(gLabel1);
-        var gLabel2 = (new lime.Label).setPosition(170, 203).setSize(26, 20).setText(player.cropsStored[2].stored).setFontSize(18).setFontFamily("Comic Sans MS").setFontColor("#E8FC08"); cropsLayer.appendChild(gLabel2);
-        var gLabel3 = (new lime.Label).setPosition(170, 246).setSize(26, 20).setText(player.cropsStored[3].stored).setFontSize(18).setFontFamily("Comic Sans MS").setFontColor("#E8FC08"); cropsLayer.appendChild(gLabel3);
-        var gLabel4 = (new lime.Label).setPosition(170, 290).setSize(26, 20).setText(player.cropsStored[4].stored).setFontSize(18).setFontFamily("Comic Sans MS").setFontColor("#E8FC08"); cropsLayer.appendChild(gLabel4);
-        var gLabel5 = (new lime.Label).setPosition(170, 330).setSize(26, 20).setText(player.cropsStored[5].stored).setFontSize(18).setFontFamily("Comic Sans MS").setFontColor("#E8FC08"); cropsLayer.appendChild(gLabel5);
-        var gLabel6 = (new lime.Label).setPosition(170, 370).setSize(26, 12).setText(player.cropsStored[6].stored).setFontSize(18).setFontFamily("Comic Sans MS").setFontColor("#E8FC08"); cropsLayer.appendChild(gLabel6);
-        var gLabel7 = (new lime.Label).setPosition(272, 112).setSize(26, 12).setText(player.cropsStored[7].stored).setFontSize(18).setFontFamily("Comic Sans MS").setFontColor("#E8FC08"); cropsLayer.appendChild(gLabel7);
-        var gLabel8 = (new lime.Label).setPosition(272, 157).setSize(26, 12).setText(player.cropsStored[8].stored).setFontSize(18).setFontFamily("Comic Sans MS").setFontColor("#E8FC08"); cropsLayer.appendChild(gLabel8);
-        var gLabel9 = (new lime.Label).setPosition(272, 200).setSize(26, 12).setText(player.cropsStored[9].stored).setFontSize(18).setFontFamily("Comic Sans MS").setFontColor("#E8FC08"); cropsLayer.appendChild(gLabel9);
-        var gLabel10 = (new lime.Label).setPosition(272, 240).setSize(26, 12).setText(player.cropsStored[10].stored).setFontSize(18).setFontFamily("Comic Sans MS").setFontColor("#E8FC08"); cropsLayer.appendChild(gLabel10);
-        var gLabel11 = (new lime.Label).setPosition(272, 283).setSize(26, 12).setText(player.cropsStored[11].stored).setFontSize(18).setFontFamily("Comic Sans MS").setFontColor("#E8FC08"); cropsLayer.appendChild(gLabel11);
-        var gLabel12 = (new lime.Label).setPosition(272, 330).setSize(26, 18).setText(player.cropsStored[12].stored).setFontSize(18).setFontFamily("Comic Sans MS").setFontColor("#E8FC08"); cropsLayer.appendChild(gLabel12);
-        var gLabel13 = (new lime.Label).setPosition(272, 370).setSize(26, 18).setText(player.cropsStored[13].stored).setFontSize(18).setFontFamily("Comic Sans MS").setFontColor("#E8FC08"); cropsLayer.appendChild(gLabel13);
+        var gLabel0 = (new lime.Label).setPosition(170, 118).setSize(26, 20).setText(player.cropsStored[0].stored).setFontSize(18).setFontFamily("Proxima Nova").setFontColor("#E8FC08"); cropsLayer.appendChild(gLabel0);
+        var gLabel1 = (new lime.Label).setPosition(170, 159).setSize(26, 20).setText(player.cropsStored[1].stored).setFontSize(18).setFontFamily("Proxima Nova").setFontColor("#E8FC08"); cropsLayer.appendChild(gLabel1);
+        var gLabel2 = (new lime.Label).setPosition(170, 203).setSize(26, 20).setText(player.cropsStored[2].stored).setFontSize(18).setFontFamily("Proxima Nova").setFontColor("#E8FC08"); cropsLayer.appendChild(gLabel2);
+        var gLabel3 = (new lime.Label).setPosition(170, 246).setSize(26, 20).setText(player.cropsStored[3].stored).setFontSize(18).setFontFamily("Proxima Nova").setFontColor("#E8FC08"); cropsLayer.appendChild(gLabel3);
+        var gLabel4 = (new lime.Label).setPosition(170, 290).setSize(26, 20).setText(player.cropsStored[4].stored).setFontSize(18).setFontFamily("Proxima Nova").setFontColor("#E8FC08"); cropsLayer.appendChild(gLabel4);
+        var gLabel5 = (new lime.Label).setPosition(170, 330).setSize(26, 20).setText(player.cropsStored[5].stored).setFontSize(18).setFontFamily("Proxima Nova").setFontColor("#E8FC08"); cropsLayer.appendChild(gLabel5);
+        var gLabel6 = (new lime.Label).setPosition(170, 370).setSize(26, 12).setText(player.cropsStored[6].stored).setFontSize(18).setFontFamily("Proxima Nova").setFontColor("#E8FC08"); cropsLayer.appendChild(gLabel6);
+        var gLabel7 = (new lime.Label).setPosition(272, 112).setSize(26, 12).setText(player.cropsStored[7].stored).setFontSize(18).setFontFamily("Proxima Nova").setFontColor("#E8FC08"); cropsLayer.appendChild(gLabel7);
+        var gLabel8 = (new lime.Label).setPosition(272, 157).setSize(26, 12).setText(player.cropsStored[8].stored).setFontSize(18).setFontFamily("Proxima Nova").setFontColor("#E8FC08"); cropsLayer.appendChild(gLabel8);
+        var gLabel9 = (new lime.Label).setPosition(272, 200).setSize(26, 12).setText(player.cropsStored[9].stored).setFontSize(18).setFontFamily("Proxima Nova").setFontColor("#E8FC08"); cropsLayer.appendChild(gLabel9);
+        var gLabel10 = (new lime.Label).setPosition(272, 240).setSize(26, 12).setText(player.cropsStored[10].stored).setFontSize(18).setFontFamily("Proxima Nova").setFontColor("#E8FC08"); cropsLayer.appendChild(gLabel10);
+        var gLabel11 = (new lime.Label).setPosition(272, 283).setSize(26, 12).setText(player.cropsStored[11].stored).setFontSize(18).setFontFamily("Proxima Nova").setFontColor("#E8FC08"); cropsLayer.appendChild(gLabel11);
+        var gLabel12 = (new lime.Label).setPosition(272, 330).setSize(26, 18).setText(player.cropsStored[12].stored).setFontSize(18).setFontFamily("Proxima Nova").setFontColor("#E8FC08"); cropsLayer.appendChild(gLabel12);
+        var gLabel13 = (new lime.Label).setPosition(272, 370).setSize(26, 18).setText(player.cropsStored[13].stored).setFontSize(18).setFontFamily("Proxima Nova").setFontColor("#E8FC08"); cropsLayer.appendChild(gLabel13);
         //wood and Iron and jars to the lower left side
-        var gLabel14 = (new lime.Label).setPosition(67, 284).setSize(26, 12).setText(player.cropsStored[14].stored).setFontSize(18).setFontFamily("Comic Sans MS").setFontColor("#E8FC08"); cropsLayer.appendChild(gLabel14);
-        var gLabel15 = (new lime.Label).setPosition(67, 326).setSize(26, 12).setText(player.cropsStored[15].stored).setFontSize(18).setFontFamily("Comic Sans MS").setFontColor("#E8FC08"); cropsLayer.appendChild(gLabel15);
-        var gLabel16 = (new lime.Label).setPosition(67, 367).setSize(26, 12).setText(player.cropsStored[16].stored).setFontSize(18).setFontFamily("Comic Sans MS").setFontColor("#E8FC08"); cropsLayer.appendChild(gLabel16);
-        var gLabel17 = (new lime.Label).setPosition(67, 410).setSize(26, 12).setText(player.cropsStored[17].stored).setFontSize(18).setFontFamily("Comic Sans MS").setFontColor("#E8FC08"); cropsLayer.appendChild(gLabel17);
-        var gLabel18 = (new lime.Label).setPosition(170, 410).setSize(26, 12).setText(player.cropsStored[18].stored).setFontSize(18).setFontFamily("Comic Sans MS").setFontColor("#E8FC08"); cropsLayer.appendChild(gLabel18);
-        var gLabel19 = (new lime.Label).setPosition(67, 492).setSize(26, 12).setText("?").setFontSize(22).setFontFamily("Comic Sans MS").setFontColor("#E8FC08"); cropsLayer.appendChild(gLabel19);
-        var gLabel20 = (new lime.Label).setPosition(170, 492).setSize(26, 12).setText("?").setFontSize(22).setFontFamily("Comic Sans MS").setFontColor("#E8FC08"); cropsLayer.appendChild(gLabel20);
-        var gLabel21 = (new lime.Label).setPosition(272, 492).setSize(26, 12).setText("?").setFontSize(22).setFontFamily("Comic Sans MS").setFontColor("#E8FC08"); cropsLayer.appendChild(gLabel21);
-        var gLabel22 = (new lime.Label).setPosition(272, 410).setSize(26, 12).setText(player.cropsStored[22].stored).setFontSize(18).setFontFamily("Comic Sans MS").setFontColor("#E8FC08"); cropsLayer.appendChild(gLabel22);
-        var gLabel23 = (new lime.Label).setPosition(170, 450).setSize(26, 12).setText(player.cropsStored[23].stored).setFontSize(18).setFontFamily("Comic Sans MS").setFontColor("#E8FC08"); cropsLayer.appendChild(gLabel23);
-        var gLabel24 = (new lime.Label).setPosition(272, 450).setSize(26, 12).setText(player.cropsStored[24].stored).setFontSize(22).setFontFamily("Comic Sans MS").setFontColor("#E8FC08"); cropsLayer.appendChild(gLabel24);
-        var gLabel25 = (new lime.Label).setPosition(67, 450).setSize(26, 12).setText("?").setFontSize(22).setFontFamily("Comic Sans MS").setFontColor("#E8FC08"); cropsLayer.appendChild(gLabel25);
+        var gLabel14 = (new lime.Label).setPosition(67, 284).setSize(26, 12).setText(player.cropsStored[14].stored).setFontSize(18).setFontFamily("Proxima Nova").setFontColor("#E8FC08"); cropsLayer.appendChild(gLabel14);
+        var gLabel15 = (new lime.Label).setPosition(67, 326).setSize(26, 12).setText(player.cropsStored[15].stored).setFontSize(18).setFontFamily("Proxima Nova").setFontColor("#E8FC08"); cropsLayer.appendChild(gLabel15);
+        var gLabel16 = (new lime.Label).setPosition(67, 367).setSize(26, 12).setText(player.cropsStored[16].stored).setFontSize(18).setFontFamily("Proxima Nova").setFontColor("#E8FC08"); cropsLayer.appendChild(gLabel16);
+        var gLabel17 = (new lime.Label).setPosition(67, 410).setSize(26, 12).setText(player.cropsStored[17].stored).setFontSize(18).setFontFamily("Proxima Nova").setFontColor("#E8FC08"); cropsLayer.appendChild(gLabel17);
+        var gLabel18 = (new lime.Label).setPosition(170, 410).setSize(26, 12).setText(player.cropsStored[18].stored).setFontSize(18).setFontFamily("Proxima Nova").setFontColor("#E8FC08"); cropsLayer.appendChild(gLabel18);
+        var gLabel19 = (new lime.Label).setPosition(67, 492).setSize(26, 12).setText("?").setFontSize(22).setFontFamily("Proxima Nova").setFontColor("#E8FC08"); cropsLayer.appendChild(gLabel19);
+        var gLabel20 = (new lime.Label).setPosition(170, 492).setSize(26, 12).setText("?").setFontSize(22).setFontFamily("Proxima Nova").setFontColor("#E8FC08"); cropsLayer.appendChild(gLabel20);
+        var gLabel21 = (new lime.Label).setPosition(272, 492).setSize(26, 12).setText("?").setFontSize(22).setFontFamily("Proxima Nova").setFontColor("#E8FC08"); cropsLayer.appendChild(gLabel21);
+        var gLabel22 = (new lime.Label).setPosition(272, 410).setSize(26, 12).setText(player.cropsStored[22].stored).setFontSize(18).setFontFamily("Proxima Nova").setFontColor("#E8FC08"); cropsLayer.appendChild(gLabel22);
+        var gLabel23 = (new lime.Label).setPosition(170, 450).setSize(26, 12).setText(player.cropsStored[23].stored).setFontSize(18).setFontFamily("Proxima Nova").setFontColor("#E8FC08"); cropsLayer.appendChild(gLabel23);
+        var gLabel24 = (new lime.Label).setPosition(272, 450).setSize(26, 12).setText(player.cropsStored[24].stored).setFontSize(22).setFontFamily("Proxima Nova").setFontColor("#E8FC08"); cropsLayer.appendChild(gLabel24);
+        var gLabel25 = (new lime.Label).setPosition(67, 450).setSize(26, 12).setText("?").setFontSize(22).setFontFamily("Proxima Nova").setFontColor("#E8FC08"); cropsLayer.appendChild(gLabel25);
 
         var starCashInvImg = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(11, 168).setSize(80, 35).setFill(imgArray[25].src);
         cropsLayer.appendChild(starCashInvImg);
-        var starCashInvCount = (new lime.Label).setText(starCash).setFontFamily("Comic Sans MS").setFontColor("#000000").setPosition(60, 188).setFontSize(16);
+        var starCashInvCount = (new lime.Label).setText(starCash).setFontFamily("Proxima Nova").setFontColor("#000000").setPosition(60, 188).setFontSize(16);
         cropsLayer.appendChild(starCashInvCount);
         starCashInvCount.setText(starCash);
         var tokenInvImg = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(11, 202).setSize(80, 35).setFill(imgArray[52]);
         cropsLayer.appendChild(tokenInvImg);
-        var tokenInvCount = (new lime.Label).setText(heraldOrderTop).setFontFamily("Comic Sans MS").setFontColor("#000000").setPosition(60, 223).setFontSize(16);
+        var tokenInvCount = (new lime.Label).setText(heraldOrderTop).setFontFamily("Proxima Nova").setFontColor("#000000").setPosition(60, 223).setFontSize(16);
         cropsLayer.appendChild(tokenInvCount);
 
 
@@ -8943,23 +8943,23 @@ farming.start = function () {
 
         var itemInfoPanel = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(48, 85).setSize(a.width - 85, 110).setFill(imgArray[79]);
         itemsBack.appendChild(itemInfoPanel);
-        var itemInfoHeader = (new lime.Label).setPosition(110, 25).setText('Item Information').setFontSize(22).setFontFamily("Comic Sans MS").setFontColor("#000000"); itemInfoPanel.appendChild(itemInfoHeader);
-        var itemInfoDetails1 = (new lime.Label).setPosition(110, 65).setText('Hit an item to').setFontSize(18).setFontFamily("Comic Sans MS").setFontColor("#000000"); itemInfoPanel.appendChild(itemInfoDetails1);
-        var itemInfoDetails2 = (new lime.Label).setPosition(110, 90).setText('see the details').setFontSize(18).setFontFamily("Comic Sans MS").setFontColor("#000000"); itemInfoPanel.appendChild(itemInfoDetails2);
+        var itemInfoHeader = (new lime.Label).setPosition(110, 25).setText('Item Information').setFontSize(22).setFontFamily("Proxima Nova").setFontColor("#000000"); itemInfoPanel.appendChild(itemInfoHeader);
+        var itemInfoDetails1 = (new lime.Label).setPosition(110, 65).setText('Hit an item to').setFontSize(18).setFontFamily("Proxima Nova").setFontColor("#000000"); itemInfoPanel.appendChild(itemInfoDetails1);
+        var itemInfoDetails2 = (new lime.Label).setPosition(110, 90).setText('see the details').setFontSize(18).setFontFamily("Proxima Nova").setFontColor("#000000"); itemInfoPanel.appendChild(itemInfoDetails2);
 
         var shovelImg = (new lime.Sprite).setPosition(150, 30).setSize(50, 50).setFill(imgArrayItems[18].src);
         itemsBack.appendChild(shovelImg);
-        var shovelLabel = (new lime.Label).setFontSize(12).setPosition(3, 45).setSize(70, 18).setText("IRON SHOVEL").setFontFamily("Comic Sans MS").setFontColor("#000000").setFontSize(10);
+        var shovelLabel = (new lime.Label).setFontSize(12).setPosition(3, 45).setSize(70, 18).setText("IRON SHOVEL").setFontFamily("Proxima Nova").setFontColor("#000000").setFontSize(10);
         shovelImg.appendChild(shovelLabel);
 
         if (collectItems.storeItems[2].owned == 1) {
             shovelImg.setFill(imgArrayStore[2].src);
-            shovelLabel.setFontSize(10).setPosition(3, 45).setSize(70, 18).setText("BLESSED SHOVEL").setFontFamily("Comic Sans MS").setFontColor("#000000").setFontSize(10);
+            shovelLabel.setFontSize(10).setPosition(3, 45).setSize(70, 18).setText("BLESSED SHOVEL").setFontFamily("Proxima Nova").setFontColor("#000000").setFontSize(10);
         }
 
         var pickImg = (new lime.Sprite).setPosition(240, 33).setSize(50, 50).setFill(imgArray[20].src);
         itemsBack.appendChild(pickImg);
-        var pickLabel = (new lime.Label).setPosition(3, 45).setSize(70, 18).setText("????").setFontFamily("Comic Sans MS").setFontColor("#000000").setFontSize(12);
+        var pickLabel = (new lime.Label).setPosition(3, 45).setSize(70, 18).setText("????").setFontFamily("Proxima Nova").setFontColor("#000000").setFontSize(12);
         pickImg.appendChild(pickLabel);
         if (collectItems.storeItems[3].owned == 1) {
             pickImg.setFill(imgArrayStore[3].src)
@@ -9200,7 +9200,7 @@ farming.start = function () {
         //collect layer definition
         var collectBack = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(0, 81).setSize(a.width, a.height - 81).setFill("#7B68EE");
         collectLayer.appendChild(collectBack);
-        var collectInfoText = (new lime.Label).setPosition(160, 225).setText('Coming Soon').setFontSize(24).setFontFamily("Comic Sans MS").setFontColor("#000000"); collectBack.appendChild(collectInfoText);
+        var collectInfoText = (new lime.Label).setPosition(160, 225).setText('Coming Soon').setFontSize(24).setFontFamily("Proxima Nova").setFontColor("#000000"); collectBack.appendChild(collectInfoText);
 
         itemsBack.setHidden(true);
         collectBack.setHidden(true);
@@ -9255,7 +9255,7 @@ farming.start = function () {
 
         var storeAnimItemMover = (new lime.Sprite).setSize(42, 40).setPosition(65, -250).setFill(imgArrayStore[0].src);
         buyGeneralContainer.appendChild(storeAnimItemMover);
-        var storeCountBought = (new lime.Label).setText("+ 50").setFontColor("#E8FC08").setFontFamily("Comic Sans MS").setPosition(30, 15).setFontSize(18);
+        var storeCountBought = (new lime.Label).setText("+ 50").setFontColor("#E8FC08").setFontFamily("Proxima Nova").setPosition(30, 15).setFontSize(18);
         storeAnimItemMover.appendChild(storeCountBought);
         storeAnimItemMover.setHidden(true);
 
@@ -9265,9 +9265,9 @@ farming.start = function () {
         buyGeneralItem0.price = collectItems.storeItems[0].value; buyGeneralItem0.stars = 3;
         var generalItem0Img = (new lime.Sprite).setSize(40, 40).setPosition(-68, -7).setFill(imgArrayStore[0].src);
         buyGeneralItem0.appendChild(generalItem0Img);
-        var buyGeneralLabel0 = (new lime.Label).setPosition(10, -15).setFontFamily("Comic Sans MS").setFontSize(16).setText(collectItems.storeItems[0].name).setFontColor("#E8FC08");
+        var buyGeneralLabel0 = (new lime.Label).setPosition(10, -15).setFontFamily("Proxima Nova").setFontSize(16).setText(collectItems.storeItems[0].name).setFontColor("#E8FC08");
         buyGeneralItem0.appendChild(buyGeneralLabel0);
-        var buyGeneralSubLabel0 = (new lime.Label).setPosition(13, 12).setFontFamily("Comic Sans MS").setFontSize(14).setText("Keep the smith busy").setFontColor("#f0ffff");
+        var buyGeneralSubLabel0 = (new lime.Label).setPosition(13, 12).setFontFamily("Proxima Nova").setFontSize(14).setText("Keep the smith busy").setFontColor("#f0ffff");
         buyGeneralItem0.appendChild(buyGeneralSubLabel0);
         var buyGeneralBtn0 = (new lime.GlossyButton).setColor("#008000").setText(collectItems.storeItems[0].value).setPosition(110, 0).setSize(45, 40).setHidden(false);
         buyGeneralItem0.appendChild(buyGeneralBtn0);
@@ -9327,9 +9327,9 @@ farming.start = function () {
         buyGeneralItem1.price = collectItems.storeItems[1].value; buyGeneralItem1.stars = 3;
         var generalItem1Img = (new lime.Sprite).setSize(40, 40).setPosition(-69, -5).setFill(imgArrayStore[1].src);
         buyGeneralItem1.appendChild(generalItem1Img);
-        var buyGeneralLabel1 = (new lime.Label).setPosition(12, -13).setFontFamily("Comic Sans MS").setFontSize(16).setText(collectItems.storeItems[1].name).setFontColor("#E8FC08");
+        var buyGeneralLabel1 = (new lime.Label).setPosition(12, -13).setFontFamily("Proxima Nova").setFontSize(16).setText(collectItems.storeItems[1].name).setFontColor("#E8FC08");
         buyGeneralItem1.appendChild(buyGeneralLabel1);
-        var buyGeneralSubLabel1 = (new lime.Label).setPosition(13, 12).setFontFamily("Comic Sans MS").setFontSize(14).setText("Store Jelly in these").setFontColor("#f0ffff");
+        var buyGeneralSubLabel1 = (new lime.Label).setPosition(13, 12).setFontFamily("Proxima Nova").setFontSize(14).setText("Store Jelly in these").setFontColor("#f0ffff");
         buyGeneralItem1.appendChild(buyGeneralSubLabel1);
         var buyGeneralBtn1 = (new lime.GlossyButton).setColor("#008000").setText(collectItems.storeItems[1].value).setPosition(110, 0).setSize(46, 40).setHidden(false);
         buyGeneralItem1.appendChild(buyGeneralBtn1);
@@ -9387,9 +9387,9 @@ farming.start = function () {
         buyGeneralItem2.price = collectItems.storeItems[2].value; buyGeneralItem2.stars = 25;
         var generalItem2Img = (new lime.Sprite).setSize(40, 40).setPosition(-68, 0).setFill(imgArrayStore[2].src);
         buyGeneralItem2.appendChild(generalItem2Img);
-        var buyGeneralLabel2 = (new lime.Label).setPosition(12, -13).setFontFamily("Comic Sans MS").setFontSize(16).setText(collectItems.storeItems[2].name).setFontColor("#E8FC08");
+        var buyGeneralLabel2 = (new lime.Label).setPosition(12, -13).setFontFamily("Proxima Nova").setFontSize(16).setText(collectItems.storeItems[2].name).setFontColor("#E8FC08");
         buyGeneralItem2.appendChild(buyGeneralLabel2);
-        var buyGeneralSubLabel2 = (new lime.Label).setPosition(13, 12).setFontFamily("Comic Sans MS").setFontSize(14).setText("+ 10% Item Find").setFontColor("#f0ffff");
+        var buyGeneralSubLabel2 = (new lime.Label).setPosition(13, 12).setFontFamily("Proxima Nova").setFontSize(14).setText("+ 10% Item Find").setFontColor("#f0ffff");
         buyGeneralItem2.appendChild(buyGeneralSubLabel2);
         var buyGeneralBtn2 = (new lime.GlossyButton).setColor("#008000").setText(collectItems.storeItems[2].value).setPosition(110, 0).setSize(46, 40).setHidden(false);
         buyGeneralItem2.appendChild(buyGeneralBtn2);
@@ -9474,9 +9474,9 @@ farming.start = function () {
         buyGeneralItem3.price = collectItems.storeItems[3].value; buyGeneralItem3.stars = 50;
         var generalItem3Img = (new lime.Sprite).setSize(40, 40).setPosition(-75, 0).setFill(imgArrayStore[3].src);
         buyGeneralItem3.appendChild(generalItem3Img);
-        var buyGeneralLabel3 = (new lime.Label).setPosition(12, -12).setFontFamily("Comic Sans MS").setFontSize(16).setText(collectItems.storeItems[3].name).setFontColor("#E8FC08");
+        var buyGeneralLabel3 = (new lime.Label).setPosition(12, -12).setFontFamily("Proxima Nova").setFontSize(16).setText(collectItems.storeItems[3].name).setFontColor("#E8FC08");
         buyGeneralItem3.appendChild(buyGeneralLabel3);
-        var buyGeneralSubLabel3 = (new lime.Label).setPosition(11, 12).setFontFamily("Comic Sans MS").setFontSize(14).setText("Break rocks in the way").setFontColor("#f0ffff");
+        var buyGeneralSubLabel3 = (new lime.Label).setPosition(11, 12).setFontFamily("Proxima Nova").setFontSize(14).setText("Break rocks in the way").setFontColor("#f0ffff");
         buyGeneralItem3.appendChild(buyGeneralSubLabel3);
         var buyGeneralBtn3 = (new lime.GlossyButton).setColor("#008000").setText(collectItems.storeItems[3].value).setPosition(110, 0).setSize(46, 40).setHidden(false);
         buyGeneralItem3.appendChild(buyGeneralBtn3);
@@ -9566,9 +9566,9 @@ farming.start = function () {
         buyGeneralItem4.price = collectItems.storeItems[4].value; buyGeneralItem4.stars = 75;
         var generalItem4Img = (new lime.Sprite).setSize(42, 40).setPosition(-70, 0).setFill(imgArrayStore[4].src);
         buyGeneralItem4.appendChild(generalItem4Img);
-        var buyGeneralLabel4 = (new lime.Label).setPosition(12, -12).setFontFamily("Comic Sans MS").setFontSize(16).setText(collectItems.storeItems[4].name).setFontColor("#E8FC08");
+        var buyGeneralLabel4 = (new lime.Label).setPosition(12, -12).setFontFamily("Proxima Nova").setFontSize(16).setText(collectItems.storeItems[4].name).setFontColor("#E8FC08");
         buyGeneralItem4.appendChild(buyGeneralLabel4);
-        var buyGeneralSubLabel4 = (new lime.Label).setPosition(15, 12).setFontFamily("Comic Sans MS").setFontSize(14).setText("Make Fruit Cider").setFontColor("#f0ffff");
+        var buyGeneralSubLabel4 = (new lime.Label).setPosition(15, 12).setFontFamily("Proxima Nova").setFontSize(14).setText("Make Fruit Cider").setFontColor("#f0ffff");
         buyGeneralItem4.appendChild(buyGeneralSubLabel4)
         var buyGeneralBtn4 = (new lime.GlossyButton).setColor("#008000").setText(collectItems.storeItems[4].value).setPosition(110, 0).setSize(46, 40).setHidden(false);
         buyGeneralItem4.appendChild(buyGeneralBtn4);
@@ -9660,9 +9660,9 @@ farming.start = function () {
         buyGeneralItem5.stars = 5;
         var generalItem5Img = (new lime.Sprite).setSize(42, 40).setPosition(-70, 0).setFill(imgArrayStore[5].src);
         buyGeneralItem5.appendChild(generalItem5Img);
-        var buyGeneralLabel5 = (new lime.Label).setPosition(12, -12).setFontFamily("Comic Sans MS").setFontSize(16).setText(collectItems.storeItems[5].name).setFontColor("#E8FC08");
+        var buyGeneralLabel5 = (new lime.Label).setPosition(12, -12).setFontFamily("Proxima Nova").setFontSize(16).setText(collectItems.storeItems[5].name).setFontColor("#E8FC08");
         buyGeneralItem5.appendChild(buyGeneralLabel5);
-        var buyGeneralSubLabel5 = (new lime.Label).setPosition(15, 12).setFontFamily("Comic Sans MS").setFontSize(14).setText("Store Grape Juice").setFontColor("#f0ffff");
+        var buyGeneralSubLabel5 = (new lime.Label).setPosition(15, 12).setFontFamily("Proxima Nova").setFontSize(14).setText("Store Grape Juice").setFontColor("#f0ffff");
         buyGeneralItem5.appendChild(buyGeneralSubLabel5)
         var buyGeneralBtn5 = (new lime.GlossyButton).setColor("#008000").setText(collectItems.storeItems[5].value).setPosition(110, 0).setSize(46, 40).setHidden(false);
         buyGeneralItem5.appendChild(buyGeneralBtn5);
@@ -9718,9 +9718,9 @@ farming.start = function () {
         buyGeneralItem6.stars = 5;
         var generalItem6Img = (new lime.Sprite).setSize(42, 40).setPosition(-70, 0).setFill(imgArrayStore[6].src);
         buyGeneralItem6.appendChild(generalItem6Img);
-        var buyGeneralLabel6 = (new lime.Label).setPosition(12, -12).setFontFamily("Comic Sans MS").setFontSize(16).setText(collectItems.storeItems[6].name).setFontColor("#E8FC08");
+        var buyGeneralLabel6 = (new lime.Label).setPosition(12, -12).setFontFamily("Proxima Nova").setFontSize(16).setText(collectItems.storeItems[6].name).setFontColor("#E8FC08");
         buyGeneralItem6.appendChild(buyGeneralLabel6);
-        var buyGeneralSubLabel6 = (new lime.Label).setPosition(15, 12).setFontFamily("Comic Sans MS").setFontSize(14).setText("Store Fruit Cider").setFontColor("#f0ffff");
+        var buyGeneralSubLabel6 = (new lime.Label).setPosition(15, 12).setFontFamily("Proxima Nova").setFontSize(14).setText("Store Fruit Cider").setFontColor("#f0ffff");
         buyGeneralItem6.appendChild(buyGeneralSubLabel6)
         var buyGeneralBtn6 = (new lime.GlossyButton).setColor("#008000").setText(collectItems.storeItems[6].value).setPosition(110, 0).setSize(46, 40).setHidden(false);
         buyGeneralItem6.appendChild(buyGeneralBtn6);
@@ -9858,13 +9858,13 @@ farming.start = function () {
         if (buySmallStars.owned == null) { buySmallStars.owned = 0; }
 
 
-        var buyPremiumLabel2 = (new lime.Label).setPosition(0, -10).setFontFamily("Comic Sans MS").setFontSize(16).setText("Star Pack I").setFontColor("#E8FC08");
+        var buyPremiumLabel2 = (new lime.Label).setPosition(0, -10).setFontFamily("Proxima Nova").setFontSize(16).setText("Star Pack I").setFontColor("#E8FC08");
         buySmallStars.appendChild(buyPremiumLabel2);
-        var buyPremiumSubText2 = (new lime.Label).setPosition(0, 59).setSize(185, 100).setFontFamily("Comic Sans MS").setFontSize(14).setText("50 Stars - Boost away").setFontColor("#f0ffff");
+        var buyPremiumSubText2 = (new lime.Label).setPosition(0, 59).setSize(185, 100).setFontFamily("Proxima Nova").setFontSize(14).setText("50 Stars - Boost away").setFontColor("#f0ffff");
         buySmallStars.appendChild(buyPremiumSubText2)
         var buySmallStarsBtn = (new lime.GlossyButton).setColor("#008000").setText("").setPosition(115, 0).setSize(50, 30).setHidden(false);
         buySmallStars.appendChild(buySmallStarsBtn);
-        var smallstarsBuyLabel = (new lime.Label).setPosition(0, 4).setFontFamily("Comic Sans MS").setFontSize(12).setText("Buy now $0.99").setFontColor("#f0ffff").setSize(50, 30);
+        var smallstarsBuyLabel = (new lime.Label).setPosition(0, 4).setFontFamily("Proxima Nova").setFontSize(12).setText("Buy now $0.99").setFontColor("#f0ffff").setSize(50, 30);
         buySmallStarsBtn.appendChild(smallstarsBuyLabel);
 
         if (buySmallStars.owned == 1) { buySmallStars.setOpacity(0.2); buySmallStarsBtn.setHidden(true); }
@@ -9896,13 +9896,13 @@ farming.start = function () {
         buyLargeStars.owned = localStorage.getItem("MedFarms_boughtLargeStars");
         if (buyLargeStars.owned == null) { buyLargeStars.owned = 0; }
 
-        var buyPremiumLabel3 = (new lime.Label).setPosition(0, -10).setFontFamily("Comic Sans MS").setFontSize(16).setText("Star Pack II").setFontColor("#E8FC08");
+        var buyPremiumLabel3 = (new lime.Label).setPosition(0, -10).setFontFamily("Proxima Nova").setFontSize(16).setText("Star Pack II").setFontColor("#E8FC08");
         buyLargeStars.appendChild(buyPremiumLabel3);
-        var buyPremiumSubText3 = (new lime.Label).setPosition(0, 59).setSize(185, 100).setFontFamily("Comic Sans MS").setFontSize(14).setText("300 Stars - Ton's o' Boost").setFontColor("#f0ffff");
+        var buyPremiumSubText3 = (new lime.Label).setPosition(0, 59).setSize(185, 100).setFontFamily("Proxima Nova").setFontSize(14).setText("300 Stars - Ton's o' Boost").setFontColor("#f0ffff");
         buyLargeStars.appendChild(buyPremiumSubText3)
         var buyLargeStarsBtn = (new lime.GlossyButton).setColor("#008000").setText("").setPosition(115, 0).setSize(46, 30).setHidden(false);
         buyLargeStars.appendChild(buyLargeStarsBtn);
-        var largeStarsBuyLabel = (new lime.Label).setPosition(0, 4).setFontFamily("Comic Sans MS").setFontSize(12).setText("Buy now $4.99").setFontColor("#f0ffff").setSize(50, 30);
+        var largeStarsBuyLabel = (new lime.Label).setPosition(0, 4).setFontFamily("Proxima Nova").setFontSize(12).setText("Buy now $4.99").setFontColor("#f0ffff").setSize(50, 30);
         buyLargeStarsBtn.appendChild(largeStarsBuyLabel);
 
 
@@ -9932,13 +9932,13 @@ farming.start = function () {
         buyStarterPack.appendChild(buyPremiumItem0Img2);
         var buyPremiumItem0Img3 = (new lime.Sprite).setSize(30, 30).setPosition(60, -8).setFill(imgArray[30]);
         buyStarterPack.appendChild(buyPremiumItem0Img3);
-        var buyPremiumLabel0 = (new lime.Label).setPosition(0, -31).setFontFamily("Comic Sans MS").setFontSize(16).setText("Starter Pack").setFontColor("#E8FC08");
+        var buyPremiumLabel0 = (new lime.Label).setPosition(0, -31).setFontFamily("Proxima Nova").setFontSize(16).setText("Starter Pack").setFontColor("#E8FC08");
         buyStarterPack.appendChild(buyPremiumLabel0);
-        var buyPremiumSubText0 = (new lime.Label).setPosition(0, 68).setSize(185, 100).setFontFamily("Comic Sans MS").setFontSize(14).setText("250 Iron, Wood, and Tools").setFontColor("#f0ffff");
+        var buyPremiumSubText0 = (new lime.Label).setPosition(0, 68).setSize(185, 100).setFontFamily("Proxima Nova").setFontSize(14).setText("250 Iron, Wood, and Tools").setFontColor("#f0ffff");
         buyStarterPack.appendChild(buyPremiumSubText0)
         var buyStarterPackBtn = (new lime.GlossyButton).setColor("#008000").setText("").setPosition(115, 0).setSize(46, 40).setHidden(false);
         buyStarterPack.appendChild(buyStarterPackBtn);
-        var starterBuyLabel = (new lime.Label).setPosition(0, 4).setFontFamily("Comic Sans MS").setFontSize(12).setText("Buy now $0.99").setFontColor("#f0ffff").setSize(50, 30);
+        var starterBuyLabel = (new lime.Label).setPosition(0, 4).setFontFamily("Proxima Nova").setFontSize(12).setText("Buy now $0.99").setFontColor("#f0ffff").setSize(50, 30);
         buyStarterPackBtn.appendChild(starterBuyLabel);
 
         if (buyStarterPack.owned == 1) { buyStarterPack.setOpacity(0.2); buyStarterPackBtn.setHidden(true); }
@@ -9973,13 +9973,13 @@ farming.start = function () {
         buyMasterPack.appendChild(buyPremiumItem1Img4);
         var buyPremiumItem1Img5 = (new lime.Sprite).setSize(30, 30).setPosition(64, -10).setFill(imgArray[41]);
         buyMasterPack.appendChild(buyPremiumItem1Img5);
-        var buyPremiumLabel1 = (new lime.Label).setPosition(0, -32).setFontFamily("Comic Sans MS").setFontSize(16).setText("Masters Pack").setFontColor("#E8FC08");
+        var buyPremiumLabel1 = (new lime.Label).setPosition(0, -32).setFontFamily("Proxima Nova").setFontSize(16).setText("Masters Pack").setFontColor("#E8FC08");
         buyMasterPack.appendChild(buyPremiumLabel1);
-        var buyPremiumSubText1 = (new lime.Label).setPosition(0, 61).setSize(185, 100).setFontFamily("Comic Sans MS").setFontSize(14).setText("750 Iron, Wood, and Tools + 2500 Coins and 50 Stars").setFontColor("#f0ffff");
+        var buyPremiumSubText1 = (new lime.Label).setPosition(0, 61).setSize(185, 100).setFontFamily("Proxima Nova").setFontSize(14).setText("750 Iron, Wood, and Tools + 2500 Coins and 50 Stars").setFontColor("#f0ffff");
         buyMasterPack.appendChild(buyPremiumSubText1)
         var buyMasterPackBtn1 = (new lime.GlossyButton).setColor("#008000").setText("").setPosition(115, 0).setSize(46, 40).setHidden(false);
         buyMasterPack.appendChild(buyMasterPackBtn1);
-        var masterBuyLabel = (new lime.Label).setPosition(0, 4).setFontFamily("Comic Sans MS").setFontSize(12).setText("Buy now $4.99").setFontColor("#f0ffff").setSize(50, 30);
+        var masterBuyLabel = (new lime.Label).setPosition(0, 4).setFontFamily("Proxima Nova").setFontSize(12).setText("Buy now $4.99").setFontColor("#f0ffff").setSize(50, 30);
         buyMasterPackBtn1.appendChild(masterBuyLabel);
         if (buyMasterPack.owned == 1) { buyMasterPack.setOpacity(0.2); buyMasterPackBtn1.setHidden(true); }
         else {
@@ -10024,11 +10024,11 @@ farming.start = function () {
         storeScene.appendChild(topShadowStore);
         var storeCoinTop = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(a.controlsLayer_w - 100, 5).setSize(25, 25).setFill(imgArray11[0]);
         storeScene.appendChild(storeCoinTop);
-        var storeCash = (new lime.Label).setText(player.money).setFontColor("#E8FC08").setFontFamily("Comic Sans MS").setPosition(a.controlsLayer_w - 43, 18).setFontSize(18);
+        var storeCash = (new lime.Label).setText(player.money).setFontColor("#E8FC08").setFontFamily("Proxima Nova").setPosition(a.controlsLayer_w - 43, 18).setFontSize(18);
         storeScene.appendChild(storeCash);
         var storeStarTop = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(10, 2).setSize(30, 30).setFill(imgArray[36]);
         storeScene.appendChild(storeStarTop);
-        var storeStars = (new lime.Label).setText(starCash).setFontColor("#E8FC08").setFontFamily("Comic Sans MS").setPosition(55, 18).setFontSize(18);
+        var storeStars = (new lime.Label).setText(starCash).setFontColor("#E8FC08").setFontFamily("Proxima Nova").setPosition(55, 18).setFontSize(18);
         storeScene.appendChild(storeStars);
 
         var inventoryStore = (new lime.GlossyButton).setColor("#ffc266").setText("").setPosition(a.width / 2 + 5, 17).setSize(35, 35);
@@ -10104,13 +10104,13 @@ farming.start = function () {
         townFill1.appendChild(topShadowMarket);
         var menuCashCoin = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(a.controlsLayer_w - 108, 5).setSize(25, 25).setFill(imgArray11[0]);
         marketScene.appendChild(menuCashCoin);
-        var marketCash = (new lime.Label).setText(player.money).setFontColor("#E8FC08").setFontFamily("Comic Sans MS").setPosition(a.controlsLayer_w - 53, 18).setFontSize(18);
+        var marketCash = (new lime.Label).setText(player.money).setFontColor("#E8FC08").setFontFamily("Proxima Nova").setPosition(a.controlsLayer_w - 53, 18).setFontSize(18);
         marketScene.appendChild(marketCash);
-        var townRepText = (new lime.Label).setText("Reputation:").setFontColor("#E8FC08").setFontFamily("Comic Sans MS").setPosition(46, 12).setFontSize(12);
+        var townRepText = (new lime.Label).setText("Reputation:").setFontColor("#E8FC08").setFontFamily("Proxima Nova").setPosition(46, 12).setFontSize(12);
         townFill1.appendChild(townRepText);
-        var townRepScore = (new lime.Label).setText(townRep).setFontColor("#E8FC08").setFontFamily("Comic Sans MS").setPosition(94, 12).setFontSize(12);
+        var townRepScore = (new lime.Label).setText(townRep).setFontColor("#E8FC08").setFontFamily("Proxima Nova").setPosition(94, 12).setFontSize(12);
         townFill1.appendChild(townRepScore);
-        var townRepTitle = (new lime.Label).setText("New in Town").setFontColor("#00FF00").setFontFamily("Comic Sans MS").setPosition(70, 26).setFontSize(12);
+        var townRepTitle = (new lime.Label).setText("New in Town").setFontColor("#00FF00").setFontFamily("Proxima Nova").setPosition(70, 26).setFontSize(12);
         townFill1.appendChild(townRepTitle);
 
 
@@ -10232,7 +10232,7 @@ farming.start = function () {
         marketTrigger.appendChild(coinButtonTown);
         var marketLabelBack = (new lime.Sprite).setPosition(0, 23).setSize(60, 15).setFill("#000000").setOpacity(0.7);
         marketTrigger.appendChild(marketLabelBack);
-        var marketTriggerLabel = (new lime.Label).setText("Market").setFontColor("#E8FC08").setFontFamily("Comic Sans MS").setFontSize(14).setPosition(0, 25);
+        var marketTriggerLabel = (new lime.Label).setText("Market").setFontColor("#E8FC08").setFontFamily("Proxima Nova").setFontSize(14).setPosition(0, 25);
         marketTrigger.appendChild(marketTriggerLabel);
 
         var backBtnTown = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(a.width / 2 - 20, 500).setSize(40, 40).setFill(imgArray[50]);
@@ -10330,15 +10330,15 @@ farming.start = function () {
         townLayer.appendChild(questPanel);
         questPanel.setHidden(true);
         questPanel.who = '';
-        var questHeader = (new lime.Label).setAnchorPoint(0, 0).setPosition(80, 25).setText("").setFontFamily("Comic Sans MS").setFontSize(22);
+        var questHeader = (new lime.Label).setAnchorPoint(0, 0).setPosition(80, 25).setText("").setFontFamily("Proxima Nova").setFontSize(22);
         questPanel.appendChild(questHeader);
-        var questText1 = (new lime.Label).setAnchorPoint(0, 0).setPosition(20, 150).setText("").setFontFamily("Comic Sans MS").setFontSize(16).setSize(a.width - 80, a.height / 2 - 50);
+        var questText1 = (new lime.Label).setAnchorPoint(0, 0).setPosition(20, 150).setText("").setFontFamily("Proxima Nova").setFontSize(16).setSize(a.width - 80, a.height / 2 - 50);
         questPanel.appendChild(questText1);
         var questPanelAvatar = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(90, 38).setSize(100, 100).setFill(imgArrayMayor[0].src);
         questPanel.appendChild(questPanelAvatar);
         var questPanelItemImg = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(165, 74).setSize(50, 50).setFill(imgArray4[21]);
         questPanel.appendChild(questPanelItemImg);
-        var itemCountText = (new lime.Label).setAnchorPoint(0, 0).setPosition(170, 130).setText(player.cropsStored[18].stored).setFontFamily("Comic Sans MS").setFontSize(16).setSize(40, 40);
+        var itemCountText = (new lime.Label).setAnchorPoint(0, 0).setPosition(170, 130).setText(player.cropsStored[18].stored).setFontFamily("Proxima Nova").setFontSize(16).setSize(40, 40);
         questPanel.appendChild(itemCountText);
         var ciderSellBtn = (new lime.GlossyButton).setPosition(200, 235).setText("Sell for " + (a.crops[18].revenue * player.cropsStored[18].stored)).setSize(100, 20).setColor("#00ff00").setHidden(false);
         questPanel.appendChild(ciderSellBtn);
@@ -10418,7 +10418,7 @@ farming.start = function () {
         };
         //var itemToSell = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(135, 80).setSize(64, 64).setFill(imgArrayItems[8].src);
         //questPanel.appendChild(itemToSell);
-        //var itemToSellText = (new lime.Label).setAnchorPoint(0, 0).setPosition(105, 60).setText("Item Title").setFontFamily("Comic Sans MS").setFontColor("#0101DF").setFontSize(16);
+        //var itemToSellText = (new lime.Label).setAnchorPoint(0, 0).setPosition(105, 60).setText("Item Title").setFontFamily("Proxima Nova").setFontColor("#0101DF").setFontSize(16);
         //questPanel.appendChild(itemToSellText);
         var sellItemsBtn = (new lime.GlossyButton).setColor("#008000").setText("Check Items").setPosition(205, 235).setSize(100, 20).setHidden(false);
         questPanel.appendChild(sellItemsBtn);
@@ -10483,19 +10483,19 @@ farming.start = function () {
         var panelGideon = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(15, 45).setSize(a.width - 30, 370).setFill(imgArray[78]).setHidden(true);
         townLayer.appendChild(panelGideon);
 
-        var gideonHeader = (new lime.Label).setAnchorPoint(0, 0).setPosition(70, 35).setText("King's Herald").setFontFamily("Comic Sans MS").setFontSize(22);
+        var gideonHeader = (new lime.Label).setAnchorPoint(0, 0).setPosition(70, 35).setText("King's Herald").setFontFamily("Proxima Nova").setFontSize(22);
         panelGideon.appendChild(gideonHeader);
-        var gideonText1 = (new lime.Label).setAnchorPoint(0, 0).setPosition(20, 150).setText("The King needs food to feed the people in Castle Town.        Loyal subjects who tribute gain TOKENS of Royal Favor").setFontFamily("Comic Sans MS").setFontSize(16).setSize(240, 200);
+        var gideonText1 = (new lime.Label).setAnchorPoint(0, 0).setPosition(20, 150).setText("The King needs food to feed the people in Castle Town.        Loyal subjects who tribute gain TOKENS of Royal Favor").setFontFamily("Proxima Nova").setFontSize(16).setSize(240, 200);
         panelGideon.appendChild(gideonText1);
         var gideonPanelAvatar = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(88, 38).setSize(100, 100).setFill(imgArrayGideon[0].src);
         panelGideon.appendChild(gideonPanelAvatar);
         var gideonPanelItemImg = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(70, 225).setSize(50, 50).setFill("images/" + a.crops[0].harvest);
         panelGideon.appendChild(gideonPanelItemImg);
-        var countTextGideon = (new lime.Label).setAnchorPoint(0, 0).setPosition(75, 280).setText("0/50").setFontFamily("Comic Sans MS").setFontSize(16).setSize(40, 40);
+        var countTextGideon = (new lime.Label).setAnchorPoint(0, 0).setPosition(75, 280).setText("0/50").setFontFamily("Proxima Nova").setFontSize(16).setSize(40, 40);
         panelGideon.appendChild(countTextGideon);
         var gideonPanelItemImg2 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(160, 225).setSize(50, 50).setFill("images/" + a.crops[1].harvest);
         panelGideon.appendChild(gideonPanelItemImg2);
-        var countTextGideon2 = (new lime.Label).setAnchorPoint(0, 0).setPosition(165, 280).setText("0/50").setFontFamily("Comic Sans MS").setFontSize(16).setSize(40, 40);
+        var countTextGideon2 = (new lime.Label).setAnchorPoint(0, 0).setPosition(165, 280).setText("0/50").setFontFamily("Proxima Nova").setFontSize(16).setSize(40, 40);
         panelGideon.appendChild(countTextGideon2);
         var gideonPanelTokenImg = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(115, 225).setSize(50, 50).setFill(imgArray[51]).setHidden(true);
         panelGideon.appendChild(gideonPanelTokenImg);
@@ -11087,11 +11087,11 @@ farming.start = function () {
         sellLayer.setHidden(true);
         var sellAvatar = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(25, 40).setSize(128, 128).setFill(imgArrayMayor[0].src);
         sellLayerFill1.appendChild(sellAvatar);
-        var sellText1 = (new lime.Label).setAnchorPoint(0, 0).setPosition(130, 80).setText("I will buy these items from you").setFontFamily("Comic Sans MS").setFontSize(16).setSize(150, 50);
+        var sellText1 = (new lime.Label).setAnchorPoint(0, 0).setPosition(130, 80).setText("I will buy these items from you").setFontFamily("Proxima Nova").setFontSize(16).setSize(150, 50);
         sellLayerFill1.appendChild(sellText1);
         var sellLayerCloseBtn = (new lime.GlossyButton).setColor("#008000").setText("Close").setPosition(155, 420).setSize(52, 30);
         sellLayerFill1.appendChild(sellLayerCloseBtn);
-        var sellItemSuccessText = (new lime.Label).setAnchorPoint(0, 0).setPosition(90, 175).setText("+").setFontFamily("Comic Sans MS").setFontSize(16).setSize(150, 50);
+        var sellItemSuccessText = (new lime.Label).setAnchorPoint(0, 0).setPosition(90, 175).setText("+").setFontFamily("Proxima Nova").setFontSize(16).setSize(150, 50);
         sellLayerFill1.appendChild(sellItemSuccessText);
         var coinOnSuccessItemText = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(108, 0).setSize(20, 20).setFill(imgArray11[0].src);
         sellItemSuccessText.appendChild(coinOnSuccessItemText);
@@ -11109,7 +11109,7 @@ farming.start = function () {
         var sellItem1 = (new lime.Sprite).setPosition(70, 260).setSize(60, 60).setFill("#008000"); sellLayerFill1.appendChild(sellItem1).setHidden(false);
         sellItem1 = (new lime.GlossyButton).setPosition(70, 260).setSize(55, 55).setColor("#000000").setText(""); sellLayerFill1.appendChild(sellItem1);
         var sellItem1Img = (new lime.Sprite).setPosition(70, 260).setSize(50, 50).setFill(collectItems.digUpSells[0].src); sellLayerFill1.appendChild(sellItem1Img);
-        var sellItem1Label = (new lime.Label).setAnchorPoint(0, 0).setPosition(-20, 32).setText("100").setFontFamily("Comic Sans MS").setFontColor("#0000ff").setFontSize(16); sellItem1Img.appendChild(sellItem1Label);
+        var sellItem1Label = (new lime.Label).setAnchorPoint(0, 0).setPosition(-20, 32).setText("100").setFontFamily("Proxima Nova").setFontColor("#0000ff").setFontSize(16); sellItem1Img.appendChild(sellItem1Label);
         var coinOnsellItem1Label = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(10, 27).setSize(20, 20).setFill(imgArray11[0].src);
         sellItem1Img.appendChild(coinOnsellItem1Label);
         sellItem1.empty = true; sellItem1.value = 0; sellItem1.collectNumber = -1;
@@ -11118,7 +11118,7 @@ farming.start = function () {
         sellItem2 = (new lime.GlossyButton).setPosition(150, 260).setSize(55, 55).setColor("#000000").setText(""); sellLayerFill1.appendChild(sellItem2);
 
         var sellItem2Img = (new lime.Sprite).setPosition(150, 260).setSize(50, 50).setFill(collectItems.digUpSells[1].src); sellLayerFill1.appendChild(sellItem2Img);
-        var sellItem2Label = (new lime.Label).setAnchorPoint(0, 0).setPosition(-20, 32).setText("100").setFontFamily("Comic Sans MS").setFontColor("#0000ff").setFontSize(16); sellItem2Img.appendChild(sellItem2Label);
+        var sellItem2Label = (new lime.Label).setAnchorPoint(0, 0).setPosition(-20, 32).setText("100").setFontFamily("Proxima Nova").setFontColor("#0000ff").setFontSize(16); sellItem2Img.appendChild(sellItem2Label);
         var coinOnsellItem2Label = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(10, 27).setSize(20, 20).setFill(imgArray11[0].src);
         sellItem2Img.appendChild(coinOnsellItem2Label);
         sellItem2.empty = true; sellItem2.value = 0; sellItem2.collectNumber = -1;
@@ -11126,7 +11126,7 @@ farming.start = function () {
         var sellItem3 = (new lime.Sprite).setPosition(230, 260).setSize(60, 60).setFill("#008000"); sellLayerFill1.appendChild(sellItem3).setHidden(false);
         sellItem3 = (new lime.GlossyButton).setPosition(230, 260).setSize(55, 55).setColor("#000000").setText(""); sellLayerFill1.appendChild(sellItem3);
         var sellItem3Img = (new lime.Sprite).setPosition(230, 260).setSize(50, 50).setFill(collectItems.digUpSells[2].src); sellLayerFill1.appendChild(sellItem3Img);
-        var sellItem3Label = (new lime.Label).setAnchorPoint(0, 0).setPosition(-20, 32).setText("100").setFontFamily("Comic Sans MS").setFontColor("#0000ff").setFontSize(16); sellItem3Img.appendChild(sellItem3Label);
+        var sellItem3Label = (new lime.Label).setAnchorPoint(0, 0).setPosition(-20, 32).setText("100").setFontFamily("Proxima Nova").setFontColor("#0000ff").setFontSize(16); sellItem3Img.appendChild(sellItem3Label);
         var coinOnsellItem3Label = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(10, 27).setSize(20, 20).setFill(imgArray11[0].src);
         sellItem3Img.appendChild(coinOnsellItem3Label);
         sellItem3.empty = true; sellItem3.value = 0; sellItem3.collectNumber = -1;
@@ -11134,7 +11134,7 @@ farming.start = function () {
         var sellItem4 = (new lime.Sprite).setPosition(70, 350).setSize(60, 60).setFill("#008000"); sellLayerFill1.appendChild(sellItem4).setHidden(false);
         sellItem4 = (new lime.GlossyButton).setPosition(70, 350).setSize(55, 55).setColor("#000000").setText(""); sellLayerFill1.appendChild(sellItem4);
         var sellItem4Img = (new lime.Sprite).setPosition(70, 350).setSize(50, 50).setFill(collectItems.digUpSells[3].src); sellLayerFill1.appendChild(sellItem4Img);
-        var sellItem4Label = (new lime.Label).setAnchorPoint(0, 0).setPosition(-20, 32).setText("100").setFontFamily("Comic Sans MS").setFontColor("#0000ff").setFontSize(16); sellItem4Img.appendChild(sellItem4Label);
+        var sellItem4Label = (new lime.Label).setAnchorPoint(0, 0).setPosition(-20, 32).setText("100").setFontFamily("Proxima Nova").setFontColor("#0000ff").setFontSize(16); sellItem4Img.appendChild(sellItem4Label);
         var coinOnsellItem4Label = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(10, 27).setSize(20, 20).setFill(imgArray11[0].src);
         sellItem4Img.appendChild(coinOnsellItem4Label);
         sellItem4.empty = true; sellItem4.value = 0; sellItem4.collectNumber = -1;
@@ -11142,7 +11142,7 @@ farming.start = function () {
         var sellItem5 = (new lime.Sprite).setPosition(150, 350).setSize(60, 60).setFill("#008000"); sellLayerFill1.appendChild(sellItem5).setHidden(false);
         sellItem5 = (new lime.GlossyButton).setPosition(150, 350).setSize(55, 55).setColor("#000000").setText(""); sellLayerFill1.appendChild(sellItem5);
         var sellItem5Img = (new lime.Sprite).setPosition(150, 350).setSize(50, 50).setFill(collectItems.digUpSells[4].src); sellLayerFill1.appendChild(sellItem5Img);
-        var sellItem5Label = (new lime.Label).setAnchorPoint(0, 0).setPosition(-20, 32).setText("100").setFontFamily("Comic Sans MS").setFontColor("#0000ff").setFontSize(16); sellItem5Img.appendChild(sellItem5Label);
+        var sellItem5Label = (new lime.Label).setAnchorPoint(0, 0).setPosition(-20, 32).setText("100").setFontFamily("Proxima Nova").setFontColor("#0000ff").setFontSize(16); sellItem5Img.appendChild(sellItem5Label);
         var coinOnsellItem5Label = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(10, 27).setSize(20, 20).setFill(imgArray11[0].src);
         sellItem5Img.appendChild(coinOnsellItem5Label);
         sellItem5.empty = true; sellItem5.value = 0; sellItem5.collectNumber = -1;
@@ -11150,7 +11150,7 @@ farming.start = function () {
         var sellItem6 = (new lime.Sprite).setPosition(230, 350).setSize(60, 60).setFill("#008000"); sellLayerFill1.appendChild(sellItem6).setHidden(false);
         sellItem6 = (new lime.GlossyButton).setPosition(230, 350).setSize(55, 55).setColor("#000000").setText(""); sellLayerFill1.appendChild(sellItem6);
         var sellItem6Img = (new lime.Sprite).setPosition(230, 350).setSize(50, 50).setFill(collectItems.digUpSells[5].src); sellLayerFill1.appendChild(sellItem6Img);
-        var sellItem6Label = (new lime.Label).setAnchorPoint(0, 0).setPosition(-20, 32).setText("100").setFontFamily("Comic Sans MS").setFontColor("#0000ff").setFontSize(16); sellItem6Img.appendChild(sellItem6Label);
+        var sellItem6Label = (new lime.Label).setAnchorPoint(0, 0).setPosition(-20, 32).setText("100").setFontFamily("Proxima Nova").setFontColor("#0000ff").setFontSize(16); sellItem6Img.appendChild(sellItem6Label);
         var coinOnsellItem6Label = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(10, 27).setSize(20, 20).setFill(imgArray11[0].src);
         sellItem6Img.appendChild(coinOnsellItem6Label);
         sellItem6.empty = true; sellItem6.value = 0; sellItem6.collectNumber = -1;
@@ -11485,22 +11485,22 @@ farming.start = function () {
         marketLayer.appendChild(backBtnMarket);
 
 
-        var topMarketyLabel = (new lime.Label).setText("Hit a tile to sell crop ").setFontSize(18).setFontColor("#E8FC08").setFontFamily("Comic Sans MS").setPosition(145, 135).setSize(200, 80);
+        var topMarketyLabel = (new lime.Label).setText("Hit a tile to sell crop ").setFontSize(18).setFontColor("#E8FC08").setFontFamily("Proxima Nova").setPosition(145, 135).setSize(200, 80);
         marketLayer.appendChild(topMarketyLabel);
         var topCoinMarketSell = (new lime.Sprite).setPosition(285, 20).setSize(35, 35).setFill(imgArray11[0]);
         marketLayer.appendChild(topCoinMarketSell);
-        var marketSellCash = (new lime.Label).setText(player.money).setFontColor("#E8FC08").setPosition(235, 24).setFontSize(18).setFontFamily("Comic Sans MS");
+        var marketSellCash = (new lime.Label).setText(player.money).setFontColor("#E8FC08").setPosition(235, 24).setFontSize(18).setFontFamily("Proxima Nova");
         marketLayer.appendChild(marketSellCash);
         // market Tiles
         var marketX = 70, marketY = 135, colXoff = 72, rowYoff = 50, index = 0;
         //row 1
         var rowBack = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(marketX, marketY).setSize(80, 44).setFill(imgArray[18].src);
         marketLayer.appendChild(rowBack);
-        count0 = (new lime.Label).setText(player.cropsStored[index].stored).setFontSize(16).setFontColor("#1aff1a").setFontFamily("Comic Sans MS").setPosition(90, marketY + 15);
+        count0 = (new lime.Label).setText(player.cropsStored[index].stored).setFontSize(16).setFontColor("#1aff1a").setFontFamily("Proxima Nova").setPosition(90, marketY + 15);
         marketLayer.appendChild(count0);
         g0 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(112, marketY).setFill("images/" + a.crops[index].harvest).setSize(30, 30);      //tomatoes
         marketLayer.appendChild(g0);
-        i0 = (new lime.Label).setText(" +" + a.crops[index].revenue).setFontColor("#E8FC08").setFontFamily("Comic Sans MS").setFontSize(12).setPosition(98, marketY + 36);
+        i0 = (new lime.Label).setText(" +" + a.crops[index].revenue).setFontColor("#E8FC08").setFontFamily("Proxima Nova").setFontSize(12).setPosition(98, marketY + 36);
         marketLayer.appendChild(i0);
         g0I = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(72, marketY + 25).setFill(imgArray11[0]).setSize(18, 18);     //tomatoes
         marketLayer.appendChild(g0I);
@@ -11508,11 +11508,11 @@ farming.start = function () {
         index = 1;
         var rowBack2 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(marketX + 90, marketY).setSize(80, 44).setFill(imgArray[18].src);
         marketLayer.appendChild(rowBack2);
-        count1 = (new lime.Label).setText(player.cropsStored[1].stored).setFontSize(16).setFontColor("#1aff1a").setFontFamily("Comic Sans MS").setPosition(185, marketY + 15);
+        count1 = (new lime.Label).setText(player.cropsStored[1].stored).setFontSize(16).setFontColor("#1aff1a").setFontFamily("Proxima Nova").setPosition(185, marketY + 15);
         marketLayer.appendChild(count1);
         g1 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(200, marketY).setFill("images/" + a.crops[1].harvest).setSize(30, 30);      //carrots
         marketLayer.appendChild(g1);
-        i1 = (new lime.Label).setText(" +" + a.crops[1].revenue).setFontColor("#E8FC08").setFontFamily("Comic Sans MS").setFontSize(12).setPosition(188, marketY + 36);
+        i1 = (new lime.Label).setText(" +" + a.crops[1].revenue).setFontColor("#E8FC08").setFontFamily("Proxima Nova").setFontSize(12).setPosition(188, marketY + 36);
         marketLayer.appendChild(i1);
         i0I = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(162, marketY + 25).setFill(imgArray11[0]).setSize(18, 18);
         marketLayer.appendChild(i0I);
@@ -11521,11 +11521,11 @@ farming.start = function () {
         marketY = marketY + (rowYoff); index = 2;
         var rowBack3 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(marketX, marketY).setSize(80, 44).setFill(imgArray[18].src);
         marketLayer.appendChild(rowBack3);
-        count2 = (new lime.Label).setText(player.cropsStored[index].stored).setFontSize(16).setFontColor("#1aff1a").setFontFamily("Comic Sans MS").setPosition(90, marketY + 15);
+        count2 = (new lime.Label).setText(player.cropsStored[index].stored).setFontSize(16).setFontColor("#1aff1a").setFontFamily("Proxima Nova").setPosition(90, marketY + 15);
         marketLayer.appendChild(count2);
         g3 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(112, marketY).setFill("images/" + a.crops[index].harvest).setSize(30, 30);      //Broccoli s
         marketLayer.appendChild(g3);
-        i3 = (new lime.Label).setText(" +" + a.crops[index].revenue).setFontColor("#E8FC08").setFontFamily("Comic Sans MS").setFontSize(12).setPosition(97, marketY + 36);
+        i3 = (new lime.Label).setText(" +" + a.crops[index].revenue).setFontColor("#E8FC08").setFontFamily("Proxima Nova").setFontSize(12).setPosition(97, marketY + 36);
         marketLayer.appendChild(i3);
         i3I = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(72, marketY + 25).setFill(imgArray11[0]).setSize(18, 18);
         marketLayer.appendChild(i3I);
@@ -11534,11 +11534,11 @@ farming.start = function () {
         index = 3;
         var rowBack4 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(marketX + 90, marketY).setSize(80, 44).setFill(imgArray[18].src);
         marketLayer.appendChild(rowBack4);
-        count3 = (new lime.Label).setText(player.cropsStored[index].stored).setFontSize(16).setFontColor("#1aff1a").setFontFamily("Comic Sans MS").setPosition(185, marketY + 15);
+        count3 = (new lime.Label).setText(player.cropsStored[index].stored).setFontSize(16).setFontColor("#1aff1a").setFontFamily("Proxima Nova").setPosition(185, marketY + 15);
         marketLayer.appendChild(count3);
         g4 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(200, marketY).setFill("images/" + a.crops[index].harvest).setSize(30, 30);      //eggplants
         marketLayer.appendChild(g4);
-        i4 = (new lime.Label).setText(" +" + a.crops[index].revenue).setFontColor("#E8FC08").setFontFamily("Comic Sans MS").setFontSize(12).setPosition(186, marketY + 36);
+        i4 = (new lime.Label).setText(" +" + a.crops[index].revenue).setFontColor("#E8FC08").setFontFamily("Proxima Nova").setFontSize(12).setPosition(186, marketY + 36);
         marketLayer.appendChild(i4);
         i4I = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(162, marketY + 25).setFill(imgArray11[0]).setSize(18, 18);
         marketLayer.appendChild(i4I);
@@ -11549,11 +11549,11 @@ farming.start = function () {
         marketY = marketY + (rowYoff); index = 4;
         var rowBack5 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(marketX, marketY).setSize(80, 44).setFill(imgArray[18].src);
         marketLayer.appendChild(rowBack5);
-        count4 = (new lime.Label).setText(player.cropsStored[index].stored).setFontSize(16).setFontColor("#1aff1a").setFontFamily("Comic Sans MS").setPosition(90, marketY + 15);
+        count4 = (new lime.Label).setText(player.cropsStored[index].stored).setFontSize(16).setFontColor("#1aff1a").setFontFamily("Proxima Nova").setPosition(90, marketY + 15);
         marketLayer.appendChild(count4);
         g5 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(112, marketY).setFill("images/" + a.crops[index].harvest).setSize(30, 30);      //peppers
         marketLayer.appendChild(g5);
-        i5 = (new lime.Label).setText(" +" + a.crops[index].revenue).setFontColor("#E8FC08").setFontFamily("Comic Sans MS").setFontSize(12).setPosition(97, marketY + 36);
+        i5 = (new lime.Label).setText(" +" + a.crops[index].revenue).setFontColor("#E8FC08").setFontFamily("Proxima Nova").setFontSize(12).setPosition(97, marketY + 36);
         marketLayer.appendChild(i5);
         i5I = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(72, marketY + 25).setFill(imgArray11[0]).setSize(18, 18);
         marketLayer.appendChild(i5I);
@@ -11561,11 +11561,11 @@ farming.start = function () {
         index = 5;
         var rowBack6 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(marketX + 90, marketY).setSize(80, 44).setFill(imgArray[18].src);
         marketLayer.appendChild(rowBack6);
-        count5 = (new lime.Label).setText(player.cropsStored[index].stored).setFontSize(16).setFontColor("#1aff1a").setFontFamily("Comic Sans MS").setPosition(185, marketY + 15);
+        count5 = (new lime.Label).setText(player.cropsStored[index].stored).setFontSize(16).setFontColor("#1aff1a").setFontFamily("Proxima Nova").setPosition(185, marketY + 15);
         marketLayer.appendChild(count5);
         g6 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(200, marketY).setFill("images/" + a.crops[index].harvest).setSize(30, 30);      //corn
         marketLayer.appendChild(g6);
-        i6 = (new lime.Label).setText(" +" + a.crops[index].revenue).setFontColor("#E8FC08").setFontFamily("Comic Sans MS").setFontSize(12).setPosition(188, marketY + 36);
+        i6 = (new lime.Label).setText(" +" + a.crops[index].revenue).setFontColor("#E8FC08").setFontFamily("Proxima Nova").setFontSize(12).setPosition(188, marketY + 36);
         marketLayer.appendChild(i6);
         i6I = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(162, marketY + 25).setFill(imgArray11[0]).setSize(18, 18);
         marketLayer.appendChild(i6I);
@@ -11574,11 +11574,11 @@ farming.start = function () {
         marketY = marketY + (rowYoff); index = 6;
         var rowBack7 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(marketX, marketY).setSize(80, 44).setFill(imgArray[18].src);
         marketLayer.appendChild(rowBack7);
-        count6 = (new lime.Label).setText(player.cropsStored[index].stored).setFontSize(16).setFontColor("#1aff1a").setFontFamily("Comic Sans MS").setPosition(90, marketY + 15);
+        count6 = (new lime.Label).setText(player.cropsStored[index].stored).setFontSize(16).setFontColor("#1aff1a").setFontFamily("Proxima Nova").setPosition(90, marketY + 15);
         marketLayer.appendChild(count6);
         g7 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(112, marketY).setFill("images/" + a.crops[index].harvest).setSize(40, 30);      //hay
         marketLayer.appendChild(g7);
-        i7 = (new lime.Label).setText(" +" + a.crops[index].revenue).setFontColor("#E8FC08").setFontFamily("Comic Sans MS").setFontSize(12).setPosition(98, marketY + 36);
+        i7 = (new lime.Label).setText(" +" + a.crops[index].revenue).setFontColor("#E8FC08").setFontFamily("Proxima Nova").setFontSize(12).setPosition(98, marketY + 36);
         marketLayer.appendChild(i7);
         i7I = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(72, marketY + 25).setFill(imgArray11[0]).setSize(18, 18);      //tomatoes
         marketLayer.appendChild(i7I);
@@ -11587,11 +11587,11 @@ farming.start = function () {
         index = 7;
         var rowBack8 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(marketX + 90, marketY).setSize(80, 44).setFill(imgArray[18].src);
         marketLayer.appendChild(rowBack8);
-        count7 = (new lime.Label).setText(player.cropsStored[index].stored).setFontSize(16).setFontColor("#1aff1a").setFontFamily("Comic Sans MS").setPosition(185, marketY + 15);
+        count7 = (new lime.Label).setText(player.cropsStored[index].stored).setFontSize(16).setFontColor("#1aff1a").setFontFamily("Proxima Nova").setPosition(185, marketY + 15);
         marketLayer.appendChild(count7);
         g8 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(200, marketY).setFill("images/" + a.crops[index].harvest).setSize(30, 30);      //milk
         marketLayer.appendChild(g8);
-        i8 = (new lime.Label).setText(" +" + a.crops[index].revenue).setFontColor("#E8FC08").setFontFamily("Comic Sans MS").setFontSize(12).setPosition(188, marketY + 36);
+        i8 = (new lime.Label).setText(" +" + a.crops[index].revenue).setFontColor("#E8FC08").setFontFamily("Proxima Nova").setFontSize(12).setPosition(188, marketY + 36);
         marketLayer.appendChild(i8);
         i8I = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(162, marketY + 25).setFill(imgArray11[0]).setSize(18, 18);
         marketLayer.appendChild(i8I);
@@ -11599,11 +11599,11 @@ farming.start = function () {
         marketY = marketY + (rowYoff); index = 8;
         var rowBack9 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(marketX, marketY).setSize(80, 44).setFill(imgArray[18].src);
         marketLayer.appendChild(rowBack9);
-        count8 = (new lime.Label).setText(player.cropsStored[index].stored).setFontSize(16).setFontColor("#1aff1a").setFontFamily("Comic Sans MS").setPosition(90, marketY + 15);
+        count8 = (new lime.Label).setText(player.cropsStored[index].stored).setFontSize(16).setFontColor("#1aff1a").setFontFamily("Proxima Nova").setPosition(90, marketY + 15);
         marketLayer.appendChild(count8);
         g9 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(115, marketY).setFill("images/" + a.crops[index].harvest).setSize(30, 30);      //apples
         marketLayer.appendChild(g9);
-        i9 = (new lime.Label).setText(" +" + a.crops[index].revenue).setFontColor("#E8FC08").setFontFamily("Comic Sans MS").setFontSize(12).setPosition(98, marketY + 36);
+        i9 = (new lime.Label).setText(" +" + a.crops[index].revenue).setFontColor("#E8FC08").setFontFamily("Proxima Nova").setFontSize(12).setPosition(98, marketY + 36);
         marketLayer.appendChild(i9);
         i9I = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(72, marketY + 25).setFill(imgArray11[0]).setSize(18, 18);    //tomatoes
         marketLayer.appendChild(i9I);
@@ -11611,11 +11611,11 @@ farming.start = function () {
         index = 9;
         var rowBack10 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(marketX + 90, marketY).setSize(80, 44).setFill(imgArray[18].src);
         marketLayer.appendChild(rowBack10);
-        count9 = (new lime.Label).setText(player.cropsStored[index].stored).setFontSize(16).setFontColor("#1aff1a").setFontFamily("Comic Sans MS").setPosition(185, marketY + 15);
+        count9 = (new lime.Label).setText(player.cropsStored[index].stored).setFontSize(16).setFontColor("#1aff1a").setFontFamily("Proxima Nova").setPosition(185, marketY + 15);
         marketLayer.appendChild(count9);
         g10 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(200, marketY).setFill("images/" + a.crops[index].harvest).setSize(30, 30);      //pears
         marketLayer.appendChild(g10);
-        i10 = (new lime.Label).setText(" +" + a.crops[index].revenue).setFontColor("#E8FC08").setFontFamily("Comic Sans MS").setFontSize(12).setPosition(188, marketY + 38);
+        i10 = (new lime.Label).setText(" +" + a.crops[index].revenue).setFontColor("#E8FC08").setFontFamily("Proxima Nova").setFontSize(12).setPosition(188, marketY + 38);
         marketLayer.appendChild(i10);
         i10I = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(162, marketY + 25).setFill(imgArray11[0]).setSize(18, 18);
         marketLayer.appendChild(i10I);
@@ -11625,11 +11625,11 @@ farming.start = function () {
         var rowBack11 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(marketX, marketY).setSize(80, 44).setFill(imgArray[18].src);
         marketLayer.appendChild(rowBack11);
 
-        count10 = (new lime.Label).setText(player.cropsStored[index].stored).setFontSize(16).setFontColor("#1aff1a").setFontFamily("Comic Sans MS").setPosition(90, marketY + 15);
+        count10 = (new lime.Label).setText(player.cropsStored[index].stored).setFontSize(16).setFontColor("#1aff1a").setFontFamily("Proxima Nova").setPosition(90, marketY + 15);
         marketLayer.appendChild(count10);
         g11 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(115, marketY).setFill("images/" + a.crops[index].harvest).setSize(30, 30);      //hams
         marketLayer.appendChild(g11);
-        i11 = (new lime.Label).setText(" +" + a.crops[index].revenue).setFontColor("#E8FC08").setFontFamily("Comic Sans MS").setFontSize(12).setPosition(98, marketY + 36);
+        i11 = (new lime.Label).setText(" +" + a.crops[index].revenue).setFontColor("#E8FC08").setFontFamily("Proxima Nova").setFontSize(12).setPosition(98, marketY + 36);
         marketLayer.appendChild(i11);
         i11I = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(72, marketY + 25).setFill(imgArray11[0]).setSize(18, 18);
         marketLayer.appendChild(i11I);
@@ -11638,11 +11638,11 @@ farming.start = function () {
         var rowBack12 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(marketX + 90, marketY).setSize(80, 44).setFill(imgArray[18].src);
         marketLayer.appendChild(rowBack12);
 
-        count11 = (new lime.Label).setText(player.cropsStored[index].stored).setFontSize(16).setFontColor("#1aff1a").setFontFamily("Comic Sans MS").setPosition(185, marketY + 15);
+        count11 = (new lime.Label).setText(player.cropsStored[index].stored).setFontSize(16).setFontColor("#1aff1a").setFontFamily("Proxima Nova").setPosition(185, marketY + 15);
         marketLayer.appendChild(count11);
         g12 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(200, marketY).setFill("images/" + a.crops[index].harvest).setSize(30, 30);      //eggs
         marketLayer.appendChild(g12);
-        i12 = (new lime.Label).setText(" +" + a.crops[index].revenue).setFontColor("#E8FC08").setFontFamily("Comic Sans MS").setFontSize(12).setPosition(188, marketY + 36);
+        i12 = (new lime.Label).setText(" +" + a.crops[index].revenue).setFontColor("#E8FC08").setFontFamily("Proxima Nova").setFontSize(12).setPosition(188, marketY + 36);
         marketLayer.appendChild(i12);
         i12I = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(162, marketY + 25).setFill(imgArray11[0]).setSize(18, 18);
         marketLayer.appendChild(i12I);
@@ -11653,11 +11653,11 @@ farming.start = function () {
         var rowBack13 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(marketX, marketY).setSize(80, 44).setFill(imgArray[18].src);
         marketLayer.appendChild(rowBack13);
 
-        count12 = (new lime.Label).setText(player.cropsStored[index].stored).setFontSize(16).setFontColor("#1aff1a").setFontFamily("Comic Sans MS").setPosition(90, marketY + 15);
+        count12 = (new lime.Label).setText(player.cropsStored[index].stored).setFontSize(16).setFontColor("#1aff1a").setFontFamily("Proxima Nova").setPosition(90, marketY + 15);
         marketLayer.appendChild(count12);
         g13 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(115, marketY).setFill("images/" + a.crops[index].harvest).setSize(30, 30);      //grapes
         marketLayer.appendChild(g13);
-        i13 = (new lime.Label).setText(" +" + a.crops[index].revenue).setFontColor("#E8FC08").setFontFamily("Comic Sans MS").setFontSize(12).setPosition(98, marketY + 36);
+        i13 = (new lime.Label).setText(" +" + a.crops[index].revenue).setFontColor("#E8FC08").setFontFamily("Proxima Nova").setFontSize(12).setPosition(98, marketY + 36);
         marketLayer.appendChild(i13);
         i13I = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(72, marketY + 25).setFill(imgArray11[0]).setSize(18, 18);
         marketLayer.appendChild(i13I);
@@ -11667,11 +11667,11 @@ farming.start = function () {
         var rowBack14 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(marketX + 90, marketY).setSize(80, 44).setFill(imgArray[18].src);
         marketLayer.appendChild(rowBack14);
 
-        count13 = (new lime.Label).setText(player.cropsStored[index].stored).setFontSize(16).setFontColor("#1aff1a").setFontFamily("Comic Sans MS").setPosition(185, marketY + 15);
+        count13 = (new lime.Label).setText(player.cropsStored[index].stored).setFontSize(16).setFontColor("#1aff1a").setFontFamily("Proxima Nova").setPosition(185, marketY + 15);
         marketLayer.appendChild(count13);
         g14 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(200, marketY).setFill("images/" + a.crops[index].harvest).setSize(30, 30);      //jelly
         marketLayer.appendChild(g14);
-        i14 = (new lime.Label).setText(" +" + a.crops[index].revenue).setFontColor("#E8FC08").setFontFamily("Comic Sans MS").setFontSize(12).setPosition(188, marketY + 36);
+        i14 = (new lime.Label).setText(" +" + a.crops[index].revenue).setFontColor("#E8FC08").setFontFamily("Proxima Nova").setFontSize(12).setPosition(188, marketY + 36);
         marketLayer.appendChild(i14);
         i14I = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(162, marketY + 25).setFill(imgArray11[0]).setSize(18, 18);
         marketLayer.appendChild(i14I);
@@ -11680,11 +11680,11 @@ farming.start = function () {
         var rowBack15 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(250, 240).setSize(54, 70).setFill(imgArray[18].src);
         marketLayer.appendChild(rowBack15);
 
-        countTools = (new lime.Label).setText(player.tools).setFontSize(16).setFontColor("#1aff1a").setFontFamily("Comic Sans MS").setPosition(276, 255);
+        countTools = (new lime.Label).setText(player.tools).setFontSize(16).setFontColor("#1aff1a").setFontFamily("Proxima Nova").setPosition(276, 255);
         marketLayer.appendChild(countTools);
         g15 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(260, 260).setFill(imgArray[30]).setSize(30, 30);      //tools
         marketLayer.appendChild(g15);
-        i15 = (new lime.Label).setText("+5").setFontColor("#E8FC08").setFontFamily("Comic Sans MS").setFontSize(12).setPosition(285, 303);
+        i15 = (new lime.Label).setText("+5").setFontColor("#E8FC08").setFontFamily("Proxima Nova").setFontSize(12).setPosition(285, 303);
         marketLayer.appendChild(i15);
         i15I = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(255, 290).setFill(imgArray11[0]).setSize(20, 20);
         marketLayer.appendChild(i15I);
@@ -11696,11 +11696,11 @@ farming.start = function () {
         var rowBack22 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(6, 240).setSize(54, 70).setFill(imgArray[18].src);
         marketLayer.appendChild(rowBack22);
 
-        count22 = (new lime.Label).setText(player.cropsStored[22].stored).setFontSize(16).setFontColor("#1aff1a").setFontFamily("Comic Sans MS").setPosition(30, 255);
+        count22 = (new lime.Label).setText(player.cropsStored[22].stored).setFontSize(16).setFontColor("#1aff1a").setFontFamily("Proxima Nova").setPosition(30, 255);
         marketLayer.appendChild(count22);
         g22 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(22, 260).setFill("images/" + a.crops[22].harvest).setSize(30, 30);      //tools
         marketLayer.appendChild(g22);
-        i22 = (new lime.Label).setText(" +" + a.crops[22].revenue).setFontColor("#E8FC08").setFontFamily("Comic Sans MS").setFontSize(12).setPosition(37, 303);
+        i22 = (new lime.Label).setText(" +" + a.crops[22].revenue).setFontColor("#E8FC08").setFontFamily("Proxima Nova").setFontSize(12).setPosition(37, 303);
         marketLayer.appendChild(i22);
         i22I = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(8, 290).setFill(imgArray11[0]).setSize(20, 20);
         marketLayer.appendChild(i22I);
@@ -11709,11 +11709,11 @@ farming.start = function () {
         var rowBack23 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(6, 330).setSize(54, 70).setFill(imgArray[18].src);
         marketLayer.appendChild(rowBack23);
 
-        count23 = (new lime.Label).setText(player.cropsStored[23].stored).setFontSize(16).setFontColor("#1aff1a").setFontFamily("Comic Sans MS").setPosition(30, 345);
+        count23 = (new lime.Label).setText(player.cropsStored[23].stored).setFontSize(16).setFontColor("#1aff1a").setFontFamily("Proxima Nova").setPosition(30, 345);
         marketLayer.appendChild(count23);
         g23 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(22, 350).setFill("images/" + a.crops[23].harvest).setSize(30, 30);      //tools
         marketLayer.appendChild(g23);
-        i23 = (new lime.Label).setText(" +" + a.crops[23].revenue).setFontColor("#E8FC08").setFontFamily("Comic Sans MS").setFontSize(12).setPosition(37, 393);
+        i23 = (new lime.Label).setText(" +" + a.crops[23].revenue).setFontColor("#E8FC08").setFontFamily("Proxima Nova").setFontSize(12).setPosition(37, 393);
         marketLayer.appendChild(i23);
         i23I = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(8, 380).setFill(imgArray11[0]).setSize(20, 20);
         marketLayer.appendChild(i23I);
@@ -11722,11 +11722,11 @@ farming.start = function () {
         var rowBack24 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(250, 330).setSize(54, 70).setFill(imgArray[18].src);
         marketLayer.appendChild(rowBack24);
 
-        count24 = (new lime.Label).setText(player.cropsStored[23].stored).setFontSize(16).setFontColor("#1aff1a").setFontFamily("Comic Sans MS").setPosition(276, 345);
+        count24 = (new lime.Label).setText(player.cropsStored[23].stored).setFontSize(16).setFontColor("#1aff1a").setFontFamily("Proxima Nova").setPosition(276, 345);
         marketLayer.appendChild(count24);
         g24 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(260, 350).setFill("images/" + a.crops[24].harvest).setSize(30, 30);      //tools
         marketLayer.appendChild(g24);
-        i24 = (new lime.Label).setText(" +" + a.crops[24].revenue).setFontColor("#E8FC08").setFontFamily("Comic Sans MS").setFontSize(12).setPosition(285, 393);
+        i24 = (new lime.Label).setText(" +" + a.crops[24].revenue).setFontColor("#E8FC08").setFontFamily("Proxima Nova").setFontSize(12).setPosition(285, 393);
         marketLayer.appendChild(i24);
         i24I = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(255, 380).setFill(imgArray11[0]).setSize(20, 20);
         marketLayer.appendChild(i24I);
@@ -11744,15 +11744,15 @@ farming.start = function () {
         marketLayer.appendChild(howManyBack);
         var howMany = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(30, 150).setSize(250, 250).setFill(imgArray[78]);
         howManyBack.appendChild(howMany);
-        var howManyLabel1 = (new lime.Label).setText("Sell " + a.crops[index].name).setFontColor("#00004d").setFontFamily("Comic Sans MS").setFontSize(26).setPosition(125, 60);
+        var howManyLabel1 = (new lime.Label).setText("Sell " + a.crops[index].name).setFontColor("#00004d").setFontFamily("Proxima Nova").setFontSize(26).setPosition(125, 60);
         howMany.appendChild(howManyLabel1);
-        var howManyLabel2 = (new lime.Label).setText(cropSaleCurrent + "/" + cropSaleTotal).setFontColor("#00004d").setFontFamily("Comic Sans MS").setFontSize(20).setPosition(55, 140);
+        var howManyLabel2 = (new lime.Label).setText(cropSaleCurrent + "/" + cropSaleTotal).setFontColor("#00004d").setFontFamily("Proxima Nova").setFontSize(20).setPosition(55, 140);
         howMany.appendChild(howManyLabel2);
-        var howManyLabel3 = (new lime.Label).setText(" 0 ").setFontColor("#00004d").setFontFamily("Comic Sans MS").setFontSize(20).setPosition(190, 140);
+        var howManyLabel3 = (new lime.Label).setText(" 0 ").setFontColor("#00004d").setFontFamily("Proxima Nova").setFontSize(20).setPosition(190, 140);
         howMany.appendChild(howManyLabel3);
-        var howManyLabel4 = (new lime.Label).setText("Sell For").setFontColor("#004d00").setFontFamily("Comic Sans MS").setFontSize(18).setPosition(181, 110);
+        var howManyLabel4 = (new lime.Label).setText("Sell For").setFontColor("#004d00").setFontFamily("Proxima Nova").setFontSize(18).setPosition(181, 110);
         howMany.appendChild(howManyLabel4);
-        var howManyLabel5 = (new lime.Label).setText("Stock").setFontColor("#004d00").setFontFamily("Comic Sans MS").setFontSize(18).setPosition(53, 110);
+        var howManyLabel5 = (new lime.Label).setText("Stock").setFontColor("#004d00").setFontFamily("Proxima Nova").setFontSize(18).setPosition(53, 110);
         howMany.appendChild(howManyLabel5);
         var howManyImg = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(100, 80).setFill("images/" + a.crops[index].harvest).setSize(40, 40);      //carrots
         howMany.appendChild(howManyImg);
@@ -12015,11 +12015,11 @@ farming.start = function () {
         //var playGameBtn = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(a.width / 2 - 50, 510).setSize(50, 50).setFill("#663300");
         var playGameBtn = (new lime.GlossyButton).setColor("#663300").setText("").setPosition(150, 290).setSize(a.width / 2 + 10, 70);
         introLayer.appendChild(playGameBtn);
-        var playButtonLabel = (new lime.Label).setText("PLAY").setFontFamily("Comic Sans MS").setFontColor("#E8FC08").setPosition(150, 295).setFontSize(36);
+        var playButtonLabel = (new lime.Label).setText("PLAY").setFontFamily("Proxima Nova").setFontColor("#E8FC08").setPosition(150, 295).setFontSize(36);
         introLayer.appendChild(playButtonLabel);
         //var moreGameBtn = (new lime.GlossyButton).setColor("#663300").setText("").setPosition(150, 340).setSize(a.width / 2 - 5, 50);
         //introLayer.appendChild(moreGameBtn);
-        //var moreGameBtnLabel = (new lime.Label).setText("MORE GAMES").setFontFamily("Comic Sans MS").setFontColor("#E8FC08").setPosition(150, 346).setFontSize(20);
+        //var moreGameBtnLabel = (new lime.Label).setText("MORE GAMES").setFontFamily("Proxima Nova").setFontColor("#E8FC08").setPosition(150, 346).setFontSize(20);
         //introLayer.appendChild(moreGameBtnLabel);
 
         //moreGameBtn.setHidden(true); moreGameBtnLabel.setHidden(true); 
@@ -12104,7 +12104,7 @@ farming.start = function () {
         //liveStockLayer.appendChild(topLogoLS);
         var topCoinLS = (new lime.Sprite).setPosition(285, 20).setSize(35, 35).setFill(imgArray11[0]);
         liveStockLayer.appendChild(topCoinLS);
-        var liveStockCash = (new lime.Label).setText(player.money).setFontColor("#E8FC08").setPosition(235, 24).setFontSize(18).setFontFamily("Comic Sans MS");
+        var liveStockCash = (new lime.Label).setText(player.money).setFontColor("#E8FC08").setPosition(235, 24).setFontSize(18).setFontFamily("Proxima Nova");
         liveStockLayer.appendChild(liveStockCash);
 
 
@@ -12130,7 +12130,7 @@ farming.start = function () {
         //coop upgrade anim elements
         var scaffoldLS = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(65, 240).setSize(110, 80).setFill(imgArray[26]); liveStockLayer.appendChild(scaffoldLS);
         var upgradeCloudLS = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(55, 185).setSize(120, 200).setFill(imgArray[24].src); liveStockLayer.appendChild(upgradeCloudLS);
-        var toolMoverLabelLS = (new lime.Label).setText("60").setPosition(118, 275).setSize(40, 25).setFontColor("#E8FC08").setFontWeight(600).setFontSize(28).setFontFamily("Comic Sans MS").setFill(imgArray[27]);
+        var toolMoverLabelLS = (new lime.Label).setText("60").setPosition(118, 275).setSize(40, 25).setFontColor("#E8FC08").setFontWeight(600).setFontSize(28).setFontFamily("Proxima Nova").setFill(imgArray[27]);
         var toolMoverLS = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(-22, -50).setSize(50, 50).setFill(imgArray[29]);
 
         liveStockLayer.appendChild(toolMoverLabelLS);
@@ -12291,7 +12291,7 @@ farming.start = function () {
         liveStockLayer.appendChild(collectEggs);
         var collectEggsIcon = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(8, 5).setSize(35, 24).setFill("images/" + a.crops[11].harvest);
         collectEggs.appendChild(collectEggsIcon);
-        var collectEggsLabel = (new lime.Label).setText("+ 0 ").setFontWeight(500).setFontColor("#E8FC08").setPosition(23, 37).setSize(30, 18).setFontFamily("Comic Sans MS");
+        var collectEggsLabel = (new lime.Label).setText("+ 0 ").setFontWeight(500).setFontColor("#E8FC08").setPosition(23, 37).setSize(30, 18).setFontFamily("Proxima Nova");
         collectEggs.appendChild(collectEggsLabel);
         collectEggs.setHidden(true);
         var eggWaiting = 0;
@@ -12676,7 +12676,7 @@ farming.start = function () {
 
         /// livestock pork Pork harvest mechanics
 
-        var porkUpCount = (new lime.Label).setText("+ 2 Ham").setFontWeight(600).setFontColor("#E8FC08").setPosition(155, 110).setOpacity(0.9).setSize(200, 20).setFontFamily("Comic Sans MS");
+        var porkUpCount = (new lime.Label).setText("+ 2 Ham").setFontWeight(600).setFontColor("#E8FC08").setPosition(155, 110).setOpacity(0.9).setSize(200, 20).setFontFamily("Proxima Nova");
         liveStockLayer.appendChild(porkUpCount);
         var porkUpIcon = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(95, 95).setSize(35, 24).setFill("images/" + a.crops[10].harvest);
         liveStockLayer.appendChild(porkUpIcon);
@@ -12688,7 +12688,7 @@ farming.start = function () {
         liveStockLayer.appendChild(collectPork);
         var collectPorkIcon = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(8, 2).setSize(35, 24).setFill("images/" + a.crops[10].harvest);
         collectPork.appendChild(collectPorkIcon);
-        var collectPorkLabel = (new lime.Label).setText("+ 0 ").setFontWeight(500).setFontColor("#E8FC08").setPosition(23, 37).setSize(30, 18).setFontFamily("Comic Sans MS");
+        var collectPorkLabel = (new lime.Label).setText("+ 0 ").setFontWeight(500).setFontColor("#E8FC08").setPosition(23, 37).setSize(30, 18).setFontFamily("Proxima Nova");
         collectPork.appendChild(collectPorkLabel);
         collectPork.setHidden(true);
         var porkWaiting = 0;
@@ -12817,7 +12817,7 @@ farming.start = function () {
                 achieve(sceneBefore);
             }
         });
-        var raising = (new lime.Label).setText("Raising Chickens & Pigs").setFontColor("#E8FC08").setPosition(155, 525).setSize(100, 75).setFontFamily("Comic Sans MS");
+        var raising = (new lime.Label).setText("Raising Chickens & Pigs").setFontColor("#E8FC08").setPosition(155, 525).setSize(100, 75).setFontFamily("Proxima Nova");
         liveStockLayer.appendChild(raising);
 
         ////back to Orchard from pens
@@ -12854,7 +12854,7 @@ farming.start = function () {
 
         ///livestock storage menu
         var toolCountImgLS = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(5, 7).setSize(35, 35).setFill(imgArray[30]);
-        var toolCountLS = (new lime.Label).setText(player.tools).setFontColor("#E8FC08").setPosition(65, 24).setFontSize(18).setFontFamily("Comic Sans MS");
+        var toolCountLS = (new lime.Label).setText(player.tools).setFontColor("#E8FC08").setPosition(65, 24).setFontSize(18).setFontFamily("Proxima Nova");
         liveStockLayer.appendChild(toolCountImgLS);
         liveStockLayer.appendChild(toolCountLS);
         var toInventoryLS = (new lime.Sprite).setPosition((a.controlsLayer_w / 2) - 5, 22).setSize(38, 38).setFill(imgArrayItems[25].src);
@@ -12886,12 +12886,12 @@ farming.start = function () {
 
         ////achievement Modal
         var achieveNotifLS = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(45, 130).setSize(210, 220).setFill(imgArray[91]);
-        var achieveTextLS = (new lime.Label).setAnchorPoint(0, 0).setFontColor("#000033").setPosition(13, 45).setSize(190, 60).setFontSize(16).setText("Blacksmith I").setFontFamily("Comic Sans MS");
+        var achieveTextLS = (new lime.Label).setAnchorPoint(0, 0).setFontColor("#000033").setPosition(13, 45).setSize(190, 60).setFontSize(16).setText("Blacksmith I").setFontFamily("Proxima Nova");
         achieveNotifLS.appendChild(achieveTextLS);
-        var achieveTextSubLS = (new lime.Label).setAnchorPoint(0, 0).setFontColor("#000033").setPosition(30, 123).setSize(150, 35).setFontSize(12).setText("Achieve Text").setFontFamily("Comic Sans MS");
+        var achieveTextSubLS = (new lime.Label).setAnchorPoint(0, 0).setFontColor("#000033").setPosition(30, 123).setSize(150, 35).setFontSize(12).setText("Achieve Text").setFontFamily("Proxima Nova");
         achieveNotifLS.appendChild(achieveTextSubLS);
 
-        var achieveSCLS = (new lime.Label).setAnchorPoint(0, 0).setFontColor("#000033").setPosition(21, 182).setSize(190, 60).setFontSize(18).setText(" + ").setFontFamily("Comic Sans MS");
+        var achieveSCLS = (new lime.Label).setAnchorPoint(0, 0).setFontColor("#000033").setPosition(21, 182).setSize(190, 60).setFontSize(18).setText(" + ").setFontFamily("Proxima Nova");
         achieveNotifLS.appendChild(achieveSCLS);
         var confirmBtnALS = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(90, 211).setSize(40, 40).setFill(imgArray[21]);
         achieveNotifLS.appendChild(confirmBtnALS);
@@ -13039,18 +13039,18 @@ farming.start = function () {
         ////livestock SHORTAGE block modal
         var porkBlocked = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(60, 145).setSize(180, 200).setFill(imgArray[80]);
         liveStockLayer.appendChild(porkBlocked);
-        var blockedHeader = (new lime.Label).setAnchorPoint(0, 0).setPosition(5, 19).setSize(170, 40).setFontSize(18).setFontFamily("Comic Sans MS").setText("Farmhand Eva");
+        var blockedHeader = (new lime.Label).setAnchorPoint(0, 0).setPosition(5, 19).setSize(170, 40).setFontSize(18).setFontFamily("Proxima Nova").setText("Farmhand Eva");
         porkBlocked.appendChild(blockedHeader);
 
         var evaBlockImg = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(60, 26).setSize(60, 60).setFill(imgArrayEva[0].src);
         porkBlocked.appendChild(evaBlockImg)
         var confirmPorkBlocked = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(70, 195).setSize(40, 40).setFill(imgArray[21]);
         porkBlocked.appendChild(confirmPorkBlocked);
-        var blockedText = (new lime.Label).setAnchorPoint(0, 0).setFontColor("#E8FC08").setPosition(5, 85).setSize(170, 40).setFontSize(14).setFontFamily("Comic Sans MS").setText("Livestock Hungry!");
+        var blockedText = (new lime.Label).setAnchorPoint(0, 0).setFontColor("#E8FC08").setPosition(5, 85).setSize(170, 40).setFontSize(14).setFontFamily("Proxima Nova").setText("Livestock Hungry!");
         porkBlocked.appendChild(blockedText);
-        var blockedSub = (new lime.Label).setAnchorPoint(0, 0).setPosition(2, 105).setSize(175, 40).setFontSize(10).setFontFamily("Comic Sans MS").setText("CHICKENS eat CORN to lay EGGS");
+        var blockedSub = (new lime.Label).setAnchorPoint(0, 0).setPosition(2, 105).setSize(175, 40).setFontSize(10).setFontFamily("Proxima Nova").setText("CHICKENS eat CORN to lay EGGS");
         porkBlocked.appendChild(blockedSub);
-        var blockedSub2 = (new lime.Label).setAnchorPoint(0, 0).setPosition(2, 120).setSize(175, 40).setFontSize(10).setFontFamily("Comic Sans MS").setText("PIGS eat APPLES to yield HAM");
+        var blockedSub2 = (new lime.Label).setAnchorPoint(0, 0).setPosition(2, 120).setSize(175, 40).setFontSize(10).setFontFamily("Proxima Nova").setText("PIGS eat APPLES to yield HAM");
         porkBlocked.appendChild(blockedSub2);
 
 
@@ -13059,11 +13059,11 @@ farming.start = function () {
         var appleIcon2 = (new lime.Sprite).setPosition(120, 145).setFill("images/" + a.crops[8].harvest).setSize(25, 25);
         porkBlocked.appendChild(appleIcon2);
 
-        var gLabel5Pork = (new lime.Label).setPosition(70, 141).setSize(20, 16).setText(player.cropsStored[5].stored).setFontFamily("Comic Sans MS").setFontColor("#E8FC08");
+        var gLabel5Pork = (new lime.Label).setPosition(70, 141).setSize(20, 16).setText(player.cropsStored[5].stored).setFontFamily("Proxima Nova").setFontColor("#E8FC08");
         porkBlocked.appendChild(gLabel5Pork);
-        var gLabel8Pork = (new lime.Label).setPosition(140, 141).setSize(20, 16).setText(player.cropsStored[8].stored).setFontFamily("Comic Sans MS").setFontColor("#E8FC08");
+        var gLabel8Pork = (new lime.Label).setPosition(140, 141).setSize(20, 16).setText(player.cropsStored[8].stored).setFontFamily("Proxima Nova").setFontColor("#E8FC08");
         porkBlocked.appendChild(gLabel8Pork);
-        var blockedSub3 = (new lime.Label).setAnchorPoint(0, 0).setPosition(2, 165).setSize(175, 40).setFontSize(10).setFontFamily("Comic Sans MS").setText("Upgrade Home Barn to Level 5 to unlock Corn");
+        var blockedSub3 = (new lime.Label).setAnchorPoint(0, 0).setPosition(2, 165).setSize(175, 40).setFontSize(10).setFontFamily("Proxima Nova").setText("Upgrade Home Barn to Level 5 to unlock Corn");
         porkBlocked.appendChild(blockedSub3);
         porkBlocked.setHidden(true);
 
@@ -13074,16 +13074,16 @@ farming.start = function () {
         });
 
         var livestockHelpPanel = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(15, 100).setSize(a.width - 30, a.height / 2 + 40).setFill(imgArray[78]).setHidden(true);
-        var helpHeaderlivestock = (new lime.Label).setAnchorPoint(0, 0).setPosition(62, 28).setText("LiveStock Pens").setFontFamily("Comic Sans MS").setFontSize(24);
+        var helpHeaderlivestock = (new lime.Label).setAnchorPoint(0, 0).setPosition(62, 28).setText("LiveStock Pens").setFontFamily("Proxima Nova").setFontSize(24);
         livestockHelpPanel.appendChild(helpHeaderlivestock);
-        var helpText1livestock = (new lime.Label).setAnchorPoint(0, 0).setPosition(20, 70).setText("The goal here is to feed the animals and collect goods.").setFontFamily("Comic Sans MS").setFontSize(16).setSize(a.width - 80, a.height / 2 - 50);
+        var helpText1livestock = (new lime.Label).setAnchorPoint(0, 0).setPosition(20, 70).setText("The goal here is to feed the animals and collect goods.").setFontFamily("Proxima Nova").setFontSize(16).setSize(a.width - 80, a.height / 2 - 50);
         livestockHelpPanel.appendChild(helpText1livestock);
-        var helpText2livestock = (new lime.Label).setAnchorPoint(0, 0).setPosition(20, 115).setText("Pigs eat APPLES to produce HAM on a regular basis. ").setFontFamily("Comic Sans MS").setFontSize(16).setSize(a.width - 80, a.height / 2 - 50);
+        var helpText2livestock = (new lime.Label).setAnchorPoint(0, 0).setPosition(20, 115).setText("Pigs eat APPLES to produce HAM on a regular basis. ").setFontFamily("Proxima Nova").setFontSize(16).setSize(a.width - 80, a.height / 2 - 50);
         livestockHelpPanel.appendChild(helpText2livestock);
-        var helpText3livestock = (new lime.Label).setAnchorPoint(0, 0).setPosition(20, 165).setText("Chickens eat CORN to yield EGGS. Upgrade your home barn to grow CORN").setFontFamily("Comic Sans MS").setFontSize(16).setSize(a.width - 80, a.height / 2 - 50);
+        var helpText3livestock = (new lime.Label).setAnchorPoint(0, 0).setPosition(20, 165).setText("Chickens eat CORN to yield EGGS. Upgrade your home barn to grow CORN").setFontFamily("Proxima Nova").setFontSize(16).setSize(a.width - 80, a.height / 2 - 50);
         livestockHelpPanel.appendChild(helpText3livestock);
 
-        var helpText4livestock = (new lime.Label).setAnchorPoint(0, 0).setPosition(20, 230).setText("You can collect Ham and Eggs once per minute").setFontFamily("Comic Sans MS").setFontSize(16).setSize(a.width - 80, a.height / 2 - 50);
+        var helpText4livestock = (new lime.Label).setAnchorPoint(0, 0).setPosition(20, 230).setText("You can collect Ham and Eggs once per minute").setFontFamily("Proxima Nova").setFontSize(16).setSize(a.width - 80, a.height / 2 - 50);
         livestockHelpPanel.appendChild(helpText4livestock);
 
         var livestockHelpPanelCloseBtn = (new lime.GlossyButton).setColor("#663300").setText("Close").setPosition(140, 296).setSize(100, 20);
@@ -13108,9 +13108,9 @@ farming.start = function () {
 
         var questPanelLS = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(15, 115).setSize(a.width - 30, a.height / 2).setFill(imgArray[78]).setHidden(true);
         liveStockLayer.appendChild(questPanelLS);
-        var questHeaderLS = (new lime.Label).setAnchorPoint(0, 0).setPosition(55, 25).setText("Farmhand Eva").setFontFamily("Comic Sans MS").setFontSize(24);
+        var questHeaderLS = (new lime.Label).setAnchorPoint(0, 0).setPosition(55, 25).setText("Farmhand Eva").setFontFamily("Proxima Nova").setFontSize(24);
         questPanelLS.appendChild(questHeaderLS);
-        var questText1LS = (new lime.Label).setAnchorPoint(0, 0).setPosition(20, 145).setText(questParamsEva.speech[0].text).setFontFamily("Comic Sans MS").setFontSize(16).setSize(a.width - 80, a.height / 2 - 50);
+        var questText1LS = (new lime.Label).setAnchorPoint(0, 0).setPosition(20, 145).setText(questParamsEva.speech[0].text).setFontFamily("Proxima Nova").setFontSize(16).setSize(a.width - 80, a.height / 2 - 50);
         questPanelLS.appendChild(questText1LS);
         var questPanelAvatarLS = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(90, 40).setSize(100, 100).setFill(imgArrayEva[0]);
         questPanelLS.appendChild(questPanelAvatarLS);
@@ -13148,7 +13148,7 @@ farming.start = function () {
         //vinyardLayer.appendChild(topLogoV);
         var topCoinV = (new lime.Sprite).setPosition(285, 20).setSize(35, 35).setFill(imgArray11[0]);
         vinyardLayer.appendChild(topCoinV);
-        var vinyardCash = (new lime.Label).setText(player.money).setFontColor("#E8FC08").setPosition(235, 24).setFontFamily("Comic Sans MS").setFontSize(18);
+        var vinyardCash = (new lime.Label).setText(player.money).setFontColor("#E8FC08").setPosition(235, 24).setFontFamily("Proxima Nova").setFontSize(18);
         vinyardLayer.appendChild(vinyardCash);
 
         var vinyardBack = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(0, 45).setSize(a.controlsLayer_w, 423).setFill(imgArrayVin[0]);
@@ -13159,7 +13159,7 @@ farming.start = function () {
         horizRoadV.appendChild(roadRightV)
 
         var toolCountImgV = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(5, 7).setSize(35, 35).setFill(imgArray[30]);
-        var toolCountV = (new lime.Label).setText(player.tools).setFontColor("#E8FC08").setPosition(65, 24).setFontFamily("Comic Sans MS").setFontSize(18);
+        var toolCountV = (new lime.Label).setText(player.tools).setFontColor("#E8FC08").setPosition(65, 24).setFontFamily("Proxima Nova").setFontSize(18);
         vinyardLayer.appendChild(toolCountImgV);
         vinyardLayer.appendChild(toolCountV);
         isblocked1 = localStorage.getItem("GuiGhostFarms_vinyardBlocks");
@@ -13213,11 +13213,11 @@ farming.start = function () {
         var vinyardTreeBlock1 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(55, 195).setSize(240, 105).setFill(imgArrayVin[1]);
         vinyardLayer.appendChild(vinyardTreeBlock1);
         var upgradeCloudTV1 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(55, -60).setSize(190, 250).setFill(imgArray[24].src).setOpacity(0.3); vinyardTreeBlock1.appendChild(upgradeCloudTV1);
-        var treeUnlockBtnV = (new lime.Label).setText("").setAnchorPoint(0, 0).setFontColor("#4CFF33").setFontWeight(600).setPosition(170, 280).setFontFamily("Comic Sans MS").setSize(90, 130); vinyardLayer.appendChild(treeUnlockBtnV);
+        var treeUnlockBtnV = (new lime.Label).setText("").setAnchorPoint(0, 0).setFontColor("#4CFF33").setFontWeight(600).setPosition(170, 280).setFontFamily("Proxima Nova").setSize(90, 130); vinyardLayer.appendChild(treeUnlockBtnV);
         var axeVLower = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(170, 15).setSize(40, 40).setFill(imgArray[61]); vinyardTreeBlock1.appendChild(axeVLower);
         var treesImgV = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(140, 0).setSize(35, 35).setFill(ImgArrayTools[3]); vinyardTreeBlock1.appendChild(treesImgV);
 
-        var axeMoverLabelTV1 = (new lime.Label).setText("60").setPosition(170, 70).setSize(40, 25).setFontFamily("Comic Sans MS").setFontColor("#E8FC08").setFontWeight(600).setFontSize(28).setFontFamily("ComicSans MS").setFill(imgArray[27]);
+        var axeMoverLabelTV1 = (new lime.Label).setText("60").setPosition(170, 70).setSize(40, 25).setFontFamily("Proxima Nova").setFontColor("#E8FC08").setFontWeight(600).setFontSize(28).setFontFamily("ComicSans MS").setFill(imgArray[27]);
         vinyardTreeBlock1.appendChild(axeMoverLabelTV1);
 
         var axerotateV1 = 0;
@@ -13310,9 +13310,9 @@ farming.start = function () {
         }
         var vinyardTreeBlock2 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(72, 78).setSize(235, 100).setFill(imgArrayVin[2]);
         vinyardLayer.appendChild(vinyardTreeBlock2);
-        var treeUnlockBtnV2 = (new lime.Label).setText("").setAnchorPoint(0, 0).setFontFamily("Comic Sans MS").setFontColor("#E8FC08").setFontWeight(600).setPosition(170, 165).setSize(90, 130); vinyardLayer.appendChild(treeUnlockBtnV2);
+        var treeUnlockBtnV2 = (new lime.Label).setText("").setAnchorPoint(0, 0).setFontFamily("Proxima Nova").setFontColor("#E8FC08").setFontWeight(600).setPosition(170, 165).setSize(90, 130); vinyardLayer.appendChild(treeUnlockBtnV2);
         var upgradeCloudTV2 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(45, -60).setSize(190, 250).setFill(imgArray[24].src).setOpacity(0.3); vinyardTreeBlock2.appendChild(upgradeCloudTV2);
-        var axeMoverLabelTV2 = (new lime.Label).setText("60").setPosition(150, 75).setSize(40, 25).setFontFamily("Comic Sans MS").setFontColor("#E8FC08").setFontWeight(600).setFontSize(28).setFontFamily("ComicSans MS").setFill(imgArray[27]);
+        var axeMoverLabelTV2 = (new lime.Label).setText("60").setPosition(150, 75).setSize(40, 25).setFontFamily("Proxima Nova").setFontColor("#E8FC08").setFontWeight(600).setFontSize(28).setFontFamily("ComicSans MS").setFill(imgArray[27]);
         vinyardTreeBlock2.appendChild(axeMoverLabelTV2);
         var axeVUpper = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(150, 20).setSize(40, 40).setFill(imgArray[61]); vinyardTreeBlock2.appendChild(axeVUpper);
         var treesImgV2 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(130, 0).setSize(35, 35).setFill(ImgArrayTools[3]); vinyardTreeBlock2.appendChild(treesImgV2);
@@ -13482,7 +13482,7 @@ farming.start = function () {
         //vinyardLayer.appendChild(comingSoonVBtn);
         //var vinyardNorthImg = (new lime.Sprite).setFill(imgArray[57]).setPosition(0, 0).setSize(25, 25);
         //comingSoonVBtn.appendChild(vinyardNorthImg);
-        //var comingSoonVLabel = (new lime.Label).setText("Coming Soon").setPosition(20, 70).setSize(0, 65).setFontColor("#E8FC08").setFontWeight(600).setFontSize(18).setFontFamily("Comic Sans MS").setFill(imgArray[27]);
+        //var comingSoonVLabel = (new lime.Label).setText("Coming Soon").setPosition(20, 70).setSize(0, 65).setFontColor("#E8FC08").setFontWeight(600).setFontSize(18).setFontFamily("Proxima Nova").setFill(imgArray[27]);
         //comingSoonVBtn.appendChild(comingSoonVLabel)
         //comingSoonVLabel.setHidden(true);
         //goog.events.listen(comingSoonVBtn, ["mousedown", "touchstart"], function () {
@@ -13492,7 +13492,7 @@ farming.start = function () {
         ///vinyard house upgrades
         var scaffoldV = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(55, 280).setSize(80, 70).setFill(imgArray[26]); vinyardLayer.appendChild(scaffoldV);
         var upgradeCloudV = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(45, 220).setSize(100, 150).setFill(imgArray[24].src); vinyardLayer.appendChild(upgradeCloudV);
-        var toolMoverLabelV = (new lime.Label).setText("120").setPosition(95, 310).setSize(40, 25).setFontColor("#E8FC08").setFontWeight(600).setFontSize(28).setFontFamily("Comic Sans MS").setFill(imgArray[27]);
+        var toolMoverLabelV = (new lime.Label).setText("120").setPosition(95, 310).setSize(40, 25).setFontColor("#E8FC08").setFontWeight(600).setFontSize(28).setFontFamily("Proxima Nova").setFill(imgArray[27]);
         var toolMoverV = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(-22, -50).setSize(50, 50).setFill(imgArray[29]);
         vinyardLayer.appendChild(toolMoverLabelV);
         toolMoverLabelV.appendChild(toolMoverV);
@@ -13506,7 +13506,7 @@ farming.start = function () {
         vinyardLayer.appendChild(vineyardUpgradePickMover);
         var vineyardUpgradeRockCloud = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(-40, 0).setSize(60, 70).setFill(imgArray[24].src);
         vinyardLayer.appendChild(vineyardUpgradeRockCloud);
-        var toolMoverLabelV2 = (new lime.Label).setText("60").setPosition(46, 108).setSize(40, 25).setFontFamily("Comic Sans MS").setFontColor("#E8FC08").setFontWeight(600).setFontSize(28).setFontFamily("ComicSans MS").setFill(imgArray[27]);
+        var toolMoverLabelV2 = (new lime.Label).setText("60").setPosition(46, 108).setSize(40, 25).setFontFamily("Proxima Nova").setFontColor("#E8FC08").setFontWeight(600).setFontSize(28).setFontFamily("ComicSans MS").setFill(imgArray[27]);
         vinyardLayer.appendChild(toolMoverLabelV2);
         vineyardUpgradePickMover.setHidden(true);
         vineyardUpgradeRockCloud.setHidden(true);
@@ -13555,19 +13555,19 @@ farming.start = function () {
         var barnUpgradeCostWoodV = 100;
         var upgradeBarnConfirmV = (new lime.Sprite).setPosition(155, 250).setSize(250, 250).setFill(imgArray[79])
         vinyardLayer.appendChild(upgradeBarnConfirmV);
-        var upgradeBarntextV1 = (new lime.Label).setPosition(0, -85).setSize(250, 30).setText("Upgrade Vineyard Barn").setFontFamily("Comic Sans MS").setFontColor("#000000").setFontSize(20);
+        var upgradeBarntextV1 = (new lime.Label).setPosition(0, -85).setSize(250, 30).setText("Upgrade Vineyard Barn").setFontFamily("Proxima Nova").setFontColor("#000000").setFontSize(20);
         upgradeBarnConfirmV.appendChild(upgradeBarntextV1);
-        var upgradeBarntextV2 = (new lime.Label).setPosition(0, -50).setSize(250, 30).setText("Unlocks Jelly Making").setFontFamily("Comic Sans MS").setFontColor("#000000").setFontSize(18);
+        var upgradeBarntextV2 = (new lime.Label).setPosition(0, -50).setSize(250, 30).setText("Unlocks Jelly Making").setFontFamily("Proxima Nova").setFontColor("#000000").setFontSize(18);
         upgradeBarnConfirmV.appendChild(upgradeBarntextV2);
         var upgradeBarnVTools = (new lime.Sprite).setPosition(-40, -20).setSize(40, 40).setFill(imgArray[30])
         upgradeBarnConfirmV.appendChild(upgradeBarnVTools);
-        var upgradeBarnVToolsTxt = (new lime.Label).setPosition(-40, 30).setSize(250, 25).setText(barnUpgradeCostToolsV).setFontFamily("Comic Sans MS").setFontColor("#000000").setFontSize(22);
+        var upgradeBarnVToolsTxt = (new lime.Label).setPosition(-40, 30).setSize(250, 25).setText(barnUpgradeCostToolsV).setFontFamily("Proxima Nova").setFontColor("#000000").setFontSize(22);
         upgradeBarnConfirmV.appendChild(upgradeBarnVToolsTxt);
         var upgradeBarnVWood = (new lime.Sprite).setPosition(40, -20).setSize(40, 40).setFill("images/" + a.crops[14].harvest)
         upgradeBarnConfirmV.appendChild(upgradeBarnVWood);
-        var upgradeBarnVWoodTxt = (new lime.Label).setPosition(40, 30).setSize(250, 25).setText(barnUpgradeCostWoodV).setFontFamily("Comic Sans MS").setFontColor("#000000").setFontSize(22);
+        var upgradeBarnVWoodTxt = (new lime.Label).setPosition(40, 30).setSize(250, 25).setText(barnUpgradeCostWoodV).setFontFamily("Proxima Nova").setFontColor("#000000").setFontSize(22);
         upgradeBarnConfirmV.appendChild(upgradeBarnVWoodTxt);
-        var upgradeBarnVShortText = (new lime.Label).setPosition(0, 60).setSize(250, 25).setText("You need more resources").setFontFamily("Comic Sans MS").setFontColor("#000000").setFontSize(14);
+        var upgradeBarnVShortText = (new lime.Label).setPosition(0, 60).setSize(250, 25).setText("You need more resources").setFontFamily("Proxima Nova").setFontColor("#000000").setFontSize(14);
         upgradeBarnConfirmV.appendChild(upgradeBarnVShortText);
         upgradeBarnVShortText.setHidden(true);
         var upgradeVinyardBarnBtn = (new lime.GlossyButton).setColor("#1ce636").setText("Upgrade").setPosition(0, 70).setSize(80, 35);
@@ -13720,11 +13720,11 @@ farming.start = function () {
         vinyardLayer.appendChild(collectJelly);
         var collectJellyIcon = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(8, 2).setSize(30, 31).setFill("images/" + a.crops[13].harvest);
         collectJelly.appendChild(collectJellyIcon);
-        var collectJellyLabel = (new lime.Label).setText("+ 0 ").setFontWeight(500).setFontColor("#E8FC08").setPosition(23, 44).setSize(30, 18).setFontFamily("Comic Sans MS");
+        var collectJellyLabel = (new lime.Label).setText("+ 0 ").setFontWeight(500).setFontColor("#E8FC08").setPosition(23, 44).setSize(30, 18).setFontFamily("Proxima Nova");
         collectJelly.appendChild(collectJellyLabel);
         collectJelly.setHidden(true);
         var jellyWaiting = 0;
-        var jellyUpCount = (new lime.Label).setText("+ 1 Jelly").setFontWeight(600).setFontColor("#E8FC08").setFontFamily("Comic Sans MS").setPosition(145, 335).setOpacity(0.4);
+        var jellyUpCount = (new lime.Label).setText("+ 1 Jelly").setFontWeight(600).setFontColor("#E8FC08").setFontFamily("Proxima Nova").setPosition(145, 335).setOpacity(0.4);
         vinyardLayer.appendChild(jellyUpCount);
         jellyUpCount.setHidden(true);
 
@@ -13738,7 +13738,7 @@ farming.start = function () {
             purchaseSound.play();
         });
         //cost display
-        var costDisplayV = (new lime.Label).setPosition(156, 180).setSize(50, 25).setText("50").setFontSize(14).setFontFamily("Comic Sans MS").setFontColor("#e1f00e").setFontWeight(600);
+        var costDisplayV = (new lime.Label).setPosition(156, 180).setSize(50, 25).setText("50").setFontSize(14).setFontFamily("Proxima Nova").setFontColor("#e1f00e").setFontWeight(600);
         vinyardLayer.appendChild(costDisplayV);
         var costCoinV = (new lime.Sprite).setPosition(30, -8).setSize(30, 30).setFill(imgArray11[0]); costDisplayV.appendChild(costCoinV);
         costDisplayV.setHidden(true);
@@ -13748,7 +13748,7 @@ farming.start = function () {
         vinyardLayer.appendChild(controlsBackVin);
         //vinyard growing set
         var hhV = b.currentCrop;
-        var wV = (new lime.Label).setText("Growing " + a.crops[12].name).setFontFamily("Comic Sans MS").setFontColor("#E8FC08").setFontSize(12).setPosition(a.controlsLayer_w / 2 - 7, a.height - a.controlsLayer_h / 2 - 11);
+        var wV = (new lime.Label).setText("Growing " + a.crops[12].name).setFontFamily("Proxima Nova").setFontColor("#E8FC08").setFontSize(12).setPosition(a.controlsLayer_w / 2 - 7, a.height - a.controlsLayer_h / 2 - 11);
         vinyardLayer.appendChild(wV);
         var zV = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(a.controlsLayer_w / 2 - 28, a.height - a.controlsLayer_h / 2 - 10).setFill("images/" + a.crops[12].harvest).setSize(30, 38);
         vinyardLayer.appendChild(zV);
@@ -13980,11 +13980,11 @@ farming.start = function () {
 
         ////achievement Modal
         var achieveNotifV = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(45, 130).setSize(210, 220).setFill(imgArray[91]);
-        var achieveTextV = (new lime.Label).setAnchorPoint(0, 0).setFontFamily("Comic Sans MS").setFontColor("#000033").setPosition(13, 45).setSize(190, 60).setFontSize(16).setText("Blacksmith I");
+        var achieveTextV = (new lime.Label).setAnchorPoint(0, 0).setFontFamily("Proxima Nova").setFontColor("#000033").setPosition(13, 45).setSize(190, 60).setFontSize(16).setText("Blacksmith I");
         achieveNotifV.appendChild(achieveTextV);
-        var achieveTextSubV = (new lime.Label).setAnchorPoint(0, 0).setFontFamily("Comic Sans MS").setFontColor("#000033").setPosition(30, 123).setSize(150, 60).setFontSize(12).setText("Achieve Text");
+        var achieveTextSubV = (new lime.Label).setAnchorPoint(0, 0).setFontFamily("Proxima Nova").setFontColor("#000033").setPosition(30, 123).setSize(150, 60).setFontSize(12).setText("Achieve Text");
         achieveNotifV.appendChild(achieveTextSubV);
-        var achieveSCV = (new lime.Label).setAnchorPoint(0, 0).setFontFamily("Comic Sans MS").setFontColor("#000033").setPosition(21, 182).setSize(190, 60).setFontSize(18).setText(" + ");
+        var achieveSCV = (new lime.Label).setAnchorPoint(0, 0).setFontFamily("Proxima Nova").setFontColor("#000033").setPosition(21, 182).setSize(190, 60).setFontSize(18).setText(" + ");
         achieveNotifV.appendChild(achieveSCV);
         var confirmBtnAV = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(90, 211).setSize(40, 40).setFill(imgArray[21]);
         achieveNotifV.appendChild(confirmBtnAV);
@@ -14133,13 +14133,13 @@ farming.start = function () {
         vinyardLayer.appendChild(jellyBlocked);
         var confirmjellyBlocked = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(70, 195).setSize(40, 40).setFill(imgArray[21]);
         jellyBlocked.appendChild(confirmjellyBlocked);
-        var blockedTextJ = (new lime.Label).setAnchorPoint(0, 0).setFontFamily("Comic Sans MS").setFontColor("#E8FC08").setPosition(5, 120).setSize(170, 40).setFontSize(14).setText("Jelly Making Halted!");
+        var blockedTextJ = (new lime.Label).setAnchorPoint(0, 0).setFontFamily("Proxima Nova").setFontColor("#E8FC08").setPosition(5, 120).setSize(170, 40).setFontSize(14).setText("Jelly Making Halted!");
         jellyBlocked.appendChild(blockedTextJ);
-        var blockedSubJ = (new lime.Label).setAnchorPoint(0, 0).setFontFamily("Comic Sans MS").setFontColor("#FFFFFF").setPosition(2, 140).setSize(175, 40).setFontSize(10).setText("You need to grow more GRAPES to make JELLY");
+        var blockedSubJ = (new lime.Label).setAnchorPoint(0, 0).setFontFamily("Proxima Nova").setFontColor("#FFFFFF").setPosition(2, 140).setSize(175, 40).setFontSize(10).setText("You need to grow more GRAPES to make JELLY");
         jellyBlocked.appendChild(blockedSubJ);
         var grapesIcon2 = (new lime.Sprite).setPosition(85, 180).setFill("images/" + a.crops[12].harvest).setSize(20, 25);
         jellyBlocked.appendChild(grapesIcon2);
-        var gLabel5Jelly = (new lime.Label).setPosition(105, 186).setSize(20, 16).setText(player.cropsStored[12].stored).setFontFamily("Comic Sans MS").setFontColor("#E8FC08");
+        var gLabel5Jelly = (new lime.Label).setPosition(105, 186).setSize(20, 16).setText(player.cropsStored[12].stored).setFontFamily("Proxima Nova").setFontColor("#E8FC08");
         jellyBlocked.appendChild(gLabel5Jelly);
 
         jellyBlocked.setHidden(true);
@@ -14158,9 +14158,9 @@ farming.start = function () {
         var questPanelV = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(15, 115).setSize(a.width - 30, a.height / 2).setFill(imgArray[78]);
         vinyardLayer.appendChild(questPanelV);
         questPanel.setHidden(true);
-        var questHeaderV = (new lime.Label).setAnchorPoint(0, 0).setPosition(40, 25).setText("Vinemaster Terric").setFontFamily("Comic Sans MS").setFontSize(24);
+        var questHeaderV = (new lime.Label).setAnchorPoint(0, 0).setPosition(40, 25).setText("Vinemaster Terric").setFontFamily("Proxima Nova").setFontSize(24);
         questPanelV.appendChild(questHeaderV);
-        var questText1V = (new lime.Label).setAnchorPoint(0, 0).setPosition(20, 155).setText(questParams.terric[1].text).setFontFamily("Comic Sans MS").setFontSize(16).setSize(a.width - 80, a.height / 2 - 50);
+        var questText1V = (new lime.Label).setAnchorPoint(0, 0).setPosition(20, 155).setText(questParams.terric[1].text).setFontFamily("Proxima Nova").setFontSize(16).setSize(a.width - 80, a.height / 2 - 50);
         questPanelV.appendChild(questText1V);
         var questPanelAvatarV = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(90, 45).setSize(100, 100).setFill(imgArrayVin[12]);
         questPanelV.appendChild(questPanelAvatarV);
@@ -14287,9 +14287,9 @@ farming.start = function () {
         var questPanelV2 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(15, 115).setSize(a.width - 30, a.height / 2).setFill(imgArray[78]);
         vinyardLayer.appendChild(questPanelV2);
         questPanelV2.setHidden(true);
-        var questHeaderV2 = (new lime.Label).setAnchorPoint(0, 0).setPosition(40, 25).setText("Vinemaster Terric").setFontFamily("Comic Sans MS").setFontSize(24);
+        var questHeaderV2 = (new lime.Label).setAnchorPoint(0, 0).setPosition(40, 25).setText("Vinemaster Terric").setFontFamily("Proxima Nova").setFontSize(24);
         questPanelV2.appendChild(questHeaderV2);
-        var questText1V2 = (new lime.Label).setAnchorPoint(0, 0).setPosition(15, 150).setText("This old path used to lead to the WINDMILL before the landslide").setFontFamily("Comic Sans MS").setFontSize(15).setSize(a.width - 70, a.height / 2 - 50);
+        var questText1V2 = (new lime.Label).setAnchorPoint(0, 0).setPosition(15, 150).setText("This old path used to lead to the WINDMILL before the landslide").setFontFamily("Proxima Nova").setFontSize(15).setSize(a.width - 70, a.height / 2 - 50);
         questPanelV2.appendChild(questText1V2);
         var questPanelAvatarV2 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(105, 50).setSize(80, 80).setFill(imgArrayVin[12]);
         questPanelV2.appendChild(questPanelAvatarV2);
@@ -14384,13 +14384,13 @@ farming.start = function () {
 
 
         var vinyardHelpPanel = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(15, 100).setSize(a.width - 30, a.height / 2 + 40).setFill(imgArray[78]).setHidden(true);
-        var helpHeadervinyard = (new lime.Label).setAnchorPoint(0, 0).setPosition(68, 30).setText("The Vineyard").setFontFamily("Comic Sans MS").setFontSize(24);
+        var helpHeadervinyard = (new lime.Label).setAnchorPoint(0, 0).setPosition(68, 30).setText("The Vineyard").setFontFamily("Proxima Nova").setFontSize(24);
         vinyardHelpPanel.appendChild(helpHeadervinyard);
-        var helpText1vinyard = (new lime.Label).setAnchorPoint(0, 0).setPosition(20, 80).setText("These hills are best suited to growing GRAPES").setFontFamily("Comic Sans MS").setFontSize(16).setSize(a.width - 80, a.height / 2 - 50);
+        var helpText1vinyard = (new lime.Label).setAnchorPoint(0, 0).setPosition(20, 80).setText("These hills are best suited to growing GRAPES").setFontFamily("Proxima Nova").setFontSize(16).setSize(a.width - 80, a.height / 2 - 50);
         vinyardHelpPanel.appendChild(helpText1vinyard);
-        var helpText2vinyard = (new lime.Label).setAnchorPoint(0, 0).setPosition(20, 140).setText("Upgrade the Vineyard and buy JARS in town to unlock JELLY").setFontFamily("Comic Sans MS").setFontSize(16).setSize(a.width - 80, a.height / 2 - 50);
+        var helpText2vinyard = (new lime.Label).setAnchorPoint(0, 0).setPosition(20, 140).setText("Upgrade the Vineyard and buy JARS in town to unlock JELLY").setFontFamily("Proxima Nova").setFontSize(16).setSize(a.width - 80, a.height / 2 - 50);
         vinyardHelpPanel.appendChild(helpText2vinyard);
-        var helpText3vinyard = (new lime.Label).setAnchorPoint(0, 0).setPosition(20, 205).setText("As long as you have GRAPES and JARS, you can collect JELLY regularly").setFontFamily("Comic Sans MS").setFontSize(16).setSize(a.width - 80, a.height / 2 - 50);
+        var helpText3vinyard = (new lime.Label).setAnchorPoint(0, 0).setPosition(20, 205).setText("As long as you have GRAPES and JARS, you can collect JELLY regularly").setFontFamily("Proxima Nova").setFontSize(16).setSize(a.width - 80, a.height / 2 - 50);
         vinyardHelpPanel.appendChild(helpText3vinyard);
 
         var vinyardHelpPanelCloseBtn = (new lime.GlossyButton).setColor("#663300").setText("Close").setPosition(140, 292).setSize(100, 20);
@@ -14441,105 +14441,105 @@ farming.start = function () {
         achieveLayer.appendChild(backBtnAchieve);
 
         var achieve1 = (new lime.Sprite).setAnchorPoint(0.0).setPosition(9, 80).setFill(imgArray[18].src).setSize(142, 40); achieveLayer.appendChild(achieve1);
-        var achieve1Label = (new lime.Label).setAnchorPoint(0.0).setFill("#C14825").setFontFamily("Comic Sans MS").setFontColor("#E8FC08").setPosition(75, 85).setText("Harvester I").setSize(152, 40); achieveLayer.appendChild(achieve1Label);
-        var achieve1Label2 = (new lime.Label).setAnchorPoint(0.0).setFill("#C14825").setFontFamily("Comic Sans MS").setFontColor("#ffffff").setFontSize(11).setPosition(80, 108).setText("Harvest 500 crops").setSize(152, 40); achieveLayer.appendChild(achieve1Label2);
+        var achieve1Label = (new lime.Label).setAnchorPoint(0.0).setFill("#C14825").setFontFamily("Proxima Nova").setFontColor("#E8FC08").setPosition(75, 85).setText("Harvester I").setSize(152, 40); achieveLayer.appendChild(achieve1Label);
+        var achieve1Label2 = (new lime.Label).setAnchorPoint(0.0).setFill("#C14825").setFontFamily("Proxima Nova").setFontColor("#ffffff").setFontSize(11).setPosition(80, 108).setText("Harvest 500 crops").setSize(152, 40); achieveLayer.appendChild(achieve1Label2);
         var achieve1Star = (new lime.Sprite).setAnchorPoint(0.0).setPosition(120, 80).setFill(imgArray[37]).setSize(30, 29.5); achieveLayer.appendChild(achieve1Star);
         var achieve1Check = (new lime.Sprite).setAnchorPoint(0.0).setPosition(10, 85).setFill(imgArray[35]).setSize(16, 16); achieveLayer.appendChild(achieve1Check);
 
         var achieve2 = (new lime.Sprite).setAnchorPoint(0.0).setPosition(9, 125).setFill(imgArray[18].src).setSize(142, 40); achieveLayer.appendChild(achieve2);
-        var achieve2Label = (new lime.Label).setAnchorPoint(0.0).setFill("#C14825").setFontFamily("Comic Sans MS").setFontColor("#E8FC08").setPosition(75, 130).setText("Harvester II").setSize(152, 40); achieveLayer.appendChild(achieve2Label);
-        var achieve2Label2 = (new lime.Label).setAnchorPoint(0.0).setFill("#C14825").setFontFamily("Comic Sans MS").setFontColor("#ffffff").setPosition(80, 153).setFontSize(11).setText("Harvest 5000 crops").setSize(152, 40); achieveLayer.appendChild(achieve2Label2);
+        var achieve2Label = (new lime.Label).setAnchorPoint(0.0).setFill("#C14825").setFontFamily("Proxima Nova").setFontColor("#E8FC08").setPosition(75, 130).setText("Harvester II").setSize(152, 40); achieveLayer.appendChild(achieve2Label);
+        var achieve2Label2 = (new lime.Label).setAnchorPoint(0.0).setFill("#C14825").setFontFamily("Proxima Nova").setFontColor("#ffffff").setPosition(80, 153).setFontSize(11).setText("Harvest 5000 crops").setSize(152, 40); achieveLayer.appendChild(achieve2Label2);
         var achieve2Star = (new lime.Sprite).setAnchorPoint(0.0).setPosition(120, 125).setFill(imgArray[38]).setSize(30, 29.5); achieveLayer.appendChild(achieve2Star);
         var achieve2Check = (new lime.Sprite).setAnchorPoint(0.0).setPosition(10, 130).setFill(imgArray[35]).setSize(16, 16); achieveLayer.appendChild(achieve2Check);
 
         var achieve3 = (new lime.Sprite).setAnchorPoint(0.0).setPosition(9, 170).setFill(imgArray[18].src).setSize(142, 40); achieveLayer.appendChild(achieve3);
-        var achieve3Label = (new lime.Label).setAnchorPoint(0.0).setFill("#C14825").setFontFamily("Comic Sans MS").setFontColor("#E8FC08").setPosition(75, 175).setText("Expansion").setSize(152, 40); achieveLayer.appendChild(achieve3Label);
-        var achieve3Label2 = (new lime.Label).setAnchorPoint(0.0).setFill("#C14825").setFontFamily("Comic Sans MS").setFontColor("#ffffff").setPosition(80, 198).setFontSize(11).setText("Purchase another Acre").setSize(152, 40); achieveLayer.appendChild(achieve3Label2);
+        var achieve3Label = (new lime.Label).setAnchorPoint(0.0).setFill("#C14825").setFontFamily("Proxima Nova").setFontColor("#E8FC08").setPosition(75, 175).setText("Expansion").setSize(152, 40); achieveLayer.appendChild(achieve3Label);
+        var achieve3Label2 = (new lime.Label).setAnchorPoint(0.0).setFill("#C14825").setFontFamily("Proxima Nova").setFontColor("#ffffff").setPosition(80, 198).setFontSize(11).setText("Purchase another Acre").setSize(152, 40); achieveLayer.appendChild(achieve3Label2);
         var achieve3Star = (new lime.Sprite).setAnchorPoint(0.0).setPosition(120, 170).setFill(imgArray[37]).setSize(30, 29.5); achieveLayer.appendChild(achieve3Star);
         var achieve3Check = (new lime.Sprite).setAnchorPoint(0.0).setPosition(10, 175).setFill(imgArray[35]).setSize(16, 16); achieveLayer.appendChild(achieve3Check);
 
         var achieve4 = (new lime.Sprite).setAnchorPoint(0.0).setPosition(9, 215).setFill(imgArray[18].src).setSize(142, 40); achieveLayer.appendChild(achieve4);
-        var achieve4Label = (new lime.Label).setAnchorPoint(0.0).setFill("#C14825").setFontFamily("Comic Sans MS").setFontColor("#E8FC08").setPosition(75, 220).setText("Carpenter").setSize(152, 40); achieveLayer.appendChild(achieve4Label);
-        var achieve4Label2 = (new lime.Label).setAnchorPoint(0.0).setFill("#C14825").setFontFamily("Comic Sans MS").setFontColor("#ffffff").setPosition(80, 243).setFontSize(11).setText("Upgrade Barn to Max").setSize(152, 40); achieveLayer.appendChild(achieve4Label2);
+        var achieve4Label = (new lime.Label).setAnchorPoint(0.0).setFill("#C14825").setFontFamily("Proxima Nova").setFontColor("#E8FC08").setPosition(75, 220).setText("Carpenter").setSize(152, 40); achieveLayer.appendChild(achieve4Label);
+        var achieve4Label2 = (new lime.Label).setAnchorPoint(0.0).setFill("#C14825").setFontFamily("Proxima Nova").setFontColor("#ffffff").setPosition(80, 243).setFontSize(11).setText("Upgrade Barn to Max").setSize(152, 40); achieveLayer.appendChild(achieve4Label2);
         var achieve4Star = (new lime.Sprite).setAnchorPoint(0.0).setPosition(120, 215).setFill(imgArray[38]).setSize(30, 29.5); achieveLayer.appendChild(achieve4Star);
         var achieve4Check = (new lime.Sprite).setAnchorPoint(0.0).setPosition(10, 220).setFill(imgArray[35]).setSize(16, 16); achieveLayer.appendChild(achieve4Check);
 
 
         var achieve5 = (new lime.Sprite).setAnchorPoint(0.0).setPosition(157, 80).setFill(imgArray[18].src).setSize(142, 40); achieveLayer.appendChild(achieve5);
-        var achieve5Label = (new lime.Label).setAnchorPoint(0.0).setFill("#C14825").setFontFamily("Comic Sans MS").setFontColor("#E8FC08").setPosition(220, 85).setText("Blacksmith I").setSize(152, 40); achieveLayer.appendChild(achieve5Label);
-        var achieve5Label2 = (new lime.Label).setAnchorPoint(0.0).setFill("#C14825").setFontFamily("Comic Sans MS").setFontColor("#ffffff").setPosition(226, 108).setFontSize(11).setText("Collect 500 Tools").setSize(152, 40); achieveLayer.appendChild(achieve5Label2);
+        var achieve5Label = (new lime.Label).setAnchorPoint(0.0).setFill("#C14825").setFontFamily("Proxima Nova").setFontColor("#E8FC08").setPosition(220, 85).setText("Blacksmith I").setSize(152, 40); achieveLayer.appendChild(achieve5Label);
+        var achieve5Label2 = (new lime.Label).setAnchorPoint(0.0).setFill("#C14825").setFontFamily("Proxima Nova").setFontColor("#ffffff").setPosition(226, 108).setFontSize(11).setText("Collect 500 Tools").setSize(152, 40); achieveLayer.appendChild(achieve5Label2);
         var achieve5Star = (new lime.Sprite).setAnchorPoint(0.0).setPosition(266, 80).setFill(imgArray[37]).setSize(30, 29.5); achieveLayer.appendChild(achieve5Star);
         var achieve5Check = (new lime.Sprite).setAnchorPoint(0.0).setPosition(158, 85).setFill(imgArray[35]).setSize(16, 16); achieveLayer.appendChild(achieve5Check);
 
         var achieve6 = (new lime.Sprite).setAnchorPoint(0.0).setPosition(157, 125).setFill(imgArray[18].src).setSize(142, 40); achieveLayer.appendChild(achieve6);
-        var achieve6Label = (new lime.Label).setAnchorPoint(0.0).setFill("#C14825").setFontFamily("Comic Sans MS").setFontColor("#E8FC08").setPosition(220, 130).setText("Blacksmith II").setSize(152, 40); achieveLayer.appendChild(achieve6Label);
-        var achieve6Label2 = (new lime.Label).setAnchorPoint(0.0).setFill("#C14825").setFontFamily("Comic Sans MS").setFontColor("#ffffff").setPosition(226, 153).setFontSize(11).setText("Collect 5000 Tools").setSize(152, 40); achieveLayer.appendChild(achieve6Label2);
+        var achieve6Label = (new lime.Label).setAnchorPoint(0.0).setFill("#C14825").setFontFamily("Proxima Nova").setFontColor("#E8FC08").setPosition(220, 130).setText("Blacksmith II").setSize(152, 40); achieveLayer.appendChild(achieve6Label);
+        var achieve6Label2 = (new lime.Label).setAnchorPoint(0.0).setFill("#C14825").setFontFamily("Proxima Nova").setFontColor("#ffffff").setPosition(226, 153).setFontSize(11).setText("Collect 5000 Tools").setSize(152, 40); achieveLayer.appendChild(achieve6Label2);
         var achieve6Star = (new lime.Sprite).setAnchorPoint(0.0).setPosition(266, 125).setFill(imgArray[38]).setSize(30, 29.5); achieveLayer.appendChild(achieve6Star);
         var achieve6Check = (new lime.Sprite).setAnchorPoint(0.0).setPosition(158, 130).setFill(imgArray[35]).setSize(16, 16); achieveLayer.appendChild(achieve6Check);
 
         var achieve7 = (new lime.Sprite).setAnchorPoint(0.0).setPosition(157, 170).setFill(imgArray[18].src).setSize(142, 40); achieveLayer.appendChild(achieve7);
-        var achieve7Label = (new lime.Label).setAnchorPoint(0.0).setFill("#C14825").setFontFamily("Comic Sans MS").setFontColor("#E8FC08").setPosition(220, 175).setText("Patience").setSize(152, 40); achieveLayer.appendChild(achieve7Label);
-        var achieve7Label2 = (new lime.Label).setAnchorPoint(0.0).setFill("#C14825").setFontFamily("Comic Sans MS").setFontColor("#ffffff").setPosition(226, 198).setFontSize(11).setText("Play for 1 Farm Year").setSize(152, 40); achieveLayer.appendChild(achieve7Label2);
+        var achieve7Label = (new lime.Label).setAnchorPoint(0.0).setFill("#C14825").setFontFamily("Proxima Nova").setFontColor("#E8FC08").setPosition(220, 175).setText("Patience").setSize(152, 40); achieveLayer.appendChild(achieve7Label);
+        var achieve7Label2 = (new lime.Label).setAnchorPoint(0.0).setFill("#C14825").setFontFamily("Proxima Nova").setFontColor("#ffffff").setPosition(226, 198).setFontSize(11).setText("Play for 1 Farm Year").setSize(152, 40); achieveLayer.appendChild(achieve7Label2);
         var achieve7Star = (new lime.Sprite).setAnchorPoint(0.0).setPosition(266, 170).setFill(imgArray[38]).setSize(30, 29.5); achieveLayer.appendChild(achieve7Star);
         var achieve7Check = (new lime.Sprite).setAnchorPoint(0.0).setPosition(158, 175).setFill(imgArray[35]).setSize(16, 16); achieveLayer.appendChild(achieve7Check);
 
         var achieve8 = (new lime.Sprite).setAnchorPoint(0.0).setPosition(157, 215).setFill(imgArray[18].src).setSize(142, 40); achieveLayer.appendChild(achieve8);
-        var achieve8Label = (new lime.Label).setAnchorPoint(0.0).setFill("#C14825").setFontFamily("Comic Sans MS").setFontColor("#E8FC08").setPosition(220, 220).setText("Acreage").setSize(152, 40); achieveLayer.appendChild(achieve8Label);
-        var achieve8Label2 = (new lime.Label).setAnchorPoint(0.0).setFill("#C14825").setFontFamily("Comic Sans MS").setFontColor("#ffffff").setPosition(226, 243).setFontSize(11).setText("Own 5 Acres").setSize(152, 40); achieveLayer.appendChild(achieve8Label2);
+        var achieve8Label = (new lime.Label).setAnchorPoint(0.0).setFill("#C14825").setFontFamily("Proxima Nova").setFontColor("#E8FC08").setPosition(220, 220).setText("Acreage").setSize(152, 40); achieveLayer.appendChild(achieve8Label);
+        var achieve8Label2 = (new lime.Label).setAnchorPoint(0.0).setFill("#C14825").setFontFamily("Proxima Nova").setFontColor("#ffffff").setPosition(226, 243).setFontSize(11).setText("Own 5 Acres").setSize(152, 40); achieveLayer.appendChild(achieve8Label2);
         var achieve8Star = (new lime.Sprite).setAnchorPoint(0.0).setPosition(266, 215).setFill(imgArray[39]).setSize(30, 29.5); achieveLayer.appendChild(achieve8Star);
         var achieve8Check = (new lime.Sprite).setAnchorPoint(0.0).setPosition(158, 220).setFill(imgArray[35]).setSize(16, 16); achieveLayer.appendChild(achieve8Check);
 
         var achieve9 = (new lime.Sprite).setAnchorPoint(0.0).setPosition(9, 260).setFill(imgArray[18].src).setSize(142, 40); achieveLayer.appendChild(achieve9);
-        var achieve9Label = (new lime.Label).setAnchorPoint(0.0).setFill("#C14825").setFontFamily("Comic Sans MS").setFontColor("#E8FC08").setPosition(75, 265).setText("Jelly Making").setSize(152, 40); achieveLayer.appendChild(achieve9Label);
-        var achieve9Label2 = (new lime.Label).setAnchorPoint(0.0).setFill("#C14825").setFontFamily("Comic Sans MS").setFontColor("#ffffff").setPosition(80, 288).setFontSize(11).setText("Unlock Jelly Making").setSize(152, 40); achieveLayer.appendChild(achieve9Label2);
+        var achieve9Label = (new lime.Label).setAnchorPoint(0.0).setFill("#C14825").setFontFamily("Proxima Nova").setFontColor("#E8FC08").setPosition(75, 265).setText("Jelly Making").setSize(152, 40); achieveLayer.appendChild(achieve9Label);
+        var achieve9Label2 = (new lime.Label).setAnchorPoint(0.0).setFill("#C14825").setFontFamily("Proxima Nova").setFontColor("#ffffff").setPosition(80, 288).setFontSize(11).setText("Unlock Jelly Making").setSize(152, 40); achieveLayer.appendChild(achieve9Label2);
         var achieve9Star = (new lime.Sprite).setAnchorPoint(0.0).setPosition(120, 260).setFill(imgArray[38]).setSize(30, 29.5); achieveLayer.appendChild(achieve9Star);
         var achieve9Check = (new lime.Sprite).setAnchorPoint(0.0).setPosition(10, 265).setFill(imgArray[35]).setSize(16, 16); achieveLayer.appendChild(achieve9Check);
 
         var achieve10 = (new lime.Sprite).setAnchorPoint(0.0).setPosition(9, 305).setFill(imgArray[18].src).setSize(142, 40); achieveLayer.appendChild(achieve10);
-        var achieve10Label = (new lime.Label).setAnchorPoint(0.0).setFill("#C14825").setFontFamily("Comic Sans MS").setFontColor("#E8FC08").setPosition(75, 310).setText("Lumberjack").setSize(152, 40); achieveLayer.appendChild(achieve10Label);
-        var achieve10Label2 = (new lime.Label).setAnchorPoint(0.0).setFill("#C14825").setFontFamily("Comic Sans MS").setFontColor("#ffffff").setPosition(75, 332).setFontSize(11).setText("Clear all Forests").setSize(152, 40); achieveLayer.appendChild(achieve10Label2);
+        var achieve10Label = (new lime.Label).setAnchorPoint(0.0).setFill("#C14825").setFontFamily("Proxima Nova").setFontColor("#E8FC08").setPosition(75, 310).setText("Lumberjack").setSize(152, 40); achieveLayer.appendChild(achieve10Label);
+        var achieve10Label2 = (new lime.Label).setAnchorPoint(0.0).setFill("#C14825").setFontFamily("Proxima Nova").setFontColor("#ffffff").setPosition(75, 332).setFontSize(11).setText("Clear all Forests").setSize(152, 40); achieveLayer.appendChild(achieve10Label2);
         var achieve10Star = (new lime.Sprite).setAnchorPoint(0.0).setPosition(120, 305).setFill(imgArray[39]).setSize(30, 29.5); achieveLayer.appendChild(achieve10Star);
         var achieve10Check = (new lime.Sprite).setAnchorPoint(0.0).setPosition(10, 310).setFill(imgArray[35]).setSize(16, 16); achieveLayer.appendChild(achieve10Check);
 
         var achieve11 = (new lime.Sprite).setAnchorPoint(0.0).setPosition(9, 350).setFill(imgArray[18].src).setSize(142, 40); achieveLayer.appendChild(achieve11);
-        var achieve11Label = (new lime.Label).setAnchorPoint(0.0).setFill("#C14825").setFontFamily("Comic Sans MS").setFontColor("#E8FC08").setPosition(67, 355).setText("Breakfast Time").setSize(152, 40); achieveLayer.appendChild(achieve11Label);
-        var achieve11Label2 = (new lime.Label).setAnchorPoint(0.0).setFill("#C14825").setFontFamily("Comic Sans MS").setFontColor("#ffffff").setPosition(80, 378).setFontSize(11).setText("Obtain 100 Ham and Eggs").setSize(152, 40); achieveLayer.appendChild(achieve11Label2);
+        var achieve11Label = (new lime.Label).setAnchorPoint(0.0).setFill("#C14825").setFontFamily("Proxima Nova").setFontColor("#E8FC08").setPosition(67, 355).setText("Breakfast Time").setSize(152, 40); achieveLayer.appendChild(achieve11Label);
+        var achieve11Label2 = (new lime.Label).setAnchorPoint(0.0).setFill("#C14825").setFontFamily("Proxima Nova").setFontColor("#ffffff").setPosition(80, 378).setFontSize(11).setText("Obtain 100 Ham and Eggs").setSize(152, 40); achieveLayer.appendChild(achieve11Label2);
         var achieve11Star = (new lime.Sprite).setAnchorPoint(0.0).setPosition(120, 350).setFill(imgArray[38]).setSize(30, 29.5); achieveLayer.appendChild(achieve11Star);
         var achieve11Check = (new lime.Sprite).setAnchorPoint(0.0).setPosition(10, 355).setFill(imgArray[35]).setSize(16, 16); achieveLayer.appendChild(achieve11Check);
 
         var achieve12 = (new lime.Sprite).setAnchorPoint(0.0).setPosition(9, 395).setFill(imgArray[18].src).setSize(142, 40); achieveLayer.appendChild(achieve12);
-        var achieve12Label = (new lime.Label).setAnchorPoint(0.0).setFill("#C14825").setFill("#663300").setFontFamily("Comic Sans MS").setFontColor("#E8FC08").setPosition(72, 400).setText("Balanced Diet").setSize(152, 40); achieveLayer.appendChild(achieve12Label);
-        var achieve12Label2 = (new lime.Label).setAnchorPoint(0.0).setFill("#C14825").setFontFamily("Comic Sans MS").setFontColor("#ffffff").setPosition(75, 423).setFontSize(11).setText("Own 10 of each Crop").setSize(152, 40); achieveLayer.appendChild(achieve12Label2);
+        var achieve12Label = (new lime.Label).setAnchorPoint(0.0).setFill("#C14825").setFill("#663300").setFontFamily("Proxima Nova").setFontColor("#E8FC08").setPosition(72, 400).setText("Balanced Diet").setSize(152, 40); achieveLayer.appendChild(achieve12Label);
+        var achieve12Label2 = (new lime.Label).setAnchorPoint(0.0).setFill("#C14825").setFontFamily("Proxima Nova").setFontColor("#ffffff").setPosition(75, 423).setFontSize(11).setText("Own 10 of each Crop").setSize(152, 40); achieveLayer.appendChild(achieve12Label2);
         var achieve12Star = (new lime.Sprite).setAnchorPoint(0.0).setPosition(120, 395).setFill(imgArray[38]).setSize(30, 29.5); achieveLayer.appendChild(achieve12Star);
         var achieve12Check = (new lime.Sprite).setAnchorPoint(0.0).setPosition(10, 400).setFill(imgArray[35]).setSize(16, 16); achieveLayer.appendChild(achieve12Check);
 
 
         var achieve13 = (new lime.Sprite).setAnchorPoint(0.0).setPosition(157, 260).setFill(imgArray[18].src).setSize(142, 40); achieveLayer.appendChild(achieve13);
-        var achieve13Label = (new lime.Label).setAnchorPoint(0.0).setFill("#C14825").setFontFamily("Comic Sans MS").setFontColor("#E8FC08").setPosition(224, 265).setText("Milk Master").setSize(152, 40); achieveLayer.appendChild(achieve13Label);
-        var achieve13Label2 = (new lime.Label).setAnchorPoint(0.0).setFill("#C14825").setFontFamily("Comic Sans MS").setFontColor("#ffffff").setPosition(226, 287).setFontSize(11).setText("Upgrade Dairy to Max").setSize(152, 40); achieveLayer.appendChild(achieve13Label2);
+        var achieve13Label = (new lime.Label).setAnchorPoint(0.0).setFill("#C14825").setFontFamily("Proxima Nova").setFontColor("#E8FC08").setPosition(224, 265).setText("Milk Master").setSize(152, 40); achieveLayer.appendChild(achieve13Label);
+        var achieve13Label2 = (new lime.Label).setAnchorPoint(0.0).setFill("#C14825").setFontFamily("Proxima Nova").setFontColor("#ffffff").setPosition(226, 287).setFontSize(11).setText("Upgrade Dairy to Max").setSize(152, 40); achieveLayer.appendChild(achieve13Label2);
         var achieve13Star = (new lime.Sprite).setAnchorPoint(0.0).setPosition(266, 260).setFill(imgArray[38]).setSize(30, 29.5); achieveLayer.appendChild(achieve13Star);
         var achieve13Check = (new lime.Sprite).setAnchorPoint(0.0).setPosition(158, 265).setFill(imgArray[35]).setSize(16, 16); achieveLayer.appendChild(achieve13Check);
 
         var achieve14 = (new lime.Sprite).setAnchorPoint(0.0).setPosition(157, 305).setFill(imgArray[18].src).setSize(142, 40); achieveLayer.appendChild(achieve14);
-        var achieve14Label = (new lime.Label).setAnchorPoint(0.0).setFill("#C14825").setFontFamily("Comic Sans MS").setFontColor("#E8FC08").setPosition(220, 310).setText("Merchant").setSize(152, 40); achieveLayer.appendChild(achieve14Label);
-        var achieve14Label2 = (new lime.Label).setAnchorPoint(0.0).setFill("#C14825").setFontFamily("Comic Sans MS").setFontColor("#ffffff").setPosition(226, 332).setFontSize(11).setText("Earn $5000 at Market").setSize(152, 40); achieveLayer.appendChild(achieve14Label2);
+        var achieve14Label = (new lime.Label).setAnchorPoint(0.0).setFill("#C14825").setFontFamily("Proxima Nova").setFontColor("#E8FC08").setPosition(220, 310).setText("Merchant").setSize(152, 40); achieveLayer.appendChild(achieve14Label);
+        var achieve14Label2 = (new lime.Label).setAnchorPoint(0.0).setFill("#C14825").setFontFamily("Proxima Nova").setFontColor("#ffffff").setPosition(226, 332).setFontSize(11).setText("Earn $5000 at Market").setSize(152, 40); achieveLayer.appendChild(achieve14Label2);
         var achieve14Star = (new lime.Sprite).setAnchorPoint(0.0).setPosition(266, 305).setFill(imgArray[38]).setSize(30, 29.5); achieveLayer.appendChild(achieve14Star);
         var achieve14Check = (new lime.Sprite).setAnchorPoint(0.0).setPosition(158, 310).setFill(imgArray[35]).setSize(16, 16); achieveLayer.appendChild(achieve14Check);
 
         var achieve15 = (new lime.Sprite).setAnchorPoint(0.0).setPosition(157, 350).setFill(imgArray[18].src).setSize(142, 40); achieveLayer.appendChild(achieve15);
-        var achieve15Label = (new lime.Label).setAnchorPoint(0.0).setFill("#C14825").setFontFamily("Comic Sans MS").setFontColor("#E8FC08").setPosition(220, 355).setText("Cross-Over").setSize(152, 40); achieveLayer.appendChild(achieve15Label);
-        var achieve15Label2 = (new lime.Label).setAnchorPoint(0.0).setFill("#C14825").setFontFamily("Comic Sans MS").setFontColor("#ffffff").setPosition(226, 378).setFontSize(11).setText("Convert Stars to Coins").setSize(152, 40); achieveLayer.appendChild(achieve15Label2);
+        var achieve15Label = (new lime.Label).setAnchorPoint(0.0).setFill("#C14825").setFontFamily("Proxima Nova").setFontColor("#E8FC08").setPosition(220, 355).setText("Cross-Over").setSize(152, 40); achieveLayer.appendChild(achieve15Label);
+        var achieve15Label2 = (new lime.Label).setAnchorPoint(0.0).setFill("#C14825").setFontFamily("Proxima Nova").setFontColor("#ffffff").setPosition(226, 378).setFontSize(11).setText("Convert Stars to Coins").setSize(152, 40); achieveLayer.appendChild(achieve15Label2);
         var achieve15Star = (new lime.Sprite).setAnchorPoint(0.0).setPosition(266, 350).setFill(imgArray[37]).setSize(30, 29.5); achieveLayer.appendChild(achieve15Star);
         var achieve15Check = (new lime.Sprite).setAnchorPoint(0.0).setPosition(158, 355).setFill(imgArray[35]).setSize(16, 16); achieveLayer.appendChild(achieve15Check);
 
         var achieve16 = (new lime.Sprite).setAnchorPoint(0.0).setPosition(157, 395).setFill(imgArray[18].src).setSize(142, 40); achieveLayer.appendChild(achieve16);
-        var achieve16Label = (new lime.Label).setAnchorPoint(0.0).setFill("#C14825").setFontFamily("Comic Sans MS").setFontColor("#E8FC08").setPosition(219, 400).setText("Back for More").setSize(152, 40); achieveLayer.appendChild(achieve16Label);
-        var achieve16Label2 = (new lime.Label).setAnchorPoint(0.0).setFill("#C14825").setFontFamily("Comic Sans MS").setFontColor("#ffffff").setPosition(226, 423).setFontSize(11).setText("Play for 10 Farm Years").setSize(152, 40); achieveLayer.appendChild(achieve16Label2);
+        var achieve16Label = (new lime.Label).setAnchorPoint(0.0).setFill("#C14825").setFontFamily("Proxima Nova").setFontColor("#E8FC08").setPosition(219, 400).setText("Back for More").setSize(152, 40); achieveLayer.appendChild(achieve16Label);
+        var achieve16Label2 = (new lime.Label).setAnchorPoint(0.0).setFill("#C14825").setFontFamily("Proxima Nova").setFontColor("#ffffff").setPosition(226, 423).setFontSize(11).setText("Play for 10 Farm Years").setSize(152, 40); achieveLayer.appendChild(achieve16Label2);
         var achieve16Star = (new lime.Sprite).setAnchorPoint(0.0).setPosition(266, 395).setFill(imgArray[40]).setSize(30, 29.5); achieveLayer.appendChild(achieve16Star);
         var achieve16Check = (new lime.Sprite).setAnchorPoint(0.0).setPosition(158, 400).setFill(imgArray[35]).setSize(16, 16); achieveLayer.appendChild(achieve16Check);
 
 
-        var starCashLabelA = (new lime.Label).setAnchorPoint(0.0).setFill("#C14825").setFontFamily("Comic Sans MS").setFontColor("#5c00e6").setFontSize(18).setPosition(160, 472).setText(starCash).setSize(152, 40); achieveLayer.appendChild(starCashLabelA);
+        var starCashLabelA = (new lime.Label).setAnchorPoint(0.0).setFill("#C14825").setFontFamily("Proxima Nova").setFontColor("#5c00e6").setFontSize(18).setPosition(160, 472).setText(starCash).setSize(152, 40); achieveLayer.appendChild(starCashLabelA);
 
         ///  ///  ///  ///  ///  ///  ///  ///  ///  ///  ///  ///  ///  ///  ///  ///  ///  ///  ///  ///  ///  ///  ///  ///  ///  ///  ///  ///  ///  ///
         ////house scene
@@ -14806,7 +14806,7 @@ farming.start = function () {
 
         var upgradeCloudHo = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(-130, -100).setSize(300, 200).setFill(imgArray[24].src); houseExpandCover.appendChild(upgradeCloudHo);
 
-        var toolMoverLabelHo = (new lime.Label).setText("90").setPosition(5, 27).setSize(40, 25).setFontFamily("Comic Sans MS").setFontColor("#E8FC08").setFontWeight(600).setFontSize(28).setFontFamily("ComicSans MS").setFill(imgArray[27]);
+        var toolMoverLabelHo = (new lime.Label).setText("90").setPosition(5, 27).setSize(40, 25).setFontFamily("Proxima Nova").setFontColor("#E8FC08").setFontWeight(600).setFontSize(28).setFontFamily("ComicSans MS").setFill(imgArray[27]);
         var toolMoverHo = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(-22, -50).setSize(50, 50).setFill(imgArray[29]); houseExpandCover.appendChild(toolMoverLabelHo);
         toolMoverLabelHo.appendChild(toolMoverHo);
         toolMoverHo.setRotation(-10);
@@ -14823,10 +14823,10 @@ farming.start = function () {
         houseLayer.appendChild(houseMenuBack);
 
         var toolCountImgHouse = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(10, 3).setSize(35, 35).setFill(imgArray[30]);
-        var toolCountHouse = (new lime.Label).setText(player.tools).setFontFamily("Comic Sans MS").setFontColor("#E8FC08").setPosition(69, 24).setFontSize(18);
+        var toolCountHouse = (new lime.Label).setText(player.tools).setFontFamily("Proxima Nova").setFontColor("#E8FC08").setPosition(69, 24).setFontSize(18);
         houseLayer.appendChild(toolCountImgHouse);
         houseLayer.appendChild(toolCountHouse);
-        var houseMoney = (new lime.Label).setText(player.money).setFontColor("#E8FC08").setFontFamily("Comic Sans MS").setFontSize(18).setPosition(235, 24);
+        var houseMoney = (new lime.Label).setText(player.money).setFontColor("#E8FC08").setFontFamily("Proxima Nova").setFontSize(18).setPosition(235, 24);
         houseLayer.appendChild(houseMoney);
         var topCoinHouse = (new lime.Sprite).setPosition(285, 20).setSize(35, 35).setFill(imgArray11[0]);
         houseLayer.appendChild(topCoinHouse);
@@ -15560,9 +15560,9 @@ farming.start = function () {
         // house quest panel for denise quests
         var questPanelHouse = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(35, 125).setSize(250, 220).setFill(imgArray[79]);
         houseLayer.appendChild(questPanelHouse);
-        var questHeaderHouse = (new lime.Label).setAnchorPoint(0, 0).setPosition(90, 19).setText("Denise").setFontFamily("Comic Sans MS").setFontSize(24);
+        var questHeaderHouse = (new lime.Label).setAnchorPoint(0, 0).setPosition(90, 19).setText("Denise").setFontFamily("Proxima Nova").setFontSize(24);
         questPanelHouse.appendChild(questHeaderHouse);
-        var questText1House = (new lime.Label).setAnchorPoint(0, 0).setPosition(20, 135).setText("We need some more furniture if you expect me to live here").setFontFamily("Comic Sans MS").setFontSize(16).setSize(200, a.height / 2 - 50);
+        var questText1House = (new lime.Label).setAnchorPoint(0, 0).setPosition(20, 135).setText("We need some more furniture if you expect me to live here").setFontFamily("Proxima Nova").setFontSize(16).setSize(200, a.height / 2 - 50);
         questPanelHouse.appendChild(questText1House);
         var questPanelAvatarHouse = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(75, 26).setSize(100, 100).setFill(imgArrayDenise[0].src);
         questPanelHouse.appendChild(questPanelAvatarHouse);
@@ -15573,9 +15573,9 @@ farming.start = function () {
 
         var questPanelHouse2 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(25, 125).setSize(260, 220).setFill(imgArray[79]).setHidden(true);
         houseLayer.appendChild(questPanelHouse2);
-        var questHeaderHouse2 = (new lime.Label).setAnchorPoint(0, 0).setPosition(95, 19).setText("Patricia").setFontFamily("Comic Sans MS").setFontSize(24);
+        var questHeaderHouse2 = (new lime.Label).setAnchorPoint(0, 0).setPosition(95, 19).setText("Patricia").setFontFamily("Proxima Nova").setFontSize(24);
         questPanelHouse2.appendChild(questHeaderHouse2);
-        var questText1House2 = (new lime.Label).setAnchorPoint(0, 0).setPosition(17, 115).setText("Dibba Dabba....Dibba Dabba........waaaaaahhhhh").setFontFamily("Comic Sans MS").setFontSize(16).setSize(225, a.height / 2 - 50);
+        var questText1House2 = (new lime.Label).setAnchorPoint(0, 0).setPosition(17, 115).setText("Dibba Dabba....Dibba Dabba........waaaaaahhhhh").setFontFamily("Proxima Nova").setFontSize(16).setSize(225, a.height / 2 - 50);
         questPanelHouse2.appendChild(questText1House2);
         var questPanelAvatarHouse2 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(80, 12).setSize(100, 100).setFill(imgArrayPatricia[0].src);
         questPanelHouse2.appendChild(questPanelAvatarHouse2);
@@ -15606,19 +15606,19 @@ farming.start = function () {
         //house expand modal
         var upgradePanelHouse = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(35, 90).setSize(250, 220).setFill(imgArray[79]);
         houseLayer.appendChild(upgradePanelHouse);
-        var upgradeHeaderHouse = (new lime.Label).setAnchorPoint(0, 0).setPosition(20, 25).setText("Expand your house?").setFontFamily("Comic Sans MS").setFontSize(22);
+        var upgradeHeaderHouse = (new lime.Label).setAnchorPoint(0, 0).setPosition(20, 25).setText("Expand your house?").setFontFamily("Proxima Nova").setFontSize(22);
         upgradePanelHouse.appendChild(upgradeHeaderHouse);
         var toolsImgHouseUp = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(45, 75).setSize(64, 64).setFill(imgArray[30]);
         upgradePanelHouse.appendChild(toolsImgHouseUp);
-        var toolCostHouse = (new lime.Label).setAnchorPoint(0, 0).setPosition(5, 70).setText("1000").setFontFamily("Comic Sans MS").setFontSize(18).setSize(50, 50);
+        var toolCostHouse = (new lime.Label).setAnchorPoint(0, 0).setPosition(5, 70).setText("1000").setFontFamily("Proxima Nova").setFontSize(18).setSize(50, 50);
         toolsImgHouseUp.appendChild(toolCostHouse);
         var woodImgHouseUp = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(140, 75).setSize(64, 64).setFill(imgArray[58]);
         upgradePanelHouse.appendChild(woodImgHouseUp);
-        var woodCostHouse = (new lime.Label).setAnchorPoint(0, 0).setPosition(5, 70).setText("200").setFontFamily("Comic Sans MS").setFontSize(18).setSize(50, 50);
+        var woodCostHouse = (new lime.Label).setAnchorPoint(0, 0).setPosition(5, 70).setText("200").setFontFamily("Proxima Nova").setFontSize(18).setSize(50, 50);
         woodImgHouseUp.appendChild(woodCostHouse);
         var upPanelConfirmBtnHouse = (new lime.GlossyButton).setColor("#00ff00").setText("Build").setPosition(125, 175).setSize(100, 20);
         upgradePanelHouse.appendChild(upPanelConfirmBtnHouse);
-        var shortCostHouse = (new lime.Label).setAnchorPoint(0, 0).setPosition(8, 175).setText("You need more resources").setFontFamily("Comic Sans MS").setFontSize(18).setSize(230, 50);
+        var shortCostHouse = (new lime.Label).setAnchorPoint(0, 0).setPosition(8, 175).setText("You need more resources").setFontFamily("Proxima Nova").setFontSize(18).setSize(230, 50);
         upgradePanelHouse.appendChild(shortCostHouse);
         upPanelConfirmBtnHouse.setHidden(true);
         shortCostHouse.setHidden(false);
@@ -16203,14 +16203,14 @@ farming.start = function () {
             e.swallow(['mouseup', 'touchend', 'touchcancel'], function () { });
         });
 
-        var wmCash = (new lime.Label).setText(player.money).setFontFamily("Comic Sans MS").setFontColor("#E8FC08").setPosition(230, 44).setFontSize(18);
+        var wmCash = (new lime.Label).setText(player.money).setFontFamily("Proxima Nova").setFontColor("#E8FC08").setPosition(230, 44).setFontSize(18);
         windmillFill1.appendChild(wmCash);
         var topCoinWM = (new lime.Sprite).setPosition(285, 40).setSize(35, 35).setFill(imgArray11[0]);
         windmillFill1.appendChild(topCoinWM);
 
 
         var toolCountImgWM = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(7, 22).setSize(35, 35).setFill(imgArray[30]);
-        var toolCountWM = (new lime.Label).setText(player.tools).setFontFamily("Comic Sans MS").setFontColor("#E8FC08").setPosition(60, 44).setFontSize(18);
+        var toolCountWM = (new lime.Label).setText(player.tools).setFontFamily("Proxima Nova").setFontColor("#E8FC08").setPosition(60, 44).setFontSize(18);
         windmillFill1.appendChild(toolCountImgWM);
         windmillFill1.appendChild(toolCountWM);
 
@@ -16265,7 +16265,7 @@ farming.start = function () {
         windMillBldg.appendChild(collectFlour);
         var collectFlourIcon = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(12, 2).setSize(27, 30).setFill("images/" + a.crops[23].harvest);
         collectFlour.appendChild(collectFlourIcon);
-        var collectFlourLabel = (new lime.Label).setText("+ 0 ").setFontWeight(500).setFontColor("#E8FC08").setPosition(23, 42).setSize(30, 18).setFontFamily("Comic Sans MS");
+        var collectFlourLabel = (new lime.Label).setText("+ 0 ").setFontWeight(500).setFontColor("#E8FC08").setPosition(23, 42).setSize(30, 18).setFontFamily("Proxima Nova");
         collectFlour.appendChild(collectFlourLabel);
         collectFlour.setHidden(true);
 
@@ -16368,7 +16368,7 @@ farming.start = function () {
         windmillLayer.appendChild(collectBreadBubble);
         var collectBreadIcon = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(12, 2).setSize(27, 30).setFill("images/" + a.crops[24].harvest);
         collectBreadBubble.appendChild(collectBreadIcon);
-        var collectBreadLabel = (new lime.Label).setText("+ " + breadWaiting).setFontWeight(500).setFontColor("#E8FC08").setPosition(23, 42).setSize(30, 18).setFontFamily("Comic Sans MS");
+        var collectBreadLabel = (new lime.Label).setText("+ " + breadWaiting).setFontWeight(500).setFontColor("#E8FC08").setPosition(23, 42).setSize(30, 18).setFontFamily("Proxima Nova");
         collectBreadBubble.appendChild(collectBreadLabel);
 
         lime.scheduleManager.scheduleWithDelay(function () {
@@ -16504,7 +16504,7 @@ farming.start = function () {
 
 
         });
-        var costDisplayWM = (new lime.Label).setPosition(75, 180).setSize(50, 25).setText("-50").setFontSize(14).setFontFamily("Comic Sans MS").setFontColor("#e1f00e").setFontWeight(600);
+        var costDisplayWM = (new lime.Label).setPosition(75, 180).setSize(50, 25).setText("-50").setFontSize(14).setFontFamily("Proxima Nova").setFontColor("#e1f00e").setFontWeight(600);
         windmillLayer.appendChild(costDisplayWM);
         var costCoinWM = (new lime.Sprite).setPosition(30, -8).setSize(30, 30).setFill(imgArray11[0]);
         costDisplayWM.appendChild(costCoinWM);
@@ -16512,7 +16512,7 @@ farming.start = function () {
         var upgradeCloudWMField = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(-30, -50).setSize(270, 250).setFill(imgArray[24].src);
         lowerWheatBlock.appendChild(upgradeCloudWMField);
 
-        var toolMoverLabelWM3 = (new lime.Label).setText("90").setPosition(105, 75).setSize(40, 25).setFontFamily("Comic Sans MS").setFontColor("#E8FC08").setFontWeight(600).setFontSize(28).setFontFamily("ComicSans MS").setFill(imgArray[27]);
+        var toolMoverLabelWM3 = (new lime.Label).setText("90").setPosition(105, 75).setSize(40, 25).setFontFamily("Proxima Nova").setFontColor("#E8FC08").setFontWeight(600).setFontSize(28).setFontFamily("ComicSans MS").setFill(imgArray[27]);
         lowerWheatBlock.appendChild(toolMoverLabelWM3);
 
         var toolMoverWM3 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(65, 0).setSize(50, 50).setFill(imgArray[61]);
@@ -16525,7 +16525,7 @@ farming.start = function () {
         windmillLayer.appendChild(controlsBackWM);
         //vinyard growing set
         var hhWM = b.currentCrop;
-        var growingLabelWM = (new lime.Label).setText("Growing Wheat ").setFontFamily("Comic Sans MS").setFontColor("#E8FC08").setFontSize(12).setPosition(a.controlsLayer_w / 2 - 5, a.height - a.controlsLayer_h / 2 - 12);
+        var growingLabelWM = (new lime.Label).setText("Growing Wheat ").setFontFamily("Proxima Nova").setFontColor("#E8FC08").setFontSize(12).setPosition(a.controlsLayer_w / 2 - 5, a.height - a.controlsLayer_h / 2 - 12);
         windmillLayer.appendChild(growingLabelWM);
         var growingImageWM = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(a.controlsLayer_w / 2 - 22, a.height - a.controlsLayer_h / 2 - 5).setFill("images/" + a.crops[22].harvest).setSize(30, 30);
         windmillLayer.appendChild(growingImageWM);
@@ -16551,7 +16551,7 @@ farming.start = function () {
         var upgradeCloudWM = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(0, -70).setSize(120, 200).setFill(imgArray[24].src);
         scaffoldWM.appendChild(upgradeCloudWM);
 
-        var toolMoverLabelWM = (new lime.Label).setText("90").setPosition(50, 60).setSize(40, 25).setFontFamily("Comic Sans MS").setFontColor("#E8FC08").setFontWeight(600).setFontSize(28).setFontFamily("ComicSans MS").setFill(imgArray[27]);
+        var toolMoverLabelWM = (new lime.Label).setText("90").setPosition(50, 60).setSize(40, 25).setFontFamily("Proxima Nova").setFontColor("#E8FC08").setFontWeight(600).setFontSize(28).setFontFamily("ComicSans MS").setFill(imgArray[27]);
         scaffoldWM.appendChild(toolMoverLabelWM);
 
         var toolMoverWM = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(20, 0).setSize(50, 50).setFill(imgArray[29]);
@@ -16566,7 +16566,7 @@ farming.start = function () {
         var upgradeCloudWM2 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(-20, -50).setSize(120, 200).setFill(imgArray[24].src);
         scaffoldWM2.appendChild(upgradeCloudWM2);
 
-        var toolMoverLabelWM2 = (new lime.Label).setText("90").setPosition(45, 60).setSize(40, 25).setFontFamily("Comic Sans MS").setFontColor("#E8FC08").setFontWeight(600).setFontSize(28).setFontFamily("ComicSans MS").setFill(imgArray[27]);
+        var toolMoverLabelWM2 = (new lime.Label).setText("90").setPosition(45, 60).setSize(40, 25).setFontFamily("Proxima Nova").setFontColor("#E8FC08").setFontWeight(600).setFontSize(28).setFontFamily("ComicSans MS").setFill(imgArray[27]);
         scaffoldWM2.appendChild(toolMoverLabelWM2);
 
         var toolMoverWM2 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(20, 0).setSize(50, 50).setFill(imgArray[29]);
@@ -17097,14 +17097,14 @@ farming.start = function () {
         });
 
         var millerQuestPanel = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(15, 100).setSize(a.width - 30, a.height / 2).setFill(imgArray[78]).setHidden(true);
-        var questHeadermiller = (new lime.Label).setAnchorPoint(0, 0).setPosition(75, 25).setText("Miller Ulric").setFontFamily("Comic Sans MS").setFontSize(24);
+        var questHeadermiller = (new lime.Label).setAnchorPoint(0, 0).setPosition(75, 25).setText("Miller Ulric").setFontFamily("Proxima Nova").setFontSize(24);
         millerQuestPanel.appendChild(questHeadermiller);
 
         var millerQuestPanelAvatar = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(100, 38).setSize(75, 75).setFill(imgArrayMiller[0]);
         millerQuestPanel.appendChild(millerQuestPanelAvatar);
-        var questText1miller = (new lime.Label).setAnchorPoint(0, 0).setPosition(20, 135).setText("As we we have wheat, I can make flour").setFontFamily("Comic Sans MS").setFontSize(16).setSize(a.width - 80, a.height / 2 - 50);
+        var questText1miller = (new lime.Label).setAnchorPoint(0, 0).setPosition(20, 135).setText("As we we have wheat, I can make flour").setFontFamily("Proxima Nova").setFontSize(16).setSize(a.width - 80, a.height / 2 - 50);
         millerQuestPanel.appendChild(questText1miller);
-        var questText1millerShort11 = (new lime.Label).setAnchorPoint(0, 0).setPosition(25, 205).setText("").setFontFamily("Comic Sans MS").setFontSize(16).setSize(a.width - 80, a.height / 2 - 50).setFontColor("#FF0000");
+        var questText1millerShort11 = (new lime.Label).setAnchorPoint(0, 0).setPosition(25, 205).setText("").setFontFamily("Proxima Nova").setFontSize(16).setSize(a.width - 80, a.height / 2 - 50).setFontColor("#FF0000");
         millerQuestPanel.appendChild(questText1millerShort11)
         questText1millerShort11.setHidden(true);
         var millerQuestPanelCloseBtn = (new lime.GlossyButton).setColor("#663300").setText("Close").setPosition(140, 235).setSize(100, 20);
@@ -17139,14 +17139,14 @@ farming.start = function () {
 
         /// end miller
         var connieQuestPanel = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(15, 100).setSize(a.width - 30, a.height / 2).setFill(imgArray[78]).setHidden(true);
-        var questHeaderConnie = (new lime.Label).setAnchorPoint(0, 0).setPosition(105, 25).setText("Connie").setFontFamily("Comic Sans MS").setFontSize(24);
+        var questHeaderConnie = (new lime.Label).setAnchorPoint(0, 0).setPosition(105, 25).setText("Connie").setFontFamily("Proxima Nova").setFontSize(24);
         connieQuestPanel.appendChild(questHeaderConnie);
 
         var connieQuestPanelAvatar = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(100, 38).setSize(75, 75).setFill(imgArrayConnie[0]);
         connieQuestPanel.appendChild(connieQuestPanelAvatar);
-        var questText1Connie = (new lime.Label).setAnchorPoint(0, 0).setPosition(20, 135).setText("With Floud I can make bread").setFontFamily("Comic Sans MS").setFontSize(16).setSize(a.width - 80, a.height / 2 - 50);
+        var questText1Connie = (new lime.Label).setAnchorPoint(0, 0).setPosition(20, 135).setText("With Floud I can make bread").setFontFamily("Proxima Nova").setFontSize(16).setSize(a.width - 80, a.height / 2 - 50);
         connieQuestPanel.appendChild(questText1Connie);
-        var questText1ConnieShort11 = (new lime.Label).setAnchorPoint(0, 0).setPosition(25, 205).setText("").setFontFamily("Comic Sans MS").setFontSize(16).setSize(a.width - 80, a.height / 2 - 50).setFontColor("#FF0000");
+        var questText1ConnieShort11 = (new lime.Label).setAnchorPoint(0, 0).setPosition(25, 205).setText("").setFontFamily("Proxima Nova").setFontSize(16).setSize(a.width - 80, a.height / 2 - 50).setFontColor("#FF0000");
         connieQuestPanel.appendChild(questText1ConnieShort11)
         questText1ConnieShort11.setHidden(true);
         var connieQuestPanelCloseBtn = (new lime.GlossyButton).setColor("#663300").setText("Close").setPosition(140, 235).setSize(100, 20);
@@ -17179,15 +17179,15 @@ farming.start = function () {
             }
         });
         var windmillQuestPanel = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(15, 100).setSize(a.width - 30, a.height / 2).setFill(imgArray[78]).setHidden(true);
-        var questHeaderwindmill = (new lime.Label).setAnchorPoint(0, 0).setPosition(45, 25).setText("Overgrown Field").setFontFamily("Comic Sans MS").setFontSize(24);
+        var questHeaderwindmill = (new lime.Label).setAnchorPoint(0, 0).setPosition(45, 25).setText("Overgrown Field").setFontFamily("Proxima Nova").setFontSize(24);
         windmillQuestPanel.appendChild(questHeaderwindmill);
-        var questText1windmill = (new lime.Label).setAnchorPoint(0, 0).setPosition(20, 135).setText("This overgrown field needs lots of work to grow crops again. Shall we clear it?").setFontFamily("Comic Sans MS").setFontSize(16).setSize(a.width - 80, a.height / 2 - 50);
+        var questText1windmill = (new lime.Label).setAnchorPoint(0, 0).setPosition(20, 135).setText("This overgrown field needs lots of work to grow crops again. Shall we clear it?").setFontFamily("Proxima Nova").setFontSize(16).setSize(a.width - 80, a.height / 2 - 50);
         windmillQuestPanel.appendChild(questText1windmill);
         var windmillQuestPanelCost = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(110, 68).setSize(50, 50).setFill(ImgArrayTools[3]);
         windmillQuestPanel.appendChild(windmillQuestPanelCost);
         var windmillQuestPanelConfirmBtn = (new lime.GlossyButton).setColor("#00ff00").setText("Clear It!").setPosition(140, 205).setSize(100, 20);
         windmillQuestPanel.appendChild(windmillQuestPanelConfirmBtn);
-        var questText1windmillShort11 = (new lime.Label).setAnchorPoint(0, 0).setPosition(25, 205).setText("Need More Resources").setFontFamily("Comic Sans MS").setFontSize(16).setSize(a.width - 80, a.height / 2 - 50).setFontColor("#FF0000");
+        var questText1windmillShort11 = (new lime.Label).setAnchorPoint(0, 0).setPosition(25, 205).setText("Need More Resources").setFontFamily("Proxima Nova").setFontSize(16).setSize(a.width - 80, a.height / 2 - 50).setFontColor("#FF0000");
         windmillQuestPanel.appendChild(questText1windmillShort11)
         questText1windmillShort11.setHidden(true);
         var windmillQuestPanelCloseBtn = (new lime.GlossyButton).setColor("#663300").setText("Close").setPosition(140, 235).setSize(100, 20);
@@ -17265,21 +17265,21 @@ farming.start = function () {
         }
 
         var windmillQuestPanel2 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(15, 100).setSize(a.width - 30, a.height / 2).setFill(imgArray[78]);
-        var questHeaderwindmill2 = (new lime.Label).setAnchorPoint(0, 0).setPosition(25, 25).setText("Overgrown Windmill").setFontFamily("Comic Sans MS").setFontSize(24);
+        var questHeaderwindmill2 = (new lime.Label).setAnchorPoint(0, 0).setPosition(25, 25).setText("Overgrown Windmill").setFontFamily("Proxima Nova").setFontSize(24);
         windmillQuestPanel2.appendChild(questHeaderwindmill2);
-        var questText1windmill2 = (new lime.Label).setAnchorPoint(0, 0).setPosition(20, 135).setText("This old Windmill needs work. Repair it to unlock FLOUR").setFontFamily("Comic Sans MS").setFontSize(16).setSize(a.width - 80, a.height / 2 - 50);
+        var questText1windmill2 = (new lime.Label).setAnchorPoint(0, 0).setPosition(20, 135).setText("This old Windmill needs work. Repair it to unlock FLOUR").setFontFamily("Proxima Nova").setFontSize(16).setSize(a.width - 80, a.height / 2 - 50);
         windmillQuestPanel2.appendChild(questText1windmill2);
         var windmillQuestPanelCost2 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(50, 48).setSize(50, 50).setFill(imgArray[30]);
         windmillQuestPanel2.appendChild(windmillQuestPanelCost2);
         var windmillQuestPanelCost21 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(160, 48).setSize(50, 50).setFill(imgArray[58]);
         windmillQuestPanel2.appendChild(windmillQuestPanelCost21);
-        var questText1windmill2CostTools = (new lime.Label).setAnchorPoint(0, 0).setPosition(-40, 110).setText(player.tools + "/2500").setFontFamily("Comic Sans MS").setFontSize(16).setSize(a.width - 80, a.height / 2 - 50);
+        var questText1windmill2CostTools = (new lime.Label).setAnchorPoint(0, 0).setPosition(-40, 110).setText(player.tools + "/2500").setFontFamily("Proxima Nova").setFontSize(16).setSize(a.width - 80, a.height / 2 - 50);
         windmillQuestPanel2.appendChild(questText1windmill2CostTools)
-        var questText1windmill2CostWood = (new lime.Label).setAnchorPoint(0, 0).setPosition(75, 110).setText(player.cropsStored[14].stored + "/250").setFontFamily("Comic Sans MS").setFontSize(16).setSize(a.width - 80, a.height / 2 - 50);
+        var questText1windmill2CostWood = (new lime.Label).setAnchorPoint(0, 0).setPosition(75, 110).setText(player.cropsStored[14].stored + "/250").setFontFamily("Proxima Nova").setFontSize(16).setSize(a.width - 80, a.height / 2 - 50);
         windmillQuestPanel2.appendChild(questText1windmill2CostWood)
         var windmillQuestPanelConfirmBtn2 = (new lime.GlossyButton).setColor("#00ff00").setText("Repair It!").setPosition(140, 205).setSize(100, 20);
         windmillQuestPanel2.appendChild(windmillQuestPanelConfirmBtn2);
-        var questText1windmill2Short = (new lime.Label).setAnchorPoint(0, 0).setPosition(25, 205).setText("Need More Resources").setFontFamily("Comic Sans MS").setFontSize(16).setSize(a.width - 80, a.height / 2 - 50).setFontColor("#FF0000");
+        var questText1windmill2Short = (new lime.Label).setAnchorPoint(0, 0).setPosition(25, 205).setText("Need More Resources").setFontFamily("Proxima Nova").setFontSize(16).setSize(a.width - 80, a.height / 2 - 50).setFontColor("#FF0000");
         windmillQuestPanel2.appendChild(questText1windmill2Short)
 
         var windmillQuestPanelCloseBtn2 = (new lime.GlossyButton).setColor("#663300").setText("Close").setPosition(140, 240).setSize(100, 20);
@@ -17290,21 +17290,21 @@ farming.start = function () {
 
 
         var windmillQuestPanel3 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(15, 100).setSize(a.width - 30, a.height / 2).setFill(imgArray[78]);
-        var questHeaderwindmill3 = (new lime.Label).setAnchorPoint(0, 0).setPosition(25, 25).setText("Run Down StoreHouse").setFontFamily("Comic Sans MS").setFontSize(24);
+        var questHeaderwindmill3 = (new lime.Label).setAnchorPoint(0, 0).setPosition(25, 25).setText("Run Down StoreHouse").setFontFamily("Proxima Nova").setFontSize(24);
         windmillQuestPanel3.appendChild(questHeaderwindmill3);
-        var questText1windmill3 = (new lime.Label).setAnchorPoint(0, 0).setPosition(20, 135).setText("This old Storehouse is in dire need of repair before we can store more Wheat & Flour").setFontFamily("Comic Sans MS").setFontSize(16).setSize(a.width - 80, a.height / 2 - 50);
+        var questText1windmill3 = (new lime.Label).setAnchorPoint(0, 0).setPosition(20, 135).setText("This old Storehouse is in dire need of repair before we can store more Wheat & Flour").setFontFamily("Proxima Nova").setFontSize(16).setSize(a.width - 80, a.height / 2 - 50);
         windmillQuestPanel3.appendChild(questText1windmill3);
         var windmillQuestPanelCost3 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(50, 48).setSize(50, 50).setFill(imgArray[30]);
         windmillQuestPanel3.appendChild(windmillQuestPanelCost3);
         var windmillQuestPanelCost31 = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(160, 48).setSize(50, 50).setFill(imgArray[58]);
         windmillQuestPanel3.appendChild(windmillQuestPanelCost31);
-        var questText1windmill3CostTools = (new lime.Label).setAnchorPoint(0, 0).setPosition(-40, 110).setText(player.tools + "/2000").setFontFamily("Comic Sans MS").setFontSize(16).setSize(a.width - 80, a.height / 2 - 50);
+        var questText1windmill3CostTools = (new lime.Label).setAnchorPoint(0, 0).setPosition(-40, 110).setText(player.tools + "/2000").setFontFamily("Proxima Nova").setFontSize(16).setSize(a.width - 80, a.height / 2 - 50);
         windmillQuestPanel3.appendChild(questText1windmill3CostTools)
-        var questText1windmill3CostWood = (new lime.Label).setAnchorPoint(0, 0).setPosition(75, 110).setText(player.cropsStored[14].stored + "/250").setFontFamily("Comic Sans MS").setFontSize(16).setSize(a.width - 80, a.height / 2 - 50);
+        var questText1windmill3CostWood = (new lime.Label).setAnchorPoint(0, 0).setPosition(75, 110).setText(player.cropsStored[14].stored + "/250").setFontFamily("Proxima Nova").setFontSize(16).setSize(a.width - 80, a.height / 2 - 50);
         windmillQuestPanel3.appendChild(questText1windmill3CostWood)
         var windmillQuestPanelConfirmBtn3 = (new lime.GlossyButton).setColor("#00ff00").setText("Repair It!").setPosition(140, 205).setSize(100, 20);
         windmillQuestPanel3.appendChild(windmillQuestPanelConfirmBtn3);
-        var questText1windmill3Short = (new lime.Label).setAnchorPoint(0, 0).setPosition(25, 205).setText("Need More Resources").setFontFamily("Comic Sans MS").setFontSize(16).setSize(a.width - 80, a.height / 2 - 50).setFontColor("#FF0000");
+        var questText1windmill3Short = (new lime.Label).setAnchorPoint(0, 0).setPosition(25, 205).setText("Need More Resources").setFontFamily("Proxima Nova").setFontSize(16).setSize(a.width - 80, a.height / 2 - 50).setFontColor("#FF0000");
         windmillQuestPanel3.appendChild(questText1windmill3Short)
 
         var windmillQuestPanelCloseBtn3 = (new lime.GlossyButton).setColor("#663300").setText("Close").setPosition(140, 240).setSize(100, 20);
@@ -17376,13 +17376,13 @@ farming.start = function () {
 
 
         var windmillHelpPanel = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(15, 100).setSize(a.width - 30, a.height / 2).setFill(imgArray[78]).setHidden(true);
-        var helpHeaderwindmill = (new lime.Label).setAnchorPoint(0, 0).setPosition(75, 25).setText("Grain Fields").setFontFamily("Comic Sans MS").setFontSize(24);
+        var helpHeaderwindmill = (new lime.Label).setAnchorPoint(0, 0).setPosition(75, 25).setText("Grain Fields").setFontFamily("Proxima Nova").setFontSize(24);
         windmillHelpPanel.appendChild(helpHeaderwindmill);
-        var helpText1windmill = (new lime.Label).setAnchorPoint(0, 0).setPosition(20, 65).setText("This farm has soil best suited to WHEAT").setFontFamily("Comic Sans MS").setFontSize(16).setSize(a.width - 80, a.height / 2 - 50);
+        var helpText1windmill = (new lime.Label).setAnchorPoint(0, 0).setPosition(20, 65).setText("This farm has soil best suited to WHEAT").setFontFamily("Proxima Nova").setFontSize(16).setSize(a.width - 80, a.height / 2 - 50);
         windmillHelpPanel.appendChild(helpText1windmill);
-        var helpText1windmill2 = (new lime.Label).setAnchorPoint(0, 0).setPosition(20, 110).setText("Repair the windmill to unlock the ability to make FLOUR ").setFontFamily("Comic Sans MS").setFontSize(16).setSize(a.width - 80, a.height / 2 - 50);
+        var helpText1windmill2 = (new lime.Label).setAnchorPoint(0, 0).setPosition(20, 110).setText("Repair the windmill to unlock the ability to make FLOUR ").setFontFamily("Proxima Nova").setFontSize(16).setSize(a.width - 80, a.height / 2 - 50);
         windmillHelpPanel.appendChild(helpText1windmill2);
-        var helpText1windmill3 = (new lime.Label).setAnchorPoint(0, 0).setPosition(20, 160).setText("Repairing the Storehouse will convert it to a Bakery where you can make BREAD").setFontFamily("Comic Sans MS").setFontSize(16).setSize(a.width - 80, a.height / 2 - 50);
+        var helpText1windmill3 = (new lime.Label).setAnchorPoint(0, 0).setPosition(20, 160).setText("Repairing the Storehouse will convert it to a Bakery where you can make BREAD").setFontFamily("Proxima Nova").setFontSize(16).setSize(a.width - 80, a.height / 2 - 50);
         windmillHelpPanel.appendChild(helpText1windmill3);
 
         var windmillHelpPanelCloseBtn = (new lime.GlossyButton).setColor("#663300").setText("Close").setPosition(140, 235).setSize(100, 20);
@@ -17407,7 +17407,7 @@ farming.start = function () {
         var boostCropsWM = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(40, 120).setSize(230, 280).setFill("images/UI/cropBoostBack2.png");
         windmillLayer.appendChild(boostCropsWM);
         boostCropsWM.setHidden(true);
-        var starCashCountBoostWM = (new lime.Label).setText(starCash).setPosition(121, 31).setSize(40, 25).setFontFamily("Comic Sans MS").setFontColor("#000F00").setFontWeight(600).setFontSize(20).setFontFamily("ComicSans MS");
+        var starCashCountBoostWM = (new lime.Label).setText(starCash).setPosition(121, 31).setSize(40, 25).setFontFamily("Proxima Nova").setFontColor("#000F00").setFontWeight(600).setFontSize(20).setFontFamily("ComicSans MS");
         boostCropsWM.appendChild(starCashCountBoostWM);
 
 
@@ -17417,7 +17417,7 @@ farming.start = function () {
         var starCashBoostWM = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(-10, -17).setSize(35, 35).setFill(imgArray[37]);
         speedAdConfirmSCWM.appendChild(starCashBoostWM);
 
-        var speedAdOrWM = (new lime.Label).setAnchorPoint(0, 0).setPosition(-10, 20).setText("or").setFontFamily("Comic Sans MS").setFontSize(18);
+        var speedAdOrWM = (new lime.Label).setAnchorPoint(0, 0).setPosition(-10, 20).setText("or").setFontFamily("Proxima Nova").setFontSize(18);
         speedAdConfirmSC.appendChild(speedAdOrWM);
 
         var speedAdConfirmWM = (new lime.GlossyButton).setColor("#00FF00").setText("View Ad").setPosition(115, 233).setSize(85, 32);
@@ -17536,14 +17536,14 @@ farming.start = function () {
         //    e.swallow(['mouseup', 'touchend', 'touchcancel'], function () { });
         //});
 
-        //var stCash = (new lime.Label).setText(player.money).setFontFamily("Comic Sans MS").setFontColor("#E8FC08").setPosition(230, 24).setFontSize(18);
+        //var stCash = (new lime.Label).setText(player.money).setFontFamily("Proxima Nova").setFontColor("#E8FC08").setPosition(230, 24).setFontSize(18);
         //stableFill.appendChild(stCash);
         //var topCoinST = (new lime.Sprite).setPosition(285, 20).setSize(35, 35).setFill(imgArray11[0]);
         //stableFill.appendChild(topCoinST);
 
 
         //var toolCountImgST = (new lime.Sprite).setAnchorPoint(0, 0).setPosition(7, 5).setSize(35, 35).setFill(imgArray[30]);
-        //var toolCountST = (new lime.Label).setText(player.tools).setFontFamily("Comic Sans MS").setFontColor("#E8FC08").setPosition(60, 24).setFontSize(18);
+        //var toolCountST = (new lime.Label).setText(player.tools).setFontFamily("Proxima Nova").setFontColor("#E8FC08").setPosition(60, 24).setFontSize(18);
         //stableFill.appendChild(toolCountImgST);
         //stableFill.appendChild(toolCountST);
 
