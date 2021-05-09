@@ -1,0 +1,482 @@
+﻿<!DOCTYPE html>
+<!--GuiGhost Games - GuiStack- Tower of Balance-->
+<!--GuiGhost Games - GuiStack v1.2 March 2018-->
+
+
+<html>
+<head>
+    <title>Stacker - Boxes of Balance</title>
+    <meta name="viewport" content="width = device-width, initial-scale = 1.0, maximum-scale = 1.0, minimum-scale = 1.0, user-scalable = no, minimal-ui" />
+    <meta charset="UTF-8">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta property="og:type" content="game" />
+    <meta property="og:title" content="Stacker: Boxes of Balance" />
+    <meta property="og:description" content="Fun Physics games of box dropping to get the high score, but don't let them fall -  Family Friendly Free Online Game" />
+   
+    <link rel="shortcut icon" sizes="256x256" href="assets/sprites/crate16.png" />
+    
+    <script type="text/javascript" src="gj-js-api.js"></script>
+    
+
+    <style type="text/css">
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            background: #0259a0;
+            background: url("images/bg.png") center fixed;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-color: black;
+            overflow: hidden;
+            width: 100%;
+            height: 100%;
+            margin: 0;
+        }
+
+        canvas {
+            touch-action: none;
+            -ms-touch-action: none;
+           
+        }
+
+        #wrongorientation {
+            background: url("images/wrongorientation.png") no-repeat center center fixed;
+            background-size: contain;
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0px;
+            left: 0px;
+            z-index: 1000;
+            display: none;
+        }
+
+        #gameDiv{
+            width:100%;
+           
+
+        }                    
+    
+        #gGlogoMenu {
+            background: url("images/gabbyLogo.png");
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: center;
+        }
+       
+        #loadingGG {
+            position: absolute;
+            top: 25%;
+            left: 50%;
+            min-width: 200px;
+            height: 60%;
+            transform: translateX(-150px);
+            z-index: 15000;
+        }
+
+
+        /*/////rate me*/
+        
+
+   
+
+   
+
+
+
+       
+       @-webkit-keyframes heartBeat {
+            0% {
+                -webkit-transform: scale(1);
+                transform: scale(1);
+            }
+
+            14% {
+                -webkit-transform: scale(1.3);
+                transform: scale(1.3);
+            }
+
+            28% {
+                -webkit-transform: scale(1);
+                transform: scale(1);
+            }
+
+            42% {
+                -webkit-transform: scale(1.3);
+                transform: scale(1.3);
+            }
+
+            70% {
+                -webkit-transform: scale(1);
+                transform: scale(1);
+            }
+        }
+
+        @keyframes heartBeat {
+            0% {
+                -webkit-transform: scale(1);
+                transform: scale(1);
+            }
+
+            14% {
+                -webkit-transform: scale(1.3);
+                transform: scale(1.3);
+            }
+
+            28% {
+                -webkit-transform: scale(1);
+                transform: scale(1);
+            }
+
+            42% {
+                -webkit-transform: scale(1.3);
+                transform: scale(1.3);
+            }
+
+            70% {
+                -webkit-transform: scale(1);
+                transform: scale(1);
+            }
+        }
+
+        .heartBeat {
+            -webkit-animation-name: heartBeat;
+            animation-name: heartBeat;
+            -webkit-animation-duration: 1.3s;
+            animation-duration: 1.3s;
+            -webkit-animation-timing-function: ease-in-out;
+            animation-timing-function: ease-in-out;
+        }
+
+        @-webkit-keyframes zoomInRight {
+            from {
+                opacity: 0;
+                -webkit-transform: scale3d(0.1, 0.1, 0.1) translate3d(1000px, 0, 0);
+                transform: scale3d(0.1, 0.1, 0.1) translate3d(1000px, 0, 0);
+                -webkit-animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+                animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+            }
+
+            60% {
+                opacity: 1;
+                -webkit-transform: scale3d(0.475, 0.475, 0.475) translate3d(-10px, 0, 0);
+                transform: scale3d(0.475, 0.475, 0.475) translate3d(-10px, 0, 0);
+                -webkit-animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1);
+                animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1);
+            }
+        }
+
+        @keyframes zoomInRight {
+            from {
+                opacity: 0;
+                -webkit-transform: scale3d(0.1, 0.1, 0.1) translate3d(1000px, 0, 0);
+                transform: scale3d(0.1, 0.1, 0.1) translate3d(1000px, 0, 0);
+                -webkit-animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+                animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+            }
+
+            60% {
+                opacity: 1;
+                -webkit-transform: scale3d(0.475, 0.475, 0.475) translate3d(-10px, 0, 0);
+                transform: scale3d(0.475, 0.475, 0.475) translate3d(-10px, 0, 0);
+                -webkit-animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1);
+                animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1);
+            }
+        }
+
+        .zoomInRight {
+            -webkit-animation-name: zoomInRight;
+            animation-name: zoomInRight;
+        }
+        #levelComplete {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 5000;
+            top: 0x;
+            background-color: black;
+            overflow: hidden;
+            display:none;
+        }
+        #levelCompleteInner {
+          
+            margin: auto;
+            width: 95%;
+            height: 95%;
+            z-index: 5000;
+        
+            text-align: center;
+            font-family: 'Comic Sans MS';
+            color: azure;
+        }
+      
+        #bannerImg {
+        width:100%;
+        } 
+        #LevelComleteTextDiv {
+            margin: auto;
+            width: 95%;
+            height: 100%;
+            font-family: 'Comic Sans MS';
+            font-size: xx-large;
+        }
+        #goalText{
+    margin-top: 2%;
+    }
+
+        .rowBackFail {
+            width: 100%;
+            height: 12%;
+            margin: auto;
+            float: left;
+            margin-top: 5px;
+            margin-bottom: 25px;
+            font-size: xx-large;
+            
+        }
+        h4 {
+            background-image: radial-gradient( grey, black);
+        }
+        #goalHtml {
+            background-image: radial-gradient( green, black);
+        }
+        .rowBackFail2 {
+            width: 80%;
+            height: 10%;
+            margin-left: 10%;
+            float: left;
+            margin-top: 5px;
+            margin-bottom: 12px;
+            font-size: xx-large;
+            /*border: 3px grey groove;*/
+            background-image: radial-gradient( purple, black);
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .buttonSize {
+            max-width: 110px;
+            float: left;
+            margin: auto;
+            margin-left: 10px;
+        }
+        #lvlStatusTxt {
+            background-image:url(images/topBanner.png);
+            background-repeat:no-repeat;
+            background-position: top;
+            color: red;
+            font-size: xx-large;
+            height:60px;
+            padding-top: 7px;
+            margin-top: 10%;
+        }
+        #tryAgainText {
+            margin-top: 15px;
+            background-image: radial-gradient( brown, black);
+        }
+        #startOver {
+            background-image: radial-gradient( blue, black);
+        }
+
+    </style>
+ 
+
+    <script src="phaser.min.js"></script>
+    <script src="box2d-plugin-full.js"></script>
+    <script src="guiStack_gameJoltMin.js"></script>
+  
+    <!--<script type="text/javascript" src="lib/jquery-2.1.3.min.js"></script>-->
+    
+
+</head>
+<body>
+    
+ 
+   <div id="gameDiv"></div>
+    <div id="loadingGG"><IMG SRC="images/loading4.gif"></div>
+
+    <div id="wrongorientation"></div>
+
+    <audio id="NiceSound" class="gameSounds">
+        <source src="assets/sounds/loops/OveMelaa-ItaloUnlimited.mp3" type="audio/mp3">
+    </audio>
+  
+
+    
+    <div id="levelComplete" class="zoomInDown">
+        <div id="levelCompleteInner">
+            <div id="headFailed">
+                <!--<img id="bannerImg" src="images/topBanner.png"/>-->
+                <div id="lvlStatusTxt"><p>FAILED</p> </div>
+            </div>
+            <div id="LevelComleteTextDiv">
+                <div id="goalText" class="rowBackFail">Level Goal <h4 id="goalHtml" >25</h4> </div>
+                <div id="yourScoreText" class="rowBackFail">Your Score <h4 id="scoreHtml">0</h4> </div>
+                <!--<div id="tryAgainText"  class="rowBackFail2"><img class="buttonSize" id="continueBtnHtml" src="images/continueButton.png" />Try Again </div>
+                <div id="SkipLevelText"  class="rowBackFail2" ><img class="buttonSize   heartBeat" id="viewAdBtnHtml"  src="images/viewAd.png" />Skip Level </div>
+                <div id="startOver" class="rowBackFail2"><img class="buttonSize" id="startoverBtnHtml" src="images/playButtonNew.png" /> Start Over </div>-->
+                <div id="tryAgainText" class="rowBackFail2">Try Again </div>
+                <div id="SkipLevelText" class="rowBackFail2">Skip Level </div>
+                <div id="startOver" class="rowBackFail2">Start Over </div>
+        
+            </div>
+         
+           
+            <div id="LevelComleteSkipBtn"></div>
+            <div id="LevelComleteQuitBtn"></div>
+
+        </div>
+
+    </div>
+
+
+  
+
+ <script type=text/javascript>
+
+
+     //cordova in app browser
+    window.addEventListener('load', (event) => {
+  //console.log('page is fully loaded');
+
+     ///start level end loss modal
+    document.getElementById("tryAgainText").addEventListener("click", handleLevelPopup);
+    document.getElementById("tryAgainText").addEventListener("touchstart", handleLevelPopup);
+
+    document.getElementById("SkipLevelText").addEventListener("click", handleLevelPopup2);
+    document.getElementById("SkipLevelText").addEventListener("touchstart", handleLevelPopup2);
+
+    document.getElementById("startOver").addEventListener("click", handleLevelPopup3);
+    document.getElementById("startOver").addEventListener("touchstart", handleLevelPopup3);
+
+     });
+           
+
+
+      if (localStorage.getItem("timesPlayed") == null) {
+            localStorage.setItem("timesPlayed", 0);
+    }
+     var timesPlayed = localStorage.getItem("timesPlayed")
+     timesPlayed++
+     localStorage.setItem("timesPlayed", timesPlayed);
+      
+
+        var onceOnlyAd = 0;
+
+       var levelEndModal = document.getElementById("levelComplete");
+
+     //try again
+    function handleLevelPopup(evt) {
+       // console.log("still here")
+        evt.preventDefault()
+             
+			levelEndModal.style.display = 'none'
+			game.state.start("PlayGame");
+	    
+    }
+     //view ad and skip level
+     var firstClick2 = 0;
+function handleLevelPopup2(evt) {
+     if (firstClick2 == 0 ) {
+        firstClick2 = 1;
+        evt.preventDefault()
+      //  console.log("still here2")
+		
+
+      setTimeout(function(){
+            levelEndModal.style.display = 'none';
+            LEVEL =  localStorage.getItem("stackerLevel");
+            LEVEL = parseInt(LEVEL) + 1;
+            localStorage.setItem("stackerLevel", LEVEL);
+            game.state.start("PlayGame");
+            firstClick2 = 0;
+        }, 1000);
+     }
+}
+     //start over
+function handleLevelPopup3(evt) {
+        evt.preventDefault()
+       // console.log("still here3")
+        levelEndModal.style.display = 'none'
+        LEVEL = 1;
+        game.state.start("PlayGame");
+
+}
+//gameJolt login user
+const jsonArr = [];
+var gameJoltArrayReturned = "";
+        var gameJoltTrophiesReturned = '';
+        var gjUserReturned = ''
+        var gjUserToken = ''
+        
+            ////GameJolt login manual - comment on final build
+            //  try{
+            //     GJAPI.UserLoginManual("GuiGhostGames", "noFKVU", function(pResponse)
+            //    {
+            //        if(pResponse.success)
+                    
+            //             console.log("%cLogin successful - checking trophys next", 'background: darkblue; color: #bada55');
+            //             checkGameJoltUser();
+            //             checkTrophiesGameJolt();
+                       
+                        
+            //    });
+
+            //  }catch(err){console.log(err)};
+         checkGameJoltUser();
+                      
+        function checkGameJoltUser(){
+            try{ GJAPI.UserFetchCurrent(function(pResponse)
+
+                {
+                    if(!pResponse.users) return;
+                    ///console.info(pResponse.users[0].username + " - " + pResponse.users[0].developer_description);
+                    ///console.log("%c Username is " + pResponse.users[0].username + " - and description is " + pResponse.users[0].developer_description, 'background: green; color: #bada55');
+                     gjUserReturned = GJAPI.sUserName ;
+                    gjUserToken = GJAPI.sUserToken;
+                    console.log("%cUsername = " + gjUserReturned + " and token is " + gjUserToken, 'background: purple; color: #bada55');
+                    
+                    let activeUserTrue = GJAPI.bActive;
+                    console.log("%csessionActive = " + activeUserTrue, 'background: white; color: #000000');
+                    checkTrophiesGameJolt();
+                });
+            }catch(err){console.log(err)};
+        };
+        function checkTrophiesGameJolt(){
+            ///onsole.log("in check trophy")
+            try{
+                 GJAPI.TrophyFetch(GJAPI.TROPHY_ALL, function(pResponse)
+                {
+                    if(!pResponse.trophies) return;
+
+                    for(var i = 0; i < pResponse.trophies.length; ++i)
+                       {
+                        gameJoltArrayReturned = gameJoltArrayReturned + " { " +  pResponse.trophies[i].id + " , " 
+                        +  pResponse.trophies[i].title + "," +  pResponse.trophies[i].achieved + "}," 
+                          jsonArr.push({
+                                id: pResponse.trophies[i].id ,
+                                title: pResponse.trophies[i].title,
+                                achieved: pResponse.trophies[i].achieved,
+                            });
+                       }
+                      
+                     
+                       
+                });
+             
+                
+            }catch(err){console.log("trophyfetch failed try")}
+            
+        }
+
+ </script>
+
+
+
+
+</body>
+</html>
+<!--//Credits to http://www.emanueleferonato.com/ for the tuturial on the javascript that started this project-->
