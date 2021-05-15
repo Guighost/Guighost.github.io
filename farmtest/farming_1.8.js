@@ -3999,7 +3999,7 @@ farming.start = function () {
                 ///put anim over blacksmith
                 blacksmithBubble.setHidden(false);
              if(show1toolstoast == 0){
-                lime.scheduleManager.callAfter(function () { showMFToast("Blacksmith needs Iron",imgArray[19].src, 1); }, this, 30000);
+                lime.scheduleManager.callAfter(function () { showMFToast("Need Iron",imgArray[19].src,'iron', 3000); }, this, 30000);
                 
                 show1toolstoast = 1;
              };
@@ -4601,7 +4601,7 @@ farming.start = function () {
                 lime.scheduleManager.callAfter(function () { collectibleBtn.setPosition((x + 20), y - 10); }, this, 1400);
                 lime.scheduleManager.callAfter(function () { collectibleBtn.setPosition((x + 20), y); }, this, 1600);
 
-                showMFToast('You Found Treasure!', imgArray11[2].src);
+                showMFToast('Found Treasure!', imgArray11[2].src, 'treasure', 3000);
             }
 
         }
@@ -5023,7 +5023,7 @@ farming.start = function () {
                                 player.fields = player.fields + 1;
                                 homeTreesLeft = 1;
                                 localStorage.setItem('MedFarms_homeTreesLeft', 1);
-                                showMFToast("Home Forest Cleared",imgArray[61].src);
+                                showMFToast("Home Forest Clear",imgArray[61].src,'home', 3000);
                                 lime.scheduleManager.callAfter(function () {
                                     a.updateTools();
                                 }, this, 500);
@@ -5113,7 +5113,7 @@ farming.start = function () {
                                 player.fields = player.fields + 1;
                                 homeTreesRight = 1;
                                 localStorage.setItem('MedFarms_homeTreesRight', 1);
-                                showMFToast("Home Forest Cleared",imgArray[61].src);
+                                showMFToast("Home Forest Clear",imgArray[61].src,'home', 3000);
                                 //t.setHidden(false);
                                 lime.scheduleManager.callAfter(function () {
                                     a.updateTools();
@@ -6107,7 +6107,7 @@ farming.start = function () {
                             homeBarnShortLabel.setText("Use Seeds menu to plant").setHidden(false);
 
                             barnUnlock.setText("Lvl " + player.barnLevel + "/5");
-                            showMFToast("Barn Upgrade Complete",imgArray[30].src);
+                            showMFToast("Barn Upgraded",imgArray[30].src,'home', 3000);
                             lime.scheduleManager.callAfter(function () {
                                 unlockedCropBack.setHidden(true);
                                 checkAchieves2();
@@ -7886,7 +7886,7 @@ farming.start = function () {
                         localStorage.setItem('GuiGhostFarms_toolsEver', toolsEver);
                         localStorage.setItem('GuiGhostFarms_pickedEver', parseInt(pickedEver));
                         localStorage.setItem('GuiGhostFarms_moneyEver', moneyEver);
-                        showMFToast("Pasture Forest Cleared",imgArray[61].src);
+                        showMFToast("Dairy Trees Clear",imgArray[61].src, 'dairy', 3000);
                     }
 
                 }, this, 1000, 60)
@@ -8063,7 +8063,7 @@ farming.start = function () {
                             upgradesInProgress.buildings[1].currentBarnLevel = player.pastureLevel;
                             localStorage.setItem('MedFarm_upgradesInProgress', JSON.stringify(upgradesInProgress));
                             barnUpInProgressPasture = 0;
-                            showMFToast("Dairy Upgrade Complete",imgArray[30].src);
+                            showMFToast("Dairy Upgraded",imgArray[30].src, 'dairy', 3000);
                         }
                         catch (err) { console.log(err) }
                     }, this, secondsToUpgradeP * 1000);
@@ -8375,7 +8375,7 @@ farming.start = function () {
                         questText1O.setText("If you upgrade the barn, we can increase our harvests");
                         questPanelRocksO.setHidden(true);
                         questPanelAvatarO.setFill(imgArray4[1]);
-                        showMFToast("Rocks Cleared","images/UI/rockBlock.png");
+                        showMFToast("Rocks Clear","images/UI/rockBlock.png",'orchard', 3000);
                         
                         
 
@@ -8510,7 +8510,7 @@ farming.start = function () {
         });
         goog.events.listen(ciderPlaceBubble, ["mousedown", "touchstart"], function () {
             player.cropsStored[18].stored = parseInt(player.cropsStored[18].stored) + parseInt(ciderWaiting);
-            showMFToast("+" + ciderWaiting + " Cider",imgArrayVin[6].src);
+            showMFToast("+" + ciderWaiting + " Cider",imgArrayVin[6].src,'orchard', 3000);
             gLabel18.setText(player.cropsStored[18].stored);
             lime.scheduleManager.callAfter(function () { a.updateStored(); }, this, 100);
             ciderWaiting = 0;
@@ -8747,7 +8747,7 @@ farming.start = function () {
                                 lime.scheduleManager.callAfter(function () { unlockedCropBackO.setHidden(true); }, this, 3000);
                                 localStorage["GuiGhostFarms_orchardTreeBlock"] = 2;
                                 orchardText = "Pears & Apples"; wO.setText(orchardText).setPosition(a.controlsLayer_w / 2 - 5, a.height - a.controlsLayer_h / 2 - 12);
-                                showMFToast("Orchard Forest Cleared",imgArray[61].src);
+                                showMFToast("Orchard Forest Clear",imgArray[61].src,'orchard', 3000);
                                 try { goog.events.removeAll(treesImgO); } catch (err) { return; }
                             }
 
@@ -9283,7 +9283,7 @@ farming.start = function () {
                         orchardBarnLevel = 2;
                         localStorage.setItem("MedFarm_orchardBarnLevel", 2);
                         barnLevelO.setText("Lvl 2/2");
-                        showMFToast("Orchard Upgrade Complete",imgArray[30].src);
+                        showMFToast("Orchard Upgraded",imgArray[30].src,'orchard', 3000);
                         player.cropsStored[14].stored = parseInt(player.cropsStored[14].stored) - 200;
                         if (player.cropsStored[14].stored < 0) { player.cropsStored[14].stored = 0; }
                         localStorage.setItem('GuiGhostFarms_player', JSON.stringify(player));
@@ -9874,7 +9874,7 @@ farming.start = function () {
                     sucessText.style.display = 'block';
                     lime.scheduleManager.callAfter(function () { sucessText.style.display = 'none'; }, this, 1000);
                     checkAchieves2();
-                    showMFToast('+ 500 Coins', imgArray11[0].src);
+                    showMFToast('+ 500 ', imgArray11[0].src);
 
                 }
                 event.stopPropagation();
@@ -9894,7 +9894,7 @@ farming.start = function () {
                     sucessText.innerHTML = '+ 500 Coins';
                     sucessText.style.display = 'block';
                     lime.scheduleManager.callAfter(function () { sucessText.style.display = 'none'; }, this, 750);
-                    showMFToast('+ 500 Coins', imgArray11[0].src);
+                    showMFToast('+ 500 ', imgArray11[0].src);
                 }
                 event.stopPropagation();
             }
@@ -9917,7 +9917,7 @@ farming.start = function () {
                     sucessText.style.display = 'block';
                     lime.scheduleManager.callAfter(function () { sucessText.style.display = 'none'; }, this, 1000);
                     purchaseSound.play();
-                    showMFToast('+ 500 Tools', imgArray[30].src);
+                    showMFToast('+ 500 ', imgArray[30].src);
 
                 }
                 event.stopPropagation();
@@ -9940,7 +9940,7 @@ farming.start = function () {
                     sucessText.style.display = 'block';
                     lime.scheduleManager.callAfter(function () { sucessText.style.display = 'none'; }, this, 1000);
                     purchaseSound.play();
-                    showMFToast('+ 500 Tools', imgArray[30].src);
+                    showMFToast('+ 500 ', imgArray[30].src);
 
                 }
                 event.stopPropagation();
@@ -12768,7 +12768,7 @@ farming.start = function () {
 
         });
         function toastOnSaleTown(priceSold){
-            showMFToast("+" + priceSold + " Coins",imgArray11[0].src, 1);
+            showMFToast("+ " + priceSold + " ",imgArray11[0].src, 1);
 
         };
         function animSellSuccessText() {
@@ -13358,7 +13358,7 @@ farming.start = function () {
             };
             updateMarketCropVals();
             howManyBack.setHidden(true);
-            showMFToast("+" +cropSaleCurrentPrice + " Coins",imgArray11[0].src, 1);
+            showMFToast("+ " +cropSaleCurrentPrice + " ",imgArray11[0].src, 1);
              a.updateMoney();
             howManySellBtn.removeEventListener('mousedown', function () { console.log("howmanysellBtn removed listener") });
         }
@@ -13596,7 +13596,7 @@ farming.start = function () {
                                 goog.events.removeAll(chickenCoopUp);
                             } catch (err) { return; }
                             barnUpInProgressLS = 0;
-                            showMFToast("Coop Upgrade Complete",imgArray[30].src);
+                            showMFToast("Coop Upgraded",imgArray[30].src,'coop', 3000);
                         }
 
                     }, this, 1000, 60);
@@ -14664,7 +14664,7 @@ farming.start = function () {
                         isblocked1 = 2;
                         treeUnlockBtnV.setHidden(true);
                         localStorage["GuiGhostFarms_vinyardBlocks"] = isblocked1;
-                        showMFToast("Vineyard Forest Cleared",imgArray[61].src);
+                        showMFToast("Vineyard Trees Clear",imgArray[61].src,'vinTrees', 3000);
                         try {
                             goog.events.removeAll(treesImgV);
                         } catch (err) { return; }
@@ -14762,7 +14762,7 @@ farming.start = function () {
                         player.cropsStored[14].stored = parseInt(player.cropsStored[14].stored) + 500;
                         if (player.cropsStored[14].stored < 0) { player.cropsStored[14].stored = 500; }
                         localStorage.setItem('GuiGhostFarms_player', JSON.stringify(player));
-                        showMFToast("Vineyard Forest Cleared",imgArray[61].src);
+                        showMFToast("Vineyard Trees Clear",imgArray[61].src,'vinTrees', 3000);
                         try {
                             goog.events.removeAll(treesImgV2);
                         } catch (err) { return; }
@@ -15064,7 +15064,7 @@ farming.start = function () {
                             else { questText1V.setText("Now we are making Jelly! Keeps the grapes coming"); }
                             vinFarmerQuest.setHidden(false);
                             vinFarmerQuestBtn.setHidden(false);
-                            showMFToast("Vineyard Upgrade Complete",imgArray[30].src);
+                            showMFToast("Vineyard Upgraded",imgArray[30].src,'vinyardH', 3000);
 
                             //start making jelly
 
@@ -17220,7 +17220,7 @@ farming.start = function () {
                         houseImg.setFill(imgArray[98]).setSize(71, 91).setPosition(232, 23)
                         upgradesInProgress.buildings[5].timeLeft = 0;
                         upgradesInProgress.buildings[5].currentBarnLevel = 2;
-                        showMFToast("House Upgrade Complete",imgArray[30].src);
+                        showMFToast("House Upgraded",imgArray[30].src,'house', 3000);
                     }
 
                 }, this, 1000, 90);
@@ -18397,7 +18397,7 @@ farming.start = function () {
                     //times up hide upgrade stuff
                     scaffoldWM.setHidden(true);
                     windmillUpgraded = 1;
-                    showMFToast("WindMill Upgraded",imgArray[30].src);
+                    showMFToast("WindMill Upgraded",imgArray[30].src,'windmill', 3000);
 
 
                     localStorage.setItem("wmUpgraded", 1);
@@ -18476,7 +18476,7 @@ farming.start = function () {
                     upgradesInProgress.buildings[6].timeLeft = 0;
                     upgradesInProgress.buildings[6].currentBarnLevel = 2;
                     localStorage.setItem('MedFarm_upgradesInProgress', JSON.stringify(upgradesInProgress));
-                    showMFToast("Unlocked Bakery",imgArray[30].src);
+                    showMFToast("Unlocked Bakery",imgArray[30].src, 'bakery', 3000);
                 }
 
             }, this, 250, tickerForTimerWM3)
@@ -19377,24 +19377,7 @@ farming.start = function () {
                     {
                         // Ensure that power can't be changed while wheel is spinning.
                         if (wheelSpinning == false) {
-                            // Reset all to grey incase this is not the first time the user has selected the power.
-                            document.getElementById('pw1').className = "";
-                            document.getElementById('pw2').className = "";
-                            document.getElementById('pw3').className = "";
-            
-                            // Now light up all cells below-and-including the one selected by changing the class.
-                            if (powerLevel >= 1) {
-                                document.getElementById('pw1').className = "pw1";
-                            }
-            
-                            if (powerLevel >= 2) {
-                                document.getElementById('pw2').className = "pw2";
-                            }
-            
-                            if (powerLevel >= 3) {
-                                document.getElementById('pw3').className = "pw3";
-                            }
-            
+                    
                             // Set wheelPower var used when spin button is clicked.
                             wheelPower = powerLevel;
             
@@ -19403,25 +19386,48 @@ farming.start = function () {
                             document.getElementById('spin_button').className = "clickable";
                         }
                     }
-                    document.getElementById("spin_button").addEventListener("click", function() {
-                        startSpin(); 
+                    document.getElementById("rewardAdHider").addEventListener("click", function(event) {
+                       
+                        event.stopPropagation();    
                       });
-                      document.getElementById("spin_button").addEventListener("touchend", function() {
-                        startSpin();
+                      document.getElementById("rewardAdHider").addEventListener("touchend", function(event) {
+                        
+                        event.stopPropagation();    
                       });
-                      document.getElementById("viewAdWheel").addEventListener("click", function() {
-                        resetWheel(); return false;
+                      document.getElementById("wheelDiv").addEventListener("click", function(event) {
+                       
+                        event.stopPropagation();    
                       });
-                      document.getElementById("viewAdWheel").addEventListener("touchend", function() {
-                        resetWheel(); return false;
+                      document.getElementById("wheelDiv").addEventListener("touchend", function(event) {
+                        
+                        event.stopPropagation();    
+                      });
+                      document.getElementById("viewAdWheel").addEventListener("click", function(event) {
+                         event.stopPropagation(); 
+                          resetWheel();    return false;
+                      });
+                      document.getElementById("viewAdWheel").addEventListener("touchend", function(event) {
+                          event.stopPropagation(); 
+                           resetWheel();   return false;
                       });
                     // -------------------------------------------------------
                     // Click handler for spin button.
                     // -------------------------------------------------------
+                    document.getElementById("spin_button").addEventListener("click", function(event) {
+                        
+                        event.stopPropagation();    
+                        startSpin(); 
+                      });
+                      document.getElementById("spin_button").addEventListener("touchend", function(event) {
+                        
+                        event.stopPropagation();    
+                        startSpin();
+                    });
+
                     function startSpin()
                     {
                         // let stopAt = (01 + Math.floor((Math.random() * 43)))
- 
+                        event.stopPropagation();  
                         // // Important thing is to set the stopAngle of the animation before stating the spin.
                         // theWheel.animation.stopAngle = stopAt;
                         // Ensure that spinning can't be clicked again while already running.
@@ -19437,7 +19443,7 @@ farming.start = function () {
                             }
             
                             // Disable the spin button so can't click again while wheel is spinning.
-                            document.getElementById('spin_button').src       = "images/spin_off.png";
+                            document.getElementById('spin_button').src= "images/spin_off.png";
                             document.getElementById('spin_button').className = "";
             
                             // Begin the spin animation by calling startAnimation on the wheel object.
@@ -19449,6 +19455,7 @@ farming.start = function () {
                         }
                     }
                     document.getElementById("wheelReward").style.display = 'none';
+                    document.getElementById('rewardAdHider').style.display = 'none';
                     // -------------------------------------------------------
                     // Function for reset button.
                     // -------------------------------------------------------
@@ -19457,8 +19464,10 @@ farming.start = function () {
                         theWheel.stopAnimation(false);  // Stop the animation, false as param so does not call callback function.
                         theWheel.rotationAngle = 0;     // Re-set the wheel angle to 0 degrees.
                         theWheel.draw();                // Call draw to render changes to the wheel.
-                        document.getElementById('spin_button').src       = "images/spin_on.png";
-                        document.getElementById('spin_button').style ='width: 155px; height: 65px; margin-left: 50%; transform:translate(-47.5%,5%);' 
+                        document.getElementById('spin_button').src= "images/spin_on.png";
+                        document.getElementById('spin_button').style ='  width: 160px; height:65px; margin-left:50%; margin-top:5px; transform:translate(-45%,50%);' 
+                        document.getElementById('spin_button').className = "clickable";
+                        document.getElementById('rewardAdHider').style.display = 'none';
                                                // document.getElementById('pw1').className = "";  // Remove all colours from the power level indicators.
                         // document.getElementById('pw2').className = "";
                         // document.getElementById('pw3').className = "";
@@ -19484,18 +19493,21 @@ farming.start = function () {
                     document.getElementById("wheelReward").style.display = 'none';
                     document.getElementById("anotherSpin").style = ' ';
                     document.getElementById("anotherSpin").style = 'margin-left: 50%; margin-top: 15%; font-size: xx-large; width: 450px; transform:translate(-25%,-50%); display: block;';
-                    document.getElementById("viewAdWheel").style = 'opacity: 1.0; transform:translate(-0%,-20%);';
-                    document.getElementById("rewardCloseBtn").style = 'position: absolute;width: 90px; height: 90px; transform:translate(-55%,-45%); bottom:20px;';   
+                    document.getElementById("viewAdWheel").style = 'opacity: 1.0; transform:translate(-9%,-20%);';
+                    document.getElementById("rewardCloseBtn").style = 'position:absolute; width: 40px; height:40px; right:25px;  top:8px;';   
+                    document.getElementById("spin_button").style.display= 'none';
+                    document.getElementById('rewardAdHider').style.display = 'block';
                     event.stopPropagation();     
                   
                   });
                 document.getElementById("wheelRewardImg").addEventListener("touchend", function(event) {
-                     document.getElementById("wheelReward").style.display = 'none';
+                    document.getElementById("wheelReward").style.display = 'none';
+                    document.getElementById("anotherSpin").style = ' ';
                     document.getElementById("anotherSpin").style = 'margin-left: 50%; margin-top: 15%; font-size: xx-large; width: 450px; transform:translate(-25%,-50%); display: block;';
-                    document.getElementById("viewAdWheel").style = 'opacity: 1.0; transform:translate(-0%,-20%);';
-                    document.getElementById("spin_button").style = 'width: 155px; height: 65px; margin-left: 50%; margin-top:5px; transform:translate(-47.5%,24%);';
-                    document.getElementById("rewardCloseBtn").style = 'position: absolute;width: 90px; height: 90px; transform:translate(-55%,-45%); bottom:20px;';
-                    console.log("made it past");
+                    document.getElementById("viewAdWheel").style = 'opacity: 1.0; transform:translate(-9%,-20%);';
+                    document.getElementById("rewardCloseBtn").style = 'position:absolute; width: 40px; height:40px; right:25px;  top:8px;';
+                    document.getElementById("spin_button").style.display= 'none';
+                    document.getElementById('rewardAdHider').style.display = 'block';
                     event.stopPropagation();
                   
                   });
@@ -19515,18 +19527,18 @@ farming.start = function () {
         function showMFToast(tmessage, imagePassed, exDetail, dur1) {
             console.log('tryToast')
             try{
-                if(exDetail != 1){
+                if(exDetail != 'iron'){
                 purchaseSound.play();
                 }
-                let customDur = dur1 || 6000;
+                let customDur = dur1 || 3500;
             Toastify({
                 text: tmessage,
                 avatar: imagePassed,
                 duration: customDur,
-                close: true,
+                close: false,
                 gravity: "top", // `top` or `bottom`
                 position: "right", // `left`, `center` or `right`
-                style: {background: 'linear-gradient(to right, #00b09b, #96c93d)'},
+                style: {background: 'linear-gradient(to right, #00b06d, #1f2c07, #86ef6f)'},
                 stopOnFocus: true, // Prevents dismissing of toast on hover
                
                 onClick: function(){ toastClicked(exDetail); } // Callback after click
@@ -19535,12 +19547,13 @@ farming.start = function () {
         }
         function toastClicked(exDetail2){
             console.log("toast clicked with exDetail " + exDetail2)
-            if (exDetail2 == 2){
+            if (exDetail2 == 'luckyWheel'){
                 document.getElementById("wheelDiv").style.display = 'block';
-            }else{return};
+                hideToast();
+            }else{console.log('no action on toast click')};
 
         }
-        lime.scheduleManager.callAfter(function () { showMFToast("Get a Bonus Now!",imgArrayItems[25].src, 2, 10000); }, this, 10000);
+        lime.scheduleManager.callAfter(function () { showMFToast("Get Loot!",imgArrayItems[25].src, 'luckyWheel', 10000); globalModalBlock = 1;}, this, 10000);
         
     };
 ///end of farming.start

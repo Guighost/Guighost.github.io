@@ -953,36 +953,42 @@
     #wheelDiv{
      
       position: absolute;
-      width: 500px;
+        width: 80%;
         z-index:30000;
 
         left: 50%;
         margin-left: 0;
-        top:1%;
-      
-        min-width: 600px;
+        top:5%;
+        
+        min-height: 76%;
+        max-height: 90%;
+        min-width: 350px;
+        max-width: 510px;
         transform: translateX(-52%);
         border: 1px solid azure;
         border-radius: 2em;
         box-shadow: 0px 10px 5px 10px #111f;
-        background-image: url( "images/UI/blankBack5.png");
-            background-size: contain;
-            background-repeat: no-repeat;
-            max-height: 95%;
-            min-height: 43%;
-            display:none;
+        background-image: url(./images/UI/blankBack5.png);
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: 95%, 50%;
+    display: none;
+     
+           
   }
   
   td.the_wheel
 {
     background-image: url(./images/wheelSlices/wheel_back.png);
-    background-position: center;
+    background-position: top;
     background-repeat: no-repeat;
     background-size: contain;
     margin-top: 5px;
     margin-left: 0px;
     padding-left:0px;
-    transform: translate(-5px,15px);
+    transform: translate(-5px,-45px) scale3d(0.75,0.75,0.75);
+   
+    
 
 }
 
@@ -994,8 +1000,11 @@ h1, p
 
 div.power_controls
 {
+    position: absolute;
+    top: 55%;
+    left: 50%;
     margin-right:10px;
-    transform:translate(0%,-20%);
+    transform:translate(-54%,0%);
 }
 
 div.html5_logo
@@ -1050,34 +1059,37 @@ td.pw3
 
 #spinHeader{
     font-family: 'Proxima Nova';
-    font-size: x-large;
+    font-size: 1.2em;
    
-    border-radius: 1em;
+    border-radius: 0.2em;
     transform:translateY(18%);
-    width: 100%;
+    width: 90%;
     text-align: center;
     align-content: center;
-   
+    box-shadow: 0px 10px 5px 10px #111f;
     
 }
 #spin_button{
-    width: 155px;
+    width: 160px;
     height: 65px;
     margin-left: 50%;
     margin-top:5px;
-    transform:translate(-47.5%,5%);
+    transform:translate(-45%,50%);
+    
 }
 #anotherSpin{
     margin-left: 50%;
     margin-top: 10%;
     font-size: xx-large;
     width: 450px;
-    transform:translate(-25%,-23%);
+    transform:translate(-23%,-23%);
     display: none;
+    
     
 }
 #viewAdWheel{
-    transform:translate(-0%,-15%);
+
+    transform:translate(-20%,-15%);
    opacity: 0.0;
 }
 #wheelReward{
@@ -1089,9 +1101,9 @@ td.pw3
     left: 50%;
     transform:translate(-49%,-85%);
     background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgb(2, 31, 36) 90%);
+    background: -webkit-radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgb(2, 31, 36) 90%);
     color: azure;
     display: none;
-    
 }#wheelReward img{
     
     width: 100px;
@@ -1112,14 +1124,17 @@ td.pw3
 }
 #rewardCloseBtn{
     position: absolute;
-    width: 90px;
-    height: 90px;
-    transform:translate(-55%,-55%);
-    bottom:10px;
+    width: 40px;
+    height: 40px;
+    right: 25px;
+    top:8px;
 }
 #rewardAdHider{
-    width:100%;
+    width:90%;
     height: 200px;
+   
+    margin-left: 50%;
+    transform: translateX(-46%);
 }
 #rays	{ /* with animation properties */
 	background: url(images/wheelSlices/rays-main.png) 0 0 no-repeat; 
@@ -1629,7 +1644,9 @@ td.pw3
 
                 Enhance.showInterstitialAd();
             };
-            if (localStorage.getItem('MedFarm_LoadAd') == 1 && localStorage.getItem('MedFarm_StarCashBoost') == 0) { Enhance.isInterstitialReady(callbackAdInter); }
+            if (localStorage.getItem('MedFarm_LoadAd') == 1 && localStorage.getItem('MedFarm_StarCashBoost') == 0) {
+                try{Enhance.isInterstitialReady(callbackAdInter);}catch(err){console.log(err);}
+             };
 
 
 
@@ -1660,7 +1677,11 @@ td.pw3
                 Enhance.showRewardedAd(onRewardGranted, onRewardDeclined, onRewardUnavailable);
             };
 
-            if (localStorage.getItem('MedFarm_StarCashBoost') == 1) { Enhance.isRewardedAdReady(callbackRewarded); localStorage.setItem('MedFarm_StarCashBoost', 0); }
+            if (localStorage.getItem('MedFarm_StarCashBoost') == 1) {
+                try{
+                    Enhance.isRewardedAdReady(callbackRewarded); localStorage.setItem('MedFarm_StarCashBoost', 0);
+                }catch(err){console.log(err);}
+            };
             
 
 
