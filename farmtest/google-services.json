@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "809085131389",
+    "firebase_url": "https://guighost-farms.firebaseio.com",
+    "project_id": "guighost-farms",
+    "storage_bucket": "guighost-farms.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:809085131389:android:6c2121a858d2db63d96f14",
+        "android_client_info": {
+          "package_name": "com.wMedievalFarms_GuiGhostGames"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "809085131389-92r2e3bjo0kfklo91v9ke1e0dl8rk2b8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD_HI4Tqb2BpduRSl689PsUhIC1xIre7mo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "809085131389-92r2e3bjo0kfklo91v9ke1e0dl8rk2b8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
