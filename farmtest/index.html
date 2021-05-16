@@ -31,20 +31,24 @@
 
         #loadingGG {
             position: absolute;
-            top: 30%;
+            top: 10%;
             left: 50%;
-            min-width: 50%;
-			min-height: 90%;
-            height: 100%;
+            width: 100%;
+            height: 89%;
             transform: translateX(-50%);
             z-index: 15000;
-			overflow: hidden;
+            border: 1px solid white;
+            background-image: url(images/UI/MenuTop2.png);
+            background-size: contain;
+            background-repeat: no-repeat;
 			
         }
 		#loadingGG img {
 		 display: block;
 		 margin: auto;
-		 max-width: 50%;
+		 max-width: 100%;
+    
+         
 		}
 
 
@@ -952,25 +956,25 @@
   
     #wheelDiv{
      
-      position: absolute;
-        width: 80%;
-        z-index:30000;
-
-        left: 50%;
-        margin-left: 0;
-        top:5%;
-       
-        min-height: 58%;
-        max-height: 90%;
-        min-width: 500px;
-        max-width: 800px;
-        transform: translateX(-52%);
+        position: absolute;
+            left: 48%;
+            top: 2.5%;
+            transform: translate(-50%,-0%);
+            display: none;
+            font-family: 'Proxima Nova';
+            font-size: 14px;
+            z-index: 2000;
+            background-image: url( "images/UI/blankBack5.png");
+            background-size: contain;
+            background-repeat: no-repeat;
+            min-width: 750px;
+            min-height: 840px;
       
-        background-image: url(./images/UI/blankBack5.png);
-    background-position: top;
+       
+    background-position: center;
     background-repeat: no-repeat;
-    background-size: 95%, 95%;
- display:none;
+   
+ 
      
         color: azure;
         text-shadow: #000000;
@@ -1001,7 +1005,7 @@ h1, p
 div.power_controls
 {
     position: absolute;
-    top: 55%;
+    top: 65%;
     left: 50%;
     margin-right:10px;
     transform:translate(-54%,0%);
@@ -1066,15 +1070,15 @@ td.pw3
     width: 90%;
     text-align: center;
     align-content: center;
-    box-shadow: 0px 10px 5px 10px #111f;
+    box-shadow: 0px 5px 2.5px 5px #111f;
     
 }
 #spin_button{
     width: 200px;
     height: 85px;
     margin-left: 50%;
-    margin-top:5px;
-    transform:translate(-47%,-37%);
+    margin-top:15px;
+    transform:translate(-47%,51%);
   
     
 }
@@ -1083,7 +1087,7 @@ td.pw3
     margin-top: 10%;
     font-size: xx-large;
     width: 450px;
-    transform:translate(-25%,-23%);
+    transform:translate(-50%,25%);
     display: none;
     
     
@@ -1173,7 +1177,7 @@ td.pw3
     
 
 	<ion-content>
-    <div id="loadingGG"><IMG SRC="images/UI/MenuTop2.png"></div>
+    <div id="loadingGG"></div>
 	</ion-content>
 
 

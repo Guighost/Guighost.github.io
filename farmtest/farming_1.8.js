@@ -19551,6 +19551,9 @@ farming.start = function () {
             console.log("toast clicked with exDetail " + exDetail2)
             if (exDetail2 == 'luckyWheel'){
                 document.getElementById("wheelDiv").style.display = 'block';
+                let sizerCheck = c.getSize();
+                console.log("size of canvas is " + sizerCheck.width+ " " + sizerCheck.height )
+                document.getElementById("wheelDiv").style.minWidth = sizerCheck.width * 2 ;
                 globalModalBlock = 1;
                 
             }else{console.log('no action on toast click')};
