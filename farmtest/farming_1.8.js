@@ -19326,7 +19326,7 @@ farming.start = function () {
                     let theWheel = new Winwheel({
                         'canvasId'          : 'canvasWheel',
                         'numSegments'       : 9,                // Specify number of segments.
-                        'outerRadius'       : 150,              // Set outer radius so wheel fits inside the background.
+                        'outerRadius'       : 190,              // Set outer radius so wheel fits inside the background.
                         'drawText'          : false,             // Code drawn text can be used with segment images.
                         'textFontSize'      : 16,               // Set text options as desired.
                         'textOrientation'   : 'curved',
@@ -19513,10 +19513,12 @@ farming.start = function () {
                   });
                   document.getElementById("rewardCloseBtn").addEventListener("click", function(event) {
                     document.getElementById("wheelDiv").style.display = 'none';
+                    globalModalBlock = 0;
                     event.stopPropagation();
                   });
                 document.getElementById("rewardCloseBtn").addEventListener("touchend", function(event) {
                     document.getElementById("wheelDiv").style.display = 'none';
+                    globalModalBlock = 0;
                     event.stopPropagation();
                   });
                   
@@ -19549,11 +19551,12 @@ farming.start = function () {
             console.log("toast clicked with exDetail " + exDetail2)
             if (exDetail2 == 'luckyWheel'){
                 document.getElementById("wheelDiv").style.display = 'block';
-                hideToast();
+                globalModalBlock = 1;
+                
             }else{console.log('no action on toast click')};
 
         }
-        lime.scheduleManager.callAfter(function () { showMFToast("Get Loot!",imgArrayItems[25].src, 'luckyWheel', 10000); globalModalBlock = 1;}, this, 10000);
+        lime.scheduleManager.callAfter(function () { showMFToast("Get Loot!",imgArrayItems[25].src, 'luckyWheel', 10000); }, this, 1000);
         
     };
 ///end of farming.start

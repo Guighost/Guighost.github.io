@@ -959,22 +959,22 @@
         left: 50%;
         margin-left: 0;
         top:5%;
-        
-        min-height: 76%;
+       
+        min-height: 58%;
         max-height: 90%;
-        min-width: 350px;
-        max-width: 510px;
+        min-width: 500px;
+        max-width: 800px;
         transform: translateX(-52%);
-        border: 1px solid azure;
-        border-radius: 2em;
-        box-shadow: 0px 10px 5px 10px #111f;
+      
         background-image: url(./images/UI/blankBack5.png);
     background-position: top;
     background-repeat: no-repeat;
-    background-size: 95%, 50%;
-    display: none;
+    background-size: 95%, 95%;
+ display:none;
      
-           
+        color: azure;
+        text-shadow: #000000;
+        font-size: x-large;
   }
   
   td.the_wheel
@@ -983,10 +983,10 @@
     background-position: top;
     background-repeat: no-repeat;
     background-size: contain;
-    margin-top: 5px;
+    margin-top: 25px;
     margin-left: 0px;
     padding-left:0px;
-    transform: translate(-5px,-45px) scale3d(0.75,0.75,0.75);
+    transform: translate(0px,30px);
    
     
 
@@ -1048,8 +1048,8 @@ td.pw3
 }
 #resetViewAd{
   
-    width: 175px;
-    height: 40px;
+    width: 200px;
+    height: 50px;
     
     margin-left: 28%;
     transform:translate(-50%,-200%);
@@ -1070,11 +1070,12 @@ td.pw3
     
 }
 #spin_button{
-    width: 160px;
-    height: 65px;
+    width: 200px;
+    height: 85px;
     margin-left: 50%;
     margin-top:5px;
-    transform:translate(-45%,50%);
+    transform:translate(-47%,-37%);
+  
     
 }
 #anotherSpin{
@@ -1082,7 +1083,7 @@ td.pw3
     margin-top: 10%;
     font-size: xx-large;
     width: 450px;
-    transform:translate(-23%,-23%);
+    transform:translate(-25%,-23%);
     display: none;
     
     
@@ -1094,8 +1095,8 @@ td.pw3
 }
 #wheelReward{
     position:absolute;
-    width: 250px;
-    height: 250px;
+    width: 350px;
+    height: 360px;
     border-radius:5em;
     top: 45%;
     left: 50%;
@@ -1104,29 +1105,30 @@ td.pw3
     background: -webkit-radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgb(2, 31, 36) 90%);
     color: azure;
     display: none;
+
 }#wheelReward img{
     
-    width: 100px;
-    height: 100px;
-    margin-left: 45%;
-    margin-top: 5%;
-    transform:translate(-58%,-0%);
+    width: 175px;
+    height: 175px;
+    margin-left: 50%;
+    margin-top: 15%;
+    transform:translate(-50%,-0%);
    
     color: azure;
     
 }
 #wheelRewardTxt1, #wheelRewardTxt2{
-    font-size: xx-large;
+    font-size: xxx-large;
     font-family: 'Proxima Nova';
     width: 100%;
-    margin-top:0.5em;   
+    margin-top:0.2em;   
 
 }
 #rewardCloseBtn{
     position: absolute;
-    width: 40px;
-    height: 40px;
-    right: 25px;
+    width: 68px;
+    height: 68px;
+    right: 30px;
     top:8px;
 }
 #rewardAdHider{
@@ -1139,10 +1141,10 @@ td.pw3
 #rays	{ /* with animation properties */
 	background: url(images/wheelSlices/rays-main.png) 0 0 no-repeat; 
 	position: absolute; 
-	top: -102px; 
-	left: -90px; 
-	width: 420px; 
-	height: 420px; 
+	top: -55px; 
+	left: -60px; 
+	width: 450px; 
+	height: 450px; 
 	
 	/* microsoft ie */
 	animation-name: spin; 
@@ -1293,7 +1295,7 @@ td.pw3
                     <div class="power_controls">         
                         <img id="spin_button" src="images/spin_on.png" alt="Spin"  />
                         <div id="rewardAdHider">
-                            <div id="anotherSpin">Get Another Spin</div>
+                            <div id="anotherSpin"><strong>Get Another Spin</strong></div>
                             <a id="resetViewAd" href="#" > <img id="viewAdWheel" src="images/UI/viewAd2.png" alt="View Ad for spins"  /></a> 
                         </div>
                         
