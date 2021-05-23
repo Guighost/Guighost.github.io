@@ -1,0 +1,172 @@
+<!DOCTYPE html> 
+<html  lang="en"> 
+  
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-97706544-2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-97706544-2');
+    </script>
+    <title>Stacker Tower Boxes of Balance</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+    <link rel="shortcut icon" href="https://guighostgames.com/assets/images/gabbylogo-80x80.png" type="image/x-icon">
+    <meta name="description" content="Stacker Tower Boxes of Balance">
+    <style type="text/css">
+        html {
+            overflow: auto;
+        }
+
+        html,
+        body,
+        div,
+        iframe {
+            margin: 0px;
+            padding: 0px;
+            height: 100%;
+            border: none;
+        }
+
+        .holder {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        .frame {
+            width: 100%;
+            height: 100%;
+        }
+
+        .bar {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 40px;
+        }
+
+        iframe {
+            display: block;
+            width: 100%;
+            border: none;
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
+
+        header {
+            color: azure;
+            height: 2em;
+            display: block;
+        }
+
+        #headFrame {
+            display: block;
+            max-width: 36px;
+            float: right;
+            text-align: right;
+            font-size: medium;
+            background-color: none;
+            text-shadow: 2px 2px 2px #0026ff;
+            border: 1px solid azure;
+            align-content: center;
+            margin: 10px;
+        }
+
+        i {
+            display: block;
+            float: right;
+            width: 1em;
+            max-width: 1em;
+            background-color: none;
+          
+            margin:auto;
+        }
+        #goHome img {
+        height:38px;
+        position: relative;
+        margin: 10px;
+        }
+        @media screen and (max-width: 600px) {
+        .bar {
+            visibility: hidden;
+            clear: both;                   
+            display: none;
+        }
+       }
+    </style>
+    <title>GuiGhost Games</title>
+    <link rel="alternate" href="https://guighostgames.com/" hreflang="en-us" />
+    <link rel="icon" type="image/png" sizes="40X40" href="https://guighostgames.com/MedievalFarms/images/UI/homeButton.png">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head> 
+  
+<body>
+    <div id="mainD" class="holder">
+        <header id="head1" class="bar">
+            <a id="goHome" href="https://guighostgames.com/"><img src="../../../Images/gabbyLogo.png"/>  </a>
+            <div id="headFrame"> <i id="goFull" class="material-icons" style="font-size:36px;color:azure;">open_in_full</i></div>
+           
+
+
+
+
+        </header>
+        <iframe class="frame" id="gameShell" src="https://html5.gamedistribution.com/876d677de2de4aa3b0fd89cdfc24d8dc/" width="620" height="900" scrolling="none" frameborder="0"></iframe>
+        <!-- <iframe class="frame" id="gameShell" src="https://wanted5games.com/games/html5/slalom-ski-new-en-s-iga-cloud/index.html?pub=598" name="cloudgames-com" width="828" height="590" frameborder="1" scrolling="no"></iframe> -->
+    </div>
+
+  
+    <script>
+        function requestFullScreen(element) {
+            // Supports most browsers and their versions.
+            var requestMethod = element.requestFullScreen || element.webkitRequestFullScreen || element.mozRequestFullScreen || element.msRequestFullScreen;
+            if (!element.fullscreenElement) {
+                if (requestMethod) { // Native full screen.
+                    requestMethod.call(element);
+                } else if (typeof window.ActiveXObject !== "undefined") { // Older IE.
+                    var wscript = new ActiveXObject("WScript.Shell");
+                    if (wscript !== null) {
+                        wscript.SendKeys("{F11}");
+                    }
+                }
+            } else {
+                console.log('exit')
+                document.exitFullscreen();
+
+            }
+
+        }
+
+        var elem = document.getElementById('mainD');
+        var goFull = document.getElementById('goFull');
+        var gameSh = document.getElementById('gameShell');
+        gameSh.addEventListener('fullscreenchange', (event) => {
+            // document.fullscreenElement will point to the element that
+            // is in fullscreen mode if there is one. If not, the value
+            // of the property is null.
+            if (document.fullscreenElement) {
+                console.log(`Element: ${document.fullscreenElement.id} entered fullscreen mode.`);
+            } else {
+                console.log('Leaving full-screen mode.');
+            }
+        });
+
+        goFull.addEventListener('click', (event) => {
+            if (document.fullscreenElement) {
+                // exitFullscreen is only available on the Document object.
+                document.exitFullscreen();
+            } else {
+                gameSh.requestFullscreen();
+            }
+        });
+
+    </script>
+</body> 
+
+</html> 
