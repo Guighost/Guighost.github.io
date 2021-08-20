@@ -8,7 +8,7 @@
       "styling": {
         "primaryColor": "#c0a375",
         "secondaryColor": "#bfcecb",
-        "successColor": "#00a885",
+        "successColor": "#2969b0",
         "infoColor": "#7e9b9f",
         "warningColor": "#f3c649",
         "dangerColor": "#f28281",
@@ -27,7 +27,7 @@
       ]
     },
     "versionFirst": "3.12.1",
-    "uniqCompNum": 49,
+    "uniqCompNum": 55,
     "versionPublish": "5.3.0",
     "path": "@PROJECT_PATH@",
     "screenshot": "screenshot.png",
@@ -73,68 +73,39 @@
       },
       "components": [
         {
-          "_inherit": "msg-box5",
-          "_styles": {
-            "h3, p": {
-              "color": "#fff"
-            }
-          },
           "_params": {
             "showTitle": false,
             "showText": false,
-            "showButtons": true,
-            "inverse": true,
-            "imageSize": "70",
-            "paddingTop": "0",
-            "paddingBottom": "1",
+            "showButtons": false,
+            "showArrow": true,
+            "contentAlign": "center",
             "bgImageRadio": true,
-            "bgImage": "@PROJECT_PATH@/assets/images/battleback10-2-1024x576.png",
+            "bgImage": "@PROJECT_PATH@/assets/images/hero-1024x500-1024x500.png",
             "parallax": true,
             "bgColorRadio": false,
-            "bgColor": "#fff",
+            "bgColor": "#a07e49",
             "bgVideoRadio": false,
             "bgVideo": {
               "url": "https://www.youtube.com/watch?v=uNCr7NdOJgw"
             },
-            "overlay": true,
+            "overlay": false,
             "overlayColor": "#000",
             "overlayOpacity": 0.5
           },
-          "media": {
-            "image": {
-              "width": 1400,
-              "src": "@PROJECT_PATH@/assets/images/menutop2-350x95.png",
-              "link": "",
-              "alt": "",
-              "title": "",
-              "active": true
-            },
-            "video": {
-              "src": "https://www.youtube.com/embed/Tq7p44IA-1U",
-              "aspectratio": "16:9",
-              "autoplay": false,
-              "loop": false
-            },
-            "iconFont": {
-              "class": "mbr-iconfont mbr-iconfont-msg-box5",
-              "link": "",
-              "size": 250
-            }
-          },
-          "title": "FULL WIDTH INTRO",
-          "text": "Full width intro with adjustable height, background image, parallax effect and a video section. Note that paddings are extended here.",
-          "buttons": "<a data-app-btn=\"true\" class=\"btn btn-black\" href=\"https://play.google.com/store/apps/details?id=com.wMedievalFarms_GuiGhostGames\" data-toolbar=\"-mbrBtnMove\" target=\"_blank\"><span class=\"mobi-mbri mobi-mbri-devices mbr-iconfont mbr-iconfont-btn\"></span>Get it on Google Play</a> <a data-app-btn=\"true\" class=\"btn btn-primary\" href=\"https://guighostgames.com/MedievalFarms/MedievalFarms.html\" data-toolbar=\"-mbrBtnMove\" target=\"_blank\"><span class=\"mobi-mbri mobi-mbri-desktop mbr-iconfont mbr-iconfont-btn\"></span>Play Online anywhere</a>",
+          "title": "FULL SCREEN INTRO",
+          "text": "Click any text to edit or style it. Click blue \"Gear\" icon in the top right corner to hide/show buttons, text, title and change the block background. <br> Click red \"+\" in the bottom right corner to add a new block. Use the top left menu to create new pages, sites and add extensions.",
+          "buttons": "<a data-app-btn=\"true\" class=\"btn btn-lg btn-danger\" href=\"https://mobirise.com\" data-toolbar=\"-mbrBtnMove\">Get it On Google Play</a> <a data-app-btn=\"true\" class=\"btn btn-lg btn-white btn-white-outline\" href=\"https://mobirise.com\" data-toolbar=\"-mbrBtnMove\">Play Online</a>",
           "_tags": [
             "Theme"
           ],
-          "_name": "msg-box7",
-          "_anchor": "msg-box7-w"
+          "_name": "header1",
+          "_anchor": "header1-1i"
         },
         {
           "_params": {
             "showTitle": true,
             "showText": true,
-            "showButtons": false,
+            "showButtons": true,
             "inverse": true,
             "imageSize": "40",
             "paddingTop": "0",
@@ -156,7 +127,7 @@
             "image": {
               "active": true,
               "width": 1400,
-              "src": "@PROJECT_PATH@/assets/images/play1-home-600x1042.png",
+              "src": "@PROJECT_PATH@/assets/images/2.0-home-450x800.png",
               "link": "",
               "alt": "Home Farm",
               "title": "",
@@ -176,7 +147,7 @@
           },
           "title": "Retro themed farming",
           "text": "<b>&nbsp; &nbsp;Grow Crops and upgrade your farmland in this unique mobile game</b>",
-          "buttons": "<a data-app-btn=\"true\" class=\"btn btn-primary\" href=\"https://mobirise.com\">MORE</a>",
+          "buttons": "<a data-app-btn=\"true\" class=\"btn btn-warning\" href=\"https://play.google.com/store/apps/details?id=com.wMedievalFarms_GuiGhostGames\" data-toolbar=\"-mbrBtnMove\" target=\"_blank\">Get it on Google Play</a> <a data-app-btn=\"true\" class=\"btn btn-success\" href=\"https://www.gamepix.com/play/medieval-farms\" data-toolbar=\"-mbrBtnMove\" target=\"_blank\">Play Online</a>",
           "_tags": [
             "Theme"
           ],
@@ -219,7 +190,7 @@
             "image": {
               "active": true,
               "width": 1400,
-              "src": "@PROJECT_PATH@/assets/images/play4-orch-359x622.png",
+              "src": "@PROJECT_PATH@/assets/images/2.0-orchard-450x800.png",
               "link": "",
               "alt": "Fruit Orchard",
               "title": "",
@@ -272,7 +243,7 @@
             "image": {
               "active": true,
               "width": 1400,
-              "src": "@PROJECT_PATH@/assets/images/play5-past-359x626.png",
+              "src": "@PROJECT_PATH@/assets/images/2.0-dairy-450x800.png",
               "link": "",
               "alt": "Dairy Pasture",
               "title": "",
@@ -315,7 +286,7 @@
             "paddingTop": 0,
             "paddingBottom": "0",
             "bgImageRadio": true,
-            "bgImage": "@PROJECT_PATH@/assets/images/battleback10-2-1024x576.png",
+            "bgImage": "@PROJECT_PATH@/assets/images/battleback10-1024x576.png",
             "parallax": true,
             "bgColorRadio": false,
             "bgColor": "#fff",
@@ -331,7 +302,7 @@
             "image": {
               "active": true,
               "width": 1400,
-              "src": "@PROJECT_PATH@/assets/images/play3-ls-600x1043.png",
+              "src": "@PROJECT_PATH@/assets/images/2.0-stocks-450x800.png",
               "link": "",
               "alt": "Stock Pens",
               "title": "Stock Pens",
@@ -411,7 +382,7 @@
           },
           "media3": {
             "image": {
-              "src": "@PROJECT_PATH@/assets/images/play6-vin-600x1045.png",
+              "src": "@PROJECT_PATH@/assets/images/2.0-vinyard-450x800.png",
               "class": "card-img-top",
               "width": 600,
               "active": true,
@@ -478,6 +449,37 @@
           "_anchor": "features3-10"
         },
         {
+          "_inherit": "social-buttons1",
+          "_styles": {
+            ".mbr-section-title, .btn-social": {
+              "color": "#fff"
+            }
+          },
+          "_params": {
+            "paddingTop": "1",
+            "paddingBottom": "1",
+            "bgImageRadio": true,
+            "bgImage": "@PROJECT_PATH@/assets/images/battleback10-1024x576.png",
+            "parallax": true,
+            "bgColorRadio": false,
+            "bgColor": "#2e2e2e",
+            "overlay": false,
+            "overlayColor": "#222",
+            "overlayOpacity": 0.5,
+            "facebook": true,
+            "twitter": true,
+            "google": false,
+            "vkontakte": false,
+            "odnoklassniki": false
+          },
+          "_tags": [
+            "Theme"
+          ],
+          "text": "Share the Fun",
+          "_name": "social-buttons3",
+          "_anchor": "social-buttons3-17"
+        },
+        {
           "_inherit": "msg-box5",
           "_styles": {
             "h3, p": {
@@ -493,7 +495,7 @@
             "paddingTop": "1",
             "paddingBottom": "1",
             "bgImageRadio": true,
-            "bgImage": "@PROJECT_PATH@/assets/images/battleback10-2-1024x576.png",
+            "bgImage": "@PROJECT_PATH@/assets/images/battleback10-1024x576.png",
             "parallax": true,
             "bgColorRadio": false,
             "bgColor": "#28324e",
@@ -508,7 +510,7 @@
           "media": {
             "image": {
               "width": 1400,
-              "src": "@PROJECT_PATH@/assets/images/menutop2-350x95.png",
+              "src": "@PROJECT_PATH@/assets/images/menutop2-1400x788.png",
               "link": "https://play.google.com/store/apps/details?id=com.wMedievalFarms_GuiGhostGames",
               "alt": "Farm logo",
               "title": "",
@@ -549,7 +551,7 @@
             "overlayColor": "#444444",
             "overlayOpacity": 0.8
           },
-          "text": "&nbsp; &nbsp; &nbsp; <b><i>More Games&nbsp; &nbsp;</i></b> &nbsp; &nbsp; 2021 GuiGhost LLC",
+          "text": "&nbsp; &nbsp; &nbsp; <b><i><a href=\"https://guighostgames.com/index.html\" class=\"text-success text-primary\">More Games</a>&nbsp; at <a href=\"https://guighostgames.com/                  \" class=\"text-success\">GuiGhost Games</a></i></b>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;2021 GuiGhost LLC",
           "_tags": [
             "Theme"
           ],
@@ -560,37 +562,6 @@
               "color": "#3d8eb9"
             }
           }
-        },
-        {
-          "_inherit": "social-buttons1",
-          "_styles": {
-            ".mbr-section-title, .btn-social": {
-              "color": "#fff"
-            }
-          },
-          "_params": {
-            "paddingTop": "1",
-            "paddingBottom": "1",
-            "bgImageRadio": true,
-            "bgImage": "@PROJECT_PATH@/assets/images/battleback10-2-1024x576.png",
-            "parallax": true,
-            "bgColorRadio": false,
-            "bgColor": "#2e2e2e",
-            "overlay": false,
-            "overlayColor": "#222",
-            "overlayOpacity": 0.5,
-            "facebook": true,
-            "twitter": true,
-            "google": false,
-            "vkontakte": false,
-            "odnoklassniki": false
-          },
-          "_tags": [
-            "Theme"
-          ],
-          "text": "Share the Fun",
-          "_name": "social-buttons3",
-          "_anchor": "social-buttons3-17"
         }
       ]
     }
