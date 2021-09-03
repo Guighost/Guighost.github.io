@@ -45,6 +45,7 @@ beachfront.com, 5472, RESELLER, e2541279e8e2ca4d
 spotxchange.com, 239904, RESELLER, 7842df1d2fe2db34
 spotx.tv, 239904, RESELLER, 7842df1d2fe2db34
 advertising.com, 28210, RESELLER
+mopub.com, 8cfbd7c29bb148fdb916ba38ee932332, DIRECT, 74b46c0ea83967ca
 mopub.com, fbb8872617c74e5e8baa71ac3abd05dd, DIRECT, 74b46c0ea83967ca
 adcolony.com, e0355e23aa56b4c34dacf5ece1c237bc, RESELLER, 1ad675c9de6b5176
 Axonix.com, 56266, RESELLER
