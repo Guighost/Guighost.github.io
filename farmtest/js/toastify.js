@@ -150,6 +150,7 @@
           if (this.options.position == "left" || this.options.positionLeft === true) {
             // Adding close icon on the left of content
             divElement.appendChild(avatarElement);
+            avatarElement.className = "toastify-avatar2";
           } else {
             // Adding close icon on the right of content
             divElement.insertAdjacentElement("afterbegin", avatarElement);
@@ -314,7 +315,7 @@
       }
       this.removeElement(this.toastElement);
     },
-
+  
     // Removing the element from the DOM
     removeElement: function(toastElement) {
       // Hiding the element
